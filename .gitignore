@@ -1,0 +1,59 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+flutter_*.log
+
+# FVM: solo cachés del SDK; se preservan .fvmrc y config compartible
+.fvm/flutter_sdk
+.fvm/versions/
+
+# Android
+.gradle/
+**/android/local.properties
+**/android/key.properties
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# iOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/.last_build_id
+xcuserdata/
+*.xcuserstate
+
+# Entorno y secretos; .gitignore no reemplaza una gestión segura de secretos
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.sample
+*.jks
+*.keystore
+*.p12
+*.p8
+
+# IDE / SO / temporales
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+~$*
+
+# Caché de tooling local (no hay proyectos JS confirmados)
+node_modules/
+
+# Configuración local de opencode (todo el directorio)
+/.opencode/

@@ -12,10 +12,10 @@ Proyecto en desarrollo con Flutter. La base de la app Android ya existe en
 implementado: pantalla inicial en la ruta `/` con el saludo
 `Hola, Boticario AI`, contador demo con Riverpod y navegación con `go_router`.
 El shell está cubierto por pruebas unit y de widget y por un smoke de
-integración Android que arranca la app real; el workflow de integración continua
-está preparado en `.github/workflows/flutter.yml`, con la ejecución remota
-pendiente hasta el push. Todavía no hay funcionalidades de producto (plantas,
-IA, cámara, persistencia): esas features siguen pendientes.
+integración Android que arranca la app real; la integración continua ya está
+operativa y validada en verde en `.github/workflows/flutter.yml`. Todavía no hay
+funcionalidades de producto (plantas, IA, cámara, persistencia): esas features
+siguen pendientes.
 
 Disponible en `docs/`:
 
@@ -177,8 +177,10 @@ flutter analyze
 flutter test test/
 ```
 
-La ejecución remota del workflow queda pendiente hasta hacer push: todavía no
-hay un resultado remoto en verde que mostrar.
+Última verificación del bootstrap en CI: [run 36585970672](https://github.com/sebastianrodriguez1115/boticario-ai/actions/runs/36585970672),
+en verde sobre el commit de implementación
+`aa0fda088a0a4a1a0e0caa2205574ec17be4057c`. Ese resultado corresponde a esa
+pasada concreta; no garantiza que futuras ejecuciones sigan en verde.
 
 El siguiente incremento avanza en las funcionalidades de producto. El shell
 actual (pantalla inicial, contador demo y navegación) está implementado y
@@ -220,6 +222,6 @@ Referencias originales disponibles: [Canvas.png](docs/Canvas.png),
 1. Definir el alcance del MVP.
 2. Resolver la base de contenido, sus licencias y la validación experta.
 3. Tomar las decisiones técnicas pendientes.
-4. Ejecutar por primera vez la integración continua al hacer push; el workflow
-   ya está preparado y el smoke Android ya está implementado y ejecutado en
-   emulador.
+4. Priorizar el siguiente incremento funcional del producto; la integración
+   continua ya está operativa en verde y el smoke Android ya está implementado y
+   ejecutado en emulador.

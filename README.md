@@ -28,9 +28,10 @@ composición usa texto Flutter vivo, iconos y decoración Material locales, sin
 assets descargados ni branding final: el arte es provisional.
 
 La estructura está cubierta por pruebas unit y de widget, más un smoke de
-integración Android que arranca la app real. La verificación de este incremento
-es local (ver [Verificación local](#5-verificación-local-y-comandos-de-calidad));
-no hay una ejecución de CI remota nueva para esta pantalla.
+integración Android que arranca la app real. El incremento tiene verificación
+local (ver [Verificación local](#5-verificación-local-y-comandos-de-calidad)) y
+una CI remota en verde sobre su commit de implementación (ver
+[Integración continua](#7-integración-continua)).
 
 Disponible en `docs/`:
 
@@ -180,7 +181,8 @@ manual en Run/Debug ni la ejecución de un binario release/profile.
 ### 6. Verificación manual
 
 La verificación manual tiene dos partes: lo observado en el emulador por
-CLI/ADB (6.1) y lo que sigue pendiente en Run/Debug de Android Studio (6.2).
+CLI/ADB (6.1) y la observación en Run/Debug de Android Studio (6.2), confirmada
+por el usuario/desarrollador.
 
 #### 6.1 Comprobado en emulador mediante CLI/ADB
 
@@ -216,29 +218,30 @@ widget ni que no haga falta otro dispositivo. El caso 360x640 dp al 100% y 200%
 sigue cubierto solo por widget test simulado (`TextScaler.linear(2)`), no por
 observación manual en pantalla.
 
-#### 6.2 Pendiente en Android Studio (Run/Debug)
+#### 6.2 Validado en Android Studio (Run/Debug)
 
-La observación manual en Run/Debug del IDE **no se ha ejecutado**. Lo siguiente
-está pendiente: marcar cada ítem solo después de observarlo.
+La observación manual en Run/Debug del IDE fue confirmada por el
+usuario/desarrollador al cerrar `build-home-screen`; el agente no observó el IDE.
+Los ítems se marcan tras esa confirmación.
 
 En Android Studio: abrir `app/` como proyecto, configurar el SDK de Flutter y
 elegir el emulador Android. Usar Run/Debug sobre `lib/main.dart` dentro del
 proyecto `app/` y leer los mensajes `[Home] ...` en la consola Run/Debug.
 
-- [ ] Arrancar en Debug desde el IDE: Home se muestra en `/`, sin el contrato
+- [x] Arrancar en Debug desde el IDE: Home se muestra en `/`, sin el contrato
   demo retirado.
-- [ ] Activar Hot Reload real desde el IDE, sin pulsar controles: 0 mensajes
+- [x] Activar Hot Reload real desde el IDE, sin pulsar controles: 0 mensajes
   `[Home]` nuevos en la consola.
-- [ ] Pulsar los 11 controles: 1 pulsación = 1 mensaje `[Home]` con el texto
+- [x] Pulsar los 11 controles: 1 pulsación = 1 mensaje `[Home]` con el texto
   normativo (2 de cabecera, 4 tarjetas, CTA y 4 pestañas).
-- [ ] Activar `Favoritos`, `Historial` o `Perfil`: `Inicio` sigue seleccionado y
+- [x] Activar `Favoritos`, `Historial` o `Perfil`: `Inicio` sigue seleccionado y
   la ruta `/` no cambia.
 
 Límite de evidencia: el helper de mensajes y la política `kDebugMode` se
 verifican en unit y widget, incluido el caso de modo no permitido; eso no
 ejecuta un binario release/profile real, cuyo silencio es el comportamiento
-normativo. Las comprobaciones por CLI/ADB no equivalen a la observación manual
-en el IDE: el caso "Hot Reload real" de 6.2 no se ha ejecutado.
+normativo. La observación CLI/ADB (6.1) y la observación manual en el IDE (6.2)
+son evidencias distintas, y ninguna equivale a un binario release/profile.
 
 ### 7. Integración continua
 
@@ -254,9 +257,11 @@ El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un
 emulador. Los comandos de calidad que replica son los de
 [Verificación local](#5-verificación-local-y-comandos-de-calidad).
 
-No se ha ejecutado una CI remota nueva para la pantalla Inicio. La última
-verificación remota conocida corresponde al bootstrap demo y queda registrada
-como histórica más abajo.
+La CI remota de la pantalla Inicio quedó `completed`/`success` en
+[run 36705725682](https://github.com/sebastianrodriguez1115/boticario-ai/actions/runs/36705725682),
+sobre el commit de implementación `c0f02efb20e9014ddfdee4c7f1c70aa36919ef3d`. La
+verificación remota del bootstrap demo queda registrada como histórica más
+abajo.
 
 ## Histórico del bootstrap
 

@@ -71,26 +71,7 @@ Revisar y aceptar las licencias pendientes de forma interactiva. Verificar que
 `flutter devices` liste el emulador Android iniciado; Chrome o Linux Desktop no
 cuentan. Resolver los hallazgos de Android aplicables.
 
-### 2. Generación del scaffold (ya ejecutada)
-
-La carpeta `app/` ya contiene el scaffold `--empty` para Android. Este paso no
-forma parte del arranque normal de quien clona el repositorio; solo se repite
-para regenerar la app desde cero. El comando, ejecutado una única vez desde la
-raíz, fue:
-
-```bash
-flutter create --empty \
-  --platforms=android \
-  --project-name=boticario_ai \
-  --org=com.example \
-  app
-```
-
-`--empty` genera un Hello World mínimo para Android. `com.example` es un
-identificador demo: el applicationId provisional es `com.example.boticario_ai`,
-no una identidad real de publicación.
-
-### 3. Abrir y ejecutar en Android Studio
+### 2. Abrir y ejecutar en Android Studio
 
 Abrir `app/` como proyecto (su raíz tiene `pubspec.yaml`). Configurar la ruta
 raíz del SDK de Flutter en el plugin de Flutter y elegir el emulador Android en
@@ -106,7 +87,7 @@ flutter run -d ID_DEL_DISPOSITIVO
 Sustituir `ID_DEL_DISPOSITIVO` por el identificador del emulador Android en
 `flutter devices`. Chrome o Linux Desktop no cuentan para el target Android.
 
-### 4. Pruebas
+### 3. Pruebas
 
 La app incluye pruebas unit y de widget en `app/test/`. Desde `app/`:
 
@@ -120,7 +101,7 @@ Para ejecutar solo el test del shell de la app:
 flutter test test/app/app_test.dart
 ```
 
-### 5. Smoke Android
+### 4. Smoke Android
 
 El smoke de integración vive en `app/integration_test/app_test.dart`, usa la
 dependencia `integration_test` del SDK y arranca la app real (`main()` con su
@@ -139,7 +120,7 @@ máquina actual: serial `emulator-5554`, con el AVD `boticario_api36`. Es un smo
 de un único proceso: no reinicia el proceso del SO ni prueba la vuelta a primer
 plano.
 
-### 6. Checklist manual en dispositivo
+### 5. Checklist manual en dispositivo
 
 Verificado manualmente el 2026-09-29 sobre un emulador Android **API 36** con
 Android Studio **2026.1.4**. El resultado está acotado a esa pasada y a esas
@@ -157,7 +138,7 @@ versiones: no es una garantía permanente. No sustituye al smoke automatizado:
 - [x] Abrir `app/` en Android Studio: se reconoce como proyecto Flutter Android,
   con el SDK raíz detectado y el módulo Flutter inicializado.
 
-### 7. Integración continua y comandos de calidad
+### 6. Integración continua y comandos de calidad
 
 El workflow [`.github/workflows/flutter.yml`](.github/workflows/flutter.yml)
 está preparado para correr en push y pull request, con filtros de ruta
@@ -182,7 +163,7 @@ en verde sobre el commit de implementación
 `aa0fda088a0a4a1a0e0caa2205574ec17be4057c`. Ese resultado corresponde a esa
 pasada concreta; no garantiza que futuras ejecuciones sigan en verde.
 
-El siguiente incremento avanza en las funcionalidades de producto. El shell
+El shell
 actual (pantalla inicial, contador demo y navegación) está implementado y
 cubierto por pruebas unit, de widget y smoke Android. Ver
 [research Flutter](docs/research/flutter/README.md) y
@@ -216,12 +197,3 @@ Referencias originales disponibles: [Canvas.png](docs/Canvas.png),
 [mockups.png](docs/mockups.png), [Boticario AI.docx](docs/Boticario%20AI.docx),
 [Boticario_AI_Reto_1.docx](docs/Boticario_AI_Reto_1.docx) y
 [DADM_Reto_1.pptx](docs/DADM_Reto_1.pptx).
-
-## Próximos pasos
-
-1. Definir el alcance del MVP.
-2. Resolver la base de contenido, sus licencias y la validación experta.
-3. Tomar las decisiones técnicas pendientes.
-4. Priorizar el siguiente incremento funcional del producto; la integración
-   continua ya está operativa en verde y el smoke Android ya está implementado y
-   ejecutado en emulador.

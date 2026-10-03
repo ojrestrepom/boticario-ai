@@ -1,0 +1,34 @@
+2026-10-02T02:40:56Z
+$ flutter test --no-pub --reporter expanded "$QA/flutter/explore_qa_test.dart"
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart
+../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:254:48: Error: Undefined name 'Tristate'.
+        expect(data.flagsCollection.isEnabled, Tristate.isFalse);
+                                               ^^^^^^^^
+../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:255:49: Error: Undefined name 'Tristate'.
+        expect(data.flagsCollection.isSelected, Tristate.isFalse);
+                                                ^^^^^^^^
+../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:267:47: Error: Undefined name 'Tristate'.
+      expect(home.flagsCollection.isSelected, Tristate.isTrue);
+                                              ^^^^^^^^
+../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:268:46: Error: Undefined name 'Tristate'.
+      expect(home.flagsCollection.isEnabled, Tristate.isTrue);
+                                             ^^^^^^^^
+00:00 +0 -1: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart [E]
+  Failed to load "/Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart":
+  Compilation failed for testPath=/Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: ../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:254:48: Error: Undefined name 'Tristate'.
+          expect(data.flagsCollection.isEnabled, Tristate.isFalse);
+                                                 ^^^^^^^^
+  ../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:255:49: Error: Undefined name 'Tristate'.
+          expect(data.flagsCollection.isSelected, Tristate.isFalse);
+                                                  ^^^^^^^^
+  ../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:267:47: Error: Undefined name 'Tristate'.
+        expect(home.flagsCollection.isSelected, Tristate.isTrue);
+                                                ^^^^^^^^
+  ../openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:268:46: Error: Undefined name 'Tristate'.
+        expect(home.flagsCollection.isEnabled, Tristate.isTrue);
+                                               ^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart

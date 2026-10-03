@@ -1,0 +1,206 @@
+2026-10-02T02:48:27Z
+$ flutter --version
+Flutter 3.47.6 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 5fc346839b (29 hours ago) • 2026-09-30 15:02:49 -0700
+Engine • hash b8c8d3d8d5d0095127057f8a29ca8cc53da2167c (revision 692136cb65) (2 days ago) • 2026-09-30 00:56:59.000Z
+Tools • Dart 3.13.5 • DevTools 2.60.0
+$ flutter test --no-pub --reporter expanded test/features/explore/explore_page_test.dart
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart
+00:00 +0: shows an explicit loading state until the local catalog resolves
+00:00 +1: retry shows loading until the second local load completes
+00:00 +2: loads five catalog plants in stable order and dispatches identity
+00:00 +3: searches accents and scientific names; clear preserves selected filter
+00:00 +4: keeps the search field label and editing semantics after text changes
+00:00 +5: oils empty is distinct from unmatched search
+00:00 +6: exposes loading, readable error and retries the local provider
+00:00 +7: keeps navigation callbacks and layout stable at 200% text
+00:00 +8: search text remains untruncated at 200% in empty and clear states
+00:00 +9: filters, rows and catalog tabs expose one actionable semantic target
+00:00 +10: All tests passed!
+$ flutter test --no-pub --reporter expanded "$QA/flutter/explore_qa_test.dart"
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart
+00:00 +0: QA01 exact source labels, order and all five callback IDs
+00:00 +1: QA02 reactive substring normalization on both visible names
+00:00 +2: QA03 filter-query decisions and clear retain Aceites/Plantas
+00:00 +3: QA04 malformed asset, repeated local retry and preserved query/filter
+00:00 +4: QA05 loading dominates empty Aceites until resolution
+00:00 +5: QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+00:00 +6: QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+QA07 scale=1.0 target=Found 1 widget with type "IconButton" that are ancestors of widget with icon "IconData(U+0E15E)": [
+  IconButton(tooltip: Volver a Inicio, disabled, disabled, color: Color(alpha: 1.0000, red: 0.1373, green: 0.3882, blue: 0.2078, colorSpace: ColorSpace.sRGB), dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#ba110], _ScrollableScope]),
+] widgetSize=Size(48.0, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 48.0, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "TextField": [
+  TextField(controller: TextEditingController#14816(TextEditingValue(text: ┤├, selection: TextSelection.invalid, composing: TextRange(start: -1, end: -1))), decoration: InputDecoration(hint: ExcludeSemantics(excluding: true), hintMaxLines: "4", prefixIcon: Icon(IconData(U+0E567)), filled: true, fillColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), border: OutlineInputBorder()), textInputAction: search, dependencies: [DefaultSelectionStyle, InheritedCupertinoTheme, MediaQuery, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#ba110], _ScrollableScope], state: _TextFieldState#5da53),
+] widgetSize=Size(312.0, 72.0) semanticsRect=Rect.fromLTRB(0.0, 24.0, 312.0, 96.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Todas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ba110], _ScrollableScope]),
+] widgetSize=Size(124.5, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 124.5, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Plantas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ba110], _ScrollableScope]),
+] widgetSize=Size(132.7, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 132.7, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Aceites": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ba110], _ScrollableScope]),
+] widgetSize=Size(132.7, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 132.7, 48.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Lavanda, Lavandula angustifolia": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Lavanda, Lavandula angustifolia", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#0021e relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Eucalipto, Eucalyptus globulus": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Eucalipto, Eucalyptus globulus", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#ba646 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Romero, Rosmarinus officinalis": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Romero, Rosmarinus officinalis", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#1ca3e relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Manzanilla, Matricaria recutita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Manzanilla, Matricaria recutita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#4443e relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Menta, Mentha x piperita subsp. nothosubsp. piperita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Menta, Mentha x piperita subsp. nothosubsp. piperita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#7d601 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 128.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 128.0)
+00:00 +7: QA08 scale 1.0 error text and retry reachable within safe viewport
+00:01 +8: QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+00:01 +9: QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+QA07 scale=2.0 target=Found 1 widget with type "IconButton" that are ancestors of widget with icon "IconData(U+0E15E)": [
+  IconButton(tooltip: Volver a Inicio, disabled, disabled, color: Color(alpha: 1.0000, red: 0.1373, green: 0.3882, blue: 0.2078, colorSpace: ColorSpace.sRGB), dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#59314], _ScrollableScope]),
+] widgetSize=Size(48.0, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 48.0, 48.0)
+QA07 scale=2.0 target=Found 1 widget with type "TextField": [
+  TextField(controller: TextEditingController#c90d6(TextEditingValue(text: ┤├, selection: TextSelection.invalid, composing: TextRange(start: -1, end: -1))), decoration: InputDecoration(hint: ExcludeSemantics(excluding: true), hintMaxLines: "4", prefixIcon: Icon(IconData(U+0E567)), filled: true, fillColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), border: OutlineInputBorder()), textInputAction: search, dependencies: [DefaultSelectionStyle, InheritedCupertinoTheme, MediaQuery, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#59314], _ScrollableScope], state: _TextFieldState#20eec),
+] widgetSize=Size(312.0, 192.0) semanticsRect=Rect.fromLTRB(0.0, 124.0, 312.0, 316.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Todas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#59314], _ScrollableScope]),
+] widgetSize=Size(206.5, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 206.5, 58.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Plantas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#59314], _ScrollableScope]),
+] widgetSize=Size(222.7, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 222.7, 58.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Aceites": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#59314], _ScrollableScope]),
+] widgetSize=Size(222.7, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 222.7, 58.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Lavanda, Lavandula angustifolia": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Lavanda, Lavandula angustifolia", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#5c5a9 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Eucalipto, Eucalyptus globulus": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Eucalipto, Eucalyptus globulus", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#7df9b relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Romero, Rosmarinus officinalis": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Romero, Rosmarinus officinalis", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#1cd1b relayoutBoundary=up10),
+] widgetSize=Size(312.0, 232.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 232.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Manzanilla, Matricaria recutita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Manzanilla, Matricaria recutita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#41e0d relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Menta, Mentha x piperita subsp. nothosubsp. piperita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Menta, Mentha x piperita subsp. nothosubsp. piperita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#22d8e relayoutBoundary=up10),
+] widgetSize=Size(312.0, 392.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 392.0)
+00:01 +10: QA08 scale 2.0 error text and retry reachable within safe viewport
+00:01 +11: QA09 local file source works with HTTP denied and no external Image
+00:01 +12: QA10 scale 1.0 loading and empty messages remain readable
+00:01 +13: QA10 scale 2.0 loading and empty messages remain readable
+00:01 +14: All tests passed!
+$ flutter test --no-pub --reporter expanded test/
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart
+00:00 +0: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: loads the default packaged asset in source order and looks up IDs
+00:00 +1: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: repository provider uses an injected source
+00:00 +2: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: provider reports typed failures and retries only after invalidation
+00:00 +3: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: repository can be overridden without invoking the default loader
+00:00 +4: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +5: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +6: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +7: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +8: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +9: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +10: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +11: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +12: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +13: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +14: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +15: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +16: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +17: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +18: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +19: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +20: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +21: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +22: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +23: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +24: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +25: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +26: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +27: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +28: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +29: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +30: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +31: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +32: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +33: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +34: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +35: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +36: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +37: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +38: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +39: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +40: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +41: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +42: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +43: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +44: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +45: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +46: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +47: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +48: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +49: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +50: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +51: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +52: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +53: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +54: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +55: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +56: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +57: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +58: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +59: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +60: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +60: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: activar controles de Home no cambia la ruta /
+[Home] Cabecera: Perfil
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Perfil
+00:00 +61: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +62: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +63: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +63: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: dos ProviderScope no comparten el GoRouter
+[Home] Pestaña: Favoritos
+00:00 +64: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +65: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +66: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +67: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +68: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +69: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +70: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +71: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.2 contrato de logs de las 11 acciones tabHistory emite una vez su mensaje exacto
+00:00 +72: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:00 +73: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +74: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +75: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +76: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.3 no mutación y sin logs automáticos la ruta / se mantiene tras las 11 acciones
+00:01 +77: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.3 no mutación y sin logs automáticos la ruta / se mantiene tras las 11 acciones
+00:01 +78: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +79: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +80: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +81: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +82: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +83: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +84: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.5 layout, zonas seguras y texto SafeArea protege cabecera y footer con insets a 100%
+00:01 +85: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +86: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +87: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +88: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +89: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.5 layout, zonas seguras y texto los 11 controles son alcanzables y hittestables a 200%
+00:01 +90: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: oils empty is distinct from unmatched search
+00:01 +91: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: oils empty is distinct from unmatched search
+00:01 +92: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: exposes loading, readable error and retries the local provider
+00:01 +93: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps navigation callbacks and layout stable at 200% text
+00:01 +94: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: search text remains untruncated at 200% in empty and clear states
+00:01 +95: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: filters, rows and catalog tabs expose one actionable semantic target
+00:01 +96: All tests passed!
+$ dart format --output=none --set-exit-if-changed .
+Formatted 22 files (0 changed) in 0.06 seconds.
+$ flutter analyze --no-pub
+Analyzing app...                                                
+No issues found! (ran in 0.7s)

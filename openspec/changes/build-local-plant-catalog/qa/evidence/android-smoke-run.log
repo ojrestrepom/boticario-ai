@@ -1,0 +1,73 @@
+Start UTC: 2026-10-03T13:33:49.377221+00:00
+Working directory: /Users/jsrc1115/Code/boticario-ai/app
+Command: PATH=/opt/homebrew/share/flutter/bin:$PATH flutter test integration_test/app_test.dart -d R5CR70M9GEE
+Combined stdout/stderr follows (unmodified):
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart
+Running Gradle task 'assembleDebug'...                          
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/Users/jsrc1115/.gradle/wrapper/dists/gradle-9.3.1-all/9ot9r568e8zfvvd4mn8rbu1j0/gradle-9.3.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Running Gradle task 'assembleDebug'...                             15,3s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...           3,7s
+00:00 +0: (setUpAll)
+00:00 +0: real app: Home, local catalog, passport and session returns
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Buscar por objetivo
+[Home] Identificar con cámara
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Historial
+[Home] Pestaña: Perfil
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <108.79999999999995>
+  Actual: <0.0>
+
+When the exception was thrown, this was the stack:
+#4      _expectRestoredExplore (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart:350:3)
+#5      _runCatalogSmoke (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart:215:5)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart:16:5)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart line 350
+The test description was:
+  real app: Home, local catalog, passport and session returns
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:18 +0 -1: real app: Home, local catalog, passport and session returns [E]
+  Test failed. See exception logs above.
+  The test description was: real app: Home, local catalog, passport and session returns
+  
+00:18 +0 -1: (tearDownAll)
+00:18 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart: real app: Home, local catalog, passport and session returns
+
+End UTC: 2026-10-03T13:34:30.901353+00:00
+Exit code: 1
+Wall duration seconds: 41.524

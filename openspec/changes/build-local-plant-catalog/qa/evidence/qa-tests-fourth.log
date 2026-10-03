@@ -1,0 +1,75 @@
+2026-10-02T02:41:55Z
+$ flutter test --no-pub --reporter expanded "$QA/flutter/explore_qa_test.dart"
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart
+00:00 +0: QA01 exact source labels, order and all five callback IDs
+00:00 +1: QA02 reactive substring normalization on both visible names
+00:00 +2: QA03 filter-query decisions and clear retain Aceites/Plantas
+00:00 +3: QA04 malformed asset, repeated local retry and preserved query/filter
+00:00 +4: QA05 loading dominates empty Aceites until resolution
+00:00 +5: QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+00:00 +6: QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+QA07 scale=1.0 target=Found 1 widget with type "IconButton" that are ancestors of widget with icon "IconData(U+0E15E)": [
+  IconButton(tooltip: Volver a Inicio, disabled, disabled, color: Color(alpha: 1.0000, red: 0.1373, green: 0.3882, blue: 0.2078, colorSpace: ColorSpace.sRGB), dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#ad690], _ScrollableScope]),
+] widgetSize=Size(48.0, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 48.0, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "TextField": [
+  TextField(controller: TextEditingController#528b9(TextEditingValue(text: ┤├, selection: TextSelection.invalid, composing: TextRange(start: -1, end: -1))), decoration: InputDecoration(hint: ExcludeSemantics(excluding: true), hintMaxLines: "4", prefixIcon: Icon(IconData(U+0E567)), filled: true, fillColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), border: OutlineInputBorder()), textInputAction: search, dependencies: [DefaultSelectionStyle, InheritedCupertinoTheme, MediaQuery, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#ad690], _ScrollableScope], state: _TextFieldState#9dc93),
+] widgetSize=Size(312.0, 72.0) semanticsRect=Rect.fromLTRB(0.0, 24.0, 312.0, 96.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Todas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ad690], _ScrollableScope]),
+] widgetSize=Size(124.5, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 124.5, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Plantas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ad690], _ScrollableScope]),
+] widgetSize=Size(132.7, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 132.7, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Aceites": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#ad690], _ScrollableScope]),
+] widgetSize=Size(132.7, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 132.7, 48.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Lavanda, Lavandula angustifolia": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Lavanda, Lavandula angustifolia", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#3a713 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Eucalipto, Eucalyptus globulus": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Eucalipto, Eucalyptus globulus", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#a04a6 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Romero, Rosmarinus officinalis": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Romero, Rosmarinus officinalis", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#29c13 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Manzanilla, Matricaria recutita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Manzanilla, Matricaria recutita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#7c21a relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Menta, Mentha x piperita subsp. nothosubsp. piperita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Menta, Mentha x piperita subsp. nothosubsp. piperita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#1c4c7 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 128.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 128.0)
+00:00 +7: QA08 scale 1.0 error text and retry reachable within safe viewport
+00:00 +8: QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+00:01 +9: QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+QA07 scale=2.0 target=Found 1 widget with type "IconButton" that are ancestors of widget with icon "IconData(U+0E15E)": [
+  IconButton(tooltip: Volver a Inicio, disabled, disabled, color: Color(alpha: 1.0000, red: 0.1373, green: 0.3882, blue: 0.2078, colorSpace: ColorSpace.sRGB), dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#98c2c], _ScrollableScope]),
+] widgetSize=Size(48.0, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 48.0, 48.0)
+QA07 scale=2.0 target=Found 1 widget with type "TextField": [
+  TextField(controller: TextEditingController#35b99(TextEditingValue(text: ┤├, selection: TextSelection.invalid, composing: TextRange(start: -1, end: -1))), decoration: InputDecoration(hint: ExcludeSemantics(excluding: true), hintMaxLines: "4", prefixIcon: Icon(IconData(U+0E567)), filled: true, fillColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), border: OutlineInputBorder()), textInputAction: search, dependencies: [DefaultSelectionStyle, InheritedCupertinoTheme, MediaQuery, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#98c2c], _ScrollableScope], state: _TextFieldState#57542),
+] widgetSize=Size(312.0, 192.0) semanticsRect=Rect.fromLTRB(0.0, 124.0, 312.0, 316.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Todas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#98c2c], _ScrollableScope]),
+] widgetSize=Size(206.5, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 206.5, 58.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Plantas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#98c2c], _ScrollableScope]),
+] widgetSize=Size(222.7, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 222.7, 58.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Aceites": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#98c2c], _ScrollableScope]),
+] widgetSize=Size(222.7, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 222.7, 58.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Lavanda, Lavandula angustifolia": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Lavanda, Lavandula angustifolia", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#1403c relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Eucalipto, Eucalyptus globulus": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Eucalipto, Eucalyptus globulus", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#2ac0b relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Romero, Rosmarinus officinalis": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Romero, Rosmarinus officinalis", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#179ee relayoutBoundary=up10),
+] widgetSize=Size(312.0, 232.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 232.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Manzanilla, Matricaria recutita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Manzanilla, Matricaria recutita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#1e4bf relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Menta, Mentha x piperita subsp. nothosubsp. piperita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Menta, Mentha x piperita subsp. nothosubsp. piperita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#b0842 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 392.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 392.0)
+00:01 +10: QA08 scale 2.0 error text and retry reachable within safe viewport
+00:01 +11: QA09 actual registered bundle works with HTTP denied and no external Image

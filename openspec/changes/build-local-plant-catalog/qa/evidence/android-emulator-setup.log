@@ -1,0 +1,1000 @@
+UTC: 2026-10-03T13:40:32Z
+Command: emulator -avd boticario_catalog_api36 -accel on -gpu auto -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/default/arm64-v8a/
+INFO         | Saving last run QEMU version for the AVD to 2
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | API level 36 requires GLES 3.1, forcing software rendering for GLES.
+INFO         | emuglConfig_init: vulkan_mode_selected:lavapipe gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | Storing crashdata in: /tmp/android-jsrc1115/emu-crash-37.2.12.db, detection is enabled for process: 22959
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         |
+INFO         | initIcdPaths: ICD set to 'lavapipe', using Lavapipe ICD
+INFO         | Setting ICD filenames for the loader = /Users/jsrc1115/Library/Android/sdk/emulator/lib64/vulkan/lvp_icd.json
+INFO         | SharedLibrary::open for [/Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: llvmpipe (LLVM 21.1.4, 128 bits), Version: 1.4.330
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [REDACTED_PUBLIC_KEY]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=[REDACTED_PUBLIC_KEY]
+INFO         |   androidboot.qemu.avd_name=boticario_catalog_api36
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x1920
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X2X12X0
+INFO         |   androidboot.vbmeta.digest=1a759cc54d5b9866fccc723e8048c021930dea212b3f85aad7e5428953efb5d7
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6848
+INFO         |   androidboot.veritymode=enforcing
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Monitoring duration of emulator setup.
+WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
+INFO         | Using security allow list from: /Users/jsrc1115/Library/Android/sdk/emulator/lib/emulator_access.json
+INFO         | The active JSON Web Key Sets can be found here: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/22959/jwks/16491da5-c643-461b-86d0-8aee2f233c02/active.jwk
+INFO         | Scanning /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/22959/jwks/16491da5-c643-461b-86d0-8aee2f233c02 for jwk keys.
+INFO         | Started GRPC server at 127.0.0.1:8556, security: Local, auth: +token
+INFO         | Advertising in: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/pid_22959.ini
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x1920, dpi: 480x480
+INFO         | setDisplayActiveConfig: id:0, 1080x1920
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | emulatorSetupEnvironment: Environment scene is not required
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_rgbcSensorValueWidget_valueChanged() (:0, )
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_posture_valueChanged(int) (:0, )
+INFO         | TouchpadHolder: registering via hw_xr_led agent for instance=0x751e513700
+INFO         | Warning: QObject::connect: Cannot queue arguments of type 'std::vector<android::emulation::control::SnapshotInfo>'
+(Make sure 'std::vector<android::emulation::control::SnapshotInfo>' is registered using qRegisterMetaType().) (:0, )
+INFO         | AVD supportsNativeGLES=1, supportsGuestAngle=1
+INFO         | Guest Angle is still unstable for API > 35.
+INFO         | Created extended window in 46.419ms
+INFO         | Wait for emulator (pid 22959) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+INFO         | Wait for emulator (pid 22959) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+USER_INFO    | Snapshots have been disabled by the user, save request is ignored.
+INFO         | Saving snapshot 'default_boot' took 0 ms
+INFO         | removeAll
+ERROR        | Failed to restore previous context: 12297
+WARNING      | Netsim Wifi dns:///localhost:57251 is gone due to CANCELLED
+--- package install provenance
+Package path: system-images;android-36;default;arm64-v8a
+SDK Manager reported archive: https://dl.google.com/android/repository/sys-img/android/arm64-v8a-36_r02.zip
+SDK Manager reported package revision: 2.0.0 (repository list); installed by official sdkmanager --install
+1.9G	/Users/jsrc1115/Library/Android/sdk/system-images/android-36/default/arm64-v8a
+--- AVD configuration (new AVD only)
+PlayStore.enabled=no
+abi.type=arm64-v8a
+hw.cpu.arch=arm64
+hw.device.name=pixel_7
+hw.initialOrientation=portrait
+hw.keyboard=no
+hw.lcd.density=480
+hw.lcd.height=1920
+hw.lcd.width=1080
+image.sysdir.1=system-images/android-36/default/arm64-v8a/
+target=android-36
+--- active emulator serials
+emulator-5554
+Selected dedicated emulator serial: emulator-5554
+Command: adb -s SERIAL wait-for-device; bounded boot_completed readiness (180s)
+UTC ready: 2026-10-03T13:40:51Z
+Serial: emulator-5554
+sys.boot_completed:
+1
+ro.build.version.sdk:
+35
+ro.product.cpu.abi:
+arm64-v8a
+wm size:
+Physical size: 1080x2400
+wm density:
+Physical density: 420
+network exposure check (local adb only; emulator console listeners scoped to localhost):
+tcp4       0      0  127.0.0.1.5554         127.0.0.1.57282        ESTABLISHED          170          326  132792  132792 qemu-system-aarc:22131  00102 00000004 0000000000022089 00000080 01000800      2      0 000000
+tcp4       0      0  127.0.0.1.5554         127.0.0.1.57281        ESTABLISHED          170          326  408300  146988 qemu-system-aarc:22131  00102 00000004 0000000000022088 00000080 01000800      2      0 000000
+tcp4       0      0  127.0.0.1.57282        127.0.0.1.5554         ESTABLISHED         1224           33  408300  146988           studio:2164   00102 00000000 0000000000022086 00000080 04000900      2      0 000000
+tcp4       0      0  127.0.0.1.57281        127.0.0.1.5554         ESTABLISHED         1224           33  408300  146988           studio:2164   00102 00000000 0000000000022084 00000080 04000900      2      0 000000
+tcp4       0      0  127.0.0.1.5555         127.0.0.1.57246        ESTABLISHED      2720536       571136  385936  146988 qemu-system-aarc:22131  00102 00000004 0000000000021f23 00000081 01000800      2      0 000000
+tcp4       0      0  127.0.0.1.57246        127.0.0.1.5555         ESTABLISHED      1174252      1344486  385320  515628              adb:4327   00002 00000000 0000000000021f22 00000080 04000900      3      0 000000
+tcp4       0      0  127.0.0.1.5554         *.*                    LISTEN                 0            0  131072  131072 qemu-system-aarc:22131  00100 00000006 0000000000021f1e 00000000 00000800      1      0 000000
+tcp4       0      0  127.0.0.1.5555         *.*                    LISTEN                 0            0  131072  131072 qemu-system-aarc:22131  00100 00000006 0000000000021f1a 00000001 00000800      1      0 000000
+Flutter devices:
+Found 3 connected devices:
+  sdk gphone64 arm64 (mobile) • emulator-5554 • android-arm64  • Android 15 (API 35) (emulator)
+  macOS (desktop)             • macos         • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+  Chrome (web)                • chrome        • web-javascript • Google Chrome 154.0.8037.95
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+Flutter doctor Android lines:
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [166ms]
+    • Android SDK at /Users/jsrc1115/Library/Android/sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    • Platform android-37.0, build-tools 36.0.0
+    • ANDROID_HOME = /Users/jsrc1115/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment (build 25.0.3+-15898627-b508.16)
+    • All Android licenses accepted.
+
+[!] Xcode - develop for iOS and macOS [51ms]
+--- SDK image metadata
+Pkg.Desc=Android SDK System Image
+Pkg.UserSrc=false
+Pkg.Revision=2
+Pkg.Dependencies=emulator#35.4.9
+AndroidVersion.ApiLevel=36
+AndroidVersion.ExtensionLevel=17
+AndroidVersion.IsBaseSdk=true
+SystemImage.Abi=arm64-v8a
+SystemImage.GpuSupport=true
+SystemImage.TagId=default
+SystemImage.TagDisplay=Default Android System Image
+--- emulator startup log
+UTC: 2026-10-03T13:40:32Z
+Command: emulator -avd boticario_catalog_api36 -accel on -gpu auto -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/default/arm64-v8a/
+INFO         | Saving last run QEMU version for the AVD to 2
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | API level 36 requires GLES 3.1, forcing software rendering for GLES.
+INFO         | emuglConfig_init: vulkan_mode_selected:lavapipe gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | Storing crashdata in: /tmp/android-jsrc1115/emu-crash-37.2.12.db, detection is enabled for process: 22959
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         |
+INFO         | initIcdPaths: ICD set to 'lavapipe', using Lavapipe ICD
+INFO         | Setting ICD filenames for the loader = /Users/jsrc1115/Library/Android/sdk/emulator/lib64/vulkan/lvp_icd.json
+INFO         | SharedLibrary::open for [/Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: llvmpipe (LLVM 21.1.4, 128 bits), Version: 1.4.330
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [REDACTED_PUBLIC_KEY]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=[REDACTED_PUBLIC_KEY]
+INFO         |   androidboot.qemu.avd_name=boticario_catalog_api36
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x1920
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X2X12X0
+INFO         |   androidboot.vbmeta.digest=1a759cc54d5b9866fccc723e8048c021930dea212b3f85aad7e5428953efb5d7
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6848
+INFO         |   androidboot.veritymode=enforcing
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Monitoring duration of emulator setup.
+WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
+INFO         | Using security allow list from: /Users/jsrc1115/Library/Android/sdk/emulator/lib/emulator_access.json
+INFO         | The active JSON Web Key Sets can be found here: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/22959/jwks/16491da5-c643-461b-86d0-8aee2f233c02/active.jwk
+INFO         | Scanning /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/22959/jwks/16491da5-c643-461b-86d0-8aee2f233c02 for jwk keys.
+INFO         | Started GRPC server at 127.0.0.1:8556, security: Local, auth: +token
+INFO         | Advertising in: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/pid_22959.ini
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x1920, dpi: 480x480
+INFO         | setDisplayActiveConfig: id:0, 1080x1920
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | emulatorSetupEnvironment: Environment scene is not required
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_rgbcSensorValueWidget_valueChanged() (:0, )
+INFO         | Warning: QMetaObject::connectSlotsByName: No matching signal for on_posture_valueChanged(int) (:0, )
+INFO         | TouchpadHolder: registering via hw_xr_led agent for instance=0x751e513700
+INFO         | Warning: QObject::connect: Cannot queue arguments of type 'std::vector<android::emulation::control::SnapshotInfo>'
+(Make sure 'std::vector<android::emulation::control::SnapshotInfo>' is registered using qRegisterMetaType().) (:0, )
+INFO         | AVD supportsNativeGLES=1, supportsGuestAngle=1
+INFO         | Guest Angle is still unstable for API > 35.
+INFO         | Created extended window in 46.419ms
+INFO         | Wait for emulator (pid 22959) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+INFO         | Wait for emulator (pid 22959) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+USER_INFO    | Snapshots have been disabled by the user, save request is ignored.
+INFO         | Saving snapshot 'default_boot' took 0 ms
+INFO         | removeAll
+ERROR        | Failed to restore previous context: 12297
+WARNING      | Netsim Wifi dns:///localhost:57251 is gone due to CANCELLED
+--- package install provenance
+Package path: system-images;android-36;default;arm64-v8a
+SDK Manager reported archive: https://dl.google.com/android/repository/sys-img/android/arm64-v8a-36_r02.zip
+SDK Manager reported package revision: 2.0.0 (repository list); installed by official sdkmanager --install
+1.9G	/Users/jsrc1115/Library/Android/sdk/system-images/android-36/default/arm64-v8a
+--- AVD configuration (new AVD only)
+PlayStore.enabled=no
+abi.type=arm64-v8a
+hw.cpu.arch=arm64
+hw.device.name=pixel_7
+hw.initialOrientation=portrait
+hw.keyboard=no
+hw.lcd.density=480
+hw.lcd.height=1920
+hw.lcd.width=1080
+image.sysdir.1=system-images/android-36/default/arm64-v8a/
+target=android-36
+--- active emulator serials
+emulator-5554
+Selected dedicated emulator serial: emulator-5554
+Command: adb -s SERIAL wait-for-device; bounded boot_completed readiness (180s)
+UTC ready: 2026-10-03T13:40:51Z
+Serial: emulator-5554
+sys.boot_completed:
+1
+ro.build.version.sdk:
+35
+ro.product.cpu.abi:
+arm64-v8a
+wm size:
+Physical size: 1080x2400
+wm density:
+Physical density: 420
+network exposure check (local adb only; emulator console listeners scoped to localhost):
+tcp4       0      0  127.0.0.1.5554         127.0.0.1.57282        ESTABLISHED          170          326  132792  132792 qemu-system-aarc:22131  00102 00000004 0000000000022089 00000080 01000800      2      0 000000
+tcp4       0      0  127.0.0.1.5554         127.0.0.1.57281        ESTABLISHED          170          326  408300  146988 qemu-system-aarc:22131  00102 00000004 0000000000022088 00000080 01000800      2      0 000000
+tcp4       0      0  127.0.0.1.57282        127.0.0.1.5554         ESTABLISHED         1224           33  408300  146988           studio:2164   00102 00000000 0000000000022086 00000080 04000900      2      0 000000
+tcp4       0      0  127.0.0.1.57281        127.0.0.1.5554         ESTABLISHED         1224           33  408300  146988           studio:2164   00102 00000000 0000000000022084 00000080 04000900      2      0 000000
+tcp4       0      0  127.0.0.1.5555         127.0.0.1.57246        ESTABLISHED      2720536       571136  385936  146988 qemu-system-aarc:22131  00102 00000004 0000000000021f23 00000081 01000800      2      0 000000
+tcp4       0      0  127.0.0.1.57246        127.0.0.1.5555         ESTABLISHED      1174252      1344486  385320  515628              adb:4327   00002 00000000 0000000000021f22 00000080 04000900      3      0 000000
+tcp4       0      0  127.0.0.1.5554         *.*                    LISTEN                 0            0  131072  131072 qemu-system-aarc:22131  00100 00000006 0000000000021f1e 00000000 00000800      1      0 000000
+tcp4       0      0  127.0.0.1.5555         *.*                    LISTEN                 0            0  131072  131072 qemu-system-aarc:22131  00100 00000006 0000000000021f1a 00000001 00000800      1      0 000000
+Flutter devices:
+Found 3 connected devices:
+  sdk gphone64 arm64 (mobile) • emulator-5554 • android-arm64  • Android 15 (API 35) (emulator)
+  macOS (desktop)             • macos         • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+  Chrome (web)                • chrome        • web-javascript • Google Chrome 154.0.8037.95
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+Flutter doctor Android lines:
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [166ms]
+    • Android SDK at /Users/jsrc1115/Library/Android/sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    • Platform android-37.0, build-tools 36.0.0
+    • ANDROID_HOME = /Users/jsrc1115/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment (build 25.0.3+-15898627-b508.16)
+    • All Android licenses accepted.
+
+[!] Xcode - develop for iOS and macOS [51ms]
+--- SDK image metadata
+Pkg.Desc=Android SDK System Image
+Pkg.UserSrc=false
+Pkg.Revision=2
+Pkg.Dependencies=emulator#35.4.9
+AndroidVersion.ApiLevel=36
+AndroidVersion.ExtensionLevel=17
+AndroidVersion.IsBaseSdk=true
+SystemImage.Abi=arm64-v8a
+SystemImage.GpuSupport=true
+SystemImage.TagId=default
+SystemImage.TagDisplay=Default Android System Image
+--- emulator startup log
+--- device build properties
+15
+35
+REL
+--- new AVD config display
+hw.device.name=pixel_7
+hw.initialOrientation=portrait
+hw.keyboard=no
+hw.lcd.density=480
+hw.lcd.height=1920
+hw.lcd.width=1080
+image.sysdir.1=system-images/android-36/default/arm64-v8a/
+target=android-36
+--- AVD hardware ini
+
+UTC: 2026-10-03T13:44:00Z
+Reason for using authorized Google APIs fallback: first default image booted but reported Android SDK API 35 despite SDK package metadata API 36; that runtime was stopped, no app installed. Installed and selected system-images;android-36;google_apis;arm64-v8a (revision 7), which excludes Play Store.
+Command: emulator -avd boticario_catalog_api36 -accel on -gpu auto -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | API level 36 requires GLES 3.1, forcing software rendering for GLES.
+INFO         | emuglConfig_init: vulkan_mode_selected:lavapipe gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | Storing crashdata in: /tmp/android-jsrc1115/emu-crash-37.2.12.db, detection is enabled for process: 24275
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         |
+INFO         | initIcdPaths: ICD set to 'lavapipe', using Lavapipe ICD
+INFO         | Setting ICD filenames for the loader = /Users/jsrc1115/Library/Android/sdk/emulator/lib64/vulkan/lvp_icd.json
+INFO         | SharedLibrary::open for [/Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: llvmpipe (LLVM 21.1.4, 128 bits), Version: 1.4.330
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [REDACTED_PUBLIC_KEY]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=[REDACTED_PUBLIC_KEY]
+INFO         |   androidboot.qemu.avd_name=boticario_catalog_api36
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x1920
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X2X12X0
+INFO         |   androidboot.vbmeta.digest=e70973301f9a2e629016c4d44449b90fd236882d05bc12a62cbb363284ad1aa7
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6784
+INFO         |   androidboot.veritymode=enforcing
+INFO         | Monitoring duration of emulator setup.
+WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
+INFO         | Using security allow list from: /Users/jsrc1115/Library/Android/sdk/emulator/lib/emulator_access.json
+INFO         | The active JSON Web Key Sets can be found here: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/24275/jwks/9dd38150-d714-4902-b56e-cb102f0fb7c7/active.jwk
+INFO         | Scanning /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/24275/jwks/9dd38150-d714-4902-b56e-cb102f0fb7c7 for jwk keys.
+INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
+INFO         | Advertising in: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/pid_24275.ini
+INFO         | Successfully initialized netsim WiFi
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Setting display: 0 configuration to: 1080x1920, dpi: 480x480
+INFO         | setDisplayActiveConfig: id:0, 1080x1920
+INFO         | Debug: QCocoaWindow::QCocoaWindow QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") (:0, )
+INFO         | Debug: QCocoaWindow::initialize QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") (:0, )
+INFO         | Debug: Making <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> layer-backed with <NSViewBackingLayer: 0x76a4b5bb70> (:0, )
+INFO         | Debug: QCocoaWindow::setGeometry QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") QRect(1100,415 360x640) (:0, )
+INFO         | Debug: QCocoaWindow::setCocoaGeometry QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") QRect(1100,415 360x640) (:0, )
+INFO         | Debug: QCocoaWindow::setMask QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") QRegion(null) (:0, )
+INFO         | Debug: QCocoaWindow::recreateWindowIfNeeded QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") QFlags<QCocoaWindow::RecreationReason>(MissingWindow|ContentViewChanged) (:0, )
+INFO         | Debug: Ensuring that <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> is content view for <QNSWindow: 0x76a6f75b80; contentView=NSObject(0x0)> (:0, )
+INFO         | Debug: Re-parenting <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> from NSObject(0x0) to <NSThemeFrame: 0x76a7905400> (:0, )
+INFO         | Debug: Done re-parenting <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> into <NSThemeFrame: 0x76a7905400> (:0, )
+INFO         | Debug: Moving <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> from NSObject(0x0) to <QNSWindow: 0x76a6f75b80; contentView=<QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))>> (:0, )
+INFO         | Debug: Done moving <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> to <QNSWindow: 0x76a6f75b80; contentView=<QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))>> (:0, )
+INFO         | Debug: Backing properties changed for <QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))> (:0, )
+INFO         | Debug: Updating <NSViewBackingLayer: 0x76a4b5bb70> content scale to 1 (:0, )
+INFO         | Debug: Reflecting QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") state to <QNSWindow: 0x76a6f75b80; contentView=<QNSView: 0x76a6f69e00; QCocoaWindow(0x76a727b840, window=QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow"))>> (:0, )
+INFO         | Debug: QCocoaWindow::propagateSizeHints QWidgetWindow(0x76a6e4b720, name="EmulatorContainerClassWindow") min: QSize(200, 200) max: QSize(16777215, 16777215) increment: QSize(-1, -1) base: QSize(-1, -1) (:0, )
+INFO         | Debug: QCocoaWindow::setOpacity 1 (:0, )
+INFO         | Warning: Broken filename passed to function (:0, )
+INFO         | Debug: QCocoaWindow::QCocoaWindow QWidgetWindow(0x76a3804240, name="ToolControlsWindow") (:0, )
+INFO         | Debug: QCocoaWindow::initialize QWidgetWindow(0x76a3804240, name="ToolControlsWindow") (:0, )
+INFO         | Debug: Making <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> layer-backed with <NSViewBackingLayer: 0x76a4b5bc30> (:0, )
+INFO         | Debug: QCocoaWindow::setGeometry QWidgetWindow(0x76a3804240, name="ToolControlsWindow") QRect(360,0 60x516) (:0, )
+INFO         | Debug: QCocoaWindow::setCocoaGeometry QWidgetWindow(0x76a3804240, name="ToolControlsWindow") QRect(360,0 60x516) (:0, )
+INFO         | Debug: QCocoaWindow::setMask QWidgetWindow(0x76a3804240, name="ToolControlsWindow") QRegion(null) (:0, )
+INFO         | Debug: QCocoaWindow::recreateWindowIfNeeded QWidgetWindow(0x76a3804240, name="ToolControlsWindow") QFlags<QCocoaWindow::RecreationReason>(MissingWindow|ContentViewChanged|PanelChanged) (:0, )
+INFO         | Debug: Ensuring that <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> is content view for <QNSPanel: 0x76a6f77480; contentView=NSObject(0x0)> (:0, )
+INFO         | Debug: Re-parenting <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> from NSObject(0x0) to <NSNextStepFrame: 0x76a6f77700> (:0, )
+INFO         | Debug: Done re-parenting <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> into <NSNextStepFrame: 0x76a6f77700> (:0, )
+INFO         | Debug: Moving <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> from NSObject(0x0) to <QNSPanel: 0x76a6f77480; contentView=<QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))>> (:0, )
+INFO         | Debug: Done moving <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> to <QNSPanel: 0x76a6f77480; contentView=<QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))>> (:0, )
+INFO         | Debug: Backing properties changed for <QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))> (:0, )
+INFO         | Debug: Updating <NSViewBackingLayer: 0x76a4b5bc30> content scale to 1 (:0, )
+INFO         | Debug: Reflecting QWidgetWindow(0x76a3804240, name="ToolControlsWindow") state to <QNSPanel: 0x76a6f77480; contentView=<QNSView: 0x76a6f6ad00; QCocoaWindow(0x76a7c50240, window=QWidgetWindow(0x76a3804240, name="ToolControlsWindow"))>> (:0, )
+INFO         | Debug: QCocoaWindow::propagateSizeHints QWidgetWindow(0x76a3804240, name="ToolControlsWindow") min: QSize(60, 516) max: QSize(60, 516) increment: QSize(-1, -1) base: QSize(-1, -1) (:0, )
+INFO         | Debug: QCocoaWindow::setOpacity 1 (:0, )
+[24288:182720:20261003,084404.901379:WARNING in_range_cast.h:38] value -143893734 out of range
+--- selected installed image metadata
+Pkg.Desc=System Image arm64-v8a with Google APIs.
+Pkg.Revision=7
+Pkg.Dependencies=emulator#35.4.9
+AndroidVersion.ApiLevel=36
+AndroidVersion.ExtensionLevel=17
+AndroidVersion.IsBaseSdk=true
+SystemImage.Abi=arm64-v8a
+SystemImage.TagId=google_apis
+SystemImage.TagDisplay=Google APIs
+SystemImage.GpuSupport=true
+Addon.VendorId=google
+Addon.VendorDisplay=Google Inc.
+
+4.3G	/Users/jsrc1115/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a
+--- AVD configuration
+PlayStore.enabled=no
+abi.type=arm64-v8a
+hw.cpu.arch=arm64
+hw.device.name=pixel_7
+hw.initialOrientation=portrait
+hw.keyboard=no
+hw.lcd.density=480
+hw.lcd.height=1920
+hw.lcd.width=1080
+image.sysdir.1=system-images/android-36/google_apis/arm64-v8a/
+tag.id=google_apis
+target=android-36
+Command: adb -s emulator-5554 wait-for-device; bounded sys.boot_completed readiness (180s)
+--- current emulator serials
+
+UTC: 2026-10-03T13:52:31Z
+Restarting selected Google APIs API36 AVD under nohup for persistent dedicated background process.
+Command: emulator -avd boticario_catalog_api36 -accel on -gpu auto -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | API level 36 requires GLES 3.1, forcing software rendering for GLES.
+INFO         | emuglConfig_init: vulkan_mode_selected:lavapipe gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | Storing crashdata in: /tmp/android-jsrc1115/emu-crash-37.2.12.db, detection is enabled for process: 25801
+INFO         | Showing crashdialog to get consent.
+  module_list[0].crashpad_annotations["internal-msg"] (type = 1) = emuglConfig_init: gpu_mode_requested: auto, no_window: 0
+emuglConfig_init: GPU emulation enabled using Vulkan:'lavapipe' GLES:'swangle' modes
+Deciding if GLDirectMem/Vulkan should be enabled. Selected GLES renderer: Angle Indirect Selected Vulkan renderer: Lavapipe API level: 35
+Enabling Vulkan
+Enabling GLDirectMem
+
+  module_list[0].crashpad_annotations["command_line"] (type = 1) = -avd DADM_GraphicsSound_API35 -no-snapshot-load -no-snapshot-save -no-boot-anim
+Readiness attempt for current nohup process, timeout 240s; serial scoped to emulator device
+ERROR: no emulator serial became available within 240s
+
+UTC: 2026-10-03T13:57:01Z
+Retry after GPU crash: use explicitly software SwiftShader rendering; emulator still hardware-accelerated by Hypervisor.Framework.
+Command: emulator -avd boticario_catalog_api36 -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+FATAL        | Running multiple emulators with the same AVD is an experimental feature.Please use -read-only flag to enable this feature.
+Waiting for SwiftShader retry (max 240s)
+ERROR: no emulator serial within 240s on SwiftShader retry
+
+UTC: 2026-10-03T14:02:01Z
+Retry after exiting isolated emulator crash dialog; headless display with explicit software GPU.
+Command: emulator -avd boticario_catalog_api36 -no-window -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | Storing crashdata in: /tmp/android-jsrc1115/emu-crash-37.2.12.db, detection is enabled for process: 27394
+INFO         | No consent for crashreport 94e166cc-c519-472e-a73d-d0d1fba5aeab, deleting.
+INFO         | No consent for crashreport a19bbe66-4df5-41a7-a106-c084bb62ef06, deleting.
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         |
+INFO         | initIcdPaths: ICD set to 'swiftshader', using Swiftshader ICD
+INFO         | Setting ICD filenames for the loader = /Users/jsrc1115/Library/Android/sdk/emulator/lib64/vulkan/vk_swiftshader_icd.json
+INFO         | SharedLibrary::open for [/Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: SwiftShader Device (LLVM 10.0.0), Version: 1.3.0
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [REDACTED_PUBLIC_KEY]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=[REDACTED_PUBLIC_KEY]
+INFO         |   androidboot.qemu.avd_name=boticario_catalog_api36
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x1920
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X2X12X0
+INFO         |   androidboot.vbmeta.digest=e70973301f9a2e629016c4d44449b90fd236882d05bc12a62cbb363284ad1aa7
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6784
+INFO         |   androidboot.veritymode=enforcing
+INFO         | Monitoring duration of emulator setup.
+WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
+INFO         | Using security allow list from: /Users/jsrc1115/Library/Android/sdk/emulator/lib/emulator_access.json
+INFO         | The active JSON Web Key Sets can be found here: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/27394/jwks/931a365f-c6d3-46f3-b8ba-5f83a359808c/active.jwk
+INFO         | Scanning /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/27394/jwks/931a365f-c6d3-46f3-b8ba-5f83a359808c for jwk keys.
+INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
+INFO         | Advertising in: /Users/jsrc1115/Library/Caches/TemporaryItems/avd/running/pid_27394.ini
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x1920, dpi: 480x480
+INFO         | setDisplayActiveConfig: id:0, 1080x1920
+INFO         | emulatorSetupEnvironment: Environment scene is not required
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+Waiting for isolated API36 emulator serial (max 240s)
+Serial=emulator-5554
+INFO         | Boot completed in 20435 ms
+INFO         | Increasing screen off timeout, logcat buffer size to 2M.
+UTC boot ready: 2026-10-03T14:02:23Z
+sys.boot_completed=1
+ro.build.version.release=16
+ro.build.version.sdk=36
+ro.product.cpu.abi=arm64-v8a
+wm size
+Physical size: 1080x1920
+wm density
+Physical density: 480
+Flutter devices
+Found 3 connected devices:
+  sdk gphone64 arm64 (mobile) • emulator-5554 • android-arm64  • Android 16 (API 36) (emulator)
+  macOS (desktop)             • macos         • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+  Chrome (web)                • chrome        • web-javascript • Google Chrome 154.0.8037.95
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+Doctor Android
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [215ms]
+    • Android SDK at /Users/jsrc1115/Library/Android/sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    • Platform android-37.0, build-tools 36.0.0
+    • ANDROID_HOME = /Users/jsrc1115/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment (build 25.0.3+-15898627-b508.16)
+    • All Android licenses accepted.
+
+[!] Xcode - develop for iOS and macOS [79ms]
+Final evidence UTC: 2026-10-03T14:03:04Z
+sdkmanager version:
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+1.0.16500706 (Android CLI)
+Installed selected system image package:
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+  system-images/android-36/default/arm64-v8a             2.0.0                             ARM 64 v8a System Image
+  system-images/android-36/google_apis/arm64-v8a         7.0.0                             Google APIs ARM 64 v8a System Image
+Selected image provenance from source.properties:
+Pkg.Revision=7
+AndroidVersion.ApiLevel=36
+AndroidVersion.ExtensionLevel=17
+SystemImage.Abi=arm64-v8a
+SystemImage.TagId=google_apis
+SystemImage.TagDisplay=Google APIs
+Addon.VendorDisplay=Google Inc.
+SDK manager reported selected image archive at install:
+https://dl.google.com/android/repository/sys-img/google_apis/arm64-v8a-36_r07.zip
+AVD active props:
+sys.boot_completed=1
+ro.build.version.release=16
+ro.build.version.sdk=36
+ro.product.cpu.abi=arm64-v8a
+display:
+Physical size: 1080x1920
+Physical density: 480
+license file SHA-256 (pre-existing file, no accept command run):
+c43fa37686457c3f18caa3607945f4ec52a9d1beaaad8117e50dc4e863270c85  /Users/jsrc1115/Library/Android/sdk/licenses/android-sdk-license
+hardware acceleration:
+accel:
+0
+Hypervisor.Framework OS X Version 27.0
+accel
+AVD process PID and TCP listen sockets:
+qemu_pid=
+AVD actual config:
+PlayStore.enabled=no
+abi.type=arm64-v8a
+hw.device.name=pixel_7
+hw.initialOrientation=portrait
+hw.keyboard=no
+hw.lcd.density=480
+hw.lcd.height=1920
+hw.lcd.width=1080
+image.sysdir.1=system-images/android-36/google_apis/arm64-v8a/
+tag.id=google_apis
+target=android-36
+INFO         | Created VkInstance:0x75781c6000 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x75781c6000 for application:'' engine:''.
+--- final isolated-process/network and device recheck
+UTC: 2026-10-03T14:04:25Z
+AVD name via targeted emulator console:
+boticario_catalog_api36
+OK
+sys.boot_completed:
+1
+qemu process:
+27394 SN   /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd boticario_catalog_api36 -no-window -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+TCP listening sockets for this qemu PID (loopback only):
+COMMAND     PID     USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+qemu-syst 27394 jsrc1115    9u  IPv6 0xdc63dfe1afa6b4a8      0t0  TCP [::1]:60017 (LISTEN)
+qemu-syst 27394 jsrc1115   12u  IPv6 0x94d46cbb729b5ec0      0t0  TCP [::1]:60018 (LISTEN)
+qemu-syst 27394 jsrc1115   39u  IPv4 0x5f50f32a0b06b8b6      0t0  TCP 127.0.0.1:5555 (LISTEN)
+qemu-syst 27394 jsrc1115   40u  IPv6  0x163e4c2c6179404      0t0  TCP [::1]:5555 (LISTEN)
+qemu-syst 27394 jsrc1115   41u  IPv4 0x7e023040b22568b7      0t0  TCP 127.0.0.1:60024 (LISTEN)
+qemu-syst 27394 jsrc1115   42u  IPv6 0xf013ab2d8b309880      0t0  TCP [::1]:60024 (LISTEN)
+qemu-syst 27394 jsrc1115   43u  IPv4  0x7522e8642811e9d      0t0  TCP 127.0.0.1:5554 (LISTEN)
+qemu-syst 27394 jsrc1115   44u  IPv6 0x9a60d5c2d0e2f37c      0t0  TCP [::1]:5554 (LISTEN)
+qemu-syst 27394 jsrc1115   45u  IPv6 0x7f740167244330a3      0t0  TCP 127.0.0.1:8554 (LISTEN)
+No APK install, app launch, smoke, or license acceptance command was run.
+
+UTC: 2026-10-03T14:04:59Z
+Caveat: observed an external adb shell am instrument process targeting emulator-5554. It was not started, investigated, modified, or stopped by this setup. Serial is globally shared: confirm no concurrent QA before this emulator smoke; external process may have reached this AVD.
+UTC 2026-10-03T14:10:23Z: verified serial=emulator-5554 AVD=boticario_catalog_api36 qemu_pid=27394; executing only targeted adb -s emulator-5554 emu kill to restart this AVD on dedicated port 5566.
+OK: killing emulator, bye bye
+OK
+INFO         | Wait for emulator (pid 27394) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+USER_INFO    | Snapshots have been disabled by the user, save request is ignored.
+INFO         | Saving snapshot 'default_boot' took 0 ms
+INFO         | removeAll
+WARNING      | Netsim Wifi dns:///localhost:60031 is gone due to Stream removed (CANCELLED)
+
+UTC: 2026-10-03T14:10:36Z
+Restart of owned AVD only, now pinned to dedicated emulator console/ADB port 5566/5567.
+Command: emulator -avd boticario_catalog_api36 -port 5566 -no-window -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/jsrc1115/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/
+INFO         | Guest usage of host flag 'VulkanVirtualQueue' will be ignored.
+INFO         | Increasing RAM size to 2560MB
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `boticario_catalog_api36` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `boticario_catalog_api36` are met
+INFO         | Storing crashdata in: /tmp/android-jsrc1115/emu-crash-37.2.12.db, detection is enabled for process: 28376
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         |
+INFO         | initIcdPaths: ICD set to 'swiftshader', using Swiftshader ICD
+INFO         | Setting ICD filenames for the loader = /Users/jsrc1115/Library/Android/sdk/emulator/lib64/vulkan/vk_swiftshader_icd.json
+INFO         | SharedLibrary::open for [/Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: SwiftShader Device (LLVM 10.0.0), Version: 1.3.0
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Sending adb public key [REDACTED_PUBLIC_KEY]
+INFO         | Userspace boot properties:
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.dalvik.vm.heapsize=576m
+INFO         |   androidboot.debug.hwui.renderer=skiagl
+INFO         |   androidboot.debug.sf.nobootanimation=1
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.gltransport=pipe
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.logcat=*:V
+INFO         |   androidboot.opengles.version=196609
+INFO         |   androidboot.qemu=1
+INFO         |   androidboot.qemu.adb.pubkey=[REDACTED_PUBLIC_KEY]
+INFO         |   androidboot.qemu.avd_name=boticario_catalog_api36
+INFO         |   androidboot.qemu.camera_hq_edge_processing=0
+INFO         |   androidboot.qemu.camera_protocol_ver=1
+INFO         |   androidboot.qemu.cpuvulkan.version=4206592
+INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
+INFO         |   androidboot.qemu.gltransport.name=pipe
+INFO         |   androidboot.qemu.hwcodec.avcdec=2
+INFO         |   androidboot.qemu.hwcodec.hevcdec=2
+INFO         |   androidboot.qemu.hwcodec.vpxdec=2
+INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   androidboot.qemu.skin=1080x1920
+INFO         |   androidboot.qemu.virtiowifi=1
+INFO         |   androidboot.qemu.vsync=60
+INFO         |   androidboot.serialno=EMULATOR37X2X12X0
+INFO         |   androidboot.vbmeta.digest=e70973301f9a2e629016c4d44449b90fd236882d05bc12a62cbb363284ad1aa7
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6784
+INFO         |   androidboot.veritymode=enforcing
+INFO         | Activated packet streamer for uwb emulation
+INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Monitoring duration of emulator setup.
+INFO         | Successfully initialized netsim WiFi
+INFO         | Setting display: 0 configuration to: 1080x1920, dpi: 480x480
+INFO         | setDisplayActiveConfig: id:0, 1080x1920
+INFO         | emulatorSetupEnvironment: Environment scene is not required
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+INFO         | Boot completed in 12463 ms
+INFO         | Increasing screen off timeout, logcat buffer size to 2M.
+Bounded wait on dedicated serial emulator-5566 (max 240s)
+identity serial=emulator-5566 AVD=boticario_catalog_api36 qemu_pid=28376
+UTC boot ready: 2026-10-03T14:10:56Z
+sys.boot_completed=1
+ro.build.version.release=16
+ro.build.version.sdk=36
+ro.product.cpu.abi=arm64-v8a
+wm size
+Physical size: 1080x1920
+wm density
+Physical density: 480
+Flutter devices (expected dedicated serial)
+Found 4 connected devices:
+  sdk gphone64 arm64 (mobile) • emulator-5556 • android-arm64  • Android 15 (API 35) (emulator)
+  sdk gphone64 arm64 (mobile) • emulator-5566 • android-arm64  • Android 16 (API 36) (emulator)
+  macOS (desktop)             • macos         • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+  Chrome (web)                • chrome        • web-javascript • Google Chrome 154.0.8037.95
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+Dedicated process listener sockets
+COMMAND     PID     USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+qemu-syst 28376 jsrc1115    9u  IPv6  0x163e4c2c6179404      0t0  TCP [::1]:61414 (LISTEN)
+qemu-syst 28376 jsrc1115   12u  IPv6 0xf013ab2d8b309880      0t0  TCP [::1]:61415 (LISTEN)
+qemu-syst 28376 jsrc1115   38u  IPv4 0x2e3f9bd076686c66      0t0  TCP 127.0.0.1:5567 (LISTEN)
+qemu-syst 28376 jsrc1115   39u  IPv6 0xb98f86fde3742bc4      0t0  TCP [::1]:5567 (LISTEN)
+qemu-syst 28376 jsrc1115   40u  IPv4 0x40636d201c1b7290      0t0  TCP 127.0.0.1:61420 (LISTEN)
+qemu-syst 28376 jsrc1115   41u  IPv6 0x16791d72c0d32179      0t0  TCP [::1]:61420 (LISTEN)
+qemu-syst 28376 jsrc1115   42u  IPv4 0xf5d33a2f6846df9d      0t0  TCP 127.0.0.1:5566 (LISTEN)
+qemu-syst 28376 jsrc1115   43u  IPv6 0xfc5b1d31f6787b03      0t0  TCP [::1]:5566 (LISTEN)
+--- final corrected evidence: dedicated AVD identity and boot
+UTC: 2026-10-03T14:12:48Z
+AVD=boticario_catalog_api36 serial=emulator-5566 qemu_pid=28376
+sys.boot_completed=1
+ro.build.version.release=16
+ro.build.version.sdk=36
+ro.product.cpu.abi=arm64-v8a
+Physical size: 1080x1920
+Physical density: 480
+AOSP API-level correction: earlier API 35/1080x2400/420 readings came from emulator-5554 whose AVD identity had not been checked. Later read-only evidence associated that serial/process (PID 22131) with DADM_GraphicsSound_API35. Those readings do not prove the installed default image booted API 35; attribution withdrawn.
+Accidental interruption disclosure: command issued was adb -s emulator-5554 emu kill without prior name check; later evidence associates the then-target with the unrelated DADM_GraphicsSound_API35 process (PID 22131). No wipe-data/config/delete was run on that AVD and this worker did not restart it.
+Own process controls: kill -TERM 25801 then kill -INT 25801, both against the qemu process for boticario_catalog_api36 (auto-GPU failed/retry); separately adb -s emulator-5554 emu kill was used after name+PID verification against boticario_catalog_api36 PID 27394 to change its port. Current instance: PID 28376 on dedicated console/ADB ports 5566/5567.
+Historical emulator log public-key fields redacted to [REDACTED_PUBLIC_KEY] by this correction; this file is not an untouched raw transcript.
+--- correction/addendum
+UTC: 2026-10-03T14:14:00Z
+Historical API 35 (1080x2400, 420 dpi) queries used emulator-5554 before verifying its AVD name; later evidence associated the serial with DADM_GraphicsSound_API35. They do not establish the AOSP API 36 image runtime; do not attribute SDK 35 to that image.
+Historical mistake: first unverified adb -s emulator-5554 emu kill accidentally interrupted the AVD then mapped to emulator-5554, later identified as DADM_GraphicsSound_API35 (PID 22131 observed). This worker did not wipe, delete, or edit that AVD; did not restart it. Later process PID 28035 on port 5556 was only observed, not operated on.
+Other explicit shutdowns: kill -TERM 25801 then kill -INT 25801 against own boticario_catalog_api36 QEMU; then a separately identity-checked adb -s emulator-5554 emu kill against own boticario_catalog_api36 PID 27394 to move it to dedicated port 5566. Current own process is PID 28376, serial emulator-5566.
+Final identity=boticario_catalog_api36 serial=emulator-5566 pid=28376
+sys.boot_completed=1
+ro.build.version.sdk=36
+Physical size: 1080x1920
+Physical density: 480
+
+Additional identity correction: first unpinned start logged own boticario_catalog_api36 QEMU PID 22959 and gRPC 8556. The API35/display values below that were collected from the first generic adb emulator serial, emulator-5554, without emu avd name. Subsequent process evidence mapped that serial to DADM_GraphicsSound_API35 PID 22131. Therefore those values do not establish the first AOSP image runtime. No direct signal/kill was issued to PID 22959; its later termination cause is not established.

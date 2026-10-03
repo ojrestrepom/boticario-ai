@@ -1,0 +1,120 @@
+UTC: 2026-10-03T13:34:11.580487+00:00
+Read-only manifest (working tree implementation, not committed SHA):
+Base HEAD: a97472b77cfc63cbba3f93d1bfde9cd6e16e447d
+af7ad6b385523c1c98977a15b50c53b1fd4f35b1c5d85513600a03ba3284f6b1  .flutter-version
+903bf6a4e222ec0f2777196399c3faf3dedfaf7604b92de6df206c3ee70eabc4  app/pubspec.yaml
+af69c6b69b339d74946004a863954adfa14f9c30d44692e762fbade82bd02626  app/pubspec.lock
+d97baa84dd75448228227e5caea172af60672db16d82c5a05647bd4029b64bc2  app/integration_test/app_test.dart
+e8f0a6dffaa152a5ef2b94ef2736747f89bd11a450024c3811d767ed23c8bd6b  app/integration_test/catalog_smoke.dart
+89562ceac507399c43d99761be90c9e8dd549e4ac07c1d5462c20230efc7a823  app/test/app/catalog_smoke_contract_test.dart
+79df30504ade13e6a68f154f0bb4fba3db93f5b10193f27a57453271922c7917  app/lib/main.dart
+a4bddf81768ab42ead9014bc1c2cf81615c16ab8cd6b9198b4c99e7f235e4050  app/lib/app/app.dart
+364e8eb49d9abf84d178b719a1dcd48e6b80e6ac1cc35d4d5f3401ffb1467755  app/lib/app/router.dart
+9edaf4d816bf7b5ae166a585e27241f0b6dd13da90c2173843d13a3e70df3a38  app/lib/features/home/presentation/home_page.dart
+977466687c280cd207cc98b240c17071c273a54dae7c05c8be9c059220e93022  app/assets/data/plant_catalog.json
+516121ab009d3c9b444d7a7f218b5c90a6973925bdab625860a09ddc7e4e73ac  app/android/app/build.gradle.kts
+016759283e88ade6eba92910583feeef88b962839b957aa414296afd2952d122  app/android/settings.gradle.kts
+b690d26223576fe4e63889fad9a00df81945cb870b9476cc5a563152a1a88a74  app/android/gradle/wrapper/gradle-wrapper.properties
+
+--- app/android/app/build.gradle.kts ---
+plugins {
+    id("com.android.application")
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id("dev.flutter.flutter-gradle-plugin")
+}
+
+android {
+    namespace = "com.example.boticario_ai"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.example.boticario_ai"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
+        // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)
+        // You can force using the value of versionCode by specifying the `-P force-version-code-ignoring-abi=true`
+        // flag during build.
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+--- app/android/settings.gradle.kts ---
+pluginManagement {
+    val flutterSdkPath =
+        run {
+            val properties = java.util.Properties()
+            file("local.properties").inputStream().use { properties.load(it) }
+            val flutterSdkPath = properties.getProperty("flutter.sdk")
+            require(flutterSdkPath != null) { "flutter.sdk not set in local.properties" }
+            flutterSdkPath
+        }
+
+    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id("dev.flutter.flutter-plugin-loader") version "1.0.0"
+    id("com.android.application") version "9.1.0" apply false
+    id("org.jetbrains.kotlin.android") version "2.4.0" apply false
+}
+
+include(":app")
+
+--- app/android/gradle/wrapper/gradle-wrapper.properties ---
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-9.3.1-all.zip
+
+Post-run UTC: 2026-10-03T13:35:33.614631+00:00
+UNCHANGED .flutter-version SHA-256 af7ad6b385523c1c98977a15b50c53b1fd4f35b1c5d85513600a03ba3284f6b1
+UNCHANGED app/pubspec.yaml SHA-256 903bf6a4e222ec0f2777196399c3faf3dedfaf7604b92de6df206c3ee70eabc4
+UNCHANGED app/pubspec.lock SHA-256 af69c6b69b339d74946004a863954adfa14f9c30d44692e762fbade82bd02626
+UNCHANGED app/integration_test/app_test.dart SHA-256 d97baa84dd75448228227e5caea172af60672db16d82c5a05647bd4029b64bc2
+UNCHANGED app/integration_test/catalog_smoke.dart SHA-256 e8f0a6dffaa152a5ef2b94ef2736747f89bd11a450024c3811d767ed23c8bd6b
+UNCHANGED app/test/app/catalog_smoke_contract_test.dart SHA-256 89562ceac507399c43d99761be90c9e8dd549e4ac07c1d5462c20230efc7a823
+UNCHANGED app/lib/main.dart SHA-256 79df30504ade13e6a68f154f0bb4fba3db93f5b10193f27a57453271922c7917
+UNCHANGED app/lib/app/app.dart SHA-256 a4bddf81768ab42ead9014bc1c2cf81615c16ab8cd6b9198b4c99e7f235e4050
+UNCHANGED app/lib/app/router.dart SHA-256 364e8eb49d9abf84d178b719a1dcd48e6b80e6ac1cc35d4d5f3401ffb1467755
+UNCHANGED app/lib/features/home/presentation/home_page.dart SHA-256 9edaf4d816bf7b5ae166a585e27241f0b6dd13da90c2173843d13a3e70df3a38
+UNCHANGED app/assets/data/plant_catalog.json SHA-256 977466687c280cd207cc98b240c17071c273a54dae7c05c8be9c059220e93022
+UNCHANGED app/android/app/build.gradle.kts SHA-256 516121ab009d3c9b444d7a7f218b5c90a6973925bdab625860a09ddc7e4e73ac
+UNCHANGED app/android/settings.gradle.kts SHA-256 016759283e88ade6eba92910583feeef88b962839b957aa414296afd2952d122
+UNCHANGED app/android/gradle/wrapper/gradle-wrapper.properties SHA-256 b690d26223576fe4e63889fad9a00df81945cb870b9476cc5a563152a1a88a74
+License SHA-256: c43fa37686457c3f18caa3607945f4ec52a9d1beaaad8117e50dc4e863270c85

@@ -1,0 +1,300 @@
+2026-10-02T03:20:23Z
+$ flutter test --no-pub --reporter expanded ../openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+00:00 +0: PQA01-544 General identity, absences, provenance and tabs
+00:00 +1: PQA02-544 every eligible row has exact activity and resolved LONGREF
+00:00 +2: PQA01-401 General identity, absences, provenance and tabs
+00:00 +3: PQA02-401 every eligible row has exact activity and resolved LONGREF
+00:00 +4: PQA01-873 General identity, absences, provenance and tabs
+00:00 +5: PQA02-873 every eligible row has exact activity and resolved LONGREF
+00:00 +6: PQA01-605 General identity, absences, provenance and tabs
+00:00 +7: PQA02-605 every eligible row has exact activity and resolved LONGREF
+00:00 +8: PQA01-619 General identity, absences, provenance and tabs
+00:00 +9: PQA02-619 every eligible row has exact activity and resolved LONGREF
+00:00 +10: PQA03 identity update resets General but same identity retains tab
+00:00 +11: PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks
+00:01 +12: PQA05-544-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=544 scale=1.0: all texts/lines traversed; footer persists
+00:01 +13: PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=401 scale=1.0: all texts/lines traversed; footer persists
+00:01 +14: PQA05-873-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=873 scale=1.0: all texts/lines traversed; footer persists
+00:01 +15: PQA05-605-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=605 scale=1.0: all texts/lines traversed; footer persists
+00:01 +16: PQA05-619-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=619 scale=1.0: all texts/lines traversed; footer persists
+00:01 +17: PQA06-1.0 unusually long citation readable in scroll segments, absent parts explicit
+00:02 +18: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#2      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:111:14)
+<asynchronous suspension>
+#3      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:377:13)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -1: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks [E]
+  Test failed. See exception logs above.
+  The test description was: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+  
+00:02 +18 -1: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <286.15000000000003>
+  Actual: <309.1499938964844>
+   Which: is not a value less than or equal to <286.15000000000003>
+Propiedades
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:148:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:217:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:472:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 148
+The test description was:
+  PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -2: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:02 +18 -2: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <286.15000000000003>
+  Actual: <309.1499938964844>
+   Which: is not a value less than or equal to <286.15000000000003>
+Propiedades
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:148:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:217:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:472:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 148
+The test description was:
+  PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -3: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:02 +18 -3: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <286.15000000000003>
+  Actual: <309.1499938964844>
+   Which: is not a value less than or equal to <286.15000000000003>
+Propiedades
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:148:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:217:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:472:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 148
+The test description was:
+  PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -4: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:02 +18 -4: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <286.15000000000003>
+  Actual: <309.1499938964844>
+   Which: is not a value less than or equal to <286.15000000000003>
+Propiedades
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:148:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:217:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:472:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 148
+The test description was:
+  PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -5: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:02 +18 -5: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <286.15000000000003>
+  Actual: <309.1499938964844>
+   Which: is not a value less than or equal to <286.15000000000003>
+Propiedades
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:148:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:217:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:472:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 148
+The test description was:
+  PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -6: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:02 +18 -6: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: <890>
+  Actual: <441>
+Every rendered line reachable: Segmento 0: referencia bibliográfica extensa verificable. Segmento 1:
+referencia bibliográfica extensa verificable. Segmento 2: referencia bibliográfica extensa
+verificable. Segmento 3: referencia bibliográfica extensa verificable. Segmento 4: referencia
+bibliográfica extensa verificable. Segmento 5: referencia bibliográfica extensa verificable.
+Segmento 6: referencia bibliográfica extensa verificable. Segmento 7: referencia bibliográfica
+extensa verificable. Segmento 8: referencia bibliográfica extensa verificable. Segmento 9:
+referencia bibliográfica extensa verificable. Segmento 10: referencia bibliográfica extensa
+verificable. Segmento 11: referencia bibliográfica extensa verificable. Segmento 12: referencia
+bibliográfica extensa verificable. Segmento 13: referencia bibliográfica extensa verificable.
+Segmento 14: referencia bibliográfica extensa verificable. Segmento 15: referencia bibliográfica
+extensa verificable. Segmento 16: referencia bibliográfica extensa verificable. Segmento 17:
+referencia bibliográfica extensa verificable. Segmento 18: referencia bibliográfica extensa
+verificable. Segmento 19: referencia bibliográfica extensa verificable. Segmento 20: referencia
+bibliográfica extensa verificable. Segmento 21: referencia bibliográfica extensa verificable.
+Segmento 22: referencia bibliográfica extensa verificable. Segmento 23: referencia bibliográfica
+extensa verificable. Segmento 24: referencia bibliográfica extensa verificable. Segmento 25:
+referencia bibliográfica extensa verificable. Segmento 26: referencia bibliográfica extensa
+verificable. Segmento 27: referencia bibliográfica extensa verificable. Segmento 28: referencia
+bibliográfica extensa verificable. Segmento 29: referencia bibliográfica extensa verificable.
+Segmento 30: referencia bibliográfica extensa verificable. Segmento 31: referencia bibliográfica
+extensa verificable. Segmento 32: referencia bibliográfica extensa verificable. Segmento 33:
+referencia bibliográfica extensa verificable. Segmento 34: referencia bibliográfica extensa
+verificable. Segmento 35: referencia bibliográfica extensa verificable. Segmento 36: referencia
+bibliográfica extensa verificable. Segmento 37: referencia bibliográfica extensa verificable.
+Segmento 38: referencia bibliográfica extensa verificable. Segmento 39: referencia bibliográfica
+extensa verificable. Segmento 40: referencia bibliográfica extensa verificable. Segmento 41:
+referencia bibliográfica extensa verificable. Segmento 42: referencia bibliográfica extensa
+verificable. Segmento 43: referencia bibliográfica extensa verificable. Segmento 44: referencia
+bibliográfica extensa verificable. Segmento 45: referencia bibliográfica extensa verificable.
+Segmento 46: referencia bibliográfica extensa verificable. Segmento 47: referencia bibliográfica
+extensa verificable. Segmento 48: referencia bibliográfica extensa verificable. Segmento 49:
+referencia bibliográfica extensa verificable. Segmento 50: referencia bibliográfica extensa
+verificable. Segmento 51: referencia bibliográfica extensa verificable. Segmento 52: referencia
+bibliográfica extensa verificable. Segmento 53: referencia bibliográfica extensa verificable.
+Segmento 54: referencia bibliográfica extensa verificable. Segmento 55: referencia bibliográfica
+extensa verificable. Segmento 56: referencia bibliográfica extensa verificable. Segmento 57:
+referencia bibliográfica extensa verificable. Segmento 58: referencia bibliográfica extensa
+verificable. Segmento 59: referencia bibliográfica extensa verificable. Segmento 60: referencia
+bibliográfica extensa verificable. Segmento 61: referencia bibliográfica extensa verificable.
+Segmento 62: referencia bibliográfica extensa verificable. Segmento 63: referencia bibliográfica
+extensa verificable. Segmento 64: referencia bibliográfica extensa verificable. Segmento 65:
+referencia bibliográfica extensa verificable. Segmento 66: referencia bibliográfica extensa
+verificable. Segmento 67: referencia bibliográfica extensa verificable. Segmento 68: referencia
+bibliográfica extensa verificable. Segmento 69: referencia bibliográfica extensa verificable.
+Segmento 70: referencia bibliográfica extensa verificable. Segmento 71: referencia bibliográfica
+extensa verificable. Segmento 72: referencia bibliográfica extensa verificable. Segmento 73:
+referencia bibliográfica extensa verificable. Segmento 74: referencia bibliográfica extensa
+verificable. Segmento 75: referencia bibliográfica extensa verificable. Segmento 76: referencia
+bibliográfica extensa verificable. Segmento 77: referencia bibliográfica extensa verificable.
+Segmento 78: referencia bibliográfica extensa verificable. Segmento 79: referencia bibliográfica
+extensa verificable. Segmento 80: referencia bibliográfica extensa verificable. Segmento 81:
+referencia bibliográfica extensa verificable. Segmento 82: referencia bibliográfica extensa
+verificable. Segmento 83: referencia bibliográfica extensa verificable. Segmento 84: referencia
+bibliográfica extensa verificable. Segmento 85: referencia bibliográfica extensa verificable.
+Segmento 86: referencia bibliográfica extensa verificable. Segmento 87: referencia bibliográfica
+extensa verificable. Segmento 88: referencia bibliográfica extensa verificable. Segmento 89:
+referencia bibliográfica extensa verificable.
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:187:5)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:544:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 187
+The test description was:
+  PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +18 -7: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit [E]
+  Test failed. See exception logs above.
+  The test description was: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+  
+00:02 +18 -7: PQA07 all five local passports and tabs with HTTP denied, provisional icons only
+00:02 +19 -7: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+  ... and 3 more

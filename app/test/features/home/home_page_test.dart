@@ -126,6 +126,7 @@ const EdgeInsets _testInsets = EdgeInsets.only(
 Widget _buildHomeHarness({
   TextScaler textScaler = TextScaler.noScaling,
   EdgeInsets padding = EdgeInsets.zero,
+  VoidCallback onExplore = _noop,
 }) {
   return MaterialApp(
     theme: buildBoticarioTheme(),
@@ -136,11 +137,13 @@ Widget _buildHomeHarness({
           padding: padding,
           viewPadding: padding,
         ),
-        child: const HomePage(),
+        child: HomePage(onExplore: onExplore),
       ),
     ),
   );
 }
+
+void _noop() {}
 
 /// Harness con GoRouter real de una única ruta `/`.
 Widget _buildRoutedHarness(GoRouter router) {
@@ -150,7 +153,12 @@ Widget _buildRoutedHarness(GoRouter router) {
 GoRouter _createHomeRouter() {
   return GoRouter(
     initialLocation: '/',
-    routes: [GoRoute(path: '/', builder: (context, state) => const HomePage())],
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => HomePage(onExplore: () {}),
+      ),
+    ],
   );
 }
 
@@ -332,7 +340,7 @@ void main() {
   });
 
   group('4.3 no mutación y sin logs automáticos', () {
-    testWidgets('la ruta / se mantiene tras las 11 acciones', (tester) async {
+    testWidgets('solo el callback Explorar permite navegación', (tester) async {
       _usePhoneViewport(tester);
       final router = _createHomeRouter();
       addTearDown(router.dispose);
@@ -343,7 +351,14 @@ void main() {
           await tester.pumpAndSettle();
           expect(logs, isEmpty);
 
-          for (final action in _expectedMessages.keys) {
+          await tester.tap(_actionKey(HomeAction.explorePlantsAndOils));
+          await tester.pumpAndSettle();
+          expect(router.state.uri.path, '/');
+          expect(logs, ['[Home] Explorar plantas y aceites']);
+
+          for (final action in _expectedMessages.keys.where(
+            (action) => action != HomeAction.explorePlantsAndOils,
+          )) {
             await _tapAction(tester, action);
             expect(
               GoRouter.of(tester.element(find.byType(HomePage))).state.uri.path,
@@ -370,6 +385,26 @@ void main() {
       } finally {
         semantics.dispose();
       }
+    });
+
+    testWidgets('Explorar llama una vez a su callback; otras diez no', (
+      tester,
+    ) async {
+      _usePhoneViewport(tester);
+      var exploreCalls = 0;
+      await tester.pumpWidget(
+        _buildHomeHarness(onExplore: () => exploreCalls++),
+      );
+      await tester.pumpAndSettle();
+
+      await _tapAction(tester, HomeAction.explorePlantsAndOils);
+      expect(exploreCalls, 1);
+      for (final action in HomeAction.values.where(
+        (action) => action != HomeAction.explorePlantsAndOils,
+      )) {
+        await _tapAction(tester, action);
+      }
+      expect(exploreCalls, 1);
     });
 
     testWidgets('rebuild y reassemble no emiten logs', (tester) async {

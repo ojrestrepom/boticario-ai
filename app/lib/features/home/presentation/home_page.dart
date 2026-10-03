@@ -35,11 +35,13 @@ void _emitHomeAction(HomeAction action) {
 
 /// Pantalla Inicio (P03): estructura visual de partida de la ruta `/`.
 ///
-/// Sin estado ni providers: cada uno de los 11 controles solo emite su acción de
-/// depuración. Compone cabecera, banner, cuadrícula 2x2, CTA y barra inferior
-/// inmóvil con `Inicio` siempre seleccionado y la ruta `/` sin cambios.
+/// Sin estado ni providers: cada control emite su acción de depuración; Explorar
+/// además delega su navegación al callback requerido. Compone cabecera, banner,
+/// cuadrícula 2x2, CTA y barra inferior con `Inicio` siempre seleccionado.
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.onExplore});
+
+  final VoidCallback onExplore;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +88,10 @@ class HomePage extends StatelessWidget {
         action: HomeAction.explorePlantsAndOils,
         icon: Icons.eco,
         label: 'Explorar plantas y aceites',
-        onPressed: () => _emitHomeAction(HomeAction.explorePlantsAndOils),
+        onPressed: () {
+          _emitHomeAction(HomeAction.explorePlantsAndOils);
+          onExplore();
+        },
       ),
       _FeatureCard(
         action: HomeAction.searchByGoal,

@@ -1,0 +1,30 @@
+
+UTC: 2026-10-03T14:22:31.622157+00:00
+Command: /Users/jsrc1115/Library/Android/sdk/platform-tools/adb -s emulator-5566 emu avd name
+boticario_catalog_api36
+OK
+
+Exit code: 0
+
+UTC: 2026-10-03T14:22:31.633989+00:00
+Command: /Users/jsrc1115/Library/Android/sdk/platform-tools/adb -s emulator-5566 get-state
+device
+
+Exit code: 0
+
+UTC: 2026-10-03T14:22:31.643565+00:00
+Command: /Users/jsrc1115/Library/Android/sdk/platform-tools/adb -s emulator-5566 emu avd name
+boticario_catalog_api36
+OK
+
+Exit code: 0
+
+UTC: 2026-10-03T14:22:31.652384+00:00
+Command: /Users/jsrc1115/Library/Android/sdk/platform-tools/adb -s emulator-5566 shell getprop sys.boot_completed
+1
+
+Exit code: 0
+
+Read-only dedicated QEMU process:
+28376 /Users/jsrc1115/ /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd boticario_catalog_api36 -port 5566 -no-window -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+No shutdown or settings mutation performed by QA; emulator left running.

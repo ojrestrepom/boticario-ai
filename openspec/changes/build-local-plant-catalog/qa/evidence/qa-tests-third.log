@@ -1,0 +1,157 @@
+2026-10-02T02:41:10Z
+$ flutter test --no-pub --reporter expanded "$QA/flutter/explore_qa_test.dart"
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart
+00:00 +0: QA01 exact source labels, order and all five callback IDs
+00:00 +1: QA02 reactive substring normalization on both visible names
+00:00 +2: QA03 filter-query decisions and clear retain Aceites/Plantas
+00:00 +3: QA04 malformed asset, repeated local retry and preserved query/filter
+00:00 +4: QA05 loading dominates empty Aceites until resolution
+00:00 +5: QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A SemanticsHandle was active at the end of the test.
+All SemanticsHandle instances must be disposed by calling dispose() on the SemanticsHandle.
+
+When the exception was thrown, this was the stack:
+#0      WidgetTester._verifySemanticsHandlesWereDisposed (package:flutter_test/src/widget_tester.dart:1074:7)
+#1      WidgetTester._endOfTestVerifications (package:flutter_test/src/widget_tester.dart:1063:5)
+#2      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1969:22)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +5 -1: QA06 scale 1.0 disabled tab semantics and no mutation/overlays [E]
+  Test failed. See exception logs above.
+  The test description was: QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+  
+00:00 +5 -1: QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+QA07 scale=1.0 target=Found 1 widget with widget matching predicate: [
+  RawTooltip-[LabeledGlobalKey<RawTooltipState>#c23f5]("Volver a Inicio", hover delay: 0:00:00.000000, touch delay: 0:00:01.500000, dismiss delay: 0:00:00.100000, triggerMode: TooltipTriggerMode.longPress, enableFeedback: true, positionDelegate: Closure: (TooltipPositionContext) => Offset from Function '_getDefaultPositionDelegate@647220820':., dependencies: [_ScrollableScope], state: RawTooltipState#b0fa4),
+] widgetSize=Size(40.0, 40.0) semanticsRect=Rect.fromLTRB(0.0, 4.0, 48.0, 48.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <48>
+  Actual: <40.0>
+   Which: is not a value greater than or equal to <48>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:301:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart line 301
+The test description was:
+  QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +5 -2: QA07 scale 1.0 safe areas, reachable long names, 48dp controls [E]
+  Test failed. See exception logs above.
+  The test description was: QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+  
+00:01 +5 -2: QA08 scale 1.0 error text and retry reachable within safe viewport
+00:01 +6 -2: QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.dragUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2489:38)
+<asynchronous suspension>
+#3      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#4      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2439:7)
+<asynchronous suspension>
+#5      TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#6      main.reach (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:90:7)
+<asynchronous suspension>
+#7      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:272:7)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +6 -3: QA06 scale 2.0 disabled tab semantics and no mutation/overlays [E]
+  Test failed. See exception logs above.
+  The test description was: QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+  
+00:01 +6 -3: QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+QA07 scale=2.0 target=Found 1 widget with widget matching predicate: [
+  RawTooltip-[LabeledGlobalKey<RawTooltipState>#ca6ce]("Volver a Inicio", hover delay: 0:00:00.000000, touch delay: 0:00:01.500000, dismiss delay: 0:00:00.100000, triggerMode: TooltipTriggerMode.longPress, enableFeedback: true, positionDelegate: Closure: (TooltipPositionContext) => Offset from Function '_getDefaultPositionDelegate@647220820':., dependencies: [_ScrollableScope], state: RawTooltipState#a5207),
+] widgetSize=Size(40.0, 40.0) semanticsRect=Rect.fromLTRB(0.0, 4.0, 48.0, 48.0)
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <48>
+  Actual: <40.0>
+   Which: is not a value greater than or equal to <48>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:301:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart line 301
+The test description was:
+  QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +6 -4: QA07 scale 2.0 safe areas, reachable long names, 48dp controls [E]
+  Test failed. See exception logs above.
+  The test description was: QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+  
+00:01 +6 -4: QA08 scale 2.0 error text and retry reachable within safe viewport
+00:01 +7 -4: QA09 actual registered bundle works with HTTP denied and no external Image
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Lavanda": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart:347:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart line 347
+The test description was:
+  QA09 actual registered bundle works with HTTP denied and no external Image
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +7 -5: QA09 actual registered bundle works with HTTP denied and no external Image [E]
+  Test failed. See exception logs above.
+  The test description was: QA09 actual registered bundle works with HTTP denied and no external Image
+  
+00:01 +7 -5: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart: QA09 actual registered bundle works with HTTP denied and no external Image

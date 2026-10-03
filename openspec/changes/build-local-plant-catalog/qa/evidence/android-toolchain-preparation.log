@@ -1,0 +1,89 @@
+UTC: 2026-10-03T13:28:40Z
+Command: PATH=/opt/homebrew/share/flutter/bin:$PATH flutter --version
+Flutter 3.47.6 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 5fc346839b (3 days ago) • 2026-09-30 15:02:49 -0700
+Engine • hash b8c8d3d8d5d0095127057f8a29ca8cc53da2167c (revision 692136cb65) (3 days ago) • 2026-09-30 00:56:59.000Z
+Tools • Dart 3.13.5 • DevTools 2.60.0
+Command: PATH=/opt/homebrew/share/flutter/bin:$PATH dart --version
+Dart SDK version: 3.13.5 (stable) (Tue Sep 29 01:00:52 2026 -0700) on "macos_arm64"
+Command: adb devices -l
+List of devices attached
+R5CR70M9GEE            device usb:1048576X product:p3sxxx model:SM_G998B device:p3s transport_id:2
+
+Command: sdkmanager --version
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+1.0.16500706 (Android CLI)
+Command: sdkmanager --list_installed
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+Installed packages:
+  build-tools/36.0.0             36.0.0                            Android SDK Build-Tools 36             
+  cmake/3.22.1                   3.22.1                            CMake 3.22.1                           
+  cmdline-tools/latest           unknown         ->        23.0.0  Android SDK Command-line Tools (latest)
+  emulator                       37.2.12                           Android Emulator                       
+  ndk/28.2.13676358              28.2.13676358                     NDK (Side by side) 28.2.13676358       
+  platform-tools                 37.0.1                            Android SDK Platform-Tools             
+  platforms/android-36           2.0.0                             Android SDK Platform 36                
+  platforms/android-37.0         2.0.0                             Android SDK Platform 37.0              
+  sources/android-37.0           2.0.0                             Sources for Android 37.0               
+Command: flutter doctor -v
+[✓] Flutter (Channel stable, 3.47.6, on macOS 27.0.1 26A434 darwin-arm64, locale es-CO) [93ms]
+    • Flutter version 3.47.6 on channel stable at /opt/homebrew/share/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 5fc346839b (3 days ago), 2026-09-30 15:02:49 -0700
+    • Engine revision 692136cb65
+    • Dart version 3.13.5
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [282ms]
+    • Android SDK at /Users/jsrc1115/Library/Android/sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    • Platform android-37.0, build-tools 36.0.0
+    • ANDROID_HOME = /Users/jsrc1115/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment (build 25.0.3+-15898627-b508.16)
+    • All Android licenses accepted.
+
+[!] Xcode - develop for iOS and macOS [59ms]
+    ✗ Xcode installation is incomplete; a full installation is necessary for iOS and macOS development.
+      Download at: https://developer.apple.com/xcode/
+      Or install Xcode via the App Store.
+      Once installed, run:
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+        sudo xcodebuild -runFirstLaunch
+    ! CocoaPods not installed.
+        CocoaPods is a package manager for iOS or macOS platform code.
+        Without CocoaPods, plugins will not work on iOS or macOS.
+        For more info, see https://flutter.dev/to/platform-plugins
+      For installation instructions, see https://guides.cocoapods.org/using/getting-started.html#installation
+
+[✓] Chrome - develop for the web [25ms]
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Connected device (3 available) [149ms]
+    • SM G998B (mobile) • R5CR70M9GEE • android-arm64  • Android 15 (API 35)
+    • macOS (desktop)   • macos       • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+    • Chrome (web)      • chrome      • web-javascript • Google Chrome 154.0.8037.95
+
+[✓] Network resources [590ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 1 category.
+
+Install provenance:
+Index URL: https://dl.google.com/android/repository/repository2-3.xml
+Archive URL: https://dl.google.com/android/repository/commandlinetools-mac_arm64-16111833_latest.zip
+Index size: 155384151 bytes; verified downloaded size: 155384151 bytes
+Index SHA-1: ad03dc49bfacfd52c110b14104ea548b8a07e830; verified downloaded SHA-1: ad03dc49bfacfd52c110b14104ea548b8a07e830
+Installed path: $HOME/Library/Android/sdk/cmdline-tools/latest; source.properties Pkg.Revision=23.0
+License file existed before installation; SHA-256 before/after unchanged: c43fa37686457c3f18caa3607945f4ec52a9d1beaaad8117e50dc4e863270c85. No license-accept command was run.
+Project requirements read-only: FlutterExtension compileSdk=36, targetSdk=36, minSdk=24, ndkVersion=28.2.13676358; project AGP 9.1.0; wrapper Gradle 9.3.1. Existing installed: platform android-36, build-tools 36.0.0, NDK 28.2.13676358.
+No build, app installation, or integration/smoke test run.

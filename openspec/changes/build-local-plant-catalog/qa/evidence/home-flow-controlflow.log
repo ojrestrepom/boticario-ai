@@ -1,0 +1,161 @@
+CONTROL FLOW — current diff, helper and service/log search
+diff --git a/app/lib/app/router.dart b/app/lib/app/router.dart
+index d13ece8..1a76f3f 100644
+--- a/app/lib/app/router.dart
++++ b/app/lib/app/router.dart
+@@ -1,17 +1,44 @@
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+ 
++import '../features/explore/presentation/explore_page.dart';
+ import '../features/home/presentation/home_page.dart';
++import '../features/passport/presentation/plant_passport_page.dart';
+ 
+-/// Router de la app: una única ruta `/` que renderiza la pantalla inicial.
++/// Router de la app: Home contiene Explorar, que contiene el pasaporte.
+ ///
+ /// Se construye una instancia por scope (`ProviderScope` de app o test) y se
+-/// libera con `router.dispose` al descartarse el provider. Sin redirects ni
+-/// rutas adicionales.
++/// libera con `router.dispose` al descartarse el provider.
+ final appRouterProvider = Provider<GoRouter>((ref) {
+   final router = GoRouter(
+     initialLocation: '/',
+-    routes: [GoRoute(path: '/', builder: (context, state) => const HomePage())],
++    routes: [
++      GoRoute(
++        path: '/',
++        builder: (context, state) =>
++            HomePage(onExplore: () => context.push('/explore')),
++        routes: [
++          GoRoute(
++            path: 'explore',
++            builder: (context, state) => ExplorePage(
++              onBack: () => context.pop(),
++              onHome: () => context.go('/'),
++              onPlantSelected: (id) => context.push('/explore/$id'),
++            ),
++            routes: [
++              GoRoute(
++                path: ':plantId',
++                builder: (context, state) => PlantPassportRoutePage(
++                  plantId: state.pathParameters['plantId']!,
++                  onBack: () => context.pop(),
++                  onHome: () => context.go('/'),
++                ),
++              ),
++            ],
++          ),
++        ],
++      ),
++    ],
+   );
+ 
+   ref.onDispose(router.dispose);
+diff --git a/app/lib/features/home/presentation/home_page.dart b/app/lib/features/home/presentation/home_page.dart
+index adedeec..c26d6ae 100644
+--- a/app/lib/features/home/presentation/home_page.dart
++++ b/app/lib/features/home/presentation/home_page.dart
+@@ -35,11 +35,13 @@ void _emitHomeAction(HomeAction action) {
+ 
+ /// Pantalla Inicio (P03): estructura visual de partida de la ruta `/`.
+ ///
+-/// Sin estado ni providers: cada uno de los 11 controles solo emite su acción de
+-/// depuración. Compone cabecera, banner, cuadrícula 2x2, CTA y barra inferior
+-/// inmóvil con `Inicio` siempre seleccionado y la ruta `/` sin cambios.
++/// Sin estado ni providers: cada control emite su acción de depuración; Explorar
++/// además delega su navegación al callback requerido. Compone cabecera, banner,
++/// cuadrícula 2x2, CTA y barra inferior con `Inicio` siempre seleccionado.
+ class HomePage extends StatelessWidget {
+-  const HomePage({super.key});
++  const HomePage({super.key, required this.onExplore});
++
++  final VoidCallback onExplore;
+ 
+   @override
+   Widget build(BuildContext context) {
+@@ -86,7 +88,10 @@ class HomePage extends StatelessWidget {
+         action: HomeAction.explorePlantsAndOils,
+         icon: Icons.eco,
+         label: 'Explorar plantas y aceites',
+-        onPressed: () => _emitHomeAction(HomeAction.explorePlantsAndOils),
++        onPressed: () {
++          _emitHomeAction(HomeAction.explorePlantsAndOils);
++          onExplore();
++        },
+       ),
+       _FeatureCard(
+         action: HomeAction.searchByGoal,
+
+HELPER
+/// Los 11 controles de la pantalla Inicio con su mensaje de depuración.
+enum HomeAction {
+  /// Icono de menú de la cabecera.
+  headerMenu,
+
+  /// Icono de persona de la cabecera.
+  headerProfile,
+
+  /// Tarjeta `Explorar plantas y aceites`.
+  explorePlantsAndOils,
+
+  /// Tarjeta `Buscar por objetivo`.
+  searchByGoal,
+
+  /// Tarjeta `Identificar con cámara`.
+  identifyWithCamera,
+
+  /// Tarjeta `Formular mezclas`.
+  formulateBlends,
+
+  /// CTA `Preguntar al Boticario`.
+  askTheBoticario,
+
+  /// Pestaña `Inicio`.
+  tabHome,
+
+  /// Pestaña `Favoritos`.
+  tabFavorites,
+
+  /// Pestaña `Historial`.
+  tabHistory,
+
+  /// Pestaña `Perfil`.
+  tabProfile,
+}
+
+/// Calcula el mensaje exacto de [action] o `null` si el modo no lo permite.
+///
+/// Función pura: no imprime, no navega y no muta estado. El llamador decide
+/// emitir el resultado con `debugPrint`; producción pasa únicamente
+/// `kDebugMode`, por lo que fuera de depuración el cálculo es silencioso.
+String? homeActionMessage(HomeAction action, {required bool isDebugMode}) {
+  if (!isDebugMode) {
+    return null;
+  }
+
+  return switch (action) {
+    HomeAction.headerMenu => '[Home] Cabecera: Menú',
+    HomeAction.headerProfile => '[Home] Cabecera: Perfil',
+    HomeAction.explorePlantsAndOils => '[Home] Explorar plantas y aceites',
+    HomeAction.searchByGoal => '[Home] Buscar por objetivo',
+    HomeAction.identifyWithCamera => '[Home] Identificar con cámara',
+    HomeAction.formulateBlends => '[Home] Formular mezclas',
+    HomeAction.askTheBoticario => '[Home] Preguntar al Boticario',
+    HomeAction.tabHome => '[Home] Pestaña: Inicio',
+    HomeAction.tabFavorites => '[Home] Pestaña: Favoritos',
+    HomeAction.tabHistory => '[Home] Pestaña: Historial',
+    HomeAction.tabProfile => '[Home] Pestaña: Perfil',
+  };
+}
+
+PRODUCT LOG/REMOTE/AUTH SEARCH
+lib/features/home/presentation/home_action.dart:40:/// emitir el resultado con `debugPrint`; producción pasa únicamente
+lib/features/home/presentation/home_page.dart:27:/// `debugPrint` cuando no es nulo. No se invoca desde `build`, así que no hay
+lib/features/home/presentation/home_page.dart:32:    debugPrint(message);
+lib/features/home/presentation/home_page.dart:104:        icon: Icons.photo_camera,
+
+LOCKFILE DIFF
+
+QA FORMAT
+Formatted 1 file (0 changed) in 0.00 seconds.

@@ -1,0 +1,121 @@
+2026-10-02T03:24:22Z
+$ flutter test --no-pub --reporter expanded test/
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart
+00:00 +0: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: loads the default packaged asset in source order and looks up IDs
+00:00 +1: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: repository provider uses an injected source
+00:00 +2: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: provider reports typed failures and retries only after invalidation
+00:00 +3: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_repository_test.dart: repository can be overridden without invoking the default loader
+00:00 +4: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: loads the packaged asset through the default bundle loader
+00:00 +5: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: loader injection returns parsed catalog and uses the asset path
+00:00 +6: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: reports safe errors for missing assets and malformed JSON
+00:00 +7: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: rejects wrong root/version and malformed required values
+00:00 +8: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: rejects duplicate plant/reference IDs and orphan references
+00:00 +9: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: rejects missing identity, invalid kind, property flag, and use fields
+00:00 +10: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: rejects HTTP URLs without a host
+00:00 +11: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: non-finite selector numbers become a typed parse error
+00:00 +12: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: rejects invalid use identity/reference, taxon, and part association
+00:00 +13: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart: accepts null optional editorial fields
+00:00 +14: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_fixture_test.dart: offline snapshot manifest and five curated identities are intact
+00:00 +15: /Users/jsrc1115/Code/boticario-ai/app/test/features/catalog/data/plant_catalog_fixture_test.dart: parts and uses have source selectors and no orphan bibliography
+00:00 +16: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +17: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +18: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +19: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +20: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +21: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +22: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +23: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +24: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +25: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +26: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +27: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +28: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +29: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +30: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +31: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +32: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +33: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +34: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +35: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +36: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +37: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +38: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +39: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +40: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +41: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +42: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +43: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +44: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +45: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +46: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +47: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +48: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +49: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +50: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +51: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +52: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +53: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +54: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +55: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +56: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +57: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +58: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: arranca en / con HomePage, la marca y sin el demo
+00:00 +59: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +60: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +60: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: activar controles de Home no cambia la ruta /
+[Home] Cabecera: Perfil
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Perfil
+00:00 +61: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +62: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +63: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:00 +63: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: dos ProviderScope no comparten el GoRouter
+[Home] Pestaña: Favoritos
+00:00 +64: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +65: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +66: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +67: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +68: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +69: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +70: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +71: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +72: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +73: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.2 contrato de logs de las 11 acciones tabHistory emite una vez su mensaje exacto
+00:01 +74: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: an empty parts collection is stated explicitly
+00:01 +75: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +76: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +77: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +78: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +79: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry shows loading until the second local load completes
+00:01 +80: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:01 +81: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:01 +82: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:01 +83: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:01 +84: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +85: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +86: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +87: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +88: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +89: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: searches accents and scientific names; clear preserves selected filter
+00:01 +90: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: identity change resets selected tab to General
+00:01 +91: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.5 layout, zonas seguras y texto SafeArea protege cabecera y footer con insets a 100%
+00:01 +92: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +93: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +94: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:01 +95: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:01 +96: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:01 +97: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:01 +98: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:01 +99: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:01 +100: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:01 +101: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps navigation callbacks and layout stable at 200% text
+00:01 +102: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: disabled controls have a single accessible label and 48dp targets
+00:01 +103: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: search text remains untruncated at 200% in empty and clear states
+00:02 +104: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: filters, rows and catalog tabs expose one actionable semantic target
+00:02 +105: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry is accessible and readable at 1.0 text scale
+00:02 +106: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps controls accessible and safe at 1.0 text scale
+00:02 +107: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: essential content stays readable and reachable at 1.0
+00:02 +108: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry is accessible and readable at 2.0 text scale
+00:02 +109: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps controls accessible and safe at 2.0 text scale
+00:02 +110: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: essential content stays readable and reachable at 2.0
+00:02 +111: All tests passed!

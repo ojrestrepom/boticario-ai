@@ -1,0 +1,350 @@
+2026-10-02T03:24:27Z
+$ dart format --output=none --set-exit-if-changed .
+Formatted 24 files (0 changed) in 0.07 seconds.
+$ flutter analyze --no-pub
+Analyzing app...                                                
+No issues found! (ran in 1.0s)
+$ dart analyze ../openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+Analyzing passport_qa_test.dart...
+
+  error - passport_qa_test.dart:3:8 - Target of URI doesn't exist: 'dart:ui'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:5:8 - Target of URI doesn't exist: 'package:boticario_ai/app/theme.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:6:8 - Target of URI doesn't exist: 'package:boticario_ai/features/catalog/data/plant_catalog_asset_data_source.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:7:8 - Target of URI doesn't exist: 'package:boticario_ai/features/catalog/domain/plant.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:8:8 - Target of URI doesn't exist: 'package:boticario_ai/features/catalog/domain/plant_catalog_provenance.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:9:8 - Target of URI doesn't exist: 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:10:8 - Target of URI doesn't exist: 'package:flutter/material.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:11:8 - Target of URI doesn't exist: 'package:flutter/rendering.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:12:8 - Target of URI doesn't exist: 'package:flutter/services.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:13:8 - Target of URI doesn't exist: 'package:flutter_test/flutter_test.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - passport_qa_test.dart:22:16 - Const variables must be initialized with a constant value. Try changing the initializer to be a constant expression. - const_initialized_with_non_constant_value
+  error - passport_qa_test.dart:22:16 - Undefined name 'EdgeInsets'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:46:3 - Undefined name 'TestWidgetsFlutterBinding'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:48:19 - Undefined name 'PlantCatalogAssetDataSource'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:61:5 - The function 'setUpAll' isn't defined. Try importing the library that defines 'setUpAll', correcting the name to the name of an existing function, or defining a function named 'setUpAll'. - undefined_function
+  error - passport_qa_test.dart:62:22 - The function 'FontLoader' isn't defined. Try importing the library that defines 'FontLoader', correcting the name to the name of an existing function, or defining a function named 'FontLoader'. - undefined_function
+  error - passport_qa_test.dart:78:5 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:79:5 - Undefined class 'Plant'. Try changing the name to the name of an existing class, or creating a class with the name 'Plant'. - undefined_class
+  error - passport_qa_test.dart:81:5 - Undefined class 'VoidCallback'. Try changing the name to the name of an existing class, or creating a class with the name 'VoidCallback'. - undefined_class
+  error - passport_qa_test.dart:82:5 - Undefined class 'VoidCallback'. Try changing the name to the name of an existing class, or creating a class with the name 'VoidCallback'. - undefined_class
+  error - passport_qa_test.dart:84:38 - The name 'Size' isn't a class. Try correcting the name to match an existing class. - creation_with_non_type
+  error - passport_qa_test.dart:86:5 - The function 'addTearDown' isn't defined. Try importing the library that defines 'addTearDown', correcting the name to the name of an existing function, or defining a function named 'addTearDown'. - undefined_function
+  error - passport_qa_test.dart:87:5 - The function 'addTearDown' isn't defined. Try importing the library that defines 'addTearDown', correcting the name to the name of an existing function, or defining a function named 'addTearDown'. - undefined_function
+  error - passport_qa_test.dart:89:7 - The function 'MaterialApp' isn't defined. Try importing the library that defines 'MaterialApp', correcting the name to the name of an existing function, or defining a function named 'MaterialApp'. - undefined_function
+  error - passport_qa_test.dart:90:16 - The function 'buildBoticarioTheme' isn't defined. Try importing the library that defines 'buildBoticarioTheme', correcting the name to the name of an existing function, or defining a function named 'buildBoticarioTheme'. - undefined_function
+  error - passport_qa_test.dart:91:38 - The function 'MediaQuery' isn't defined. Try importing the library that defines 'MediaQuery', correcting the name to the name of an existing function, or defining a function named 'MediaQuery'. - undefined_function
+  error - passport_qa_test.dart:92:17 - Undefined name 'MediaQuery'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:93:25 - Undefined name 'TextScaler'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:99:15 - The function 'PlantPassportPage' isn't defined. Try importing the library that defines 'PlantPassportPage', correcting the name to the name of an existing function, or defining a function named 'PlantPassportPage'. - undefined_function
+  error - passport_qa_test.dart:110:3 - Undefined class 'Finder'. Try changing the name to the name of an existing class, or creating a class with the name 'Finder'. - undefined_class
+  error - passport_qa_test.dart:110:26 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:111:9 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:111:21 - Undefined name 'CustomScrollView'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:112:15 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:112:27 - Undefined name 'Scrollable'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:115:20 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:116:18 - The name 'ScrollableState' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'ScrollableState'. - non_type_as_type_argument
+  error - passport_qa_test.dart:120:22 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:120:43 - Undefined class 'Finder'. Try changing the name to the name of an existing class, or creating a class with the name 'Finder'. - undefined_class
+  error - passport_qa_test.dart:129:20 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:131:20 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:131:40 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:133:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:133:34 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:136:25 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:136:45 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:138:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:140:21 - The name 'ChoiceChip' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'ChoiceChip'. - non_type_as_type_argument
+  error - passport_qa_test.dart:140:33 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:140:53 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:147:27 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:148:19 - The name 'Text' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'Text'. - non_type_as_type_argument
+  error - passport_qa_test.dart:149:9 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:150:15 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:150:27 - Undefined name 'CustomScrollView'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:151:21 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:151:33 - Undefined name 'Text'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:159:30 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:159:51 - Undefined class 'Finder'. Try changing the name to the name of an existing class, or creating a class with the name 'Finder'. - undefined_class
+  error - passport_qa_test.dart:161:43 - The name 'RenderParagraph' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'RenderParagraph'. - non_type_as_type_argument
+  error - passport_qa_test.dart:163:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:163:41 - Undefined name 'isFalse'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:164:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:164:32 - The function 'isNot' isn't defined. Try importing the library that defines 'isNot', correcting the name to the name of an existing function, or defining a function named 'isNot'. - undefined_function
+  error - passport_qa_test.dart:164:38 - Undefined name 'TextOverflow'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:170:11 - The function 'TextSelection' isn't defined. Try importing the library that defines 'TextSelection', correcting the name to the name of an existing function, or defining a function named 'TextSelection'. - undefined_function
+  error - passport_qa_test.dart:174:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:174:19 - Undefined name 'isNotEmpty'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:176:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:176:24 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:177:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:179:9 - The function 'lessThanOrEqualTo' isn't defined. Try importing the library that defines 'lessThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'lessThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:182:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:184:9 - The function 'lessThanOrEqualTo' isn't defined. Try importing the library that defines 'lessThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'lessThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:188:37 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:188:49 - Undefined name 'CustomScrollView'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:190:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:190:23 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:191:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:193:7 - The function 'lessThanOrEqualTo' isn't defined. Try importing the library that defines 'lessThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'lessThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:200:46 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:209:37 - The name 'ScrollableState' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'ScrollableState'. - non_type_as_type_argument
+  error - passport_qa_test.dart:213:9 - The function 'Offset' isn't defined. Try importing the library that defines 'Offset', correcting the name to the name of an existing function, or defining a function named 'Offset'. - undefined_function
+  error - passport_qa_test.dart:218:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:223:5 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:223:36 - Undefined name 'isNull'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:226:27 - Undefined class 'WidgetTester'. Try changing the name to the name of an existing class, or creating a class with the name 'WidgetTester'. - undefined_class
+  error - passport_qa_test.dart:230:17 - The name 'PlantPassportPage' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'PlantPassportPage'. - non_type_as_type_argument
+  error - passport_qa_test.dart:230:36 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:230:48 - Undefined name 'PlantPassportPage'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:236:35 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:238:25 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:238:45 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:240:21 - The name 'Text' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'Text'. - non_type_as_type_argument
+  error - passport_qa_test.dart:241:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:242:17 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:242:29 - Undefined name 'CustomScrollView'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:243:23 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:243:35 - Undefined name 'Text'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:250:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:251:25 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:251:56 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:251:68 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:255:35 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:260:5 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:265:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:265:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:265:37 - The function 'findsNWidgets' isn't defined. Try importing the library that defines 'findsNWidgets', correcting the name to the name of an existing function, or defining a function named 'findsNWidgets'. - undefined_function
+  error - passport_qa_test.dart:266:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:266:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:266:37 - The function 'findsNWidgets' isn't defined. Try importing the library that defines 'findsNWidgets', correcting the name to the name of an existing function, or defining a function named 'findsNWidgets'. - undefined_function
+  error - passport_qa_test.dart:267:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:269:23 - The name 'ChoiceChip' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'ChoiceChip'. - non_type_as_type_argument
+  error - passport_qa_test.dart:269:35 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:269:55 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:271:11 - Undefined name 'isTrue'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:273:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:273:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:273:54 - The function 'findsNWidgets' isn't defined. Try importing the library that defines 'findsNWidgets', correcting the name to the name of an existing function, or defining a function named 'findsNWidgets'. - undefined_function
+  error - passport_qa_test.dart:274:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:274:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:274:60 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:275:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:275:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:275:59 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:276:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:277:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:280:11 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:293:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:293:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:293:36 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:302:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:302:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:302:38 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:303:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:303:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:303:40 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:312:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:312:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:312:39 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:315:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:315:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:315:41 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:317:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:318:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:319:11 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:322:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:322:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:322:53 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:324:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:324:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:324:53 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:325:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:325:40 - Undefined name 'isNull'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:329:5 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:335:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:338:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:342:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:342:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:342:53 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:346:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:347:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:350:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:351:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:352:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:356:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:360:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:360:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:360:53 - The function 'findsNWidgets' isn't defined. Try importing the library that defines 'findsNWidgets', correcting the name to the name of an existing function, or defining a function named 'findsNWidgets'. - undefined_function
+  error - passport_qa_test.dart:363:13 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:366:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:367:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:370:11 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:372:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:372:40 - Undefined name 'isNull'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:377:3 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:383:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:383:14 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:383:37 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:385:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:385:14 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:385:51 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:386:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:386:14 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:386:33 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:387:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:389:21 - The name 'ChoiceChip' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'ChoiceChip'. - non_type_as_type_argument
+  error - passport_qa_test.dart:389:33 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:389:53 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:391:9 - Undefined name 'isTrue'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:395:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:395:14 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:395:51 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:396:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:396:14 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:396:39 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:401:5 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:407:24 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:408:15 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:408:35 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:409:21 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:411:47 - The name 'RenderParagraph' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'RenderParagraph'. - non_type_as_type_argument
+  error - passport_qa_test.dart:419:5 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:436:30 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:437:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:437:30 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:439:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:440:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:440:53 - Undefined name 'isTrue'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:441:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:442:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:442:37 - Undefined name 'SemanticsAction'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:442:59 - Undefined name 'isFalse'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:447:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:448:35 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:448:55 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:449:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:451:29 - The name 'ChoiceChip' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'ChoiceChip'. - non_type_as_type_argument
+  error - passport_qa_test.dart:451:41 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:451:61 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:453:17 - Undefined name 'isTrue'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:455:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:455:22 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:455:34 - Undefined name 'Dialog'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:455:43 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:456:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:456:22 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:456:34 - Undefined name 'SnackBar'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:456:45 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:457:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:457:22 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:457:34 - Undefined name 'PlantPassportPage'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:457:54 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:459:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:460:15 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:465:15 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:469:29 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:471:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:472:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:473:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:473:33 - Undefined name 'SemanticsAction'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:473:55 - Undefined name 'isTrue'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:474:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:475:27 - The name 'Text' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'Text'. - non_type_as_type_argument
+  error - passport_qa_test.dart:475:33 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:476:19 - The name 'Color' isn't a class. Try correcting the name to match an existing class. - creation_with_non_type
+  error - passport_qa_test.dart:478:28 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:480:28 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:481:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:482:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:483:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:483:42 - Undefined name 'isNull'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:491:7 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:497:45 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:497:57 - Undefined name 'CustomScrollView'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:498:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:498:35 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:499:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:499:34 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:500:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:500:36 - The function 'lessThanOrEqualTo' isn't defined. Try importing the library that defines 'lessThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'lessThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:501:26 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:501:46 - Undefined name 'IconButton'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:501:58 - Undefined name 'Icons'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:502:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:502:55 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:503:13 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:503:46 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:505:30 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:506:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:508:17 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:513:17 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:513:35 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:514:17 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:514:36 - The function 'lessThanOrEqualTo' isn't defined. Try importing the library that defines 'lessThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'lessThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:515:17 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:515:37 - The function 'lessThanOrEqualTo' isn't defined. Try importing the library that defines 'lessThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'lessThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:516:17 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:516:46 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:522:17 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:524:32 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:524:52 - Undefined name 'ChoiceChip'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:526:19 - The function 'greaterThanOrEqualTo' isn't defined. Try importing the library that defines 'greaterThanOrEqualTo', correcting the name to the name of an existing function, or defining a function named 'greaterThanOrEqualTo'. - undefined_function
+  error - passport_qa_test.dart:530:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:531:17 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:536:17 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:546:53 - The name 'RenderParagraph' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'RenderParagraph'. - non_type_as_type_argument
+  error - passport_qa_test.dart:547:17 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:549:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:549:51 - Undefined name 'isFalse'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:550:15 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:550:42 - The function 'isNot' isn't defined. Try importing the library that defines 'isNot', correcting the name to the name of an existing function, or defining a function named 'isNot'. - undefined_function
+  error - passport_qa_test.dart:550:48 - Undefined name 'TextOverflow'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:562:5 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:570:23 - The function 'Plant' isn't defined. Try importing the library that defines 'Plant', correcting the name to the name of an existing function, or defining a function named 'Plant'. - undefined_function
+  error - passport_qa_test.dart:576:13 - The function 'TraditionalUse' isn't defined. Try importing the library that defines 'TraditionalUse', correcting the name to the name of an existing function, or defining a function named 'TraditionalUse'. - undefined_function
+  error - passport_qa_test.dart:578:23 - The function 'SourceRecord' isn't defined. Try importing the library that defines 'SourceRecord', correcting the name to the name of an existing function, or defining a function named 'SourceRecord'. - undefined_function
+  error - passport_qa_test.dart:583:17 - The function 'PlantReference' isn't defined. Try importing the library that defines 'PlantReference', correcting the name to the name of an existing function, or defining a function named 'PlantReference'. - undefined_function
+  error - passport_qa_test.dart:586:27 - The function 'SourceRecord' isn't defined. Try importing the library that defines 'SourceRecord', correcting the name to the name of an existing function, or defining a function named 'SourceRecord'. - undefined_function
+  error - passport_qa_test.dart:596:29 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:597:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:598:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:599:11 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:601:37 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:603:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:603:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:603:39 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:604:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:604:16 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:604:37 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:605:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:606:26 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:607:11 - The function 'greaterThan' isn't defined. Try importing the library that defines 'greaterThan', correcting the name to the name of an existing function, or defining a function named 'greaterThan'. - undefined_function
+  error - passport_qa_test.dart:607:38 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:607:50 - Undefined name 'CustomScrollView'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:609:37 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:610:9 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:611:11 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:614:11 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:620:3 - The function 'testWidgets' isn't defined. Try importing the library that defines 'testWidgets', correcting the name to the name of an existing function, or defining a function named 'testWidgets'. - undefined_function
+  error - passport_qa_test.dart:626:7 - The function 'addTearDown' isn't defined. Try importing the library that defines 'addTearDown', correcting the name to the name of an existing function, or defining a function named 'addTearDown'. - undefined_function
+  error - passport_qa_test.dart:631:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:631:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:631:30 - Undefined name 'Image'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:631:38 - Undefined name 'findsNothing'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:633:11 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:633:18 - Undefined name 'find'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:633:30 - Undefined name 'Icons'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:633:52 - Undefined name 'findsOneWidget'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - passport_qa_test.dart:636:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:637:7 - The function 'expect' isn't defined. Try importing the library that defines 'expect', correcting the name to the name of an existing function, or defining a function named 'expect'. - undefined_function
+  error - passport_qa_test.dart:637:38 - Undefined name 'isNull'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+warning - passport_qa_test.dart:176:18 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
+warning - passport_qa_test.dart:201:41 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
+warning - passport_qa_test.dart:202:22 - The receiver is of type 'Never', and will never complete with a value. Try checking for throw expressions or type errors in the receiver - receiver_of_type_never
+warning - passport_qa_test.dart:202:22 - The receiver is of type 'Never', and will never complete with a value. Try checking for throw expressions or type errors in the receiver - receiver_of_type_never
+warning - passport_qa_test.dart:202:37 - Dead code. Try removing the code, or fixing the code before it so that it can be reached. - dead_code
+warning - passport_qa_test.dart:203:13 - The receiver is of type 'Never', and will never complete with a value. Try checking for throw expressions or type errors in the receiver - receiver_of_type_never
+warning - passport_qa_test.dart:204:13 - The receiver is of type 'Never', and will never complete with a value. Try checking for throw expressions or type errors in the receiver - receiver_of_type_never
+
+339 issues found.

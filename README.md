@@ -10,28 +10,45 @@ Proyecto en desarrollo con Flutter. La base de la app Android ya existe en
 [`.flutter-version`](.flutter-version), dependencias `flutter_riverpod` y
 `go_router` resueltas en `app/pubspec.lock`.
 
-En la ruta única `/` está la estructura de la pantalla Inicio (P03), como
-partida visual e interactiva: cabecera con icono de menú a la izquierda, hojas y
-marca `Boticario AI` al centro, icono de persona a la derecha; banner
+El recorrido integrado actual es `/` → `/explore` → `/explore/:plantId`:
+Inicio (P03) abre Explorar (P04), y cada planta abre su Pasaporte (P05). Atrás
+desde P05 conserva consulta, filtro y posición de P04; Inicio desde P04/P05
+regresa a `/` y limpia la pila. Inicio conserva cabecera con icono de menú a la
+izquierda, hojas y marca `Boticario AI` al centro, icono de persona a la
+derecha; banner
 `Pequeñas esencias, grandes posibilidades`; cuadrícula 2x2 con `Explorar plantas
 y aceites`, `Buscar por objetivo`, `Identificar con cámara` y `Formular mezclas`;
 CTA `Preguntar al Boticario`; y barra inferior con `Inicio`, `Favoritos`,
 `Historial` y `Perfil`, con `Inicio` siempre seleccionado.
 
-Es solo estructura: los 11 controles (2 de cabecera, 4 tarjetas, 1 CTA y 4
-pestañas) invocan su callback y, bajo `kDebugMode`, emiten exactamente un mensaje
-`[Home]` por activación. El mapeo normativo vive en
+Los 11 controles de Inicio (2 de cabecera, 4 tarjetas, 1 CTA y 4 pestañas)
+invocan su callback y, bajo `kDebugMode`, emiten exactamente un mensaje `[Home]`
+por activación. Solo `Explorar plantas y aceites` navega, incluso fuera de debug;
+las otras diez acciones son inertes. El mapeo normativo vive en
 [`app/lib/features/home/presentation/home_action.dart`](app/lib/features/home/presentation/home_action.dart).
-No hay navegación funcional, SnackBars, diálogos, drawers ni pantallas nuevas;
-tampoco backend, API, cámara, permisos, persistencia, login ni chat real. La
-composición usa texto Flutter vivo, iconos y decoración Material locales, sin
-assets descargados ni branding final: el arte es provisional.
+No hay mensajes por render/rebuild ni logs de consultas de usuario.
+No hay backend, API de negocio, cámara funcional, permisos, persistencia de
+usuario, login ni chat real. El catálogo offline contiene cinco plantas:
+Lavanda, Eucalipto, Romero, Manzanilla y Menta. Sus nombres españoles son
+editoriales; los científicos se conservan literalmente del snapshot archivado
+USDA Dr. Duke (CC0). Búsqueda local ignora mayúsculas, acentos y espacios
+repetidos/exteriores y compara ambos nombres. `Todas` y `Plantas` muestran las
+cinco; `Aceites` queda vacío. Favorito, formulaciones y las tres pestañas
+inferiores restantes son visibles pero no funcionales. El arte es local y
+provisional. No se registran consultas de búsqueda ni datos de usuario.
 
-La estructura está cubierta por pruebas unit y de widget, más un smoke de
-integración Android que arranca la app real. El incremento tiene verificación
-local (ver [Verificación local](#5-verificación-local-y-comandos-de-calidad)) y
-una CI remota en verde sobre su commit de implementación (ver
-[Integración continua](#7-integración-continua)).
+P05 ofrece `General`, `Propiedades` y `Usos`. Los campos sin fuente indican su
+ausencia; propiedades medicinales no evaluadas se indican explícitamente. Los
+usos son registros tradicionales con referencias resolubles, no consejo ni
+evidencia clínica; no se ofrecen dosis, recomendaciones ni afirmaciones de
+eficacia. Procedencia, selección, registros, citas y límites están en la
+[guía del catálogo USDA](docs/data/usda-catalog.md).
+
+El flujo dispone de pruebas unit/widget, un smoke automatizado y QA manual en
+Android. La revisión funcional/visual manual a 100%/200% y offline real en AVD
+está aprobada en el alcance documentado; la validación integral con TalkBack
+sigue pendiente. Los resultados anteriores de Home/CI se conservan abajo como
+históricos.
 
 Disponible en `docs/`:
 
@@ -50,8 +67,9 @@ es Google Play (Android); iOS es una posibilidad futura.
 - Chat de consulta con fuentes verificables.
 - Identificación por cámara, planteada como experimento.
 
-Estas funcionalidades siguen siendo el concepto del canvas y de los mockups;
-ninguna está implementada todavía en la app.
+Recomendaciones, formulaciones, chat e identificación siguen siendo conceptos,
+no funcionalidades implementadas. La exploración local y los pasaportes
+limitados descritos arriba sí están implementados.
 
 Los datos de los mockups son ilustrativos. El contenido especializado requiere
 revisión experta antes de usarse en el producto.
@@ -63,7 +81,7 @@ entorno, la apertura del proyecto y su ejecución en Android.
 
 ### 1. Prerrequisitos
 
-- Flutter **3.47.5** stable, que incluye Dart **3.13.4**; no instalar Dart
+- Flutter **3.47.6** stable, que incluye Dart **3.13.5**; no instalar Dart
   aparte. Es la versión fijada en [`.flutter-version`](.flutter-version) para
   local y CI. La CLI no lee ese archivo de forma automática: cada entorno debe
   instalar la misma versión y comprobarla. Ver
@@ -71,10 +89,14 @@ entorno, la apertura del proyecto y su ejecución en Android.
 - Android Studio con los plugins de Flutter y Dart, Android SDK y Command-line
   Tools, según el
   [setup de Android](https://docs.flutter.dev/platform-integration/android/setup).
-- Un emulador/AVD Android iniciado. Las pruebas actuales se centran en el
-  emulador; Chrome o Linux Desktop no cuentan para el target Android.
+- Un dispositivo Android OEM o emulador/AVD Android iniciado. Chrome o Linux
+  Desktop no cuentan para el smoke Android.
 - Añadir el directorio `bin` del SDK de Flutter al `PATH`. Configurar la ruta
   raíz del SDK de Flutter en el plugin de Android Studio.
+
+El pin y esta guía están alineados con Flutter 3.47.6/Dart 3.13.5. Los
+resultados locales fechados en secciones posteriores son evidencia histórica de
+las pasadas allí descritas, no resultados de validación de esta actualización.
 
 Si el SDK de Flutter no está instalado, instalarlo manualmente en la versión
 fijada desde el enlace anterior; no hay instalación automática. Aceptar las
@@ -87,43 +109,47 @@ flutter devices
 ```
 
 Revisar y aceptar las licencias pendientes de forma interactiva. Verificar que
-`flutter devices` liste el emulador Android iniciado; Chrome o Linux Desktop no
-cuentan. Resolver los hallazgos de Android aplicables.
+`flutter devices` liste el dispositivo o emulador Android iniciado; Chrome o
+Linux Desktop no cuentan. Resolver los hallazgos de Android aplicables.
 
 ### 2. Abrir y ejecutar en Android Studio
 
 Abrir `app/` como proyecto (su raíz tiene `pubspec.yaml`). Configurar la ruta
-raíz del SDK de Flutter en el plugin de Flutter y elegir el emulador Android en
-la selección de dispositivo. En la terminal integrada, situada en `app/`:
+raíz del SDK de Flutter en el plugin de Flutter y elegir el dispositivo o
+emulador Android en la selección de dispositivo. En la terminal integrada,
+situada en `app/`:
 
 ```bash
-flutter pub get
+flutter pub get --enforce-lockfile
 flutter analyze
-flutter build apk --debug
 flutter run -d ID_DEL_DISPOSITIVO
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador del emulador Android en
-`flutter devices`. Chrome o Linux Desktop no cuentan para el target Android.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador
+Android mostrado por `flutter devices`. Chrome o Linux Desktop no cuentan para
+el target Android.
 
 ### 3. Pruebas
 
 La app incluye pruebas unit y de widget en `app/test/`. Desde `app/`:
 
 ```bash
-flutter test
+flutter test test/
 ```
 
-Recuento local validado: **58 pruebas**.
+La verificación global host 5.1 ejecutada el 2026-10-03 registró **137 pruebas
+de 137 pasadas** en `test/`; resultados y salidas completas en el
+[informe 5.1](openspec/changes/build-local-plant-catalog/qa/global-5.1.md).
+El [informe AVD 4.3/5.2](openspec/changes/build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
+registra el smoke automatizado Android **aprobado: 1/1, exit 0**. Es una pasada
+separada de esta verificación host. El Samsung ejecutó
+build e instalación, pero **falló** el retorno de scroll antes de la corrección
+revisada del harness; su causa retrospectiva no está confirmada ni ese informe
+histórico se convierte en aprobado ([informe Samsung 4.3](openspec/changes/build-local-plant-catalog/qa/android-smoke-4.3.md)).
 
-- 26 unit en `test/features/home/home_action_test.dart`: las 11 acciones en modo
-  permitido, las 11 en modo no permitido y 4 de cobertura del enum (incluida la
-  distinción `Cabecera: Perfil` vs `Pestaña: Perfil`).
-- 29 widget en `test/features/home/home_page_test.dart`: estructura y textos,
-  contrato de logs de las 11 acciones, no mutación y ausencia de logs
-  automáticos, accesibilidad y layout 360x640 dp al 100% y 200%.
-- 3 widget en `test/app/app_test.dart`: arranque en `/`, ruta inmóvil al activar
-  controles y aislamiento del router por `ProviderScope`.
+Las fixtures de tipografía Roboto usadas por pruebas de layout están en
+[`app/test/fixtures/fonts/`](app/test/fixtures/fonts/) y son solo para tests;
+no son assets ni fuentes de la aplicación.
 
 Para ejecutar una sola suite, desde `app/`:
 
@@ -131,28 +157,39 @@ Para ejecutar una sola suite, desde `app/`:
 flutter test test/features/home/home_action_test.dart
 flutter test test/features/home/home_page_test.dart
 flutter test test/app/app_test.dart
+flutter test test/app/catalog_smoke_contract_test.dart
 ```
 
 ### 4. Smoke Android
 
-El smoke de integración vive en `app/integration_test/app_test.dart`, usa la
-dependencia `integration_test` del SDK y arranca la app real (`main()` con su
-`ProviderScope`, router y tema reales). Comprueba la ruta `/`, `HomePage`, la
-marca y el banner, la ausencia del contrato demo retirado, las 11 acciones (una
-activación = un mensaje, sin cambios de ruta ni de pantalla y sin overlays) y
-que `Inicio` queda seleccionado.
+El punto de entrada Android es `app/integration_test/app_test.dart`; delega el
+flujo UI en `app/integration_test/catalog_smoke.dart`. El host
+`app/test/app/catalog_smoke_contract_test.dart` ejecuta ese flujo compartido,
+pero no Android. El smoke Android usa la app real y comprueba P03→P04→P05,
+búsqueda/filtros/vacíos, las cinco identidades, límites P05, retorno y estado de
+sesión, Inicio desde P04/P05, controles inertes y logs. Su guard `HttpClient`
+cubre solo creación de clientes HTTP de la aplicación: no cambia radios ni
+prueba conectividad física. El preflight host no activa ese guard.
 
-Con un emulador Android iniciado y listado por `flutter devices`, desde `app/`:
+Con un dispositivo o emulador Android iniciado y listado por `flutter devices`,
+desde `app/`:
 
 ```bash
 flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador devuelto por
-`flutter devices`; no se asume un serial fijo. Ejemplo observado en la máquina
-actual: serial `emulator-5554`, con el AVD `boticario_api36` (Android API 36).
-Es un smoke de un único proceso: no reinicia el proceso del SO ni prueba la
-vuelta a primer plano.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`;
+no se asume serial fijo. Preparar y verificar previamente el SDK Android y sus
+licencias; estos comandos no cubren por sí solos toda la configuración del
+entorno. Las licencias pendientes se aceptan interactivamente. El smoke Samsung
+del 2026-10-03 sí ejecutó compilación e instalación Android, pero falló al
+comprobar el retorno de scroll. Después, el smoke automatizado pasó 1/1 (exit 0)
+en un AVD dedicado API 36; véase el
+[informe Android AVD 4.3/5.2](openspec/changes/build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
+y el [informe histórico Samsung 4.3](openspec/changes/build-local-plant-catalog/qa/android-smoke-4.3.md).
+El PASS AVD no confirma retrospectivamente la causa del fallo Samsung. La QA
+manual 4.5 ejecutada y sus límites, así como la revisión integral 5.3 parcial,
+están en el [informe QA manual Android](openspec/changes/build-local-plant-catalog/qa/android-manual-4.5.md).
 
 ### 5. Verificación local y comandos de calidad
 
@@ -165,24 +202,39 @@ flutter analyze
 flutter test test/
 ```
 
-Resultados locales observados (pasada local de `build-home-screen`, working
-tree; **no** son una ejecución de CI remota):
+La verificación global host de este incremento (5.1) se ejecutó el 2026-10-03:
+Flutter 3.47.6 stable/Dart 3.13.5; resolución con lockfile exigido, formato sin
+cambios, análisis sin issues y **137/137 pruebas pasadas**. El
+[informe 5.1](openspec/changes/build-local-plant-catalog/qa/global-5.1.md)
+contiene resultados, conteos y logs completos. Es evidencia host, distinta del
+smoke Android AVD aprobado 1/1; el historial Samsung conserva su resultado
+FALLÓ. QA manual 4.5 tiene evidencia propia; 5.3 sigue parcial. Informes: [AVD 4.3/5.2](openspec/changes/build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
+y [Samsung 4.3](openspec/changes/build-local-plant-catalog/qa/android-smoke-4.3.md).
 
-- `dart format --output=none --set-exit-if-changed .`: 0 archivos por cambiar.
-- `flutter pub get --enforce-lockfile`: resuelve con lock sin cambios.
-- `flutter analyze`: sin issues.
-- `flutter test test/`: 58 pruebas en verde (26 unit y 32 widget).
-- El smoke compiló e instaló un APK debug (`assembleDebug`) antes de ejecutar la
-  integración, y pasó 1 prueba en el emulador Android API 36 (`boticario_api36`).
+### QA actual y pendiente
 
-Estos resultados son locales y acotados a esta pasada. No sustituyen la revisión
-manual en Run/Debug ni la ejecución de un binario release/profile.
+La QA manual del 2026-10-03 se ejecutó en `emulator-5566`, AVD
+`boticario_catalog_api36` (API 36; 360×640 dp nominales antes de insets). El
+alcance funcional/visual 100%/200% y offline real del emulador pasó según las
+muestras y límites consignados en el
+[informe QA manual Android](openspec/changes/build-local-plant-catalog/qa/android-manual-4.5.md);
+no representa lectura visual exhaustiva de los 121 usos ni todos los dispositivos.
+TalkBack manual no se ejecutó: voz, foco, orden, gestos y lectura siguen pendientes.
+Por tanto la revisión integral 5.3 continúa parcial. El resultado histórico
+Samsung FALLÓ y su causa sigue sin confirmar; el PASS de AVD no lo sustituye.
 
-### 6. Verificación manual
+### Histórico: verificación manual de Home (2026-09-29)
 
-La verificación manual tiene dos partes: lo observado en el emulador por
-CLI/ADB (6.1) y la observación en Run/Debug de Android Studio (6.2), confirmada
-por el usuario/desarrollador.
+Los checklists siguientes pertenecen únicamente al histórico `build-home-screen`
+(commit `c0f02ef`), no al catálogo ni su recorrido. Se conservan como evidencia
+previa y no son una comprobación nueva.
+
+Histórico de verificación local de Home en ese commit: `flutter test test/`
+pasó **58 pruebas** (26 unit y 32 widget); `dart format --output=none
+--set-exit-if-changed .` no encontró archivos por cambiar; `flutter analyze` no
+reportó issues y `flutter pub get --enforce-lockfile` resolvió sin cambios al
+lockfile. El smoke Android pasó 1 prueba en el emulador API 36. Estos resultados
+son solo de esa pasada histórica, no de este incremento.
 
 #### 6.1 Comprobado en emulador mediante CLI/ADB
 
@@ -243,7 +295,7 @@ ejecuta un binario release/profile real, cuyo silencio es el comportamiento
 normativo. La observación CLI/ADB (6.1) y la observación manual en el IDE (6.2)
 son evidencias distintas, y ninguna equivale a un binario release/profile.
 
-### 7. Integración continua
+### Integración continua
 
 El workflow [`.github/workflows/flutter.yml`](.github/workflows/flutter.yml)
 está preparado para correr en push y pull request, con filtros de ruta
@@ -257,7 +309,7 @@ El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un
 emulador. Los comandos de calidad que replica son los de
 [Verificación local](#5-verificación-local-y-comandos-de-calidad).
 
-La CI remota de la pantalla Inicio quedó `completed`/`success` en
+Histórico de `build-home-screen`: la CI remota quedó `completed`/`success` en
 [run 36705725682](https://github.com/sebastianrodriguez1115/boticario-ai/actions/runs/36705725682),
 sobre el commit de implementación `c0f02efb20e9014ddfdee4c7f1c70aa36919ef3d`. La
 verificación remota del bootstrap demo queda registrada como histórica más
@@ -303,6 +355,7 @@ docs/
   canvas/              índice y modelo de negocio
   mockups/             índice, pantallas y navegación
   research/flutter/    índice, fuentes y plan de trabajo
+  data/               procedencia, curación y límites del catálogo USDA
   Canvas.png           canvas original
   mockups.png          lámina original de mockups
 ```

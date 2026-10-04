@@ -69,18 +69,19 @@ Cada uno de los 11 controles de Inicio SHALL invocar su callback y, bajo
 - pestaña `Historial` -> `[Home] Pestaña: Historial`
 - pestaña `Perfil` -> `[Home] Pestaña: Perfil`
 
-Las otras diez acciones SHALL NOT mutar la UI (salvo el feedback táctil nativo
-ripple/focus) ni navegar; la tarjeta Explorar SHALL navegar a Explorar en todos
-los modos de ejecución. Ninguna de las once acciones SHALL registrar ni
-persistir datos de usuario. El mensaje de cada activación SHALL emitirse
-únicamente bajo `kDebugMode`; en profile o release la navegación de Explorar
-continúa funcionando sin emitir mensajes. SHALL NOT emitir logs por build,
-rebuild o hot reload sin pulsación. Los prefijos del runtime Flutter quedan
-fuera del mensaje contratado.
+Las otras nueve acciones distintas de las tarjetas Explorar y Buscar por
+objetivo SHALL NOT mutar la UI (salvo el feedback táctil nativo ripple/focus) ni
+navegar. Explorar SHALL navegar a Explorar y Buscar por objetivo SHALL navegar a
+P06 en todos los modos de ejecución. Ninguna de las once acciones SHALL
+registrar ni persistir datos de usuario. El mensaje de cada activación SHALL
+emitirse únicamente bajo `kDebugMode`; en profile o release la navegación de
+Explorar y P06 continúa funcionando sin emitir mensajes. SHALL NOT emitir logs
+por build, rebuild o hot reload sin pulsación. Los prefijos del runtime Flutter
+quedan fuera del mensaje contratado.
 
 #### Scenario: Cobertura de los 11 controles
 - **WHEN** con `kDebugMode` activo se activa cualquiera de los 11 controles listados
-- **THEN** se invoca su callback y se emite exactamente una vez, vía `debugPrint`, el mensaje completo mapeado para esa acción
+- **THEN** se invoca exactamente una vez su callback y se emite, vía `debugPrint`, exactamente una vez el mensaje completo mapeado para esa acción
 
 #### Scenario: Distinción entre cabecera y pestaña
 - **WHEN** con `kDebugMode` activo se activa el icono de persona de la cabecera y luego la pestaña `Perfil`
@@ -99,7 +100,7 @@ fuera del mensaje contratado.
 - **THEN** se emite `[Home] Pestaña: Inicio` y la selección visible no cambia
 
 #### Scenario: Sin mutación de UI ni datos
-- **WHEN** se activa cualquier control de Inicio excepto la tarjeta Explorar
+- **WHEN** se activa cualquiera de las nueve acciones distintas de Explorar y Buscar por objetivo
 - **THEN** la UI no cambia salvo el feedback táctil nativo, no se navega y no se registra ni persiste ningún dato de usuario
 
 #### Scenario: Explorar en depuración
@@ -110,22 +111,34 @@ fuera del mensaje contratado.
 - **WHEN** en profile o release se activa la tarjeta `Explorar plantas y aceites`
 - **THEN** se navega a P04 sin emitir el mensaje ni registrar o persistir datos de usuario
 
+#### Scenario: Buscar por objetivo en depuración
+- **WHEN** con `kDebugMode` activo se activa la tarjeta `Buscar por objetivo`
+- **THEN** se emite exactamente una vez `[Home] Buscar por objetivo` y se navega a P06 sin registrar ni persistir datos de usuario
+
+#### Scenario: Buscar por objetivo fuera de depuración
+- **WHEN** en profile o release se activa la tarjeta `Buscar por objetivo`
+- **THEN** se navega a P06 sin emitir el mensaje ni registrar o persistir datos de usuario
+
 ### Requirement: Barra inferior inmóvil sin navegación funcional
 La barra inferior SHALL ser la única barra visual de pestañas de Inicio, sin
 navegación funcional: `Inicio` SHALL permanecer siempre seleccionado y la ruta
-SHALL continuar siendo `/`, salvo que la tarjeta `Explorar plantas y aceites`
-abra la pantalla Explorar del recorrido permitido. Activar cualquier otro
-control o pestaña SHALL NOT cambiar la ruta ni la pestaña seleccionada, ni abrir
-pantallas, rutas, overlays, SnackBars, diálogos, drawers, permisos, cámara, API,
-backend, persistencia ni chat real.
+SHALL continuar siendo `/`, salvo que las tarjetas `Explorar plantas y aceites`
+o `Buscar por objetivo` abran sus respectivos recorridos permitidos. Activar
+cualquier otro control o pestaña de Inicio SHALL NOT cambiar la ruta ni la
+pestaña seleccionada, ni abrir pantallas, rutas, overlays, SnackBars, diálogos,
+drawers, permisos, cámara, API, backend, persistencia ni chat real.
 
 #### Scenario: Ruta sin cambios
-- **WHEN** se activa cualquier control o pestaña de Inicio excepto la tarjeta Explorar
+- **WHEN** se activa cualquier control o pestaña de Inicio excepto las tarjetas Explorar y Buscar por objetivo
 - **THEN** la ruta actual permanece `/` sin cambios
 
 #### Scenario: Explorar abre P04
 - **WHEN** se activa la tarjeta `Explorar plantas y aceites`
 - **THEN** se abre únicamente la pantalla Explorar del recorrido permitido
+
+#### Scenario: Buscar por objetivo abre P06
+- **WHEN** se activa la tarjeta `Buscar por objetivo`
+- **THEN** se abre únicamente P06 del recorrido permitido
 
 #### Scenario: Índice de pestaña sin cambios
 - **WHEN** se activan las pestañas `Favoritos`, `Historial` o `Perfil`
@@ -133,7 +146,7 @@ backend, persistencia ni chat real.
 
 #### Scenario: Sin navegación ni overlays
 - **WHEN** el usuario interactúa con Inicio
-- **THEN** no se abre ninguna pantalla o ruta ajena al recorrido Explorar y Pasaporte, ni overlay, SnackBar, diálogo o drawer
+- **THEN** no se abre ninguna pantalla o ruta ajena a los recorridos Explorar y Pasaporte y Buscar por objetivo/P06, ni overlay, SnackBar, diálogo o drawer
 
 #### Scenario: Sin operaciones de producto
 - **WHEN** el usuario interactúa con Inicio

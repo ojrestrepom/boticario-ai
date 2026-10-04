@@ -6,6 +6,7 @@ import 'package:boticario_ai/features/catalog/data/plant_catalog_repository.dart
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_catalog_provenance.dart';
 import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
+import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
@@ -156,6 +157,51 @@ void main() {
       expect(logs, ['[Home] Explorar plantas y aceites']);
     } finally {
       debugPrint = original;
+    }
+  });
+
+  testWidgets('Buscar por objetivo abre P06 y Atrás de app/sistema retorna', (
+    tester,
+  ) async {
+    for (final useFrameworkBack in [false, true]) {
+      final logs = <String>[];
+      final original = debugPrint;
+      debugPrint = (String? message, {int? wrapWidth}) {
+        if (message != null && message.startsWith('[Home]')) {
+          logs.add(message);
+        } else {
+          original(message, wrapWidth: wrapWidth);
+        }
+      };
+      try {
+        await _mount(tester);
+        final router = _currentRouter(tester);
+        await tester.tap(find.byKey(const ValueKey(HomeAction.searchByGoal)));
+        await tester.pumpAndSettle();
+        expect(router.state.uri.path, '/goals');
+        expect(find.byType(GoalSearchPage), findsOneWidget);
+        expect(logs, ['[Home] Buscar por objetivo']);
+
+        for (final tab in ['Favoritos', 'Historial', 'Perfil']) {
+          await tester.tap(find.text(tab));
+          await tester.pumpAndSettle();
+          expect(router.state.uri.path, '/goals');
+          expect(find.byType(GoalSearchPage), findsOneWidget);
+        }
+
+        if (useFrameworkBack) {
+          await tester.binding.handlePopRoute();
+        } else {
+          await tester.tap(find.byTooltip('Volver a Inicio'));
+        }
+        await tester.pumpAndSettle();
+        expect(router.state.uri.path, '/');
+        expect(find.byType(HomePage), findsOneWidget);
+        expect(logs, ['[Home] Buscar por objetivo']);
+      } finally {
+        debugPrint = original;
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
     }
   });
 
@@ -423,5 +469,20 @@ void main() {
     expect(router.state.uri.path, '/');
     expect(router.canPop(), isFalse);
     expect(find.byType(HomePage), findsOneWidget);
+  });
+
+  testWidgets('Inicio desde P06 limpia la pila', (tester) async {
+    await _mount(tester);
+    final router = _currentRouter(tester);
+    await tester.tap(find.byKey(const ValueKey(HomeAction.searchByGoal)));
+    await tester.pumpAndSettle();
+    expect(router.state.uri.path, '/goals');
+
+    await tester.tap(find.text('Inicio').last);
+    await tester.pumpAndSettle();
+    expect(router.state.uri.path, '/');
+    expect(router.canPop(), isFalse);
+    expect(find.byType(HomePage), findsOneWidget);
+    expect(find.byType(GoalSearchPage), findsNothing);
   });
 }

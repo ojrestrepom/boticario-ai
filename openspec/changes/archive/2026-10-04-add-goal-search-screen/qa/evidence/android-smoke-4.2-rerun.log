@@ -1,0 +1,727 @@
+Android 4.2 authorized rerun. Bounded, finalized evidence; live emulator output stays outside repository.
+Raw temporary captures retained. No failed smoke retry.
+
+===== preflight.txt =====
+2026-10-04T15:06:20Z
+READ-ONLY ports 5566/5567
+lsof exit=1 (1 with no output means no matching TCP sockets)
+READ-ONLY emulator/QEMU/concurrent test processes
+ 2644     1 /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64 -avd DADM_GraphicsSound_API35 -port 5556
+ 2662     1 /Users/jsrc1115/Library/Android/sdk/emulator/crashpad_handler --no-rate-limit --monitor-pid=2644 --database=/tmp/android-jsrc1115/emu-crash-37.2.12.db --url=https://clients2.google.com/cr/report --annotation=prod=AndroidEmulator --annotation=ver=37.2.12-16428233 --handshake-fd=5
+ 2670  2644 /Users/jsrc1115/Library/Android/sdk/emulator/netsimd --host-dns=200.21.200.80,200.21.200.10
+ 2821  2078 /bin/zsh -c RAW='/private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun'; mkdir "$RAW" || exit 2; { date -u '+%Y-%m-%dT%H:%M:%SZ'; echo 'READ-ONLY ports 5566/5567'; lsof -nP -iTCP:5566 -iTCP:5567; printf 'lsof exit=%s (1 with no output means no matching TCP sockets)\n' "$?"; echo 'READ-ONLY emulator/QEMU/concurrent test processes'; ps -axo pid=,ppid=,command= | grep -E '[/]emulator|[q]emu-system|[f]lutter.*(test|run)|[a]db.*instrument' || true; echo 'READ-ONLY AVD config'; ls -ld "$HOME/.android/avd/boticario_catalog_api36.avd"; cat "$HOME/.android/avd/boticario_catalog_api36.ini"; grep -E '^(AvdId|avd.ini.displayname|image.sysdir.1|abi.type|tag.id|hw.lcd|hw.gpu|hw.device|PlayStore.enabled|hw.keyboard)' "$HOME/.android/avd/boticario_catalog_api36.avd/config.ini"; echo 'READ-ONLY installed image metadata'; cat "$HOME/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/source.properties"; echo 'READ-ONLY emulator binary'; ls -l "$HOME/Library/Android/sdk/emulator/emulator"; echo 'Initial QA artifact hashes'; shasum -a 256 openspec/changes/add-goal-search-screen/qa/android-smoke-4.2.md openspec/changes/add-goal-search-screen/qa/evidence/android-smoke-4.2.log openspec/changes/add-goal-search-screen/qa/test-plan.md; } 2>&1 | tee "$RAW/preflight.txt"
+ 2823  2821 /bin/zsh -c RAW='/private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun'; mkdir "$RAW" || exit 2; { date -u '+%Y-%m-%dT%H:%M:%SZ'; echo 'READ-ONLY ports 5566/5567'; lsof -nP -iTCP:5566 -iTCP:5567; printf 'lsof exit=%s (1 with no output means no matching TCP sockets)\n' "$?"; echo 'READ-ONLY emulator/QEMU/concurrent test processes'; ps -axo pid=,ppid=,command= | grep -E '[/]emulator|[q]emu-system|[f]lutter.*(test|run)|[a]db.*instrument' || true; echo 'READ-ONLY AVD config'; ls -ld "$HOME/.android/avd/boticario_catalog_api36.avd"; cat "$HOME/.android/avd/boticario_catalog_api36.ini"; grep -E '^(AvdId|avd.ini.displayname|image.sysdir.1|abi.type|tag.id|hw.lcd|hw.gpu|hw.device|PlayStore.enabled|hw.keyboard)' "$HOME/.android/avd/boticario_catalog_api36.avd/config.ini"; echo 'READ-ONLY installed image metadata'; cat "$HOME/Library/Android/sdk/system-images/android-36/google_apis/arm64-v8a/source.properties"; echo 'READ-ONLY emulator binary'; ls -l "$HOME/Library/Android/sdk/emulator/emulator"; echo 'Initial QA artifact hashes'; shasum -a 256 openspec/changes/add-goal-search-screen/qa/android-smoke-4.2.md openspec/changes/add-goal-search-screen/qa/evidence/android-smoke-4.2.log openspec/changes/add-goal-search-screen/qa/test-plan.md; } 2>&1 | tee "$RAW/preflight.txt"
+READ-ONLY AVD config
+drwxr-xr-x@ 23 jsrc1115  staff  736 Oct  3 22:19 /Users/jsrc1115/.android/avd/boticario_catalog_api36.avd
+avd.ini.encoding=UTF-8
+path=/Users/jsrc1115/.android/avd/boticario_catalog_api36.avd
+path.rel=avd/boticario_catalog_api36.avd
+target=android-36
+PlayStore.enabled=no
+abi.type=arm64-v8a
+hw.device.hash2=MD5:2016577e1656e8e7c2adb0fac972beea
+hw.device.manufacturer=Google
+hw.device.name=pixel_7
+hw.gpu.enabled=no
+hw.gpu.mode=auto
+hw.keyboard=no
+hw.keyboard.charmap=qwerty2
+hw.keyboard.lid=yes
+hw.lcd.backlight=yes
+hw.lcd.circular=false
+hw.lcd.density=480
+hw.lcd.depth=32
+hw.lcd.height=1920
+hw.lcd.transparent=false
+hw.lcd.vsync=60
+hw.lcd.width=1080
+image.sysdir.1=system-images/android-36/google_apis/arm64-v8a/
+tag.id=google_apis
+tag.ids=google_apis
+READ-ONLY installed image metadata
+Pkg.Desc=System Image arm64-v8a with Google APIs.
+Pkg.Revision=7
+Pkg.Dependencies=emulator#35.4.9
+AndroidVersion.ApiLevel=36
+AndroidVersion.ExtensionLevel=17
+AndroidVersion.IsBaseSdk=true
+SystemImage.Abi=arm64-v8a
+SystemImage.TagId=google_apis
+SystemImage.TagDisplay=Google APIs
+SystemImage.GpuSupport=true
+Addon.VendorId=google
+Addon.VendorDisplay=Google Inc.
+
+READ-ONLY emulator binary
+-rwxr-xr-x@ 1 jsrc1115  staff  9178208 Oct  1 19:08 /Users/jsrc1115/Library/Android/sdk/emulator/emulator
+Initial QA artifact hashes
+e1c7d129eebb2c4ddd87b923529beb42348653f74a597ee5a2116524245fab12  openspec/changes/add-goal-search-screen/qa/android-smoke-4.2.md
+061c0accfc6678a7223fa8eedb064f580643407c45a03370e4c50d9b420e9aa3  openspec/changes/add-goal-search-screen/qa/evidence/android-smoke-4.2.log
+2b73f893a693f7653de7938b37a8fe2a9762f4d0f7502cba1362b2d916b5a6a0  openspec/changes/add-goal-search-screen/qa/test-plan.md
+
+===== startup.txt =====
+2026-10-04T15:06:43Z
+573b465dfdd1e7d98519575e029c637a39c98f333614491437636cc9b080e680  /private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun/app-before.diff
+4e2d3e07db7f455d66af6d0e0f3a590b13ce90d220b473374a109dec6bc3e63e  /private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun/app-before.json
+903bf6a4e222ec0f2777196399c3faf3dedfaf7604b92de6df206c3ee70eabc4  app/pubspec.yaml
+af69c6b69b339d74946004a863954adfa14f9c30d44692e762fbade82bd02626  app/pubspec.lock
+7a652fd694876506336ba4483e8b9a53731fee1d33deb8b3b876e816f989b355  /Users/jsrc1115/.android/avd/boticario_catalog_api36.avd/config.ini
+Launch command: nohup ~/Library/Android/sdk/emulator/emulator -avd boticario_catalog_api36 -port 5566 -no-window -no-audio -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+Launched PID=2863
+
+===== boot.txt =====
+2026-10-04T15:07:02Z
+Boot ready on attempt 1
+Identity
+boticario_catalog_api36
+OK
+State
+device
+API
+36
+Model
+sdk_gphone64_arm64
+Size
+Physical size: 1080x1920
+Density
+Physical density: 480
+Boot
+1
+Started process identity
+ 2863     1 /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd boticario_catalog_api36 -port 5566 -no-window -no-audio -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+Sockets on authorized ports
+COMMAND    PID     USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+adb       1438 jsrc1115   14u  IPv4 0xdfee7a0e73543560      0t0  TCP 127.0.0.1:51634->127.0.0.1:5567 (ESTABLISHED)
+qemu-syst 2863 jsrc1115   38u  IPv4 0x2710c0286ff2f77e      0t0  TCP 127.0.0.1:5567 (LISTEN)
+qemu-syst 2863 jsrc1115   39u  IPv6 0x79fd804c74fe3e68      0t0  TCP [::1]:5567 (LISTEN)
+qemu-syst 2863 jsrc1115   42u  IPv4 0x368ac89dc3a6fbb2      0t0  TCP 127.0.0.1:5566 (LISTEN)
+qemu-syst 2863 jsrc1115   43u  IPv6 0x9d765f0cc1eae252      0t0  TCP [::1]:5566 (LISTEN)
+qemu-syst 2863 jsrc1115   71u  IPv4 0x69be267afd6b7eeb      0t0  TCP 127.0.0.1:5567->127.0.0.1:51634 (ESTABLISHED)
+2026-10-04T15:07:02Z
+
+===== settings-before.txt =====
+2026-10-04T15:07:21Z
+system font_scale=1.0
+global wifi_on=1
+global mobile_data=1
+global airplane_mode_on=0
+secure accessibility_enabled=0
+secure touch_exploration_enabled=0
+
+===== flutter-version.txt =====
+Flutter 3.47.6 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 5fc346839b (4 days ago) • 2026-09-30 15:02:49 -0700
+Engine • hash b8c8d3d8d5d0095127057f8a29ca8cc53da2167c (revision 692136cb65) (4 days ago) • 2026-09-30 00:56:59.000Z
+Tools • Dart 3.13.5 • DevTools 2.60.0
+
+===== smoke-raw.log =====
+START 2026-10-04T15:07:36Z
+cwd=/Users/jsrc1115/Code/boticario-ai/app
+COMMAND: flutter test integration_test/app_test.dart -d emulator-5566
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart
+Running Gradle task 'assembleDebug'...                          
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/Users/jsrc1115/.gradle/wrapper/dists/gradle-9.3.1-all/9ot9r568e8zfvvd4mn8rbu1j0/gradle-9.3.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Running Gradle task 'assembleDebug'...                             14,8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          287ms
+00:00 +0: (setUpAll)
+00:00 +0: real app: Home, local catalog, passport and session returns
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Identificar con cámara
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Historial
+[Home] Pestaña: Perfil
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+[CatalogSmoke metrics] stage=P04.before-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[CatalogSmoke metrics] stage=P05.after-navigation inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[CatalogSmoke metrics] stage=P05.before-chevron-return inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[CatalogSmoke metrics] stage=P04.before-framework-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[CatalogSmoke metrics] stage=P05.after-framework-navigation inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=117.33333333333337 offset=117.33333333333337 scrollController=887693545 queryController=965281999 query=A
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+00:27 +1: (tearDownAll)
+00:27 +1: All tests passed!
+
+SMOKE_EXIT=0
+END 2026-10-04T15:08:21Z
+
+===== settings-after.txt =====
+2026-10-04T15:09:48Z
+system font_scale=1.0
+global wifi_on=1
+global mobile_data=1
+global airplane_mode_on=0
+secure accessibility_enabled=0
+secure touch_exploration_enabled=0
+
+===== postflight.txt =====
+2026-10-04T15:09:48Z
+Post-smoke identity
+boticario_catalog_api36
+OK
+device
+1
+Physical size: 1080x1920
+Physical density: 480
+Authorized app PID
+pidof exit=1 (1 and no output = no app process)
+Emulator PID remains running
+ 2863     1 /Users/jsrc1115/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd boticario_catalog_api36 -port 5566 -no-window -no-audio -accel on -gpu swiftshader_indirect -no-snapshot -no-boot-anim
+Fresh integration debug APK
+size=116878968 mtime=2026-10-04T10:07:51Z
+8bddf79a9d2456d6f2911504cb1cefe6c78bd149f0f2f49b16af7436d5020b5b  app/build/app/outputs/flutter-apk/app-debug.apk
+AVD config after
+7a652fd694876506336ba4483e8b9a53731fee1d33deb8b3b876e816f989b355  /Users/jsrc1115/.android/avd/boticario_catalog_api36.avd/config.ini
+Timestamp correction: prior stat mtime used local timezone with a literal Z; authoritative UTC mtime follows.
+APK size=116878968 UTC mtime=2026-10-04T15:07:51Z
+
+===== integrity.txt =====
+App source manifest: 58 files; changed files=[]
+Settings before/after identical=True
+573b465dfdd1e7d98519575e029c637a39c98f333614491437636cc9b080e680  /private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun/app-before.diff
+573b465dfdd1e7d98519575e029c637a39c98f333614491437636cc9b080e680  /private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun/app-after.diff
+4e2d3e07db7f455d66af6d0e0f3a590b13ce90d220b473374a109dec6bc3e63e  /private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun/app-before.json
+4e2d3e07db7f455d66af6d0e0f3a590b13ce90d220b473374a109dec6bc3e63e  /private/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/opencode/goal-search-4.2-rerun/app-after.json
+903bf6a4e222ec0f2777196399c3faf3dedfaf7604b92de6df206c3ee70eabc4  app/pubspec.yaml
+af69c6b69b339d74946004a863954adfa14f9c30d44692e762fbade82bd02626  app/pubspec.lock
+Historical QA artifact hashes after
+e1c7d129eebb2c4ddd87b923529beb42348653f74a597ee5a2116524245fab12  openspec/changes/add-goal-search-screen/qa/android-smoke-4.2.md
+061c0accfc6678a7223fa8eedb064f580643407c45a03370e4c50d9b420e9aa3  openspec/changes/add-goal-search-screen/qa/evidence/android-smoke-4.2.log
+2b73f893a693f7653de7938b37a8fe2a9762f4d0f7502cba1362b2d916b5a6a0  openspec/changes/add-goal-search-screen/qa/test-plan.md
+Dependency diff exit=0
+
+===== bounded startup health excerpt (only selected lines; not full live log) =====
+INFO         | Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
+INFO         | Boot completed in 12721 ms
+
+Observed stdout: Home messages=16; metrics snapshots=7.
+HTTP attempts=0 established by passing enabled guard assertion, not a printed numeric counter.
+Trace/screenshot/video artifacts=0 (Flutter harness does not create Playwright traces).
+
+===== Full tracked app diff BEFORE = AFTER (byte-identical; stored once) =====
+diff --git a/app/integration_test/catalog_smoke.dart b/app/integration_test/catalog_smoke.dart
+index 0e6f6a5..f837330 100644
+--- a/app/integration_test/catalog_smoke.dart
++++ b/app/integration_test/catalog_smoke.dart
+@@ -3,6 +3,7 @@ import 'dart:io';
+ import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
+ import 'package:boticario_ai/features/home/presentation/home_action.dart';
+ import 'package:boticario_ai/features/home/presentation/home_page.dart';
++import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
+ import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
+ import 'package:boticario_ai/main.dart' as app;
+ import 'package:flutter/material.dart';
+@@ -102,11 +103,10 @@ Future<void> _runCatalogSmoke(
+     expect(homeLogs, isEmpty, reason: 'build must not emit Home action logs');
+     _expectHomeSelected(tester);
+ 
+-    // The ten inert P03 controls stay on / and each emits its exact literal.
++    // The nine inert P03 controls stay on / and each emits its exact literal.
+     for (final action in <HomeAction>[
+       HomeAction.headerMenu,
+       HomeAction.headerProfile,
+-      HomeAction.searchByGoal,
+       HomeAction.identifyWithCamera,
+       HomeAction.formulateBlends,
+       HomeAction.askTheBoticario,
+@@ -124,7 +124,28 @@ Future<void> _runCatalogSmoke(
+       expect(find.byType(Drawer), findsNothing);
+     }
+ 
+-    // Explore activation #1 is explicitly distinct from the ten inert actions.
++    // P06 is visited three times to exercise each return mechanism. Goal rows
++    // and the three unavailable footer tabs remain inert on every visit.
++    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
++    _expectGoalSearch(tester, router);
++    await _tapGoalRowsAndDisabledFooter(tester, router);
++    await _tapVisible(tester, find.byTooltip('Volver a Inicio'));
++    _expectHomeAndCleanStack(tester, router);
++
++    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
++    _expectGoalSearch(tester, router);
++    await _tapGoalRowsAndDisabledFooter(tester, router);
++    await tester.binding.handlePopRoute();
++    await _settle(tester);
++    _expectHomeAndCleanStack(tester, router);
++
++    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
++    _expectGoalSearch(tester, router);
++    await _tapGoalRowsAndDisabledFooter(tester, router);
++    await _tapVisible(tester, find.text('Inicio').last);
++    _expectHomeAndCleanStack(tester, router);
++
++    // Explore activation #1 is explicitly distinct from the nine inert actions.
+     await _tapAndExpectHomeLog(
+       tester,
+       homeLogs,
+@@ -336,11 +357,11 @@ Future<void> _runCatalogSmoke(
+     await _settle(tester);
+     _expectHomeAndCleanStack(tester, router);
+ 
+-    // Exact sequence proves all 11 literal action messages and no build logs.
++    // Exact sequence proves all 11 action mappings, repeated route entry
++    // counts, and no build logs.
+     expect(homeLogs, <String>[
+       _messages[HomeAction.headerMenu]!,
+       _messages[HomeAction.headerProfile]!,
+-      _messages[HomeAction.searchByGoal]!,
+       _messages[HomeAction.identifyWithCamera]!,
+       _messages[HomeAction.formulateBlends]!,
+       _messages[HomeAction.askTheBoticario]!,
+@@ -348,6 +369,9 @@ Future<void> _runCatalogSmoke(
+       _messages[HomeAction.tabFavorites]!,
+       _messages[HomeAction.tabHistory]!,
+       _messages[HomeAction.tabProfile]!,
++      _messages[HomeAction.searchByGoal]!,
++      _messages[HomeAction.searchByGoal]!,
++      _messages[HomeAction.searchByGoal]!,
+       _messages[HomeAction.explorePlantsAndOils]!,
+       _messages[HomeAction.explorePlantsAndOils]!,
+       _messages[HomeAction.explorePlantsAndOils]!,
+@@ -367,6 +391,45 @@ Future<void> _runCatalogSmoke(
+   }
+ }
+ 
++const _goalLabels = <String>[
++  'Relajación / Estrés',
++  'Mejorar el sueño',
++  'Cuidado de la piel',
++  'Alivio respiratorio',
++  'Concentración',
++  'Otros objetivos',
++];
++
++void _expectGoalSearch(WidgetTester tester, GoRouter router) {
++  expect(find.byType(GoalSearchPage), findsOneWidget);
++  _expectPath(router, '/goals');
++  expect(find.text('¿Qué deseas lograr?'), findsOneWidget);
++  expect(find.text('Selecciona un objetivo principal'), findsOneWidget);
++  for (final label in _goalLabels) {
++    expect(find.text(label), findsOneWidget);
++  }
++}
++
++Future<void> _tapGoalRowsAndDisabledFooter(
++  WidgetTester tester,
++  GoRouter router,
++) async {
++  for (final label in _goalLabels) {
++    await _tapVisible(tester, find.text(label));
++    expect(find.byType(GoalSearchPage), findsOneWidget);
++    _expectPath(router, '/goals');
++    expect(find.text(label), findsOneWidget);
++    expect(find.byType(SnackBar), findsNothing);
++    expect(find.byType(Dialog), findsNothing);
++  }
++  await _expectCatalogFooterDisabled(
++    tester,
++    GoalSearchPage,
++    router,
++    expectedPath: '/goals',
++  );
++}
++
+ void _expectPath(GoRouter router, String path) =>
+     expect(router.state.uri.path, path);
+ 
+@@ -436,8 +499,9 @@ void _expectRestoredExplore(
+ Future<void> _expectCatalogFooterDisabled(
+   WidgetTester tester,
+   Type pageType,
+-  GoRouter router,
+-) async {
++  GoRouter router, {
++  String expectedPath = '/explore',
++}) async {
+   for (final label in ['Favoritos', 'Historial', 'Perfil']) {
+     final disabled = find.bySemanticsLabel('$label no disponible');
+     expect(disabled, findsOneWidget);
+@@ -448,7 +512,7 @@ Future<void> _expectCatalogFooterDisabled(
+     await tester.tap(disabled, warnIfMissed: false);
+     await _settle(tester);
+     expect(find.byType(pageType), findsOneWidget);
+-    _expectPath(router, '/explore');
++    _expectPath(router, expectedPath);
+   }
+   final home = _catalogHome(pageType);
+   expect(tester.getSemantics(home), isSemantics(isSelected: true));
+diff --git a/app/lib/app/router.dart b/app/lib/app/router.dart
+index 1a76f3f..dcb3d77 100644
+--- a/app/lib/app/router.dart
++++ b/app/lib/app/router.dart
+@@ -2,10 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+ 
+ import '../features/explore/presentation/explore_page.dart';
++import '../features/goal_search/presentation/goal_search_page.dart';
+ import '../features/home/presentation/home_page.dart';
+ import '../features/passport/presentation/plant_passport_page.dart';
+ 
+-/// Router de la app: Home contiene Explorar, que contiene el pasaporte.
++/// Router de la app: Home contiene Explorar y P06; Explorar contiene el pasaporte.
+ ///
+ /// Se construye una instancia por scope (`ProviderScope` de app o test) y se
+ /// libera con `router.dispose` al descartarse el provider.
+@@ -15,9 +16,18 @@ final appRouterProvider = Provider<GoRouter>((ref) {
+     routes: [
+       GoRoute(
+         path: '/',
+-        builder: (context, state) =>
+-            HomePage(onExplore: () => context.push('/explore')),
++        builder: (context, state) => HomePage(
++          onExplore: () => context.push('/explore'),
++          onSearchByGoal: () => context.push('/goals'),
++        ),
+         routes: [
++          GoRoute(
++            path: 'goals',
++            builder: (context, state) => GoalSearchPage(
++              onBack: () => context.pop(),
++              onHome: () => context.go('/'),
++            ),
++          ),
+           GoRoute(
+             path: 'explore',
+             builder: (context, state) => ExplorePage(
+diff --git a/app/lib/features/home/presentation/home_page.dart b/app/lib/features/home/presentation/home_page.dart
+index c26d6ae..7a5a72b 100644
+--- a/app/lib/features/home/presentation/home_page.dart
++++ b/app/lib/features/home/presentation/home_page.dart
+@@ -36,12 +36,18 @@ void _emitHomeAction(HomeAction action) {
+ /// Pantalla Inicio (P03): estructura visual de partida de la ruta `/`.
+ ///
+ /// Sin estado ni providers: cada control emite su acción de depuración; Explorar
+-/// además delega su navegación al callback requerido. Compone cabecera, banner,
+-/// cuadrícula 2x2, CTA y barra inferior con `Inicio` siempre seleccionado.
++/// y Buscar por objetivo delegan su navegación a callbacks requeridos. Compone
++/// cabecera, banner, cuadrícula 2x2, CTA y barra inferior con `Inicio` siempre
++/// seleccionado.
+ class HomePage extends StatelessWidget {
+-  const HomePage({super.key, required this.onExplore});
++  const HomePage({
++    super.key,
++    required this.onExplore,
++    required this.onSearchByGoal,
++  });
+ 
+   final VoidCallback onExplore;
++  final VoidCallback onSearchByGoal;
+ 
+   @override
+   Widget build(BuildContext context) {
+@@ -97,7 +103,10 @@ class HomePage extends StatelessWidget {
+         action: HomeAction.searchByGoal,
+         icon: Icons.track_changes,
+         label: 'Buscar por objetivo',
+-        onPressed: () => _emitHomeAction(HomeAction.searchByGoal),
++        onPressed: () {
++          _emitHomeAction(HomeAction.searchByGoal);
++          onSearchByGoal();
++        },
+       ),
+       _FeatureCard(
+         action: HomeAction.identifyWithCamera,
+diff --git a/app/test/app/app_test.dart b/app/test/app/app_test.dart
+index 1bc6d1e..23de932 100644
+--- a/app/test/app/app_test.dart
++++ b/app/test/app/app_test.dart
+@@ -6,6 +6,7 @@ import 'package:boticario_ai/features/catalog/data/plant_catalog_repository.dart
+ import 'package:boticario_ai/features/catalog/domain/plant.dart';
+ import 'package:boticario_ai/features/catalog/domain/plant_catalog_provenance.dart';
+ import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
++import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
+ import 'package:boticario_ai/features/home/presentation/home_page.dart';
+ import 'package:boticario_ai/features/home/presentation/home_action.dart';
+ import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
+@@ -159,6 +160,51 @@ void main() {
+     }
+   });
+ 
++  testWidgets('Buscar por objetivo abre P06 y Atrás de app/sistema retorna', (
++    tester,
++  ) async {
++    for (final useFrameworkBack in [false, true]) {
++      final logs = <String>[];
++      final original = debugPrint;
++      debugPrint = (String? message, {int? wrapWidth}) {
++        if (message != null && message.startsWith('[Home]')) {
++          logs.add(message);
++        } else {
++          original(message, wrapWidth: wrapWidth);
++        }
++      };
++      try {
++        await _mount(tester);
++        final router = _currentRouter(tester);
++        await tester.tap(find.byKey(const ValueKey(HomeAction.searchByGoal)));
++        await tester.pumpAndSettle();
++        expect(router.state.uri.path, '/goals');
++        expect(find.byType(GoalSearchPage), findsOneWidget);
++        expect(logs, ['[Home] Buscar por objetivo']);
++
++        for (final tab in ['Favoritos', 'Historial', 'Perfil']) {
++          await tester.tap(find.text(tab));
++          await tester.pumpAndSettle();
++          expect(router.state.uri.path, '/goals');
++          expect(find.byType(GoalSearchPage), findsOneWidget);
++        }
++
++        if (useFrameworkBack) {
++          await tester.binding.handlePopRoute();
++        } else {
++          await tester.tap(find.byTooltip('Volver a Inicio'));
++        }
++        await tester.pumpAndSettle();
++        expect(router.state.uri.path, '/');
++        expect(find.byType(HomePage), findsOneWidget);
++        expect(logs, ['[Home] Buscar por objetivo']);
++      } finally {
++        debugPrint = original;
++      }
++      await tester.pumpWidget(const SizedBox.shrink());
++    }
++  });
++
+   testWidgets('dos ProviderScope no comparten el GoRouter', (tester) async {
+     await tester.pumpWidget(const ProviderScope(child: BoticarioApp()));
+     await tester.pumpAndSettle();
+@@ -424,4 +470,19 @@ void main() {
+     expect(router.canPop(), isFalse);
+     expect(find.byType(HomePage), findsOneWidget);
+   });
++
++  testWidgets('Inicio desde P06 limpia la pila', (tester) async {
++    await _mount(tester);
++    final router = _currentRouter(tester);
++    await tester.tap(find.byKey(const ValueKey(HomeAction.searchByGoal)));
++    await tester.pumpAndSettle();
++    expect(router.state.uri.path, '/goals');
++
++    await tester.tap(find.text('Inicio').last);
++    await tester.pumpAndSettle();
++    expect(router.state.uri.path, '/');
++    expect(router.canPop(), isFalse);
++    expect(find.byType(HomePage), findsOneWidget);
++    expect(find.byType(GoalSearchPage), findsNothing);
++  });
+ }
+diff --git a/app/test/app/catalog_smoke_contract_test.dart b/app/test/app/catalog_smoke_contract_test.dart
+index 51f82ff..2a91d9f 100644
+--- a/app/test/app/catalog_smoke_contract_test.dart
++++ b/app/test/app/catalog_smoke_contract_test.dart
+@@ -11,7 +11,7 @@ void main() {
+   });
+ 
+   testWidgets(
+-    'shared real-app catalog smoke flow passes host preflight (not Android evidence)',
++    'shared real-app P06 and catalog smoke passes host preflight (not Android evidence)',
+     (tester) async {
+       // This host binding preloads the bundle via its test asset channel. It
+       // intentionally does not run the app-level HTTP guard or claim network
+diff --git a/app/test/features/home/home_page_test.dart b/app/test/features/home/home_page_test.dart
+index c4635fa..c61e5ef 100644
+--- a/app/test/features/home/home_page_test.dart
++++ b/app/test/features/home/home_page_test.dart
+@@ -127,6 +127,7 @@ Widget _buildHomeHarness({
+   TextScaler textScaler = TextScaler.noScaling,
+   EdgeInsets padding = EdgeInsets.zero,
+   VoidCallback onExplore = _noop,
++  VoidCallback onSearchByGoal = _noop,
+ }) {
+   return MaterialApp(
+     theme: buildBoticarioTheme(),
+@@ -137,7 +138,7 @@ Widget _buildHomeHarness({
+           padding: padding,
+           viewPadding: padding,
+         ),
+-        child: HomePage(onExplore: onExplore),
++        child: HomePage(onExplore: onExplore, onSearchByGoal: onSearchByGoal),
+       ),
+     ),
+   );
+@@ -156,7 +157,8 @@ GoRouter _createHomeRouter() {
+     routes: [
+       GoRoute(
+         path: '/',
+-        builder: (context, state) => HomePage(onExplore: () {}),
++        builder: (context, state) =>
++            HomePage(onExplore: () {}, onSearchByGoal: () {}),
+       ),
+     ],
+   );
+@@ -340,7 +342,9 @@ void main() {
+   });
+ 
+   group('4.3 no mutación y sin logs automáticos', () {
+-    testWidgets('solo el callback Explorar permite navegación', (tester) async {
++    testWidgets('solo Explorar y Buscar por objetivo permiten navegación', (
++      tester,
++    ) async {
+       _usePhoneViewport(tester);
+       final router = _createHomeRouter();
+       addTearDown(router.dispose);
+@@ -357,7 +361,9 @@ void main() {
+           expect(logs, ['[Home] Explorar plantas y aceites']);
+ 
+           for (final action in _expectedMessages.keys.where(
+-            (action) => action != HomeAction.explorePlantsAndOils,
++            (action) =>
++                action != HomeAction.explorePlantsAndOils &&
++                action != HomeAction.searchByGoal,
+           )) {
+             await _tapAction(tester, action);
+             expect(
+@@ -366,7 +372,7 @@ void main() {
+             );
+           }
+ 
+-          expect(logs, hasLength(_expectedMessages.length));
++          expect(logs, hasLength(_expectedMessages.length - 1));
+           expect(find.byType(HomePage), findsOneWidget);
+           expect(find.byType(SnackBar), findsNothing);
+           expect(find.byType(Dialog), findsNothing);
+@@ -387,25 +393,37 @@ void main() {
+       }
+     });
+ 
+-    testWidgets('Explorar llama una vez a su callback; otras diez no', (
+-      tester,
+-    ) async {
+-      _usePhoneViewport(tester);
+-      var exploreCalls = 0;
+-      await tester.pumpWidget(
+-        _buildHomeHarness(onExplore: () => exploreCalls++),
+-      );
+-      await tester.pumpAndSettle();
++    testWidgets(
++      'Explorar y Buscar llaman una vez a sus callbacks; otras nueve no',
++      (tester) async {
++        _usePhoneViewport(tester);
++        var exploreCalls = 0;
++        var searchCalls = 0;
++        await tester.pumpWidget(
++          _buildHomeHarness(
++            onExplore: () => exploreCalls++,
++            onSearchByGoal: () => searchCalls++,
++          ),
++        );
++        await tester.pumpAndSettle();
+ 
+-      await _tapAction(tester, HomeAction.explorePlantsAndOils);
+-      expect(exploreCalls, 1);
+-      for (final action in HomeAction.values.where(
+-        (action) => action != HomeAction.explorePlantsAndOils,
+-      )) {
+-        await _tapAction(tester, action);
+-      }
+-      expect(exploreCalls, 1);
+-    });
++        await _tapAction(tester, HomeAction.explorePlantsAndOils);
++        expect(exploreCalls, 1);
++        expect(searchCalls, 0);
++        await _tapAction(tester, HomeAction.searchByGoal);
++        expect(exploreCalls, 1);
++        expect(searchCalls, 1);
++        for (final action in HomeAction.values.where(
++          (action) =>
++              action != HomeAction.explorePlantsAndOils &&
++              action != HomeAction.searchByGoal,
++        )) {
++          await _tapAction(tester, action);
++        }
++        expect(exploreCalls, 1);
++        expect(searchCalls, 1);
++      },
++    );
+ 
+     testWidgets('rebuild y reassemble no emiten logs', (tester) async {
+       _usePhoneViewport(tester);
+
+===== Source manifest BEFORE = AFTER (58 tracked/untracked nonignored app files; stored once) =====
+{
+  "app/.gitignore": "441eaa1de5b3db9fae056e7503567e9f8dd94173e1389c60f76956abf729015a",
+  "app/.metadata": "efc9d830c3d630092d3c8bc4c749c4586e14b9de6d3003e763d1bebe5e7bd923",
+  "app/README.md": "777db93088e6290a2e83144375fb61bd275298d649f4fec2dc63a32b35dd1633",
+  "app/analysis_options.yaml": "8c444fa716cc360b71eae6ab8f500a802ecbee7555b57aefb2fecd8858f1979c",
+  "app/android/.gitignore": "b027c9de1011765c015e5819bf857c0d75bfcd0886fb01721c091159012e50f1",
+  "app/android/app/build.gradle.kts": "516121ab009d3c9b444d7a7f218b5c90a6973925bdab625860a09ddc7e4e73ac",
+  "app/android/app/src/debug/AndroidManifest.xml": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b",
+  "app/android/app/src/main/AndroidManifest.xml": "cf552b7a236c937c8f4c8c45f5c78aa35b58adde856ace99f48954ed526c521b",
+  "app/android/app/src/main/kotlin/com/example/boticario_ai/MainActivity.kt": "28fb20f2628ee736b73d4a022c7bd5e9e7af2f05cbcb4785b3ebfacec57b0ebc",
+  "app/android/app/src/main/res/drawable-v21/launch_background.xml": "7ca6d5cec2169c5a98661a119db23a6f3399c8fef2256ff04f3a642831282478",
+  "app/android/app/src/main/res/drawable/launch_background.xml": "94433756fe10005ddd6fc55cc5c0b1e9f3c10b66a08ceac795ece6713d34e28a",
+  "app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": "6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef",
+  "app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": "c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81",
+  "app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": "e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa",
+  "app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": "4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540",
+  "app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": "3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180",
+  "app/android/app/src/main/res/values-night/styles.xml": "8c5bad5152f217e837519f9c15211d19f39bd45f5f67faf6dd81cb4b299e518f",
+  "app/android/app/src/main/res/values/styles.xml": "937d7c82f539c72eb94fd3a3773f29b3d3fef1997213c92cb632298cedf4bda9",
+  "app/android/app/src/profile/AndroidManifest.xml": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b",
+  "app/android/build.gradle.kts": "6a26dba2cb8dfba1e74f540b0d17a89d96c1301d3c3bfda14348bed257fddcba",
+  "app/android/gradle.properties": "0f82b18017fba6bb5ce3aa4b2d1a00c9382fc8aae7b1d9326e44b18abd66d80b",
+  "app/android/gradle/wrapper/gradle-wrapper.properties": "b690d26223576fe4e63889fad9a00df81945cb870b9476cc5a563152a1a88a74",
+  "app/android/settings.gradle.kts": "016759283e88ade6eba92910583feeef88b962839b957aa414296afd2952d122",
+  "app/assets/data/plant_catalog.json": "977466687c280cd207cc98b240c17071c273a54dae7c05c8be9c059220e93022",
+  "app/integration_test/app_test.dart": "d97baa84dd75448228227e5caea172af60672db16d82c5a05647bd4029b64bc2",
+  "app/integration_test/catalog_smoke.dart": "83c3e75f632b9b093587493ab02e7b11a4fa246ff54947aa992d5ee67edbf502",
+  "app/lib/app/app.dart": "a4bddf81768ab42ead9014bc1c2cf81615c16ab8cd6b9198b4c99e7f235e4050",
+  "app/lib/app/router.dart": "cb306366e443aff51afcf215e9e18e7b30779f9aba98b6594d4e4cc69fc3faad",
+  "app/lib/app/theme.dart": "6c57bc2dd7820a5632eedb4a561b6982ae0cb3d80558a056b89b4d0dd37ce8ba",
+  "app/lib/features/catalog/data/plant_catalog_asset_data_source.dart": "2a341b7949ae6721e69fa4d4237be6c256470d259944400128d40ed7c085bb2c",
+  "app/lib/features/catalog/data/plant_catalog_repository.dart": "49a30956f606e235af722b4a5aebd4ba9bc9369de6427e2c4aab882a3ef15696",
+  "app/lib/features/catalog/domain/plant.dart": "8b8fbe5bce5d1cde175ae3eca1ec8b4a04f2cbfb61a3cc8d45e9d12aa3190cec",
+  "app/lib/features/catalog/domain/plant_catalog_provenance.dart": "51874f27f9ab4479b36e7fceeda56017f2ef7c91e38a5f78c3c0c8ec9185ef65",
+  "app/lib/features/catalog/domain/plant_search.dart": "1997f849b8b1914cf3cc400e5f97172d911d2c8360b5f4e509d5298a033471c6",
+  "app/lib/features/explore/presentation/explore_page.dart": "41f3ee6007c4c2ad6a247d10ccc28400265e6187181d69447f1f0361ea29944f",
+  "app/lib/features/goal_search/presentation/goal_search_page.dart": "85c4ab1f247115939affd12ddd30f1b1120d6a1de370d53826b49fe6fd865268",
+  "app/lib/features/home/presentation/home_action.dart": "7d3cc51ae96f54b0d75e833293a8ad8b2ef86b81c90f27f9806975426492b131",
+  "app/lib/features/home/presentation/home_page.dart": "03f2ac5d75c1600b043a91eb7f870e1a0cd4bf3084aea4c651caa74b8ebc204b",
+  "app/lib/features/passport/presentation/plant_passport_page.dart": "5a950deb8adb83d7fbdb3d4004980b3b8214e0f4225784cc20d11842d46d16a4",
+  "app/lib/main.dart": "79df30504ade13e6a68f154f0bb4fba3db93f5b10193f27a57453271922c7917",
+  "app/pubspec.lock": "af69c6b69b339d74946004a863954adfa14f9c30d44692e762fbade82bd02626",
+  "app/pubspec.yaml": "903bf6a4e222ec0f2777196399c3faf3dedfaf7604b92de6df206c3ee70eabc4",
+  "app/test/app/app_test.dart": "413bfc338a0166062b7e95cea2a55b4241596cd981923f5ddcc8d9ee77425cf6",
+  "app/test/app/catalog_smoke_contract_test.dart": "bda22e410e765f63a608b4ba5c2dd52ce5840db7ca4ec85b50c92ee7684f2147",
+  "app/test/features/catalog/data/plant_catalog_asset_data_source_test.dart": "918959f959bf9bf23347e9c13fb08ec0dff78a33905852a8d74ad3dd91ea30b5",
+  "app/test/features/catalog/data/plant_catalog_fixture_test.dart": "d7cc1ec1e78f1b29eb0450cd9e6241599397fa692dea563469bbe648bf5218ce",
+  "app/test/features/catalog/data/plant_catalog_repository_test.dart": "ad106558b7d87e1d8423922167675a3fc1c8e5693a3bb56f04bf98534ce19606",
+  "app/test/features/catalog/domain/plant_search_test.dart": "cebfbecd485e8ec09ad8c26b713716d1a0274392572a32589d8cd32596f625b0",
+  "app/test/features/catalog/domain/plant_test.dart": "176277090ad5d80faa3f7096be537ca47c6e1406ce0d0c4486adf2cbee709ddf",
+  "app/test/features/explore/explore_page_test.dart": "d4aa61235b19233cbf056682a70f8d829e65aed4b28a04f70c92964b1d5d243d",
+  "app/test/features/goal_search/goal_search_page_test.dart": "8da1da3dd2d58b0c77a2c948bbcab82260b268526b1557ec4afdd4a163ba08df",
+  "app/test/features/home/home_action_test.dart": "1d6230bc8e0e4d36148c1dd4036752232c64171f74b3907e775c7ded1e3817ab",
+  "app/test/features/home/home_page_test.dart": "dce35566420ebd3cff21fb876104af5e0d3f8aa983c8733c36808fbcc42bf343",
+  "app/test/features/passport/plant_passport_page_test.dart": "1381fc2a8057699733262d9eb8c878eb52a5eb43238cc11e2199cd1ccbb86156",
+  "app/test/fixtures/fonts/README.md": "279849de09ad60fdff1b2bcbc1fb96f8257c4c7c16513e05f3b2b47b6371dff8",
+  "app/test/fixtures/fonts/Roboto-LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "app/test/fixtures/fonts/Roboto-Medium.ttf": "f205cc511821ea56078a105557fcea6253129404d411c997e1866fbd006abb68",
+  "app/test/fixtures/fonts/Roboto-Regular.ttf": "79e851404657dac2106b3d22ad256d47824a9a5765458edb72c9102a45816d95"
+}
+
+Redaction filter applied: 0 VM-service URLs replaced; no other normalization. Public ADB keys from live log intentionally not included.

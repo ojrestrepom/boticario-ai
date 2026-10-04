@@ -1,0 +1,34 @@
+Android 4.2 preflight transcript — copied from actual tool stdout/stderr.
+Execution date: 2026-10-04. Individual command timestamps were not captured.
+Evidence assembly reference timestamp: 2026-10-04T14:41:00Z (subsequent date -u output).
+Working directory: /Users/jsrc1115/Code/boticario-ai
+Command:
+ADB="$HOME/Library/Android/sdk/platform-tools/adb"; echo 'AVD identity'; "$ADB" -s emulator-5566 emu avd name; echo 'state'; "$ADB" -s emulator-5566 get-state; echo 'model'; "$ADB" -s emulator-5566 shell getprop ro.product.model; echo 'API'; "$ADB" -s emulator-5566 shell getprop ro.build.version.sdk; echo 'size'; "$ADB" -s emulator-5566 shell wm size; echo 'density'; "$ADB" -s emulator-5566 shell wm density
+Actual output:
+AVD identity
+error: could not connect to TCP port 5566: Connection refused
+state
+error: device 'emulator-5566' not found
+model
+adb: device 'emulator-5566' not found
+API
+adb: device 'emulator-5566' not found
+size
+adb: device 'emulator-5566' not found
+density
+adb: device 'emulator-5566' not found
+Combined shell exit: 1. Per-command exit values not separately captured.
+Decision: STOP. Authorized AVD identity/state/API/metrics not confirmed.
+Smoke command NOT EXECUTED: PATH=/opt/homebrew/share/flutter/bin:$PATH flutter test integration_test/app_test.dart -d emulator-5566 (cwd app/).
+Smoke exit: N/A. Android tests executed/passed/failed: 0/0/0 (1 planned testWidgets).
+HTTP guard: NOT RUN; Home log sequence: NOT RUN (source oracle has 16 entries, not observed device logs).
+No build/install, APK generated/hash claimed, font/radio/a11y changes, other device operations, emulator start/stop, or manual QA performed.
+No VM-service/token URLs appeared. Versionable evidence will be token-filtered; this is a transcript, not a Flutter execution log.
+
+Final local integrity check (no device operations):
+2026-10-04T14:43:32Z
+573b465dfdd1e7d98519575e029c637a39c98f333614491437636cc9b080e680  -
+85c4ab1f247115939affd12ddd30f1b1120d6a1de370d53826b49fe6fd865268  app/lib/features/goal_search/presentation/goal_search_page.dart
+903bf6a4e222ec0f2777196399c3faf3dedfaf7604b92de6df206c3ee70eabc4  app/pubspec.yaml
+af69c6b69b339d74946004a863954adfa14f9c30d44692e762fbade82bd02626  app/pubspec.lock
+Dependency diff exit: 0

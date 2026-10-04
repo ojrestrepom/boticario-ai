@@ -10,10 +10,12 @@ Proyecto en desarrollo con Flutter. La base de la app Android ya existe en
 [`.flutter-version`](.flutter-version), dependencias `flutter_riverpod` y
 `go_router` resueltas en `app/pubspec.lock`.
 
-El recorrido integrado actual es `/` → `/explore` → `/explore/:plantId`:
-Inicio (P03) abre Explorar (P04), y cada planta abre su Pasaporte (P05). Atrás
-desde P05 conserva consulta, filtro y posición de P04; Inicio desde P04/P05
-regresa a `/` y limpia la pila. Inicio conserva cabecera con icono de menú a la
+Los recorridos integrados actuales son `/` → `/explore` → `/explore/:plantId`
+y `/` → `/goals`: Inicio (P03) abre Explorar (P04), cada planta abre su
+Pasaporte (P05), y Buscar por objetivo abre P06. Atrás desde P05 conserva
+consulta, filtro y posición de P04; Atrás de app/sistema desde P06 y las rutas
+de Inicio regresan a `/`, limpiando la pila al usar Inicio. Inicio conserva
+cabecera con icono de menú a la
 izquierda, hojas y marca `Boticario AI` al centro, icono de persona a la
 derecha; banner
 `Pequeñas esencias, grandes posibilidades`; cuadrícula 2x2 con `Explorar plantas
@@ -21,12 +23,18 @@ y aceites`, `Buscar por objetivo`, `Identificar con cámara` y `Formular mezclas
 CTA `Preguntar al Boticario`; y barra inferior con `Inicio`, `Favoritos`,
 `Historial` y `Perfil`, con `Inicio` siempre seleccionado.
 
-Los 11 controles de Inicio (2 de cabecera, 4 tarjetas, 1 CTA y 4 pestañas)
-invocan su callback y, bajo `kDebugMode`, emiten exactamente un mensaje `[Home]`
-por activación. Solo `Explorar plantas y aceites` navega, incluso fuera de debug;
-las otras diez acciones son inertes. El mapeo normativo vive en
+P06 muestra `¿Qué deseas lograr?`, `Selecciona un objetivo principal` y seis
+categorías: `Relajación / Estrés`, `Mejorar el sueño`, `Cuidado de la piel`,
+`Alivio respiratorio`, `Concentración` y `Otros objetivos`. Es una pantalla
+visual: sus filas no seleccionan ni producen acciones, y no hay búsqueda,
+resultados, plantas asociadas ni P07. Las recomendaciones siguen sin estar
+implementadas. Los 11 controles de Inicio (2 de cabecera, 4 tarjetas, 1 CTA y 4
+pestañas) invocan su callback y, bajo `kDebugMode`, emiten exactamente un mensaje
+`[Home]` por activación. `Explorar plantas y aceites` y `Buscar por objetivo`
+navegan incluso fuera de debug; las otras nueve acciones son inertes. El mapeo normativo vive en
 [`app/lib/features/home/presentation/home_action.dart`](app/lib/features/home/presentation/home_action.dart).
-No hay mensajes por render/rebuild ni logs de consultas de usuario.
+No hay mensajes por render/rebuild ni logs de consultas de usuario. Las pruebas
+host no constituyen verificación de un binario profile/release.
 No hay backend, API de negocio, cámara funcional, permisos, persistencia de
 usuario, login ni chat real. El catálogo offline contiene cinco plantas:
 Lavanda, Eucalipto, Romero, Manzanilla y Menta. Sus nombres españoles son
@@ -44,12 +52,16 @@ evidencia clínica; no se ofrecen dosis, recomendaciones ni afirmaciones de
 eficacia. Procedencia, selección, registros, citas y límites están en la
 [guía del catálogo USDA](docs/data/usda-catalog.md).
 
-El flujo dispone de pruebas unit/widget, un smoke automatizado y QA manual en
-Android. La revisión funcional/visual manual a 100%/200% y offline real en AVD
-está aprobada en el alcance documentado; TalkBack no se ejecutó y esa limitación
-fue aceptada al archivar, por lo que la revisión integral sigue parcial. El
-incremento está archivado y sus cinco specs están sincronizadas; véase el
+El recorrido del catálogo dispone de pruebas unit/widget, un smoke automatizado
+y QA manual en Android. La revisión funcional/visual manual a 100%/200% y
+offline real en AVD, realizada el 2026-10-03 para el catálogo, está aprobada en
+el alcance documentado; TalkBack no se ejecutó y esa limitación fue aceptada al
+archivar, por lo que la revisión integral sigue parcial. El incremento anterior
+del catálogo está archivado y sus cinco specs están sincronizadas; véase el
 [registro de archivo](openspec/changes/archive/2026-10-03-build-local-plant-catalog/archival-note.md).
+P06 pertenece al incremento OpenSpec `add-goal-search-screen`, archivado con
+13/13 tareas completas y sus tres specs delta sincronizadas a las specs
+principales. Véase su [registro de archivo](openspec/changes/archive/2026-10-04-add-goal-search-screen/archival-note.md).
 Los resultados anteriores de Home/CI se conservan abajo como históricos.
 
 Disponible en `docs/`:
@@ -214,6 +226,24 @@ FALLÓ. QA manual 4.5 tiene evidencia propia; 5.3 sigue parcial. Informes: [AVD 
 y [Samsung 4.3](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-smoke-4.3.md).
 
 ### QA actual y pendiente
+
+La verificación host de P06 ejecutada el 2026-10-04 pasó **144/144 pruebas**;
+incluyó formato, análisis y contrato host compartido. El detalle y límites están
+en el [informe host P06](openspec/changes/archive/2026-10-04-add-goal-search-screen/qa/host-verification.md).
+El smoke Android P06 **pasó 1/1** el 2026-10-04 en el AVD autorizado; véanse el
+[informe de repetición 4.2](openspec/changes/archive/2026-10-04-add-goal-search-screen/qa/android-smoke-4.2-rerun.md)
+y su [log de evidencia](openspec/changes/archive/2026-10-04-add-goal-search-screen/qa/evidence/android-smoke-4.2-rerun.log).
+Se observaron 16 mensajes Home, cero intentos de crear `HttpClient` de la app y
+siete snapshots de métricas. Esto no prueba conectividad offline física. El
+preflight NOT RUN anterior permanece en su
+[informe](openspec/changes/archive/2026-10-04-add-goal-search-screen/qa/android-smoke-4.2.md); no se
+sobrescribe ni se cuenta como resultado de esta pasada.
+
+La QA visual manual P06 4.3 en el AVD autorizado pasó **10 casos, 0 fallos**;
+observó textos/orden, inercia, navegación, escalas 100%/200%, zonas seguras y
+targets. TalkBack, offline físico, profile/release y otros dispositivos siguen
+**NOT RUN**. Véanse el [informe manual 4.3](openspec/changes/archive/2026-10-04-add-goal-search-screen/qa/android-manual-4.3.md)
+y sus límites detallados; no se extrapola el resultado fuera del alcance.
 
 La QA manual del 2026-10-03 se ejecutó en `emulator-5566`, AVD
 `boticario_catalog_api36` (API 36; 360×640 dp nominales antes de insets). El

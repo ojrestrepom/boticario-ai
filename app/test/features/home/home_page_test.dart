@@ -127,6 +127,7 @@ Widget _buildHomeHarness({
   TextScaler textScaler = TextScaler.noScaling,
   EdgeInsets padding = EdgeInsets.zero,
   VoidCallback onExplore = _noop,
+  VoidCallback onSearchByGoal = _noop,
 }) {
   return MaterialApp(
     theme: buildBoticarioTheme(),
@@ -137,7 +138,7 @@ Widget _buildHomeHarness({
           padding: padding,
           viewPadding: padding,
         ),
-        child: HomePage(onExplore: onExplore),
+        child: HomePage(onExplore: onExplore, onSearchByGoal: onSearchByGoal),
       ),
     ),
   );
@@ -156,7 +157,8 @@ GoRouter _createHomeRouter() {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => HomePage(onExplore: () {}),
+        builder: (context, state) =>
+            HomePage(onExplore: () {}, onSearchByGoal: () {}),
       ),
     ],
   );
@@ -340,7 +342,9 @@ void main() {
   });
 
   group('4.3 no mutación y sin logs automáticos', () {
-    testWidgets('solo el callback Explorar permite navegación', (tester) async {
+    testWidgets('solo Explorar y Buscar por objetivo permiten navegación', (
+      tester,
+    ) async {
       _usePhoneViewport(tester);
       final router = _createHomeRouter();
       addTearDown(router.dispose);
@@ -357,7 +361,9 @@ void main() {
           expect(logs, ['[Home] Explorar plantas y aceites']);
 
           for (final action in _expectedMessages.keys.where(
-            (action) => action != HomeAction.explorePlantsAndOils,
+            (action) =>
+                action != HomeAction.explorePlantsAndOils &&
+                action != HomeAction.searchByGoal,
           )) {
             await _tapAction(tester, action);
             expect(
@@ -366,7 +372,7 @@ void main() {
             );
           }
 
-          expect(logs, hasLength(_expectedMessages.length));
+          expect(logs, hasLength(_expectedMessages.length - 1));
           expect(find.byType(HomePage), findsOneWidget);
           expect(find.byType(SnackBar), findsNothing);
           expect(find.byType(Dialog), findsNothing);
@@ -387,25 +393,37 @@ void main() {
       }
     });
 
-    testWidgets('Explorar llama una vez a su callback; otras diez no', (
-      tester,
-    ) async {
-      _usePhoneViewport(tester);
-      var exploreCalls = 0;
-      await tester.pumpWidget(
-        _buildHomeHarness(onExplore: () => exploreCalls++),
-      );
-      await tester.pumpAndSettle();
+    testWidgets(
+      'Explorar y Buscar llaman una vez a sus callbacks; otras nueve no',
+      (tester) async {
+        _usePhoneViewport(tester);
+        var exploreCalls = 0;
+        var searchCalls = 0;
+        await tester.pumpWidget(
+          _buildHomeHarness(
+            onExplore: () => exploreCalls++,
+            onSearchByGoal: () => searchCalls++,
+          ),
+        );
+        await tester.pumpAndSettle();
 
-      await _tapAction(tester, HomeAction.explorePlantsAndOils);
-      expect(exploreCalls, 1);
-      for (final action in HomeAction.values.where(
-        (action) => action != HomeAction.explorePlantsAndOils,
-      )) {
-        await _tapAction(tester, action);
-      }
-      expect(exploreCalls, 1);
-    });
+        await _tapAction(tester, HomeAction.explorePlantsAndOils);
+        expect(exploreCalls, 1);
+        expect(searchCalls, 0);
+        await _tapAction(tester, HomeAction.searchByGoal);
+        expect(exploreCalls, 1);
+        expect(searchCalls, 1);
+        for (final action in HomeAction.values.where(
+          (action) =>
+              action != HomeAction.explorePlantsAndOils &&
+              action != HomeAction.searchByGoal,
+        )) {
+          await _tapAction(tester, action);
+        }
+        expect(exploreCalls, 1);
+        expect(searchCalls, 1);
+      },
+    );
 
     testWidgets('rebuild y reassemble no emiten logs', (tester) async {
       _usePhoneViewport(tester);

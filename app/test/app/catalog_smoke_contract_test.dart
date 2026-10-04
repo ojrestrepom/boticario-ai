@@ -11,7 +11,7 @@ void main() {
   });
 
   testWidgets(
-    'shared real-app catalog smoke flow passes host preflight (not Android evidence)',
+    'shared real-app P06 and catalog smoke passes host preflight (not Android evidence)',
     (tester) async {
       // This host binding preloads the bundle via its test asset channel. It
       // intentionally does not run the app-level HTTP guard or claim network

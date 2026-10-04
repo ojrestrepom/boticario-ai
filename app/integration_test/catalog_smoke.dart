@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
+import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:boticario_ai/main.dart' as app;
 import 'package:flutter/material.dart';
@@ -102,11 +103,10 @@ Future<void> _runCatalogSmoke(
     expect(homeLogs, isEmpty, reason: 'build must not emit Home action logs');
     _expectHomeSelected(tester);
 
-    // The ten inert P03 controls stay on / and each emits its exact literal.
+    // The nine inert P03 controls stay on / and each emits its exact literal.
     for (final action in <HomeAction>[
       HomeAction.headerMenu,
       HomeAction.headerProfile,
-      HomeAction.searchByGoal,
       HomeAction.identifyWithCamera,
       HomeAction.formulateBlends,
       HomeAction.askTheBoticario,
@@ -124,7 +124,28 @@ Future<void> _runCatalogSmoke(
       expect(find.byType(Drawer), findsNothing);
     }
 
-    // Explore activation #1 is explicitly distinct from the ten inert actions.
+    // P06 is visited three times to exercise each return mechanism. Goal rows
+    // and the three unavailable footer tabs remain inert on every visit.
+    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
+    _expectGoalSearch(tester, router);
+    await _tapGoalRowsAndDisabledFooter(tester, router);
+    await _tapVisible(tester, find.byTooltip('Volver a Inicio'));
+    _expectHomeAndCleanStack(tester, router);
+
+    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
+    _expectGoalSearch(tester, router);
+    await _tapGoalRowsAndDisabledFooter(tester, router);
+    await tester.binding.handlePopRoute();
+    await _settle(tester);
+    _expectHomeAndCleanStack(tester, router);
+
+    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
+    _expectGoalSearch(tester, router);
+    await _tapGoalRowsAndDisabledFooter(tester, router);
+    await _tapVisible(tester, find.text('Inicio').last);
+    _expectHomeAndCleanStack(tester, router);
+
+    // Explore activation #1 is explicitly distinct from the nine inert actions.
     await _tapAndExpectHomeLog(
       tester,
       homeLogs,
@@ -336,11 +357,11 @@ Future<void> _runCatalogSmoke(
     await _settle(tester);
     _expectHomeAndCleanStack(tester, router);
 
-    // Exact sequence proves all 11 literal action messages and no build logs.
+    // Exact sequence proves all 11 action mappings, repeated route entry
+    // counts, and no build logs.
     expect(homeLogs, <String>[
       _messages[HomeAction.headerMenu]!,
       _messages[HomeAction.headerProfile]!,
-      _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.identifyWithCamera]!,
       _messages[HomeAction.formulateBlends]!,
       _messages[HomeAction.askTheBoticario]!,
@@ -348,6 +369,9 @@ Future<void> _runCatalogSmoke(
       _messages[HomeAction.tabFavorites]!,
       _messages[HomeAction.tabHistory]!,
       _messages[HomeAction.tabProfile]!,
+      _messages[HomeAction.searchByGoal]!,
+      _messages[HomeAction.searchByGoal]!,
+      _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.explorePlantsAndOils]!,
       _messages[HomeAction.explorePlantsAndOils]!,
       _messages[HomeAction.explorePlantsAndOils]!,
@@ -365,6 +389,45 @@ Future<void> _runCatalogSmoke(
     if (simulateKeyboardViewport) tester.view.viewInsets = originalViewInsets;
     semantics.dispose();
   }
+}
+
+const _goalLabels = <String>[
+  'Relajación / Estrés',
+  'Mejorar el sueño',
+  'Cuidado de la piel',
+  'Alivio respiratorio',
+  'Concentración',
+  'Otros objetivos',
+];
+
+void _expectGoalSearch(WidgetTester tester, GoRouter router) {
+  expect(find.byType(GoalSearchPage), findsOneWidget);
+  _expectPath(router, '/goals');
+  expect(find.text('¿Qué deseas lograr?'), findsOneWidget);
+  expect(find.text('Selecciona un objetivo principal'), findsOneWidget);
+  for (final label in _goalLabels) {
+    expect(find.text(label), findsOneWidget);
+  }
+}
+
+Future<void> _tapGoalRowsAndDisabledFooter(
+  WidgetTester tester,
+  GoRouter router,
+) async {
+  for (final label in _goalLabels) {
+    await _tapVisible(tester, find.text(label));
+    expect(find.byType(GoalSearchPage), findsOneWidget);
+    _expectPath(router, '/goals');
+    expect(find.text(label), findsOneWidget);
+    expect(find.byType(SnackBar), findsNothing);
+    expect(find.byType(Dialog), findsNothing);
+  }
+  await _expectCatalogFooterDisabled(
+    tester,
+    GoalSearchPage,
+    router,
+    expectedPath: '/goals',
+  );
 }
 
 void _expectPath(GoRouter router, String path) =>
@@ -436,8 +499,9 @@ void _expectRestoredExplore(
 Future<void> _expectCatalogFooterDisabled(
   WidgetTester tester,
   Type pageType,
-  GoRouter router,
-) async {
+  GoRouter router, {
+  String expectedPath = '/explore',
+}) async {
   for (final label in ['Favoritos', 'Historial', 'Perfil']) {
     final disabled = find.bySemanticsLabel('$label no disponible');
     expect(disabled, findsOneWidget);
@@ -448,7 +512,7 @@ Future<void> _expectCatalogFooterDisabled(
     await tester.tap(disabled, warnIfMissed: false);
     await _settle(tester);
     expect(find.byType(pageType), findsOneWidget);
-    _expectPath(router, '/explore');
+    _expectPath(router, expectedPath);
   }
   final home = _catalogHome(pageType);
   expect(tester.getSemantics(home), isSemantics(isSelected: true));

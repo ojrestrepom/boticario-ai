@@ -46,9 +46,11 @@ eficacia. Procedencia, selección, registros, citas y límites están en la
 
 El flujo dispone de pruebas unit/widget, un smoke automatizado y QA manual en
 Android. La revisión funcional/visual manual a 100%/200% y offline real en AVD
-está aprobada en el alcance documentado; la validación integral con TalkBack
-sigue pendiente. Los resultados anteriores de Home/CI se conservan abajo como
-históricos.
+está aprobada en el alcance documentado; TalkBack no se ejecutó y esa limitación
+fue aceptada al archivar, por lo que la revisión integral sigue parcial. El
+incremento está archivado y sus cinco specs están sincronizadas; véase el
+[registro de archivo](openspec/changes/archive/2026-10-03-build-local-plant-catalog/archival-note.md).
+Los resultados anteriores de Home/CI se conservan abajo como históricos.
 
 Disponible en `docs/`:
 
@@ -139,13 +141,13 @@ flutter test test/
 
 La verificación global host 5.1 ejecutada el 2026-10-03 registró **137 pruebas
 de 137 pasadas** en `test/`; resultados y salidas completas en el
-[informe 5.1](openspec/changes/build-local-plant-catalog/qa/global-5.1.md).
-El [informe AVD 4.3/5.2](openspec/changes/build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
+[informe 5.1](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/global-5.1.md).
+El [informe AVD 4.3/5.2](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
 registra el smoke automatizado Android **aprobado: 1/1, exit 0**. Es una pasada
 separada de esta verificación host. El Samsung ejecutó
 build e instalación, pero **falló** el retorno de scroll antes de la corrección
 revisada del harness; su causa retrospectiva no está confirmada ni ese informe
-histórico se convierte en aprobado ([informe Samsung 4.3](openspec/changes/build-local-plant-catalog/qa/android-smoke-4.3.md)).
+histórico se convierte en aprobado ([informe Samsung 4.3](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-smoke-4.3.md)).
 
 Las fixtures de tipografía Roboto usadas por pruebas de layout están en
 [`app/test/fixtures/fonts/`](app/test/fixtures/fonts/) y son solo para tests;
@@ -185,11 +187,11 @@ entorno. Las licencias pendientes se aceptan interactivamente. El smoke Samsung
 del 2026-10-03 sí ejecutó compilación e instalación Android, pero falló al
 comprobar el retorno de scroll. Después, el smoke automatizado pasó 1/1 (exit 0)
 en un AVD dedicado API 36; véase el
-[informe Android AVD 4.3/5.2](openspec/changes/build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
-y el [informe histórico Samsung 4.3](openspec/changes/build-local-plant-catalog/qa/android-smoke-4.3.md).
+[informe Android AVD 4.3/5.2](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
+y el [informe histórico Samsung 4.3](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-smoke-4.3.md).
 El PASS AVD no confirma retrospectivamente la causa del fallo Samsung. La QA
 manual 4.5 ejecutada y sus límites, así como la revisión integral 5.3 parcial,
-están en el [informe QA manual Android](openspec/changes/build-local-plant-catalog/qa/android-manual-4.5.md).
+están en el [informe QA manual Android](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-manual-4.5.md).
 
 ### 5. Verificación local y comandos de calidad
 
@@ -205,11 +207,11 @@ flutter test test/
 La verificación global host de este incremento (5.1) se ejecutó el 2026-10-03:
 Flutter 3.47.6 stable/Dart 3.13.5; resolución con lockfile exigido, formato sin
 cambios, análisis sin issues y **137/137 pruebas pasadas**. El
-[informe 5.1](openspec/changes/build-local-plant-catalog/qa/global-5.1.md)
+[informe 5.1](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/global-5.1.md)
 contiene resultados, conteos y logs completos. Es evidencia host, distinta del
 smoke Android AVD aprobado 1/1; el historial Samsung conserva su resultado
-FALLÓ. QA manual 4.5 tiene evidencia propia; 5.3 sigue parcial. Informes: [AVD 4.3/5.2](openspec/changes/build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
-y [Samsung 4.3](openspec/changes/build-local-plant-catalog/qa/android-smoke-4.3.md).
+FALLÓ. QA manual 4.5 tiene evidencia propia; 5.3 sigue parcial. Informes: [AVD 4.3/5.2](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-emulator-smoke-4.3.md)
+y [Samsung 4.3](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-smoke-4.3.md).
 
 ### QA actual y pendiente
 
@@ -217,10 +219,11 @@ La QA manual del 2026-10-03 se ejecutó en `emulator-5566`, AVD
 `boticario_catalog_api36` (API 36; 360×640 dp nominales antes de insets). El
 alcance funcional/visual 100%/200% y offline real del emulador pasó según las
 muestras y límites consignados en el
-[informe QA manual Android](openspec/changes/build-local-plant-catalog/qa/android-manual-4.5.md);
+[informe QA manual Android](openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android-manual-4.5.md);
 no representa lectura visual exhaustiva de los 121 usos ni todos los dispositivos.
-TalkBack manual no se ejecutó: voz, foco, orden, gestos y lectura siguen pendientes.
-Por tanto la revisión integral 5.3 continúa parcial. El resultado histórico
+TalkBack manual no se ejecutó; la limitación fue aceptada al archivar, sin
+declarar PASS de voz, foco, orden, gestos o lectura. Por tanto la revisión
+integral 5.3 continúa parcial. El resultado histórico
 Samsung FALLÓ y su causa sigue sin confirmar; el PASS de AVD no lo sustituye.
 
 ### Histórico: verificación manual de Home (2026-09-29)

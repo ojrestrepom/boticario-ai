@@ -69,12 +69,14 @@ Cada uno de los 11 controles de Inicio SHALL invocar su callback y, bajo
 - pestaña `Historial` -> `[Home] Pestaña: Historial`
 - pestaña `Perfil` -> `[Home] Pestaña: Perfil`
 
-La activación SHALL NOT mutar la UI (salvo el feedback táctil nativo
-ripple/focus), SHALL NOT navegar y SHALL NOT registrar datos de usuario. SHALL NOT
-emitir logs por build, rebuild o hot reload sin pulsación. Fuera de `kDebugMode`
-(profile o release) la UI SHALL mostrarse igual y los mensajes SHALL quedar
-silenciosos. Los prefijos del runtime Flutter quedan fuera del mensaje
-contratado.
+Las otras diez acciones SHALL NOT mutar la UI (salvo el feedback táctil nativo
+ripple/focus) ni navegar; la tarjeta Explorar SHALL navegar a Explorar en todos
+los modos de ejecución. Ninguna de las once acciones SHALL registrar ni
+persistir datos de usuario. El mensaje de cada activación SHALL emitirse
+únicamente bajo `kDebugMode`; en profile o release la navegación de Explorar
+continúa funcionando sin emitir mensajes. SHALL NOT emitir logs por build,
+rebuild o hot reload sin pulsación. Los prefijos del runtime Flutter quedan
+fuera del mensaje contratado.
 
 #### Scenario: Cobertura de los 11 controles
 - **WHEN** con `kDebugMode` activo se activa cualquiera de los 11 controles listados
@@ -97,20 +99,33 @@ contratado.
 - **THEN** se emite `[Home] Pestaña: Inicio` y la selección visible no cambia
 
 #### Scenario: Sin mutación de UI ni datos
-- **WHEN** se activa cualquier control de Inicio
+- **WHEN** se activa cualquier control de Inicio excepto la tarjeta Explorar
 - **THEN** la UI no cambia salvo el feedback táctil nativo, no se navega y no se registra ni persiste ningún dato de usuario
+
+#### Scenario: Explorar en depuración
+- **WHEN** con `kDebugMode` activo se activa la tarjeta `Explorar plantas y aceites`
+- **THEN** se emite exactamente una vez su mensaje normativo y se navega a P04 sin registrar ni persistir datos de usuario
+
+#### Scenario: Explorar fuera de depuración
+- **WHEN** en profile o release se activa la tarjeta `Explorar plantas y aceites`
+- **THEN** se navega a P04 sin emitir el mensaje ni registrar o persistir datos de usuario
 
 ### Requirement: Barra inferior inmóvil sin navegación funcional
 La barra inferior SHALL ser la única barra visual de pestañas de Inicio, sin
 navegación funcional: `Inicio` SHALL permanecer siempre seleccionado y la ruta
-SHALL continuar siendo `/`. Activar cualquier control o pestaña SHALL NOT cambiar
-la ruta ni la pestaña seleccionada, ni abrir pantallas, rutas, overlays,
-SnackBars, diálogos, drawers, permisos, cámara, API, backend, persistencia ni
-chat real.
+SHALL continuar siendo `/`, salvo que la tarjeta `Explorar plantas y aceites`
+abra la pantalla Explorar del recorrido permitido. Activar cualquier otro
+control o pestaña SHALL NOT cambiar la ruta ni la pestaña seleccionada, ni abrir
+pantallas, rutas, overlays, SnackBars, diálogos, drawers, permisos, cámara, API,
+backend, persistencia ni chat real.
 
 #### Scenario: Ruta sin cambios
-- **WHEN** se activa cualquier control o pestaña de Inicio
+- **WHEN** se activa cualquier control o pestaña de Inicio excepto la tarjeta Explorar
 - **THEN** la ruta actual permanece `/` sin cambios
+
+#### Scenario: Explorar abre P04
+- **WHEN** se activa la tarjeta `Explorar plantas y aceites`
+- **THEN** se abre únicamente la pantalla Explorar del recorrido permitido
 
 #### Scenario: Índice de pestaña sin cambios
 - **WHEN** se activan las pestañas `Favoritos`, `Historial` o `Perfil`
@@ -118,7 +133,7 @@ chat real.
 
 #### Scenario: Sin navegación ni overlays
 - **WHEN** el usuario interactúa con Inicio
-- **THEN** no se abre ninguna pantalla, ruta, overlay, SnackBar, diálogo ni drawer
+- **THEN** no se abre ninguna pantalla o ruta ajena al recorrido Explorar y Pasaporte, ni overlay, SnackBar, diálogo o drawer
 
 #### Scenario: Sin operaciones de producto
 - **WHEN** el usuario interactúa con Inicio

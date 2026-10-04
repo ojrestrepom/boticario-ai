@@ -12,7 +12,7 @@ import sys
 import time
 import xml.etree.ElementTree as ET
 
-ROOT = Path(__file__).resolve().parents[4]
+ROOT = Path(__file__).resolve().parents[5]
 EV = Path(__file__).resolve().parent / 'evidence'
 ADB = str(Path.home() / 'Library/Android/sdk/platform-tools/adb')
 SERIAL = 'emulator-5566'
@@ -115,7 +115,7 @@ def logs(name):
 
 def manifest(name):
     paths = [ROOT / '.flutter-version', ROOT / 'app/pubspec.yaml', ROOT / 'app/pubspec.lock', ROOT / 'app/analysis_options.yaml']
-    for directory in ['app/lib', 'app/test', 'app/integration_test', 'app/assets', 'app/android', 'docs', 'openspec/changes/build-local-plant-catalog/qa']:
+    for directory in ['app/lib', 'app/test', 'app/integration_test', 'app/assets', 'app/android', 'docs', 'openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa']:
         paths += [p for p in (ROOT / directory).rglob('*') if p.is_file() and not any(x in p.parts for x in ['build','.gradle']) and 'android-manual' not in p.name and 'android_manual' not in p.name]
     lines = [str(p.relative_to(ROOT)) + ' ' + hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(paths))]
     (EV / ('android-manual-' + name + '-manifest.txt')).write_text('\n'.join(lines) + '\n')

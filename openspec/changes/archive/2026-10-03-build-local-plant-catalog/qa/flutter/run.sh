@@ -2,7 +2,7 @@
 set -euo pipefail
 export PATH=/opt/homebrew/share/flutter/bin:$PATH
 QA="$(cd "$(dirname "$0")/.." && pwd)"
-ROOT="$(cd "$QA/../../../.." && pwd)"
+ROOT="$(cd "$QA/../../../../.." && pwd)"
 cd "$ROOT/app"
 {
   date -u '+%Y-%m-%dT%H:%M:%SZ'

@@ -9,7 +9,7 @@ import re
 import subprocess
 import xml.etree.ElementTree as ET
 
-ROOT = Path(__file__).resolve().parents[4]
+ROOT = Path(__file__).resolve().parents[5]
 EV = Path(__file__).resolve().parent / 'evidence'
 lines = [datetime.datetime.now(datetime.timezone.utc).isoformat()]
 before = (EV / 'android-manual-before-manifest.txt').read_text().splitlines()

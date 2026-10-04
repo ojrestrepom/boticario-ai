@@ -113,13 +113,13 @@ Concordancia: `android-emulator-smoke-4.3.md`/log previo **1/1 PASS** ya verific
 Sin ejecutar en producción ni otros seriales. Confirmar AVD esperado, detenerse si otra herramienta lo usa; mantener autorización de build/font/radios vigente. No activar TalkBack con estos scripts. Desde raíz del repo, helper verifica identidad antes de cada ADB y rollback; usar nombre nuevo para no sobrescribir evidencia de esta sesión:
 
 ```sh
-python3 openspec/changes/build-local-plant-catalog/qa/android_manual.py \
+python3 openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android_manual.py \
   --name rerun100 --actions '[["cold"],["shot","rerun100-home"],["activate","Explorar plantas y aceites"],["shot","rerun100-p04"],["activate","Lavanda, Lavandula angustifolia"],["shot","rerun100-p05"],["back"],["shot","rerun100-return"],["activate","Inicio"]]'
 
-python3 openspec/changes/build-local-plant-catalog/qa/android_manual.py \
+python3 openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android_manual.py \
   --name rerun200 --font 2.0 --actions '[["cold"],["shot","rerun200-home"],["activate","Explorar plantas y aceites"],["shot","rerun200-p04"],["activate","Inicio"]]'
 
-python3 openspec/changes/build-local-plant-catalog/qa/android_manual.py \
+python3 openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android_manual.py \
   --name rerun-offline --offline --actions '[["cold"],["shot","rerun-offline-home"],["activate","Explorar plantas y aceites"],["shot","rerun-offline-p04"],["activate","Lavanda, Lavandula angustifolia"],["shot","rerun-offline-p05"],["activate","Usos"],["shot","rerun-offline-uses"],["network","rerun-offline-end"],["activate","Inicio"]]'
 ```
 
@@ -199,7 +199,7 @@ Footer a200% conserva todas las letras aunque Favoritos/Historial se dividan en 
 Sin herramientas instaladas. Usar nombres **nuevos** para todos los artefactos; ejemplo desde raíz, misma autorización/identidad y Home como precondición:
 
 ```sh
-python3 openspec/changes/build-local-plant-catalog/qa/android_manual.py \
+python3 openspec/changes/archive/2026-10-03-build-local-plant-catalog/qa/android_manual.py \
   --name rerun-am14-lavanda200-UNIQUE --font 2.0 \
   --actions '[["activate","Explorar plantas y aceites"],["tree","rerun-am14-list-UNIQUE"],["activate","Lavanda, Lavandula angustifolia"],["walk","rerun-am14-general-UNIQUE",25],["activate","Inicio"]]'
 ```

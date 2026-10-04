@@ -2,18 +2,12 @@
 
 ## Purpose
 
-Establece el andamiaje Android mínimo de Boticario AI: una pantalla inicial con
-saludo fijo y un contador demo observable, junto con un flujo de desarrollo y
-verificación reproducible, sin autenticación, backend ni persistencia.
+Establece el andamiaje Android mínimo de Boticario AI: una pantalla inicial con saludo fijo y un contador demo observable, junto con un flujo de desarrollo y verificación reproducible, sin autenticación, backend ni persistencia.
 
 ## Requirements
 
 ### Requirement: Arranque Android y pantalla inicial única
-El proyecto SHALL poder compilarse y ejecutarse como aplicación Android con una
-pantalla inicial accesible en la ruta `/`, con los recorridos permitidos Inicio
-(P03) → Explorar → Pasaporte y sus retornos, e Inicio → P06 Buscar por objetivo
-y retorno a Inicio; SHALL NOT ofrecer navegación adicional. La pantalla inicial
-es la estructura Inicio (P03).
+El proyecto SHALL poder compilarse y ejecutarse como aplicación Android con una pantalla inicial accesible en la ruta `/`, con los recorridos permitidos Inicio (P03) → Explorar → Pasaporte y sus retornos, e Inicio → P06 Buscar por objetivo y retorno a Inicio; SHALL NOT ofrecer navegación adicional. La pantalla inicial es la estructura Inicio (P03).
 
 #### Scenario: Arranque en frío
 - **WHEN** la aplicación se inicia en un dispositivo o emulador Android
@@ -36,9 +30,7 @@ es la estructura Inicio (P03).
 - **THEN** no se abre una ruta o pantalla adicional
 
 ### Requirement: Funcionamiento local sin autenticación ni servicios remotos
-La aplicación SHALL mostrar Inicio, Explorar, pasaportes, P06 y controles del
-catálogo sin inicio de sesión ni solicitudes a servicios remotos de negocio,
-incluso sin conectividad; el catálogo disponible SHALL funcionar localmente.
+La aplicación SHALL mostrar Inicio, Explorar, pasaportes, P06 y controles del catálogo sin inicio de sesión ni solicitudes a servicios remotos de negocio, incluso sin conectividad; el catálogo disponible SHALL funcionar localmente.
 
 #### Scenario: Uso sin inicio de sesión
 - **WHEN** se abre la aplicación
@@ -53,9 +45,7 @@ incluso sin conectividad; el catálogo disponible SHALL funcionar localmente.
 - **THEN** no se envían solicitudes a servicios remotos de negocio
 
 ### Requirement: Accesibilidad de la pantalla inicial
-La aplicación SHALL presentar la estructura Inicio, sus textos y sus controles
-con texto legible y semántica accesible, sin recorte al aumentar el tamaño de
-texto.
+La aplicación SHALL presentar la estructura Inicio, sus textos y sus controles con texto legible y semántica accesible, sin recorte al aumentar el tamaño de texto.
 
 #### Scenario: Semántica accesible
 - **WHEN** una tecnología de asistencia recorre la pantalla inicial
@@ -66,9 +56,7 @@ texto.
 - **THEN** el contenido esencial de Inicio permanece visible, sin recorte, y alcanzable con scroll vertical
 
 ### Requirement: Flujo de desarrollo reproducible y documentado
-El repositorio SHALL contener la app Android en `app/`, abrible en Android Studio,
-con prerequisitos, versión exacta de SDK, dependencias fijadas y comandos
-documentados; la configuración local del SDK SHALL permanecer sin versionar.
+El repositorio SHALL contener la app Android en `app/`, abrible en Android Studio, con prerequisitos, versión exacta de SDK, dependencias fijadas y comandos documentados; la configuración local del SDK SHALL permanecer sin versionar.
 
 #### Scenario: Apertura en Android Studio
 - **WHEN** un desarrollador abre la raíz `app/` en Android Studio con los prerequisitos documentados
@@ -91,15 +79,7 @@ documentados; la configuración local del SDK SHALL permanecer sin versionar.
 - **THEN** encuentra la preparación manual del SDK y la revisión y aceptación interactiva de licencias
 
 ### Requirement: Verificaciones reproducibles del incremento
-El proyecto SHALL ofrecer verificaciones reproducibles de formato, análisis y
-pruebas de Inicio, P06, el recorrido del catálogo, sus datos locales y la
-política de emisión de mensajes solo en depuración, evaluando casos con el modo
-permitido y el no permitido; SHALL verificar retornos, inercia de las seis
-filas y estados de error y SHALL reportar fallo en CI ante error. Estas
-verificaciones SHALL ejecutarse con los comandos de prueba actuales en
-configuración de depuración; no se exige ni se presenta como prueba de binarios
-release/profile, cuyo silencio real es comportamiento normativo de
-`home-screen`.
+El proyecto SHALL ofrecer verificaciones reproducibles de formato, análisis y pruebas de Inicio, P06, el recorrido del catálogo, sus datos locales y la política de emisión de mensajes solo en depuración, evaluando casos con el modo permitido y el no permitido; SHALL verificar retornos, inercia de las seis filas y estados de error y SHALL reportar fallo en CI ante error. Estas verificaciones SHALL ejecutarse con los comandos de prueba actuales en configuración de depuración; no se exige ni se presenta como prueba de binarios release/profile, cuyo silencio real es comportamiento normativo de `home-screen`.
 
 #### Scenario: Verificaciones automatizadas
 - **WHEN** se ejecutan los comandos de verificación documentados en configuración de depuración

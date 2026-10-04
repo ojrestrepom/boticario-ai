@@ -342,6 +342,12 @@ El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un
 emulador. Los comandos de calidad que replica son los de
 [Verificación local](#5-verificación-local-y-comandos-de-calidad).
 
+Pendiente: el repositorio se tratará como monorepo, con `app/` exclusiva de
+Flutter y carpetas futuras para el backend y la ingesta de datos, que aún no
+existen. Este workflow cubre solo `app/`. Cuando la arquitectura esté más
+definida habrá que revisar sus filtros de ruta y añadir CI propia para los
+componentes nuevos; por ahora se deja sin diseñar de forma deliberada.
+
 Histórico de `build-home-screen`: la CI remota quedó `completed`/`success` en
 [run 36705725682](https://github.com/sebastianrodriguez1115/boticario-ai/actions/runs/36705725682),
 sobre el commit de implementación `c0f02efb20e9014ddfdee4c7f1c70aa36919ef3d`. La

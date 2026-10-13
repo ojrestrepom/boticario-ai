@@ -167,7 +167,7 @@ impl SourceAdapter for StaticAdapter {
         }
     }
 
-    fn derive(&self, _raw: &rusqlite::Connection) -> Result<SourceRecords, IngestError> {
+    fn derive(&self, _raw: &mut diesel::SqliteConnection) -> Result<SourceRecords, IngestError> {
         Ok(self.records.clone())
     }
 }
@@ -267,24 +267,148 @@ impl FixtureAdapter {
             source: fixture_source(id),
         }
     }
-
-    fn table(&self, file: &str) -> String {
-        crate::raw::raw_table_name(&self.source.id.0, file)
-    }
 }
 
-/// Lee una tabla cruda en el orden original del CSV (`_row`), convirtiendo cada fila con `map`.
-fn read_table<T>(
-    conn: &rusqlite::Connection,
-    table: &str,
-    columns: &str,
-    map: impl Fn(&rusqlite::Row<'_>) -> rusqlite::Result<T>,
-) -> Result<Vec<T>, IngestError> {
-    // Si la tabla no existe, `prepare` falla con "no such table: <tabla>" y `From` lo convierte en `IngestError::Storage`.
-    let mut stmt = conn.prepare(&format!("SELECT {columns} FROM {table} ORDER BY _row"))?;
-    let rows = stmt.query_map([], map)?.collect::<Result<Vec<_>, _>>()?;
-    Ok(rows)
+/// Declara, para una fuente de fixture, las tablas crudas que lee (`table!` de Diesel) y la función que las deriva.
+///
+/// `table!` necesita el nombre SQL como literal, y las tablas crudas se llaman `raw_<fuente>_<archivo>`; por eso la macro recibe un módulo y los cinco nombres completos. Cada módulo declara solo un subconjunto de columnas: las que lee la derivación.
+macro_rules! fixture_source_tables {
+    ($module:ident, $plants:literal, $names:literal, $parts:literal, $uses:literal, $refs:literal) => {
+        mod $module {
+            use super::*;
+            use diesel::prelude::*;
+
+            diesel::table! {
+                #[sql_name = $plants]
+                plants (_row) {
+                    _row -> Integer,
+                    id -> Text,
+                    scientific_name -> Text,
+                    family -> Text,
+                }
+            }
+            diesel::table! {
+                #[sql_name = $names]
+                names (_row) {
+                    _row -> Integer,
+                    plant_id -> Text,
+                    text -> Text,
+                    language -> Text,
+                }
+            }
+            diesel::table! {
+                #[sql_name = $parts]
+                parts (_row) {
+                    _row -> Integer,
+                    plant_id -> Text,
+                    label -> Text,
+                }
+            }
+            diesel::table! {
+                #[sql_name = $uses]
+                uses (_row) {
+                    _row -> Integer,
+                    plant_id -> Text,
+                    activity -> Text,
+                    language -> Text,
+                    reference_id -> Text,
+                }
+            }
+            diesel::table! {
+                #[sql_name = $refs]
+                refs (_row) {
+                    _row -> Integer,
+                    id -> Text,
+                    citation -> Text,
+                }
+            }
+
+            pub fn derive(raw: &mut SqliteConnection) -> Result<SourceRecords, IngestError> {
+                let mut plants: Vec<PlantRecord> = plants::table
+                    .order(plants::_row)
+                    .select((plants::id, plants::scientific_name, plants::family))
+                    .load::<(String, String, String)>(raw)?
+                    .into_iter()
+                    .map(|(id, name, family)| PlantRecord {
+                        family: (!family.trim().is_empty()).then_some(family),
+                        ..plant(&id, &name)
+                    })
+                    .collect();
+                // Índice id de la fuente -> posición en `plants`, para repartir las filas hijas.
+                let index: std::collections::HashMap<String, usize> = plants
+                    .iter()
+                    .enumerate()
+                    .map(|(i, p)| (p.source_plant_id.clone(), i))
+                    .collect();
+                let owner = |file: &str, plant_id: &str| -> Result<usize, IngestError> {
+                    index.get(plant_id).copied().ok_or(IngestError::InvalidCsv {
+                        file: file.to_string(),
+                        row: None,
+                        message: format!("planta desconocida `{plant_id}`"),
+                    })
+                };
+
+                for (plant_id, text, language) in names::table
+                    .order(names::_row)
+                    .select((names::plant_id, names::text, names::language))
+                    .load::<(String, String, String)>(raw)?
+                {
+                    plants[owner("names.csv", &plant_id)?]
+                        .common_names
+                        .push(name(&text, &language));
+                }
+                for (plant_id, label) in parts::table
+                    .order(parts::_row)
+                    .select((parts::plant_id, parts::label))
+                    .load::<(String, String)>(raw)?
+                {
+                    plants[owner("parts.csv", &plant_id)?].parts.push(label);
+                }
+                for (plant_id, activity, language, reference_id) in uses::table
+                    .order(uses::_row)
+                    .select((
+                        uses::plant_id,
+                        uses::activity,
+                        uses::language,
+                        uses::reference_id,
+                    ))
+                    .load::<(String, String, String, String)>(raw)?
+                {
+                    plants[owner("uses.csv", &plant_id)?].uses.push(use_rec(
+                        &activity,
+                        &language,
+                        &reference_id,
+                    ));
+                }
+                let references = refs::table
+                    .order(refs::_row)
+                    .select((refs::id, refs::citation))
+                    .load::<(String, String)>(raw)?
+                    .into_iter()
+                    .map(|(id, citation)| reference(&id, &citation))
+                    .collect();
+                Ok(SourceRecords { plants, references })
+            }
+        }
+    };
 }
+
+fixture_source_tables!(
+    alpha_tables,
+    "raw_alpha_plants",
+    "raw_alpha_names",
+    "raw_alpha_parts",
+    "raw_alpha_uses",
+    "raw_alpha_references"
+);
+fixture_source_tables!(
+    beta_tables,
+    "raw_beta_plants",
+    "raw_beta_names",
+    "raw_beta_parts",
+    "raw_beta_uses",
+    "raw_beta_references"
+);
 
 impl SourceAdapter for FixtureAdapter {
     fn source(&self) -> Source {
@@ -309,78 +433,14 @@ impl SourceAdapter for FixtureAdapter {
         }
     }
 
-    fn derive(&self, raw: &rusqlite::Connection) -> Result<SourceRecords, IngestError> {
-        let mut plants: Vec<PlantRecord> = read_table(
-            raw,
-            &self.table("plants.csv"),
-            "id, scientific_name, family",
-            |r| {
-                let family: String = r.get(2)?;
-                Ok(PlantRecord {
-                    family: (!family.trim().is_empty()).then_some(family),
-                    ..plant(&r.get::<_, String>(0)?, &r.get::<_, String>(1)?)
-                })
-            },
-        )?;
-        // Índice id de la fuente -> posición en `plants`, para repartir las filas hijas.
-        let index: std::collections::HashMap<String, usize> = plants
-            .iter()
-            .enumerate()
-            .map(|(i, p)| (p.source_plant_id.clone(), i))
-            .collect();
-        let owner = |file: &str, plant_id: &str| -> Result<usize, IngestError> {
-            index.get(plant_id).copied().ok_or(IngestError::InvalidCsv {
-                file: file.to_string(),
-                row: None,
-                message: format!("planta desconocida `{plant_id}`"),
-            })
-        };
-
-        for (plant_id, text, language) in read_table(
-            raw,
-            &self.table("names.csv"),
-            "plant_id, text, language",
-            |r| {
-                Ok((
-                    r.get::<_, String>(0)?,
-                    r.get::<_, String>(1)?,
-                    r.get::<_, String>(2)?,
-                ))
-            },
-        )? {
-            plants[owner("names.csv", &plant_id)?]
-                .common_names
-                .push(name(&text, &language));
+    fn derive(&self, raw: &mut diesel::SqliteConnection) -> Result<SourceRecords, IngestError> {
+        // Las tablas crudas llevan el id de la fuente en el nombre, así que cada fuente de fixture tiene su módulo.
+        match self.source.id.0.as_str() {
+            "alpha" => alpha_tables::derive(raw),
+            "beta" => beta_tables::derive(raw),
+            other => Err(IngestError::UnknownSource {
+                id: other.to_string(),
+            }),
         }
-        for (plant_id, label) in
-            read_table(raw, &self.table("parts.csv"), "plant_id, label", |r| {
-                Ok((r.get::<_, String>(0)?, r.get::<_, String>(1)?))
-            })?
-        {
-            plants[owner("parts.csv", &plant_id)?].parts.push(label);
-        }
-        for (plant_id, activity, language, reference_id) in read_table(
-            raw,
-            &self.table("uses.csv"),
-            "plant_id, activity, language, reference_id",
-            |r| {
-                Ok((
-                    r.get::<_, String>(0)?,
-                    r.get::<_, String>(1)?,
-                    r.get::<_, String>(2)?,
-                    r.get::<_, String>(3)?,
-                ))
-            },
-        )? {
-            plants[owner("uses.csv", &plant_id)?].uses.push(use_rec(
-                &activity,
-                &language,
-                &reference_id,
-            ));
-        }
-        let references = read_table(raw, &self.table("references.csv"), "id, citation", |r| {
-            Ok(reference(&r.get::<_, String>(0)?, &r.get::<_, String>(1)?))
-        })?;
-        Ok(SourceRecords { plants, references })
     }
 }

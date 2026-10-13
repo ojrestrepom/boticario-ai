@@ -2,8 +2,10 @@
 
 use std::path::{Path, PathBuf};
 use std::process::exit;
+use std::time::Instant;
 
 use catalog_ingest::IngestError;
+use catalog_ingest::build::{BuildReport, build, rederive};
 use catalog_ingest::download::{DownloadOutcome, download_input};
 use catalog_ingest::sources::{default_registry, load_sources_config};
 
@@ -13,8 +15,8 @@ fn usage() -> &'static str {
 
 Subcomandos:
   download   Descarga y verifica los insumos de las fuentes activas en <data-dir>/.cache
-  build      Construye <data-dir>/build/catalog.db (pendiente)
-  rederive   Rederiva el catálogo desde la capa cruda (pendiente)
+  build      Verifica los insumos de <data-dir>/.cache (no descarga), importa el crudo a <data-dir>/build/raw.db y escribe <data-dir>/build/catalog.db
+  rederive   Rehace <data-dir>/build/catalog.db desde <data-dir>/build/raw.db, sin el insumo original
 
 Opciones:
   --data-dir <ruta>   Directorio de datos (por defecto: data, relativo al directorio de trabajo)
@@ -79,16 +81,41 @@ fn run_download(data_dir: &Path) -> Result<(), IngestError> {
     Ok(())
 }
 
-fn run_build(_data_dir: &Path) -> Result<(), IngestError> {
-    Err(IngestError::Storage(
-        "`build` está pendiente (tarea 5.5)".into(),
-    ))
+/// Resumen común de `build` y `rederive`.
+fn print_report(report: &BuildReport, started: Instant) {
+    println!("fuentes: {}", report.sources);
+    println!("plantas: {}", report.plants);
+    println!("hash: {}", report.content_hash);
+    println!("tiempo: {:.2?}", started.elapsed());
 }
 
-fn run_rederive(_data_dir: &Path) -> Result<(), IngestError> {
-    Err(IngestError::Storage(
-        "`rederive` está pendiente (tarea 5.5)".into(),
-    ))
+fn run_build(data_dir: &Path) -> Result<(), IngestError> {
+    let started = Instant::now();
+    let config = load_sources_config(&data_dir.join("sources.toml"))?;
+    let build_dir = data_dir.join("build");
+    let report = build(
+        &default_registry(),
+        &config,
+        &data_dir.join(".cache"),
+        &build_dir.join("raw.db"),
+        &build_dir.join("catalog.db"),
+    )?;
+    print_report(&report, started);
+    Ok(())
+}
+
+fn run_rederive(data_dir: &Path) -> Result<(), IngestError> {
+    let started = Instant::now();
+    let config = load_sources_config(&data_dir.join("sources.toml"))?;
+    let build_dir = data_dir.join("build");
+    let report = rederive(
+        &default_registry(),
+        &config,
+        &build_dir.join("raw.db"),
+        &build_dir.join("catalog.db"),
+    )?;
+    print_report(&report, started);
+    Ok(())
 }
 
 fn main() {

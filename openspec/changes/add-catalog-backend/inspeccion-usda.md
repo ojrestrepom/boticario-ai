@@ -120,3 +120,40 @@ Las partes (4, 15, 9, 3, 5 = 36) y los usos elegibles (10 + 51 + 60 = 121) coinc
 3. **Usos repetidos.** Hay 515 filas elegibles que repiten (taxón, actividad, referencia) con distinto `ETHNO`. ¿Se conservan como usos separados (19,446, que es el valor de referencia de la tarea 5.6) o se deduplican? Mantenerlas respeta el valor de referencia y la guía; el esquema decide si es posible.
 4. **Plantas sin familia.** 34 taxones no tienen familia: se propone `None`, sin inventar nada.
 5. **Nombres científicos con `subsp.` duplicado.** Algunos `TAXON` literales contienen texto repetido (por ejemplo `Beta vulgaris subsp. subsp. vulgaris`). Se propone conservarlos tal cual, como la guía; confirmar.
+
+## Resultados de la construcción real (tarea 5.6)
+
+Construcción con `mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- build` desde la raíz del repositorio, con el ZIP verificado de `data/.cache/`. Código de salida 0. Una segunda construcción dio el mismo hash, y `rederive` (sin el ZIP) también.
+
+- Hash de contenido de `data/build/catalog.db`: `48d71b6b0221787add6a8474b6a6b1b6567915d435cb3d1660e8335da3a5812d`.
+- Tiempo de construcción (compilación release, importación cruda más derivación, consolidación, escritura y hash): unos 0,53 s; `rederive`, unos 0,23 s.
+- Con un `--data-dir` que tiene `sources.toml` pero no `.cache`, `build` falla con código 1 y el mensaje "ejecuta primero el paso de descarga (`catalog-ingest download`)".
+
+| Valor | Esperado | Obtenido | Nota |
+|---|---:|---:|---|
+| Plantas | 2.376 | 2.376 | Sin diferencia. |
+| Plantas con al menos un uso | 1.180 | 1.180 | Sin diferencia. |
+| Filas de uso elegibles de la fuente | 19.446 | 19.446 | Contadas en la derivación (`DeriveStats::eligible_use_rows`). |
+| Usos distintos (filas de `plant_use`) | 18.931 | 18.931 | Un uso es (actividad, referencia): las 515 filas repetidas se funden, 19.446 − 515 = 18.931. |
+| Referencias | 32 | 32 | Solo las citadas por usos elegibles. |
+| Nombres comunes | 2.920 | 2.920 | 2.712 con idioma `en` y 208 con `und`. |
+| Nombres científicos | 2.376 | 2.376 | Idioma `la`. |
+| Plantas con familia | 2.342 | 2.342 | Las 34 restantes quedan sin familia. |
+| Partes (filas de `plant_part`) | 6.740 | 6.740 | Pares (`FNFNUM`, `PPCO`) distintos; ninguna etiqueta se repite dentro de una planta. |
+| `PRAGMA foreign_key_check` | vacío | vacío | Sin filas. |
+
+No hay diferencias respecto a los valores de referencia. Hay 208 nombres `und` y no 204: son los 208 nombres que terminan en `)` y contienen `(`, y la inspección contaba 204 solo entre los que parecían etiquetas de idioma. El test `#[ignore]` `backend/catalog-ingest/tests/real_build.rs` repite estas comprobaciones.
+
+## Comparación con el asset de la app (tarea 5.7)
+
+El test `#[ignore]` `backend/catalog-ingest/tests/asset_crosscheck.rs` localiza cada planta del asset por (`usda`, `usdaPlantId`) y compara el conjunto de etiquetas de partes, el conjunto de (actividad, id de referencia) de los usos y las citas de las referencias usadas. Coincide para las cinco plantas; Manzanilla y Menta tienen cero usos. El asset no se modificó.
+
+| FNFNUM | Planta | Partes | Usos en el asset (filas) | Usos distintos (actividad, referencia) |
+|---:|---|---:|---:|---:|
+| 544 | Lavandula angustifolia | 4 | 10 | 10 |
+| 401 | Eucalyptus globulus | 15 | 51 | 49 |
+| 873 | Rosmarinus officinalis | 9 | 60 | 59 |
+| 605 | Matricaria recutita | 3 | 0 | 0 |
+| 619 | Mentha x piperita subsp. nothosubsp. piperita | 5 | 0 | 0 |
+
+Las 121 filas del asset son 118 usos distintos tras fundir las repetidas, de acuerdo con la decisión de que un uso es (actividad, referencia). La diferencia con las 121 filas de la guía son esas tres filas repetidas, no datos distintos.

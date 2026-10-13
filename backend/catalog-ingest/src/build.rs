@@ -1,15 +1,17 @@
-//! Derivación y rederivación del catálogo desde la base cruda.
+//! Construcción, derivación y rederivación del catálogo.
 //!
-//! Este camino solo lee `raw.db`: no necesita el insumo original ni la red.
+//! [`build`] parte de los insumos descargados (importa el crudo y luego deriva); [`rederive`] solo lee `raw.db`, sin insumo original ni red.
 
 use std::path::Path;
 
-use rusqlite::{Connection, OpenFlags};
+use diesel::{Connection, SqliteConnection};
 
 use crate::adapter::validate_source;
 use crate::consolidate::{Catalog, SourceInput, consolidate};
 use crate::error::IngestError;
 use crate::hash::content_hash;
+use crate::input::{InputSpec, verify_input};
+use crate::raw::import_raw;
 use crate::sources::{AdapterRegistry, SourcesConfig};
 use crate::write::write_catalog;
 
@@ -24,6 +26,21 @@ pub struct BuildReport {
     pub content_hash: String,
 }
 
+/// URL de SQLite para abrir `path` en solo lectura: `file:<ruta>?mode=ro`.
+///
+/// Diesel abre las conexiones con soporte de URI, y `mode=ro` hace que SQLite rechace cualquier escritura. En una URI, `%`, `?` y `#` tienen significado propio, así que se escapan en la ruta.
+fn read_only_url(path: &Path) -> Result<String, IngestError> {
+    let text = path.to_str().ok_or_else(|| IngestError::Io {
+        path: Some(path.to_path_buf()),
+        message: "la ruta no es UTF-8 válido".to_string(),
+    })?;
+    let escaped = text
+        .replace('%', "%25")
+        .replace('?', "%3F")
+        .replace('#', "%23");
+    Ok(format!("file:{escaped}?mode=ro"))
+}
+
 /// Deriva el catálogo consolidado desde la base cruda, con las fuentes activas de `config`.
 pub fn derive_catalog(
     registry: &AdapterRegistry,
@@ -36,13 +53,13 @@ pub fn derive_catalog(
         });
     }
     // Solo lectura: derivar no debe poder modificar el crudo.
-    let conn = Connection::open_with_flags(raw_db, OpenFlags::SQLITE_OPEN_READ_ONLY)?;
+    let mut conn = SqliteConnection::establish(&read_only_url(raw_db)?)?;
 
     let mut inputs = Vec::new();
     for active in registry.resolve(config)? {
         let source = active.adapter.source();
         validate_source(&source)?;
-        let records = active.adapter.derive(&conn)?;
+        let records = active.adapter.derive(&mut conn)?;
         inputs.push(SourceInput {
             source,
             priority: active.priority,
@@ -50,6 +67,46 @@ pub fn derive_catalog(
         });
     }
     consolidate(inputs)
+}
+
+/// Construcción completa: verifica cada insumo en `cache_dir`, importa el crudo a `raw_db` y reconstruye `out`.
+///
+/// No descarga nada: si falta un insumo, el error indica ejecutar `download`. `raw_db` se recrea desde cero para que no queden tablas de una construcción anterior.
+pub fn build(
+    registry: &AdapterRegistry,
+    config: &SourcesConfig,
+    cache_dir: &Path,
+    raw_db: &Path,
+    out: &Path,
+) -> Result<BuildReport, IngestError> {
+    let active = registry.resolve(config)?;
+    // Se verifican todos los insumos antes de tocar el disco.
+    let mut specs = Vec::new();
+    for source in &active {
+        validate_source(&source.adapter.source())?;
+        let input = source.adapter.input();
+        let archive = cache_dir.join(&input.file_name);
+        verify_input(&InputSpec {
+            path: &archive,
+            expected_size: input.expected_size,
+            expected_md5: &input.expected_md5,
+        })?;
+        specs.push(source.adapter.raw_import(&archive));
+    }
+    match std::fs::remove_file(raw_db) {
+        Ok(()) => {}
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {}
+        Err(e) => {
+            return Err(IngestError::Io {
+                path: Some(raw_db.to_path_buf()),
+                message: e.to_string(),
+            });
+        }
+    }
+    for spec in &specs {
+        import_raw(spec, raw_db)?;
+    }
+    rederive(registry, config, raw_db, out)
 }
 
 /// Reconstruye la base neutral `out` desde `raw_db` y devuelve su resumen.
@@ -111,6 +168,7 @@ mod tests {
     }
 
     use crate::adapter::SourceAdapter;
+    use diesel::RunQueryDsl;
 
     #[test]
     fn rederive_without_the_zip_matches_direct_write() {
@@ -173,6 +231,60 @@ mod tests {
         .unwrap();
         assert_eq!(catalog.sources.len(), 1);
         assert_eq!(catalog.plants.len(), 2);
+    }
+
+    #[test]
+    fn build_without_the_input_points_to_download() {
+        let dir = tempfile::tempdir().unwrap();
+        let err = build(
+            &registry(&["alpha"]),
+            &config(&[("alpha", 1)]),
+            &dir.path().join(".cache"),
+            &dir.path().join("build").join("raw.db"),
+            &dir.path().join("build").join("catalog.db"),
+        )
+        .unwrap_err();
+        assert!(matches!(err, IngestError::MissingInput { .. }));
+        assert!(err.to_string().contains("download"));
+        assert!(!dir.path().join("build").exists());
+    }
+
+    #[test]
+    fn build_with_a_non_zip_input_fails_in_raw_import() {
+        let dir = tempfile::tempdir().unwrap();
+        let cache = dir.path().join(".cache");
+        std::fs::create_dir_all(&cache).unwrap();
+        // El adaptador de fixture declara tamaño 0 y el MD5 del vacío: un archivo vacío pasa la verificación.
+        std::fs::write(cache.join("alpha.zip"), b"").unwrap();
+        let err = build(
+            &registry(&["alpha"]),
+            &config(&[("alpha", 1)]),
+            &cache,
+            &dir.path().join("build").join("raw.db"),
+            &dir.path().join("build").join("catalog.db"),
+        )
+        .unwrap_err();
+        // El archivo vacío pasa la verificación pero no es un ZIP: falla en la importación cruda.
+        assert!(matches!(err, IngestError::InvalidZip { .. }), "{err:?}");
+    }
+
+    #[test]
+    fn read_only_url_escapes_uri_characters() {
+        assert_eq!(
+            read_only_url(Path::new("a#b?c%d/raw.db")).unwrap(),
+            "file:a%23b%3Fc%25d/raw.db?mode=ro"
+        );
+    }
+
+    #[test]
+    fn derived_connection_is_read_only() {
+        let dir = tempfile::tempdir().unwrap();
+        let raw_db = build_raw(&dir, &[("alpha", FixtureCsv::alpha())]);
+        let mut conn = SqliteConnection::establish(&read_only_url(&raw_db).unwrap()).unwrap();
+        let err = diesel::sql_query("DROP TABLE raw_alpha_plants")
+            .execute(&mut conn)
+            .unwrap_err();
+        assert!(err.to_string().contains("readonly"), "{err}");
     }
 
     #[test]

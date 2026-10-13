@@ -165,7 +165,7 @@ impl fmt::Display for IngestError {
         match self {
             Self::MissingInput { path } => write!(
                 f,
-                "no existe el insumo {}: ejecuta primero el paso de descarga",
+                "no existe el insumo {}: ejecuta primero el paso de descarga (`catalog-ingest download`)",
                 path.display()
             ),
             Self::SizeMismatch { expected, found } => write!(

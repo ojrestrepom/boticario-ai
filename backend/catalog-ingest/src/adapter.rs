@@ -88,7 +88,7 @@ pub trait SourceAdapter {
     /// Cómo importar el crudo; recibe la ruta del archivo ya verificado.
     fn raw_import(&self, archive: &Path) -> RawImportSpec;
     /// Deriva registros normalizados leyendo solo las tablas crudas de su fuente.
-    fn derive(&self, raw: &rusqlite::Connection) -> Result<SourceRecords, IngestError>;
+    fn derive(&self, raw: &mut diesel::SqliteConnection) -> Result<SourceRecords, IngestError>;
 }
 
 /// Comprueba que la fuente declara todos sus metadatos y que su id es seguro para nombres de tabla.

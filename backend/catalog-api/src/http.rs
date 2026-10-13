@@ -13,8 +13,9 @@ use axum::{Json, Router};
 use catalog_core::domain::{DEFAULT_LIMIT, ListQuery, MAX_LIMIT, PlantId};
 
 use crate::async_catalog::AsyncCatalog;
-use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, SourceDto};
+use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto, SourceDto};
 use crate::error::ApiError;
+use crate::openapi::openapi;
 
 /// Construye el router completo: `/healthz` y `/v1/...`, con errores `problem+json` para rutas y métodos desconocidos.
 pub fn router(catalog: AsyncCatalog) -> Router {
@@ -24,6 +25,7 @@ pub fn router(catalog: AsyncCatalog) -> Router {
         .route("/plants/{id}", get(get_plant));
     Router::new()
         .route("/healthz", get(healthz))
+        .route("/openapi.json", get(openapi_json))
         .nest("/v1", v1)
         .fallback(not_found)
         .method_not_allowed_fallback(method_not_allowed)
@@ -41,11 +43,36 @@ async fn method_not_allowed(OriginalUri(uri): OriginalUri) -> Response {
     ApiError::MethodNotAllowed.into_response_at(&uri)
 }
 
-async fn healthz() -> Json<HealthDto> {
+/// Documento OpenAPI generado desde el código.
+async fn openapi_json() -> Json<utoipa::openapi::OpenApi> {
+    Json(openapi())
+}
+
+/// El servicio está activo.
+#[utoipa::path(
+    get,
+    path = "/healthz",
+    tag = "health",
+    responses((status = 200, description = "El servicio está activo", body = HealthDto))
+)]
+pub(crate) async fn healthz() -> Json<HealthDto> {
     Json(HealthDto { status: "ok" })
 }
 
-async fn sources(State(catalog): State<AsyncCatalog>, OriginalUri(uri): OriginalUri) -> Response {
+/// Fuentes de datos del catálogo.
+#[utoipa::path(
+    get,
+    path = "/v1/sources",
+    tag = "catalog",
+    responses(
+        (status = 200, description = "Fuentes del catálogo, ordenadas por identificador", body = Vec<SourceDto>),
+        (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
+    )
+)]
+pub(crate) async fn sources(
+    State(catalog): State<AsyncCatalog>,
+    OriginalUri(uri): OriginalUri,
+) -> Response {
     match catalog.list_sources().await {
         Ok(list) => Json(list.into_iter().map(SourceDto::from).collect::<Vec<_>>()).into_response(),
         Err(err) => ApiError::from(err).into_response_at(&uri),
@@ -92,7 +119,23 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
     })
 }
 
-async fn list_plants(
+/// Lista plantas con búsqueda y paginación.
+#[utoipa::path(
+    get,
+    path = "/v1/plants",
+    tag = "catalog",
+    params(
+        ("q" = Option<String>, Query, description = "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal."),
+        ("limit" = Option<u32>, Query, minimum = 1, maximum = 100, description = "Elementos por página (1 a 100, por defecto 20)."),
+        ("offset" = Option<u32>, Query, minimum = 0, description = "Elementos a saltar (por defecto 0)."),
+    ),
+    responses(
+        (status = 200, description = "Página de plantas en orden de nombre científico e identificador", body = PageDto<PlantSummaryDto>),
+        (status = 400, description = "Parámetro inválido", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
+    )
+)]
+pub(crate) async fn list_plants(
     State(catalog): State<AsyncCatalog>,
     OriginalUri(uri): OriginalUri,
     params: Result<Query<HashMap<String, String>>, QueryRejection>,
@@ -114,7 +157,19 @@ async fn list_plants(
     }
 }
 
-async fn get_plant(
+/// Detalle de una planta con la fuente de cada dato.
+#[utoipa::path(
+    get,
+    path = "/v1/plants/{id}",
+    tag = "catalog",
+    params(("id" = String, Path, description = "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.")),
+    responses(
+        (status = 200, description = "Detalle de la planta", body = PlantDto),
+        (status = 404, description = "La planta no existe", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
+    )
+)]
+pub(crate) async fn get_plant(
     State(catalog): State<AsyncCatalog>,
     OriginalUri(uri): OriginalUri,
     Path(id): Path<String>,
@@ -385,6 +440,50 @@ mod tests {
         let (_, mentha) = get_json(&app, "/v1/plants/mentha-x-piperita").await;
         assert_eq!(mentha["family"], Value::Null);
         assert_camel_case(&mentha);
+    }
+
+    #[tokio::test]
+    async fn serves_the_openapi_document_outside_v1() {
+        let (_fixture, app) = app();
+        let (status, json) = get_json(&app, "/openapi.json").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(json["info"]["title"], "Boticario AI Catalog API");
+        assert!(json["paths"]["/v1/plants/{id}"].is_object());
+    }
+
+    // ---- 7.7: la fixture usa las fuentes genéricas `a` y `b`, y todos los endpoints de /v1 responden ----
+
+    #[tokio::test]
+    async fn every_v1_endpoint_works_with_non_dataset_sources() {
+        let (_fixture, app) = app();
+        let known = ["a", "b"];
+
+        let (status, sources) = get_json(&app, "/v1/sources").await;
+        assert_eq!(status, StatusCode::OK);
+        let source_ids: Vec<&str> = sources
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|s| s["id"].as_str().unwrap())
+            .collect();
+        assert_eq!(source_ids, known);
+
+        let (status, page) = get_json(&app, "/v1/plants?q=lavandula").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(page["total"], 2);
+
+        let (status, detail) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(status, StatusCode::OK);
+        // Cada fuente citada en el detalle es una de las de la fixture.
+        let mut cited = Vec::new();
+        for group in ["names", "parts", "uses"] {
+            for item in detail[group].as_array().unwrap() {
+                cited.extend(item["sources"].as_array().unwrap());
+            }
+        }
+        cited.extend(detail["family"]["sources"].as_array().unwrap());
+        assert!(!cited.is_empty());
+        assert!(cited.iter().all(|s| known.contains(&s.as_str().unwrap())));
     }
 
     // ---- 7.4 ----

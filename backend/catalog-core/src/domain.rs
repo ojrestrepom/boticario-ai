@@ -1,6 +1,6 @@
 //! Tipos de dominio del catálogo, independientes de la fuente de datos y del transporte.
 
-/// Identificador de una fuente de datos (por ejemplo `usda`).
+/// Identificador de una fuente de datos (por ejemplo `fuente-a`).
 ///
 /// Es un newtype: un `String` envuelto en un tipo propio para que el compilador no deje mezclarlo con otros textos, como un [`PlantId`].
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]

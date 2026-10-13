@@ -2,15 +2,16 @@
 //!
 //! El dominio de `catalog-core` no conoce JSON; aquí se define la forma exacta del contrato HTTP y se convierte desde el dominio.
 //! `rename_all = "camelCase"` hace que los campos Rust (`scientific_name`) salgan como `scientificName`.
-//! Todos los DTOs viven en este módulo para poder anotarlos con `ToSchema` (OpenAPI) en un solo sitio.
+//! Todos los DTOs viven en este módulo y derivan `ToSchema`: de ellos sale el documento OpenAPI, así que el contrato HTTP se define en un solo sitio.
 
 use catalog_core::domain::{
     Attributed, NameKind, Page, Part, Plant, PlantName, PlantSummary, Source, SourceId, Use,
 };
 use serde::Serialize;
+use utoipa::ToSchema;
 
 /// Respuesta de `GET /healthz`.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 pub struct HealthDto {
     /// Siempre `"ok"` si el servicio está activo.
     pub status: &'static str,
@@ -19,7 +20,7 @@ pub struct HealthDto {
 /// Una fuente de datos.
 ///
 /// `checksum` es un campo adicional al mínimo que exige la spec (id, nombre, versión, licencia, cita y URL): permite verificar de qué insumo viene el catálogo.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct SourceDto {
     /// Identificador de la fuente.
@@ -53,7 +54,7 @@ impl From<Source> for SourceDto {
 }
 
 /// Nombre común con su idioma, dentro del listado.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct CommonNameDto {
     /// Texto del nombre.
@@ -63,7 +64,7 @@ pub struct CommonNameDto {
 }
 
 /// Elemento del listado de plantas.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct PlantSummaryDto {
     /// Identificador público.
@@ -97,7 +98,7 @@ impl From<PlantSummary> for PlantSummaryDto {
 /// Página de resultados.
 ///
 /// Es genérica: `T` es el tipo de elemento. Con `T: Serialize` el `derive` de serde genera la serialización de `PageDto<T>` para cualquier `T` serializable.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct PageDto<T: Serialize> {
     /// Elementos de la página.
@@ -128,7 +129,7 @@ fn source_ids(sources: Vec<SourceId>) -> Vec<String> {
 }
 
 /// Valor único (familia) con la fuente elegida.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct FamilyDto {
     /// Nombre de la familia.
@@ -138,7 +139,7 @@ pub struct FamilyDto {
 }
 
 /// Tipo de nombre, serializado como `"scientific"` o `"common"`.
-#[derive(Debug, Clone, Copy, Serialize)]
+#[derive(Debug, Clone, Copy, Serialize, ToSchema)]
 #[serde(rename_all = "lowercase")]
 pub enum NameKindDto {
     /// Nombre científico.
@@ -148,7 +149,7 @@ pub enum NameKindDto {
 }
 
 /// Nombre de planta con su atribución. Los campos van planos (no anidados en `value`) para que el JSON sea más directo.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct NameDto {
     /// Texto del nombre.
@@ -176,7 +177,7 @@ impl From<Attributed<PlantName>> for NameDto {
 }
 
 /// Parte de la planta con su atribución.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct PartDto {
     /// Etiqueta de la parte.
@@ -195,7 +196,7 @@ impl From<Attributed<Part>> for PartDto {
 }
 
 /// Referencia bibliográfica de un uso.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct ReferenceDto {
     /// Identificador de la referencia.
@@ -205,7 +206,7 @@ pub struct ReferenceDto {
 }
 
 /// Uso de la planta con su referencia y atribución.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct UseDto {
     /// Actividad atribuida.
@@ -233,7 +234,7 @@ impl From<Attributed<Use>> for UseDto {
 }
 
 /// Detalle completo de una planta.
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct PlantDto {
     /// Identificador público.
@@ -264,4 +265,25 @@ impl From<Plant> for PlantDto {
             uses: p.uses.into_iter().map(Into::into).collect(),
         }
     }
+}
+
+/// Cuerpo de error `application/problem+json` (RFC 9457).
+#[derive(Debug, Clone, Serialize, ToSchema)]
+pub struct ProblemDto {
+    /// URI que identifica el tipo de problema; siempre `about:blank`.
+    // `type` es palabra reservada en Rust: el campo se llama distinto y serde lo renombra en el JSON.
+    #[serde(rename = "type")]
+    pub problem_type: String,
+    /// Resumen corto del problema (el texto estándar del código HTTP).
+    pub title: String,
+    /// Código de estado HTTP.
+    pub status: u16,
+    /// Explicación específica de esta ocurrencia; en los 500 es siempre genérica.
+    pub detail: String,
+    /// Ruta pedida, cuando aplica.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub instance: Option<String>,
+    /// Parámetro afectado, en los errores 400 (extensión de RFC 9457).
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub param: Option<String>,
 }

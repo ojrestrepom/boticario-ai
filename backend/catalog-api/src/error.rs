@@ -4,7 +4,8 @@ use axum::Json;
 use axum::http::{HeaderValue, StatusCode, Uri, header};
 use axum::response::{IntoResponse, Response};
 use catalog_core::repository::RepositoryError;
-use serde_json::json;
+
+use crate::dto::ProblemDto;
 
 /// Tipo de medio de los errores.
 pub const PROBLEM_JSON: &str = "application/problem+json";
@@ -59,22 +60,14 @@ impl ApiError {
                 None,
             ),
         };
-        let mut body = json!({
-            "type": "about:blank",
-            "title": status.canonical_reason().unwrap_or("Error"),
-            "status": status.as_u16(),
-            "detail": detail,
-        });
-        // `body` es un objeto JSON, así que `as_object_mut` siempre devuelve `Some`.
-        if let Some(map) = body.as_object_mut() {
-            if let Some(instance) = instance {
-                map.insert("instance".into(), instance.into());
-            }
-            if let Some(param) = param {
-                // Extensión de RFC 9457: el parámetro que causó el error.
-                map.insert("param".into(), param.into());
-            }
-        }
+        let body = ProblemDto {
+            problem_type: "about:blank".to_string(),
+            title: status.canonical_reason().unwrap_or("Error").to_string(),
+            status: status.as_u16(),
+            detail,
+            instance: instance.map(str::to_string),
+            param,
+        };
         let mut response = (status, Json(body)).into_response();
         response
             .headers_mut()

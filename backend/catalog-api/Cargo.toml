@@ -8,6 +8,12 @@ publish.workspace = true
 catalog-core = { path = "../catalog-core" }
 diesel.workspace = true
 tokio.workspace = true
+axum.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
 
 [dev-dependencies]
 tempfile.workspace = true
+tower.workspace = true
+http-body-util.workspace = true

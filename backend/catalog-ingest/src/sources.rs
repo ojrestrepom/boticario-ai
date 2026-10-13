@@ -130,6 +130,17 @@ impl AdapterRegistry {
     }
 }
 
+/// Registro con los adaptadores que trae el programa (hoy solo USDA).
+///
+/// Es el único lugar que hay que tocar para añadir una fuente nueva al ejecutable.
+pub fn default_registry() -> AdapterRegistry {
+    let mut registry = AdapterRegistry::new();
+    registry
+        .register(Box::new(crate::usda::UsdaAdapter))
+        .expect("el registro está vacío: no puede haber duplicados");
+    registry
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -254,5 +265,17 @@ mod tests {
                 id: "alpha".to_string()
             }
         );
+    }
+
+    #[test]
+    fn default_registry_resolves_the_real_sources_toml() {
+        // La ruta se calcula desde el directorio del crate para no depender del directorio de trabajo.
+        let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../data/sources.toml");
+        let config = load_sources_config(&path).unwrap();
+        let registry = default_registry();
+        let active = registry.resolve(&config).unwrap();
+        assert_eq!(active.len(), 1);
+        assert_eq!(active[0].priority, 1);
+        assert_eq!(active[0].adapter.source().id.0, "usda");
     }
 }

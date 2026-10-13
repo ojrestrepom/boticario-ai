@@ -7,11 +7,13 @@
 pub mod adapter;
 pub mod build;
 pub mod consolidate;
+pub mod download;
 pub mod error;
 pub mod hash;
 pub mod input;
 pub mod raw;
 pub mod sources;
+pub mod usda;
 pub mod write;
 
 #[cfg(test)]

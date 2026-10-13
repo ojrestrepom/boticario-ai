@@ -151,6 +151,13 @@ pub enum IngestError {
         /// Ruta donde se esperaba la base cruda.
         path: PathBuf,
     },
+    /// Falló la descarga de un insumo o la cache contiene un archivo que no se puede reutilizar.
+    Download {
+        /// URL de descarga o ruta implicada.
+        url: String,
+        /// Descripción del problema.
+        message: String,
+    },
 }
 
 impl fmt::Display for IngestError {
@@ -272,6 +279,9 @@ impl fmt::Display for IngestError {
                 "no existe la base cruda {}: ejecuta primero la importación cruda",
                 path.display()
             ),
+            Self::Download { url, message } => {
+                write!(f, "no se pudo descargar {url}: {message}")
+            }
             Self::ConflictingReference {
                 id,
                 first_source,

@@ -1,0 +1,11 @@
+[package]
+name = "catalog-core"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+unicode-normalization = { workspace = true }
+
+[dev-dependencies]
+rusqlite = { workspace = true }

@@ -1,0 +1,12 @@
+[workspace]
+members = ["catalog-core", "catalog-ingest", "catalog-api"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace.dependencies]
+unicode-normalization = "0.1"
+rusqlite = { version = "0.40", features = ["bundled"] }

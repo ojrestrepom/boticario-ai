@@ -1,0 +1,4 @@
+HEAD /v1/plants -> 200 allow= ct=application/json
+HEAD /healthz -> 200 allow= ct=application/json
+OPTIONS /v1/plants -> 405 allow=GET ct=application/problem+json
+OPTIONS /healthz -> 405 allow=GET ct=application/problem+json

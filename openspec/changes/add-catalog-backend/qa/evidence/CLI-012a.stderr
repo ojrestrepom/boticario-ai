@@ -1,0 +1,15 @@
+error: falta el subcomando
+
+Uso: catalog-ingest <subcomando> [--data-dir <ruta>]
+
+Subcomandos:
+  download   Descarga y verifica los insumos de las fuentes activas en <data-dir>/.cache
+  build      Verifica los insumos de <data-dir>/.cache (no descarga), importa el crudo a <data-dir>/build/raw.db y escribe <data-dir>/build/catalog.db
+  rederive   Rehace <data-dir>/build/catalog.db desde <data-dir>/build/raw.db, sin el insumo original
+
+Opciones:
+  --data-dir <ruta>   Directorio de datos (por defecto: data, relativo al directorio de trabajo)
+  --help              Muestra esta ayuda
+
+Se ejecuta desde la raíz del repositorio:
+  mise exec -- cargo run --manifest-path backend/Cargo.toml -p catalog-ingest -- download

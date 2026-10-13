@@ -1,0 +1,36 @@
+API-001	PASS	GET /healthz responde 200 con status ok	
+API-002	PASS	GET /v1/sources trae usda/CC0 y coincide con la base	
+API-003	PASS	Listado sin q: 20 elementos, total 2376, orden por nombre científico	
+API-004	PASS	Elemento: id, nombre científico, nombres comunes con idioma y family (null si no existe)	
+API-005	PASS	Recorrido completo limit=100: 2376 elementos únicos, sin omisiones, orden total	
+API-006	PASS	Desplazamiento: limit=5&offset=10 devuelve los elementos 11..15 del orden	
+API-007	PASS	offset >= total: lista vacía, total conservado; offset=total-1: 1 elemento	
+API-008	PASS	Valores límite válidos de limit (1 y 100)	
+API-009	PASS	limit inválido (0, -1, 101, abc, vacío, 1e3, 1.5, desbordado) -> 400 problem+json con param=limit	
+API-010	PASS	offset inválido (-1, abc, 1.5, vacío, desbordado) -> 400 problem+json con param=offset	
+API-011	PASS	q de 200 caracteres admitido (también multibyte), 201 -> 400 con param=q	
+API-012	PASS	q=lavandula: plantas con la subcadena y total de la base	
+API-013	PASS	Búsqueda por nombre común (peppermint, rosemary)	
+API-014	PASS	Insensibilidad a mayúsculas, acentos (NFC y NFD) y espacios repetidos o exteriores	
+API-015	PASS	q vacío o solo espacios == sin q	
+API-016	PASS	% y _ (y \) son texto literal; Paperbark Tea_tree se encuentra	
+API-017	PASS	Sin coincidencias: 200, lista vacía, total 0	
+API-018	PASS	Paginación estable dentro de una búsqueda (q=a, limit=50)	
+API-019	PASS	Detalle de plantas de referencia coincide con la base (conteos, familia, atribución, claves)	
+API-020	PASS	Detalle de lavandula-angustifolia idéntico a la base (usos+citas, partes, nombres)	
+API-021	PASS	Planta sin usos: lista de usos vacía	
+API-022	PASS	Planta sin familia: family == null en el detalle	
+API-023	PASS	Id inexistente: 404 problem+json	
+API-024	PASS	Ruta desconocida: 404 problem+json	
+API-025	PASS	POST/PUT/DELETE/PATCH -> 405 problem+json con Allow: GET (recursos de /v1, /healthz y /openapi.json)	
+API-026	PASS	HEAD/OPTIONS observados (ver API-026.note)	
+API-027	PASS	/openapi.json 200 y JSON idéntico a backend/openapi.json	
+API-028	PASS	Todas las claves JSON en camelCase	
+API-029	PASS	Barrido de las 2376 plantas: todas 200; 18931 usos, 6740 partes, 5296 nombres; 1180 con usos; 34 sin familia	
+API-030	PASS	Robustez: ningún 5xx ni fuga de detalles internos (códigos observados en API-030.note)	
+API-031	PASS	Errores conservan application/problem+json con Accept inesperado	
+API-032	PASS	Cuerpo de error: type, title, status, detail, param e instance (RFC 9457)	
+API-033	PASS	Ninguna petición modifica la base (md5 antes/después, sin archivos -wal/-journal)	
+API-034	FAIL	offset respeta el formato int32 que declara el OpenAPI (2147483648 -> 400)	offset=2^31 (fuera de int32 declarado) debería ser 400 o el OpenAPI no declarar int32 (esperado '400', obtenido '200')
+API-035	FAIL	q con carácter NUL se comporta como texto inexistente (0 coincidencias) o da 400	q=%00zzzz debería dar 0 (devuelve todo el catálogo) (esperado '0', obtenido '2376'); q=a%00zzzz debería dar 0 (se trunca a 'termina en a') (esperado '0', obtenido '1225')
+API-036	FAIL	El OpenAPI documenta los códigos observados (405) y la ruta /openapi.json	OpenAPI documenta 405; OpenAPI documenta /openapi.json

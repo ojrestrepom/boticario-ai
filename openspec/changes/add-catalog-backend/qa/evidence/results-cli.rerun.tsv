@@ -1,0 +1,13 @@
+CLI-001	PASS	download es idempotente: segunda ejecución dice 'ya estaba', sin tocar el ZIP	
+CLI-002	PASS	build, build y rederive producen el mismo hash (y el de referencia 48d71b6b...)	
+CLI-003	PASS	La base reconstruida en un directorio temporal tiene el mismo volcado SQL que data/build/catalog.db	
+CLI-004	PASS	catalog.db solo esquema neutral; raw.db conserva las 16 tablas del ZIP celda a celda	
+CLI-005	PASS	rederive funciona sin el ZIP (solo con raw.db) y da el mismo hash	
+CLI-006	PASS	Cambio en un dato del crudo -> hash distinto	
+CLI-007	PASS	build sin .cache falla (código 1) indicando el paso de descarga y no deja base	
+CLI-008	PASS	rederive sin raw.db falla (código 1) indicando la importación cruda y no deja base	
+CLI-009	PASS	Insumo alterado (checksum, tamaño, vacío): build falla con código 1, lo indica y no deja base	
+CLI-010	PASS	Tras un build fallido sobre un directorio con base previa no quedan temporales (ver CLI-010.note)	
+CLI-011	PASS	Configuración de fuentes inválida (fuente desconocida, archivo ausente, TOML inválido) falla con código 1 y mensaje	
+CLI-012	PASS	Argumentos inválidos terminan con código distinto de 0 y sin pánico; --help sale con 0	
+CLI-013	PASS	data/build/catalog.db no cambió durante las pruebas de la CLI	

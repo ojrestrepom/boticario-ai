@@ -1,0 +1,14 @@
+API de solo lectura del catálogo de plantas.
+
+Uso: catalog-api [--db <ruta>] [--openapi] [--help]
+
+Opciones:
+  --db <ruta>  Ruta de la base del catálogo (prioridad sobre CATALOG_DB)
+  --openapi    Imprime el documento OpenAPI y sale
+  --help       Muestra esta ayuda
+
+Variables de entorno:
+  CATALOG_DB   Ruta de la base (por defecto data/build/catalog.db, relativa al directorio de trabajo)
+  HOST         Dirección de escucha (por defecto 127.0.0.1)
+  PORT         Puerto de escucha (por defecto 8080)
+  RUST_LOG     Filtro de logs (por defecto info)

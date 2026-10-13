@@ -4,6 +4,7 @@
 
 use std::path::Path;
 
+use catalog_core::sqlite::read_only_url;
 use diesel::{Connection, SqliteConnection};
 
 use crate::adapter::validate_source;
@@ -26,19 +27,12 @@ pub struct BuildReport {
     pub content_hash: String,
 }
 
-/// URL de SQLite para abrir `path` en solo lectura: `file:<ruta>?mode=ro`.
-///
-/// Diesel abre las conexiones con soporte de URI, y `mode=ro` hace que SQLite rechace cualquier escritura. En una URI, `%`, `?` y `#` tienen significado propio, así que se escapan en la ruta.
-fn read_only_url(path: &Path) -> Result<String, IngestError> {
-    let text = path.to_str().ok_or_else(|| IngestError::Io {
-        path: Some(path.to_path_buf()),
+/// URL de solo lectura de `path` (ver [`read_only_url`]), con el error de ruta convertido a [`IngestError`].
+fn read_only(path: &Path) -> Result<String, IngestError> {
+    read_only_url(path).map_err(|e| IngestError::Io {
+        path: Some(e.path),
         message: "la ruta no es UTF-8 válido".to_string(),
-    })?;
-    let escaped = text
-        .replace('%', "%25")
-        .replace('?', "%3F")
-        .replace('#', "%23");
-    Ok(format!("file:{escaped}?mode=ro"))
+    })
 }
 
 /// Deriva el catálogo consolidado desde la base cruda, con las fuentes activas de `config`.
@@ -53,7 +47,7 @@ pub fn derive_catalog(
         });
     }
     // Solo lectura: derivar no debe poder modificar el crudo.
-    let mut conn = SqliteConnection::establish(&read_only_url(raw_db)?)?;
+    let mut conn = SqliteConnection::establish(&read_only(raw_db)?)?;
 
     let mut inputs = Vec::new();
     for active in registry.resolve(config)? {
@@ -269,18 +263,10 @@ mod tests {
     }
 
     #[test]
-    fn read_only_url_escapes_uri_characters() {
-        assert_eq!(
-            read_only_url(Path::new("a#b?c%d/raw.db")).unwrap(),
-            "file:a%23b%3Fc%25d/raw.db?mode=ro"
-        );
-    }
-
-    #[test]
     fn derived_connection_is_read_only() {
         let dir = tempfile::tempdir().unwrap();
         let raw_db = build_raw(&dir, &[("alpha", FixtureCsv::alpha())]);
-        let mut conn = SqliteConnection::establish(&read_only_url(&raw_db).unwrap()).unwrap();
+        let mut conn = SqliteConnection::establish(&read_only(&raw_db).unwrap()).unwrap();
         let err = diesel::sql_query("DROP TABLE raw_alpha_plants")
             .execute(&mut conn)
             .unwrap_err();

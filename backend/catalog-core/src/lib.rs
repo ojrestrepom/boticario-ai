@@ -11,4 +11,5 @@ pub mod rows;
 // Generado por `diesel print-schema`: no se edita a mano ni se le añaden docs.
 #[allow(missing_docs)]
 pub mod schema;
+pub mod sqlite;
 pub mod version;

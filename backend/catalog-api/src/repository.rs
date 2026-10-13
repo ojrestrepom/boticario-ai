@@ -1,0 +1,780 @@
+//! Implementación SQLite (con Diesel) del repositorio del catálogo.
+//!
+//! Lee únicamente el esquema neutral, siempre con el DSL de Diesel: aquí no hay SQL escrito a mano.
+//! La base se abre en solo lectura y se comprueba su versión de esquema antes de servir nada.
+
+use std::collections::HashMap;
+use std::error::Error;
+use std::fmt;
+use std::path::{Path, PathBuf};
+
+use catalog_core::domain::{
+    Attributed, ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary,
+    Reference, Source, SourceId, Use,
+};
+use catalog_core::normalize::normalize_name;
+use catalog_core::repository::{CatalogRepository, RepositoryError};
+use catalog_core::rows::{
+    PlantNameRow, PlantPartRow, PlantRow, PlantUseRow, ReferenceRow, SourceRow,
+};
+use catalog_core::schema::{
+    metadata, plant, plant_name, plant_name_source, plant_part, plant_part_source, plant_use,
+    plant_use_source, reference, source,
+};
+use catalog_core::sqlite::{InvalidPath, read_only_url};
+use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY};
+use diesel::SqliteConnection;
+use diesel::prelude::*;
+use diesel::r2d2::{ConnectionManager, Pool, PooledConnection};
+
+/// Conexiones simultáneas que mantiene el pool.
+///
+/// Cada petición bloqueante usa una conexión mientras dura su consulta; con un catálogo de lectura pequeño, cuatro sobran y acotan los descriptores de archivo abiertos.
+pub const POOL_SIZE: u32 = 4;
+
+/// Fallo al abrir el repositorio.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum OpenError {
+    /// El archivo de la base no existe.
+    Missing {
+        /// Ruta que se intentó abrir.
+        path: PathBuf,
+    },
+    /// La ruta no se puede convertir a URL de SQLite.
+    InvalidPath(InvalidPath),
+    /// La base existe pero falló el acceso o la comprobación de versión.
+    Repository(RepositoryError),
+}
+
+// Se usa un enum propio en vez de reutilizar `RepositoryError`: "falta el archivo" es un problema de arranque con una pista accionable (qué comando ejecutar) que no tiene sentido durante una petición.
+impl fmt::Display for OpenError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Missing { path } => write!(
+                f,
+                "no existe la base del catálogo en {}; constrúyela con `catalog-ingest build`",
+                path.display()
+            ),
+            Self::InvalidPath(err) => err.fmt(f),
+            Self::Repository(err) => err.fmt(f),
+        }
+    }
+}
+
+impl Error for OpenError {}
+
+// `From` permite usar `?` y que Rust convierta el error de forma automática.
+impl From<RepositoryError> for OpenError {
+    fn from(err: RepositoryError) -> Self {
+        Self::Repository(err)
+    }
+}
+
+impl From<InvalidPath> for OpenError {
+    fn from(err: InvalidPath) -> Self {
+        Self::InvalidPath(err)
+    }
+}
+
+/// Convierte cualquier error con `Display` (Diesel, r2d2) en un error de almacenamiento.
+///
+/// Es una función y no un `impl From<diesel::result::Error> for RepositoryError` por la regla de coherencia: solo se puede implementar un trait si el trait o el tipo son del crate actual, y aquí `From`, `diesel::result::Error` y `RepositoryError` son todos ajenos.
+fn storage(err: impl fmt::Display) -> RepositoryError {
+    RepositoryError::Storage(err.to_string())
+}
+
+type SqlitePool = Pool<ConnectionManager<SqliteConnection>>;
+
+/// Repositorio del catálogo sobre una base SQLite abierta en solo lectura.
+pub struct SqliteCatalogRepository {
+    pool: SqlitePool,
+}
+
+impl SqliteCatalogRepository {
+    /// Abre la base en `path` en solo lectura y comprueba que su versión de esquema sea la soportada.
+    pub fn open(path: &Path) -> Result<Self, OpenError> {
+        if !path.exists() {
+            return Err(OpenError::Missing {
+                path: path.to_path_buf(),
+            });
+        }
+        let manager = ConnectionManager::<SqliteConnection>::new(read_only_url(path)?);
+        // `build` abre las conexiones al crear el pool: una base ilegible falla aquí y no en la primera petición.
+        let pool = Pool::builder()
+            .max_size(POOL_SIZE)
+            .build(manager)
+            .map_err(storage)?;
+        let repo = Self { pool };
+        repo.check_schema_version()?;
+        Ok(repo)
+    }
+
+    fn conn(
+        &self,
+    ) -> Result<PooledConnection<ConnectionManager<SqliteConnection>>, RepositoryError> {
+        self.pool.get().map_err(storage)
+    }
+
+    fn check_schema_version(&self) -> Result<(), RepositoryError> {
+        let mut conn = self.conn()?;
+        let stored: Option<String> = metadata::table
+            .filter(metadata::key.eq(SCHEMA_VERSION_KEY))
+            .select(metadata::value)
+            .first(&mut *conn)
+            .optional()
+            .map_err(storage)?;
+        let text = stored
+            .ok_or_else(|| storage(format!("falta {SCHEMA_VERSION_KEY} en los metadatos")))?;
+        let found: u32 = text
+            .parse()
+            .map_err(|_| storage(format!("{SCHEMA_VERSION_KEY} no es numérica: {text:?}")))?;
+        if found != SCHEMA_VERSION {
+            return Err(RepositoryError::IncompatibleSchema {
+                found,
+                supported: SCHEMA_VERSION,
+            });
+        }
+        Ok(())
+    }
+}
+
+/// Convierte el texto de `plant_name.kind` en [`NameKind`].
+fn parse_kind(kind: &str) -> Result<NameKind, RepositoryError> {
+    match kind {
+        "scientific" => Ok(NameKind::Scientific),
+        "common" => Ok(NameKind::Common),
+        other => Err(storage(format!("tipo de nombre desconocido: {other:?}"))),
+    }
+}
+
+fn to_plant_name(row: &PlantNameRow) -> Result<PlantName, RepositoryError> {
+    Ok(PlantName {
+        text: row.text.clone(),
+        kind: parse_kind(&row.kind)?,
+        language: row.language.clone(),
+    })
+}
+
+/// Agrupa pares `(id del dato, fuente)` en el mapa `id -> fuentes`, ordenadas por id de fuente.
+fn group_sources<K: std::hash::Hash + Eq>(pairs: Vec<(K, String)>) -> HashMap<K, Vec<SourceId>> {
+    let mut map: HashMap<K, Vec<SourceId>> = HashMap::new();
+    for (key, source_id) in pairs {
+        map.entry(key).or_default().push(SourceId(source_id));
+    }
+    for sources in map.values_mut() {
+        sources.sort();
+    }
+    map
+}
+
+/// Patrón `LIKE` de "contiene" para un texto ya normalizado, con `%`, `_` y `\` escapados con `\`.
+fn contains_pattern(normalized: &str) -> String {
+    let mut pattern = String::from("%");
+    for c in normalized.chars() {
+        if matches!(c, '%' | '_' | '\\') {
+            pattern.push('\\');
+        }
+        pattern.push(c);
+    }
+    pattern.push('%');
+    pattern
+}
+
+impl CatalogRepository for SqliteCatalogRepository {
+    /// Precondición: `query.limit` y `query.offset` ya están validados (rangos incluidos) por quien llama; aquí se usan tal cual.
+    fn list_plants(&self, query: &ListQuery) -> Result<Page<PlantSummary>, RepositoryError> {
+        let mut conn = self.conn()?;
+        let conn = &mut *conn;
+
+        // Un `q` vacío o solo con espacios se normaliza a "" y no filtra.
+        let normalized = query.q.as_deref().map(normalize_name).unwrap_or_default();
+        let pattern = (!normalized.is_empty()).then(|| contains_pattern(&normalized));
+
+        // Ids de las plantas con algún nombre (científico o común) que contiene el texto.
+        // `escape('\\')` declara `\` como carácter de escape: sin él, `%` y `_` del usuario actuarían como comodines.
+        let matching_ids = |pattern: &str| {
+            plant_name::table
+                .filter(plant_name::normalized.like(pattern.to_owned()).escape('\\'))
+                .select(plant_name::plant_id)
+        };
+
+        // `into_boxed` permite añadir el filtro solo si hay búsqueda.
+        let mut count_query = plant::table.into_boxed();
+        let mut page_query = plant::table.into_boxed();
+        if let Some(pattern) = &pattern {
+            count_query = count_query.filter(plant::id.eq_any(matching_ids(pattern)));
+            page_query = page_query.filter(plant::id.eq_any(matching_ids(pattern)));
+        }
+
+        let total: i64 = count_query.count().get_result(conn).map_err(storage)?;
+        let plants: Vec<PlantRow> = page_query
+            .order_by((plant::scientific_name.asc(), plant::id.asc()))
+            .limit(i64::from(query.limit))
+            .offset(i64::from(query.offset))
+            .select(PlantRow::as_select())
+            .load(conn)
+            .map_err(storage)?;
+
+        // Una sola consulta para los nombres comunes de toda la página.
+        let ids: Vec<&str> = plants.iter().map(|p| p.id.as_str()).collect();
+        let name_rows: Vec<PlantNameRow> = if ids.is_empty() {
+            Vec::new()
+        } else {
+            plant_name::table
+                .filter(plant_name::kind.eq("common"))
+                .filter(plant_name::plant_id.eq_any(&ids))
+                .order_by((
+                    plant_name::text.asc(),
+                    plant_name::language.asc(),
+                    plant_name::id.asc(),
+                ))
+                .select(PlantNameRow::as_select())
+                .load(conn)
+                .map_err(storage)?
+        };
+        let mut commons: HashMap<&str, Vec<PlantName>> = HashMap::new();
+        for row in &name_rows {
+            commons
+                .entry(row.plant_id.as_str())
+                .or_default()
+                .push(to_plant_name(row)?);
+        }
+
+        let items = plants
+            .iter()
+            .map(|p| PlantSummary {
+                id: PlantId(p.id.clone()),
+                scientific_name: p.scientific_name.clone(),
+                common_names: commons.remove(p.id.as_str()).unwrap_or_default(),
+                family: p.family.clone(),
+            })
+            .collect();
+        Ok(Page {
+            items,
+            total: u64::try_from(total).map_err(storage)?,
+        })
+    }
+
+    fn get_plant(&self, id: &PlantId) -> Result<Option<Plant>, RepositoryError> {
+        let mut conn = self.conn()?;
+        let conn = &mut *conn;
+
+        let Some(row) = plant::table
+            .find(&id.0)
+            .select(PlantRow::as_select())
+            .first(conn)
+            .optional()
+            .map_err(storage)?
+        else {
+            return Ok(None);
+        };
+
+        let family = match (row.family, row.family_source_id) {
+            (Some(value), Some(src)) => Some(Attributed {
+                value,
+                sources: vec![SourceId(src)],
+            }),
+            _ => None,
+        };
+
+        Ok(Some(Plant {
+            id: PlantId(row.id),
+            scientific_name: row.scientific_name,
+            family,
+            names: load_names(conn, &id.0)?,
+            parts: load_parts(conn, &id.0)?,
+            uses: load_uses(conn, &id.0)?,
+        }))
+    }
+
+    fn list_sources(&self) -> Result<Vec<Source>, RepositoryError> {
+        let mut conn = self.conn()?;
+        let rows: Vec<SourceRow> = source::table
+            .order_by(source::id.asc())
+            .select(SourceRow::as_select())
+            .load(&mut *conn)
+            .map_err(storage)?;
+        Ok(rows
+            .into_iter()
+            .map(|r| Source {
+                id: SourceId(r.id),
+                name: r.name,
+                version: r.version,
+                license: r.license,
+                citation: r.citation,
+                url: r.url,
+                checksum: r.checksum,
+            })
+            .collect())
+    }
+}
+
+/// Nombres de la planta con sus fuentes: científicos primero, luego por texto e idioma.
+fn load_names(
+    conn: &mut SqliteConnection,
+    plant_id: &str,
+) -> Result<Vec<Attributed<PlantName>>, RepositoryError> {
+    let rows: Vec<PlantNameRow> = plant_name::table
+        .filter(plant_name::plant_id.eq(plant_id))
+        .select(PlantNameRow::as_select())
+        .load(conn)
+        .map_err(storage)?;
+    let ids: Vec<i32> = rows.iter().map(|r| r.id).collect();
+    let mut sources = group_sources(
+        plant_name_source::table
+            .filter(plant_name_source::plant_name_id.eq_any(&ids))
+            .select((
+                plant_name_source::plant_name_id,
+                plant_name_source::source_id,
+            ))
+            .load::<(i32, String)>(conn)
+            .map_err(storage)?,
+    );
+    let mut names = rows
+        .iter()
+        .map(|r| {
+            Ok(Attributed {
+                value: to_plant_name(r)?,
+                sources: sources.remove(&r.id).unwrap_or_default(),
+            })
+        })
+        .collect::<Result<Vec<_>, RepositoryError>>()?;
+    // `NameKind` no implementa `Ord`, así que se ordena por un rango explícito: científico antes que común.
+    names.sort_by(|a, b| {
+        let rank = |n: &Attributed<PlantName>| u8::from(n.value.kind == NameKind::Common);
+        (rank(a), &a.value.text, &a.value.language).cmp(&(
+            rank(b),
+            &b.value.text,
+            &b.value.language,
+        ))
+    });
+    Ok(names)
+}
+
+/// Partes de la planta con sus fuentes, ordenadas por etiqueta.
+fn load_parts(
+    conn: &mut SqliteConnection,
+    plant_id: &str,
+) -> Result<Vec<Attributed<Part>>, RepositoryError> {
+    let rows: Vec<PlantPartRow> = plant_part::table
+        .filter(plant_part::plant_id.eq(plant_id))
+        .order_by(plant_part::label.asc())
+        .select(PlantPartRow::as_select())
+        .load(conn)
+        .map_err(storage)?;
+    let ids: Vec<i32> = rows.iter().map(|r| r.id).collect();
+    let mut sources = group_sources(
+        plant_part_source::table
+            .filter(plant_part_source::plant_part_id.eq_any(&ids))
+            .select((
+                plant_part_source::plant_part_id,
+                plant_part_source::source_id,
+            ))
+            .load::<(i32, String)>(conn)
+            .map_err(storage)?,
+    );
+    Ok(rows
+        .into_iter()
+        .map(|r| Attributed {
+            sources: sources.remove(&r.id).unwrap_or_default(),
+            value: Part { label: r.label },
+        })
+        .collect())
+}
+
+/// Usos de la planta con su referencia y fuentes, ordenados por actividad, idioma y referencia.
+fn load_uses(
+    conn: &mut SqliteConnection,
+    plant_id: &str,
+) -> Result<Vec<Attributed<Use>>, RepositoryError> {
+    let rows: Vec<PlantUseRow> = plant_use::table
+        .filter(plant_use::plant_id.eq(plant_id))
+        .order_by((
+            plant_use::activity.asc(),
+            plant_use::language.asc(),
+            plant_use::reference_id.asc(),
+        ))
+        .select(PlantUseRow::as_select())
+        .load(conn)
+        .map_err(storage)?;
+    let ids: Vec<i32> = rows.iter().map(|r| r.id).collect();
+    let ref_ids: Vec<&str> = rows.iter().map(|r| r.reference_id.as_str()).collect();
+    let references: HashMap<String, String> = reference::table
+        .filter(reference::id.eq_any(&ref_ids))
+        .select(ReferenceRow::as_select())
+        .load(conn)
+        .map_err(storage)?
+        .into_iter()
+        .map(|r| (r.id, r.citation))
+        .collect();
+    let mut sources = group_sources(
+        plant_use_source::table
+            .filter(plant_use_source::plant_use_id.eq_any(&ids))
+            .select((plant_use_source::plant_use_id, plant_use_source::source_id))
+            .load::<(i32, String)>(conn)
+            .map_err(storage)?,
+    );
+    rows.into_iter()
+        .map(|r| {
+            let citation = references
+                .get(&r.reference_id)
+                .ok_or_else(|| storage(format!("referencia inexistente: {}", r.reference_id)))?
+                .clone();
+            Ok(Attributed {
+                sources: sources.remove(&r.id).unwrap_or_default(),
+                value: Use {
+                    activity: r.activity,
+                    language: r.language,
+                    reference: Reference {
+                        id: r.reference_id,
+                        citation,
+                    },
+                },
+            })
+        })
+        .collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::test_support::Fixture;
+    use catalog_core::normalize::NORMALIZATION_CASES;
+    use catalog_core::rows::MetadataRow;
+
+    fn query(q: Option<&str>, limit: u32, offset: u32) -> ListQuery {
+        ListQuery {
+            q: q.map(str::to_string),
+            limit,
+            offset,
+        }
+    }
+
+    fn ids(page: &Page<PlantSummary>) -> Vec<&str> {
+        page.items.iter().map(|p| p.id.0.as_str()).collect()
+    }
+
+    fn pid(id: &str) -> PlantId {
+        PlantId(id.to_string())
+    }
+
+    fn sources(ids: &[&str]) -> Vec<SourceId> {
+        ids.iter().map(|s| SourceId(s.to_string())).collect()
+    }
+
+    // ---- 6.1 apertura ----
+
+    #[test]
+    fn opens_valid_database() {
+        let fixture = Fixture::standard();
+        assert!(SqliteCatalogRepository::open(&fixture.path).is_ok());
+    }
+
+    #[test]
+    fn incompatible_version_is_rejected() {
+        let fixture = Fixture::with_version(Some("99"));
+        let err = SqliteCatalogRepository::open(&fixture.path).err().unwrap();
+        assert_eq!(
+            err,
+            OpenError::Repository(RepositoryError::IncompatibleSchema {
+                found: 99,
+                supported: 1
+            })
+        );
+    }
+
+    #[test]
+    fn missing_or_non_numeric_version_is_a_storage_error() {
+        for version in [None, Some("abc")] {
+            let fixture = Fixture::with_version(version);
+            let err = SqliteCatalogRepository::open(&fixture.path).err().unwrap();
+            assert!(
+                matches!(err, OpenError::Repository(RepositoryError::Storage(_))),
+                "{err:?}"
+            );
+        }
+    }
+
+    #[test]
+    fn missing_database_names_path_and_build_command() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("nope.db");
+        let err = SqliteCatalogRepository::open(&path).err().unwrap();
+        let text = err.to_string();
+        assert!(text.contains(path.to_str().unwrap()), "{text}");
+        assert!(text.contains("build"), "{text}");
+        // Abrir no debe crear el archivo.
+        assert!(!path.exists());
+    }
+
+    #[test]
+    fn pooled_connections_cannot_write() {
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let mut conn = repo.conn().unwrap();
+        let err = diesel::insert_into(metadata::table)
+            .values(MetadataRow {
+                key: "x".to_string(),
+                value: "y".to_string(),
+            })
+            .execute(&mut *conn)
+            .unwrap_err();
+        assert!(err.to_string().contains("readonly"), "{err}");
+    }
+
+    // ---- 6.2 listado ----
+
+    fn expected_order() -> Vec<String> {
+        let mut v: Vec<String> = (1..=25).map(|n| format!("fillerus-{n:02}")).collect();
+        v.extend(
+            [
+                "lavandula-angustifolia",
+                "lavandula-latifolia",
+                "mentha-x-piperita",
+                "twin-a",
+                "twin-b",
+                "zea-mays",
+            ]
+            .map(String::from),
+        );
+        v
+    }
+
+    #[test]
+    fn lists_in_total_order_with_id_tiebreak() {
+        let repo = Fixture::standard().repo();
+        let page = repo.list_plants(&query(None, 100, 0)).unwrap();
+        assert_eq!(page.total, 31);
+        assert_eq!(ids(&page), expected_order());
+    }
+
+    #[test]
+    fn pages_are_consecutive_and_total_is_independent() {
+        let repo = Fixture::standard().repo();
+        let mut seen = Vec::new();
+        for offset in (0..31).step_by(7) {
+            let page = repo.list_plants(&query(None, 7, offset)).unwrap();
+            assert_eq!(page.total, 31);
+            seen.extend(page.items.into_iter().map(|p| p.id.0));
+        }
+        assert_eq!(seen, expected_order());
+    }
+
+    #[test]
+    fn default_limit_is_twenty_and_offset_past_total_is_empty() {
+        let repo = Fixture::standard().repo();
+        let page = repo.list_plants(&ListQuery::default()).unwrap();
+        assert_eq!((page.items.len(), page.total), (20, 31));
+        let past = repo.list_plants(&query(None, 20, 500)).unwrap();
+        assert_eq!((past.items.len(), past.total), (0, 31));
+    }
+
+    #[test]
+    fn items_carry_common_names_and_family() {
+        let repo = Fixture::standard().repo();
+        let page = repo
+            .list_plants(&query(Some("lavandula angustifolia"), 20, 0))
+            .unwrap();
+        let name = |text: &str, language: &str| PlantName {
+            text: text.to_string(),
+            kind: NameKind::Common,
+            language: language.to_string(),
+        };
+        assert_eq!(
+            page.items,
+            vec![PlantSummary {
+                id: pid("lavandula-angustifolia"),
+                scientific_name: "Lavandula angustifolia".to_string(),
+                common_names: vec![
+                    name("Espliego", "es"),
+                    name("Lavanda", "es"),
+                    name("Lavender", "en")
+                ],
+                family: Some("Lamiaceae".to_string()),
+            }]
+        );
+        // Sin familia es `None`, y el nombre científico no cuenta como nombre común.
+        let mentha = repo.list_plants(&query(Some("mentha"), 20, 0)).unwrap();
+        assert_eq!(mentha.items[0].family, None);
+        assert_eq!(mentha.items[0].common_names.len(), 2);
+    }
+
+    #[test]
+    fn searches_scientific_and_common_names() {
+        let repo = Fixture::standard().repo();
+        let sci = repo.list_plants(&query(Some("lavandula"), 20, 0)).unwrap();
+        assert_eq!(ids(&sci), ["lavandula-angustifolia", "lavandula-latifolia"]);
+        assert_eq!(sci.total, 2);
+        let common = repo.list_plants(&query(Some("espliego"), 20, 0)).unwrap();
+        assert_eq!(ids(&common), ["lavandula-angustifolia"]);
+        // Subcadena en medio del nombre.
+        let inner = repo.list_plants(&query(Some("pike lav"), 20, 0)).unwrap();
+        assert_eq!(ids(&inner), ["lavandula-latifolia"]);
+        let none = repo.list_plants(&query(Some("zzz"), 20, 0)).unwrap();
+        assert_eq!((none.items.len(), none.total), (0, 0));
+    }
+
+    #[test]
+    fn search_total_ignores_the_page() {
+        let repo = Fixture::standard().repo();
+        let page = repo.list_plants(&query(Some("filler"), 5, 10)).unwrap();
+        assert_eq!((page.items.len(), page.total), (5, 25));
+    }
+
+    #[test]
+    fn search_ignores_case_accents_and_spaces() {
+        let repo = Fixture::standard().repo();
+        for q in ["ÑANDÚ", "  nandu   cafe ", "Café"] {
+            let page = repo.list_plants(&query(Some(q), 20, 0)).unwrap();
+            assert_eq!(ids(&page), ["mentha-x-piperita"], "q = {q:?}");
+        }
+    }
+
+    #[test]
+    fn shared_normalization_cases_match_their_normalized_form() {
+        let repo = Fixture::standard().repo();
+        for (input, expected) in NORMALIZATION_CASES {
+            let raw = repo.list_plants(&query(Some(input), 100, 0)).unwrap();
+            let normalized = repo.list_plants(&query(Some(expected), 100, 0)).unwrap();
+            assert_eq!(raw, normalized, "caso {input:?}");
+        }
+    }
+
+    #[test]
+    fn empty_or_blank_query_means_no_filter() {
+        let repo = Fixture::standard().repo();
+        let all = repo.list_plants(&query(None, 100, 0)).unwrap();
+        for q in ["", "   ", "\t\n"] {
+            assert_eq!(repo.list_plants(&query(Some(q), 100, 0)).unwrap(), all);
+        }
+    }
+
+    #[test]
+    fn pattern_characters_are_literal() {
+        let repo = Fixture::standard().repo();
+        for q in ["%", "_", "100%", "corn_m"] {
+            let page = repo.list_plants(&query(Some(q), 100, 0)).unwrap();
+            assert_eq!(ids(&page), ["zea-mays"], "q = {q:?}");
+        }
+        // `%` y `_` no actúan como comodines dentro de un texto.
+        for q in ["lav%ula", "lav_ndula", "c_rn"] {
+            assert_eq!(repo.list_plants(&query(Some(q), 100, 0)).unwrap().total, 0);
+        }
+        // La barra invertida (el carácter de escape) también es literal.
+        assert_eq!(
+            repo.list_plants(&query(Some("\\"), 100, 0)).unwrap().total,
+            0
+        );
+    }
+
+    // ---- 6.3 detalle y fuentes ----
+
+    #[test]
+    fn detail_includes_names_parts_and_uses_with_sources() {
+        let repo = Fixture::standard().repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(plant.scientific_name, "Lavandula angustifolia");
+        assert_eq!(
+            plant.family,
+            Some(Attributed {
+                value: "Lamiaceae".to_string(),
+                sources: sources(&["a"])
+            })
+        );
+        let names: Vec<(&str, NameKind, &str)> = plant
+            .names
+            .iter()
+            .map(|n| {
+                (
+                    n.value.text.as_str(),
+                    n.value.kind,
+                    n.value.language.as_str(),
+                )
+            })
+            .collect();
+        assert_eq!(
+            names,
+            [
+                ("Lavandula angustifolia", NameKind::Scientific, "la"),
+                ("Espliego", NameKind::Common, "es"),
+                ("Lavanda", NameKind::Common, "es"),
+                ("Lavender", NameKind::Common, "en"),
+            ]
+        );
+        // Un dato aportado por dos fuentes las lista ambas, ordenadas.
+        assert_eq!(plant.names[0].sources, sources(&["a", "b"]));
+        assert_eq!(plant.names[1].sources, sources(&["b"]));
+
+        let parts: Vec<(&str, &[SourceId])> = plant
+            .parts
+            .iter()
+            .map(|p| (p.value.label.as_str(), p.sources.as_slice()))
+            .collect();
+        assert_eq!(
+            parts,
+            [
+                ("Flower", sources(&["a"]).as_slice()),
+                ("Leaf", sources(&["a", "b"]).as_slice())
+            ]
+        );
+
+        assert_eq!(
+            plant.uses,
+            vec![
+                Attributed {
+                    value: Use {
+                        activity: "Antiseptic".to_string(),
+                        language: "en".to_string(),
+                        reference: Reference {
+                            id: "ref-1".to_string(),
+                            citation: "Smith 1990".to_string()
+                        }
+                    },
+                    sources: sources(&["a"]),
+                },
+                Attributed {
+                    value: Use {
+                        activity: "Sedative".to_string(),
+                        language: "en".to_string(),
+                        reference: Reference {
+                            id: "ref-2".to_string(),
+                            citation: "Jones 2001".to_string()
+                        }
+                    },
+                    sources: sources(&["a", "b"]),
+                },
+            ]
+        );
+    }
+
+    #[test]
+    fn detail_without_uses_or_family() {
+        let repo = Fixture::standard().repo();
+        let latifolia = repo
+            .get_plant(&pid("lavandula-latifolia"))
+            .unwrap()
+            .unwrap();
+        assert!(latifolia.uses.is_empty() && latifolia.parts.is_empty());
+        let mentha = repo.get_plant(&pid("mentha-x-piperita")).unwrap().unwrap();
+        assert_eq!(mentha.family, None);
+    }
+
+    #[test]
+    fn unknown_plant_is_none() {
+        let repo = Fixture::standard().repo();
+        assert_eq!(repo.get_plant(&pid("does-not-exist")).unwrap(), None);
+    }
+
+    #[test]
+    fn sources_are_sorted_by_id() {
+        let repo = Fixture::standard().repo();
+        let all = repo.list_sources().unwrap();
+        let ids: Vec<&str> = all.iter().map(|s| s.id.0.as_str()).collect();
+        assert_eq!(ids, ["a", "b"]);
+        assert_eq!(all[0].name, "Fuente a");
+        assert_eq!(all[0].url, "https://example.test/a");
+    }
+}

@@ -58,8 +58,8 @@
 
 ## 8. Documentación
 
-- [ ] 8.1 Actualizar `README.md` con la estructura del repositorio (`backend/`, `data/`, `mise.toml`), el requisito de mise, cómo descargar el insumo, construir la base, rederivar desde la capa cruda, arrancar la API y los comandos de verificación; retirar la frase de que las carpetas del backend y la ingesta no existen, sin alterar las instrucciones de Flutter, y verificar ejecutando los comandos documentados tal como están escritos.
-- [ ] 8.2 Escribir en `docs/data/` una guía del modelo de tres capas (crudo, enlace y neutral) y de cómo añadir un dataset (contrato de adaptador, `data/sources.toml`, prioridades, reglas de consolidación, licencia de la capa cruda y límites como los sinónimos), y enlazarla desde el README; verificar que los enlaces resuelven y que sus pasos coinciden con el código y los tests de fixture.
+- [x] 8.1 Actualizar `README.md` con la estructura del repositorio (`backend/`, `data/`, `mise.toml`), el requisito de mise, cómo descargar el insumo, construir la base, rederivar desde la capa cruda, arrancar la API y los comandos de verificación; retirar la frase de que las carpetas del backend y la ingesta no existen, sin alterar las instrucciones de Flutter, y verificar ejecutando los comandos documentados tal como están escritos.
+- [x] 8.2 Escribir en `docs/data/` una guía del modelo de tres capas (crudo, enlace y neutral) y de cómo añadir un dataset (contrato de adaptador, `data/sources.toml`, prioridades, reglas de consolidación, licencia de la capa cruda y límites como los sinónimos), y enlazarla desde el README; verificar que los enlaces resuelven y que sus pasos coinciden con el código y los tests de fixture.
 
 ## 9. Verificación final y QA
 

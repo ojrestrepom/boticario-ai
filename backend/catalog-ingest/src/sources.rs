@@ -133,7 +133,7 @@ impl AdapterRegistry {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::test_support::{FixtureAdapter, alpha_records, beta_records};
+    use crate::test_support::{StaticAdapter, alpha_records, beta_records};
 
     fn config(entries: &[(&str, u32)]) -> SourcesConfig {
         SourcesConfig {
@@ -150,10 +150,10 @@ mod tests {
     fn registry() -> AdapterRegistry {
         let mut registry = AdapterRegistry::new();
         registry
-            .register(Box::new(FixtureAdapter::new("alpha", alpha_records())))
+            .register(Box::new(StaticAdapter::new("alpha", alpha_records())))
             .unwrap();
         registry
-            .register(Box::new(FixtureAdapter::new("beta", beta_records())))
+            .register(Box::new(StaticAdapter::new("beta", beta_records())))
             .unwrap();
         registry
     }
@@ -246,7 +246,7 @@ mod tests {
     fn duplicate_adapter_is_rejected() {
         let mut registry = registry();
         let err = registry
-            .register(Box::new(FixtureAdapter::new("alpha", alpha_records())))
+            .register(Box::new(StaticAdapter::new("alpha", alpha_records())))
             .unwrap_err();
         assert_eq!(
             err,

@@ -128,11 +128,11 @@ pub fn validate_source(source: &Source) -> Result<(), IngestError> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::test_support::{FixtureAdapter, alpha_records, fixture_source};
+    use crate::test_support::{StaticAdapter, alpha_records, fixture_source};
 
     #[test]
     fn conforming_adapter_passes_validation() {
-        let adapter = FixtureAdapter::new("alpha", alpha_records());
+        let adapter = StaticAdapter::new("alpha", alpha_records());
         assert_eq!(validate_source(&adapter.source()), Ok(()));
         assert_eq!(adapter.input().file_name, "alpha.zip");
         let spec = adapter.raw_import(Path::new("x.zip"));

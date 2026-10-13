@@ -77,7 +77,7 @@ pub enum IngestError {
         /// Descripción del problema.
         message: String,
     },
-    /// La configuración pide una fuente para la que no hay adaptador registrado.
+    /// Se cita una fuente desconocida: la configuración pide una sin adaptador registrado, o un dato atribuye una fuente que el catálogo no declara.
     UnknownSource {
         /// Identificador pedido.
         id: String,
@@ -124,6 +124,32 @@ pub enum IngestError {
         first_source: String,
         /// Fuente cuya cita difiere (puede ser la misma fuente).
         second_source: String,
+    },
+    /// Una planta tiene nombre científico vacío o su slug (ID público) queda vacío.
+    EmptyScientificName {
+        /// Fuente del registro (vacía si no se conoce).
+        source: String,
+        /// Identificador del registro en la fuente (vacío si no se conoce).
+        source_plant_id: String,
+    },
+    /// Un dato del catálogo no tiene ninguna fuente que lo respalde.
+    DataWithoutSource {
+        /// Planta a la que pertenece el dato (vacío si no es de una planta, como una referencia).
+        plant_id: String,
+        /// Tipo de dato: `family`, `name`, `part`, `use` o `reference`.
+        kind: &'static str,
+        /// Valor del dato, para identificarlo.
+        value: String,
+    },
+    /// No existe una base de datos que se debía leer (por ejemplo `catalog.db`).
+    MissingDatabase {
+        /// Ruta donde se esperaba la base.
+        path: PathBuf,
+    },
+    /// No existe la base cruda de la que derivar el catálogo.
+    MissingRawLayer {
+        /// Ruta donde se esperaba la base cruda.
+        path: PathBuf,
     },
 }
 
@@ -193,7 +219,7 @@ impl fmt::Display for IngestError {
             } => write!(f, "configuración de fuentes inválida: {message}"),
             Self::UnknownSource { id } => write!(
                 f,
-                "la configuración activa la fuente \"{id}\" pero no hay adaptador registrado para ella"
+                "fuente desconocida \"{id}\": no hay adaptador registrado para ella o el catálogo no la declara"
             ),
             Self::DuplicateAdapter { id } => {
                 write!(f, "ya hay un adaptador registrado para la fuente \"{id}\"")
@@ -222,6 +248,29 @@ impl fmt::Display for IngestError {
             } => write!(
                 f,
                 "la planta \"{source_plant_id}\" de la fuente \"{source}\" usa la referencia \"{reference_id}\", que esa fuente no entregó"
+            ),
+            Self::EmptyScientificName {
+                source,
+                source_plant_id,
+            } => write!(
+                f,
+                "la planta \"{source_plant_id}\" de la fuente \"{source}\" no tiene un nombre científico utilizable (vacío o sin caracteres para el slug)"
+            ),
+            Self::DataWithoutSource {
+                plant_id,
+                kind,
+                value,
+            } => write!(
+                f,
+                "dato sin fuente ({kind} \"{value}\", planta \"{plant_id}\"): todo dato debe indicar al menos una fuente"
+            ),
+            Self::MissingDatabase { path } => {
+                write!(f, "no existe la base de datos {}", path.display())
+            }
+            Self::MissingRawLayer { path } => write!(
+                f,
+                "no existe la base cruda {}: ejecuta primero la importación cruda",
+                path.display()
             ),
             Self::ConflictingReference {
                 id,

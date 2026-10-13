@@ -180,6 +180,13 @@ fn add_plant(
     source_refs: &BTreeSet<&str>,
 ) -> Result<(), IngestError> {
     let identity = normalize_name(&record.scientific_name);
+    // Una identidad sin letras ni dígitos ASCII daría un ID público vacío.
+    if slug(&identity).is_empty() {
+        return Err(IngestError::EmptyScientificName {
+            source: source.0.clone(),
+            source_plant_id: record.source_plant_id.clone(),
+        });
+    }
     let acc = accs.entry(identity.clone()).or_default();
 
     if let Some(first) = acc.source_plant_ids.get(source) {
@@ -586,5 +593,27 @@ mod tests {
             id: "gamma".to_string(),
         };
         assert!(unknown.to_string().contains("\"gamma\""));
+    }
+
+    #[test]
+    fn empty_scientific_name_is_rejected() {
+        for name in ["", "   ", "!!!"] {
+            let inputs = vec![input(
+                "alpha",
+                1,
+                SourceRecords {
+                    plants: vec![plant("A9", name)],
+                    references: vec![],
+                },
+            )];
+            assert_eq!(
+                consolidate(inputs).unwrap_err(),
+                IngestError::EmptyScientificName {
+                    source: "alpha".to_string(),
+                    source_plant_id: "A9".to_string(),
+                },
+                "nombre {name:?}"
+            );
+        }
     }
 }

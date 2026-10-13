@@ -7,6 +7,7 @@ use std::collections::HashMap;
 use std::error::Error;
 use std::fmt;
 use std::path::{Path, PathBuf};
+use std::time::Duration;
 
 use catalog_core::domain::{
     Attributed, ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary,
@@ -25,12 +26,17 @@ use catalog_core::sqlite::{InvalidPath, read_only_url};
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY};
 use diesel::SqliteConnection;
 use diesel::prelude::*;
-use diesel::r2d2::{ConnectionManager, Pool, PooledConnection};
+use diesel::r2d2::{self, ConnectionManager, Pool, PooledConnection};
 
 /// Conexiones simultáneas que mantiene el pool.
 ///
 /// Cada petición bloqueante usa una conexión mientras dura su consulta; con un catálogo de lectura pequeño, cuatro sobran y acotan los descriptores de archivo abiertos.
 pub const POOL_SIZE: u32 = 4;
+
+/// Tiempo máximo que una petición espera una conexión libre del pool.
+///
+/// El valor por defecto de r2d2 (30 s) dejaría colgada una ráfaga que agote el pool; con 5 s falla limpio con un 500.
+pub const POOL_CONNECTION_TIMEOUT: Duration = Duration::from_secs(5);
 
 /// Fallo al abrir el repositorio.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -83,6 +89,28 @@ fn storage(err: impl fmt::Display) -> RepositoryError {
     RepositoryError::Storage(err.to_string())
 }
 
+/// Comprueba la versión de esquema guardada en `metadata`.
+fn check_schema_version(conn: &mut SqliteConnection) -> Result<(), RepositoryError> {
+    let stored: Option<String> = metadata::table
+        .filter(metadata::key.eq(SCHEMA_VERSION_KEY))
+        .select(metadata::value)
+        .first(conn)
+        .optional()
+        .map_err(storage)?;
+    let text =
+        stored.ok_or_else(|| storage(format!("falta {SCHEMA_VERSION_KEY} en los metadatos")))?;
+    let found: u32 = text
+        .parse()
+        .map_err(|_| storage(format!("{SCHEMA_VERSION_KEY} no es numérica: {text:?}")))?;
+    if found != SCHEMA_VERSION {
+        return Err(RepositoryError::IncompatibleSchema {
+            found,
+            supported: SCHEMA_VERSION,
+        });
+    }
+    Ok(())
+}
+
 type SqlitePool = Pool<ConnectionManager<SqliteConnection>>;
 
 /// Repositorio del catálogo sobre una base SQLite abierta en solo lectura.
@@ -98,43 +126,35 @@ impl SqliteCatalogRepository {
                 path: path.to_path_buf(),
             });
         }
-        let manager = ConnectionManager::<SqliteConnection>::new(read_only_url(path)?);
-        // `build` abre las conexiones al crear el pool: una base ilegible falla aquí y no en la primera petición.
+        let url = read_only_url(path)?;
+        // Una conexión directa, antes del pool: una base ilegible, un directorio o una versión incompatible fallan al instante y con el mensaje correcto, en vez de que el pool reintente la apertura hasta agotar su tiempo de espera.
+        let mut probe = SqliteConnection::establish(&url).map_err(|err| {
+            storage(format!(
+                "no se pudo abrir la base del catálogo en {}: {err}",
+                path.display()
+            ))
+        })?;
+        check_schema_version(&mut probe).map_err(|err| match err {
+            RepositoryError::Storage(msg) => {
+                storage(format!("base del catálogo en {}: {msg}", path.display()))
+            }
+            other => other,
+        })?;
+        drop(probe);
         let pool = Pool::builder()
             .max_size(POOL_SIZE)
-            .build(manager)
-            .map_err(storage)?;
-        let repo = Self { pool };
-        repo.check_schema_version()?;
-        Ok(repo)
+            .connection_timeout(POOL_CONNECTION_TIMEOUT)
+            // Sin conexiones ansiosas: ya se comprobó que la base abre, y las conexiones se crean al primer uso.
+            // `NopErrorHandler` evita que r2d2 registre cada intento fallido: el error ya llega a quien llama.
+            .error_handler(Box::new(r2d2::NopErrorHandler))
+            .build_unchecked(ConnectionManager::<SqliteConnection>::new(url));
+        Ok(Self { pool })
     }
 
     fn conn(
         &self,
     ) -> Result<PooledConnection<ConnectionManager<SqliteConnection>>, RepositoryError> {
         self.pool.get().map_err(storage)
-    }
-
-    fn check_schema_version(&self) -> Result<(), RepositoryError> {
-        let mut conn = self.conn()?;
-        let stored: Option<String> = metadata::table
-            .filter(metadata::key.eq(SCHEMA_VERSION_KEY))
-            .select(metadata::value)
-            .first(&mut *conn)
-            .optional()
-            .map_err(storage)?;
-        let text = stored
-            .ok_or_else(|| storage(format!("falta {SCHEMA_VERSION_KEY} en los metadatos")))?;
-        let found: u32 = text
-            .parse()
-            .map_err(|_| storage(format!("{SCHEMA_VERSION_KEY} no es numérica: {text:?}")))?;
-        if found != SCHEMA_VERSION {
-            return Err(RepositoryError::IncompatibleSchema {
-                found,
-                supported: SCHEMA_VERSION,
-            });
-        }
-        Ok(())
     }
 }
 
@@ -496,6 +516,23 @@ mod tests {
     }
 
     #[test]
+    fn unreadable_database_fails_fast_naming_the_path() {
+        let dir = tempfile::tempdir().unwrap();
+        let garbage = dir.path().join("basura.db");
+        std::fs::write(&garbage, b"x\n").unwrap();
+        for path in [garbage, dir.path().to_path_buf()] {
+            let started = std::time::Instant::now();
+            let err = SqliteCatalogRepository::open(&path).err().unwrap();
+            assert!(started.elapsed() < Duration::from_secs(2), "{err}");
+            assert!(
+                matches!(err, OpenError::Repository(RepositoryError::Storage(_))),
+                "{err:?}"
+            );
+            assert!(err.to_string().contains(path.to_str().unwrap()), "{err}");
+        }
+    }
+
+    #[test]
     fn missing_database_names_path_and_build_command() {
         let dir = tempfile::tempdir().unwrap();
         let path = dir.path().join("nope.db");
@@ -542,7 +579,8 @@ mod tests {
 
     #[test]
     fn lists_in_total_order_with_id_tiebreak() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let page = repo.list_plants(&query(None, 100, 0)).unwrap();
         assert_eq!(page.total, 31);
         assert_eq!(ids(&page), expected_order());
@@ -550,7 +588,8 @@ mod tests {
 
     #[test]
     fn pages_are_consecutive_and_total_is_independent() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let mut seen = Vec::new();
         for offset in (0..31).step_by(7) {
             let page = repo.list_plants(&query(None, 7, offset)).unwrap();
@@ -562,7 +601,8 @@ mod tests {
 
     #[test]
     fn default_limit_is_twenty_and_offset_past_total_is_empty() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let page = repo.list_plants(&ListQuery::default()).unwrap();
         assert_eq!((page.items.len(), page.total), (20, 31));
         let past = repo.list_plants(&query(None, 20, 500)).unwrap();
@@ -571,7 +611,8 @@ mod tests {
 
     #[test]
     fn items_carry_common_names_and_family() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let page = repo
             .list_plants(&query(Some("lavandula angustifolia"), 20, 0))
             .unwrap();
@@ -601,7 +642,8 @@ mod tests {
 
     #[test]
     fn searches_scientific_and_common_names() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let sci = repo.list_plants(&query(Some("lavandula"), 20, 0)).unwrap();
         assert_eq!(ids(&sci), ["lavandula-angustifolia", "lavandula-latifolia"]);
         assert_eq!(sci.total, 2);
@@ -616,14 +658,16 @@ mod tests {
 
     #[test]
     fn search_total_ignores_the_page() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let page = repo.list_plants(&query(Some("filler"), 5, 10)).unwrap();
         assert_eq!((page.items.len(), page.total), (5, 25));
     }
 
     #[test]
     fn search_ignores_case_accents_and_spaces() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         for q in ["ÑANDÚ", "  nandu   cafe ", "Café"] {
             let page = repo.list_plants(&query(Some(q), 20, 0)).unwrap();
             assert_eq!(ids(&page), ["mentha-x-piperita"], "q = {q:?}");
@@ -632,7 +676,8 @@ mod tests {
 
     #[test]
     fn shared_normalization_cases_match_their_normalized_form() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         for (input, expected) in NORMALIZATION_CASES {
             let raw = repo.list_plants(&query(Some(input), 100, 0)).unwrap();
             let normalized = repo.list_plants(&query(Some(expected), 100, 0)).unwrap();
@@ -642,7 +687,8 @@ mod tests {
 
     #[test]
     fn empty_or_blank_query_means_no_filter() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let all = repo.list_plants(&query(None, 100, 0)).unwrap();
         for q in ["", "   ", "\t\n"] {
             assert_eq!(repo.list_plants(&query(Some(q), 100, 0)).unwrap(), all);
@@ -651,7 +697,8 @@ mod tests {
 
     #[test]
     fn pattern_characters_are_literal() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         for q in ["%", "_", "100%", "corn_m"] {
             let page = repo.list_plants(&query(Some(q), 100, 0)).unwrap();
             assert_eq!(ids(&page), ["zea-mays"], "q = {q:?}");
@@ -671,7 +718,8 @@ mod tests {
 
     #[test]
     fn detail_includes_names_parts_and_uses_with_sources() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let plant = repo
             .get_plant(&pid("lavandula-angustifolia"))
             .unwrap()
@@ -752,7 +800,8 @@ mod tests {
 
     #[test]
     fn detail_without_uses_or_family() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let latifolia = repo
             .get_plant(&pid("lavandula-latifolia"))
             .unwrap()
@@ -764,13 +813,15 @@ mod tests {
 
     #[test]
     fn unknown_plant_is_none() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         assert_eq!(repo.get_plant(&pid("does-not-exist")).unwrap(), None);
     }
 
     #[test]
     fn sources_are_sorted_by_id() {
-        let repo = Fixture::standard().repo();
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
         let all = repo.list_sources().unwrap();
         let ids: Vec<&str> = all.iter().map(|s| s.id.0.as_str()).collect();
         assert_eq!(ids, ["a", "b"]);

@@ -49,8 +49,17 @@ async fn method_not_allowed(OriginalUri(uri): OriginalUri) -> Response {
     response
 }
 
-/// Documento OpenAPI generado desde el código.
-async fn openapi_json() -> Json<utoipa::openapi::OpenApi> {
+/// Documento OpenAPI de esta misma API.
+#[utoipa::path(
+    get,
+    path = "/openapi.json",
+    tag = "health",
+    responses(
+        (status = 200, description = "Este mismo documento OpenAPI", content_type = "application/json"),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
+    )
+)]
+pub(crate) async fn openapi_json() -> Json<utoipa::openapi::OpenApi> {
     Json(openapi())
 }
 
@@ -59,7 +68,10 @@ async fn openapi_json() -> Json<utoipa::openapi::OpenApi> {
     get,
     path = "/healthz",
     tag = "health",
-    responses((status = 200, description = "El servicio está activo", body = HealthDto))
+    responses(
+        (status = 200, description = "El servicio está activo", body = HealthDto),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
+    )
 )]
 pub(crate) async fn healthz() -> Json<HealthDto> {
     Json(HealthDto { status: "ok" })
@@ -72,6 +84,7 @@ pub(crate) async fn healthz() -> Json<HealthDto> {
     tag = "catalog",
     responses(
         (status = 200, description = "Fuentes del catálogo, ordenadas por identificador", body = Vec<SourceDto>),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
         (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
     )
 )]
@@ -111,8 +124,11 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
     let offset = match params.get("offset") {
         None => 0,
         Some(text) => match text.parse::<i64>() {
+            // El contrato declara `offset` como `int32`: el máximo es `i32::MAX`, aunque se guarde en `u32`.
             Ok(n) if n >= 0 => u32::try_from(n)
-                .map_err(|_| ApiError::bad_request("offset", "offset es demasiado grande"))?,
+                .ok()
+                .filter(|n| i32::try_from(*n).is_ok())
+                .ok_or_else(|| ApiError::bad_request("offset", "offset es demasiado grande"))?,
             Ok(_) => {
                 return Err(ApiError::bad_request(
                     "offset",
@@ -125,6 +141,13 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
         },
     };
     let q = params.get("q").cloned();
+    // SQLite trunca el patrón de `LIKE` en un NUL y la búsqueda cambiaría en silencio; se rechaza cualquier carácter de control.
+    if q.as_ref().is_some_and(|q| q.chars().any(char::is_control)) {
+        return Err(ApiError::bad_request(
+            "q",
+            "q no puede contener caracteres de control",
+        ));
+    }
     if q.as_ref()
         .is_some_and(|q| q.chars().count() > MAX_QUERY_CHARS)
     {
@@ -142,14 +165,15 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
     path = "/v1/plants",
     tag = "catalog",
     params(
-        ("q" = Option<String>, Query, max_length = 200, description = "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal."),
+        ("q" = Option<String>, Query, max_length = 200, description = "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal. No admite caracteres de control."),
         // Los literales de `limit` reflejan `MAX_LIMIT` y `DEFAULT_LIMIT` de catalog-core; el test de `openapi.rs` avisa si divergen.
         ("limit" = Option<u32>, Query, minimum = 1, maximum = 100, description = "Elementos por página (1 a 100, por defecto 20)."),
-        ("offset" = Option<u32>, Query, minimum = 0, description = "Elementos a saltar (por defecto 0)."),
+        ("offset" = Option<u32>, Query, minimum = 0, maximum = 2147483647, description = "Elementos a saltar (por defecto 0)."),
     ),
     responses(
         (status = 200, description = "Página de plantas en orden de nombre científico e identificador", body = PageDto<PlantSummaryDto>),
         (status = 400, description = "Parámetro inválido", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
         (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
     )
 )]
@@ -185,6 +209,7 @@ pub(crate) async fn list_plants(
         (status = 200, description = "Detalle de la planta", body = PlantDto),
         (status = 400, description = "Identificador no válido", body = ProblemDto, content_type = "application/problem+json"),
         (status = 404, description = "La planta no existe", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
         (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
     )
 )]
@@ -556,6 +581,33 @@ mod tests {
         let long = format!("/v1/plants?q={}", "a".repeat(201));
         let json = expect_problem(&app, Method::GET, &long, StatusCode::BAD_REQUEST).await;
         assert_eq!(json["param"], "q");
+    }
+
+    #[tokio::test]
+    async fn control_characters_in_q_are_rejected() {
+        let (_fixture, app) = app();
+        for uri in [
+            "/v1/plants?q=%00zzzz",
+            "/v1/plants?q=a%00",
+            "/v1/plants?q=a%0Ab",
+        ] {
+            let json = expect_problem(&app, Method::GET, uri, StatusCode::BAD_REQUEST).await;
+            assert_eq!(json["param"], "q", "{uri}");
+        }
+    }
+
+    #[tokio::test]
+    async fn offset_is_limited_to_int32() {
+        let (_fixture, app) = app();
+        let (status, json) = get_json(&app, "/v1/plants?offset=2147483647").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(json["items"].as_array().unwrap().len(), 0);
+        assert_eq!(json["total"], 31);
+        for value in ["2147483648", "4294967295"] {
+            let uri = format!("/v1/plants?offset={value}");
+            let json = expect_problem(&app, Method::GET, &uri, StatusCode::BAD_REQUEST).await;
+            assert_eq!(json["param"], "offset", "{uri}");
+        }
     }
 
     #[tokio::test]

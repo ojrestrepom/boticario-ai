@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Boticario AI Catalog API",
-    "description": "API de solo lectura del catálogo de plantas y sus fuentes. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos.",
+    "description": "API de solo lectura del catálogo de plantas y sus fuentes. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`.",
     "license": {
       "name": ""
     },
@@ -26,6 +26,43 @@
                 }
               }
             }
+          },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "tags": [
+          "health"
+        ],
+        "summary": "Documento OpenAPI de esta misma API.",
+        "operationId": "openapi_json",
+        "responses": {
+          "200": {
+            "description": "Este mismo documento OpenAPI",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
           }
         }
       }
@@ -41,7 +78,7 @@
           {
             "name": "q",
             "in": "query",
-            "description": "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal.",
+            "description": "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal. No admite caracteres de control.",
             "required": false,
             "schema": {
               "type": "string",
@@ -68,6 +105,7 @@
             "schema": {
               "type": "integer",
               "format": "int32",
+              "maximum": 2147483647,
               "minimum": 0
             }
           }
@@ -85,6 +123,16 @@
           },
           "400": {
             "description": "Parámetro inválido",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
             "content": {
               "application/problem+json": {
                 "schema": {
@@ -155,6 +203,16 @@
               }
             }
           },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Fallo interno",
             "content": {
@@ -185,6 +243,16 @@
                   "items": {
                     "$ref": "#/components/schemas/SourceDto"
                   }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
                 }
               }
             }

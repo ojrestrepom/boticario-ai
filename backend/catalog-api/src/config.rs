@@ -109,6 +109,10 @@ pub fn from_env_and_args(
         }
     }
 
+    // Una ruta vacía no puede ser una base: se trata igual que si faltara el valor.
+    if db_arg.as_deref() == Some("") {
+        return Err(ConfigError::MissingValue("--db"));
+    }
     let db_path = db_arg
         .or_else(|| env("CATALOG_DB"))
         .unwrap_or_else(|| DEFAULT_DB_PATH.to_string());
@@ -194,5 +198,11 @@ mod tests {
             resolve(&["--db"], &[]).unwrap_err(),
             ConfigError::MissingValue("--db")
         );
+        for args in [&["--db", ""][..], &["--db="][..]] {
+            assert_eq!(
+                resolve(args, &[("CATALOG_DB", "/env.db")]).unwrap_err(),
+                ConfigError::MissingValue("--db")
+            );
+        }
     }
 }

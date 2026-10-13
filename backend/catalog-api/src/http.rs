@@ -5,8 +5,9 @@
 
 use std::collections::HashMap;
 
-use axum::extract::rejection::QueryRejection;
+use axum::extract::rejection::{PathRejection, QueryRejection};
 use axum::extract::{OriginalUri, Path, Query, State};
+use axum::http::{HeaderValue, header};
 use axum::response::{IntoResponse, Response};
 use axum::routing::get;
 use axum::{Json, Router};
@@ -40,7 +41,12 @@ async fn not_found(OriginalUri(uri): OriginalUri) -> Response {
 }
 
 async fn method_not_allowed(OriginalUri(uri): OriginalUri) -> Response {
-    ApiError::MethodNotAllowed.into_response_at(&uri)
+    let mut response = ApiError::MethodNotAllowed.into_response_at(&uri);
+    // RFC 9110 exige `Allow` en un 405. Todas las rutas de la API son solo `GET`, así que el valor es el mismo para todas.
+    response
+        .headers_mut()
+        .insert(header::ALLOW, HeaderValue::from_static("GET"));
+    response
 }
 
 /// Documento OpenAPI generado desde el código.
@@ -79,6 +85,12 @@ pub(crate) async fn sources(
     }
 }
 
+/// Longitud máxima de `q`, en caracteres.
+///
+/// SQLite limita el patrón de `LIKE` a 50.000 caracteres y un `q` mayor acabaría en un 500; se rechaza antes con un 400.
+/// Si cambia, actualiza también `max_length` del parámetro `q` en la anotación de `list_plants`.
+const MAX_QUERY_CHARS: usize = 200;
+
 /// Lee `limit` y `offset` del mapa de parámetros, validándolos a mano para controlar el formato del error.
 fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiError> {
     let limit = match params.get("limit") {
@@ -112,11 +124,16 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
             }
         },
     };
-    Ok(ListQuery {
-        q: params.get("q").cloned(),
-        limit,
-        offset,
-    })
+    let q = params.get("q").cloned();
+    if q.as_ref()
+        .is_some_and(|q| q.chars().count() > MAX_QUERY_CHARS)
+    {
+        return Err(ApiError::bad_request(
+            "q",
+            format!("q no puede superar {MAX_QUERY_CHARS} caracteres"),
+        ));
+    }
+    Ok(ListQuery { q, limit, offset })
 }
 
 /// Lista plantas con búsqueda y paginación.
@@ -125,7 +142,8 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
     path = "/v1/plants",
     tag = "catalog",
     params(
-        ("q" = Option<String>, Query, description = "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal."),
+        ("q" = Option<String>, Query, max_length = 200, description = "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal."),
+        // Los literales de `limit` reflejan `MAX_LIMIT` y `DEFAULT_LIMIT` de catalog-core; el test de `openapi.rs` avisa si divergen.
         ("limit" = Option<u32>, Query, minimum = 1, maximum = 100, description = "Elementos por página (1 a 100, por defecto 20)."),
         ("offset" = Option<u32>, Query, minimum = 0, description = "Elementos a saltar (por defecto 0)."),
     ),
@@ -165,6 +183,7 @@ pub(crate) async fn list_plants(
     params(("id" = String, Path, description = "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.")),
     responses(
         (status = 200, description = "Detalle de la planta", body = PlantDto),
+        (status = 400, description = "Identificador no válido", body = ProblemDto, content_type = "application/problem+json"),
         (status = 404, description = "La planta no existe", body = ProblemDto, content_type = "application/problem+json"),
         (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
     )
@@ -172,8 +191,16 @@ pub(crate) async fn list_plants(
 pub(crate) async fn get_plant(
     State(catalog): State<AsyncCatalog>,
     OriginalUri(uri): OriginalUri,
-    Path(id): Path<String>,
+    id: Result<Path<String>, PathRejection>,
 ) -> Response {
+    // Un identificador que no se decodifica (por ejemplo `%FF`, UTF-8 inválido) se responde como `problem+json`, no con el texto plano de axum.
+    let Path(id) = match id {
+        Ok(path) => path,
+        Err(_) => {
+            return ApiError::bad_request("id", "el identificador no es válido")
+                .into_response_at(&uri);
+        }
+    };
     match catalog.get_plant(PlantId(id)).await {
         Ok(Some(plant)) => Json(PlantDto::from(plant)).into_response(),
         Ok(None) => ApiError::NotFound {
@@ -511,6 +538,27 @@ mod tests {
     }
 
     #[tokio::test]
+    async fn undecodable_plant_id_is_a_problem_json_400() {
+        let (_fixture, app) = app();
+        let json =
+            expect_problem(&app, Method::GET, "/v1/plants/%FF", StatusCode::BAD_REQUEST).await;
+        assert_eq!(json["param"], "id");
+        assert_eq!(json["instance"], "/v1/plants/%FF");
+    }
+
+    #[tokio::test]
+    async fn query_text_is_limited_to_200_characters() {
+        let (_fixture, app) = app();
+        // 200 caracteres multibyte: el límite cuenta caracteres, no bytes.
+        let ok = format!("/v1/plants?q={}", "%C3%A1".repeat(200));
+        let (status, _) = get_json(&app, &ok).await;
+        assert_eq!(status, StatusCode::OK);
+        let long = format!("/v1/plants?q={}", "a".repeat(201));
+        let json = expect_problem(&app, Method::GET, &long, StatusCode::BAD_REQUEST).await;
+        assert_eq!(json["param"], "q");
+    }
+
+    #[tokio::test]
     async fn boundary_limits_and_unknown_params_are_accepted() {
         let (_fixture, app) = app();
         for uri in ["/v1/plants?limit=1", "/v1/plants?limit=100&extra=1"] {
@@ -540,7 +588,9 @@ mod tests {
             (Method::PATCH, "/v1/sources"),
             (Method::POST, "/healthz"),
         ] {
-            expect_problem(&app, method, uri, StatusCode::METHOD_NOT_ALLOWED).await;
+            expect_problem(&app, method.clone(), uri, StatusCode::METHOD_NOT_ALLOWED).await;
+            let (_, headers, _) = send(&app, method, uri).await;
+            assert_eq!(headers[header::ALLOW], "GET", "{uri}");
         }
         let (_, after) = get_json(&app, "/v1/plants?limit=100").await;
         assert_eq!(before, after);

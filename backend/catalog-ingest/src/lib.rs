@@ -1,6 +1,6 @@
 //! Ingesta del catálogo: verificación del insumo, capa cruda, adaptadores y consolidación.
 //!
-//! Este crate es biblioteca y binario a la vez: la lógica vive aquí (para poder probarla y reutilizarla) y `main.rs` será solo una CLI delgada que la invoque.
+//! Este crate es biblioteca y binario a la vez: la lógica vive aquí (para poder probarla y reutilizarla) y `main.rs` es solo una CLI delgada que la invoca.
 
 #![deny(missing_docs)]
 

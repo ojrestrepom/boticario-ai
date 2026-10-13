@@ -53,6 +53,8 @@ pub fn openapi_json() -> String {
 
 #[cfg(test)]
 mod tests {
+    use catalog_core::domain::{DEFAULT_LIMIT, MAX_LIMIT};
+
     use super::*;
 
     #[test]
@@ -76,6 +78,21 @@ mod tests {
         assert_eq!(
             paths,
             ["/healthz", "/v1/plants", "/v1/plants/{id}", "/v1/sources"]
+        );
+    }
+
+    #[test]
+    fn limit_parameter_matches_the_pagination_constants() {
+        let doc = serde_json::to_value(openapi()).unwrap();
+        let params = doc["paths"]["/v1/plants"]["get"]["parameters"]
+            .as_array()
+            .unwrap();
+        let limit = params.iter().find(|p| p["name"] == "limit").unwrap();
+        assert_eq!(limit["schema"]["maximum"], u64::from(MAX_LIMIT));
+        let description = limit["description"].as_str().unwrap();
+        assert!(
+            description.contains(&format!("por defecto {DEFAULT_LIMIT}")),
+            "{description}"
         );
     }
 }

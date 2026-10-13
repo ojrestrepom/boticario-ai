@@ -44,7 +44,8 @@
             "description": "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal.",
             "required": false,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 200
             }
           },
           {
@@ -130,6 +131,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PlantDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Identificador no válido",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
                 }
               }
             }

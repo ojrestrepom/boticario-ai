@@ -315,6 +315,7 @@ mod tests {
     use crate::hash::NEUTRAL_TABLES;
     use crate::test_support::sample_catalog;
     use catalog_core::domain::SourceId;
+    // `rusqlite` se usa a propósito como verificación independiente de Diesel.
     use rusqlite::{Connection, OpenFlags};
 
     fn open(path: &Path) -> Connection {

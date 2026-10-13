@@ -5,7 +5,7 @@ edition.workspace = true
 publish.workspace = true
 
 [dependencies]
-catalog-core = { path = "../catalog-core" }
+catalog-core.workspace = true
 diesel.workspace = true
 tokio.workspace = true
 axum.workspace = true
@@ -19,4 +19,4 @@ utoipa.workspace = true
 tempfile.workspace = true
 tower.workspace = true
 http-body-util.workspace = true
-catalog-ingest = { path = "../catalog-ingest", features = ["test-fixtures"] }
+catalog-ingest = { workspace = true, features = ["test-fixtures"] }

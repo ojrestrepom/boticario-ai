@@ -1,6 +1,8 @@
 //! Capa cruda: vuelca los CSV de un ZIP a tablas SQLite sin transformarlos.
 //!
 //! Cada CSV se convierte en una tabla `raw_<fuente>_<archivo>`. Las columnas son las de la cabecera, todas `TEXT`, y se añade una primera columna `_row` que es la **única que no viene del dataset**: el número de fila del CSV (1 = primera fila de datos). Sirve para conservar el orden original y para comparar dos importaciones.
+//!
+//! Este módulo y `hash` son la única excepción al uso de Diesel (decisión 14 del diseño): las tablas y columnas de la capa cruda solo se conocen en tiempo de ejecución, por lo que no pueden describirse con el DSL tipado y se usa SQL dinámico con `rusqlite`.
 
 use std::collections::HashSet;
 use std::fs::File;
@@ -8,7 +10,7 @@ use std::io::Read;
 use std::path::{Path, PathBuf};
 
 use encoding_rs::Encoding;
-use rusqlite::{Connection, ToSql};
+use rusqlite::{Connection, OpenFlags, ToSql};
 use zip::ZipArchive;
 
 use crate::error::IngestError;
@@ -72,7 +74,7 @@ pub fn raw_table_name(source_id: &str, entry_name: &str) -> String {
 }
 
 /// Entre comillas dobles, duplicando las internas, para usar nombres arbitrarios como identificadores SQL.
-fn quote_ident(name: &str) -> String {
+pub(crate) fn quote_ident(name: &str) -> String {
     format!("\"{}\"", name.replace('"', "\"\""))
 }
 
@@ -92,7 +94,11 @@ pub fn import_raw(spec: &RawImportSpec, raw_db: &Path) -> Result<RawImportReport
     if let Some(parent) = raw_db.parent() {
         std::fs::create_dir_all(parent).map_err(|e| io_error(parent, e))?;
     }
-    let mut conn = Connection::open(raw_db)?;
+    // `Connection::open` activa `SQLITE_OPEN_URI`: una ruta que empezara por `file:` se interpretaría como URI. Con banderas explícitas la ruta es siempre una ruta.
+    let mut conn = Connection::open_with_flags(
+        raw_db,
+        OpenFlags::SQLITE_OPEN_READ_WRITE | OpenFlags::SQLITE_OPEN_CREATE,
+    )?;
     // Si retornamos antes de `commit`, `tx` se destruye y SQLite revierte todo.
     let tx = conn.transaction()?;
 
@@ -115,6 +121,17 @@ pub fn import_raw(spec: &RawImportSpec, raw_db: &Path) -> Result<RawImportReport
     Ok(report)
 }
 
+/// Entradas que macOS añade al comprimir (`__MACOSX/…` y los `._archivo` de AppleDouble).
+///
+/// Tienen extensión `.csv` pero no son datos del dataset (son metadatos binarios), y al importarlas fallaría la decodificación o aparecerían tablas espurias.
+fn is_macos_metadata(name: &str) -> bool {
+    name.split('/').any(|part| part == "__MACOSX")
+        || name
+            .rsplit('/')
+            .next()
+            .is_some_and(|file| file.starts_with("._"))
+}
+
 /// Resuelve qué entradas importar, en orden alfabético para que el resultado no dependa del orden interno del ZIP.
 fn select_entries(
     spec: &RawImportSpec,
@@ -126,7 +143,10 @@ fn select_entries(
             for i in 0..archive.len() {
                 let entry = archive.by_index(i)?;
                 let name = entry.name()?;
-                if entry.is_file() && name.to_ascii_lowercase().ends_with(".csv") {
+                if entry.is_file()
+                    && name.to_ascii_lowercase().ends_with(".csv")
+                    && !is_macos_metadata(&name)
+                {
                     found.push(name.into_owned());
                 }
             }
@@ -147,9 +167,9 @@ fn select_entries(
     Ok(names)
 }
 
-/// Decodifica los bytes; si hubo que sustituir alguno, es un error y no un `U+FFFD` silencioso.
+/// Decodifica los bytes con la codificación declarada, sin interpretar BOM: `decode` haría sniffing y, ante un BOM, descartaría esos bytes y cambiaría de codificación; con `decode_without_bom_handling` los bytes se conservan tal como vienen. Si hubo que sustituir alguno, es un error y no un `U+FFFD` silencioso.
 fn decode(encoding: &'static Encoding, file: &str, bytes: &[u8]) -> Result<String, IngestError> {
-    let (text, _used, had_errors) = encoding.decode(bytes);
+    let (text, had_errors) = encoding.decode_without_bom_handling(bytes);
     if had_errors {
         return Err(IngestError::InvalidCsv {
             file: file.to_string(),
@@ -387,6 +407,41 @@ mod tests {
             }
             other => panic!("error inesperado: {other:?}"),
         }
+    }
+
+    #[test]
+    fn bom_is_kept_as_declared_encoding_characters() {
+        let dir = tempfile::tempdir().unwrap();
+        let zip = dir.path().join("bom.zip");
+        let mut writer = zip::ZipWriter::new(File::create(&zip).unwrap());
+        writer
+            .start_file("a.csv", zip::write::SimpleFileOptions::default())
+            .unwrap();
+        std::io::Write::write_all(&mut writer, b"\xEF\xBB\xBFk\r\nv\r\n").unwrap();
+        writer.finish().unwrap();
+        let db = dir.path().join("raw.db");
+        import_raw(&spec(zip, "t", RawFiles::AllCsv), &db).unwrap();
+        let conn = Connection::open(&db).unwrap();
+        let cols: Vec<String> = conn
+            .prepare("SELECT name FROM pragma_table_info('raw_t_a')")
+            .unwrap()
+            .query_map([], |r| r.get(0))
+            .unwrap()
+            .collect::<Result<_, _>>()
+            .unwrap();
+        assert_eq!(cols, ["_row", "\u{ef}\u{bb}\u{bf}k"]);
+    }
+
+    #[test]
+    fn macos_metadata_entries_are_skipped() {
+        let (_dir, zip, db) = setup(&[
+            ("__MACOSX/._a.csv", "\x00\x05binario"),
+            ("sub/._b.csv", "x"),
+            ("a.csv", ONE),
+        ]);
+        let report = import_raw(&spec(zip, "t", RawFiles::AllCsv), &db).unwrap();
+        let names: Vec<&str> = report.tables.iter().map(|t| t.table.as_str()).collect();
+        assert_eq!(names, ["raw_t_a"]);
     }
 
     #[test]

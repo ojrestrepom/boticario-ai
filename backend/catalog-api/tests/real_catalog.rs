@@ -13,12 +13,12 @@ use catalog_core::repository::CatalogRepository;
 fn lavender_is_found_in_the_real_catalog() {
     // `CARGO_MANIFEST_DIR` es `backend/catalog-api`: la raíz del repo está dos niveles arriba.
     let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../data/build/catalog.db");
+    // Un test pedido a propósito con `--ignored` no debe pasar en silencio si falta la base.
     if !path.exists() {
-        eprintln!(
-            "se omite: no existe {}; constrúyela con `catalog-ingest build`",
+        panic!(
+            "falta data/build/catalog.db: ejecuta `catalog-ingest build` ({})",
             path.display()
         );
-        return;
     }
     let repo = SqliteCatalogRepository::open(&path).unwrap();
 

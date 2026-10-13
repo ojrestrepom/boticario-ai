@@ -1,6 +1,8 @@
 //! Hash del contenido lógico de la base neutral.
 //!
 //! El archivo SQLite puede cambiar byte a byte sin que cambie su contenido (páginas libres, orden interno), así que no se hashea el archivo: se vuelcan las filas de cada tabla en un orden total y se hashea el volcado.
+//!
+//! Este módulo y `raw` son la única excepción al uso de Diesel (decisión 14 del diseño): el volcado recorre tablas y columnas que solo se conocen en tiempo de ejecución (se leen con `PRAGMA table_info`), así que usa SQL dinámico con `rusqlite`.
 
 use std::path::Path;
 
@@ -9,6 +11,7 @@ use rusqlite::{Connection, OpenFlags};
 use sha2::{Digest, Sha256};
 
 use crate::error::IngestError;
+use crate::raw::quote_ident;
 
 /// Tablas del esquema neutral, en el orden fijo en que se vuelcan.
 ///
@@ -54,10 +57,6 @@ fn put_bytes(hasher: &mut Sha256, tag: u8, bytes: &[u8]) {
     hasher.update([tag]);
     hasher.update((bytes.len() as u64).to_le_bytes());
     hasher.update(bytes);
-}
-
-fn quote_ident(name: &str) -> String {
-    format!("\"{}\"", name.replace('"', "\"\""))
 }
 
 fn dump_table(conn: &Connection, table: &str, hasher: &mut Sha256) -> Result<(), IngestError> {

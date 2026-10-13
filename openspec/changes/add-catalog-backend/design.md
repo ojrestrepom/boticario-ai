@@ -99,6 +99,7 @@ El funcionamiento sin conexión de la app deja de ser requisito a futuro, pero e
 - **Errores de Diesel para quien empieza.** Los errores de compilación del DSL de Diesel son largos y difíciles de leer; se mitiga con filas pequeñas por tabla, el esquema generado y tests que ejercitan cada consulta.
 - **Dos bibliotecas de SQLite en el workspace.** Diesel y `rusqlite` conviven (esta última para la importación cruda y el volcado del hash) y deben compartir la misma copia embebida de SQLite; se comprueba que el árbol de dependencias tiene una sola versión del crate nativo.
 - **Sin CI.** Los componentes nuevos no tendrán CI hasta un incremento posterior; las verificaciones son locales y documentadas.
+- **Pendientes del code review final (no bloqueantes).** Caché HTTP con `ETag`/`Cache-Control` derivados del hash de contenido guardado en `metadata` (antes de Cloud Run); límites explícitos del pool de conexiones y tiempo de espera de `get()` (antes de Cloud Run); compresión, CORS y `nextOffset` en la paginación (antes de integrar la app); `thiserror` para los enums de error cuando se vuelva a tocar la ingesta; prefijar los ids de referencia con la fuente cuando entre un segundo dataset; el `slug` descarta letras no descomponibles a ASCII (`ø`, `ß`, alfabetos no latinos); la versión de esquema se comprueba solo al abrir el pool; el lector CSV omite líneas completamente vacías.
 
 ## Migration Plan
 

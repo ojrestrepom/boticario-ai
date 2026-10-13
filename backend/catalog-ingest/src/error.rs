@@ -87,6 +87,22 @@ pub enum IngestError {
         /// Identificador repetido.
         id: String,
     },
+    /// Una fila de una tabla dependiente apunta a una planta que la fuente no declara.
+    OrphanRow {
+        /// Fuente que entregó la fila.
+        source: String,
+        /// Tabla de la fuente donde está la fila.
+        table: String,
+        /// Identificador de planta en la fuente que no existe.
+        source_plant_id: String,
+    },
+    /// Una fuente declaró dos veces el mismo identificador de planta.
+    DuplicateSourcePlantId {
+        /// Fuente que repite el identificador.
+        source: String,
+        /// Identificador repetido.
+        source_plant_id: String,
+    },
     /// Una fuente entregó dos plantas con la misma identidad canónica.
     DuplicateIdentity {
         /// Fuente que repite la identidad.
@@ -231,6 +247,21 @@ impl fmt::Display for IngestError {
             Self::DuplicateAdapter { id } => {
                 write!(f, "ya hay un adaptador registrado para la fuente \"{id}\"")
             }
+            Self::OrphanRow {
+                source,
+                table,
+                source_plant_id,
+            } => write!(
+                f,
+                "la fuente \"{source}\" tiene una fila en {table} que apunta a la planta inexistente \"{source_plant_id}\""
+            ),
+            Self::DuplicateSourcePlantId {
+                source,
+                source_plant_id,
+            } => write!(
+                f,
+                "la fuente \"{source}\" repite el identificador de planta \"{source_plant_id}\""
+            ),
             Self::DuplicateIdentity {
                 source,
                 identity,

@@ -8,6 +8,8 @@ edition = "2024"
 publish = false
 
 [workspace.dependencies]
+catalog-core = { path = "catalog-core" }
+catalog-ingest = { path = "catalog-ingest" }
 unicode-normalization = "0.1"
 rusqlite = { version = "0.40", features = ["bundled"] }
 zip = { version = "9", default-features = false, features = ["deflate"] }

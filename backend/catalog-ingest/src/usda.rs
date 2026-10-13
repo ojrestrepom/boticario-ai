@@ -198,6 +198,13 @@ pub fn derive_with_stats(
 ) -> Result<(SourceRecords, DeriveStats), IngestError> {
     use raw_tables::{common_names, ethnobot, farmacy_new, fnftax, parts, references};
 
+    // Error de una fila de `table` cuyo `FNFNUM` no existe en `FNFTAX`.
+    let orphan = |table: &str, fnfnum: &str| IngestError::OrphanRow {
+        source: SOURCE_ID.to_string(),
+        table: table.to_string(),
+        source_plant_id: fnfnum.to_string(),
+    };
+
     // Identidad: una planta por fila de `FNFTAX`, en el orden del CSV.
     let mut plants: Vec<PlantRecord> = Vec::new();
     let mut by_fnfnum: HashMap<String, usize> = HashMap::new();
@@ -215,7 +222,13 @@ pub fn derive_with_stats(
     for (fnfnum, taxon, genus, species, family) in rows {
         let (fnfnum, taxon, family) = (fnfnum.trim(), taxon.trim(), family.trim());
         let index = plants.len();
-        by_fnfnum.entry(fnfnum.to_string()).or_insert(index);
+        // Un `FNFNUM` repetido dejaría a la segunda planta sin nombres ni partes: se rechaza.
+        if by_fnfnum.insert(fnfnum.to_string(), index).is_some() {
+            return Err(IngestError::DuplicateSourcePlantId {
+                source: SOURCE_ID.to_string(),
+                source_plant_id: fnfnum.to_string(),
+            });
+        }
         by_identity
             .entry((
                 genus.trim().to_string(),
@@ -239,8 +252,12 @@ pub fn derive_with_stats(
         .select((common_names::fnfnum, common_names::cnnam))
         .load::<(String, String)>(raw)?;
     for (fnfnum, name) in rows {
-        let name = name.trim();
-        if let (Some(&index), false) = (by_fnfnum.get(fnfnum.trim()), name.is_empty()) {
+        let (name, fnfnum) = (name.trim(), fnfnum.trim());
+        // Una fila que apunta a una planta inexistente es un dato inconsistente, aunque su nombre esté vacío.
+        let &index = by_fnfnum
+            .get(fnfnum)
+            .ok_or_else(|| orphan("COMMON_NAMES", fnfnum))?;
+        if !name.is_empty() {
             plants[index].common_names.push(NameRecord {
                 text: name.to_string(),
                 language: name_language(name).to_string(),
@@ -270,12 +287,12 @@ pub fn derive_with_stats(
     let mut seen_pairs: HashSet<(usize, String)> = HashSet::new();
     for (fnfnum, code) in rows {
         let code = code.trim();
+        let &index = by_fnfnum
+            .get(fnfnum.trim())
+            .ok_or_else(|| orphan("FARMACY_NEW", fnfnum.trim()))?;
         if code.is_empty() {
             continue;
         }
-        let Some(&index) = by_fnfnum.get(fnfnum.trim()) else {
-            continue;
-        };
         if !seen_pairs.insert((index, code.to_string())) {
             continue;
         }
@@ -513,8 +530,7 @@ mod tests {
             common_names: "English Lavender,544\n\
                            Rumberry (Eng.),544\n\
                            Fieberstrauch (Ger.),605\n\
-                           Blue (Bay) Gum,157\n\
-                           Ignored,999\n",
+                           Blue (Bay) Gum,157\n",
             ..base()
         };
         let (records, _) = derive_from(&csv).unwrap();
@@ -572,6 +588,85 @@ mod tests {
         };
         let err = derive_from(&csv).unwrap_err();
         assert!(err.to_string().contains("ZZ"), "{err}");
+    }
+
+    #[test]
+    fn orphan_common_name_is_an_error_naming_table_and_fnfnum() {
+        let csv = Csv {
+            common_names: "English Lavender,544\nIgnored,999\n",
+            ..base()
+        };
+        let err = derive_from(&csv).unwrap_err();
+        assert!(
+            matches!(&err, IngestError::OrphanRow { table, source_plant_id, .. }
+                if table == "COMMON_NAMES" && source_plant_id == "999"),
+            "{err}"
+        );
+        assert!(err.to_string().contains("999"), "{err}");
+    }
+
+    #[test]
+    fn orphan_part_is_an_error_naming_table_and_fnfnum() {
+        let csv = Csv {
+            farmacy_new: "544,FL\n999,FL\n",
+            parts: "FL,Flower\n",
+            ..base()
+        };
+        let err = derive_from(&csv).unwrap_err();
+        assert!(
+            matches!(&err, IngestError::OrphanRow { table, source_plant_id, .. }
+                if table == "FARMACY_NEW" && source_plant_id == "999"),
+            "{err}"
+        );
+    }
+
+    #[test]
+    fn repeated_fnfnum_in_fnftax_is_an_error() {
+        let csv = Csv {
+            fnftax: "544,Lavandula angustifolia,Lavandula,angustifolia,Lamiaceae\n\
+                     544,Matricaria recutita,Matricaria,recutita,\n",
+            ..base()
+        };
+        let err = derive_from(&csv).unwrap_err();
+        assert!(
+            matches!(&err, IngestError::DuplicateSourcePlantId { source_plant_id, .. }
+                if source_plant_id == "544"),
+            "{err}"
+        );
+    }
+
+    #[test]
+    fn sensitive_activity_label_is_kept_verbatim() {
+        let csv = Csv {
+            ethnobot: "1,Lavandula,angustifolia,Lavandula angustifolia,Poison,Steinmetz\n",
+            references: "Steinmetz,Steinmetz 1954\n",
+            ..base()
+        };
+        let (records, _) = derive_from(&csv).unwrap();
+        let lavender = plant_of(&records, "544");
+        // La etiqueta llega tal cual: ni se omite ni se reetiqueta.
+        assert_eq!(
+            lavender.uses,
+            vec![UseRecord {
+                activity: "Poison".to_string(),
+                language: "en".to_string(),
+                reference_id: "Steinmetz".to_string(),
+            }]
+        );
+        // Ninguna otra planta ni nombre ni parte aparece por inferencia.
+        assert!(
+            records
+                .plants
+                .iter()
+                .all(|p| p.source_plant_id == "544" || p.uses.is_empty())
+        );
+        assert!(
+            records
+                .plants
+                .iter()
+                .all(|p| p.common_names.is_empty() && p.parts.is_empty())
+        );
+        assert_eq!(records.references.len(), 1);
     }
 
     #[test]

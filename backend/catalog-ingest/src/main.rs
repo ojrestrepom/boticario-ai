@@ -1,4 +1,4 @@
-//! CLI de ingesta: descarga los insumos y (más adelante) construye el catálogo.
+//! CLI de ingesta: descarga los insumos y construye el catálogo.
 
 use std::path::{Path, PathBuf};
 use std::process::exit;

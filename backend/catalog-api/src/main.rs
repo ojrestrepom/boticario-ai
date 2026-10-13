@@ -61,7 +61,7 @@ async fn main() -> ExitCode {
         Err(err) => tracing::warn!(error = %err, "no se pudo leer la dirección local"),
     }
 
-    // Con apagado ordenado: al recibir Ctrl-C deja de aceptar conexiones y termina las peticiones en curso.
+    // Con apagado ordenado: al recibir Ctrl-C o SIGTERM deja de aceptar conexiones y termina las peticiones en curso.
     if let Err(err) = axum::serve(listener, app)
         .with_graceful_shutdown(shutdown_signal())
         .await
@@ -73,9 +73,34 @@ async fn main() -> ExitCode {
     ExitCode::SUCCESS
 }
 
-/// Se completa cuando llega Ctrl-C (SIGINT).
+/// Se completa cuando llega Ctrl-C (SIGINT) o, en Unix, SIGTERM.
+///
+/// SIGTERM es lo que envía un contenedor al pararse, así que sin él no habría apagado ordenado.
 async fn shutdown_signal() {
-    if let Err(err) = tokio::signal::ctrl_c().await {
-        tracing::error!(error = %err, "no se pudo escuchar la señal de apagado");
+    let ctrl_c = async {
+        if let Err(err) = tokio::signal::ctrl_c().await {
+            tracing::error!(error = %err, "no se pudo escuchar Ctrl-C");
+            // Sin señal que escuchar, este brazo no debe disparar el apagado.
+            std::future::pending::<()>().await;
+        }
+    };
+    #[cfg(unix)]
+    let terminate = async {
+        use tokio::signal::unix::{SignalKind, signal};
+        match signal(SignalKind::terminate()) {
+            Ok(mut stream) => {
+                stream.recv().await;
+            }
+            Err(err) => {
+                tracing::error!(error = %err, "no se pudo escuchar SIGTERM");
+                std::future::pending::<()>().await;
+            }
+        }
+    };
+    #[cfg(not(unix))]
+    let terminate = std::future::pending::<()>();
+    tokio::select! {
+        () = ctrl_c => {},
+        () = terminate => {},
     }
 }

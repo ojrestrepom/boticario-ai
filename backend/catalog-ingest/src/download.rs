@@ -3,12 +3,18 @@
 //! Es un paso aparte de la construcción: construir nunca toca la red.
 
 use std::fs::{self, File};
-use std::io;
+use std::io::{self, Read};
 use std::path::{Path, PathBuf};
+use std::time::Duration;
 
 use crate::adapter::SourceAdapter;
 use crate::error::IngestError;
 use crate::input::{InputSpec, verify_input};
+
+/// Tiempo máximo de toda la descarga (conexión, redirecciones y cuerpo).
+///
+/// Sin él, un servidor que no responde dejaría la CLI colgada indefinidamente. Diez minutos sobran para el insumo conocido (decenas de MB) incluso con una conexión lenta.
+const DOWNLOAD_TIMEOUT: Duration = Duration::from_secs(600);
 
 /// Qué pasó con el insumo.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -56,7 +62,8 @@ pub fn download_input(
 
     // Se descarga a un archivo temporal para que un corte a medias nunca parezca un insumo válido.
     let part = cache_dir.join(format!("{}.part", input.file_name));
-    let result = fetch_to(&input.download_url, &part).and_then(|()| verify(&part));
+    let result =
+        fetch_to(&input.download_url, &part, input.expected_size).and_then(|()| verify(&part));
     match result {
         Ok(()) => {
             fs::rename(&part, &target).map_err(|e| IngestError::Io {
@@ -74,16 +81,26 @@ pub fn download_input(
 }
 
 /// Descarga `url` a `dest` copiando el cuerpo por bloques (no se carga entero en memoria).
-fn fetch_to(url: &str, dest: &Path) -> Result<(), IngestError> {
+///
+/// Se lee como máximo `expected_size + 1` bytes: un cuerpo mayor de lo esperado llega con un byte de más y la verificación posterior falla por tamaño, en lugar de llenar el disco.
+fn fetch_to(url: &str, dest: &Path, expected_size: u64) -> Result<(), IngestError> {
     let download_error = |message: String| IngestError::Download {
         url: url.to_string(),
         message,
     };
     // `ureq` sigue las redirecciones por defecto (Figshare redirige a S3).
-    let response = ureq::get(url)
+    let agent: ureq::Agent = ureq::Agent::config_builder()
+        .timeout_global(Some(DOWNLOAD_TIMEOUT))
+        .build()
+        .into();
+    let response = agent
+        .get(url)
         .call()
         .map_err(|e| download_error(e.to_string()))?;
-    let mut reader = response.into_body().into_reader();
+    let mut reader = response
+        .into_body()
+        .into_reader()
+        .take(expected_size.saturating_add(1));
     let mut file = File::create(dest).map_err(|e| IngestError::Io {
         path: Some(dest.to_path_buf()),
         message: e.to_string(),

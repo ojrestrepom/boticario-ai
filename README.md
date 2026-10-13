@@ -37,7 +37,7 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 ## Estructura del repositorio
 
 - `app/`: aplicación Flutter.
-- `docs/`: canvas, mockups, research y procedencia de los datos.
+- `docs/`: canvas, mockups y procedencia de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
 - `.github/workflows/`: integración continua.
 - `.flutter-version`: versión fijada del SDK de Flutter.
@@ -129,11 +129,10 @@ Pendiente: el repositorio se tratará como monorepo, con `app/` exclusiva de Flu
 
 ## Documentación
 
-Orden de lectura sugerido: Canvas, mockups, research, plan de trabajo.
+Orden de lectura sugerido: Canvas, mockups y guía del catálogo USDA.
 
 - Canvas y negocio: [índice](docs/canvas/README.md) y [modelo de negocio](docs/canvas/modelo-de-negocio.md).
 - Mockups: [índice](docs/mockups/README.md), [pantallas](docs/mockups/pantallas.md) y [navegación](docs/mockups/navegacion.md).
-- Research Flutter: [índice](docs/research/flutter/README.md), [fuentes](docs/research/flutter/fuentes.md) y [plan de trabajo](docs/research/flutter/plan-de-trabajo.md).
 - Datos: [guía del catálogo USDA](docs/data/usda-catalog.md).
 
 Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus informes de QA, está en `openspec/changes/archive/`.
@@ -144,7 +143,6 @@ Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus i
 docs/
   canvas/              índice y modelo de negocio
   mockups/             índice, pantallas y navegación
-  research/flutter/    índice, fuentes y plan de trabajo
   data/               procedencia, curación y límites del catálogo USDA
   Canvas.png           canvas original
   mockups.png          lámina original de mockups

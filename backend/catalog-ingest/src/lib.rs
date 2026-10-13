@@ -16,7 +16,7 @@ pub mod sources;
 pub mod usda;
 pub mod write;
 
-#[cfg(test)]
-mod test_support;
+#[cfg(any(test, feature = "test-fixtures"))]
+pub mod test_support;
 
 pub use error::IngestError;

@@ -1,4 +1,6 @@
-//! Utilidades compartidas por los tests (no se compila fuera de `cargo test`).
+//! Utilidades compartidas por los tests (solo se compila con `cargo test` o con la feature `test-fixtures`).
+
+#![allow(missing_docs)]
 
 use std::io::Write;
 use std::path::PathBuf;

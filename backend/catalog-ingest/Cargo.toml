@@ -16,7 +16,12 @@ sha2.workspace = true
 rusqlite.workspace = true
 diesel.workspace = true
 ureq.workspace = true
+tempfile = { workspace = true, optional = true }
 
 [dev-dependencies]
 tempfile.workspace = true
 serde_json.workspace = true
+
+[features]
+# Expone `test_support` (fixtures) a otros crates, solo para sus pruebas.
+test-fixtures = ["dep:tempfile"]

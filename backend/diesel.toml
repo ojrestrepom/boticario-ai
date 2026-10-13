@@ -1,0 +1,10 @@
+# Configuración de la CLI de Diesel (`diesel migration run`, `diesel print-schema`).
+# Las rutas son relativas a este archivo.
+
+[print_schema]
+# `schema.rs` se genera, no se edita a mano: cambia el SQL de la migración y vuelve a generarlo.
+file = "catalog-core/src/schema.rs"
+
+[migrations_directory]
+# Las migraciones viven en `data/`, junto a los demás artefactos de datos, y no dentro de un crate.
+dir = "../data/migrations"

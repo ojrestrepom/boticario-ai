@@ -6,10 +6,18 @@ use std::collections::BTreeSet;
 use std::ffi::OsString;
 use std::path::{Path, PathBuf};
 
-use catalog_core::domain::{Attributed, NameKind, SourceId};
+use catalog_core::domain::{NameKind, SourceId};
 use catalog_core::normalize::normalize_name;
-use catalog_core::schema::{SCHEMA_SQL, SCHEMA_VERSION, SCHEMA_VERSION_KEY};
-use rusqlite::{Connection, Transaction, params};
+use catalog_core::rows::{
+    MetadataRow, NewPlantName, NewPlantPart, NewPlantUse, PlantNameSourceRow, PlantPartSourceRow,
+    PlantRow, PlantSourceIdRow, PlantUseSourceRow, ReferenceRow, ReferenceSourceRow, SourceRow,
+};
+use catalog_core::schema::{
+    metadata, plant, plant_name, plant_name_source, plant_part, plant_part_source, plant_source_id,
+    plant_use, plant_use_source, reference, reference_source, source,
+};
+use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY, apply_schema};
+use diesel::prelude::*;
 
 use crate::consolidate::{Catalog, ConsolidatedPlant};
 use crate::error::IngestError;
@@ -147,107 +155,156 @@ fn validate_catalog(catalog: &Catalog) -> Result<(), IngestError> {
 
 /// Crea la base en `path` y la llena dentro de una sola transacción.
 fn write_db(catalog: &Catalog, path: &Path) -> Result<(), IngestError> {
-    let mut conn = Connection::open(path)?;
-    // Es configuración de la conexión, no del archivo: por eso no está en `schema.sql`.
-    conn.pragma_update(None, "foreign_keys", "ON")?;
-    conn.execute_batch(SCHEMA_SQL)?;
-    // Si retornamos antes de `commit`, `tx` se destruye y SQLite revierte todo.
-    let tx = conn.transaction()?;
-    insert_all(&tx, catalog)?;
-    tx.commit()?;
+    let url = path.to_str().ok_or_else(|| IngestError::Io {
+        path: Some(path.to_path_buf()),
+        message: "la ruta no es UTF-8 válido".to_string(),
+    })?;
+    let mut conn = SqliteConnection::establish(url)?;
+    // Es configuración de la conexión, no del esquema: por eso no está en la migración.
+    // Debe ir fuera de la transacción: dentro, SQLite ignora este PRAGMA.
+    diesel::sql_query("PRAGMA foreign_keys = ON").execute(&mut conn)?;
+    apply_schema(&mut conn)?;
+    // `transaction` ejecuta la closure: si devuelve `Ok` confirma (commit); si devuelve `Err` revierte todo (rollback).
+    conn.transaction(|conn| insert_all(conn, catalog))
     // `conn` se cierra al salir; el archivo ya está completo y consistente.
-    Ok(())
 }
 
-fn insert_all(tx: &Transaction<'_>, catalog: &Catalog) -> Result<(), IngestError> {
-    tx.execute(
-        "INSERT INTO metadata (key, value) VALUES (?1, ?2)",
-        params![SCHEMA_VERSION_KEY, SCHEMA_VERSION.to_string()],
-    )?;
+fn insert_all(conn: &mut SqliteConnection, catalog: &Catalog) -> Result<(), IngestError> {
+    diesel::insert_into(metadata::table)
+        .values(MetadataRow {
+            key: SCHEMA_VERSION_KEY.to_string(),
+            value: SCHEMA_VERSION.to_string(),
+        })
+        .execute(conn)?;
     for s in &catalog.sources {
-        tx.execute(
-            "INSERT INTO source (id, name, version, license, citation, url, checksum) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)",
-            params![s.id.0, s.name, s.version, s.license, s.citation, s.url, s.checksum],
-        )?;
+        diesel::insert_into(source::table)
+            .values(SourceRow {
+                id: s.id.0.clone(),
+                name: s.name.clone(),
+                version: s.version.clone(),
+                license: s.license.clone(),
+                citation: s.citation.clone(),
+                url: s.url.clone(),
+                checksum: s.checksum.clone(),
+            })
+            .execute(conn)?;
     }
     for r in &catalog.references {
-        tx.execute(
-            "INSERT INTO reference (id, citation) VALUES (?1, ?2)",
-            params![r.value.id, r.value.citation],
-        )?;
-        insert_sources(tx, "reference_source", "reference_id", &r.value.id, r)?;
+        diesel::insert_into(reference::table)
+            .values(ReferenceRow {
+                id: r.value.id.clone(),
+                citation: r.value.citation.clone(),
+            })
+            .execute(conn)?;
+        let links: Vec<ReferenceSourceRow> = r
+            .sources
+            .iter()
+            .map(|s| ReferenceSourceRow {
+                reference_id: r.value.id.clone(),
+                source_id: s.0.clone(),
+            })
+            .collect();
+        diesel::insert_into(reference_source::table)
+            .values(&links)
+            .execute(conn)?;
     }
     for cp in &catalog.plants {
-        insert_plant(tx, cp)?;
+        insert_plant(conn, cp)?;
     }
     Ok(())
 }
 
-/// Inserta las filas de una tabla de atribución para un dato; devuelve nada, solo escribe.
-fn insert_sources<K: rusqlite::ToSql, T>(
-    tx: &Transaction<'_>,
-    table: &str,
-    key_column: &str,
-    key: &K,
-    data: &Attributed<T>,
-) -> Result<(), IngestError> {
-    let sql = format!("INSERT INTO {table} ({key_column}, source_id) VALUES (?1, ?2)");
-    for source in &data.sources {
-        tx.execute(&sql, params![key, source.0])?;
-    }
-    Ok(())
-}
-
-fn insert_plant(tx: &Transaction<'_>, cp: &ConsolidatedPlant) -> Result<(), IngestError> {
+fn insert_plant(conn: &mut SqliteConnection, cp: &ConsolidatedPlant) -> Result<(), IngestError> {
     let plant = &cp.plant;
-    let id = &plant.id.0;
+    let id = plant.id.0.as_str();
     let family = plant.family.as_ref();
-    tx.execute(
-        "INSERT INTO plant (id, scientific_name, scientific_name_normalized, family, family_source_id) VALUES (?1, ?2, ?3, ?4, ?5)",
-        params![
-            id,
-            plant.scientific_name,
-            normalize_name(&plant.scientific_name),
-            family.map(|f| f.value.as_str()),
-            family.map(|f| f.sources[0].0.as_str()),
-        ],
-    )?;
-    for (source, source_plant_id) in &cp.source_plant_ids {
-        tx.execute(
-            "INSERT INTO plant_source_id (plant_id, source_id, source_plant_id) VALUES (?1, ?2, ?3)",
-            params![id, source.0, source_plant_id],
-        )?;
-    }
+    diesel::insert_into(plant::table)
+        .values(PlantRow {
+            id: id.to_string(),
+            scientific_name: plant.scientific_name.clone(),
+            scientific_name_normalized: normalize_name(&plant.scientific_name),
+            family: family.map(|f| f.value.clone()),
+            family_source_id: family.map(|f| f.sources[0].0.clone()),
+        })
+        .execute(conn)?;
+    let links: Vec<PlantSourceIdRow> = cp
+        .source_plant_ids
+        .iter()
+        .map(|(source, source_plant_id)| PlantSourceIdRow {
+            plant_id: id.to_string(),
+            source_id: source.0.clone(),
+            source_plant_id: source_plant_id.clone(),
+        })
+        .collect();
+    diesel::insert_into(plant_source_id::table)
+        .values(&links)
+        .execute(conn)?;
     for n in &plant.names {
-        tx.execute(
-            "INSERT INTO plant_name (plant_id, text, kind, language, normalized) VALUES (?1, ?2, ?3, ?4, ?5)",
-            params![
-                id,
-                n.value.text,
-                kind_label(n.value.kind),
-                n.value.language,
-                normalize_name(&n.value.text),
-            ],
-        )?;
-        // El id entero lo asigna SQLite; `last_insert_rowid` lo devuelve para enlazar la atribución.
-        let row_id = tx.last_insert_rowid();
-        insert_sources(tx, "plant_name_source", "plant_name_id", &row_id, n)?;
+        let normalized = normalize_name(&n.value.text);
+        // El id entero lo asigna SQLite; `RETURNING id` lo devuelve para enlazar la atribución.
+        let row_id: i32 = diesel::insert_into(plant_name::table)
+            .values(NewPlantName {
+                plant_id: id,
+                text: &n.value.text,
+                kind: kind_label(n.value.kind),
+                language: &n.value.language,
+                normalized: &normalized,
+            })
+            .returning(plant_name::id)
+            .get_result(conn)?;
+        let links: Vec<PlantNameSourceRow> = n
+            .sources
+            .iter()
+            .map(|s| PlantNameSourceRow {
+                plant_name_id: row_id,
+                source_id: s.0.clone(),
+            })
+            .collect();
+        diesel::insert_into(plant_name_source::table)
+            .values(&links)
+            .execute(conn)?;
     }
     for p in &plant.parts {
-        tx.execute(
-            "INSERT INTO plant_part (plant_id, label) VALUES (?1, ?2)",
-            params![id, p.value.label],
-        )?;
-        let row_id = tx.last_insert_rowid();
-        insert_sources(tx, "plant_part_source", "plant_part_id", &row_id, p)?;
+        let row_id: i32 = diesel::insert_into(plant_part::table)
+            .values(NewPlantPart {
+                plant_id: id,
+                label: &p.value.label,
+            })
+            .returning(plant_part::id)
+            .get_result(conn)?;
+        let links: Vec<PlantPartSourceRow> = p
+            .sources
+            .iter()
+            .map(|s| PlantPartSourceRow {
+                plant_part_id: row_id,
+                source_id: s.0.clone(),
+            })
+            .collect();
+        diesel::insert_into(plant_part_source::table)
+            .values(&links)
+            .execute(conn)?;
     }
     for u in &plant.uses {
-        tx.execute(
-            "INSERT INTO plant_use (plant_id, activity, language, reference_id) VALUES (?1, ?2, ?3, ?4)",
-            params![id, u.value.activity, u.value.language, u.value.reference.id],
-        )?;
-        let row_id = tx.last_insert_rowid();
-        insert_sources(tx, "plant_use_source", "plant_use_id", &row_id, u)?;
+        let row_id: i32 = diesel::insert_into(plant_use::table)
+            .values(NewPlantUse {
+                plant_id: id,
+                activity: &u.value.activity,
+                language: &u.value.language,
+                reference_id: &u.value.reference.id,
+            })
+            .returning(plant_use::id)
+            .get_result(conn)?;
+        let links: Vec<PlantUseSourceRow> = u
+            .sources
+            .iter()
+            .map(|s| PlantUseSourceRow {
+                plant_use_id: row_id,
+                source_id: s.0.clone(),
+            })
+            .collect();
+        diesel::insert_into(plant_use_source::table)
+            .values(&links)
+            .execute(conn)?;
     }
     Ok(())
 }
@@ -258,7 +315,7 @@ mod tests {
     use crate::hash::NEUTRAL_TABLES;
     use crate::test_support::sample_catalog;
     use catalog_core::domain::SourceId;
-    use rusqlite::OpenFlags;
+    use rusqlite::{Connection, OpenFlags};
 
     fn open(path: &Path) -> Connection {
         Connection::open_with_flags(path, OpenFlags::SQLITE_OPEN_READ_ONLY).unwrap()

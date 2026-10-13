@@ -1,16 +1,18 @@
 -- Esquema neutral del catálogo de plantas.
 -- Es el único contrato que lee la API: no contiene nombres ni estructuras propias de ningún dataset.
 -- La configuración de conexión (claves foráneas, journal, etc.) se hace al abrir la conexión, no aquí.
+-- Las claves primarias llevan NOT NULL explícito: SQLite admite NULL en las de texto por una rareza histórica y Diesel las leería como Option.
+-- En las de tipo INTEGER, NOT NULL no impide que SQLite asigne el id solo cuando no se indica.
 
 -- Metadatos de la base; guarda, entre otros, la versión del esquema ("schema_version").
 CREATE TABLE metadata (
-    key   TEXT PRIMARY KEY,
+    key   TEXT NOT NULL PRIMARY KEY,
     value TEXT NOT NULL
 );
 
 -- Fuentes de datos con su procedencia y licencia.
 CREATE TABLE source (
-    id       TEXT PRIMARY KEY,
+    id       TEXT NOT NULL PRIMARY KEY,
     name     TEXT NOT NULL,
     version  TEXT NOT NULL,
     license  TEXT NOT NULL,
@@ -22,7 +24,7 @@ CREATE TABLE source (
 -- Plantas; el id público es el slug del nombre científico canónico.
 -- La familia es un valor único: family_source_id registra qué fuente fue elegida.
 CREATE TABLE plant (
-    id                         TEXT PRIMARY KEY,
+    id                         TEXT NOT NULL PRIMARY KEY,
     scientific_name            TEXT NOT NULL,
     scientific_name_normalized TEXT NOT NULL UNIQUE,
     family                     TEXT,
@@ -41,7 +43,7 @@ CREATE INDEX idx_plant_source_id_source ON plant_source_id (source_id);
 
 -- Nombres de planta (científicos o comunes) con idioma y versión normalizada para buscar.
 CREATE TABLE plant_name (
-    id         INTEGER PRIMARY KEY,
+    id         INTEGER NOT NULL PRIMARY KEY,
     plant_id   TEXT NOT NULL REFERENCES plant (id),
     text       TEXT NOT NULL,
     kind       TEXT NOT NULL CHECK (kind IN ('scientific', 'common')),
@@ -54,7 +56,7 @@ CREATE INDEX idx_plant_name_plant ON plant_name (plant_id);
 
 -- Partes de la planta.
 CREATE TABLE plant_part (
-    id       INTEGER PRIMARY KEY,
+    id       INTEGER NOT NULL PRIMARY KEY,
     plant_id TEXT NOT NULL REFERENCES plant (id),
     label    TEXT NOT NULL,
     UNIQUE (plant_id, label)
@@ -63,13 +65,13 @@ CREATE INDEX idx_plant_part_plant ON plant_part (plant_id);
 
 -- Referencias bibliográficas.
 CREATE TABLE reference (
-    id       TEXT PRIMARY KEY,
+    id       TEXT NOT NULL PRIMARY KEY,
     citation TEXT NOT NULL
 );
 
 -- Usos de la planta (actividad e idioma) respaldados por una referencia.
 CREATE TABLE plant_use (
-    id           INTEGER PRIMARY KEY,
+    id           INTEGER NOT NULL PRIMARY KEY,
     plant_id     TEXT NOT NULL REFERENCES plant (id),
     activity     TEXT NOT NULL,
     language     TEXT NOT NULL,

@@ -312,6 +312,24 @@ impl From<rusqlite::Error> for IngestError {
     }
 }
 
+impl From<diesel::result::Error> for IngestError {
+    fn from(err: diesel::result::Error) -> Self {
+        Self::Storage(err.to_string())
+    }
+}
+
+impl From<diesel::result::ConnectionError> for IngestError {
+    fn from(err: diesel::result::ConnectionError) -> Self {
+        Self::Storage(err.to_string())
+    }
+}
+
+impl From<catalog_core::version::SchemaError> for IngestError {
+    fn from(err: catalog_core::version::SchemaError) -> Self {
+        Self::Storage(err.to_string())
+    }
+}
+
 impl From<zip::result::ZipError> for IngestError {
     fn from(err: zip::result::ZipError) -> Self {
         Self::InvalidZip {

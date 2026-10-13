@@ -12,7 +12,7 @@ use crate::error::IngestError;
 
 /// Tablas del esquema neutral, en el orden fijo en que se vuelcan.
 ///
-/// Un test comprueba que coincide con las tablas que crea `SCHEMA_SQL`.
+/// Un test comprueba que coincide con las tablas que crea `apply_schema`.
 pub const NEUTRAL_TABLES: [&str; 12] = [
     "metadata",
     "source",
@@ -102,7 +102,8 @@ mod tests {
     use super::*;
     use crate::test_support::{sample_catalog, sample_inputs};
     use crate::{consolidate::consolidate, write::write_catalog};
-    use catalog_core::schema::SCHEMA_SQL;
+    use catalog_core::version::apply_schema;
+    use diesel::{Connection as _, SqliteConnection};
 
     fn hash_of(catalog: &crate::consolidate::Catalog) -> String {
         let dir = tempfile::tempdir().unwrap();
@@ -113,8 +114,11 @@ mod tests {
 
     #[test]
     fn table_list_matches_schema() {
-        let conn = Connection::open_in_memory().unwrap();
-        conn.execute_batch(SCHEMA_SQL).unwrap();
+        // Se crea en un archivo temporal para poder abrirlo luego con rusqlite, que es lo que usa el volcado.
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("schema.db");
+        apply_schema(&mut SqliteConnection::establish(path.to_str().unwrap()).unwrap()).unwrap();
+        let conn = Connection::open(&path).unwrap();
         let mut stmt = conn
             .prepare(
                 "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%'",

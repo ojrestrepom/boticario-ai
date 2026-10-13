@@ -4,7 +4,7 @@ use std::error::Error;
 use std::fmt;
 use std::path::PathBuf;
 
-/// Errores que puede devolver la verificación del insumo o la importación cruda.
+/// Errores que puede devolver la verificación del insumo, la importación cruda, la configuración y la consolidación.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum IngestError {
     /// El insumo no existe: falta ejecutar el paso de descarga.
@@ -58,6 +58,73 @@ pub enum IngestError {
     },
     /// Fallo del almacenamiento SQLite, con un mensaje descriptivo.
     Storage(String),
+    /// A una fuente le falta un metadato obligatorio (vacío o solo espacios).
+    MissingMetadata {
+        /// Identificador de la fuente (puede estar vacío si lo que falta es el propio id).
+        source: String,
+        /// Campo ausente: `id`, `name`, `version`, `license`, `citation`, `url` o `checksum`.
+        field: &'static str,
+    },
+    /// El identificador de la fuente tiene caracteres fuera de `[a-z0-9_]`.
+    InvalidSourceId {
+        /// Identificador rechazado.
+        id: String,
+    },
+    /// El archivo de configuración de fuentes es inválido.
+    InvalidConfig {
+        /// Archivo leído, si la configuración vino de uno.
+        path: Option<PathBuf>,
+        /// Descripción del problema.
+        message: String,
+    },
+    /// La configuración pide una fuente para la que no hay adaptador registrado.
+    UnknownSource {
+        /// Identificador pedido.
+        id: String,
+    },
+    /// Se registraron dos adaptadores con el mismo identificador de fuente.
+    DuplicateAdapter {
+        /// Identificador repetido.
+        id: String,
+    },
+    /// Una fuente entregó dos plantas con la misma identidad canónica.
+    DuplicateIdentity {
+        /// Fuente que repite la identidad.
+        source: String,
+        /// Identidad canónica (nombre científico normalizado).
+        identity: String,
+        /// Identificador en la fuente del primer registro.
+        first_source_plant_id: String,
+        /// Identificador en la fuente del segundo registro.
+        second_source_plant_id: String,
+    },
+    /// Dos identidades distintas producen el mismo slug (ID público).
+    SlugCollision {
+        /// Slug repetido.
+        slug: String,
+        /// Primera identidad canónica.
+        first_identity: String,
+        /// Segunda identidad canónica.
+        second_identity: String,
+    },
+    /// Un uso apunta a una referencia que su propia fuente no entregó.
+    UnresolvedReference {
+        /// Fuente del uso.
+        source: String,
+        /// Planta de la fuente a la que pertenece el uso.
+        source_plant_id: String,
+        /// Referencia que no se encontró.
+        reference_id: String,
+    },
+    /// Un mismo identificador de referencia tiene citas distintas.
+    ConflictingReference {
+        /// Identificador de la referencia.
+        id: String,
+        /// Fuente que la entregó primero.
+        first_source: String,
+        /// Fuente cuya cita difiere (puede ser la misma fuente).
+        second_source: String,
+    },
 }
 
 impl fmt::Display for IngestError {
@@ -104,6 +171,66 @@ impl fmt::Display for IngestError {
                 "cabecera inválida en {file} (columna \"{column}\"): {message}"
             ),
             Self::Storage(msg) => write!(f, "fallo de almacenamiento: {msg}"),
+            Self::MissingMetadata { source, field } => write!(
+                f,
+                "la fuente \"{source}\" no declara el metadato obligatorio `{field}`"
+            ),
+            Self::InvalidSourceId { id } => write!(
+                f,
+                "identificador de fuente inválido \"{id}\": solo se admiten [a-z0-9_]"
+            ),
+            Self::InvalidConfig {
+                path: Some(path),
+                message,
+            } => write!(
+                f,
+                "configuración de fuentes inválida en {}: {message}",
+                path.display()
+            ),
+            Self::InvalidConfig {
+                path: None,
+                message,
+            } => write!(f, "configuración de fuentes inválida: {message}"),
+            Self::UnknownSource { id } => write!(
+                f,
+                "la configuración activa la fuente \"{id}\" pero no hay adaptador registrado para ella"
+            ),
+            Self::DuplicateAdapter { id } => {
+                write!(f, "ya hay un adaptador registrado para la fuente \"{id}\"")
+            }
+            Self::DuplicateIdentity {
+                source,
+                identity,
+                first_source_plant_id,
+                second_source_plant_id,
+            } => write!(
+                f,
+                "la fuente \"{source}\" repite la identidad \"{identity}\": registros \"{first_source_plant_id}\" y \"{second_source_plant_id}\""
+            ),
+            Self::SlugCollision {
+                slug,
+                first_identity,
+                second_identity,
+            } => write!(
+                f,
+                "colisión de slug \"{slug}\" entre las identidades \"{first_identity}\" y \"{second_identity}\""
+            ),
+            Self::UnresolvedReference {
+                source,
+                source_plant_id,
+                reference_id,
+            } => write!(
+                f,
+                "la planta \"{source_plant_id}\" de la fuente \"{source}\" usa la referencia \"{reference_id}\", que esa fuente no entregó"
+            ),
+            Self::ConflictingReference {
+                id,
+                first_source,
+                second_source,
+            } => write!(
+                f,
+                "la referencia \"{id}\" tiene citas distintas en las fuentes \"{first_source}\" y \"{second_source}\""
+            ),
         }
     }
 }

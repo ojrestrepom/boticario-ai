@@ -14,9 +14,9 @@
 
 ## 3. Capa cruda
 
-- [ ] 3.1 Implementar en `catalog-ingest` la verificación del insumo (tamaño y MD5 declarados) antes de leerlo; verificar con tests sin red que un archivo íntegro pasa y que uno alterado o ausente falla con un mensaje claro que indica el paso de descarga.
-- [ ] 3.2 Implementar el ayudante genérico de importación que lee un ZIP y sus CSV con la codificación declarada y los vuelca a tablas crudas (`raw_<fuente>_<tabla>`) en `data/build/raw.db`, configurado por el adaptador; verificar con fixtures que se conservan todas las tablas, filas y columnas con sus valores originales, sin recortes ni normalización.
-- [ ] 3.3 Hacer la importación cruda repetible y determinista (recrea las tablas de la fuente sin dejar restos y sin marcas de tiempo); verificar con un test que importar dos veces el mismo fixture da el mismo contenido y que importar una fuente no altera las tablas de otra.
+- [x] 3.1 Implementar en `catalog-ingest` la verificación del insumo (tamaño y MD5 declarados) antes de leerlo; verificar con tests sin red que un archivo íntegro pasa y que uno alterado o ausente falla con un mensaje claro que indica el paso de descarga.
+- [x] 3.2 Implementar el ayudante genérico de importación que lee un ZIP y sus CSV con la codificación declarada y los vuelca a tablas crudas (`raw_<fuente>_<tabla>`) en `data/build/raw.db`, configurado por el adaptador; verificar con fixtures que se conservan todas las tablas, filas y columnas con sus valores originales, sin recortes ni normalización.
+- [x] 3.3 Hacer la importación cruda repetible y determinista (recrea las tablas de la fuente sin dejar restos y sin marcas de tiempo); verificar con un test que importar dos veces el mismo fixture da el mismo contenido y que importar una fuente no altera las tablas de otra.
 
 ## 4. Contrato de adaptador y consolidador
 

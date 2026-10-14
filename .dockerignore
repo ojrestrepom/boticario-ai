@@ -1,0 +1,23 @@
+# Contexto de construcción mínimo: solo backend/ y data/ (migraciones y sources.toml).
+# Excluir lo ajeno evita que un cambio en la app o en la documentación invalide la caché de capas.
+app/
+.git/
+.github/
+.fvm/
+docs/
+openspec/
+.claude/
+.opencode/
+.idea/
+.vscode/
+
+# Salidas locales del backend y de los datos (se regeneran dentro de la imagen).
+backend/target/
+data/build/
+data/.cache/
+
+# Archivos de entorno y basura del sistema.
+.env
+.env.*
+**/.DS_Store
+Thumbs.db

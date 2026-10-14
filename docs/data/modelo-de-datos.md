@@ -1,6 +1,6 @@
 # Modelo de datos del catálogo y cómo añadir un dataset
 
-Esta guía describe cómo el backend (`backend/`) convierte datasets de terceros en la base neutral que sirve la API, y los pasos para incorporar un dataset nuevo. La procedencia y la curación del asset que hoy usa la app están en la [guía del catálogo USDA](usda-catalog.md); el contrato HTTP está en [`backend/openapi.json`](../../backend/openapi.json). Los comandos para construir y ejecutar están en el [README](../../README.md#backend-catálogo-y-api).
+Esta guía describe cómo el backend (`backend/`) convierte datasets de terceros en la base neutral que sirve la API, y los pasos para incorporar un dataset nuevo. La procedencia y la curación del asset que hoy usa la app están en la [guía del catálogo USDA](usda-catalog.md); el contrato HTTP está en [`backend/openapi.json`](../../backend/openapi.json). Para ejecutar el backend con Docker, ver el [README de la raíz](../../README.md#backend-catálogo-y-api); los comandos nativos para construir el catálogo, ejecutar la API y verificar están en [`backend/README.md`](../../backend/README.md).
 
 ## 1. Por qué tres capas
 
@@ -66,7 +66,7 @@ El esquema es una migración de Diesel en `data/migrations/` (hoy `2026-10-12-00
 
 `backend/catalog-core/src/schema.rs` lo genera Diesel y no se edita a mano; `backend/diesel.toml` fija su ruta y la carpeta de migraciones. `SCHEMA_VERSION` (en `version.rs`) se guarda en `metadata` y la API la comprueba al arrancar.
 
-Para cambiar el esquema: editar la migración, subir `SCHEMA_VERSION`, regenerar `schema.rs` con `DATABASE_URL=<base temporal> diesel migration run` desde `backend/`, ajustar las filas de `catalog-core/src/rows.rs` y la escritura de `write.rs`, y reconstruir con `rederive` (o `build`). Un test comprueba que el esquema no contiene términos de ningún dataset.
+Para cambiar el esquema: editar la migración, subir `SCHEMA_VERSION`, regenerar `schema.rs` con `DATABASE_URL=<base temporal> diesel migration run` desde `backend/` (ver [`backend/README.md`](../../backend/README.md#6-cambiar-el-esquema)), ajustar las filas de `catalog-core/src/rows.rs` y la escritura de `write.rs`, y reconstruir con `rederive` (o `build`). Un test comprueba que el esquema no contiene términos de ningún dataset.
 
 ## 6. Cómo añadir un dataset
 
@@ -82,7 +82,7 @@ Añadir una fuente no cambia el esquema ni la API. Los pasos son:
 4. **Registrar el adaptador** en `default_registry` (en `catalog-ingest/src/sources.rs`), que es el único lugar de código que se toca para que el ejecutable conozca la fuente.
 5. **Añadir la fuente a `data/sources.toml`** con su `id` y una `priority` única (1 es la más alta). La prioridad decide quién gana en los campos de valor único. El archivo rechaza ids o prioridades repetidos y claves desconocidas.
 6. **Probar con fixtures.** `catalog-ingest/src/test_support.rs` ofrece `build_zip` (crea un ZIP de CSV en Windows-1252), `fixture_source`, `FixtureCsv` y `FixtureAdapter`, un adaptador completo sobre CSV pequeños, además de `StaticAdapter` para probar el consolidador sin crudo. Los tests de `adapter.rs`, `sources.rs`, `consolidate.rs` y `build.rs` muestran el patrón: importar el fixture con `import_raw`, derivar y comprobar los registros y los errores de la sección 3.
-7. **Reconstruir y comparar el hash.** Ejecutar `download` y `build`, anotar el hash, repetir con `rederive` y confirmar que coincide; después ejecutar los tests con `--ignored` descritos en el README.
+7. **Reconstruir y comparar el hash.** Ejecutar `download` y `build`, anotar el hash, repetir con `rederive` y confirmar que coincide; después ejecutar los tests con `--ignored` descritos en [`backend/README.md`](../../backend/README.md#5-verificación).
 
 ### Ejemplo de referencia: el adaptador de USDA
 

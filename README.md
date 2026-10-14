@@ -38,13 +38,14 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 ## Estructura del repositorio
 
 - `app/`: aplicación Flutter.
-- `backend/`: workspace de Cargo con tres crates. `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` descarga los insumos, importa la capa cruda, consolida las fuentes y escribe la base. `catalog-api` sirve esa base por HTTP.
+- `backend/`: workspace de Cargo con tres crates, con su guía de desarrollo en [`backend/README.md`](backend/README.md). `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` descarga los insumos, importa la capa cruda, consolida las fuentes y escribe la base. `catalog-api` sirve esa base por HTTP.
 - `data/`: la migración del esquema neutral (`data/migrations/`), la configuración de fuentes (`data/sources.toml`) y las salidas generadas e ignoradas por git `data/.cache/` y `data/build/`.
 - `docs/`: canvas, mockups y procedencia de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
 - `.github/workflows/`: integración continua.
 - `.flutter-version`: versión fijada del SDK de Flutter.
-- `mise.toml`: versión fijada de Rust para el backend.
+- `mise.toml`: versión fijada de Rust para el desarrollo nativo del backend.
+- `Dockerfile`, `compose.yaml` y `.dockerignore`: imagen y arranque con Docker del backend.
 
 El repositorio es un monorepo: `app/` es exclusiva de Flutter, `backend/` es exclusivo de Rust y `data/` contiene artefactos de datos, no código.
 
@@ -125,50 +126,25 @@ flutter test test/
 
 ## Backend: catálogo y API
 
-El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](docs/data/modelo-de-datos.md). Todos los comandos se ejecutan desde la raíz del repositorio, salvo los de verificación, que se ejecutan desde `backend/`.
+El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](docs/data/modelo-de-datos.md). Para ejecutarlo solo hace falta Docker.
 
-### 1. Prerrequisitos
+### Prerrequisito
 
-- [`mise`](https://mise.jdx.dev) instalado. Desde la raíz, `mise install` instala Rust **1.99.0**, la versión fijada en [`mise.toml`](mise.toml).
-- Un compilador de C del sistema (en macOS, las Command Line Tools), porque SQLite se compila embebido.
-- `diesel_cli` solo si se cambia el esquema: `mise exec -- cargo install diesel_cli --no-default-features --features sqlite-bundled`.
+Docker Desktop, o un Docker compatible, con Compose.
 
-```bash
-mise install
-```
+### Arrancar
 
-### 2. Construir el catálogo
-
-La descarga es el único paso que usa la red. `build` y `rederive` nunca la tocan.
+Desde la raíz del repositorio:
 
 ```bash
-mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- download
-mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- build
-mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- rederive
+docker compose up --build
 ```
 
-- `download` baja y verifica el ZIP de USDA en `data/.cache/Duke-Source-CSV.zip`; si ya está verificado, no lo vuelve a descargar.
-- `build` verifica el ZIP, importa la capa cruda a `data/build/raw.db` y escribe la base neutral `data/build/catalog.db`. Imprime el número de fuentes y de plantas y el hash del contenido.
-- `rederive` rehace `data/build/catalog.db` desde `data/build/raw.db`, sin el ZIP y sin red. Sirve para probar un cambio en la derivación o en las reglas de consolidación.
+La primera construcción compila el backend, descarga el dataset de USDA y construye el catálogo dentro de la imagen. Tarda varios minutos la primera vez y segundos las siguientes, gracias a las cachés de construcción. La imagen resultante contiene la API y el catálogo ya construido, así que el contenedor sirve sin red.
 
-Las fuentes activas y su prioridad se leen de [`data/sources.toml`](data/sources.toml). Con `--data-dir <ruta>` se usa otro directorio de datos.
+### Endpoints
 
-### 3. Ejecutar la API
-
-```bash
-mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-api
-```
-
-La API se niega a arrancar si no encuentra la base. Se configura con argumentos y variables de entorno:
-
-| Nombre | Por defecto | Uso |
-|---|---|---|
-| `CATALOG_DB` (o `--db <ruta>`) | `data/build/catalog.db` | Ruta de la base; el argumento tiene prioridad. |
-| `HOST` | `127.0.0.1` | Dirección de escucha. |
-| `PORT` | `8080` | Puerto de escucha. |
-| `RUST_LOG` | `info` | Filtro de logs. |
-
-Endpoints, todos `GET`:
+Todos son `GET`, por defecto en `http://localhost:8080`:
 
 - `/healthz`: estado del servicio.
 - `/v1/sources`: fuentes con su licencia y procedencia.
@@ -177,43 +153,56 @@ Endpoints, todos `GET`:
 - `/openapi.json`: el contrato OpenAPI.
 
 ```bash
-curl 'http://127.0.0.1:8080/v1/plants?q=lavand'
+curl 'http://localhost:8080/v1/plants?q=lavand'
 ```
 
-### 4. Contrato OpenAPI
+La imagen no define un `healthcheck`; para sondear el servicio desde fuera, usar `/healthz`.
 
-[`backend/openapi.json`](backend/openapi.json) se genera desde el código de la API y la misma API lo sirve en `/openapi.json`. Tras cambiar rutas o DTO, se regenera con:
+### Configuración
+
+| Variable | Por defecto | Uso |
+|---|---|---|
+| `PORT` | `8080` | Puerto de escucha y puerto publicado en el anfitrión. |
+| `RUST_LOG` | `info` | Filtro de logs. |
 
 ```bash
-mise exec -- cargo run --manifest-path backend/Cargo.toml -p catalog-api -- --openapi > backend/openapi.json
+PORT=9090 docker compose up
+RUST_LOG=warn docker compose up
 ```
 
-Un test falla si el archivo está desactualizado respecto al código.
+Dentro del contenedor la API siempre escucha en `0.0.0.0`; esa dirección no es configurable.
 
-### 5. Verificación
+### Hash del catálogo
 
-Desde `backend/`:
+La construcción imprime el hash del contenido del catálogo en su log:
 
 ```bash
-mise exec -- cargo fmt --all --check
-mise exec -- cargo clippy --all-targets --workspace -- -D warnings
-mise exec -- cargo test --workspace
+docker compose --progress=plain build 2>&1 | grep 'hash:'
 ```
 
-Los tests marcados `#[ignore]` necesitan la salida real de `build` en `data/build/` (y, uno de ellos, `app/assets/data/plant_catalog.json`):
+Si todas las capas vienen de la caché, el log no repite la línea; en ese caso, `docker compose --progress=plain build --no-cache 2>&1 | grep 'hash:'` la vuelve a imprimir, a costa de repetir toda la construcción. El hash depende solo de los datos y es el mismo que da una construcción nativa del mismo insumo.
+
+### Reconstruir y parar
+
+Tras cambiar el código o los datos, se reconstruye y se arranca de nuevo con `docker compose up --build`. Para parar y eliminar el contenedor:
 
 ```bash
-mise exec -- cargo test --workspace -- --ignored
+docker compose down
 ```
 
-### 6. Cambiar el esquema
+Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`.
 
-1. Editar la migración de [`data/migrations/`](data/migrations/).
-2. Subir `SCHEMA_VERSION` en `backend/catalog-core/src/version.rs`.
-3. Regenerar `backend/catalog-core/src/schema.rs` con Diesel, desde `backend/`, sobre una base temporal; `backend/diesel.toml` fija la carpeta de migraciones y la ruta del archivo generado: `DATABASE_URL=/tmp/esquema.db mise exec -- diesel migration run`.
-4. Reconstruir el catálogo con `rederive` o `build`.
+### Despliegue en amd64
 
-La base no se migra: se regenera entera en cada construcción.
+La imagen se construye para la arquitectura del anfitrión (arm64 en un Mac con Apple Silicon). Para un despliegue en amd64:
+
+```bash
+docker build --platform linux/amd64 .
+```
+
+### Desarrollo del backend
+
+Para modificar el código Rust o ejecutarlo sin Docker, ver [`backend/README.md`](backend/README.md).
 
 ## Integración continua
 
@@ -221,7 +210,7 @@ El workflow [`.github/workflows/flutter.yml`](.github/workflows/flutter.yml) cor
 
 El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
 
-Pendiente: el repositorio es un monorepo con `app/` exclusiva de Flutter, `backend/` para la API y la ingesta en Rust y `data/` para los artefactos de datos. Este workflow cubre solo `app/`; `backend/` y `data/` no tienen CI todavía. Cuando la arquitectura esté más asentada habrá que revisar sus filtros de ruta y añadir CI propia para esos componentes; por ahora se deja sin diseñar de forma deliberada.
+Pendiente: el repositorio es un monorepo con `app/` exclusiva de Flutter, `backend/` para la API y la ingesta en Rust y `data/` para los artefactos de datos. Este workflow cubre solo `app/`; `backend/` y `data/` no tienen CI todavía, y la imagen del backend tampoco se construye en CI. Cuando la arquitectura esté más asentada habrá que revisar sus filtros de ruta y añadir CI propia para esos componentes; por ahora se deja sin diseñar de forma deliberada.
 
 ## Documentación
 
@@ -230,6 +219,7 @@ Orden de lectura sugerido: Canvas, mockups, guía del catálogo USDA y guía del
 - Canvas y negocio: [índice](docs/canvas/README.md) y [modelo de negocio](docs/canvas/modelo-de-negocio.md).
 - Mockups: [índice](docs/mockups/README.md), [pantallas](docs/mockups/pantallas.md) y [navegación](docs/mockups/navegacion.md).
 - Datos: [guía del catálogo USDA](docs/data/usda-catalog.md) y [guía del modelo de datos](docs/data/modelo-de-datos.md).
+- Desarrollo del backend: [`backend/README.md`](backend/README.md), con el flujo nativo con mise y cargo.
 
 Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus informes de QA, está en `openspec/changes/archive/`.
 

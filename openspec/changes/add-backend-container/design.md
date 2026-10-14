@@ -1,0 +1,79 @@
+# Design
+
+## Context
+
+Véase `proposal.md` para la motivación y la spec delta `backend-container` para los requisitos observables. Hoy el backend (`backend/`, workspace de Cargo con `catalog-core`, `catalog-ingest` y `catalog-api`) solo se arranca con el flujo nativo: instalar Rust con mise, tener un compilador de C, ejecutar `catalog-ingest download` y `build`, y después `catalog-api`. No existen `Dockerfile`, `compose.yaml` ni `.dockerignore`.
+
+Hechos que condicionan el diseño:
+
+- `catalog-core` embebe las migraciones con `embed_migrations!("../../data/migrations")` en tiempo de compilación, y `catalog-ingest` lee `data/sources.toml` en tiempo de ejecución. El contexto de construcción tiene que incluir `backend/` y `data/`.
+- Rust está fijado en `mise.toml`, edición 2024, y SQLite se compila embebido, así que la etapa de compilación necesita un compilador de C.
+- `catalog-ingest download` baja el ZIP de USDA Dr. Duke (unos 6 MB, verificado por tamaño y MD5) a `<data-dir>/.cache/`. `build` verifica el ZIP, escribe `<data-dir>/build/raw.db` (unos 31 MB, capa cruda que la API no necesita) y `<data-dir>/build/catalog.db` (unos 6 MB, lo único que la API lee), e imprime el hash de contenido. El hash de la construcción nativa actual es `48d71b6b0221787add6a8474b6a6b1b6567915d435cb3d1660e8335da3a5812d`. `build` tarda medio segundo; lo lento es compilar Rust.
+- `catalog-api` lee `CATALOG_DB` (o `--db`), `HOST` (por defecto `127.0.0.1`), `PORT` (8080) y `RUST_LOG` (info). Abre la base en solo lectura, se niega a arrancar si no existe (salida 1), sale con 2 si la configuración es inválida, y hace apagado ordenado con SIGINT y SIGTERM registrando «apagado completado». Dentro de un contenedor, `HOST` debe ser `0.0.0.0` o la API no será alcanzable.
+- El equipo trabaja en macOS Apple Silicon (arm64) con Docker Desktop y Compose, o algo compatible. `.gitignore` ya ignora `data/.cache/`, `data/build/` y `backend/target/`.
+
+El objetivo del usuario es que arrancar el backend sea transparente para el equipo y para un despliegue posterior: un solo comando y ninguna mención a setup manual en el README. La imagen es el artefacto autocontenido: contiene la API y el catálogo ya construido.
+
+## Goals / Non-Goals
+
+**Goals:**
+
+- Una imagen que contenga la API y el catálogo construido, y que sirva sin red.
+- `docker compose up --build` como único paso para un compañero, sin Rust, mise ni descargas manuales.
+- Catálogo reproducible: el hash dentro de la imagen es igual al de la construcción nativa.
+- Reconstrucciones rápidas: sin cambios, inmediatas; con un cambio en Rust, incrementales y sin volver a descargar el ZIP.
+- Imagen mínima y sin privilegios, compatible con lo que piden las plataformas de contenedores (escuchar en `0.0.0.0`, respetar `PORT`, sin estado, apagado ordenado con SIGTERM).
+- Que los pins de la versión de Rust (`mise.toml` y `Dockerfile`) no diverjan sin que alguien lo note.
+- Documentación del README de la raíz solo con Docker y flujo nativo conservado completo en `backend/README.md`.
+
+**Non-Goals:**
+
+- Despliegue en una plataforma concreta (la nube); es un cambio aparte.
+- CI para el backend.
+- TLS y autenticación.
+- Integración de la app Flutter con la API.
+- Cambios en el código de la API o de la ingesta, o en sus specs.
+- Soporte de varias arquitecturas en una sola construcción (imagen multiplataforma publicada).
+
+## Decisions
+
+1. **`Dockerfile` en la raíz y contexto de construcción en la raíz.** Es necesario porque la compilación necesita `backend/` y `data/` a la vez (migraciones embebidas y `sources.toml`), y porque `compose.yaml` también vive en la raíz. Un `.dockerignore` excluye `app/`, `.git/`, `docs/`, `openspec/`, `backend/target/`, `data/build/`, `data/.cache/`, `.claude/`, `.opencode/` y carpetas equivalentes de herramientas. Esto mantiene el contexto pequeño y evita que un cambio en la app, en la documentación o en las salidas locales invalide la caché de capas. Alternativas descartadas: un `Dockerfile` dentro de `backend/` (el contexto no vería `data/`, y habría que usar contextos adicionales o copiar archivos); no usar `.dockerignore` (el contexto incluiría `backend/target/`, de varios GB, y la caché se invalidaría con cualquier cambio ajeno).
+
+2. **Imagen multietapa en tres etapas.** (a) Compilación sobre la imagen oficial de Rust con la misma versión que `mise.toml` (hoy 1.99): `cargo build --release --locked` de `catalog-ingest` y `catalog-api`. `--locked` impide que la construcción resuelva dependencias distintas a las de `Cargo.lock`. (b) Catálogo: ejecuta `catalog-ingest download` y `catalog-ingest build` con un directorio de datos propio, e imprime el hash en el log de construcción. (c) Runtime sobre `debian:bookworm-slim`, con un usuario no root, solo el binario `catalog-api` y `catalog.db`, y las variables `HOST=0.0.0.0`, `PORT=8080`, `CATALOG_DB` apuntando a la base dentro de la imagen y `RUST_LOG=info`, además de `EXPOSE 8080` y `ENTRYPOINT` al binario. No se copian `raw.db`, el ZIP ni el toolchain. Se separa la etapa de catálogo de la de runtime para que lo pesado (la capa cruda y el ZIP) nunca llegue a la imagen final. Se elige Debian slim y no una imagen vacía (scratch o distroless) porque el binario enlaza dinámicamente con la libc y porque una base conocida simplifica la inspección y la depuración; el costo en tamaño es pequeño frente a la ganancia en operabilidad. Alternativas descartadas: una sola etapa (la imagen final cargaría el toolchain y el código fuente); enlazado estático con musl (añade un objetivo de compilación y riesgos con SQLite embebido sin una necesidad actual).
+
+3. **Sin `HEALTHCHECK` en la imagen.** La imagen final no incluye `curl` ni otras herramientas, y añadir una solo para sondear sumaría superficie y tamaño. `/healthz` queda expuesto para sondas externas (la plataforma de despliegue, un orquestador o una comprobación manual con `curl` desde el anfitrión). Alternativa descartada: añadir `curl` o un binario auxiliar de sondeo a la imagen; se reevaluará si una plataforma lo exige.
+
+4. **El catálogo se construye al construir la imagen.** Así la imagen es autocontenida y el contenedor sirve sin red ni espera al arrancar. La descarga y la verificación del insumo (tamaño y MD5) ocurren una vez, en la construcción, y si el ZIP no coincide la construcción falla y no hay imagen. Alternativas descartadas: construirlo al arrancar el contenedor (necesita red en tiempo de ejecución y retrasa cada arranque, además de hacer que el arranque pueda fallar por una descarga); versionar `catalog.db` en git (mete binarios cambiantes en el repositorio y rompe la trazabilidad entre el código de derivación y la base). Se conserva la reproducibilidad como criterio verificable: el hash que imprime la construcción de la imagen debe ser igual al de la construcción nativa.
+
+5. **Cachés de BuildKit en vez de un volumen del proyecto.** El usuario pidió «un volumen dentro del proyecto para que no se pierda la información de la compilación y de la BD». Durante `docker build` no se pueden montar carpetas del proyecto, así que se propone: `RUN --mount=type=cache` para el registro y el git de cargo, el directorio `target` y el ZIP en `data/.cache`, además de la caché de capas de Docker. Con eso, una reconstrucción sin cambios es inmediata, un cambio en Rust recompila de forma incremental y el ZIP no se vuelve a descargar. Estas cachés viven en el almacenamiento de Docker y no en el árbol del proyecto; se limpian con `docker builder prune` (de forma selectiva con `--filter` o completa con `--all`), y limpiarlas solo cuesta volver a compilar y a descargar. Como `target` y `data/.cache` solo existen dentro de una montura de caché, la etapa copia el binario y el catálogo fuera de ella antes de terminar el `RUN`, porque el contenido de la montura no forma parte de la capa. Alternativa considerada y descartada: un servicio de compose «de build» con bind mounts al proyecto (`backend/target`, `data/build`) para que los artefactos queden en el árbol. Se descarta porque duplica el pipeline frente a la imagen de despliegue (dos caminos que pueden divergir), porque los bind mounts en macOS son lentos y porque los artefactos arm64 compilados en el Mac no sirven para un despliegue amd64. El usuario confirmó esta decisión en la revisión de la propuesta.
+
+6. **`compose.yaml` en la raíz con un servicio `api`.** Construye la imagen desde la raíz y publica el puerto 8080, de modo que `docker compose up --build` es todo lo que hace un compañero. `PORT` y `RUST_LOG` se pasan al contenedor desde el entorno con valores por defecto (`PORT` 8080, `RUST_LOG` info), y el puerto publicado usa el mismo `PORT` en ambos lados para que el puerto de escucha del proceso y el publicado no diverjan. `HOST` no se expone: queda fijo en `0.0.0.0` en la imagen porque cualquier otro valor deja la API inalcanzable dentro de un contenedor y no es una opción útil. Alternativa descartada: mapear siempre el 8080 interno a un puerto externo variable; es más simple, pero obliga a que el puerto de la imagen no sea configurable y las plataformas de contenedores suelen inyectar `PORT`, que la imagen debe respetar.
+
+7. **Plataforma nativa.** La imagen se construye para la arquitectura del anfitrión (arm64 en los Mac del equipo). Para un despliegue amd64 se documenta `docker build --platform linux/amd64` como opción, y publicar o desplegar en una plataforma concreta es un cambio aparte. Lo que sí se exige ahora son las propiedades que piden las plataformas de contenedores: escuchar en `0.0.0.0`, respetar `PORT`, no guardar estado y apagarse de forma ordenada con SIGTERM. Alternativa descartada: construir siempre para amd64 (en un Mac arm64 implica emulación lenta de la compilación de Rust y degrada la experiencia diaria del equipo).
+
+8. **Documentación: README de la raíz solo con Docker, flujo nativo a `backend/README.md`.** La sección «Backend: catálogo y API» del README de la raíz pasa a decir solo: prerrequisito Docker (Desktop o compatible), `docker compose up --build`, endpoints con un `curl` de ejemplo, variables configurables, cómo ver el hash del catálogo en el log de construcción y cómo reconstruir, más un enlace de una línea a `backend/README.md` para quien vaya a desarrollar el backend. Se actualizan el árbol de estructura del repo y el párrafo de CI. El flujo nativo (mise, cargo, diesel, tests, regeneración del OpenAPI, cambio de esquema) sale del README de la raíz y pasa completo a un `backend/README.md` nuevo, pensado para quien quiera hacer el setup con mise y modificar el código Rust; `mise.toml` se conserva para ese flujo y `AGENTS.md` no cambia. `docs/data/modelo-de-datos.md` y el resto de `docs/` redirigen sus referencias a comandos nativos a `backend/README.md`, y el anclaje `#backend-catálogo-y-api` del README de la raíz debe seguir existiendo para no romper enlaces. Se pone el flujo nativo junto al código que describe, y no en `AGENTS.md`, porque su audiencia es cualquier persona que modifique el backend y no solo los agentes. La regla de Markdown de `AGENTS.md` (una línea por párrafo o elemento) aplica a todo lo que se escriba.
+
+9. **Guardia de versión de Rust.** Una tarea añade un test que lee `mise.toml` y el `Dockerfile` y falla si la versión de Rust de la imagen base no coincide con la de `mise.toml`, para que ambos pins no diverjan. Se ubica en `catalog-core` (es el crate base del workspace) como test de integración, localizando los archivos desde la raíz del repo con una ruta relativa al manifiesto del crate. Compara solo la versión de Rust (mayor.menor.parche contra la etiqueta de la imagen, tolerando que la etiqueta pueda llevar un sufijo de distribución) y su mensaje de fallo nombra ambas versiones. El test debe poder ejercitarse también con entradas alteradas, extrayendo la lógica de comparación a una función probada con casos de coincidencia y divergencia. Alternativas descartadas: generar el `Dockerfile` desde `mise.toml` (añade una herramienta de generación para un solo valor); pasar la versión como `ARG` desde compose leyendo `mise.toml` (compose no lee `mise.toml` y reintroduciría un paso manual).
+
+## Risks / Trade-offs
+
+- **Cachés fuera del árbol del proyecto.** Las cachés de BuildKit viven en el almacenamiento de Docker y no en el árbol del proyecto; el usuario lo aceptó. Si en el uso diario se echara en falta ver los artefactos en el árbol, se revisaría la alternativa del servicio de compose con bind mounts, con los costos descritos en la decisión 5.
+- **La construcción necesita red.** Descargar el ZIP y las dependencias de cargo exige conectividad al construir. Se acepta porque es la única vez que se usa; si la fuente no estuviera disponible, la construcción falla de forma explícita, y la caché del ZIP la evita en reconstrucciones.
+- **Tamaño del primer build.** La primera construcción compila todo desde cero y puede tardar varios minutos; las siguientes son incrementales. Se documenta para que no sorprenda.
+- **Pins de Rust.** La guardia cubre la divergencia entre `mise.toml` y el `Dockerfile`, pero no que la etiqueta de la imagen oficial exista en el registro; si no existe, la construcción falla y se reporta en vez de sustituir la versión.
+- **Etiquetas de imagen no inmutables.** Referenciar las imágenes por etiqueta, sin resumen (digest), permite que una reconstrucción tome una base actualizada. Se acepta por ahora; fijar resúmenes se considerará junto con el despliegue.
+- **Libc y arquitectura.** El binario se enlaza contra la libc de la imagen de compilación y corre en `debian:bookworm-slim`; si ambas bases divergen en la versión de la libc, el binario podría no arrancar. Se verifica ejecutando la imagen en la verificación de extremo a extremo, y la imagen de compilación debe basarse en la misma distribución.
+- **Hash entre arquitecturas.** El hash de contenido depende solo de los datos, no del binario, por lo que debe ser igual en arm64 y amd64; se verifica en arm64 y queda sin comprobar en amd64 hasta el cambio de despliegue.
+- **Contenido de la montura de caché.** Lo que queda en una montura de caché no está en la imagen; olvidar copiar el binario o el catálogo fuera de ella produce una imagen sin ellos. La verificación del contenido de la imagen lo detecta.
+- **Sin `HEALTHCHECK`.** Compose y Docker no marcarán el contenedor como saludable o no; quien lo necesite debe sondear `/healthz` desde fuera. Documentado en la decisión 3.
+- **Sin CI.** La imagen no se construye en CI; las verificaciones son locales y documentadas, igual que en el backend actual.
+- **Dos documentos de flujo.** Separar el README de la raíz (ejecutar el backend con Docker) del `backend/README.md` (desarrollarlo con mise y cargo) puede dejar texto duplicado o desactualizado entre ambos. Se acepta porque la separación es clara (ejecutar, en la raíz, frente a desarrollar, en `backend/`) y queda más visible para una persona que dentro de `AGENTS.md`; el enlace de una línea entre ambos y la redirección de las referencias de `docs/` mitigan que se pierda.
+
+## Migration Plan
+
+No hay datos ni sistemas que migrar: el cambio es aditivo y el flujo nativo sigue funcionando. El orden de implementación es: `.dockerignore` y `Dockerfile`; `compose.yaml`; test de guardia de versión; documentación; y verificación de extremo a extremo con QA. Reversión: borrar `Dockerfile`, `.dockerignore` y `compose.yaml`, el test de guardia, y borrar `backend/README.md` y restaurar la sección del README de la raíz y las referencias de `docs/` con el historial de git.
+
+## Open Questions
+
+1. **Fijar imágenes por resumen (digest).** Se aplaza al cambio de despliegue; hoy se usan etiquetas.
+2. **Imagen de runtime.** Se parte de `debian:bookworm-slim`; si más adelante importa el tamaño o la superficie de ataque, se puede evaluar una base más pequeña junto con el despliegue.

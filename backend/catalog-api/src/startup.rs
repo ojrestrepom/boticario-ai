@@ -47,8 +47,9 @@ pub fn prepare(config: &Config) -> Result<Router, StartupError> {
 
 /// Plazo máximo, tras la señal de apagado, para que terminen las peticiones en curso.
 ///
-/// Docker y las plataformas de contenedores dan 10 s entre SIGTERM y SIGKILL; 5 s deja margen para que el proceso termine por sí mismo.
-pub const SHUTDOWN_GRACE: Duration = Duration::from_secs(5);
+/// Debe quedar por debajo del plazo por defecto más corto conocido entre SIGTERM y SIGKILL: unos 3 s en `docker stop` (Docker Engine 29), 10 s en Cloud Run y 30 s en Kubernetes.
+/// Las peticiones de esta API tardan milisegundos, así que 2 s sobran para drenar las legítimas y dejan margen para que el proceso termine por sí mismo.
+pub const SHUTDOWN_GRACE: Duration = Duration::from_secs(2);
 
 /// Cómo terminó el servidor tras la señal de apagado.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

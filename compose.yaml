@@ -1,0 +1,13 @@
+# Arranque local del backend: `docker compose up --build`.
+services:
+  api:
+    build: .
+    image: boticario-backend
+    # El mismo PORT a ambos lados: el puerto que escucha el proceso y el publicado no pueden divergir.
+    ports:
+      - "${PORT:-8080}:${PORT:-8080}"
+    environment:
+      PORT: ${PORT:-8080}
+      RUST_LOG: ${RUST_LOG:-info}
+    # Sin HOST: la imagen lo fija en 0.0.0.0 y cambiarlo dejaría la API inalcanzable.
+    # Sin healthcheck: la imagen no lleva curl; /healthz queda para sondas externas.

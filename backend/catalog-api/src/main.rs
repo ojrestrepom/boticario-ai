@@ -6,7 +6,7 @@ use std::process::ExitCode;
 
 use catalog_api::config::{Mode, USAGE, from_env_and_args};
 use catalog_api::openapi::openapi_json;
-use catalog_api::startup::prepare;
+use catalog_api::startup::{SHUTDOWN_GRACE, ShutdownOutcome, prepare, serve};
 use tokio::net::TcpListener;
 use tracing_subscriber::EnvFilter;
 
@@ -61,14 +61,20 @@ async fn main() -> ExitCode {
         Err(err) => tracing::warn!(error = %err, "no se pudo leer la dirección local"),
     }
 
-    // Con apagado ordenado: al recibir Ctrl-C o SIGTERM deja de aceptar conexiones y termina las peticiones en curso.
-    if let Err(err) = axum::serve(listener, app)
-        .with_graceful_shutdown(shutdown_signal())
-        .await
-    {
-        eprintln!("error del servidor: {err}");
-        return ExitCode::from(1);
+    // Con apagado ordenado: al recibir Ctrl-C o SIGTERM deja de aceptar conexiones y espera a las peticiones en curso como máximo `SHUTDOWN_GRACE`.
+    match serve(listener, app, shutdown_signal(), SHUTDOWN_GRACE).await {
+        Ok(ShutdownOutcome::Completed) => {}
+        Ok(ShutdownOutcome::Forced) => tracing::warn!(
+            grace_secs = SHUTDOWN_GRACE.as_secs(),
+            "se fuerza el apagado: quedaban conexiones abiertas tras {} s",
+            SHUTDOWN_GRACE.as_secs()
+        ),
+        Err(err) => {
+            eprintln!("error del servidor: {err}");
+            return ExitCode::from(1);
+        }
     }
+    // También tras un apagado forzado: este texto indica que la señal fue atendida.
     tracing::info!("apagado completado");
     ExitCode::SUCCESS
 }

@@ -2,9 +2,13 @@
 
 use std::error::Error;
 use std::fmt;
+use std::future::{Future, IntoFuture};
 use std::sync::Arc;
+use std::time::Duration;
 
 use axum::Router;
+use tokio::net::TcpListener;
+use tokio::sync::oneshot;
 
 use crate::async_catalog::AsyncCatalog;
 use crate::config::Config;
@@ -39,6 +43,52 @@ impl From<OpenError> for StartupError {
 pub fn prepare(config: &Config) -> Result<Router, StartupError> {
     let repo = SqliteCatalogRepository::open(&config.db_path)?;
     Ok(router(AsyncCatalog::new(Arc::new(repo))))
+}
+
+/// Plazo máximo, tras la señal de apagado, para que terminen las peticiones en curso.
+///
+/// Docker y las plataformas de contenedores dan 10 s entre SIGTERM y SIGKILL; 5 s deja margen para que el proceso termine por sí mismo.
+pub const SHUTDOWN_GRACE: Duration = Duration::from_secs(5);
+
+/// Cómo terminó el servidor tras la señal de apagado.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ShutdownOutcome {
+    /// Todas las conexiones terminaron dentro del plazo.
+    Completed,
+    /// Se agotó el plazo con conexiones aún abiertas y se abandonaron.
+    Forced,
+}
+
+/// Sirve `app` en `listener` hasta que `shutdown` se resuelva y espera a las peticiones en curso como máximo `grace`.
+///
+/// `axum::serve(...).with_graceful_shutdown(...)` espera sin límite a todas las conexiones, y una petición con cabeceras incompletas cuenta como en curso: un cliente colgado impediría terminar.
+/// Por eso se cronometra el drenaje aparte: al llegar la señal arranca el plazo y, si vence, se abandona el servidor (al soltarlo se cierran las conexiones).
+pub async fn serve(
+    listener: TcpListener,
+    app: Router,
+    shutdown: impl Future<Output = ()> + Send + 'static,
+    grace: Duration,
+) -> Result<ShutdownOutcome, std::io::Error> {
+    // Avisa de que la señal ya llegó, justo cuando axum empieza a drenar.
+    let (signalled_tx, signalled_rx) = oneshot::channel::<()>();
+    let server = axum::serve(listener, app)
+        .with_graceful_shutdown(async move {
+            shutdown.await;
+            // Si el receptor ya no existe, el servidor terminó antes y el aviso sobra.
+            let _ = signalled_tx.send(());
+        })
+        // `WithGracefulShutdown` solo es `IntoFuture`; hay que convertirlo para poder sondearlo por referencia.
+        .into_future();
+    tokio::pin!(server);
+
+    tokio::select! {
+        // Si el servidor termina antes de la señal (error de E/S), su resultado manda.
+        result = &mut server => result.map(|()| ShutdownOutcome::Completed),
+        _ = signalled_rx => match tokio::time::timeout(grace, &mut server).await {
+            Ok(result) => result.map(|()| ShutdownOutcome::Completed),
+            Err(_elapsed) => Ok(ShutdownOutcome::Forced),
+        },
+    }
 }
 
 #[cfg(test)]

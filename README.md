@@ -190,7 +190,7 @@ Tras cambiar el código o los datos, se reconstruye y se arranca de nuevo con `d
 docker compose down
 ```
 
-Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`.
+Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`. Si una construcción se comporta de forma inexplicable, `docker compose build --no-cache` ignora la caché de capas y reconstruye todo (las monturas de caché solo se limpian con `docker builder prune`).
 
 ### Despliegue en amd64
 

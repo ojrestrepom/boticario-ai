@@ -1,0 +1,13 @@
+# Insumo alterado (copia en scratch; caché de datos vacía)
+-- MD5 declarado 000...0
+1.873 error: checksum MD5 distinto del declarado: se esperaba 00000000000000000000000000000000 y se obtuvo 45ae44a0544586b8ac22a232beaac344
+ERROR: failed to build: failed to solve: process "/bin/sh -c catalog-ingest download --data-dir /data     && catalog-ingest build --data-dir /data" did not complete successfully: exit code: 1
+error: checksum MD5 distinto del declarado: se esperaba 00000000000000000000000000000000 y se obtuvo 45ae44a0544586b8ac22a232beaac344
+-- tamaño declarado 6033991
+1.811 error: tamaño distinto del declarado: se esperaban 6033991 bytes y hay 6033990
+ERROR: failed to build: failed to solve: process "/bin/sh -c catalog-ingest download --data-dir /data     && catalog-ingest build --data-dir /data" did not complete successfully: exit code: 1
+error: tamaño distinto del declarado: se esperaban 6033991 bytes y hay 6033990
+-- caché con ZIP válido pero MD5 declarado distinto (observación)
+0.034 error: no se pudo descargar https://ndownloader.figshare.com/files/43363335: /data/.cache/Duke-Source-CSV.zip ya existe pero no es íntegro (checksum MD5 distinto del declarado: se esperaba 00000000000000000000000000000000 y se obtuvo 45ae44a0544586b8ac22a232beaac344); bórralo y vuelve a ejecutar la descarga
+error: no se pudo descargar https://ndownloader.figshare.com/files/43363335: /data/.cache/Duke-Source-CSV.zip ya existe pero no es íntegro (checksum MD5 distinto del declarado: se esperaba 00000000000000000000000000000000 y se obtuvo 45ae44a0544586b8ac22a232beaac344); bórralo y vuelve a ejecutar la descarga
+imagen qa-bad creada: 0

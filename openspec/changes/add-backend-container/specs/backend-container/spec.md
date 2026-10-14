@@ -54,8 +54,8 @@ El puerto publicado y el puerto de escucha SHALL poder cambiarse con la variable
 - **THEN** la respuesta es 200 y el puerto 8080 del anfitrión no está publicado
 
 #### Scenario: Otro nivel de logs
-- **WHEN** se ejecuta el contenedor con `RUST_LOG=debug`
-- **THEN** el log del servicio incluye registros de nivel debug
+- **WHEN** se ejecuta el contenedor con `RUST_LOG=warn` y, por separado, con el valor por defecto
+- **THEN** con `warn` el log no contiene la línea INFO de arranque («escuchando») y con el valor por defecto sí la contiene
 
 ### Requirement: Ejecución sin privilegios
 El proceso de la API SHALL ejecutarse con un usuario sin privilegios, nunca como root, y SHALL abrir la base del catálogo en solo lectura.
@@ -65,11 +65,15 @@ El proceso de la API SHALL ejecutarse con un usuario sin privilegios, nunca como
 - **THEN** no es root
 
 ### Requirement: Apagado ordenado
-Al recibir la señal de terminación, el contenedor SHALL terminar de forma ordenada, con código de salida 0 y un registro de que el apagado se completó.
+Al recibir la señal de terminación, el contenedor SHALL terminar de forma ordenada, con código de salida 0 y un registro de que el apagado se completó. El apagado SHALL esperar a las peticiones en curso como máximo el plazo de gracia, que es menor que el plazo por defecto de `docker stop` (unos 3 s en Docker 29), y SHALL terminar con código 0 aunque queden conexiones abiertas.
 
 #### Scenario: Detener el contenedor
 - **WHEN** se ejecuta `docker stop` sobre el contenedor en ejecución
 - **THEN** el contenedor termina con código 0, sin esperar al cierre forzado, y su log contiene «apagado completado»
+
+#### Scenario: Conexión colgada
+- **WHEN** un cliente mantiene una conexión abierta con cabeceras incompletas y se ejecuta `docker stop`
+- **THEN** el contenedor termina con código 0 antes de que Docker fuerce el cierre, con `docker stop` sin opciones, y el log contiene el aviso de apagado forzado y «apagado completado»
 
 ### Requirement: Reconstrucción incremental con caché
 Las reconstrucciones SHALL reutilizar la caché de construcción. Sin cambios, la reconstrucción SHALL reutilizar todas las capas. Con un cambio en un archivo Rust, SHALL recompilar sin volver a descargar el ZIP del dataset.
@@ -81,6 +85,10 @@ Las reconstrucciones SHALL reutilizar la caché de construcción. Sin cambios, l
 #### Scenario: Cambio en Rust
 - **WHEN** se modifica un archivo Rust y se vuelve a construir la imagen
 - **THEN** se recompila el código y no se descarga de nuevo el ZIP
+
+#### Scenario: Insumo cacheado inválido
+- **WHEN** el ZIP guardado en la caché de construcción no pasa la verificación
+- **THEN** la construcción lo descarta, lo descarga de nuevo y continúa
 
 ### Requirement: Documentación sin setup manual
 El README de la raíz SHALL describir cómo arrancar el backend usando solo Docker y SHALL NOT incluir instrucciones para instalar Rust, mise ni cargo, aunque SHALL poder enlazar a `backend/README.md` para quien modifique el código. El flujo de desarrollo nativo SHALL conservarse completo en `backend/README.md`, y los enlaces del README y de `docs/` SHALL seguir siendo válidos.

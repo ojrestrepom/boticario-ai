@@ -1,0 +1,25 @@
+# Ejecución (docker compose up --build -d, builder desktop-linux)
+GET /healthz -> 200 {"status":"ok"}
+GET /v1/sources -> 200, fuente usda (CC0)
+GET /v1/plants?q=lavand -> 200, total 7 (lavandula-angustifolia, ...); GET /v1/plants?limit=1 -> total 2376
+GET /v1/plants/nope -> 404 problem+json; /v1/plants?limit=0 -> 400; POST /healthz -> 405 allow: GET
+# Usuario y base
+docker top: USER 10001, /app/catalog-api, PID 1 (CapEff 0000000000000000)
+/proc/1/fdinfo de catalog.db: flags 02500000 (acceso O_RDONLY)
+/app contiene solo catalog-api (-rwxr-xr-x) y catalog.db (-r--r--r--); find de raw.db, *.zip, cargo, rustc, *.rs, *.toml, catalog-ingest, sources.toml: sin resultados; no existen /src, /data, /usr/local/cargo
+docker run --read-only --cap-drop ALL --security-opt no-new-privileges: healthz 200
+# Sin red (docker run --network none + curl en el mismo espacio de red)
+interfaces: solo lo (más dispositivos de túnel sin dirección); /v1/sources -> 200; /v1/plants?q=lavand -> 200; https://example.com -> 000
+# Apagado
+docker stop (compose): 0.13 s, exit 0; log: "INFO catalog_api: apagado completado"
+conexión keep-alive inactiva abierta: docker stop 0.13 s, exit 0
+solicitud HTTP incompleta abierta (python, sin terminar cabeceras): docker stop -t 30 -> 30.16 s, exit 137, sin "apagado completado" (2 de 2 repeticiones)
+# PORT
+PORT=9090 docker compose up -d: ports 0.0.0.0:9090->9090/tcp; 9090/healthz 200; 8080/healthz sin conexión (curl 000); log addr=0.0.0.0:9090
+HOST=127.0.0.1 en el anfitrión: sigue 0.0.0.0:8080 y 200; PORT vacío: 8080; PORT=80: 200; PORT=abc o 70000: "invalid containerPort"
+# RUST_LOG (4 peticiones + stop por nivel; líneas por nivel)
+debug: 2 INFO, 0 DEBUG; info: 2 INFO; warn: 0 líneas (oculta la INFO de arranque y el apagado); error: 0 líneas; trace: 2 INFO + 7 TRACE (axum::serve)
+# Logs sin TTY
+Los logs llevan secuencias ANSI de color (ej. "\e[32m INFO\e[0m"); la frase "apagado completado" queda contigua
+# Arranque defectuoso
+CATALOG_DB=/nope.db -> "no se pudo arrancar: no existe la base del catálogo en /nope.db", salida 1; PORT=abc -> "error de configuración: PORT inválido", salida 2

@@ -75,15 +75,23 @@ El listado SHALL admitir los parámetros `limit` y `offset`. El valor por defect
 - **THEN** la API responde con un error de parámetros inválidos
 
 ### Requirement: Detalle de planta
-`GET /v1/plants/{id}` SHALL devolver la identidad de la planta, sus nombres con tipo e idioma, la familia si existe, sus partes y sus usos (actividad, idioma y referencia con su cita), con la fuente o fuentes de cada dato. Lo ausente SHALL devolverse como `null` o lista vacía, nunca inventado.
+`GET /v1/plants/{id}` SHALL devolver la identidad de la planta, sus nombres con tipo e idioma, la familia si existe, sus partes y sus usos (actividad, idioma y referencia con su cita). La familia SHALL ser un texto o `null`. La respuesta SHALL NOT incluir información de procedencia, como la fuente o el dataset de cada dato. Lo ausente SHALL devolverse como `null` o lista vacía, nunca inventado.
 
 #### Scenario: Planta existente
 - **WHEN** un cliente pide el detalle de un identificador existente
-- **THEN** la respuesta incluye identidad, nombres, partes y usos, y cada dato indica su fuente o fuentes
+- **THEN** la respuesta incluye identidad, nombres, partes y usos
+
+#### Scenario: Sin información de procedencia
+- **WHEN** un cliente pide el detalle de una planta con datos de una o varias fuentes
+- **THEN** ningún nombre, parte, uso ni la familia de la respuesta incluye campos de fuente u origen
 
 #### Scenario: Planta sin usos
 - **WHEN** la planta no tiene usos en el catálogo
 - **THEN** la respuesta tiene una lista de usos vacía
+
+#### Scenario: Familia presente
+- **WHEN** la planta tiene familia en el catálogo
+- **THEN** el campo de familia es un texto
 
 #### Scenario: Familia ausente
 - **WHEN** ninguna fuente aporta la familia de la planta
@@ -92,13 +100,6 @@ El listado SHALL admitir los parámetros `limit` y `offset`. El valor por defect
 #### Scenario: Identificador inexistente
 - **WHEN** el identificador no existe en el catálogo
 - **THEN** la API responde con un error de recurso no encontrado
-
-### Requirement: Consulta de fuentes
-`GET /v1/sources` SHALL devolver el identificador, nombre, versión, licencia, cita y URL de cada fuente del catálogo.
-
-#### Scenario: Fuentes del catálogo
-- **WHEN** un cliente pide `GET /v1/sources`
-- **THEN** la respuesta incluye una entrada por cada fuente con esos campos
 
 ### Requirement: Endpoint de salud
 La API SHALL exponer `GET /healthz`, fuera del prefijo `/v1`, que informe que el servicio está activo.
@@ -142,7 +143,7 @@ La API SHALL leer únicamente el esquema neutral del catálogo y SHALL NOT conte
 
 #### Scenario: Atribución en las respuestas
 - **WHEN** una planta tiene datos de más de una fuente
-- **THEN** la respuesta de detalle indica para cada dato su fuente o fuentes, incluidas todas las que lo aportan
+- **THEN** la respuesta de detalle es una sola planta consolidada con la unión de sus datos y no indica de qué fuente proviene ninguno
 
 ### Requirement: Documento OpenAPI
 La API SHALL tener un documento OpenAPI generado desde su código y versionado en el repositorio. Una verificación automática SHALL fallar si el documento versionado no coincide con el generado por el código actual.
@@ -175,15 +176,19 @@ La API SHALL tomar la ruta de la base de datos de una variable de entorno o un a
 - **THEN** ninguna petición modifica la base de datos
 
 ### Requirement: Compatibilidad dentro de `/v1`
-Dentro de `/v1` SHALL admitirse solo cambios compatibles, es decir, aditivos. Los cambios incompatibles SHALL requerir una nueva versión del prefijo.
+Dentro de `/v1` SHALL admitirse solo cambios compatibles, es decir, aditivos. Los cambios incompatibles SHALL requerir una nueva versión del prefijo. Como única excepción, mientras la API no tenga ningún consumidor, un cambio incompatible SHALL poder hacerse dentro de `/v1` si queda registrado como tal en un cambio de OpenSpec que lo justifique. La excepción SHALL dejar de aplicar cuando un primer cliente integre la API.
 
 #### Scenario: Campo nuevo
 - **WHEN** se añade un campo a una respuesta de `/v1`
 - **THEN** los clientes que ignoran campos desconocidos siguen funcionando
 
 #### Scenario: Cambio incompatible
-- **WHEN** un cambio eliminaría o redefiniría un campo existente de `/v1`
+- **WHEN** un cambio eliminaría o redefiniría un campo existente de `/v1` y la API ya tiene un cliente integrado
 - **THEN** se publica bajo una nueva versión del prefijo y `/v1` conserva su contrato
+
+#### Scenario: Cambio incompatible sin consumidores
+- **WHEN** un cambio elimina o redefine un campo de `/v1` y la API no tiene ningún cliente integrado, y un cambio de OpenSpec lo registra como incompatible con su justificación
+- **THEN** el cambio puede hacerse dentro de `/v1` sin nueva versión del prefijo
 
 ### Requirement: Apagado ordenado con tiempo máximo
 Al recibir SIGTERM o Ctrl-C, la API SHALL dejar de aceptar conexiones nuevas y esperar a las peticiones en curso como máximo 2 s. La API SHALL terminar con código 0 tanto si todas las peticiones terminaron como si se agotó el plazo. Al terminar SHALL registrar «apagado completado»; si se agotó el plazo, SHALL registrar antes un aviso de apagado forzado por conexiones abiertas tras 2 s.

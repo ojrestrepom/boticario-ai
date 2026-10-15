@@ -9,8 +9,8 @@ Define la imagen de contenedor del backend: un artefacto autocontenido con la AP
 La imagen SHALL contener la API y el catálogo ya construido, y SHALL servir sin acceso a la red. La imagen final SHALL NOT incluir la base cruda, el ZIP del dataset, el toolchain de Rust ni el código fuente.
 
 #### Scenario: Servir sin red
-- **WHEN** se ejecuta el contenedor sin acceso a la red y se consulta `GET /v1/sources`
-- **THEN** la API responde 200 con las fuentes del catálogo
+- **WHEN** se ejecuta el contenedor sin acceso a la red y se consulta `GET /v1/plants/lavandula-angustifolia`
+- **THEN** la API responde 200 con el detalle de la planta
 
 #### Scenario: Contenido mínimo
 - **WHEN** se inspecciona el sistema de archivos de la imagen final
@@ -42,8 +42,8 @@ El catálogo SHALL construirse al construir la imagen, no al arrancar el contene
 - **THEN** la respuesta es 200
 
 #### Scenario: Búsqueda real
-- **WHEN** se consulta `/v1/plants?q=lavand` y `/v1/sources`
-- **THEN** ambas responden 200 y devuelven plantas y fuentes del catálogo real
+- **WHEN** se consulta `/v1/plants?q=lavand` y `/v1/plants/lavandula-angustifolia`
+- **THEN** ambas responden 200 y devuelven el listado y el detalle con datos del catálogo real
 
 ### Requirement: Configuración por entorno
 El puerto publicado y el puerto de escucha SHALL poder cambiarse con la variable `PORT`, y el nivel de logs con `RUST_LOG`. La dirección de escucha SHALL ser siempre `0.0.0.0` dentro del contenedor y SHALL NOT depender de la configuración del usuario.

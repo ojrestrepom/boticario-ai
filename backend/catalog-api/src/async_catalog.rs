@@ -4,7 +4,7 @@
 
 use std::sync::Arc;
 
-use catalog_core::domain::{ListQuery, Page, Plant, PlantId, PlantSummary, Source};
+use catalog_core::domain::{ListQuery, Page, Plant, PlantId, PlantSummary};
 use catalog_core::repository::{CatalogRepository, RepositoryError};
 use tokio::task::{JoinError, spawn_blocking};
 
@@ -44,26 +44,16 @@ impl AsyncCatalog {
             .await
             .map_err(join_error)?
     }
-
-    /// Versión asíncrona de [`CatalogRepository::list_sources`].
-    pub async fn list_sources(&self) -> Result<Vec<Source>, RepositoryError> {
-        let repo = Arc::clone(&self.repo);
-        spawn_blocking(move || repo.list_sources())
-            .await
-            .map_err(join_error)?
-    }
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::test_support::Fixture;
-    use catalog_core::domain::SourceId;
 
     /// Repositorio falso en memoria: demuestra que el adaptador solo depende del trait.
     struct FakeRepository {
         plants: Vec<PlantSummary>,
-        sources: Vec<Source>,
     }
 
     impl CatalogRepository for FakeRepository {
@@ -91,10 +81,6 @@ mod tests {
                 uses: Vec::new(),
             }))
         }
-
-        fn list_sources(&self) -> Result<Vec<Source>, RepositoryError> {
-            Ok(self.sources.clone())
-        }
     }
 
     /// Repositorio que entra en pánico: comprueba que el pánico se informa como error y no tumba al llamador.
@@ -105,9 +91,6 @@ mod tests {
             panic!("boom")
         }
         fn get_plant(&self, _: &PlantId) -> Result<Option<Plant>, RepositoryError> {
-            panic!("boom")
-        }
-        fn list_sources(&self) -> Result<Vec<Source>, RepositoryError> {
             panic!("boom")
         }
     }
@@ -124,15 +107,6 @@ mod tests {
     fn fake() -> AsyncCatalog {
         AsyncCatalog::new(Arc::new(FakeRepository {
             plants: vec![summary("a"), summary("b"), summary("c")],
-            sources: vec![Source {
-                id: SourceId("s".to_string()),
-                name: "S".to_string(),
-                version: "1".to_string(),
-                license: "L".to_string(),
-                citation: "C".to_string(),
-                url: "U".to_string(),
-                checksum: "K".to_string(),
-            }],
         }))
     }
 
@@ -155,13 +129,12 @@ mod tests {
             catalog.get_plant(PlantId("zzz".to_string())).await.unwrap(),
             None
         );
-        assert_eq!(catalog.list_sources().await.unwrap().len(), 1);
     }
 
     #[tokio::test]
     async fn blocking_task_failure_becomes_a_storage_error() {
         let catalog = AsyncCatalog::new(Arc::new(PanickingRepository));
-        let err = catalog.list_sources().await.unwrap_err();
+        let err = catalog.list_plants(ListQuery::default()).await.unwrap_err();
         assert!(matches!(err, RepositoryError::Storage(_)), "{err:?}");
     }
 
@@ -169,13 +142,11 @@ mod tests {
     async fn concurrent_calls_over_sqlite() {
         let fixture = Fixture::standard();
         let catalog = AsyncCatalog::new(Arc::new(fixture.repo()));
-        let (page, detail, sources) = tokio::join!(
+        let (page, detail) = tokio::join!(
             catalog.list_plants(ListQuery::default()),
             catalog.get_plant(PlantId("lavandula-angustifolia".to_string())),
-            catalog.list_sources(),
         );
         assert_eq!(page.unwrap().total, 31);
         assert_eq!(detail.unwrap().unwrap().uses.len(), 2);
-        assert_eq!(sources.unwrap().len(), 2);
     }
 }

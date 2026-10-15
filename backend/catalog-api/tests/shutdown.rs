@@ -31,12 +31,6 @@ impl CatalogRepository for EmptyRepo {
     {
         Ok(None)
     }
-
-    fn list_sources(
-        &self,
-    ) -> Result<Vec<catalog_core::domain::Source>, catalog_core::repository::RepositoryError> {
-        Ok(Vec::new())
-    }
 }
 
 /// Arranca `serve` en una tarea y devuelve su dirección, el disparador de la señal y la tarea.

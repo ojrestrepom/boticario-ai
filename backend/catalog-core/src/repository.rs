@@ -3,7 +3,7 @@
 use std::error::Error;
 use std::fmt;
 
-use crate::domain::{ListQuery, Page, Plant, PlantId, PlantSummary, Source};
+use crate::domain::{ListQuery, Page, Plant, PlantId, PlantSummary};
 
 /// Errores que puede devolver un repositorio.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -43,7 +43,4 @@ pub trait CatalogRepository: Send + Sync {
 
     /// Devuelve el detalle de una planta, o `None` si no existe.
     fn get_plant(&self, id: &PlantId) -> Result<Option<Plant>, RepositoryError>;
-
-    /// Lista las fuentes de datos del catálogo.
-    fn list_sources(&self) -> Result<Vec<Source>, RepositoryError>;
 }

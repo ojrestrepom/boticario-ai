@@ -4,9 +4,7 @@
 //! `rename_all = "camelCase"` hace que los campos Rust (`scientific_name`) salgan como `scientificName`.
 //! Todos los DTOs viven en este módulo y derivan `ToSchema`: de ellos sale el documento OpenAPI, así que el contrato HTTP se define en un solo sitio.
 
-use catalog_core::domain::{
-    Attributed, NameKind, Page, Part, Plant, PlantName, PlantSummary, Source, SourceId, Use,
-};
+use catalog_core::domain::{NameKind, Page, Part, Plant, PlantName, PlantSummary, Use};
 use serde::Serialize;
 use utoipa::ToSchema;
 
@@ -15,42 +13,6 @@ use utoipa::ToSchema;
 pub struct HealthDto {
     /// Siempre `"ok"` si el servicio está activo.
     pub status: &'static str,
-}
-
-/// Una fuente de datos.
-///
-/// `checksum` es un campo adicional al mínimo que exige la spec (id, nombre, versión, licencia, cita y URL): permite verificar de qué insumo viene el catálogo.
-#[derive(Debug, Clone, Serialize, ToSchema)]
-#[serde(rename_all = "camelCase")]
-pub struct SourceDto {
-    /// Identificador de la fuente.
-    pub id: String,
-    /// Nombre legible.
-    pub name: String,
-    /// Versión del dataset.
-    pub version: String,
-    /// Licencia.
-    pub license: String,
-    /// Cita recomendada.
-    pub citation: String,
-    /// URL de origen.
-    pub url: String,
-    /// Checksum del insumo original.
-    pub checksum: String,
-}
-
-impl From<Source> for SourceDto {
-    fn from(s: Source) -> Self {
-        Self {
-            id: s.id.0,
-            name: s.name,
-            version: s.version,
-            license: s.license,
-            citation: s.citation,
-            url: s.url,
-            checksum: s.checksum,
-        }
-    }
 }
 
 /// Nombre común con su idioma, dentro del listado.
@@ -123,21 +85,6 @@ impl PageDto<PlantSummaryDto> {
     }
 }
 
-/// Ids de fuente como texto.
-fn source_ids(sources: Vec<SourceId>) -> Vec<String> {
-    sources.into_iter().map(|s| s.0).collect()
-}
-
-/// Valor único (familia) con la fuente elegida.
-#[derive(Debug, Clone, Serialize, ToSchema)]
-#[serde(rename_all = "camelCase")]
-pub struct FamilyDto {
-    /// Nombre de la familia.
-    pub value: String,
-    /// Fuentes que la aportan.
-    pub sources: Vec<String>,
-}
-
 /// Tipo de nombre, serializado como `"scientific"` o `"common"`.
 #[derive(Debug, Clone, Copy, Serialize, ToSchema)]
 #[serde(rename_all = "lowercase")]
@@ -148,7 +95,7 @@ pub enum NameKindDto {
     Common,
 }
 
-/// Nombre de planta con su atribución. Los campos van planos (no anidados en `value`) para que el JSON sea más directo.
+/// Nombre de planta con su tipo e idioma.
 #[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct NameDto {
@@ -158,40 +105,32 @@ pub struct NameDto {
     pub kind: NameKindDto,
     /// Código de idioma.
     pub language: String,
-    /// Fuentes que lo aportan.
-    pub sources: Vec<String>,
 }
 
-impl From<Attributed<PlantName>> for NameDto {
-    fn from(a: Attributed<PlantName>) -> Self {
+impl From<PlantName> for NameDto {
+    fn from(n: PlantName) -> Self {
         Self {
-            text: a.value.text,
-            kind: match a.value.kind {
+            text: n.text,
+            kind: match n.kind {
                 NameKind::Scientific => NameKindDto::Scientific,
                 NameKind::Common => NameKindDto::Common,
             },
-            language: a.value.language,
-            sources: source_ids(a.sources),
+            language: n.language,
         }
     }
 }
 
-/// Parte de la planta con su atribución.
+/// Parte de la planta.
 #[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct PartDto {
     /// Etiqueta de la parte.
     pub label: String,
-    /// Fuentes que la aportan.
-    pub sources: Vec<String>,
 }
 
-impl From<Attributed<Part>> for PartDto {
-    fn from(a: Attributed<Part>) -> Self {
-        Self {
-            label: a.value.label,
-            sources: source_ids(a.sources),
-        }
+impl From<Part> for PartDto {
+    fn from(p: Part) -> Self {
+        Self { label: p.label }
     }
 }
 
@@ -205,7 +144,7 @@ pub struct ReferenceDto {
     pub citation: String,
 }
 
-/// Uso de la planta con su referencia y atribución.
+/// Uso de la planta con su referencia.
 #[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct UseDto {
@@ -215,20 +154,17 @@ pub struct UseDto {
     pub language: String,
     /// Referencia que respalda el uso.
     pub reference: ReferenceDto,
-    /// Fuentes que lo aportan.
-    pub sources: Vec<String>,
 }
 
-impl From<Attributed<Use>> for UseDto {
-    fn from(a: Attributed<Use>) -> Self {
+impl From<Use> for UseDto {
+    fn from(u: Use) -> Self {
         Self {
-            activity: a.value.activity,
-            language: a.value.language,
+            activity: u.activity,
+            language: u.language,
             reference: ReferenceDto {
-                id: a.value.reference.id,
-                citation: a.value.reference.citation,
+                id: u.reference.id,
+                citation: u.reference.citation,
             },
-            sources: source_ids(a.sources),
         }
     }
 }
@@ -241,8 +177,8 @@ pub struct PlantDto {
     pub id: String,
     /// Nombre científico canónico.
     pub scientific_name: String,
-    /// Familia, o `null`.
-    pub family: Option<FamilyDto>,
+    /// Familia, o `null` si ninguna fuente la aporta.
+    pub family: Option<String>,
     /// Nombres de la planta.
     pub names: Vec<NameDto>,
     /// Partes de la planta.
@@ -256,10 +192,7 @@ impl From<Plant> for PlantDto {
         Self {
             id: p.id.0,
             scientific_name: p.scientific_name,
-            family: p.family.map(|f| FamilyDto {
-                value: f.value,
-                sources: source_ids(f.sources),
-            }),
+            family: p.family,
             names: p.names.into_iter().map(Into::into).collect(),
             parts: p.parts.into_iter().map(Into::into).collect(),
             uses: p.uses.into_iter().map(Into::into).collect(),

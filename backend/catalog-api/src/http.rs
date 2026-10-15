@@ -14,14 +14,13 @@ use axum::{Json, Router};
 use catalog_core::domain::{DEFAULT_LIMIT, ListQuery, MAX_LIMIT, PlantId};
 
 use crate::async_catalog::AsyncCatalog;
-use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto, SourceDto};
+use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto};
 use crate::error::ApiError;
 use crate::openapi::openapi;
 
 /// Construye el router completo: `/healthz` y `/v1/...`, con errores `problem+json` para rutas y métodos desconocidos.
 pub fn router(catalog: AsyncCatalog) -> Router {
     let v1 = Router::new()
-        .route("/sources", get(sources))
         .route("/plants", get(list_plants))
         .route("/plants/{id}", get(get_plant));
     Router::new()
@@ -75,27 +74,6 @@ pub(crate) async fn openapi_json() -> Json<utoipa::openapi::OpenApi> {
 )]
 pub(crate) async fn healthz() -> Json<HealthDto> {
     Json(HealthDto { status: "ok" })
-}
-
-/// Fuentes de datos del catálogo.
-#[utoipa::path(
-    get,
-    path = "/v1/sources",
-    tag = "catalog",
-    responses(
-        (status = 200, description = "Fuentes del catálogo, ordenadas por identificador", body = Vec<SourceDto>),
-        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
-        (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
-    )
-)]
-pub(crate) async fn sources(
-    State(catalog): State<AsyncCatalog>,
-    OriginalUri(uri): OriginalUri,
-) -> Response {
-    match catalog.list_sources().await {
-        Ok(list) => Json(list.into_iter().map(SourceDto::from).collect::<Vec<_>>()).into_response(),
-        Err(err) => ApiError::from(err).into_response_at(&uri),
-    }
 }
 
 /// Longitud máxima de `q`, en caracteres.
@@ -242,7 +220,7 @@ mod tests {
 
     use axum::body::Body;
     use axum::http::{HeaderMap, Method, Request, StatusCode, header};
-    use catalog_core::domain::{Page, Plant, PlantSummary, Source};
+    use catalog_core::domain::{Page, Plant, PlantSummary};
     use catalog_core::repository::{CatalogRepository, RepositoryError};
     use http_body_util::BodyExt;
     use serde_json::Value;
@@ -317,28 +295,10 @@ mod tests {
     }
 
     #[tokio::test]
-    async fn sources_have_the_expected_fields_sorted_by_id() {
+    async fn sources_endpoint_no_longer_exists() {
         let (_fixture, app) = app();
-        let (status, json) = get_json(&app, "/v1/sources").await;
-        assert_eq!(status, StatusCode::OK);
-        let list = json.as_array().unwrap();
-        assert_eq!(list.len(), 2);
-        assert_eq!(list[0]["id"], "a");
-        assert_eq!(list[1]["id"], "b");
-        let mut keys: Vec<&str> = list[0]
-            .as_object()
-            .unwrap()
-            .keys()
-            .map(String::as_str)
-            .collect();
-        keys.sort();
-        assert_eq!(
-            keys,
-            [
-                "checksum", "citation", "id", "license", "name", "url", "version"
-            ]
-        );
-        assert_eq!(list[0]["url"], "https://example.test/a");
+        let json = expect_problem(&app, Method::GET, "/v1/sources", StatusCode::NOT_FOUND).await;
+        assert_eq!(json["instance"], "/v1/sources");
     }
 
     // ---- 7.2 ----
@@ -454,33 +414,79 @@ mod tests {
         }
     }
 
+    /// Recorre el JSON entero y devuelve la ruta de toda clave `sources`, en cualquier nivel.
+    fn find_sources_keys(value: &Value, path: &str, found: &mut Vec<String>) {
+        match value {
+            Value::Object(map) => {
+                for (key, v) in map {
+                    let here = format!("{path}.{key}");
+                    if key == "sources" {
+                        found.push(here.clone());
+                    }
+                    find_sources_keys(v, &here, found);
+                }
+            }
+            Value::Array(items) => {
+                for (i, v) in items.iter().enumerate() {
+                    find_sources_keys(v, &format!("{path}[{i}]"), found);
+                }
+            }
+            _ => {}
+        }
+    }
+
     #[tokio::test]
-    async fn detail_with_uses_and_two_sources() {
+    async fn detail_with_uses_has_a_flat_shape() {
         let (_fixture, app) = app();
         let (status, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
         assert_eq!(status, StatusCode::OK);
         assert_camel_case(&json);
         assert_eq!(json["scientificName"], "Lavandula angustifolia");
+        assert_eq!(json["family"], "Lamiaceae");
         assert_eq!(
-            json["family"],
-            serde_json::json!({"value": "Lamiaceae", "sources": ["a"]})
+            json["names"][0],
+            serde_json::json!({"text": "Lavandula angustifolia", "kind": "scientific", "language": "la"})
         );
-        assert_eq!(json["names"][0]["kind"], "scientific");
-        assert_eq!(json["names"][0]["sources"], serde_json::json!(["a", "b"]));
         assert_eq!(json["names"][3]["kind"], "common");
-        assert_eq!(
-            json["parts"][1],
-            serde_json::json!({"label": "Leaf", "sources": ["a", "b"]})
-        );
+        assert_eq!(json["parts"][1], serde_json::json!({"label": "Leaf"}));
         assert_eq!(
             json["uses"][1],
             serde_json::json!({
                 "activity": "Sedative",
                 "language": "en",
-                "reference": {"id": "ref-2", "citation": "Jones 2001"},
-                "sources": ["a", "b"]
+                "reference": {"id": "ref-2", "citation": "Jones 2001"}
             })
         );
+    }
+
+    #[tokio::test]
+    async fn detail_never_contains_a_sources_key() {
+        let (_fixture, app) = app();
+        // Plantas con y sin familia, con y sin usos: ninguna debe llevar `sources` en ningún nivel.
+        for id in [
+            "lavandula-angustifolia",
+            "lavandula-latifolia",
+            "mentha-x-piperita",
+        ] {
+            let (status, json) = get_json(&app, &format!("/v1/plants/{id}")).await;
+            assert_eq!(status, StatusCode::OK);
+            let mut found = Vec::new();
+            find_sources_keys(&json, "$", &mut found);
+            assert!(found.is_empty(), "{id}: claves `sources` en {found:?}");
+        }
+        let (_, list) = get_json(&app, "/v1/plants?limit=100").await;
+        let mut found = Vec::new();
+        find_sources_keys(&list, "$", &mut found);
+        assert!(found.is_empty(), "listado: {found:?}");
+    }
+
+    #[tokio::test]
+    async fn family_is_text_or_null() {
+        let (_fixture, app) = app();
+        let (_, with_family) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert!(with_family["family"].is_string());
+        let (_, without) = get_json(&app, "/v1/plants/mentha-x-piperita").await;
+        assert_eq!(without["family"], Value::Null);
     }
 
     #[tokio::test]
@@ -508,17 +514,6 @@ mod tests {
     #[tokio::test]
     async fn every_v1_endpoint_works_with_non_dataset_sources() {
         let (_fixture, app) = app();
-        let known = ["a", "b"];
-
-        let (status, sources) = get_json(&app, "/v1/sources").await;
-        assert_eq!(status, StatusCode::OK);
-        let source_ids: Vec<&str> = sources
-            .as_array()
-            .unwrap()
-            .iter()
-            .map(|s| s["id"].as_str().unwrap())
-            .collect();
-        assert_eq!(source_ids, known);
 
         let (status, page) = get_json(&app, "/v1/plants?q=lavandula").await;
         assert_eq!(status, StatusCode::OK);
@@ -526,16 +521,7 @@ mod tests {
 
         let (status, detail) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
         assert_eq!(status, StatusCode::OK);
-        // Cada fuente citada en el detalle es una de las de la fixture.
-        let mut cited = Vec::new();
-        for group in ["names", "parts", "uses"] {
-            for item in detail[group].as_array().unwrap() {
-                cited.extend(item["sources"].as_array().unwrap());
-            }
-        }
-        cited.extend(detail["family"]["sources"].as_array().unwrap());
-        assert!(!cited.is_empty());
-        assert!(cited.iter().all(|s| known.contains(&s.as_str().unwrap())));
+        assert_eq!(detail["scientificName"], "Lavandula angustifolia");
     }
 
     // ---- 7.4 ----
@@ -637,7 +623,7 @@ mod tests {
             (Method::POST, "/v1/plants"),
             (Method::DELETE, "/v1/plants/zea-mays"),
             (Method::PUT, "/v1/plants/zea-mays"),
-            (Method::PATCH, "/v1/sources"),
+            (Method::PATCH, "/v1/plants/zea-mays"),
             (Method::POST, "/healthz"),
         ] {
             expect_problem(&app, method.clone(), uri, StatusCode::METHOD_NOT_ALLOWED).await;
@@ -662,15 +648,12 @@ mod tests {
         fn get_plant(&self, _: &PlantId) -> Result<Option<Plant>, RepositoryError> {
             Err(RepositoryError::Storage(SECRET.to_string()))
         }
-        fn list_sources(&self) -> Result<Vec<Source>, RepositoryError> {
-            Err(RepositoryError::Storage(SECRET.to_string()))
-        }
     }
 
     #[tokio::test]
     async fn internal_failures_do_not_leak_details() {
         let app = router(AsyncCatalog::new(Arc::new(FailingRepository)));
-        for uri in ["/v1/plants", "/v1/plants/x", "/v1/sources"] {
+        for uri in ["/v1/plants", "/v1/plants/x"] {
             let (status, headers, body) = send(&app, Method::GET, uri).await;
             assert_eq!(status, StatusCode::INTERNAL_SERVER_ERROR, "{uri}");
             assert_eq!(headers[header::CONTENT_TYPE], "application/problem+json");

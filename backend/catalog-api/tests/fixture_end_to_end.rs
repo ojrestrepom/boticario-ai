@@ -70,16 +70,9 @@ async fn api_serves_a_catalog_built_from_two_fixture_sources() {
     assert_eq!(status, StatusCode::OK);
     assert_eq!(body["status"], "ok");
 
-    let (status, body) = get(&app, "/v1/sources").await;
-    assert_eq!(status, StatusCode::OK);
-    let mut ids: Vec<&str> = body["items"]
-        .as_array()
-        .unwrap_or_else(|| body.as_array().expect("lista de fuentes"))
-        .iter()
-        .map(|s| s["id"].as_str().unwrap())
-        .collect();
-    ids.sort();
-    assert_eq!(ids, ["alpha", "beta"], "{body}");
+    // La procedencia es interna: la API no ofrece la lista de fuentes.
+    let (status, _) = get(&app, "/v1/sources").await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
 
     let (status, body) = get(&app, "/v1/plants").await;
     assert_eq!(status, StatusCode::OK);
@@ -97,31 +90,21 @@ async fn api_serves_a_catalog_built_from_two_fixture_sources() {
         "{body}"
     );
 
-    // La lavanda está en ambas fuentes: los datos compartidos llevan las dos en `sources`, y los propios de cada una, solo la suya.
+    // La lavanda está en ambas fuentes: el detalle muestra los datos de las dos ya fusionados, sin decir de cuál viene cada uno.
     let (status, body) = get(&app, "/v1/plants/lavandula-angustifolia").await;
     assert_eq!(status, StatusCode::OK);
-    let sources_of = |items: &Value, key: &str, value: &str| -> Vec<String> {
-        let item = items
+    let labels = |items: &Value, key: &str| -> Vec<String> {
+        items
             .as_array()
             .unwrap()
             .iter()
-            .find(|i| i[key] == value)
-            .unwrap_or_else(|| panic!("falta {value}: {items}"));
-        item["sources"]
-            .as_array()
-            .unwrap()
-            .iter()
-            .map(|s| s.as_str().unwrap().to_string())
+            .map(|i| i[key].as_str().unwrap().to_string())
             .collect()
     };
-    assert_eq!(
-        sources_of(&body["parts"], "label", "Flower"),
-        ["alpha", "beta"]
-    );
-    assert_eq!(sources_of(&body["parts"], "label", "Leaf"), ["alpha"]);
-    assert_eq!(sources_of(&body["parts"], "label", "Root"), ["beta"]);
-    assert_eq!(
-        sources_of(&body["uses"], "activity", "Sedative"),
-        ["alpha", "beta"]
+    assert_eq!(labels(&body["parts"], "label"), ["Flower", "Leaf", "Root"]);
+    assert!(labels(&body["uses"], "activity").contains(&"Sedative".to_string()));
+    assert!(
+        !body.to_string().contains("\"sources\""),
+        "el detalle no debe exponer la procedencia: {body}"
     );
 }

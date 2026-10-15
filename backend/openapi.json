@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Boticario AI Catalog API",
-    "description": "API de solo lectura del catálogo de plantas y sus fuentes. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`.",
+    "description": "API de solo lectura del catálogo de plantas. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`.",
     "license": {
       "name": ""
     },
@@ -225,50 +225,6 @@
           }
         }
       }
-    },
-    "/v1/sources": {
-      "get": {
-        "tags": [
-          "catalog"
-        ],
-        "summary": "Fuentes de datos del catálogo.",
-        "operationId": "sources",
-        "responses": {
-          "200": {
-            "description": "Fuentes del catálogo, ordenadas por identificador",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SourceDto"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDto"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Fallo interno",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDto"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
@@ -291,27 +247,6 @@
           }
         }
       },
-      "FamilyDto": {
-        "type": "object",
-        "description": "Valor único (familia) con la fuente elegida.",
-        "required": [
-          "value",
-          "sources"
-        ],
-        "properties": {
-          "sources": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Fuentes que la aportan."
-          },
-          "value": {
-            "type": "string",
-            "description": "Nombre de la familia."
-          }
-        }
-      },
       "HealthDto": {
         "type": "object",
         "description": "Respuesta de `GET /healthz`.",
@@ -327,12 +262,11 @@
       },
       "NameDto": {
         "type": "object",
-        "description": "Nombre de planta con su atribución. Los campos van planos (no anidados en `value`) para que el JSON sea más directo.",
+        "description": "Nombre de planta con su tipo e idioma.",
         "required": [
           "text",
           "kind",
-          "language",
-          "sources"
+          "language"
         ],
         "properties": {
           "kind": {
@@ -342,13 +276,6 @@
           "language": {
             "type": "string",
             "description": "Código de idioma."
-          },
-          "sources": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Fuentes que lo aportan."
           },
           "text": {
             "type": "string",
@@ -433,22 +360,14 @@
       },
       "PartDto": {
         "type": "object",
-        "description": "Parte de la planta con su atribución.",
+        "description": "Parte de la planta.",
         "required": [
-          "label",
-          "sources"
+          "label"
         ],
         "properties": {
           "label": {
             "type": "string",
             "description": "Etiqueta de la parte."
-          },
-          "sources": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Fuentes que la aportan."
           }
         }
       },
@@ -464,15 +383,11 @@
         ],
         "properties": {
           "family": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FamilyDto",
-                "description": "Familia, o `null`."
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Familia, o `null` si ninguna fuente la aporta."
           },
           "id": {
             "type": "string",
@@ -600,57 +515,13 @@
           }
         }
       },
-      "SourceDto": {
-        "type": "object",
-        "description": "Una fuente de datos.\n\n`checksum` es un campo adicional al mínimo que exige la spec (id, nombre, versión, licencia, cita y URL): permite verificar de qué insumo viene el catálogo.",
-        "required": [
-          "id",
-          "name",
-          "version",
-          "license",
-          "citation",
-          "url",
-          "checksum"
-        ],
-        "properties": {
-          "checksum": {
-            "type": "string",
-            "description": "Checksum del insumo original."
-          },
-          "citation": {
-            "type": "string",
-            "description": "Cita recomendada."
-          },
-          "id": {
-            "type": "string",
-            "description": "Identificador de la fuente."
-          },
-          "license": {
-            "type": "string",
-            "description": "Licencia."
-          },
-          "name": {
-            "type": "string",
-            "description": "Nombre legible."
-          },
-          "url": {
-            "type": "string",
-            "description": "URL de origen."
-          },
-          "version": {
-            "type": "string",
-            "description": "Versión del dataset."
-          }
-        }
-      },
       "UseDto": {
         "type": "object",
-        "description": "Uso de la planta con su referencia y atribución.",
+        "description": "Uso de la planta con su referencia.",
         "required": [
           "activity",
           "language",
-          "reference",
-          "sources"
+          "reference"
         ],
         "properties": {
           "activity": {
@@ -664,13 +535,6 @@
           "reference": {
             "$ref": "#/components/schemas/ReferenceDto",
             "description": "Referencia que respalda el uso."
-          },
-          "sources": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "Fuentes que lo aportan."
           }
         }
       }

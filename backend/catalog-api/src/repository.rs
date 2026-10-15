@@ -10,18 +10,12 @@ use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 use catalog_core::domain::{
-    Attributed, ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary,
-    Reference, Source, SourceId, Use,
+    ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary, Reference, Use,
 };
 use catalog_core::normalize::normalize_name;
 use catalog_core::repository::{CatalogRepository, RepositoryError};
-use catalog_core::rows::{
-    PlantNameRow, PlantPartRow, PlantRow, PlantUseRow, ReferenceRow, SourceRow,
-};
-use catalog_core::schema::{
-    metadata, plant, plant_name, plant_name_source, plant_part, plant_part_source, plant_use,
-    plant_use_source, reference, source,
-};
+use catalog_core::rows::{PlantNameRow, PlantPartRow, PlantRow, PlantUseRow, ReferenceRow};
+use catalog_core::schema::{metadata, plant, plant_name, plant_part, plant_use, reference};
 use catalog_core::sqlite::{InvalidPath, read_only_url};
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY};
 use diesel::SqliteConnection;
@@ -175,18 +169,6 @@ fn to_plant_name(row: &PlantNameRow) -> Result<PlantName, RepositoryError> {
     })
 }
 
-/// Agrupa pares `(id del dato, fuente)` en el mapa `id -> fuentes`, ordenadas por id de fuente.
-fn group_sources<K: std::hash::Hash + Eq>(pairs: Vec<(K, String)>) -> HashMap<K, Vec<SourceId>> {
-    let mut map: HashMap<K, Vec<SourceId>> = HashMap::new();
-    for (key, source_id) in pairs {
-        map.entry(key).or_default().push(SourceId(source_id));
-    }
-    for sources in map.values_mut() {
-        sources.sort();
-    }
-    map
-}
-
 /// Patrón `LIKE` de "contiene" para un texto ya normalizado, con `%`, `_` y `\` escapados con `\`.
 fn contains_pattern(normalized: &str) -> String {
     let mut pattern = String::from("%");
@@ -289,124 +271,52 @@ impl CatalogRepository for SqliteCatalogRepository {
             return Ok(None);
         };
 
-        let family = match (row.family, row.family_source_id) {
-            (Some(value), Some(src)) => Some(Attributed {
-                value,
-                sources: vec![SourceId(src)],
-            }),
-            _ => None,
-        };
-
         Ok(Some(Plant {
             id: PlantId(row.id),
             scientific_name: row.scientific_name,
-            family,
+            family: row.family,
             names: load_names(conn, &id.0)?,
             parts: load_parts(conn, &id.0)?,
             uses: load_uses(conn, &id.0)?,
         }))
     }
-
-    fn list_sources(&self) -> Result<Vec<Source>, RepositoryError> {
-        let mut conn = self.conn()?;
-        let rows: Vec<SourceRow> = source::table
-            .order_by(source::id.asc())
-            .select(SourceRow::as_select())
-            .load(&mut *conn)
-            .map_err(storage)?;
-        Ok(rows
-            .into_iter()
-            .map(|r| Source {
-                id: SourceId(r.id),
-                name: r.name,
-                version: r.version,
-                license: r.license,
-                citation: r.citation,
-                url: r.url,
-                checksum: r.checksum,
-            })
-            .collect())
-    }
 }
 
-/// Nombres de la planta con sus fuentes: científicos primero, luego por texto e idioma.
+/// Nombres de la planta: científicos primero, luego por texto e idioma.
 fn load_names(
     conn: &mut SqliteConnection,
     plant_id: &str,
-) -> Result<Vec<Attributed<PlantName>>, RepositoryError> {
+) -> Result<Vec<PlantName>, RepositoryError> {
     let rows: Vec<PlantNameRow> = plant_name::table
         .filter(plant_name::plant_id.eq(plant_id))
         .select(PlantNameRow::as_select())
         .load(conn)
         .map_err(storage)?;
-    let ids: Vec<i32> = rows.iter().map(|r| r.id).collect();
-    let mut sources = group_sources(
-        plant_name_source::table
-            .filter(plant_name_source::plant_name_id.eq_any(&ids))
-            .select((
-                plant_name_source::plant_name_id,
-                plant_name_source::source_id,
-            ))
-            .load::<(i32, String)>(conn)
-            .map_err(storage)?,
-    );
     let mut names = rows
         .iter()
-        .map(|r| {
-            Ok(Attributed {
-                value: to_plant_name(r)?,
-                sources: sources.remove(&r.id).unwrap_or_default(),
-            })
-        })
+        .map(to_plant_name)
         .collect::<Result<Vec<_>, RepositoryError>>()?;
     // `NameKind` no implementa `Ord`, así que se ordena por un rango explícito: científico antes que común.
     names.sort_by(|a, b| {
-        let rank = |n: &Attributed<PlantName>| u8::from(n.value.kind == NameKind::Common);
-        (rank(a), &a.value.text, &a.value.language).cmp(&(
-            rank(b),
-            &b.value.text,
-            &b.value.language,
-        ))
+        let rank = |n: &PlantName| u8::from(n.kind == NameKind::Common);
+        (rank(a), &a.text, &a.language).cmp(&(rank(b), &b.text, &b.language))
     });
     Ok(names)
 }
 
-/// Partes de la planta con sus fuentes, ordenadas por etiqueta.
-fn load_parts(
-    conn: &mut SqliteConnection,
-    plant_id: &str,
-) -> Result<Vec<Attributed<Part>>, RepositoryError> {
+/// Partes de la planta, ordenadas por etiqueta.
+fn load_parts(conn: &mut SqliteConnection, plant_id: &str) -> Result<Vec<Part>, RepositoryError> {
     let rows: Vec<PlantPartRow> = plant_part::table
         .filter(plant_part::plant_id.eq(plant_id))
         .order_by(plant_part::label.asc())
         .select(PlantPartRow::as_select())
         .load(conn)
         .map_err(storage)?;
-    let ids: Vec<i32> = rows.iter().map(|r| r.id).collect();
-    let mut sources = group_sources(
-        plant_part_source::table
-            .filter(plant_part_source::plant_part_id.eq_any(&ids))
-            .select((
-                plant_part_source::plant_part_id,
-                plant_part_source::source_id,
-            ))
-            .load::<(i32, String)>(conn)
-            .map_err(storage)?,
-    );
-    Ok(rows
-        .into_iter()
-        .map(|r| Attributed {
-            sources: sources.remove(&r.id).unwrap_or_default(),
-            value: Part { label: r.label },
-        })
-        .collect())
+    Ok(rows.into_iter().map(|r| Part { label: r.label }).collect())
 }
 
-/// Usos de la planta con su referencia y fuentes, ordenados por actividad, idioma y referencia.
-fn load_uses(
-    conn: &mut SqliteConnection,
-    plant_id: &str,
-) -> Result<Vec<Attributed<Use>>, RepositoryError> {
+/// Usos de la planta con su referencia, ordenados por actividad, idioma y referencia.
+fn load_uses(conn: &mut SqliteConnection, plant_id: &str) -> Result<Vec<Use>, RepositoryError> {
     let rows: Vec<PlantUseRow> = plant_use::table
         .filter(plant_use::plant_id.eq(plant_id))
         .order_by((
@@ -417,7 +327,6 @@ fn load_uses(
         .select(PlantUseRow::as_select())
         .load(conn)
         .map_err(storage)?;
-    let ids: Vec<i32> = rows.iter().map(|r| r.id).collect();
     let ref_ids: Vec<&str> = rows.iter().map(|r| r.reference_id.as_str()).collect();
     let references: HashMap<String, String> = reference::table
         .filter(reference::id.eq_any(&ref_ids))
@@ -427,28 +336,18 @@ fn load_uses(
         .into_iter()
         .map(|r| (r.id, r.citation))
         .collect();
-    let mut sources = group_sources(
-        plant_use_source::table
-            .filter(plant_use_source::plant_use_id.eq_any(&ids))
-            .select((plant_use_source::plant_use_id, plant_use_source::source_id))
-            .load::<(i32, String)>(conn)
-            .map_err(storage)?,
-    );
     rows.into_iter()
         .map(|r| {
             let citation = references
                 .get(&r.reference_id)
                 .ok_or_else(|| storage(format!("referencia inexistente: {}", r.reference_id)))?
                 .clone();
-            Ok(Attributed {
-                sources: sources.remove(&r.id).unwrap_or_default(),
-                value: Use {
-                    activity: r.activity,
-                    language: r.language,
-                    reference: Reference {
-                        id: r.reference_id,
-                        citation,
-                    },
+            Ok(Use {
+                activity: r.activity,
+                language: r.language,
+                reference: Reference {
+                    id: r.reference_id,
+                    citation,
                 },
             })
         })
@@ -476,10 +375,6 @@ mod tests {
 
     fn pid(id: &str) -> PlantId {
         PlantId(id.to_string())
-    }
-
-    fn sources(ids: &[&str]) -> Vec<SourceId> {
-        ids.iter().map(|s| SourceId(s.to_string())).collect()
     }
 
     // ---- 6.1 apertura ----
@@ -714,10 +609,10 @@ mod tests {
         );
     }
 
-    // ---- 6.3 detalle y fuentes ----
+    // ---- 6.3 detalle ----
 
     #[test]
-    fn detail_includes_names_parts_and_uses_with_sources() {
+    fn detail_includes_names_parts_and_uses() {
         let fixture = Fixture::standard();
         let repo = fixture.repo();
         let plant = repo
@@ -725,23 +620,11 @@ mod tests {
             .unwrap()
             .unwrap();
         assert_eq!(plant.scientific_name, "Lavandula angustifolia");
-        assert_eq!(
-            plant.family,
-            Some(Attributed {
-                value: "Lamiaceae".to_string(),
-                sources: sources(&["a"])
-            })
-        );
+        assert_eq!(plant.family, Some("Lamiaceae".to_string()));
         let names: Vec<(&str, NameKind, &str)> = plant
             .names
             .iter()
-            .map(|n| {
-                (
-                    n.value.text.as_str(),
-                    n.value.kind,
-                    n.value.language.as_str(),
-                )
-            })
+            .map(|n| (n.text.as_str(), n.kind, n.language.as_str()))
             .collect();
         assert_eq!(
             names,
@@ -752,47 +635,27 @@ mod tests {
                 ("Lavender", NameKind::Common, "en"),
             ]
         );
-        // Un dato aportado por dos fuentes las lista ambas, ordenadas.
-        assert_eq!(plant.names[0].sources, sources(&["a", "b"]));
-        assert_eq!(plant.names[1].sources, sources(&["b"]));
-
-        let parts: Vec<(&str, &[SourceId])> = plant
-            .parts
-            .iter()
-            .map(|p| (p.value.label.as_str(), p.sources.as_slice()))
-            .collect();
-        assert_eq!(
-            parts,
-            [
-                ("Flower", sources(&["a"]).as_slice()),
-                ("Leaf", sources(&["a", "b"]).as_slice())
-            ]
-        );
+        let parts: Vec<&str> = plant.parts.iter().map(|p| p.label.as_str()).collect();
+        assert_eq!(parts, ["Flower", "Leaf"]);
 
         assert_eq!(
             plant.uses,
             vec![
-                Attributed {
-                    value: Use {
-                        activity: "Antiseptic".to_string(),
-                        language: "en".to_string(),
-                        reference: Reference {
-                            id: "ref-1".to_string(),
-                            citation: "Smith 1990".to_string()
-                        }
-                    },
-                    sources: sources(&["a"]),
+                Use {
+                    activity: "Antiseptic".to_string(),
+                    language: "en".to_string(),
+                    reference: Reference {
+                        id: "ref-1".to_string(),
+                        citation: "Smith 1990".to_string()
+                    }
                 },
-                Attributed {
-                    value: Use {
-                        activity: "Sedative".to_string(),
-                        language: "en".to_string(),
-                        reference: Reference {
-                            id: "ref-2".to_string(),
-                            citation: "Jones 2001".to_string()
-                        }
-                    },
-                    sources: sources(&["a", "b"]),
+                Use {
+                    activity: "Sedative".to_string(),
+                    language: "en".to_string(),
+                    reference: Reference {
+                        id: "ref-2".to_string(),
+                        citation: "Jones 2001".to_string()
+                    }
                 },
             ]
         );
@@ -816,16 +679,5 @@ mod tests {
         let fixture = Fixture::standard();
         let repo = fixture.repo();
         assert_eq!(repo.get_plant(&pid("does-not-exist")).unwrap(), None);
-    }
-
-    #[test]
-    fn sources_are_sorted_by_id() {
-        let fixture = Fixture::standard();
-        let repo = fixture.repo();
-        let all = repo.list_sources().unwrap();
-        let ids: Vec<&str> = all.iter().map(|s| s.id.0.as_str()).collect();
-        assert_eq!(ids, ["a", "b"]);
-        assert_eq!(all[0].name, "Fuente a");
-        assert_eq!(all[0].url, "https://example.test/a");
     }
 }

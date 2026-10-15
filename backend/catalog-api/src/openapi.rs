@@ -6,8 +6,8 @@
 use utoipa::OpenApi;
 
 use crate::dto::{
-    CommonNameDto, FamilyDto, HealthDto, NameDto, NameKindDto, PageDto, PartDto, PlantDto,
-    PlantSummaryDto, ProblemDto, ReferenceDto, SourceDto, UseDto,
+    CommonNameDto, HealthDto, NameDto, NameKindDto, PageDto, PartDto, PlantDto, PlantSummaryDto,
+    ProblemDto, ReferenceDto, UseDto,
 };
 use crate::http;
 
@@ -17,16 +17,14 @@ use crate::http;
     info(
         title = "Boticario AI Catalog API",
         version = "1",
-        description = "API de solo lectura del catálogo de plantas y sus fuentes. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`."
+        description = "API de solo lectura del catálogo de plantas. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`."
     ),
-    paths(http::healthz, http::openapi_json, http::sources, http::list_plants, http::get_plant),
+    paths(http::healthz, http::openapi_json, http::list_plants, http::get_plant),
     components(schemas(
         HealthDto,
-        SourceDto,
         CommonNameDto,
         PlantSummaryDto,
         PageDto<PlantSummaryDto>,
-        FamilyDto,
         NameKindDto,
         NameDto,
         PartDto,
@@ -77,13 +75,7 @@ mod tests {
         let paths: Vec<&str> = doc.paths.paths.keys().map(String::as_str).collect();
         assert_eq!(
             paths,
-            [
-                "/healthz",
-                "/openapi.json",
-                "/v1/plants",
-                "/v1/plants/{id}",
-                "/v1/sources"
-            ]
+            ["/healthz", "/openapi.json", "/v1/plants", "/v1/plants/{id}"]
         );
     }
 

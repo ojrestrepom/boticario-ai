@@ -25,17 +25,6 @@ pub struct Source {
     pub checksum: String,
 }
 
-/// Un dato junto con la fuente o fuentes que lo aportan.
-///
-/// Es genérico: `Attributed<PlantName>`, `Attributed<Part>`, etc. reutilizan la misma estructura sin repetir código.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct Attributed<T> {
-    /// El dato en sí.
-    pub value: T,
-    /// Fuentes que lo aportan; si dos fuentes coinciden, aparecen ambas.
-    pub sources: Vec<SourceId>,
-}
-
 /// Identificador público de una planta: el slug de su nombre científico canónico.
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct PlantId(pub String);
@@ -87,21 +76,21 @@ pub struct Use {
     pub reference: Reference,
 }
 
-/// Detalle completo de una planta.
+/// Detalle completo de una planta, ya consolidado: no dice qué fuente aportó cada dato.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Plant {
     /// Identificador público.
     pub id: PlantId,
     /// Nombre científico canónico.
     pub scientific_name: String,
-    /// Familia, si alguna fuente la aporta (valor único, con la fuente elegida).
-    pub family: Option<Attributed<String>>,
+    /// Familia, si alguna fuente la aporta.
+    pub family: Option<String>,
     /// Nombres de la planta.
-    pub names: Vec<Attributed<PlantName>>,
+    pub names: Vec<PlantName>,
     /// Partes de la planta.
-    pub parts: Vec<Attributed<Part>>,
+    pub parts: Vec<Part>,
     /// Usos de la planta.
-    pub uses: Vec<Attributed<Use>>,
+    pub uses: Vec<Use>,
 }
 
 /// Elemento del listado de plantas.

@@ -4,9 +4,7 @@
 
 use std::collections::{BTreeMap, BTreeSet};
 
-use catalog_core::domain::{
-    Attributed, NameKind, Part, Plant, PlantId, PlantName, Reference, Source, SourceId, Use,
-};
+use catalog_core::domain::{NameKind, Part, PlantId, PlantName, Reference, Source, SourceId, Use};
 use catalog_core::normalize::{normalize_name, slug};
 
 use crate::adapter::{PlantRecord, SourceRecords};
@@ -26,11 +24,41 @@ pub struct SourceInput {
     pub records: SourceRecords,
 }
 
+/// Un dato junto con la fuente o fuentes que lo aportan.
+///
+/// Es genérico: `Attributed<PlantName>`, `Attributed<Part>`, etc. reutilizan la misma estructura sin repetir código. Vive en la ingesta porque la atribución es un asunto de la construcción del catálogo: la API no la sirve.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Attributed<T> {
+    /// El dato en sí.
+    pub value: T,
+    /// Fuentes que lo aportan; si dos fuentes coinciden, aparecen ambas.
+    pub sources: Vec<SourceId>,
+}
+
+/// Detalle de una planta con la procedencia de cada dato, tal como se escribe en la base.
+///
+/// Es el equivalente con atribución de `catalog_core::domain::Plant`, que es plano.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct AttributedPlant {
+    /// Identificador público.
+    pub id: PlantId,
+    /// Nombre científico canónico.
+    pub scientific_name: String,
+    /// Familia, si alguna fuente la aporta (valor único, con la fuente elegida).
+    pub family: Option<Attributed<String>>,
+    /// Nombres de la planta.
+    pub names: Vec<Attributed<PlantName>>,
+    /// Partes de la planta.
+    pub parts: Vec<Attributed<Part>>,
+    /// Usos de la planta.
+    pub uses: Vec<Attributed<Use>>,
+}
+
 /// Planta consolidada y los identificadores que le da cada fuente.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ConsolidatedPlant {
     /// Planta con su ID público y todos sus datos atribuidos.
-    pub plant: Plant,
+    pub plant: AttributedPlant,
     /// Identificador de la planta en cada fuente que la aporta (tabla de enlace).
     pub source_plant_ids: BTreeMap<SourceId, String>,
 }
@@ -312,7 +340,7 @@ fn build_plants(
         });
 
         plants.push(ConsolidatedPlant {
-            plant: Plant {
+            plant: AttributedPlant {
                 id: PlantId(id),
                 scientific_name: acc.scientific_name,
                 family,

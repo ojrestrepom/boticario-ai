@@ -55,7 +55,6 @@ La API se niega a arrancar si no encuentra la base. Se configura con argumentos 
 Endpoints, todos `GET`:
 
 - `/healthz`: estado del servicio.
-- `/v1/sources`: fuentes con su licencia y procedencia.
 - `/v1/plants`: lista paginada, con búsqueda opcional por `q`.
 - `/v1/plants/{id}`: detalle de una planta.
 - `/openapi.json`: el contrato OpenAPI.

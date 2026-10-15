@@ -147,7 +147,6 @@ La primera construcción compila el backend, descarga el dataset de USDA y const
 Todos son `GET`, por defecto en `http://localhost:8080`:
 
 - `/healthz`: estado del servicio.
-- `/v1/sources`: fuentes con su licencia y procedencia.
 - `/v1/plants`: lista paginada, con búsqueda opcional por `q`.
 - `/v1/plants/{id}`: detalle de una planta.
 - `/openapi.json`: el contrato OpenAPI.

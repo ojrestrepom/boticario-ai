@@ -1,7 +1,7 @@
 # catalog-api Specification
 
 ## Purpose
-Define la API HTTP de solo lectura v1 que sirve el catálogo de plantas y sus fuentes desde la base neutral, con errores estandarizados, documento OpenAPI y arranque configurable, sin depender de ningún dataset concreto.
+Define la API HTTP de solo lectura v1 que sirve el catálogo de plantas desde la base neutral, con errores estandarizados, documento OpenAPI y arranque configurable, sin depender de ningún dataset concreto.
 
 ## Requirements
 

@@ -29,9 +29,11 @@ La API lee solo la capa neutral, abierta en modo de solo lectura. No abre `raw.d
 
 ## 2. Procedencia
 
-La tabla `source` registra, por cada fuente activa, su identificador, nombre, versión, licencia, cita, URL y checksum del insumo. Esos valores los declara el adaptador y `validate_source` (en `adapter.rs`) rechaza la fuente si falta alguno. La API los expone en `/v1/sources`.
+La tabla `source` registra, por cada fuente activa, su identificador, nombre, versión, licencia, cita, URL y checksum del insumo. Esos valores los declara el adaptador y `validate_source` (en `adapter.rs`) rechaza la fuente si falta alguno.
 
-Las tablas `plant_name_source`, `plant_part_source`, `plant_use_source` y `reference_source` atribuyen cada nombre, parte, uso y referencia a las fuentes que lo aportan. Que un dato tenga varias fuentes significa que todas ellas lo entregaron de forma idéntica: en el detalle de una planta, `sources` lista todas. La familia es un valor único, así que `plant` guarda cuál fuente fue la elegida (`family_source_id`).
+La procedencia es interna al backend y la API no la expone: el cliente recibe una sola planta consolidada, sin saber de qué datasets salió. Las tablas siguen escribiéndose en la ingesta porque sostienen la consolidación, la prioridad por fuente y la depuración, y servirán a la lógica de selección futura.
+
+Las tablas `plant_name_source`, `plant_part_source`, `plant_use_source` y `reference_source` atribuyen cada nombre, parte, uso y referencia a las fuentes que lo aportan. Que un dato tenga varias fuentes significa que todas ellas lo entregaron de forma idéntica: la atribución las conserva todas, aunque la API no las muestra. La familia es un valor único, así que `plant` guarda cuál fuente fue la elegida (`family_source_id`).
 
 ## 3. Reglas de consolidación
 
@@ -101,6 +103,7 @@ Decisiones ya tomadas:
 
 ## 7. Límites conocidos
 
+- **La API no indica el origen.** El detalle de una planta no dice qué fuente aportó cada nombre, parte o uso, ni la familia; esa información queda en la base y no sale por el contrato HTTP.
 - **Sinónimos entre datasets.** La identidad es el nombre científico normalizado, sin resolver sinonimia ni taxonomía: dos fuentes que llaman distinto a la misma planta producen dos plantas.
 - **El ID depende del nombre.** Como el ID público es el slug del nombre científico, si una fuente cambia el nombre cambia el ID. Hoy no hay una tabla de alias ni de redirecciones, y los clientes no deben guardar IDs como si fueran permanentes.
 - **La capa cruda es local.** `data/build/raw.db` se genera en cada máquina, no se versiona y no se despliega con la API; solo `catalog.db` es el artefacto que se sirve.

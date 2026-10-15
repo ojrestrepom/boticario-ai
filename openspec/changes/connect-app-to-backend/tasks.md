@@ -11,15 +11,15 @@
 
 ## 2. Explorar
 
-- [ ] 2.1 Crear el `Notifier` de Riverpod 3 de Explorar que conserve consulta, filtro, páginas, `total`, carga, error y error del pie durante la sesión, con páginas de 50, debounce de unos 300 ms y descarte de respuestas atrasadas; `Aceites` muestra su estado vacío sin pedir nada a la red; verificar con tests unitarios de paginación, fin de lista, error al cargar más con conservación de lo cargado, debounce, respuesta atrasada descartada y consulta vacía.
-- [ ] 2.2 Reescribir `explore_page.dart` sobre el `Notifier` (nombre principal y secundario, estados de carga, error con `Reintentar`, vacío y vacío de Aceites, scroll infinito con pie de carga, fin de lista y error reintentable en el pie, restauración de consulta, filtro y posición al volver); verificar con widget tests con `MockClient` y fixtures que cubran los escenarios de `explore-screen`.
-- [ ] 2.3 Comprobar la accesibilidad de Explorar (360x640 dp al 100 % y 200 %, etiquetas y áreas de toque de al menos 48 dp, incluidos `Reintentar` y el pie de lista); verificar con los widget tests de accesibilidad existentes adaptados.
+- [x] 2.1 Crear el `Notifier` de Riverpod 3 de Explorar que conserve consulta, filtro, páginas, `total`, carga, error y error del pie durante la sesión, con páginas de 50, debounce de unos 300 ms y descarte de respuestas atrasadas; `Aceites` muestra su estado vacío sin pedir nada a la red; verificar con tests unitarios de paginación, fin de lista, error al cargar más con conservación de lo cargado, debounce, respuesta atrasada descartada y consulta vacía.
+- [x] 2.2 Reescribir `explore_page.dart` sobre el `Notifier` (nombre principal y secundario, estados de carga, error con `Reintentar`, vacío y vacío de Aceites, scroll infinito con pie de carga, fin de lista y error reintentable en el pie, restauración de consulta, filtro y posición al volver); verificar con widget tests con `MockClient` y fixtures que cubran los escenarios de `explore-screen`.
+- [x] 2.3 Comprobar la accesibilidad de Explorar (360x640 dp al 100 % y 200 %, etiquetas y áreas de toque de al menos 48 dp, incluidos `Reintentar` y el pie de lista); verificar con los widget tests de accesibilidad existentes adaptados.
 
 ## 3. Pasaporte y router
 
-- [ ] 3.1 Cambiar `/explore/:plantId` a id de texto sin `int.tryParse` y crear el provider de planta por id sobre `getPlant`; verificar con tests de router y de provider (datos, no encontrada y error con reintento).
-- [ ] 3.2 Reescribir `plant_passport_page.dart` con los estados carga, error reintentable, `Planta no encontrada` y datos, nombre principal y científico, `General` (familia o `No disponible en fuente`, nombres comunes con idioma, partes, `Tipo de aceite` no aplicable, bibliografía deduplicada si ya existe), `Propiedades` sin cambios y `Usos` (actividad, `Registro tradicional`, aclaración no recomendatoria, cita, vacío explícito), sin origen, descripción ni procedencia; verificar con widget tests y fixtures (con y sin nombres comunes, `family` `null`, con y sin usos, Romero con muchos usos).
-- [ ] 3.3 Comprobar la accesibilidad del pasaporte y las acciones deshabilitadas a 360x640 dp al 100 % y 200 %; verificar con los widget tests existentes adaptados.
+- [x] 3.1 Cambiar `/explore/:plantId` a id de texto sin `int.tryParse` y crear el provider de planta por id sobre `getPlant`; verificar con tests de router y de provider (datos, no encontrada y error con reintento).
+- [x] 3.2 Reescribir `plant_passport_page.dart` con los estados carga, error reintentable, `Planta no encontrada` y datos, nombre principal y científico, `General` (familia o `No disponible en fuente`, nombres comunes con idioma, partes, `Tipo de aceite` no aplicable, bibliografía deduplicada si ya existe), `Propiedades` sin cambios y `Usos` (actividad, `Registro tradicional`, aclaración no recomendatoria, cita, vacío explícito), sin origen, descripción ni procedencia; verificar con widget tests y fixtures (con y sin nombres comunes, `family` `null`, con y sin usos, Romero con muchos usos).
+- [x] 3.3 Comprobar la accesibilidad del pasaporte y las acciones deshabilitadas a 360x640 dp al 100 % y 200 %; verificar con los widget tests existentes adaptados.
 
 ## 4. Retirada del asset y del catálogo local
 

@@ -33,7 +33,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             builder: (context, state) => ExplorePage(
               onBack: () => context.pop(),
               onHome: () => context.go('/'),
-              onPlantSelected: (id) => context.push('/explore/$id'),
+              onPlantSelected: (id) =>
+                  context.push('/explore/${Uri.encodeComponent(id)}'),
             ),
             routes: [
               GoRoute(

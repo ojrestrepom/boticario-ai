@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../catalog/data/plant_catalog_repository.dart';
-import '../../catalog/domain/plant.dart';
-import '../../catalog/domain/plant_catalog_provenance.dart';
+import '../../catalog/data/catalog_client_exception.dart';
+import '../../catalog/domain/catalog_plant.dart';
+import '../application/plant_detail_provider.dart';
 
 const _green = Color(0xFF236335);
 const _ink = Color(0xFF172A1F);
 const _background = Color(0xFFF9FAF7);
 
-/// Route-facing entry point. ID parsing and lookup belong to P05, not router.
+/// Route-facing entry point. It resolves the API id (slug) of the route
+/// against the catalog API; the content itself is [PlantPassportPage].
 class PlantPassportRoutePage extends ConsumerWidget {
   const PlantPassportRoutePage({
     required this.plantId,
@@ -24,38 +25,32 @@ class PlantPassportRoutePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final catalog = ref.watch(plantCatalogProvider);
-    final id = int.tryParse(plantId);
-    return catalog.when(
+    final plant = ref.watch(plantDetailProvider(plantId));
+    return plant.when(
       loading: () => _PassportStatusPage(
-        title: 'Cargando catálogo...',
+        title: 'Cargando planta...',
         onBack: onBack,
         onHome: onHome,
       ),
-      error: (_, _) => _PassportStatusPage(
-        title: 'No se pudo cargar el catálogo',
+      error: (error, _) => _PassportStatusPage(
+        title: 'No se pudo cargar la planta',
+        message: error is CatalogClientException ? error.message : null,
         onBack: onBack,
         onHome: onHome,
-        action: TextButton(
-          onPressed: () => ref.invalidate(plantCatalogProvider),
+        action: OutlinedButton(
+          onPressed: () => ref.invalidate(plantDetailProvider(plantId)),
           child: const Text('Reintentar'),
         ),
       ),
       data: (value) {
-        final plant = id == null || id < 0 ? null : value.findById(id);
-        if (plant == null) {
+        if (value == null) {
           return _PassportStatusPage(
             title: 'Planta no encontrada',
             onBack: onBack,
             onHome: onHome,
           );
         }
-        return PlantPassportPage(
-          plant: plant,
-          provenance: value.provenance,
-          onBack: onBack,
-          onHome: onHome,
-        );
+        return PlantPassportPage(plant: value, onBack: onBack, onHome: onHome);
       },
       skipLoadingOnRefresh: false,
     );
@@ -67,9 +62,11 @@ class _PassportStatusPage extends StatelessWidget {
     required this.title,
     required this.onBack,
     required this.onHome,
+    this.message,
     this.action,
   });
   final String title;
+  final String? message;
   final VoidCallback onBack;
   final VoidCallback onHome;
   final Widget? action;
@@ -105,7 +102,14 @@ class _PassportStatusPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      ?action,
+                      if (message != null) ...[
+                        const SizedBox(height: 8),
+                        Text(message!, textAlign: TextAlign.center),
+                      ],
+                      if (action != null) ...[
+                        const SizedBox(height: 16),
+                        action!,
+                      ],
                     ],
                   ),
                 ),
@@ -183,14 +187,12 @@ Widget _navItem(
 class PlantPassportPage extends StatefulWidget {
   const PlantPassportPage({
     required this.plant,
-    required this.provenance,
     required this.onBack,
     required this.onHome,
     super.key,
   });
 
   final Plant plant;
-  final PlantCatalogProvenance provenance;
   final VoidCallback onBack;
   final VoidCallback onHome;
 
@@ -204,7 +206,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
   @override
   void didUpdateWidget(covariant PlantPassportPage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.plant.usdaPlantId != widget.plant.usdaPlantId) _tab = 0;
+    if (oldWidget.plant.id != widget.plant.id) _tab = 0;
   }
 
   @override
@@ -213,7 +215,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     body: SafeArea(
       bottom: false,
       child: CustomScrollView(
-        key: PageStorageKey('passport-${widget.plant.usdaPlantId}-$_tab'),
+        key: PageStorageKey('passport-${widget.plant.id}-$_tab'),
         slivers: [
           SliverToBoxAdapter(child: _header()),
           SliverPadding(
@@ -274,15 +276,16 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.plant.editorialCommonName,
+                widget.plant.primaryName,
                 style: Theme.of(context).textTheme.titleLarge
                     ?.copyWith(color: _ink),
               ),
-              Text(
-                widget.plant.sourceScientificName,
-                style: Theme.of(context).textTheme.bodyMedium
-                    ?.copyWith(color: _ink),
-              ),
+              if (widget.plant.secondaryName != null)
+                Text(
+                  widget.plant.secondaryName!,
+                  style: Theme.of(context).textTheme.bodyMedium
+                      ?.copyWith(color: _ink),
+                ),
             ],
           ),
         ),
@@ -314,51 +317,34 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     ],
   );
 
-  Widget _general() => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      _field('Nombre común editorial', widget.plant.editorialCommonName),
-      _field('Nombre científico de fuente', widget.plant.sourceScientificName),
-      _field('Origen', widget.plant.origin ?? 'No disponible en fuente'),
-      _field(
-        'Descripción',
-        widget.plant.description ?? 'No disponible en fuente',
-      ),
-      _field(
-        'Partes registradas en fuente',
-        widget.plant.parts.isEmpty
-            ? 'No hay partes registradas en fuente'
-            : widget.plant.parts
-                  .map((p) => '${p.name} (${p.sourceCode})')
-                  .join(', '),
-      ),
-      _field('Tipo de aceite', 'No aplicable: ficha de planta'),
-      const SizedBox(height: 8),
-      _sectionTitle('Procedencia'),
-      _field('Fuente', widget.provenance.sourceName),
-      _field('Licencia', widget.provenance.license),
-      _field('Versión', widget.provenance.version),
-      _field('Dataset', widget.provenance.datasetId),
-      _field(
-        'Archivo',
-        '${widget.provenance.fileName} (ID ${widget.provenance.fileId})',
-      ),
-      _field('URL de fuente', widget.provenance.sourceUrl),
-      _field(
-        'Fecha de inspección (no cobertura temporal)',
-        _date(widget.provenance.inspectedOn),
-      ),
-      _field(
-        'Cita recomendada de la fuente',
-        widget.provenance.recommendedCitation,
-      ),
-      if (widget.plant.traditionalUses.isNotEmpty) ...[
-        const SizedBox(height: 8),
-        _sectionTitle('Referencias bibliográficas'),
-        for (final ref in _references()) _field(ref.id, ref.citation),
+  Widget _general() {
+    final plant = widget.plant;
+    final commonNames = plant.commonNames;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _field('Familia', plant.family ?? 'No disponible en fuente'),
+        if (commonNames.isEmpty)
+          _field('Nombres comunes', 'No hay nombres comunes registrados')
+        else
+          _fieldLines('Nombres comunes', [
+            for (final name in commonNames) '${name.text} (${name.language})',
+          ]),
+        _field(
+          'Partes registradas en fuente',
+          plant.parts.isEmpty
+              ? 'No hay partes registradas en fuente'
+              : plant.parts.join(', '),
+        ),
+        _field('Tipo de aceite', 'No aplicable: ficha de planta'),
+        if (plant.uses.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          _sectionTitle('Referencias bibliográficas'),
+          for (final ref in _references()) _field(ref.id, ref.citation),
+        ],
       ],
-    ],
-  );
+    );
+  }
 
   Widget _properties() => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -370,7 +356,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
   );
 
   Widget _uses() {
-    final uses = widget.plant.traditionalUses;
+    final uses = widget.plant.uses;
     if (uses.isEmpty) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -394,23 +380,40 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
         const SizedBox(height: 12),
         for (final use in uses) ...[
           _field('Registro tradicional', use.activity),
-          for (final ref in use.references)
-            _field('Fuente: ${ref.id}', ref.citation),
+          _field('Referencia: ${use.reference.id}', use.reference.citation),
           const Divider(height: 20),
         ],
       ],
     );
   }
 
-  List<PlantReference> _references() {
-    final refs = <String, PlantReference>{};
-    for (final use in widget.plant.traditionalUses) {
-      for (final ref in use.references) {
-        refs[ref.id] = ref;
-      }
+  List<UseReference> _references() {
+    final refs = <String, UseReference>{};
+    for (final use in widget.plant.uses) {
+      refs[use.reference.id] = use.reference;
     }
     return refs.values.toList();
   }
+
+  Widget _fieldLines(String label, List<String> values) => Padding(
+    padding: const EdgeInsets.only(bottom: 14),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: Theme.of(context).textTheme.labelLarge
+              ?.copyWith(color: _green),
+        ),
+        const SizedBox(height: 3),
+        for (final value in values)
+          Text(
+            value,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: _ink),
+          ),
+      ],
+    ),
+  );
 
   Widget _field(String label, String value) => Padding(
     padding: const EdgeInsets.only(bottom: 14),
@@ -435,8 +438,6 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     text,
     style: Theme.of(context).textTheme.titleMedium?.copyWith(color: _ink),
   );
-  String _date(DateTime date) =>
-      '${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
 }
 
 class _DisabledAction extends StatelessWidget {

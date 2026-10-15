@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required in every build so the app can reach the catalog API. Cleartext
+         HTTP is intentionally not enabled here: only debug and profile do it. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="Boticario AI"
         android:name="${applicationName}"

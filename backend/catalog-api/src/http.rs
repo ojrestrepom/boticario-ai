@@ -177,7 +177,7 @@ pub(crate) async fn list_plants(
     }
 }
 
-/// Detalle de una planta con la fuente de cada dato.
+/// Detalle de una planta.
 #[utoipa::path(
     get,
     path = "/v1/plants/{id}",

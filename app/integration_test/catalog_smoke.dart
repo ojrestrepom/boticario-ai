@@ -1,5 +1,38 @@
+// Shared real-app smoke flow: Home, goal search (P06), Explore (P04) backed by
+// the catalog API, plant passport (P05) and every return path.
+//
+// Two callers run this identical flow:
+//
+// * `integration_test/app_test.dart` on an Android device or emulator. It
+//   starts the real `main()` and talks to the real catalog API, so the backend
+//   must be running first:
+//
+//       docker compose up -d                      # from the repository root
+//       flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
+//
+//   The default base URL is `http://10.0.2.2:8080` (the host machine as seen
+//   from the Android emulator). On a physical device pass the address of the
+//   machine running the backend:
+//
+//       flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO \
+//         --dart-define=API_BASE_URL=http://192.168.1.20:8080
+//
+//   An application-level guard only lets `HttpClient` reach the host and port
+//   of that base URL; any other host fails the test with a clear error. It does
+//   not test device radios.
+//
+// * `test/app/catalog_smoke_contract_test.dart` as a widget test, passing
+//   [overrides] with a fake HTTP client over fixtures: no network, no backend.
+//   Host success is contract evidence only, never Android QA.
+//
+// The flow never assumes which plants the first page holds nor how many: it
+// searches for `lavandula` and expects the "English Lavender" row.
+import 'dart:async';
 import 'dart:io';
 
+import 'package:boticario_ai/app/app.dart';
+import 'package:boticario_ai/features/catalog/data/catalog_api_config.dart';
+import 'package:boticario_ai/features/explore/application/explore_controller.dart';
 import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
@@ -8,6 +41,8 @@ import 'package:boticario_ai/features/passport/presentation/plant_passport_page.
 import 'package:boticario_ai/main.dart' as app;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,37 +68,55 @@ const _footerActions = <HomeAction>{
   HomeAction.tabProfile,
 };
 
-const _catalogRows = <(String, String)>[
-  ('Lavanda', 'Lavandula angustifolia'),
-  ('Eucalipto', 'Eucalyptus globulus'),
-  ('Romero', 'Rosmarinus officinalis'),
-  ('Manzanilla', 'Matricaria recutita'),
-  ('Menta', 'Mentha x piperita subsp. nothosubsp. piperita'),
-];
+/// The row and passport the flow looks for. `lavandula` is stable catalog data
+/// both in the API and in the test fixtures.
+const _searchTerm = 'lavandula';
+const _lavenderCommon = 'English Lavender';
+const _lavenderScientific = 'Lavandula angustifolia';
+const _lavenderPath = '/explore/lavandula-angustifolia';
 
-/// The Android integration test and host preflight exercise this identical
-/// real-app UI flow. Host success is preflight evidence only, never Android QA.
+/// How long a screen may wait for the catalog API before the flow fails.
+const _networkTimeout = Duration(seconds: 30);
+
+/// The Android integration test and host contract test exercise this identical
+/// real-app UI flow.
+///
+/// With [overrides] the app is mounted as `ProviderScope(overrides: ...)` over
+/// the real [BoticarioApp] (the contract test injects a fake HTTP client this
+/// way). Without them `app.main()` runs unchanged.
+///
+/// With [guardApplicationHttp] every `HttpClient` created inside the flow may
+/// only connect to the host and port of the API base URL.
+///
+/// [requestCount], when given, reports how many API requests were made so the
+/// flow can prove that the `Aceites` filter does not call the API.
 Future<void> runCatalogSmoke(
   WidgetTester tester, {
+  List<Override>? overrides,
   bool guardApplicationHttp = true,
   bool simulateKeyboardViewport = false,
+  int Function()? requestCount,
 }) {
   if (!guardApplicationHttp) {
     return _runCatalogSmoke(
       tester,
-      guardApplicationHttp: false,
+      overrides: overrides,
       simulateKeyboardViewport: simulateKeyboardViewport,
+      requestCount: requestCount,
     );
   }
-  final httpGuard = _DenyHttpClientFactory();
+  final httpGuard = _AllowOnlyApiHostGuard(
+    Uri.parse(normalizeApiBaseUrl(apiBaseUrlFromEnvironment)),
+  );
   // A zone-scoped override covers the app and its descendant async work without
   // replacing a process-global override owned by another test.
   return HttpOverrides.runZoned(
     () => _runCatalogSmoke(
       tester,
-      guardApplicationHttp: true,
+      overrides: overrides,
       httpGuard: httpGuard,
       simulateKeyboardViewport: simulateKeyboardViewport,
+      requestCount: requestCount,
     ),
     createHttpClient: httpGuard.create,
   );
@@ -71,9 +124,10 @@ Future<void> runCatalogSmoke(
 
 Future<void> _runCatalogSmoke(
   WidgetTester tester, {
-  required bool guardApplicationHttp,
-  _DenyHttpClientFactory? httpGuard,
+  List<Override>? overrides,
+  _AllowOnlyApiHostGuard? httpGuard,
   required bool simulateKeyboardViewport,
+  int Function()? requestCount,
 }) async {
   final previousDebugPrint = debugPrint;
   final originalViewInsets = tester.view.viewInsets;
@@ -85,7 +139,13 @@ Future<void> _runCatalogSmoke(
     previousDebugPrint(message, wrapWidth: wrapWidth);
   };
   try {
-    app.main();
+    if (overrides == null) {
+      app.main();
+    } else {
+      await tester.pumpWidget(
+        ProviderScope(overrides: overrides, child: const BoticarioApp()),
+      );
+    }
     await _settle(tester);
     final router = GoRouter.of(tester.element(find.byType(HomePage)));
 
@@ -146,43 +206,54 @@ Future<void> _runCatalogSmoke(
     _expectHomeAndCleanStack(tester, router);
 
     // Explore activation #1 is explicitly distinct from the nine inert actions.
+    // The first page comes from the API: only assert that it has rows.
     await _tapAndExpectHomeLog(
       tester,
       homeLogs,
       HomeAction.explorePlantsAndOils,
     );
-    await _waitForCatalog(tester);
+    await _waitForFirstPage(tester);
     expect(find.byType(ExplorePage), findsOneWidget);
     _expectPath(router, '/explore');
     expect(_selectedChip(tester, 'Todas'), isTrue);
-    for (final row in _catalogRows) {
-      await _ensureVisible(tester, _catalogRow(row.$1, row.$2));
-    }
 
-    // P04 search is local and normalizes scientific/common spelling; filter and
-    // clear combine without deriving an oil identity from a plant.
+    // The query goes to the API after the debounce; the rows come from it.
     final query = find.byType(TextField);
-    await tester.enterText(query, '  LAVÁNDULA   ANGUSTIFOLIA ');
-    await _settle(tester);
-    expect(find.text('Lavanda'), findsOneWidget);
-    expect(find.text('Manzanilla'), findsNothing);
-    await tester.enterText(query, 'MENTA');
-    await _settle(tester);
-    expect(find.text('Menta'), findsOneWidget);
-    await tester.enterText(query, 'sin coincidencias privadas');
-    await _settle(tester);
-    expect(find.text('No se encontraron plantas'), findsOneWidget);
+    await _search(tester, _searchTerm);
+    await _waitForLavenderRow(tester);
+    await _search(tester, 'zzzz sin coincidencias privadas');
+    await _waitFor(
+      tester,
+      find.text('No se encontraron plantas'),
+      reason: 'empty search result',
+    );
+    await _search(tester, _searchTerm);
+    await _waitForLavenderRow(tester);
+
+    // Oils are not in the catalog: the filter shows its empty state without
+    // asking the API, and Todas brings the list back with the query kept.
+    final requestsBeforeOils = requestCount?.call();
     await _tapVisible(tester, find.text('Aceites'));
     expect(
       find.text('No hay aceites disponibles en este catálogo'),
       findsOneWidget,
     );
-    await _tapVisible(tester, find.byTooltip('Borrar búsqueda'));
-    expect(
-      find.text('No hay aceites disponibles en este catálogo'),
-      findsOneWidget,
-    );
     expect(_selectedChip(tester, 'Aceites'), isTrue);
+    if (requestCount != null) {
+      expect(
+        requestCount(),
+        requestsBeforeOils,
+        reason: 'the Aceites filter must not call the API',
+      );
+    }
+    await _tapVisible(tester, find.text('Todas'));
+    await _waitForLavenderRow(tester);
+    expect(_selectedChip(tester, 'Todas'), isTrue);
+    expect(_textFieldValue(tester), _searchTerm);
+    expect(query, findsOneWidget);
+    await _tapVisible(tester, find.byTooltip('Borrar búsqueda'));
+    await _waitForFirstPage(tester);
+    expect(_textFieldValue(tester), isEmpty);
     await _expectCatalogFooterDisabled(tester, ExplorePage, router);
 
     // P04 Inicio is a real UI activation and clears the stack.
@@ -196,24 +267,25 @@ Future<void> _runCatalogSmoke(
       homeLogs,
       HomeAction.explorePlantsAndOils,
     );
-    await _waitForCatalog(tester);
+    await _waitForFirstPage(tester);
     _expectFreshExplore(tester, router);
     await _tapVisible(tester, find.text('Plantas'));
-    await tester.enterText(find.byType(TextField), 'A');
-    await _settle(tester);
+    await _search(tester, _searchTerm);
+    await _waitForLavenderRow(tester);
     final queryController = tester
         .widget<TextField>(find.byType(TextField))
         .controller!;
     if (simulateKeyboardViewport) {
       await _setViewInsets(tester, const FakeViewPadding(bottom: 1200));
+      // Popping back refocuses the field and Flutter scrolls the caret into
+      // view, which would mask the clamp this diagnostic wants to observe.
+      tester.binding.focusManager.primaryFocus?.unfocus();
+      await _settle(tester);
     } else {
       await _closeKeyboardForStableCapture(tester);
     }
-    final mint = _catalogRow(
-      'Menta',
-      'Mentha x piperita subsp. nothosubsp. piperita',
-    );
-    await _ensureVisible(tester, mint);
+    final lavender = _lavenderRow();
+    await _ensureVisible(tester, lavender);
     final scrollController = _scrollController(tester);
     final beforePassport = _scrollSnapshot(
       tester,
@@ -228,8 +300,9 @@ Future<void> _runCatalogSmoke(
     } else {
       expect(beforePassport.offset, greaterThan(0));
     }
-    await _tapPrepared(tester, mint);
-    _expectPath(router, '/explore/619');
+    await _tapPrepared(tester, lavender);
+    await _waitForPassport(tester);
+    _expectPath(router, _lavenderPath);
     if (simulateKeyboardViewport) {
       // Model Android's keyboard closure after the focused P04 field goes
       // offstage. This is a diagnostic viewport transition, not production UI.
@@ -242,23 +315,28 @@ Future<void> _runCatalogSmoke(
       queryController: queryController,
     );
     expect(find.byType(PlantPassportPage), findsOneWidget);
+    expect(find.text(_lavenderCommon), findsWidgets);
+    expect(find.text(_lavenderScientific), findsWidgets);
+    for (final tab in ['General', 'Propiedades', 'Usos']) {
+      expect(find.widgetWithText(ChoiceChip, tab), findsOneWidget);
+    }
     expect(_selectedChip(tester, 'General'), isTrue);
-    expect(find.text('Menta'), findsWidgets);
-    expect(
-      find.text('Mentha x piperita subsp. nothosubsp. piperita'),
-      findsWidgets,
-    );
-    expect(find.text('No disponible en fuente'), findsWidgets);
+    expect(find.text('Lamiaceae'), findsOneWidget);
     expect(find.text('No aplicable: ficha de planta'), findsOneWidget);
     await _tapVisible(tester, find.text('Propiedades'));
+    expect(_selectedChip(tester, 'Propiedades'), isTrue);
     expect(
-      find.text('sin propiedades medicinales evaluadas en este catálogo'),
+      find.textContaining(
+        'sin propiedades medicinales evaluadas en este catálogo',
+      ),
       findsOneWidget,
     );
     await _tapVisible(tester, find.text('Usos'));
+    expect(_selectedChip(tester, 'Usos'), isTrue);
+    expect(find.text('Registros tradicionales'), findsOneWidget);
     expect(
       find.text(
-        'No hay usos tradicionales con referencia verificable disponibles',
+        'No es una recomendación de uso ni evidencia de eficacia clínica',
       ),
       findsOneWidget,
     );
@@ -281,15 +359,16 @@ Future<void> _runCatalogSmoke(
 
     // Second real P05 return: framework pop route simulates Android Back; it
     // is intentionally not presented as a physical Back-button observation.
-    await _ensureVisible(tester, mint);
+    await _ensureVisible(tester, lavender);
     final frameworkBackBefore = _scrollSnapshot(
       tester,
       stage: 'P04.before-framework-tap.stable-viewport',
       controller: scrollController,
       queryController: queryController,
     );
-    await _tapPrepared(tester, mint);
-    _expectPath(router, '/explore/619');
+    await _tapPrepared(tester, lavender);
+    await _waitForPassport(tester);
+    _expectPath(router, _lavenderPath);
     _scrollSnapshot(
       tester,
       stage: 'P05.after-framework-navigation',
@@ -313,33 +392,18 @@ Future<void> _runCatalogSmoke(
       homeLogs,
       HomeAction.explorePlantsAndOils,
     );
-    await _waitForCatalog(tester);
+    await _waitForFirstPage(tester);
     _expectFreshExplore(tester, router);
 
-    await tester.enterText(find.byType(TextField), 'Lavanda');
-    await _settle(tester);
-    final lavender = _catalogRow('Lavanda', 'Lavandula angustifolia');
-    await _ensureVisible(tester, lavender);
-    await _tapPrepared(tester, lavender);
-    _expectPath(router, '/explore/544');
+    await _search(tester, _searchTerm);
+    await _waitForLavenderRow(tester);
+    await _ensureVisible(tester, _lavenderRow());
+    await _tapPrepared(tester, _lavenderRow());
+    await _waitForPassport(tester);
+    _expectPath(router, _lavenderPath);
     expect(find.byType(PlantPassportPage), findsOneWidget);
-    expect(find.text('Lavanda'), findsWidgets);
-    expect(find.text('Lavandula angustifolia'), findsWidgets);
-    await _tapVisible(tester, find.text('Usos'));
-    expect(find.text('Registros tradicionales'), findsOneWidget);
-    expect(find.text('Carminative'), findsOneWidget);
-    expect(
-      find.text(
-        'Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam.',
-      ),
-      findsWidgets,
-    );
-    expect(
-      find.text(
-        'No es una recomendación de uso ni evidencia de eficacia clínica',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text(_lavenderCommon), findsWidgets);
+    expect(find.text(_lavenderScientific), findsWidgets);
 
     // This finder is evaluated only after asserting P05's route and page.
     await _tapCatalogHome(tester, PlantPassportPage);
@@ -349,7 +413,7 @@ Future<void> _runCatalogSmoke(
       homeLogs,
       HomeAction.explorePlantsAndOils,
     );
-    await _waitForCatalog(tester);
+    await _waitForFirstPage(tester);
     _expectFreshExplore(tester, router);
 
     // Framework pop from P04 returns to Home; this is not a physical Back claim.
@@ -377,11 +441,13 @@ Future<void> _runCatalogSmoke(
       _messages[HomeAction.explorePlantsAndOils]!,
       _messages[HomeAction.explorePlantsAndOils]!,
     ]);
-    if (guardApplicationHttp) {
+    if (httpGuard != null) {
       expect(
-        httpGuard!.attempts,
-        0,
-        reason: 'the application-level guard saw no HttpClient creation; it does not test device radios',
+        httpGuard.denied,
+        isEmpty,
+        reason:
+            'the application-level guard only allows ${httpGuard.allowed}; '
+            'it does not test device radios',
       );
     }
   } finally {
@@ -464,11 +530,16 @@ void _expectRestoredExplore(
 }) {
   expect(find.byType(ExplorePage), findsOneWidget);
   _expectPath(router, '/explore');
-  final queryController = tester
-      .widget<TextField>(find.byType(TextField))
-      .controller!;
-  expect(queryController.text, 'A');
-  expect(_selectedChip(tester, 'Plantas'), isTrue);
+  // The field and chips may be scrolled out of the built range, so the
+  // retained session is read from the captured controller and the provider.
+  final queryController = beforePassport.queryController;
+  expect(queryController.text, _searchTerm);
+  final state = ProviderScope.containerOf(
+    tester.element(find.byType(ExplorePage)),
+  ).read(exploreControllerProvider);
+  expect(state.query, _searchTerm);
+  expect(state.filter, ExploreFilter.plants);
+  expect(_lavenderRow(), findsOneWidget);
   final controller = _scrollController(tester);
   final afterReturn = _scrollSnapshot(
     tester,
@@ -479,7 +550,6 @@ void _expectRestoredExplore(
     queryController: queryController,
   );
   expect(identical(controller, beforePassport.controller), isTrue);
-  expect(identical(queryController, beforePassport.queryController), isTrue);
   if (expectExactOffset) {
     expect(afterReturn.viewInset, beforePassport.viewInset);
     expect(afterReturn.viewport, beforePassport.viewport);
@@ -540,7 +610,7 @@ Future<void> _expectPassportDisabled(
     await tester.tap(disabled, warnIfMissed: false);
     await _settle(tester);
     expect(find.byType(PlantPassportPage), findsOneWidget);
-    _expectPath(router, '/explore/619');
+    _expectPath(router, _lavenderPath);
   }
   expect(homeLogs, hasLength(beforeLogs));
   expect(
@@ -558,8 +628,8 @@ Future<void> _tapCatalogHome(WidgetTester tester, Type pageType) async {
   await _tapVisible(tester, home);
 }
 
-Finder _catalogRow(String common, String scientific) =>
-    find.bySemanticsLabel('$common, $scientific');
+Finder _lavenderRow() =>
+    find.bySemanticsLabel('$_lavenderCommon, $_lavenderScientific');
 
 String _textFieldValue(WidgetTester tester) =>
     (tester.widget<TextField>(find.byType(TextField)).controller!).text;
@@ -654,28 +724,78 @@ Future<void> _closeKeyboardForStableCapture(WidgetTester tester) async {
 Future<void> _settle(WidgetTester tester) =>
     tester.pumpAndSettle(const Duration(milliseconds: 100));
 
-Future<void> _waitForCatalog(WidgetTester tester) async {
-  // Completes the same bundled asset through the real bundle channel; unlike a
-  // timed delay, this is deterministic and lets its completion reach FakeAsync.
-  await tester.runAsync(
-    () => rootBundle.loadString('assets/data/plant_catalog.json'),
-  );
-  const maxFrames = 30;
+/// Types [text] and waits past the debounce so the request is sent.
+Future<void> _search(WidgetTester tester, String text) async {
+  // The field is the first item of the scroll view; an earlier tap may have
+  // scrolled it out of the built range.
+  final scroll = find.byType(CustomScrollView);
+  if (scroll.evaluate().isNotEmpty) {
+    final controller = _scrollController(tester);
+    if (controller.hasClients && controller.offset != 0) {
+      controller.jumpTo(0);
+      await tester.pump();
+    }
+  }
+  await tester.enterText(find.byType(TextField), text);
+  await tester.pump(exploreDebounce + const Duration(milliseconds: 50));
+}
+
+/// Pumps frames until [finder] matches. The wait is real time on a device
+/// (the API takes a while) and fake time in a widget test.
+Future<void> _waitFor(
+  WidgetTester tester,
+  Finder finder, {
+  required String reason,
+  Duration timeout = _networkTimeout,
+}) async {
+  const step = Duration(milliseconds: 100);
   for (
-    var frame = 0;
-    frame < maxFrames && find.text('Lavanda').evaluate().isEmpty;
-    frame++
+    var waited = Duration.zero;
+    finder.evaluate().isEmpty && waited < timeout;
+    waited += step
   ) {
-    await tester.pump(const Duration(milliseconds: 16));
+    await tester.pump(step);
   }
   expect(
-    find.text('Lavanda'),
-    findsOneWidget,
+    finder,
+    findsWidgets,
     reason:
-        'catalog state: loading=${find.text("Cargando catálogo...").evaluate().length}, '
-        'error=${find.text("No se pudo cargar el catálogo local.").evaluate().length}',
+        'timed out waiting for $reason; '
+        'loading=${find.byKey(const ValueKey('catalog-loading')).evaluate().length}, '
+        'error=${find.byKey(const ValueKey('catalog-error')).evaluate().length}, '
+        'passportLoading=${find.text('Cargando planta...').evaluate().length}',
   );
+  await _settle(tester);
 }
+
+/// The first page has at least one plant row; it never assumes which ones.
+Future<void> _waitForFirstPage(WidgetTester tester) async {
+  await _waitFor(
+    tester,
+    find.descendant(
+      of: find.byType(ExplorePage),
+      matching: find.byIcon(Icons.local_florist),
+    ),
+    reason: 'the first catalog page',
+  );
+  expect(find.byKey(const ValueKey('catalog-loading')), findsNothing);
+  expect(find.byKey(const ValueKey('catalog-error')), findsNothing);
+}
+
+Future<void> _waitForLavenderRow(WidgetTester tester) async {
+  await _waitFor(
+    tester,
+    find.text(_lavenderCommon),
+    reason: 'the "$_lavenderCommon" row for "$_searchTerm"',
+  );
+  expect(find.text(_lavenderScientific), findsWidgets);
+}
+
+Future<void> _waitForPassport(WidgetTester tester) => _waitFor(
+  tester,
+  find.byType(PlantPassportPage),
+  reason: 'the plant passport',
+);
 
 Future<void> _tapAndExpectHomeLog(
   WidgetTester tester,
@@ -727,11 +847,32 @@ Future<void> _tapPrepared(WidgetTester tester, Finder finder) async {
   await _settle(tester);
 }
 
-class _DenyHttpClientFactory {
-  var attempts = 0;
+/// Lets `HttpClient` connect only to the API base URL host and port. Any other
+/// destination is recorded in [denied] and fails with a clear error.
+class _AllowOnlyApiHostGuard {
+  _AllowOnlyApiHostGuard(this._base);
+
+  final Uri _base;
+  final denied = <String>[];
+
+  String get allowed => '${_base.host}:${_base.port}';
 
   HttpClient create(SecurityContext? context) {
-    attempts++;
-    throw StateError('HTTP forbidden by offline integration harness');
+    // The root zone has no HttpOverrides, so this builds the real client
+    // instead of recursing into this factory.
+    final client = Zone.root.run(() => HttpClient(context: context));
+    client.connectionFactory = (uri, proxyHost, proxyPort) async {
+      if (uri.host != _base.host || uri.port != _base.port) {
+        final target = '${uri.host}:${uri.port}';
+        denied.add(target);
+        throw StateError(
+          'HTTP to $target forbidden by the smoke harness: only $allowed '
+          '(API_BASE_URL) is allowed',
+        );
+      }
+      // For https the client upgrades this plain socket itself.
+      return Socket.startConnect(proxyHost ?? uri.host, proxyPort ?? uri.port);
+    };
+    return client;
   }
 }

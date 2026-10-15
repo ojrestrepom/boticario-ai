@@ -1,22 +1,28 @@
-import 'package:flutter/services.dart';
+import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../integration_test/catalog_smoke.dart';
+import '../support/fake_catalog_api.dart';
 
 void main() {
-  setUpAll(() async {
-    TestWidgetsFlutterBinding.ensureInitialized();
-    // Resolve the real bundle asset before the widget test's FakeAsync zone.
-    await rootBundle.loadString('assets/data/plant_catalog.json');
-  });
-
+  // The shared flow mounts the real app over a fake HTTP client serving the
+  // fixtures: no network, no backend, no asset. This is contract evidence on
+  // the host, not Android QA; the HTTP guard belongs to the integration test.
   testWidgets(
-    'shared real-app P06 and catalog smoke passes host preflight (not Android evidence)',
+    'shared real-app smoke flow passes against the fake catalog API',
     (tester) async {
-      // This host binding preloads the bundle via its test asset channel. It
-      // intentionally does not run the app-level HTTP guard or claim network
-      // verification; Android integration enables that guard separately.
-      await runCatalogSmoke(tester, guardApplicationHttp: false);
+      final api = FakeCatalogApi();
+      await runCatalogSmoke(
+        tester,
+        overrides: [httpClientProvider.overrideWithValue(api.client)],
+        guardApplicationHttp: false,
+        requestCount: () => api.requests.length,
+      );
+      expect(api.requests, isNotEmpty);
+      for (final request in api.requests) {
+        expect(request.url.path, startsWith('/v1/plants'));
+      }
     },
   );
 
@@ -30,17 +36,17 @@ void main() {
         () => tester.view.devicePixelRatio = originalDevicePixelRatio,
       );
       // 360x1000 logical dp represents a tall phone. The 400dp simulated IME
-      // makes Menta require scrolling; its removal makes the same list fit.
+      // shrinks the viewport before the passport opens and its removal restores
+      // it, so a retained scroll must clamp to the new extent.
       tester.view.physicalSize = const Size(1080, 3000);
       tester.view.devicePixelRatio = 3;
-      // Deliberately simulate the Android hypothesis: P04 is constrained by an
-      // IME before push, then P05 has the inset removed. The shared flow still
-      // requires identical controllers/query/filter and verifies the exact
-      // clamp to the new extent; it is not Android evidence.
+      final api = FakeCatalogApi();
       await runCatalogSmoke(
         tester,
+        overrides: [httpClientProvider.overrideWithValue(api.client)],
         guardApplicationHttp: false,
         simulateKeyboardViewport: true,
+        requestCount: () => api.requests.length,
       );
     },
   );

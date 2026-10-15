@@ -1,0 +1,60 @@
+# cargo test --workspace (backend/)
+test result: ok. 59 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 84 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+# nombres de pruebas relevantes (todas ok)
+test http::tests::every_v1_endpoint_works_with_non_dataset_sources ... ok
+test openapi::tests::document_declares_the_expected_paths ... ok
+test openapi::tests::limit_parameter_matches_the_pagination_constants ... ok
+test openapi::tests::generation_is_deterministic ... ok
+test openapi::tests::versioned_document_matches_the_generated_one ... ok
+test http::tests::detail_never_contains_a_sources_key ... ok
+test http::tests::detail_without_uses_or_family ... ok
+test http::tests::family_is_text_or_null ... ok
+test http::tests::serves_the_openapi_document_outside_v1 ... ok
+test repository::tests::detail_without_uses_or_family ... ok
+test repository::tests::items_carry_common_names_and_family ... ok
+test http::tests::sources_endpoint_no_longer_exists ... ok
+test api_serves_a_catalog_built_from_two_fixture_sources ... ok
+test core_api_and_openapi_do_not_name_any_dataset ... ok
+test consolidate::tests::no_family_is_none ... ok
+test consolidate::tests::merges_shared_plant_with_attribution ... ok
+test consolidate::tests::lower_priority_fills_missing_family ... ok
+test consolidate::tests::single_source_plant_keeps_its_attribution ... ok
+test sources::tests::changing_config_changes_resolved_sources ... ok
+test sources::tests::default_registry_resolves_the_real_sources_toml ... ok
+test sources::tests::duplicate_adapter_is_rejected ... ok
+test sources::tests::load_reports_missing_file ... ok
+test sources::tests::parses_example ... ok
+test sources::tests::project_config_is_valid ... ok
+test sources::tests::rejects_invalid_configs ... ok
+test sources::tests::resolve_orders_by_priority ... ok
+test sources::tests::unknown_source_is_named ... ok
+test build::tests::config_selects_sources ... ok
+test usda::tests::identity_family_and_literal_taxon ... ok
+test build::tests::two_sources_in_one_raw_db_are_attributed ... ok
+test write::tests::stores_attribution_and_links ... ok
+# cargo test --workspace -- --ignored
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 59 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+test lavender_is_found_in_the_real_catalog ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 84 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test asset_plants_match_the_built_catalog ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+test real_catalog_matches_reference_values ... ok
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+# fmt y clippy: sin diferencias ni avisos (exit 0)

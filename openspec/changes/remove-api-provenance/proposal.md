@@ -24,6 +24,7 @@ Ninguna.
 ### Modified Capabilities
 
 - `catalog-api`: el detalle de planta deja de indicar la fuente de cada dato y la familia es un texto; se elimina «Consulta de fuentes»; la independencia de la fuente se verifica con una respuesta consolidada sin origen; la regla de compatibilidad en `/v1` admite una excepción explícita mientras no haya consumidores.
+- `backend-container`: los escenarios de verificación de la imagen («Servir sin red» y «Búsqueda real») dejan de usar `/v1/sources` y pasan a usar el detalle de planta; el comportamiento de la imagen no cambia.
 
 `catalog-ingest` no cambia: sus requisitos «Consolidación multi-fuente con atribución», «Resolución de campos de valor único» y «Procedencia de cada dato» hablan únicamente de lo que contiene la base, que no se modifica.
 
@@ -31,6 +32,7 @@ Ninguna.
 
 - Código: `catalog-core` (`domain.rs`, `repository.rs`), `catalog-ingest` (`consolidate.rs`, `write.rs` y el nuevo hogar de `Attributed`), `catalog-api` (`repository.rs`, `dto.rs`, `http.rs`, `async_catalog.rs`, `openapi.rs`, `test_support.rs` y los tests `fixture_end_to_end.rs`, `shutdown.rs` y `source_independence.rs`) y `backend/openapi.json`.
 - Contrato: cambio incompatible de `/v1` sin consumidores conocidos.
+- Specs: además de `catalog-api`, el delta de `backend-container` ajusta dos escenarios de verificación que usaban `/v1/sources`.
 - Datos: ninguno. La base y su hash no cambian.
 - Documentación: `README.md`, `backend/README.md`, `docs/data/modelo-de-datos.md` y el `## Purpose` de `openspec/specs/catalog-api/spec.md`.
 - Fuera de alcance: la lógica o IA de selección de información y cómo atribuir un dataset con licencia que exija atribución (CC BY u otra), que se resolverá entonces con un dato neutro de créditos y no con una lista de datasets.

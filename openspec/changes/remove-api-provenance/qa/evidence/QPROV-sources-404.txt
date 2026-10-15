@@ -1,0 +1,29 @@
+# GET /v1/sources (nativo, puerto 18095)
+HTTP/1.1 404 Not Found
+content-type: application/problem+json
+content-length: 123
+date: Thu, 15 Oct 2026 00:52:22 GMT
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/sources"}
+# HEAD /v1/sources
+HTTP/1.1 404 Not Found
+content-type: application/problem+json
+content-length: 123
+date: Thu, 15 Oct 2026 00:52:22 GMT
+# POST /v1/sources
+HTTP/1.1 404 Not Found
+content-type: application/problem+json
+content-length: 123
+date: Thu, 15 Oct 2026 00:52:22 GMT
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/sources"}
+# GET /v1/sources/ y /v1/sources/usda
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/sources/"}
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/sources/usda"}
+# Referencia: ruta desconocida /v1/nada
+HTTP/1.1 404 Not Found
+content-type: application/problem+json
+content-length: 120
+date: Thu, 15 Oct 2026 00:52:22 GMT
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/nada"}

@@ -1,0 +1,25 @@
+## rederive en copia (data-dir en scratch)
+fuentes: 1
+plantas: 2376
+hash: 48d71b6b0221787add6a8474b6a6b1b6567915d435cb3d1660e8335da3a5812d
+tiempo: 246.30ms
+## build desde el ZIP cacheado (data-dir en scratch)
+fuentes: 1
+plantas: 2376
+hash: 48d71b6b0221787add6a8474b6a6b1b6567915d435cb3d1660e8335da3a5812d
+tiempo: 575.48ms
+## SHA-256 de catalog.db
+3b784dc1eb1569f1d8611848e19ca5733f8b7148c30cf1db3e5102bfb99d01dd  data/build/catalog.db
+3b784dc1eb1569f1d8611848e19ca5733f8b7148c30cf1db3e5102bfb99d01dd  ddata/build/catalog.db
+3b784dc1eb1569f1d8611848e19ca5733f8b7148c30cf1db3e5102bfb99d01dd  ddata2/build/catalog.db
+3b784dc1eb1569f1d8611848e19ca5733f8b7148c30cf1db3e5102bfb99d01dd  image-catalog.db
+## filas de las tablas de atribucion
+source: 1
+plant_source_id: 2376
+plant_name_source: 5296
+plant_part_source: 6740
+plant_use_source: 18931
+reference_source: 32
+## fixtures de dos fuentes: catalog.db con codigo nuevo vs. codigo anterior (cd48f68)
+9c08c35033bfa8ac5fd693dc14646c3d481f6ad9d37035a19ec640b524a617f6  fixdata/build/catalog.db
+9c08c35033bfa8ac5fd693dc14646c3d481f6ad9d37035a19ec640b524a617f6  fixdata-old/build/catalog.db

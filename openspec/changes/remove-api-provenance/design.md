@@ -67,6 +67,10 @@ Alternativas descartadas: (a) publicar `/v2` y mantener `/v1` con la procedencia
 
 Sus requisitos «Consolidación multi-fuente con atribución», «Resolución de campos de valor único» y «Procedencia de cada dato» hablan de lo que la base contiene y registra, no de lo que la API entrega. Como la base no cambia, no necesitan delta.
 
+### 8. Escenarios de `backend-container` ajustados a endpoints vigentes
+
+La spec `backend-container` referenciaba `GET /v1/sources` en los escenarios «Servir sin red» y «Búsqueda real». Lo detectó la QA: al archivar este cambio esos escenarios serían insatisfacibles porque el endpoint responde 404. El delta los ajusta para usar `/v1/plants/lavandula-angustifolia` (y el listado), sin cambiar el comportamiento de la imagen: sigue sirviendo sin red y con datos reales.
+
 ## Risks / Trade-offs
 
 - [Cambio incompatible del contrato de `/v1`] → no hay consumidores (la app Flutter no usa la API) y la excepción queda escrita en la spec; cuando exista el primer cliente, la regla estricta vuelve a aplicar.

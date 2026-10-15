@@ -1,6 +1,6 @@
 # Modelo de datos del catálogo y cómo añadir un dataset
 
-Esta guía describe cómo el backend (`backend/`) convierte datasets de terceros en la base neutral que sirve la API, y los pasos para incorporar un dataset nuevo. La procedencia y la curación del asset que hoy usa la app están en la [guía del catálogo USDA](usda-catalog.md); el contrato HTTP está en [`backend/openapi.json`](../../backend/openapi.json). Para ejecutar el backend con Docker, ver el [README de la raíz](../../README.md#backend-catálogo-y-api); los comandos nativos para construir el catálogo, ejecutar la API y verificar están en [`backend/README.md`](../../backend/README.md).
+Esta guía describe cómo el backend (`backend/`) convierte datasets de terceros en la base neutral que sirve la API, y los pasos para incorporar un dataset nuevo. La procedencia del dataset USDA y el criterio de selección que sigue el adaptador están en la [guía de la fuente USDA](usda-catalog.md); el contrato HTTP está en [`backend/openapi.json`](../../backend/openapi.json). Para ejecutar el backend con Docker, ver el [README de la raíz](../../README.md#backend-catálogo-y-api); los comandos nativos para construir el catálogo, ejecutar la API y verificar están en [`backend/README.md`](../../backend/README.md).
 
 ## 1. Por qué tres capas
 
@@ -88,7 +88,7 @@ Añadir una fuente no cambia el esquema ni la API. Los pasos son:
 
 ### Ejemplo de referencia: el adaptador de USDA
 
-`catalog-ingest/src/usda.rs` implementa `UsdaAdapter` para el ZIP de USDA Dr. Duke (CC0), con codificación Windows-1252 y todos los CSV importados (`RawFiles::AllCsv`), aunque la derivación solo lee seis tablas. Su criterio de curación, que sigue el de la [guía del catálogo USDA](usda-catalog.md):
+`catalog-ingest/src/usda.rs` implementa `UsdaAdapter` para el ZIP de USDA Dr. Duke (CC0), con codificación Windows-1252 y todos los CSV importados (`RawFiles::AllCsv`), aunque la derivación solo lee seis tablas. Su criterio de curación, que sigue el de la [guía de la fuente USDA](usda-catalog.md):
 
 - Una planta por fila de `FNFTAX`, con `FNFNUM` como identificador en la fuente y `TAXON` como nombre científico.
 - Los nombres comunes salen de `COMMON_NAMES` y las partes de `FARMACY_NEW` cruzada con `PARTS` por código.

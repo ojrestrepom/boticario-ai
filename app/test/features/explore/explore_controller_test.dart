@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:boticario_ai/features/catalog/data/catalog_client_exception.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_repository.dart';
-import 'package:boticario_ai/features/catalog/domain/catalog_plant.dart';
+import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_summary.dart';
 import 'package:boticario_ai/features/explore/application/explore_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

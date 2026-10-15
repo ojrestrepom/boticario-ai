@@ -32,9 +32,6 @@ class CommonName {
 }
 
 /// One entry of `GET /v1/plants`.
-///
-/// Part of the new API-backed catalog models; the old asset-backed models in
-/// `plant.dart` are removed in group 4 of `connect-app-to-backend`.
 @immutable
 class PlantSummary {
   PlantSummary({

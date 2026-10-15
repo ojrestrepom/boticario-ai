@@ -1,75 +1,123 @@
-import 'plant_catalog_provenance.dart';
+import 'package:flutter/foundation.dart';
 
-enum PlantKind { plant }
+import 'plant_summary.dart';
 
-/// An explicitly registered plant part with its source identifier.
-class PlantPart {
-  PlantPart({
-    required this.name,
-    required this.sourceCode,
-    required Iterable<SourceRecord> sources,
-  }) : sources = List.unmodifiable(sources);
+enum PlantNameKind { scientific, common }
 
-  final String name;
-  final String sourceCode;
+@immutable
+class PlantName {
+  const PlantName({
+    required this.text,
+    required this.kind,
+    required this.language,
+  });
 
-  /// Source rows linking the plant to this part and defining the part.
-  final List<SourceRecord> sources;
+  final String text;
+  final PlantNameKind kind;
+  final String language;
+
+  @override
+  bool operator ==(Object other) =>
+      other is PlantName &&
+      other.text == text &&
+      other.kind == kind &&
+      other.language == language;
+
+  @override
+  int get hashCode => Object.hash(text, kind, language);
 }
 
-/// Immutable catalog entry. Null optional fields mean unavailable, not
-/// inferred or editorially filled content.
+@immutable
+class UseReference {
+  const UseReference({required this.id, required this.citation});
+
+  final String id;
+  final String citation;
+
+  @override
+  bool operator ==(Object other) =>
+      other is UseReference && other.id == id && other.citation == citation;
+
+  @override
+  int get hashCode => Object.hash(id, citation);
+}
+
+@immutable
+class PlantUse {
+  const PlantUse({
+    required this.activity,
+    required this.language,
+    required this.reference,
+  });
+
+  final String activity;
+  final String language;
+  final UseReference reference;
+
+  @override
+  bool operator ==(Object other) =>
+      other is PlantUse &&
+      other.activity == activity &&
+      other.language == language &&
+      other.reference == reference;
+
+  @override
+  int get hashCode => Object.hash(activity, language, reference);
+}
+
+/// Detail of `GET /v1/plants/{id}`.
+@immutable
 class Plant {
   Plant({
-    required this.usdaPlantId,
-    required this.editorialCommonName,
-    required this.sourceScientificName,
-    this.kind = PlantKind.plant,
-    this.origin,
-    this.description,
-    this.identitySource,
-    Iterable<PlantPart> parts = const [],
-    Iterable<TraditionalUse> traditionalUses = const [],
-    this.propertiesNotEvaluated = true,
-  }) : parts = List.unmodifiable(parts),
-       traditionalUses = List.unmodifiable(traditionalUses);
+    required this.id,
+    required this.scientificName,
+    required this.family,
+    required List<PlantName> names,
+    required List<String> parts,
+    required List<PlantUse> uses,
+  }) : names = List.unmodifiable(names),
+       parts = List.unmodifiable(parts),
+       uses = List.unmodifiable(uses);
 
-  /// Stable internal identity corresponding to the source FNFNUM.
-  final int usdaPlantId;
-  final String editorialCommonName;
-  final String sourceScientificName;
-  final PlantKind kind;
-  final String? origin;
-  final String? description;
-  final SourceRecord? identitySource;
-  final List<PlantPart> parts;
-  final List<TraditionalUse> traditionalUses;
-  final bool propertiesNotEvaluated;
-}
+  final String id;
+  final String scientificName;
+  final String? family;
+  final List<PlantName> names;
 
-/// Ordered, immutable catalog with unambiguous nullable ID lookup.
-class PlantCatalog {
-  PlantCatalog({required Iterable<Plant> plants, required this.provenance})
-    : plants = List.unmodifiable(plants) {
-    final ids = <int>{};
-    for (final plant in this.plants) {
-      if (!ids.add(plant.usdaPlantId)) {
-        throw ArgumentError.value(
-          plant.usdaPlantId,
-          'plants',
-          'Plant IDs must be unique',
-        );
-      }
-    }
-  }
+  /// Part labels, in the order the API sent them.
+  final List<String> parts;
+  final List<PlantUse> uses;
 
-  final List<Plant> plants;
-  final PlantCatalogProvenance provenance;
+  List<PlantName> get commonNames => [
+    for (final name in names)
+      if (name.kind == PlantNameKind.common) name,
+  ];
 
-  Plant? findById(int usdaPlantId) {
-    for (final plant in plants) {
-      if (plant.usdaPlantId == usdaPlantId) return plant;
-    }
-    return null;
-  }
+  DisplayNames get displayNames => displayNamesFor(
+    scientificName: scientificName,
+    commonNames: [for (final name in commonNames) name.text],
+  );
+
+  String get primaryName => displayNames.primary;
+  String? get secondaryName => displayNames.secondary;
+
+  @override
+  bool operator ==(Object other) =>
+      other is Plant &&
+      other.id == id &&
+      other.scientificName == scientificName &&
+      other.family == family &&
+      listEquals(other.names, names) &&
+      listEquals(other.parts, parts) &&
+      listEquals(other.uses, uses);
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    scientificName,
+    family,
+    Object.hashAll(names),
+    Object.hashAll(parts),
+    Object.hashAll(uses),
+  );
 }

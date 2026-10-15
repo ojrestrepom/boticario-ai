@@ -1,4 +1,4 @@
-import 'package:boticario_ai/features/catalog/domain/catalog_plant.dart';
+import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_summary.dart';
 import 'package:flutter_test/flutter_test.dart';
 

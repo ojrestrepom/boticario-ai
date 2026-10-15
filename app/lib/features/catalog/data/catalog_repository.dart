@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-import '../domain/catalog_plant.dart';
+import '../domain/plant.dart';
 import '../domain/plant_summary.dart';
 import 'catalog_api_config.dart';
 import 'catalog_client_exception.dart';

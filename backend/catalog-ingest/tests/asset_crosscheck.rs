@@ -1,6 +1,6 @@
-//! Compara las cinco plantas del asset de la app con la base construida.
+//! Compara las cinco plantas del fixture `tests/fixtures/plant_catalog.json` con la base construida.
 //!
-//! Está marcado `#[ignore]` porque necesita archivos que no están en el árbol de tests: `data/build/catalog.db` (resultado de `build`, con el ZIP de USDA descargado) y `app/assets/data/plant_catalog.json`. Un test normal debe pasar sin red y sin `data/`. Ejecútalo con `cargo test -p catalog-ingest --test asset_crosscheck -- --ignored --nocapture`.
+//! Está marcado `#[ignore]` porque necesita `data/build/catalog.db`, que no está en el árbol de tests (resultado de `build`, con el ZIP de USDA descargado). El fixture JSON sí vive dentro del crate. Un test normal debe pasar sin red y sin `data/`. Ejecútalo con `cargo test -p catalog-ingest --test asset_crosscheck -- --ignored --nocapture`.
 
 use std::collections::BTreeSet;
 use std::path::{Path, PathBuf};
@@ -18,16 +18,14 @@ fn text(value: &Value) -> String {
 }
 
 #[test]
-#[ignore = "necesita data/build/catalog.db y app/assets/data/plant_catalog.json"]
+#[ignore = "necesita data/build/catalog.db"]
 fn asset_plants_match_the_built_catalog() {
     let db = repo_root().join("data/build/catalog.db");
     assert!(db.exists(), "falta {}: ejecuta `build` antes", db.display());
     let mut conn = SqliteConnection::establish(&format!("file:{}?mode=ro", db.display())).unwrap();
 
-    let asset: Value = serde_json::from_str(
-        &std::fs::read_to_string(repo_root().join("app/assets/data/plant_catalog.json")).unwrap(),
-    )
-    .unwrap();
+    let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/plant_catalog.json");
+    let asset: Value = serde_json::from_str(&std::fs::read_to_string(fixture).unwrap()).unwrap();
     // Citas del asset por id de referencia.
     let asset_citations: std::collections::BTreeMap<String, String> = asset["references"]
         .as_array()

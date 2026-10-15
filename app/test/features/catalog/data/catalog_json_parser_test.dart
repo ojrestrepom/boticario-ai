@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:boticario_ai/features/catalog/data/catalog_client_exception.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
-import 'package:boticario_ai/features/catalog/domain/catalog_plant.dart';
+import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../support/fake_catalog_api.dart';

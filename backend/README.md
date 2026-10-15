@@ -83,7 +83,7 @@ mise exec -- cargo clippy --all-targets --workspace -- -D warnings
 mise exec -- cargo test --workspace
 ```
 
-Los tests marcados `#[ignore]` necesitan la salida real de `build` en `data/build/` (y, uno de ellos, `app/assets/data/plant_catalog.json`). También desde `backend/`:
+Los tests marcados `#[ignore]` necesitan la salida real de `build` en `data/build/` (el fixture JSON que compara uno de ellos ya vive en `catalog-ingest/tests/fixtures/`). También desde `backend/`:
 
 ```bash
 mise exec -- cargo test --workspace -- --ignored

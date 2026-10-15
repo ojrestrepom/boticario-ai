@@ -10,15 +10,16 @@ Implementado:
 
 - Pantallas Inicio, Explorar plantas, Pasaporte de planta y Buscar por objetivo, con las rutas `/`, `/explore`, `/explore/:plantId` y `/goals`.
 - Buscar por objetivo es solo visual: muestra las categorías de objetivo, pero no selecciona ni devuelve resultados.
-- Catálogo local y sin conexión con cinco plantas (Lavanda, Eucalipto, Romero, Manzanilla y Menta), tomadas del snapshot USDA Dr. Duke (CC0). La procedencia y los límites están en la [guía del catálogo USDA](docs/data/usda-catalog.md).
-- La búsqueda por nombre ignora mayúsculas y acentos.
+- Explorar y el Pasaporte consumen por HTTP el catálogo del backend: 2.376 plantas del dataset USDA Dr. Duke's Phytochemical and Ethnobotanical Databases (CC0). Explorar pagina con scroll infinito de 50 en 50. El nombre principal es el primer nombre común que entrega la API (hoy en inglés o `und`; ninguna planta tiene todavía nombre en español) y el secundario es el científico; si no hay nombre común se muestra solo el científico. Sin backend o sin conectividad, Explorar y el Pasaporte muestran un error con «Reintentar»; Inicio y Buscar por objetivo siguen funcionando. La fuente y sus límites están en la [guía de la fuente USDA](docs/data/usda-catalog.md).
+- La búsqueda por nombre la resuelve la API (`q`), que normaliza mayúsculas y acentos.
+- El Pasaporte muestra la familia (o «No disponible en fuente»), los nombres comunes con su idioma, y las partes y los usos con su referencia bibliográfica.
 - Los usos del Pasaporte son registros tradicionales con referencia, no consejo ni evidencia clínica; no hay dosis ni recomendaciones.
-- Existe un backend de catálogo en `backend/`: una ingesta en Rust que construye una base neutral desde USDA Dr. Duke y una API HTTP de solo lectura. La app todavía no lo consume.
+- Existe un backend de catálogo en `backend/`: una ingesta en Rust que construye una base neutral desde USDA Dr. Duke y una API HTTP de solo lectura.
 
 No implementado:
 
 - Recomendaciones, formulación de mezclas, identificación con cámara y chat.
-- Integración de la app con el backend, login y persistencia de usuario.
+- Login y persistencia de usuario.
 - Favoritos, Historial y Perfil se ven en la barra inferior, pero no hacen nada.
 
 Los proveedores de servicios están por definir. La distribución inicial prevista es Google Play (Android); iOS es una posibilidad futura.
@@ -40,7 +41,7 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 - `app/`: aplicación Flutter.
 - `backend/`: workspace de Cargo con tres crates, con su guía de desarrollo en [`backend/README.md`](backend/README.md). `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` descarga los insumos, importa la capa cruda, consolida las fuentes y escribe la base. `catalog-api` sirve esa base por HTTP.
 - `data/`: la migración del esquema neutral (`data/migrations/`), la configuración de fuentes (`data/sources.toml`) y las salidas generadas e ignoradas por git `data/.cache/` y `data/build/`.
-- `docs/`: canvas, mockups y procedencia de los datos.
+- `docs/`: canvas, mockups y documentación de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
 - `.github/workflows/`: integración continua.
 - `.flutter-version`: versión fijada del SDK de Flutter.
@@ -72,6 +73,8 @@ Revisar y aceptar las licencias pendientes de forma interactiva. Verificar que `
 
 ### 2. Abrir y ejecutar en Android Studio
 
+La app necesita el backend en marcha: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; el HTTP en claro solo está habilitado en builds `debug` y `profile`, no en `release`, que usará HTTPS cuando haya un backend desplegado.
+
 Abrir `app/` como proyecto (su raíz tiene `pubspec.yaml`). Configurar la ruta raíz del SDK de Flutter en el plugin de Flutter y elegir el dispositivo o emulador Android en la selección de dispositivo. En la terminal integrada, situada en `app/`:
 
 ```bash
@@ -80,11 +83,11 @@ flutter analyze
 flutter run -d ID_DEL_DISPOSITIVO
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`. Para un dispositivo físico: `flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`.
 
 ### 3. Pruebas
 
-La app incluye pruebas unit y de widget en `app/test/`. Desde `app/`:
+La app incluye pruebas unit y de widget en `app/test/`. No usan red: emplean un cliente HTTP falso y fixtures en [`app/test/fixtures/api/`](app/test/fixtures/api/). Desde `app/`:
 
 ```bash
 flutter test test/
@@ -103,7 +106,7 @@ Las fixtures de tipografía Roboto usadas por pruebas de layout están en [`app/
 
 ### 4. Smoke Android
 
-El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`. Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con búsqueda, filtros y retorno a Inicio.
+El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz). Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «English Lavender» / «Lavandula angustifolia»), filtros y retorno a Inicio.
 
 Desde `app/`:
 
@@ -111,7 +114,7 @@ Desde `app/`:
 flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Preparar y verificar previamente el SDK Android y sus licencias.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Con un dispositivo físico, añadir `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`. Preparar y verificar previamente el SDK Android y sus licencias.
 
 ### 5. Comandos de calidad
 
@@ -126,7 +129,7 @@ flutter test test/
 
 ## Backend: catálogo y API
 
-El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](docs/data/modelo-de-datos.md). Para ejecutarlo solo hace falta Docker.
+El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](docs/data/modelo-de-datos.md). La app lo consume desde el emulador Android en `http://10.0.2.2:8080`. `/v1` solo admite cambios aditivos, porque la app ya es su primer consumidor. Para ejecutarlo solo hace falta Docker.
 
 ### Prerrequisito
 
@@ -213,11 +216,11 @@ Pendiente: el repositorio es un monorepo con `app/` exclusiva de Flutter, `backe
 
 ## Documentación
 
-Orden de lectura sugerido: Canvas, mockups, guía del catálogo USDA y guía del modelo de datos.
+Orden de lectura sugerido: Canvas, mockups, guía de la fuente USDA y guía del modelo de datos.
 
 - Canvas y negocio: [índice](docs/canvas/README.md) y [modelo de negocio](docs/canvas/modelo-de-negocio.md).
 - Mockups: [índice](docs/mockups/README.md), [pantallas](docs/mockups/pantallas.md) y [navegación](docs/mockups/navegacion.md).
-- Datos: [guía del catálogo USDA](docs/data/usda-catalog.md) y [guía del modelo de datos](docs/data/modelo-de-datos.md).
+- Datos: [guía de la fuente USDA](docs/data/usda-catalog.md) y [guía del modelo de datos](docs/data/modelo-de-datos.md).
 - Desarrollo del backend: [`backend/README.md`](backend/README.md), con el flujo nativo con mise y cargo.
 
 Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus informes de QA, está en `openspec/changes/archive/`.
@@ -228,7 +231,7 @@ Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus i
 docs/
   canvas/              índice y modelo de negocio
   mockups/             índice, pantallas y navegación
-  data/               catálogo USDA (procedencia y curación) y modelo de datos del backend
+  data/               fuente USDA (procedencia y criterio) y modelo de datos del backend
   Canvas.png           canvas original
   mockups.png          lámina original de mockups
 ```

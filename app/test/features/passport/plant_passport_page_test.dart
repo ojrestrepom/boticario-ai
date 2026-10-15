@@ -5,7 +5,7 @@ import 'dart:ui' as ui;
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
-import 'package:boticario_ai/features/catalog/domain/catalog_plant.dart';
+import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';

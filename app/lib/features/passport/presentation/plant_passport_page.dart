@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../catalog/data/catalog_client_exception.dart';
-import '../../catalog/domain/catalog_plant.dart';
+import '../../catalog/domain/plant.dart';
 import '../application/plant_detail_provider.dart';
 
 const _green = Color(0xFF236335);

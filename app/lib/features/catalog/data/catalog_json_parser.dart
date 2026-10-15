@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../domain/catalog_plant.dart';
+import '../domain/plant.dart';
 import '../domain/plant_summary.dart';
 import 'catalog_client_exception.dart';
 

@@ -113,6 +113,10 @@ Por qué: el guard sigue protegiendo contra tráfico a hosts inesperados, y el t
 
 `catalog-api` no lleva delta, pero con este cambio la API tiene su primer consumidor: la excepción de «Compatibilidad dentro de `/v1`» (cambios incompatibles mientras no haya consumidores) deja de aplicar y, desde aquí, `/v1` solo admite cambios aditivos. El parseo que ignora campos desconocidos es la contrapartida del cliente.
 
+### 15. Barra inferior del Pasaporte adaptada al texto grande (desvío por DEF-01 de QA)
+
+QA encontró un defecto preexistente (anterior a este cambio) contra la spec vigente de `plant-passport`: con el texto del sistema al 200 % en 360x640 dp, la barra inferior del Pasaporte partía «Favorit/os» e «Histori/al» en dos líneas. El usuario decidió corregirlo dentro de este cambio, dentro de la tarea 7.5. La solución replica la adaptación 2x2 de Explorar (`Wrap` con cada elemento a la mitad del ancho cuando la escala del texto es ≥ 1.5, `Row` con `Expanded` si no) sin unificar las dos barras, que queda como posible limpieza futura.
+
 ## Risks / Trade-offs
 
 - [Emulador frente a dispositivo físico: `10.0.2.2` solo sirve en el emulador] → documentar `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` y la misma red.

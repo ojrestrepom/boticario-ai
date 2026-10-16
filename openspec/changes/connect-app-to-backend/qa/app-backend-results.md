@@ -2,15 +2,16 @@
 
 - Fecha de ejecución: 2026-10-14 (noche) y 2026-10-15, hora local.
 - Commit probado: `4ff10be` (`git rev-parse --short HEAD`).
+- La re-verificación de DEF-01 (2026-10-15) se hizo sobre el árbol de trabajo posterior a `26a9931`, con la corrección de `plant_passport_page.dart` pendiente de commit (APK debug reconstruido e instalado en `emulator-5554`).
 - Emulador: `emulator-5554`, AVD `boticario_catalog_api36`, Android 16 (API 36), 1080x1920 a 480 dpi (360x640 dp).
 - Flutter 3.47.6 stable, Dart 3.13.5.
 - Backend: imagen `boticario-backend`, 2.376 plantas, en 8080 (topología directa) o en 18080 detrás del proxy de registro en 8080.
-- Plan: `test-plan-app-backend.md`. Resultados crudos: `results.jsonl` (una línea por ejecución; el último registro de cada caso es el vigente salvo los FAIL crudos clasificados abajo). Evidencia en `evidence/`.
+- Plan: `test-plan-app-backend.md`. Resultados crudos: `results.jsonl` (una línea por ejecución; el último registro de cada caso es el vigente salvo los FAIL crudos clasificados abajo). Evidencia en `evidence/`. Al cerrar la QA se conservó solo la evidencia referenciada en este informe y en el plan, más el volcado XML gemelo de cada captura; el resto se descartó.
 - Herramientas: nada instalado en el proyecto. Solo scripts Python propios en `scripts/` y comandos de adb, Docker y Flutter existentes.
 
 ## Resumen
 
-Casos con resultado final: 67 (64 PASS registrados en `results.jsonl`, 2 registrados como OBS crudo que son PASS sin hallazgo (E-04a y E-10a) y TC-02 por `curl`). FAIL finales: 0; ningún caso quedó en FAIL tras clasificar los FAIL crudos como artefactos de medición. Defecto abierto: 1 (DEF-01, severidad baja, preexistente, hallado dentro de A-02). NO EJECUTADO: 6 (sección propia, incluye E-10b como medición de red). Observaciones: 8.
+Casos con resultado final: 67 (64 PASS registrados en `results.jsonl`, 2 registrados como OBS crudo que son PASS sin hallazgo (E-04a y E-10a) y TC-02 por `curl`). FAIL finales: 0; ningún caso quedó en FAIL tras clasificar los FAIL crudos como artefactos de medición. Defecto: 1 (DEF-01, severidad baja, preexistente, hallado dentro de A-02), corregido y verificado el 2026-10-15 (sin defectos abiertos). NO EJECUTADO: 6 (sección propia, incluye E-10b como medición de red). Observaciones: 8.
 
 ## Resultado por caso
 
@@ -97,6 +98,8 @@ Ningún FAIL crudo es un defecto del producto. Todos son artefactos de medición
 - Obtenido: «Favorit / os» y «Histori / al» en dos líneas cortando la palabra; «Inicio» y «Perfil» enteras.
 - Evidencia: `evidence/a200-p-lav-usos.png`, `evidence/a200-p-lav-general-s2.png`.
 - Nota de alcance: `_PassportBottomBar` y `_navItem` no cambian en `182e2ca..HEAD` (misma `Row` con `Expanded` anterior al cambio), por lo que no es regresión de este cambio; se reporta porque la spec vigente aplica y el orquestador decide si se corrige aquí o en un cambio propio. Los controles son alcanzables y las etiquetas semánticas son correctas.
+
+- Estado: corregido y verificado el 2026-10-15 sobre el árbol de trabajo con la corrección pendiente de commit. Con `font_scale` 2.0 la barra del pasaporte se dispone en 2x2 (Inicio y Favoritos en la fila superior, Historial y Perfil en la inferior; cada elemento ocupa la mitad del ancho), «Favoritos» e «Historial» se leen enteras en una línea, cada control mide 180x65 dp (>= 48 dp) y conserva su etiqueta semántica («Inicio», «Favoritos no disponible», «Historial no disponible», «Perfil no disponible», los tres últimos deshabilitados), e «Inicio» vuelve a Home. Al 100 % la barra sigue en una sola fila (cuatro elementos de 90x56 dp en y=1680). Evidencia: `evidence/def01-fix-200-passport.png`, `evidence/def01-fix-200-passport.xml`, `evidence/def01-fix-200-passport-b.png`, `evidence/def01-fix-200-home.png`, `evidence/def01-fix-100-passport.png`, `evidence/def01-fix-100-passport.xml`; registros `DEF01-fix-100`, `DEF01-fix-200` y `DEF01-fix-200-home` en `results.jsonl`.
 
 No se encontraron defectos de severidad crítica, alta ni media.
 

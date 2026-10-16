@@ -132,13 +132,29 @@ class _PassportBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Material(
     color: Theme.of(context).colorScheme.surface,
-    child: Row(
-      children: [
-        _navItem('Inicio', Icons.home, selected: true, onPressed: onHome),
-        _navItem('Favoritos', Icons.favorite_border),
-        _navItem('Historial', Icons.history),
-        _navItem('Perfil', Icons.person_outline),
-      ],
+    child: LayoutBuilder(
+      builder: (context, constraints) {
+        final scaler = MediaQuery.textScalerOf(context);
+        final fontSize = Theme.of(context).textTheme.labelSmall?.fontSize ?? 12;
+        final largeText = scaler.scale(fontSize) / fontSize >= 1.5;
+        final items = [
+          _navItem('Inicio', Icons.home, selected: true, onPressed: onHome),
+          _navItem('Favoritos', Icons.favorite_border),
+          _navItem('Historial', Icons.history),
+          _navItem('Perfil', Icons.person_outline),
+        ];
+        if (!largeText) {
+          return Row(
+            children: [for (final item in items) Expanded(child: item)],
+          );
+        }
+        return Wrap(
+          children: [
+            for (final item in items)
+              SizedBox(width: constraints.maxWidth / 2, child: item),
+          ],
+        );
+      },
     ),
   );
 }
@@ -148,31 +164,29 @@ Widget _navItem(
   IconData icon, {
   bool selected = false,
   VoidCallback? onPressed,
-}) => Expanded(
-  child: Semantics(
-    label: selected ? label : '$label no disponible',
-    button: true,
-    selected: selected,
-    enabled: onPressed != null,
-    onTap: onPressed,
-    child: ExcludeSemantics(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 56),
-        child: InkWell(
-          onTap: onPressed,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(icon, size: 20, color: selected ? _green : Colors.grey),
-                Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: selected ? _green : Colors.grey),
-                ),
-              ],
-            ),
+}) => Semantics(
+  label: selected ? label : '$label no disponible',
+  button: true,
+  selected: selected,
+  enabled: onPressed != null,
+  onTap: onPressed,
+  child: ExcludeSemantics(
+    child: ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 56),
+      child: InkWell(
+        onTap: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(icon, size: 20, color: selected ? _green : Colors.grey),
+              Text(
+                label,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: selected ? _green : Colors.grey),
+              ),
+            ],
           ),
         ),
       ),

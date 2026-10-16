@@ -748,6 +748,25 @@ void main() {
     },
   );
 
+  testWidgets('bottom bar lays out 2x2 without splitting labels at 200%', (
+    tester,
+  ) async {
+    await setCompactViewport(tester, scale: 2);
+    final tops = <String, double>{};
+    for (final label in ['Inicio', 'Favoritos', 'Historial', 'Perfil']) {
+      final finder = find.text(label);
+      final paragraph = tester.renderObject<RenderParagraph>(finder);
+      final lines = paragraph.getBoxesForSelection(
+        TextSelection(baseOffset: 0, extentOffset: label.length),
+      );
+      expect(lines, hasLength(1), reason: '$label must stay on one line');
+      tops[label] = tester.getTopLeft(finder).dy;
+    }
+    expect(tops['Favoritos'], tops['Inicio']);
+    expect(tops['Perfil'], tops['Historial']);
+    expect(tops['Historial']!, greaterThan(tops['Inicio']!));
+  });
+
   testWidgets(
     'disabled controls have a single accessible label and 48dp targets',
     (tester) async {
@@ -955,7 +974,10 @@ void main() {
           await selectTab(tester, 'General');
 
           final footerRow = find
-              .ancestor(of: find.text('Inicio'), matching: find.byType(Row))
+              .ancestor(
+                of: find.text('Inicio'),
+                matching: find.byType(Material),
+              )
               .first;
           final footerRect = tester.getRect(footerRow);
           expect(footerRect.left, greaterThanOrEqualTo(insets.left));

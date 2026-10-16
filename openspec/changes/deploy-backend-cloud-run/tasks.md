@@ -1,0 +1,41 @@
+# Tasks
+
+Nota: este cambio se implementa después de archivar `connect-app-to-backend`. Las tareas marcadas «[usuario]» requieren la cuenta de Google y la facturación del usuario: las ejecuta él con los comandos de `docs/deploy/cloud-run.md` (tarea 1.1); un agente no las ejecuta. Las tareas 2.6, 3.5, 4.2 y 5.2 a 5.5 también requieren `gh` y `gcloud` autenticados en este equipo con la cuenta del usuario (hoy `gh` no está autenticado): antes del grupo 2 el usuario ejecuta `gcloud auth login` y `gcloud config set project` y `gh auth login` en este equipo, o ejecuta él mismo esos comandos y entrega la salida. El CLI de gcloud no está instalado en este equipo: la guía de la tarea 1.1 empieza por instalarlo.
+
+## 1. Guía de preparación
+
+- [ ] 1.1 Crear `docs/deploy/cloud-run.md` con la sección de preparación única: prerrequisitos (cuenta de Google, cuenta de facturación con tarjeta creada en la consola, instalación del CLI de gcloud con Homebrew `brew install --cask google-cloud-sdk` o el instalador oficial, `gcloud auth login` y `gh auth login`) y los comandos `gcloud` en orden, cada uno con su comprobación y con las variables de shell (id de proyecto, región y nombres) definidas al principio para copiar y pegar; verificar que cada comando corresponde a una tarea del grupo 2 y que cada párrafo y elemento de lista está en una sola línea con `grep -n`.
+
+## 2. Preparación en GCP [usuario]
+
+- [ ] 2.1 [usuario] Crear el proyecto de GCP, vincular la cuenta de facturación y habilitar las APIs (`run.googleapis.com`, `artifactregistry.googleapis.com`, `iam.googleapis.com`, `iamcredentials.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`); verificar con `gcloud services list --enabled` y `gcloud billing projects describe`.
+- [ ] 2.2 [usuario] Crear el repositorio Docker de Artifact Registry en `southamerica-east1` y aplicar la política de limpieza que conserva las últimas 5 versiones (probar antes con `--dry-run`); verificar con `gcloud artifacts repositories describe` mostrando la política.
+- [ ] 2.3 [usuario] Crear las cuentas de servicio `boticario-deployer` y `boticario-runtime` con los roles de la decisión 7 (la de ejecución sin roles); verificar con `gcloud projects get-iam-policy` y `gcloud iam service-accounts get-iam-policy` que el despliegue tiene solo `run.admin`, escritura en el repositorio y `serviceAccountUser` sobre la de ejecución.
+- [ ] 2.4 [usuario] Crear el pool y el proveedor OIDC de Workload Identity Federation con la condición de atributo del repositorio y conceder `workloadIdentityUser` al `principalSet` del repositorio; verificar con `gcloud iam workload-identity-pools providers describe` (condición de atributo presente) y anotar el nombre del proveedor.
+- [ ] 2.5 [usuario] Crear la alerta de presupuesto de 1 USD con umbrales por correo; verificar con `gcloud billing budgets list` o en la consola.
+- [ ] 2.6 [usuario] Registrar en GitHub los secretos y variables del workflow (proyecto, proveedor de WIF, cuenta de despliegue, región, repositorio de imágenes); verificar con `gh secret list` y `gh variable list`, sin mostrar valores.
+
+## 3. Workflow de imagen y despliegue
+
+- [ ] 3.1 Obtener la versión mayor vigente y el SHA de `actions/checkout`, `google-github-actions/auth`, `setup-gcloud`, `deploy-cloudrun`, `docker/setup-buildx-action` y `docker/build-push-action`, y confirmar los puntos «por confirmar» del diseño (recursos, comandos de `gcloud`); verificar anotando versiones y SHA con su comentario de versión en el workflow.
+- [ ] 3.2 Crear `.github/workflows/deploy-backend.yml` con disparadores (`push` a `main` con `paths` y `workflow_dispatch`), `permissions` (`contents: read`, `id-token: write`), `concurrency` serializada sin cancelar y autenticación por WIF; verificar con `actionlint` si está disponible (`mise exec -- actionlint` o `actionlint`; si no, reportarlo) y revisando que no hay claves ni acciones sin fijar con `grep -n "uses:" .github/workflows/deploy-backend.yml`.
+- [ ] 3.3 Añadir al workflow la construcción amd64 con caché `type=gha` y la publicación con las etiquetas del SHA y `latest` en Artifact Registry; verificar con `actionlint` y revisando `platforms`, `tags`, `cache-from` y `cache-to` en el YAML.
+- [ ] 3.4 Añadir el despliegue con `deploy-cloudrun` (imagen por SHA, `flags` de la decisión 8, sonda de arranque, cuenta de ejecución) y la verificación con `curl` de `/healthz` y `/v1/plants/lavandula-angustifolia` con fallo si no hay 200; verificar con `actionlint` y revisando los flags del YAML contra la spec `backend-deployment`.
+- [ ] 3.5 Publicar el workflow en `main`, lanzar la primera ejecución con `workflow_dispatch` (`gh workflow run deploy-backend.yml`) y esperar a que termine; verificar con `gh run watch`/`gh run view` (job en verde) y `gcloud run services describe boticario-api` (región, `min-instances` 0, `max-instances` 2, 1 vCPU, 256 MiB, sonda, cuenta de ejecución, facturación por petición).
+- [ ] 3.6 Comprobar que un `push` que solo toca `docs/` no dispara el workflow y que un cambio de `backend/` sí; verificar con `gh run list --workflow deploy-backend.yml`.
+
+## 4. Documentación
+
+- [ ] 4.1 Completar `docs/deploy/cloud-run.md` con el costo esperado y la capa gratuita con sus fuentes, sin repetir la preparación única de la guía; verificar con `grep -n "capa gratuita" docs/deploy/cloud-run.md` y que cada párrafo y elemento de lista está en una sola línea.
+- [ ] 4.2 Añadir al documento el runbook (despliegue manual, logs con `gcloud run services logs read`, rollback con `gcloud run services update-traffic`, medición del arranque en frío) y el desmontaje completo; verificar ejecutando el rollback y volviendo a la última revisión sobre el servicio real y que cada comando del desmontaje tiene su comprobación (`gcloud … list` vacío), sin ejecutar el desmontaje.
+- [ ] 4.3 Actualizar `README.md`: enlace a `docs/deploy/cloud-run.md`, «Despliegue en amd64», el build `release` y el smoke contra el backend desplegado con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>` en las secciones 2 y 4, la nota de «Integración continua» y la URL desplegada; verificar con `grep -n "cloud-run\|API_BASE_URL=https" README.md` y que los enlaces resuelven.
+- [ ] 4.4 Comprobar el formato de Markdown de lo añadido: `grep -nE '^[A-Za-zÁÉÍÓÚáéíóú¿¡`(]' docs/deploy/cloud-run.md README.md` sin líneas de párrafo cortadas a mano (ninguna línea de párrafo termina sin signo de puntuación si la siguiente continúa la frase); verificar revisándolo a mano con el resultado.
+
+## 5. Verificación global y QA
+
+- [ ] 5.1 Ejecutar `openspec validate deploy-backend-cloud-run --strict` y, desde `app/`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/` para confirmar que no hay regresiones; verificar que todo queda en verde.
+- [ ] 5.2 Verificar la URL desplegada: `GET /healthz`, `GET /v1/plants?q=lavandula`, `GET /v1/plants/lavandula-angustifolia` y el 404 `application/problem+json` de `GET /v1/plants/no-existe`, y registrar las respuestas en `qa/`.
+- [ ] 5.3 Medir el arranque en frío: varias muestras de la primera petición tras al menos 15 minutos sin tráfico (tiempo total con `curl -w`) y el consumo de memoria de la instancia, y registrar los valores y el margen frente a 256 MiB en `qa/`.
+- [ ] 5.4 Compilar el build `release` de la app con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>`, instalarlo en el emulador y comprobar Explorar, búsqueda y pasaporte, y ejecutar el smoke con el mismo `--dart-define`; reportar como no ejecutado lo que falte por dispositivo, y registrar la evidencia en `qa/`.
+- [ ] 5.5 Revisar los logs del servicio (`gcloud run services logs read`) y leer el consumo (peticiones, vCPU-s y GiB-s) frente a la capa gratuita; registrar la lectura en `qa/`.
+- [ ] 5.6 Pasar QA sobre el cambio completo y registrar el informe en `qa/` dentro del cambio (`openspec/changes/deploy-backend-cloud-run/qa/`), corrigiendo los defectos hallados.

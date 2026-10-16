@@ -1,0 +1,73 @@
+== grep prohibidos
+docs/data/usda-catalog.md:3:Esta guía documenta la fuente USDA Dr. Duke's Phytochemical and Ethnobotanical Databases y el criterio de selección que sigue el adaptador del backend. No es una afirmación sobre la vigencia taxonómica o clínica de los datos de la fuente. La curación manual de cinco plantas (Lavanda, Eucalipto, Romero, Manzanilla y Menta) que sirvió de referencia se conserva como fixture `backend/catalog-ingest/tests/fixtures/plant_catalog.json` del test ignorado `asset_crosscheck.rs`, que comprueba que la derivación del backend coincide con esa curación.
+exit=0
+== menciones docker/10.0.2.2/dart-define/smoke
+76:La app necesita el backend en marcha: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; el HTTP en claro solo está habilitado en builds `debug` y `profile`, no en `release`, que usará HTTPS cuando haya un backend desplegado.
+86:Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`. Para un dispositivo físico: `flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`.
+102:flutter test test/app/catalog_smoke_contract_test.dart
+109:El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz). Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «English Lavender» / «Lavandula angustifolia»), filtros y retorno a Inicio.
+114:flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
+117:Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Con un dispositivo físico, añadir `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`. Preparar y verificar previamente el SDK Android y sus licencias.
+132:El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](docs/data/modelo-de-datos.md). La app lo consume desde el emulador Android en `http://10.0.2.2:8080`. `/v1` solo admite cambios aditivos, porque la app ya es su primer consumidor. Para ejecutarlo solo hace falta Docker.
+143:docker compose up --build
+171:PORT=9090 docker compose up
+172:RUST_LOG=warn docker compose up
+182:docker compose --progress=plain build 2>&1 | grep 'hash:'
+185:Si todas las capas vienen de la caché, el log no repite la línea; en ese caso, `docker compose --progress=plain build --no-cache 2>&1 | grep 'hash:'` la vuelve a imprimir, a costa de repetir toda la construcción. El hash depende solo de los datos y es el mismo que da una construcción nativa del mismo insumo.
+189:Tras cambiar el código o los datos, se reconstruye y se arranca de nuevo con `docker compose up --build`. Para parar y eliminar el contenedor:
+192:docker compose down
+195:Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`. Si una construcción se comporta de forma inexplicable, `docker compose build --no-cache` ignora la caché de capas y reconstruye todo (las monturas de caché solo se limpian con `docker builder prune`).
+213:El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
+== enlaces relativos de README.md y docs/data/*.md
+README.md docs/data/usda-catalog.md OK
+README.md backend/README.md OK
+README.md .flutter-version OK
+README.md app/test/fixtures/api/ OK
+README.md app/test/fixtures/fonts/ OK
+README.md docs/data/modelo-de-datos.md OK
+README.md backend/README.md OK
+README.md .github/workflows/flutter.yml OK
+README.md .flutter-version OK
+README.md docs/canvas/README.md OK
+README.md docs/canvas/modelo-de-negocio.md OK
+README.md docs/mockups/README.md OK
+README.md docs/mockups/pantallas.md OK
+README.md docs/mockups/navegacion.md OK
+README.md docs/data/usda-catalog.md OK
+README.md docs/data/modelo-de-datos.md OK
+README.md backend/README.md OK
+README.md docs/Canvas.png OK
+README.md docs/mockups.png OK
+README.md docs/Boticario%20AI.docx ROTO
+README.md docs/Boticario_AI_Reto_1.docx OK
+README.md docs/DADM_Reto_1.pptx OK
+docs/data/modelo-de-datos.md usda-catalog.md OK
+docs/data/modelo-de-datos.md ../../backend/openapi.json OK
+docs/data/modelo-de-datos.md ../../README.md OK
+docs/data/modelo-de-datos.md ../../backend/README.md OK
+docs/data/modelo-de-datos.md ../../backend/README.md OK
+docs/data/modelo-de-datos.md ../../backend/README.md OK
+docs/data/modelo-de-datos.md usda-catalog.md OK
+backend/README.md ../README.md OK
+backend/README.md ../docs/data/modelo-de-datos.md OK
+backend/README.md ../mise.toml OK
+backend/README.md ../mise.toml OK
+backend/README.md ../Dockerfile OK
+backend/README.md catalog-core/tests/toolchain_pin.rs OK
+backend/README.md ../data/sources.toml OK
+backend/README.md openapi.json OK
+backend/README.md ../data/migrations/ OK
+backend/README.md catalog-core/src/version.rs OK
+backend/README.md catalog-core/src/schema.rs OK
+backend/README.md diesel.toml OK
+== líneas partidas a mano (párrafo en varias líneas) README
+68: flutter doctor --android-licenses
+69: flutter devices
+82: flutter analyze
+83: flutter run -d ID_DEL_DISPOSITIVO
+100: flutter test test/features/home/home_page_test.dart
+101: flutter test test/app/app_test.dart
+102: flutter test test/app/catalog_smoke_contract_test.dart
+125: dart format --output=none --set-exit-if-changed .
+126: flutter analyze
+127: flutter test test/

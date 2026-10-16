@@ -40,8 +40,8 @@
 
 ## 7. Verificación global y QA
 
-- [ ] 7.1 Desde `app/`, ejecutar `flutter pub get --enforce-lockfile`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/`; verificar que todo queda en verde.
-- [ ] 7.2 Desde `backend/`, ejecutar `mise exec -- cargo fmt --all --check`, `mise exec -- cargo clippy --all-targets --workspace -- -D warnings` y `mise exec -- cargo test --workspace`; verificar que todo queda en verde.
-- [ ] 7.3 Ejecutar `openspec validate connect-app-to-backend --strict`; verificar que pasa.
-- [ ] 7.4 Con `docker compose up` en el Mac y el emulador Android, ejecutar el smoke (`integration_test/catalog_smoke.dart`) y comprobar a mano Explorar (scroll infinito, búsqueda, `Reintentar` con el backend detenido) y el pasaporte (con y sin nombre común, `family` `null`, Romero); reportar como no ejecutado lo que falte por dispositivo o backend.
-- [ ] 7.5 Pasar QA sobre el cambio completo y registrar el informe en `qa/` dentro del cambio, corrigiendo los defectos hallados.
+- [x] 7.1 Desde `app/`, ejecutar `flutter pub get --enforce-lockfile`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/`; verificar que todo queda en verde.
+- [x] 7.2 Desde `backend/`, ejecutar `mise exec -- cargo fmt --all --check`, `mise exec -- cargo clippy --all-targets --workspace -- -D warnings` y `mise exec -- cargo test --workspace`; verificar que todo queda en verde.
+- [x] 7.3 Ejecutar `openspec validate connect-app-to-backend --strict`; verificar que pasa.
+- [x] 7.4 Con `docker compose up` en el Mac y el emulador Android, ejecutar el smoke (`integration_test/catalog_smoke.dart`) y comprobar a mano Explorar (scroll infinito, búsqueda, `Reintentar` con el backend detenido) y el pasaporte (con y sin nombre común, `family` `null`, Romero); reportar como no ejecutado lo que falte por dispositivo o backend.
+- [x] 7.5 Pasar QA sobre el cambio completo y registrar el informe en `qa/` dentro del cambio, corrigiendo los defectos hallados.

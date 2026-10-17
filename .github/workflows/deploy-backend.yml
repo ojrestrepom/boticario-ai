@@ -1,0 +1,121 @@
+name: Deploy backend
+
+# Construye la imagen amd64 del backend, la publica en Artifact Registry y la despliega en Cloud Run.
+# Solo corre desde main (o a mano) y cuando cambia algo que entra en la imagen o este mismo workflow.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - 'data/migrations/**'
+      - 'data/sources.toml'
+      - 'Dockerfile'
+      - '.dockerignore'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+# Minimo privilegio: lectura del repositorio e id-token para pedir el token OIDC con el que
+# Workload Identity Federation entrega credenciales de corta duracion (sin claves JSON).
+permissions:
+  contents: read
+  id-token: write
+
+# Los despliegues se serializan y uno en curso no se interrumpe a medias (a diferencia de flutter.yml).
+concurrency:
+  group: deploy-backend
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build, push y deploy a Cloud Run
+    runs-on: ubuntu-24.04
+    # La compilacion de Rust sin cache tarda varios minutos.
+    timeout-minutes: 45
+    env:
+      SERVICE: boticario-api
+      IMAGE: ${{ vars.GCP_ARTIFACT_REPOSITORY }}/boticario-api
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Autenticacion por Workload Identity Federation. token_format genera ademas un access token
+      # de corta duracion que se usa para iniciar sesion en Artifact Registry.
+      - name: Autenticar en Google Cloud
+        id: auth
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOYER_SERVICE_ACCOUNT }}
+          token_format: access_token
+
+      - name: Iniciar sesion en Artifact Registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ${{ vars.GCP_REGION }}-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
+
+      - name: Configurar Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      # provenance y sbom en false: por defecto buildx publica un indice OCI con atestaciones
+      # (manifiestos extra con arquitectura "unknown"). Se publica un manifiesto simple linux/amd64,
+      # que Cloud Run acepta sin ambiguedad y que Artifact Registry lista como una sola imagen.
+      # La cache de capas va en GitHub Actions; las monturas de cache del Dockerfile no persisten.
+      - name: Construir y publicar la imagen
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
+          provenance: false
+          sbom: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # El despliegue usa la etiqueta del SHA (inmutable en la practica), no latest.
+      # Los flags fijan explicitamente la configuracion del servicio; --allow-unauthenticated
+      # (API publica) y --cpu-throttling (facturacion por peticion) no dependen de valores por defecto.
+      - name: Desplegar en Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@2028e2d7d30a78c6910e0632e48dd561b064884d # v3.0.1
+        with:
+          service: ${{ env.SERVICE }}
+          region: ${{ vars.GCP_REGION }}
+          image: ${{ env.IMAGE }}:${{ github.sha }}
+          flags: >-
+            --allow-unauthenticated
+            --execution-environment=gen1
+            --cpu=1
+            --memory=256Mi
+            --min-instances=0
+            --max-instances=2
+            --cpu-throttling
+            --port=8080
+            --service-account=boticario-runtime@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
+            --startup-probe=httpGet.path=/healthz,httpGet.port=8080,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
+
+      # Verificacion posterior: falla el job si la API no responde 200. Los reintentos absorben el
+      # arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.
+      - name: Verificar el servicio desplegado
+        shell: bash
+        env:
+          SERVICE_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          set -euo pipefail
+          for path in /healthz /v1/plants/lavandula-angustifolia; do
+            status="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \
+              --output /dev/null --write-out '%{http_code}' "${SERVICE_URL}${path}")"
+            echo "GET ${path} -> ${status}"
+            if [ "$status" != "200" ]; then
+              echo "::error::${path} respondio ${status} y se esperaba 200"
+              exit 1
+            fi
+          done
+          echo "Servicio disponible en ${SERVICE_URL}"

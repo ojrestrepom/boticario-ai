@@ -106,7 +106,7 @@ El workflow SHALL autenticarse en Google Cloud mediante Workload Identity Federa
 - **THEN** cada acción de terceros está fijada por SHA con un comentario de versión y los permisos del job se limitan a `contents: read` e `id-token: write`
 
 ### Requirement: Observabilidad y control de costo
-El servicio SHALL escribir sus logs en Cloud Logging y SHALL ser consultable su historial de revisiones. El proyecto SHALL tener una alerta de presupuesto de 1 USD. El repositorio de Artifact Registry SHALL tener una política de limpieza que conserve solo las últimas versiones de la imagen. El máximo de instancias SHALL acotar el gasto del servicio.
+El servicio SHALL escribir sus logs en Cloud Logging y SHALL ser consultable su historial de revisiones. El proyecto SHALL tener una alerta de presupuesto del equivalente a 1 USD en la moneda de la cuenta de facturación. El repositorio de Artifact Registry SHALL tener una política de limpieza que conserve solo las últimas versiones de la imagen. El máximo de instancias SHALL acotar el gasto del servicio.
 
 #### Scenario: Logs del servicio
 - **WHEN** el servicio atiende una petición
@@ -114,7 +114,7 @@ El servicio SHALL escribir sus logs en Cloud Logging y SHALL ser consultable su 
 
 #### Scenario: Alerta de presupuesto
 - **WHEN** se listan los presupuestos de la cuenta de facturación
-- **THEN** existe uno de 1 USD con umbrales de alerta por correo
+- **THEN** existe uno del equivalente a 1 USD en la moneda de la cuenta de facturación con umbrales de alerta por correo
 
 #### Scenario: Limpieza de imágenes
 - **WHEN** se describe el repositorio de Artifact Registry

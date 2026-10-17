@@ -4,6 +4,79 @@ Esta guía despliega la API del catálogo (`backend/`, ver [`README.md`](../../R
 
 Este documento reúne la preparación única en Google Cloud, que haces tú a mano porque requiere tu cuenta y tu facturación; después el workflow del repositorio se encarga de construir y desplegar en cada cambio del backend en `main`.
 
+## Arquitectura e inventario
+
+Esta sección resume la infraestructura de corrido: cómo llega un cambio a producción, qué recursos existen, qué permisos tiene cada identidad y qué límites acotan el costo y el riesgo.
+
+### Flujo de despliegue
+
+```text
+push a main (o ejecución manual)
+   |
+   v
+GitHub Actions (deploy-backend.yml)
+   |  pide un token OIDC (id-token: write)
+   v
+Workload Identity Federation (pool "github", proveedor "boticario-ai")
+   |  acepta solo el repositorio sebastianrodriguez1115/boticario-ai
+   v
+cuenta de servicio boticario-deployer (token de acceso de corta duración)
+   |  inicia sesión en Artifact Registry con ese token (oauth2accesstoken)
+   v
+construcción linux/amd64 en el runner, con caché de capas en GitHub Actions
+   |  publica la imagen con las etiquetas <sha> y latest
+   v
+Artifact Registry (repositorio "boticario")
+   |  despliega la imagen del <sha> como una revisión nueva
+   v
+Cloud Run (servicio "boticario-api", corre como boticario-runtime)
+   |  el workflow comprueba con curl /healthz y el detalle de una planta
+   v
+la app, por HTTPS en la URL *.run.app
+```
+
+### Recursos
+
+| Recurso | Qué es y para qué sirve | Quién lo creó | Cómo inspeccionarlo |
+| --- | --- | --- | --- |
+| Proyecto de GCP | Contenedor de todo lo demás; borrarlo lo desmonta todo | Tú, paso 1 | `gcloud projects describe "$PROJECT_ID"` |
+| Región `northamerica-south1` | Dónde viven el repositorio y el servicio (Tier 1) | Decisión de diseño | `gcloud config list` y `gcloud run services list` |
+| Repositorio de imágenes `boticario` | Artifact Registry Docker donde el workflow publica la imagen | Tú, paso 2 | `gcloud artifacts repositories describe "$REPO" --location="$REGION"` |
+| Política de limpieza | Borra versiones de más de un día salvo las 5 más recientes | Tú, paso 2 | `gcloud artifacts repositories list-cleanup-policies "$REPO" --location="$REGION"` |
+| Servicio `boticario-api` | Cloud Run: 1 vCPU, 256 MiB, 0 a 2 instancias, puerto 8080, público, corre como `boticario-runtime` y su sonda de arranque apunta a `/healthz` | El workflow, primer despliegue | `gcloud run services describe "$SERVICE" --region="$REGION"` |
+| Pool `github` y proveedor `boticario-ai` | Workload Identity Federation: aceptan tokens OIDC de GitHub solo del repositorio | Tú, paso 4 | `gcloud iam workload-identity-pools providers describe "$PROVIDER" --location=global --workload-identity-pool="$POOL"` |
+| Cuenta `boticario-deployer` | Identidad que el workflow asume para publicar y desplegar | Tú, pasos 3 y 4 | `gcloud iam service-accounts describe "$DEPLOYER_EMAIL"` |
+| Cuenta `boticario-runtime` | Identidad con la que corre el contenedor, sin roles | Tú, paso 3 | `gcloud iam service-accounts describe "$RUNTIME_EMAIL"` |
+| Presupuesto | Alerta por correo del equivalente a 1 USD, no corta el gasto | Tú, paso 5 | `gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID"` |
+| Secretos de GitHub | `GCP_WORKLOAD_IDENTITY_PROVIDER` y `GCP_DEPLOYER_SERVICE_ACCOUNT` | Tú, paso 6 | `gh secret list --repo "$GITHUB_REPO"` |
+| Variables de GitHub | `GCP_PROJECT_ID`, `GCP_REGION` y `GCP_ARTIFACT_REPOSITORY` | Tú, paso 6 | `gh variable list --repo "$GITHUB_REPO"` |
+| Workflow `deploy-backend.yml` | En `push` a `main` con cambios en la imagen o en `workflow_dispatch`: construye la imagen amd64, la publica con las etiquetas `<sha>` y `latest`, despliega el `<sha>` y verifica con `curl` | El repositorio, en `.github/workflows/` | `gh workflow view deploy-backend.yml` |
+
+### Roles y permisos
+
+| Principal | Rol | Ámbito | Por qué | Sin él |
+| --- | --- | --- | --- | --- |
+| `boticario-deployer` | `roles/run.admin` | Proyecto | Crear y actualizar el servicio de Cloud Run | El despliegue falla con permiso denegado |
+| `boticario-deployer` | `roles/artifactregistry.writer` | Repositorio `boticario` | Subir la imagen | El push de la imagen es rechazado |
+| `boticario-deployer` | `roles/iam.serviceAccountUser` | Cuenta `boticario-runtime` | Desplegar un servicio que corre como esa cuenta | El despliegue falla al asignar la cuenta de ejecución |
+| `principalSet` del repositorio | `roles/iam.workloadIdentityUser` | Cuenta `boticario-deployer` | Que el workflow de ese repositorio actúe como el deployer | La autenticación del workflow falla |
+| `boticario-runtime` | Ninguno | Ninguno | La API no llama a otros servicios de Google | No aplica: sin roles, un contenedor comprometido no alcanza nada del proyecto |
+| Tu usuario | Billing Account Costs Manager o Administrator | Cuenta de facturación | Crear el presupuesto del paso 5 | No puedes crear la alerta |
+
+### Controles de costo y seguridad
+
+- Costo: `max-instances=2` acota el gasto del servicio y `min-instances=0` con facturación por petición no cobra en reposo.
+- Costo: la política de limpieza mantiene el repositorio dentro de los 0,5 GB gratuitos.
+- Costo: la alerta de presupuesto avisa por correo al 50 %, 90 % y 100 %, pero no corta el gasto; el desmontaje es el control final.
+- Seguridad: no hay claves JSON de larga duración; GitHub se autentica con tokens OIDC de corta duración.
+- Seguridad: la condición de atributo del proveedor solo admite tu repositorio y el `principalSet` se limita a él.
+- Seguridad: cada rol del deployer está en el ámbito más estrecho posible y la cuenta de ejecución no tiene roles.
+- Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`, y sus permisos son solo `contents: read` e `id-token: write`.
+- Seguridad: los despliegues se serializan con `concurrency` y no se cancelan a medias.
+- Seguridad: las acciones de terceros están fijadas por SHA con un comentario de versión.
+- Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/healthz` o el detalle de una planta no responden 200; no hay rollback automático, Cloud Run conserva la revisión anterior.
+- Fiabilidad: una revisión que no pasa la sonda de arranque no recibe tráfico.
+
 ## Preparación única en Google Cloud
 
 ### Prerrequisitos
@@ -232,17 +305,25 @@ Si `PROJECT_NUMBER` está vacío, el `principalSet` queda malformado: vuelve a e
 
 ### Paso 5. Alerta de presupuesto
 
-Un presupuesto de 1 USD con avisos al 50 %, 90 % y 100 % del gasto, acotado a este proyecto.
+Un presupuesto del equivalente a 1 USD en la moneda de tu cuenta de facturación, con avisos al 50 %, 90 % y 100 % del gasto, acotado a este proyecto.
 
 Es solo una alerta: no corta el gasto ni apaga el servicio.
 
 El control efectivo del costo es el máximo de 2 instancias del servicio y el desmontaje documentado.
 
+El importe de `--budget-amount` debe ir en la moneda de la cuenta de facturación; con otra moneda el comando falla con `INVALID_ARGUMENT`. Mira cuál es la tuya:
+
+```bash
+gcloud billing accounts describe "$BILLING_ACCOUNT_ID" --format='value(currencyCode)'
+```
+
+Si responde `USD`, deja `BUDGET_AMOUNT="1USD"` en `.env.cloud-run`. Si responde otra moneda, pon el equivalente aproximado a 1 USD, por ejemplo `BUDGET_AMOUNT="4000COP"` para una cuenta en pesos colombianos; el tipo de cambio es aproximado y la cifra la eliges tú. Después recarga las variables con `source .env.cloud-run` y crea el presupuesto:
+
 ```bash
 gcloud billing budgets create \
   --billing-account="$BILLING_ACCOUNT_ID" \
-  --display-name="boticario-ai 1 USD" \
-  --budget-amount=1USD \
+  --display-name="boticario-ai presupuesto" \
+  --budget-amount="$BUDGET_AMOUNT" \
   --filter-projects="projects/$PROJECT_NUMBER" \
   --threshold-rule=percent=0.5 \
   --threshold-rule=percent=0.9 \
@@ -253,17 +334,18 @@ Sin flags de notificación, los avisos llegan por correo a los administradores y
 
 Crear presupuestos requiere el rol Billing Account Costs Manager o Administrator sobre la cuenta de facturación.
 
-La moneda de `--budget-amount` debe coincidir con la de tu cuenta: si no es USD, cambia `1USD` por `1` y se usará la de la cuenta (el umbral es entonces 1 unidad de esa moneda).
+Errores típicos:
 
-Si el comando se queja de un proyecto de cuota o de que la API no está habilitada, comprueba que `billingbudgets.googleapis.com` figura en el paso 1 y añade `--billing-project="$PROJECT_ID"`.
+- `INVALID_ARGUMENT`: casi siempre la moneda de `BUDGET_AMOUNT` no coincide con la de la cuenta; revisa `currencyCode` arriba y corrige el sufijo (`USD`, `COP`, etc.).
+- Queja de un proyecto de cuota o de que la API no está habilitada: comprueba que `billingbudgets.googleapis.com` figura en el paso 1 y añade `--billing-project="$PROJECT_ID"`.
 
-Comprobación: `gcloud billing budgets list` debe mostrar el presupuesto `boticario-ai 1 USD` con sus tres reglas de umbral.
+Comprobación: `gcloud billing budgets list` debe mostrar el presupuesto `boticario-ai presupuesto` con su importe en la moneda de la cuenta y sus tres reglas de umbral.
 
 ```bash
 gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID"
 ```
 
-Si prefieres la consola: Facturación, Presupuestos y alertas, Crear presupuesto; nombre `boticario-ai 1 USD`; en Alcance filtra por el proyecto; en Importe elige «Importe específico» de 1 USD; deja los umbrales 50 %, 90 % y 100 % y mantén activo el aviso por correo a los administradores de la cuenta.
+Si prefieres la consola: Facturación, Presupuestos y alertas, Crear presupuesto; nombre `boticario-ai presupuesto`; en Alcance filtra por el proyecto; en Importe elige «Importe específico» con el equivalente a 1 USD en la moneda de la cuenta; deja los umbrales 50 %, 90 % y 100 % y mantén activo el aviso por correo a los administradores de la cuenta.
 
 ### Paso 6. Secretos y variables de GitHub
 

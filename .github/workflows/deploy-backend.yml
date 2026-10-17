@@ -103,8 +103,8 @@ jobs:
 
       # Verificacion posterior: falla el job si la API no responde 200. Los reintentos absorben el
       # arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.
-      # La ruta de salud es /health y no /healthz: Cloud Run reserva las rutas terminadas en «z»
-      # (/healthz) en la URL publica y responde su propio 404 sin llegar al contenedor. El detalle
+      # La ruta de salud es /health y no /healthz: Cloud Run reserva algunas rutas terminadas en «z»
+      # (como /healthz) en la URL publica y responde su propio 404 sin llegar al contenedor. El detalle
       # de una planta ejercita ademas la base de datos.
       - name: Verificar el servicio desplegado
         shell: bash

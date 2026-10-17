@@ -35,9 +35,9 @@ Nota: este cambio se implementa después de archivar `connect-app-to-backend`. L
 
 ## 5. Verificación global y QA
 
-- [ ] 5.1 Ejecutar `openspec validate deploy-backend-cloud-run --strict` y, desde `app/`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/` para confirmar que no hay regresiones; verificar que todo queda en verde.
-- [ ] 5.2 Verificar la URL desplegada: `GET /health`, `GET /v1/plants?q=lavandula`, `GET /v1/plants/lavandula-angustifolia` y el 404 `application/problem+json` de `GET /v1/plants/no-existe`, y registrar las respuestas en `qa/`.
-- [ ] 5.3 Medir el arranque en frío: varias muestras de la primera petición tras al menos 15 minutos sin tráfico (tiempo total con `curl -w`) y el consumo de memoria de la instancia, y registrar los valores y el margen frente a 256 MiB en `qa/`.
-- [ ] 5.4 Compilar el build `release` de la app con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>`, instalarlo en el emulador y comprobar Explorar, búsqueda y pasaporte, y ejecutar el smoke con el mismo `--dart-define`; reportar como no ejecutado lo que falte por dispositivo, y registrar la evidencia en `qa/`.
-- [ ] 5.5 Revisar los logs del servicio (`gcloud run services logs read`) y leer el consumo (peticiones, vCPU-s y GiB-s) frente a la capa gratuita; registrar la lectura en `qa/`.
-- [ ] 5.6 Pasar QA sobre el cambio completo y registrar el informe en `qa/` dentro del cambio (`openspec/changes/deploy-backend-cloud-run/qa/`), corrigiendo los defectos hallados.
+- [x] 5.1 Ejecutar `openspec validate deploy-backend-cloud-run --strict` y, desde `app/`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/` para confirmar que no hay regresiones; verificar que todo queda en verde.
+- [x] 5.2 Verificar la URL desplegada: `GET /health`, `GET /v1/plants?q=lavandula`, `GET /v1/plants/lavandula-angustifolia` y el 404 `application/problem+json` de `GET /v1/plants/no-existe`, y registrar las respuestas en `qa/`.
+- [x] 5.3 Medir el arranque en frío: varias muestras de la primera petición tras al menos 15 minutos sin tráfico (tiempo total con `curl -w`) y el consumo de memoria de la instancia, y registrar los valores y el margen frente a 256 MiB en `qa/`.
+- [x] 5.4 Compilar el build `release` de la app con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>`, instalarlo en el emulador y comprobar Explorar, búsqueda y pasaporte, y ejecutar el smoke con el mismo `--dart-define`; reportar como no ejecutado lo que falte por dispositivo, y registrar la evidencia en `qa/`.
+- [x] 5.5 Revisar los logs del servicio (`gcloud run services logs read`) y leer el consumo (peticiones, vCPU-s y GiB-s) frente a la capa gratuita; registrar la lectura en `qa/`.
+- [x] 5.6 Pasar QA sobre el cambio completo y registrar el informe en `qa/` dentro del cambio (`openspec/changes/deploy-backend-cloud-run/qa/`), corrigiendo los defectos hallados.

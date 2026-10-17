@@ -2,12 +2,12 @@
 
 ## Why
 
-El backend (`catalog-api` con el catálogo USDA embebido) solo corre en el Mac con `docker compose up`, así que la app únicamente funciona contra un backend local y el build `release` no puede usarse: exige HTTPS y todavía no hay una URL pública. Desplegarlo en Google Cloud Run con despliegue continuo desde GitHub Actions da una URL HTTPS estable, un camino reproducible de la imagen al servicio y un costo esperado de 0 USD/mes para un proyecto académico con tráfico de unas pocas peticiones al día.
+El backend (`catalog-api` con el catálogo USDA embebido) solo corre en el Mac con `docker compose up`, así que la app únicamente funciona contra un backend local y el build `release` no tiene a qué apuntar: la URL que debe usar es HTTPS y todavía no hay una URL pública. Desplegarlo en Google Cloud Run con despliegue continuo desde GitHub Actions da una URL HTTPS estable, un camino reproducible de la imagen al servicio y un costo esperado de 0 USD/mes para un proyecto académico con tráfico de unas pocas peticiones al día.
 
 ## What Changes
 
 - Nueva capacidad `backend-deployment`: un workflow `.github/workflows/deploy-backend.yml` construye la imagen del `Dockerfile` para linux/amd64, la única arquitectura que acepta Cloud Run, en un runner `ubuntu` de GitHub Actions, que es amd64 nativo, con `docker/build-push-action`, la etiqueta con el SHA del commit y `latest`, la publica en un repositorio Docker de Artifact Registry en `northamerica-south1` (Querétaro, México) y despliega el servicio `boticario-api` en Cloud Run.
-- El backend renombra `GET /healthz` a `GET /health` (una sola ruta, `/healthz` desaparece): Cloud Run reserva las rutas terminadas en «z» en la URL pública y responde un 404 propio sin llegar al contenedor, así que `/healthz` no se puede sondear desde fuera. Cambia la ruta, el handler, los tests, `backend/openapi.json`, los README y los comentarios de `compose.yaml` y `Dockerfile`.
+- El backend renombra `GET /healthz` a `GET /health` (una sola ruta, `/healthz` desaparece): Cloud Run reserva algunas rutas terminadas en «z», como `/healthz`, en la URL pública y responde un 404 propio sin llegar al contenedor, así que `/healthz` no se puede sondear desde fuera (QA comprobó que `/healthz/`, `/readyz` y `/livez` sí llegan a la API). Cambia la ruta, el handler, los tests, `backend/openapi.json`, los README y los comentarios de `compose.yaml` y `Dockerfile`.
 - Disparadores: `push` a `main` con filtros de ruta del backend (`backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `.dockerignore` y el propio workflow) y `workflow_dispatch`. Un grupo de `concurrency` serializa los despliegues. Tras desplegar, el job verifica con `curl` que `/health` y `/v1/plants/lavandula-angustifolia` responden 200 sobre la URL del servicio y falla si no.
 - Configuración del servicio: facturación por petición (CPU asignada solo durante las peticiones), `min-instances=0`, `max-instances=2`, acceso público sin autenticación, puerto 8080, sonda de arranque HTTP a `/health`, 1 vCPU y 256 MiB de memoria (justificado en el diseño) y HTTPS en la URL `*.run.app`.
 - Identidad sin claves: Workload Identity Federation entre GitHub y GCP, con una cuenta de servicio de despliegue de permisos mínimos y una cuenta de servicio de ejecución dedicada sin roles. No se guardan claves JSON en GitHub. Las acciones `google-github-actions/auth`, `setup-gcloud` y `deploy-cloudrun` (hoy en la versión mayor v3) se fijan por SHA, como en `flutter.yml`.
@@ -39,13 +39,14 @@ La preparación requiere la cuenta de Google del usuario y una cuenta de factura
 - `catalog-api`: el endpoint de salud pasa de `GET /healthz` a `GET /health`.
 - `backend-container`: los escenarios de salud consultan `/health`.
 - `flutter-app-bootstrap`: la documentación de desarrollo cubre además el build `release` y el smoke contra el backend desplegado con `--dart-define=API_BASE_URL=https://…`.
+- `catalog-client`: aclaración del alcance real de la restricción de HTTP en claro, que gobierna la pila de red de Android pero no al cliente Dart (hallazgo D-01 de QA).
 
 ## Impact
 
 - Se crearán `.github/workflows/deploy-backend.yml` y `docs/deploy/cloud-run.md`, y se tocará `README.md`.
 - Se tocan en `backend/`: `catalog-api/src/http.rs`, `src/dto.rs`, `src/openapi.rs`, `src/startup.rs`, `tests/fixture_end_to_end.rs`, `tests/shutdown.rs`, `openapi.json` (regenerado) y `README.md`.
 - `compose.yaml` y `Dockerfile` solo cambian un comentario; no cambian `.dockerignore`, `data/` ni `app/`.
-- Deltas `MODIFIED` de `catalog-api` (requisito «Endpoint de salud») y de `backend-container` (requisitos «Arranque con un solo comando» y «Configuración por entorno»); `catalog-client` no lleva delta.
+- Deltas `MODIFIED` de `catalog-api` (requisito «Endpoint de salud») y de `backend-container` (requisitos «Arranque con un solo comando» y «Configuración por entorno»), y el delta `MODIFIED` de `catalog-client` (requisito «Permisos y transporte en Android», por el hallazgo D-01 de QA).
 - Recursos externos nuevos en GCP: proyecto, repositorio de Artifact Registry, servicio de Cloud Run, dos cuentas de servicio, pool y proveedor de WIF y una alerta de presupuesto; y secretos y variables en el repositorio de GitHub (privado).
 - Dependencia: este cambio se implementa después de archivar `connect-app-to-backend`, porque la spec delta de `flutter-app-bootstrap` parte del texto que ese cambio deja en `openspec/specs/`.
 - Fuera de alcance: dominio propio, CI de tests del backend (`cargo test` como puerta previa al despliegue), autenticación de la API, caché o CDN, entornos múltiples, otras nubes y cualquier cambio en el código de la app.

@@ -1,0 +1,12 @@
+40:        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+48:        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+55:        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+62:        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+69:        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+87:        uses: google-github-actions/deploy-cloudrun@2028e2d7d30a78c6910e0632e48dd561b064884d # v3.0.1
+OK   actions/checkout v7.0.1 -> 3d3c42e5aac5ba805825da76410c181273ba90b1
+OK   google-github-actions/auth v3.0.0 -> 7c6bc770dae815cd3e89ee6cdf493a5fab2cc093
+OK   docker/login-action v4.6.0 -> dbcb813823bdd20940b903addbd779551569679f
+OK   docker/setup-buildx-action v4.4.1 -> f87e5991a6d7451dcb8d9637bfbc97413f497069
+OK   docker/build-push-action v7.4.0 -> c3c9e263c25d99ce0380d002d59b67737d91b0dc
+OK   google-github-actions/deploy-cloudrun v3.0.1 -> 2028e2d7d30a78c6910e0632e48dd561b064884d

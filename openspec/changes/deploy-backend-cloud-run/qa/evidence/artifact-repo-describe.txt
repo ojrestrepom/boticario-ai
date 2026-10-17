@@ -1,0 +1,27 @@
+Encryption: Google-managed key
+Repository Size: 37.742MB
+cleanupPolicies:
+  delete-old:
+    action: DELETE
+    condition:
+      olderThan: 86400s
+      tagState: ANY
+    id: delete-old
+  keep-last-5:
+    action: KEEP
+    id: keep-last-5
+    mostRecentVersions:
+      keepCount: 5
+createTime: '2026-10-17T01:06:34.906396Z'
+description: Imágenes del backend de boticario-ai
+format: DOCKER
+mode: STANDARD_REPOSITORY
+name: projects/boticario-ai/locations/northamerica-south1/repositories/boticario
+registryUri: northamerica-south1-docker.pkg.dev/boticario-ai/boticario
+satisfiesPzi: true
+satisfiesPzs: true
+updateTime: '2026-10-17T01:56:46.907602Z'
+vulnerabilityScanningConfig:
+  enablementState: SCANNING_DISABLED
+  enablementStateReason: API containerscanning.googleapis.com is not enabled.
+  lastEnableTime: '2026-10-17T01:06:26.248100399Z'

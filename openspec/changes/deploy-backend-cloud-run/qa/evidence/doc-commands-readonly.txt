@@ -1,0 +1,64 @@
+## list-cleanup-policies
+Listing items under project boticario-ai, location northamerica-south1, repository boticario.
+
+Dry run is disabled.
+[
+  {
+    "action": {
+      "type": "DELETE"
+    },
+    "condition": {
+      "olderThan": "86400s",
+      "tagState": "ANY"
+    },
+    "name": "delete-old"
+  },
+  {
+    "action": {
+      "type": "KEEP"
+    },
+    "mostRecentVersions": {
+      "keepCount": 5
+## services list
+   SERVICE        REGION               URL                                                             LAST DEPLOYED BY    LAST DEPLOYED AT
+[32m✔[39;0m  boticario-api  northamerica-south1  https://boticario-api-177181505486.northamerica-south1.run.app  jsrc1115@gmail.com  2026-10-17T01:58:12.432183Z
+## repositories list
+Listing items under project boticario-ai, location northamerica-south1.
+
+                                                                                 ARTIFACT_REGISTRY
+REPOSITORY  FORMAT  MODE                 DESCRIPTION                           LOCATION             LABELS  ENCRYPTION          CREATE_TIME          UPDATE_TIME          SIZE (MB)
+boticario   DOCKER  STANDARD_REPOSITORY  Imágenes del backend de boticario-ai  northamerica-south1          Google-managed key  2026-10-16T20:06:34  2026-10-16T20:56:46  35.993
+## sa list
+boticario-runtime@boticario-ai.iam.gserviceaccount.com
+177181505486-compute@developer.gserviceaccount.com
+boticario-deployer@boticario-ai.iam.gserviceaccount.com
+## wif pools list
+projects/177181505486/locations/global/workloadIdentityPools/github	ACTIVE
+## services logs read help --log-filter/--freshness
+    [1mgcloud run services logs read[m [4mSERVICE[m [[1m--freshness[m=[4mFRESHNESS[m; default="1d"]
+        [[1m--log-filter[m=[4mLOG_FILTER[m] [[1m--order[m=[4mORDER[m; default="desc"]
+        [[1m--region[m=[4mREGION[m] [[1m--limit[m=[4mLIMIT[m] [[4mGCLOUD_WIDE_FLAG ...[m]
+    [1m--log-filter[m are returned according to the specified --order. If the log
+            --log-filter="severity>=ERROR"
+            --log-filter='timestamp<="2015-05-31T23:59:59Z" AND
+            --log-filter="textPayload:SearchText" --limit=10 --format=json
+     [1m--freshness[m=[4mFRESHNESS[m; default="1d"
+     [1m--log-filter[m=[4mLOG_FILTER[m
+     [1m--limit[m=[4mLIMIT[m
+## gh workflow view
+Deploy backend - deploy-backend.yml
+ID: 387279873
+
+Total runs 3
+Recent runs
+completed	success	Rename the health route to /health: Cloud Run reserves paths ending i…	Deploy backend	main	push	4m0s	38992727457
+completed	failure	Deploy backend	Deploy backend	main	workflow_dispatch	5m55s	38991678058
+completed	failure	Document the budget in the billing account currency and add the archi…	Deploy backend	main	push	5m23s	38991643116
+## services status traffic
+status:
+  traffic:
+  - latestRevision: true
+    percent: 100
+    revisionName: boticario-api-00003-w5w
+## project describe
+boticario-ai	ACTIVE

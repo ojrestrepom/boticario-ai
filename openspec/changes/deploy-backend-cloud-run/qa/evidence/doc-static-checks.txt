@@ -1,0 +1,32 @@
+## APIs habilitadas (guía: siete)
+artifactregistry.googleapis.com
+billingbudgets.googleapis.com
+cloudresourcemanager.googleapis.com
+iam.googleapis.com
+iamcredentials.googleapis.com
+run.googleapis.com
+sts.googleapis.com
+## billingEnabled
+True
+## filtro del desmontaje paso 5 (solo lectura, id oculto)
+billingAccounts/<BILLING_ACCOUNT_ID>/budgets/cc50e3c2-c7f4-4d5c-ad21-a2c7639270da
+## comandos del runbook/desmontaje existen en gcloud (solo --help)
+run services update-traffic: ok
+run services delete: ok
+artifacts repositories delete: ok
+iam service-accounts remove-iam-policy-binding: ok
+iam workload-identity-pools providers delete: ok
+iam workload-identity-pools delete: ok
+billing budgets delete: ok
+projects delete: ok
+run deploy: ok
+run revisions list: ok
+run services logs read: ok
+## ocurrencias de healthz (excluye archivo, qa y artefactos de build)
+   2 ./.github/workflows/deploy-backend.yml
+   1 ./docs/deploy/cloud-run.md
+   2 ./openspec/changes/deploy-backend-cloud-run/design.md
+   2 ./openspec/changes/deploy-backend-cloud-run/proposal.md
+   1 ./openspec/changes/deploy-backend-cloud-run/tasks.md
+   2 ./openspec/specs/backend-container/spec.md
+   2 ./openspec/specs/catalog-api/spec.md

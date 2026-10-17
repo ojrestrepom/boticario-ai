@@ -3,7 +3,7 @@
 ## MODIFIED Requirements
 
 ### Requirement: Flujo de desarrollo reproducible y documentado
-El repositorio SHALL contener la app Android en `app/`, abrible en Android Studio, con prerequisitos, versión exacta de SDK, dependencias fijadas y comandos documentados; la configuración local del SDK SHALL permanecer sin versionar. La documentación SHALL cubrir cómo arrancar el backend con Docker y la dirección con la que lo alcanzan el emulador y un dispositivo físico, y SHALL cubrir cómo compilar el build `release` y ejecutar el smoke contra el backend desplegado con `--dart-define=API_BASE_URL=https://…`.
+El repositorio SHALL contener la app Android en `app/`, abrible en Android Studio, con prerequisitos, versión exacta de SDK, dependencias fijadas y comandos documentados; la configuración local del SDK SHALL permanecer sin versionar. La documentación SHALL cubrir cómo arrancar el backend con Docker y la dirección con la que lo alcanzan el emulador y un dispositivo físico, y SHALL cubrir cómo compilar el build `release` y ejecutar el smoke contra el backend desplegado con `--dart-define=API_BASE_URL=https://…`. La documentación SHALL indicar que el build `release` debe apuntar a la URL HTTPS del backend desplegado y que el HTTP en claro queda para `debug` y `profile` con el backend local.
 
 #### Scenario: Apertura en Android Studio
 - **WHEN** un desarrollador abre la raíz `app/` en Android Studio con los prerequisitos documentados
@@ -31,4 +31,4 @@ El repositorio SHALL contener la app Android en `app/`, abrible en Android Studi
 
 #### Scenario: Release contra el backend desplegado
 - **WHEN** un desarrollador consulta la documentación para compilar el build `release` o ejecutar el smoke contra el backend desplegado
-- **THEN** encuentra los comandos con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>`, que el build `release` exige HTTPS y que, sin esa definición, la dirección por defecto sigue siendo la del emulador
+- **THEN** encuentra los comandos con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>`, que el build `release` debe apuntar a la URL HTTPS del backend desplegado y que el HTTP en claro queda para `debug` y `profile` con el backend local, y que, sin esa definición, la dirección por defecto sigue siendo la del emulador

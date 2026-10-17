@@ -6,7 +6,7 @@ El backend (`catalog-api` con el catálogo USDA embebido) solo corre en el Mac c
 
 ## What Changes
 
-- Nueva capacidad `backend-deployment`: un workflow `.github/workflows/deploy-backend.yml` construye la imagen del `Dockerfile` para linux/amd64, la única arquitectura que acepta Cloud Run, en un runner `ubuntu` de GitHub Actions, que es amd64 nativo, con `docker/build-push-action`, la etiqueta con el SHA del commit y `latest`, la publica en un repositorio Docker de Artifact Registry en `southamerica-east1` y despliega el servicio `boticario-api` en Cloud Run.
+- Nueva capacidad `backend-deployment`: un workflow `.github/workflows/deploy-backend.yml` construye la imagen del `Dockerfile` para linux/amd64, la única arquitectura que acepta Cloud Run, en un runner `ubuntu` de GitHub Actions, que es amd64 nativo, con `docker/build-push-action`, la etiqueta con el SHA del commit y `latest`, la publica en un repositorio Docker de Artifact Registry en `northamerica-south1` (Querétaro, México) y despliega el servicio `boticario-api` en Cloud Run.
 - Disparadores: `push` a `main` con filtros de ruta del backend (`backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `.dockerignore` y el propio workflow) y `workflow_dispatch`. Un grupo de `concurrency` serializa los despliegues. Tras desplegar, el job verifica con `curl` que `/healthz` y `/v1/plants/lavandula-angustifolia` responden 200 sobre la URL del servicio y falla si no.
 - Configuración del servicio: facturación por petición (CPU asignada solo durante las peticiones), `min-instances=0`, `max-instances=2`, acceso público sin autenticación, puerto 8080, sonda de arranque HTTP a `/healthz`, 1 vCPU y 256 MiB de memoria (justificado en el diseño) y HTTPS en la URL `*.run.app`.
 - Identidad sin claves: Workload Identity Federation entre GitHub y GCP, con una cuenta de servicio de despliegue de permisos mínimos y una cuenta de servicio de ejecución dedicada sin roles. No se guardan claves JSON en GitHub. Las acciones `google-github-actions/auth`, `setup-gcloud` y `deploy-cloudrun` (hoy en la versión mayor v3) se fijan por SHA, como en `flutter.yml`.
@@ -18,9 +18,9 @@ El backend (`catalog-api` con el catálogo USDA embebido) solo corre en el Mac c
 
 ### Costo esperado
 
-- 0 USD/mes dentro de la capa gratuita de Cloud Run con facturación por petición, por cuenta de facturación y mes: 2 M de peticiones, 180.000 vCPU-s y 360.000 GiB-s. La capa exige una cuenta de facturación con tarjeta y se aplica como descuento en dólares a precios Tier 1, así que en una región Tier 2 como São Paulo el equivalente gratuito es menor (aprox. 128.000 vCPU-s).
+- 0 USD/mes dentro de la capa gratuita de Cloud Run con facturación por petición, por cuenta de facturación y mes: 2 M de peticiones, 180.000 vCPU-s y 360.000 GiB-s. La capa exige una cuenta de facturación con tarjeta y se aplica como descuento en dólares a precios Tier 1; `northamerica-south1` es Tier 1, así que la capa aplica completa.
 - Artifact Registry: 0,5 GB de almacenamiento gratis al mes; cada imagen pesa unos 154 MB (menos comprimida en el registro), por eso la política de limpieza conserva pocas versiones. No se usa Cloud Build.
-- Salida de red: la capa gratuita cubre 1 GB solo desde Norteamérica; las respuestas son pequeñas y el tráfico mínimo, pero es el único concepto que no queda cubierto por la capa en São Paulo.
+- Salida de red: la capa gratuita cubre 1 GB solo desde Norteamérica; las respuestas son pequeñas y el tráfico mínimo, y la salida gratuita de 1 GB desde Norteamérica cubre `northamerica-south1`.
 - Cota superior acotada por `max-instances=2` y por la alerta de presupuesto de 1 USD. La alerta avisa por correo y no corta el gasto: el límite real es `max-instances` y la posibilidad de desmontar el servicio.
 
 ### Qué debe hacer el usuario a mano en GCP

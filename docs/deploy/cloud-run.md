@@ -276,8 +276,8 @@ Ninguno es una clave: los dos secretos solo identifican el proveedor y la cuenta
 | `GCP_WORKLOAD_IDENTITY_PROVIDER` | secreto | `projects/<número>/locations/global/workloadIdentityPools/github/providers/boticario-ai` | Paso 4 |
 | `GCP_DEPLOYER_SERVICE_ACCOUNT` | secreto | `boticario-deployer@<proyecto>.iam.gserviceaccount.com` | `$DEPLOYER_EMAIL` |
 | `GCP_PROJECT_ID` | variable | el id del proyecto | `$PROJECT_ID` |
-| `GCP_REGION` | variable | `southamerica-east1` | `$REGION` |
-| `GCP_ARTIFACT_REPOSITORY` | variable | `southamerica-east1-docker.pkg.dev/<proyecto>/boticario` | `$REGION`, `$PROJECT_ID` y `$REPO` |
+| `GCP_REGION` | variable | `northamerica-south1` | `$REGION` |
+| `GCP_ARTIFACT_REPOSITORY` | variable | `northamerica-south1-docker.pkg.dev/<proyecto>/boticario` | `$REGION`, `$PROJECT_ID` y `$REPO` |
 
 ```bash
 gh secret set GCP_WORKLOAD_IDENTITY_PROVIDER --repo "$GITHUB_REPO" \

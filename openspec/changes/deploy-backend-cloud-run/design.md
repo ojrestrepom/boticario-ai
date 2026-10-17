@@ -22,24 +22,24 @@ Véanse `proposal.md` y la spec delta de `backend-deployment` para los requisito
 **Non-Goals:**
 
 - `cargo test` como puerta previa del despliegue: sería un cambio «CI del backend» propio; hoy el despliegue se apoya en la verificación posterior por `curl` y en que la construcción de la imagen ya falla si el insumo no coincide con su MD5.
-- Dominio propio (el mapeo de dominios sigue en preview y no está disponible en `southamerica-east1`), autenticación de la API, caché o CDN, entornos múltiples, otras nubes y cambios en el código de la app.
+- Dominio propio (el mapeo de dominios sigue en preview y no está disponible en `northamerica-south1`, que no figura entre sus regiones admitidas en https://docs.cloud.google.com/run/docs/mapping-custom-domains), autenticación de la API, caché o CDN, entornos múltiples, otras nubes y cambios en el código de la app.
 - Infraestructura como código (Terraform): la preparación única son comandos `gcloud` documentados.
 
 ## Decisions
 
 ### 1. Cloud Run con facturación por petición, escala a cero y 2 instancias como máximo
 
-Servicio `boticario-api` en `southamerica-east1` (São Paulo), CPU asignada solo durante las peticiones, `min-instances=0`, `max-instances=2`, `--allow-unauthenticated` e ingress público. Con `min-instances=0` y facturación por petición no se factura mientras no hay instancias ni peticiones; el precio es el arranque en frío de la primera petición tras un periodo inactivo, cuya duración la documentación no da y se mide en QA. Fuentes: https://docs.cloud.google.com/run/docs/configuring/min-instances y https://cloud.google.com/run/pricing.
+Servicio `boticario-api` en `northamerica-south1` (Querétaro, México), CPU asignada solo durante las peticiones, `min-instances=0`, `max-instances=2`, `--allow-unauthenticated` e ingress público. Con `min-instances=0` y facturación por petición no se factura mientras no hay instancias ni peticiones; el precio es el arranque en frío de la primera petición tras un periodo inactivo, cuya duración la documentación no da y se mide en QA. Fuentes: https://docs.cloud.google.com/run/docs/configuring/min-instances y https://cloud.google.com/run/pricing.
 
-Región: `southamerica-east1` es Tier 2 (como Santiago), así que el equivalente gratuito en vCPU-s es menor que en Tier 1 (aprox. 128.000 en lugar de 180.000, porque la capa se aplica como descuento en dólares a precios Tier 1) y cuesta más fuera de ella (0,0000336 frente a 0,000024 USD por vCPU-s). Se elige por latencia con la app de usuarios en Latinoamérica; con unas pocas peticiones al día la diferencia es despreciable. Fuentes: https://docs.cloud.google.com/run/docs/locations y https://docs.cloud.google.com/free/docs/free-cloud-features.
+Región: `northamerica-south1` (Querétaro, México) es Tier 1 (tarifa base), así que la capa gratuita aplica completa (180.000 vCPU-s y 360.000 GiB-s) y la salida de red de 1 GB gratis desde Norteamérica la cubre; y es la región Tier 1 más cercana a Colombia. Fuentes: https://docs.cloud.google.com/run/docs/locations (la lista como Tier 1) y https://docs.cloud.google.com/artifact-registry/docs/repositories/repo-locations (Artifact Registry la soporta, fila `northamerica-south1 | Queretaro`).
 
-Alternativas descartadas: una región Tier 1 como `northamerica-south1` (México) o `us-central1`, que dan la capa completa y salida gratuita pero más latencia; facturación por instancia o `min-instances=1`, que facturan en reposo; `max-instances` sin límite, que deja el gasto sin cota.
+Alternativas descartadas: `southamerica-east1` (São Paulo) y `southamerica-west1` (Santiago), más cercanas pero Tier 2, con capa gratuita efectiva menor y salida de red fuera de la capa; `us-south1` y `us-east1`, Tier 1 pero más lejanas; facturación por instancia o `min-instances=1`, que facturan en reposo; `max-instances` sin límite, que deja el gasto sin cota.
 
 ### 2. 1 vCPU, 256 MiB y primera generación del entorno de ejecución
 
 La documentación oficial (https://docs.cloud.google.com/run/docs/configuring/services/cpu y https://docs.cloud.google.com/run/docs/configuring/services/memory-limits) fija: CPU mínima de 0,08 vCPU y, por encima de 1, solo enteros; con 0,08 vCPU hasta 512 MiB, con 0,5 hasta 1 GiB y con 1 vCPU hasta 4 GiB; memoria por defecto de 512 MiB; memoria mínima de 128 MiB en la primera generación del entorno de ejecución y de 512 MiB en la segunda, con la recomendación de usar la primera por debajo de 512 MiB. Una CPU fraccionaria (menos de 1 vCPU) exige concurrencia máxima 1, facturación por petición y primera generación.
 
-Se elige 1 vCPU y 256 MiB con `--execution-environment=gen1`. La API es un binario Rust con una SQLite de 6 MB, así que 256 MiB sobra con margen (el consumo real se mide en QA con los logs de memoria de Cloud Run). No se baja de 1 vCPU porque una CPU fraccionaria obliga a concurrencia 1 (una ráfaga de una demo abriría una instancia por petición y chocaría con `max-instances=2`) y ralentiza el arranque en frío, mientras que con facturación por petición el costo es vCPU-s por duración de cada petición: una petición de milisegundos cuesta casi lo mismo con 0,08 que con 1 vCPU. El costo de la memoria (0,0000035 USD/GiB-s en Tier 2) es despreciable a 256 MiB.
+Se elige 1 vCPU y 256 MiB con `--execution-environment=gen1`. La API es un binario Rust con una SQLite de 6 MB, así que 256 MiB sobra con margen (el consumo real se mide en QA con los logs de memoria de Cloud Run). No se baja de 1 vCPU porque una CPU fraccionaria obliga a concurrencia 1 (una ráfaga de una demo abriría una instancia por petición y chocaría con `max-instances=2`) y ralentiza el arranque en frío, mientras que con facturación por petición el costo es vCPU-s por duración de cada petición: una petición de milisegundos cuesta casi lo mismo con 0,08 que con 1 vCPU. El costo de la memoria (0,0000025 USD/GiB-s en Tier 1) es despreciable a 256 MiB.
 
 Por confirmar en la implementación: que `gcloud run deploy` acepte `--cpu=1 --memory=256Mi --execution-environment=gen1` con esta imagen y que el arranque no supere el consumo de 256 MiB. Si fallara, el valor de respaldo es 512 MiB (el mínimo de la segunda generación y el valor por defecto), sin cambios en las specs salvo el escenario «Recursos del contenedor».
 
@@ -53,7 +53,7 @@ No se añaden sondas de liveness: con instancias de vida corta y sin estado, un 
 
 ### 4. Imagen construida en GitHub Actions y publicada en Artifact Registry
 
-El job construye con `docker/setup-buildx-action` y `docker/build-push-action` en un runner `ubuntu` (amd64 nativo, sin emulación) con `platforms: linux/amd64`, etiquetas `…/boticario-api:<sha>` y `…:latest`, y la publica en un repositorio Docker de Artifact Registry de `southamerica-east1`. Cloud Run solo despliega directamente imágenes de registries externos si son públicas; con un repositorio de GitHub privado, GHCR obligaría a un repositorio remoto o a hacer pública la imagen. Artifact Registry es además el registry recomendado: https://docs.cloud.google.com/run/docs/deploying. El login al registry usa el token de acceso de la identidad federada (`oauth2accesstoken`, vía `gcloud auth configure-docker` o `docker/login-action`). Cloud Build no se usa para no tener otra API ni otro costo.
+El job construye con `docker/setup-buildx-action` y `docker/build-push-action` en un runner `ubuntu` (amd64 nativo, sin emulación) con `platforms: linux/amd64`, etiquetas `…/boticario-api:<sha>` y `…:latest`, y la publica en un repositorio Docker de Artifact Registry de `northamerica-south1`. Cloud Run solo despliega directamente imágenes de registries externos si son públicas; con un repositorio de GitHub privado, GHCR obligaría a un repositorio remoto o a hacer pública la imagen. Artifact Registry es además el registry recomendado: https://docs.cloud.google.com/run/docs/deploying. El login al registry usa el token de acceso de la identidad federada (`oauth2accesstoken`, vía `gcloud auth configure-docker` o `docker/login-action`). Cloud Build no se usa para no tener otra API ni otro costo.
 
 El despliegue referencia la imagen por la etiqueta del SHA (cada revisión apunta a un contenido concreto y el rollback es determinista); `latest` es una comodidad para pruebas manuales.
 
@@ -116,7 +116,7 @@ Se añade `backend-deployment` (capacidad nueva) y se modifica `flutter-app-boot
 
 - [Arranque en frío tras inactividad: la primera petición espera a que arranque el contenedor y la documentación no da una cifra] → medirlo en QA tras al menos 15 minutos sin tráfico (varias muestras); la app ya tiene tiempo máximo de 10 s con error reintentable. Si molesta, `min-instances=1` costaría dinero; se deja fuera.
 - [La alerta de 1 USD no corta el gasto] → `max-instances=2`, facturación por petición y desmontaje documentado; el peor caso teórico (dos instancias activas todo el mes) no es alcanzable con este tráfico, pero la API es pública y sin autenticación, y un cliente abusivo puede consumir la capa; se acepta en un proyecto académico.
-- [Región Tier 2: capa gratuita menor y salida de red fuera de la capa] → tráfico mínimo y respuestas pequeñas; se lee el consumo en QA frente a la capa.
+- [Región más lejana que São Paulo para los usuarios de Latinoamérica: algo más de latencia] → `northamerica-south1` es la Tier 1 más cercana a Colombia; con unas pocas peticiones al día la diferencia es despreciable y se mide en QA junto con el arranque en frío.
 - [Sin recompilación incremental: cada cambio del backend recompila todo en Actions] → riesgo aceptado, ver la decisión 5.
 - [La política de limpieza puede borrar la imagen de una revisión antigua y volver imposible su rollback] → conservar 5 versiones y hacer rollback solo a revisiones recientes.
 - [Sin `cargo test` previo, un backend roto puede desplegarse] → la verificación posterior falla el job y la revisión sin sonda válida no recibe tráfico; la CI del backend es un cambio posterior.
@@ -130,7 +130,7 @@ Orden de las tareas: (1) guía de preparación en `docs/deploy/cloud-run.md`; (2
 
 Primer despliegue: tras la preparación y los secretos, lanzar el workflow con `workflow_dispatch`; el servicio se crea en esa ejecución. Verificar la URL y registrarla en README como ejemplo de `--dart-define`, o dejar el marcador `<url-de-cloud-run>`.
 
-Rollback de una revisión: `gcloud run services update-traffic boticario-api --to-revisions=<revisión-anterior>=100 --region=southamerica-east1`; no reconstruye ni toca la imagen. Para revertir el cambio en el repositorio, borrar el workflow y los documentos con un commit de reversión; el servicio sigue corriendo hasta desmontarlo.
+Rollback de una revisión: `gcloud run services update-traffic boticario-api --to-revisions=<revisión-anterior>=100 --region=northamerica-south1`; no reconstruye ni toca la imagen. Para revertir el cambio en el repositorio, borrar el workflow y los documentos con un commit de reversión; el servicio sigue corriendo hasta desmontarlo.
 
 Desmontaje para volver a costo cero: eliminar el servicio (`gcloud run services delete`), el repositorio de Artifact Registry, las dos cuentas de servicio, el proveedor y el pool de WIF y el presupuesto, y quitar los secretos y variables de GitHub; o eliminar el proyecto entero, que lo borra todo tras el periodo de recuperación de 30 días. La app sigue funcionando contra el backend local con `docker compose up`.
 

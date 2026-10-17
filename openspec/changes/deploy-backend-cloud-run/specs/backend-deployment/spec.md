@@ -52,7 +52,7 @@ El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`
 - **THEN** el job termina en fallo
 
 ### Requirement: Configuración del servicio en Cloud Run
-El servicio `boticario-api` SHALL desplegarse en `southamerica-east1` con facturación por petición, escala a cero (`min-instances=0`), un máximo de 2 instancias, acceso público sin autenticación y la imagen escuchando en el puerto 8080 que Cloud Run inyecta por `PORT`. El servicio SHALL usar 1 vCPU y 256 MiB de memoria, una sonda de arranque HTTP a `/healthz` y una cuenta de servicio de ejecución dedicada. El servicio SHALL ser accesible por HTTPS en su URL `*.run.app` y SHALL servir la misma API que la imagen en local.
+El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con facturación por petición, escala a cero (`min-instances=0`), un máximo de 2 instancias, acceso público sin autenticación y la imagen escuchando en el puerto 8080 que Cloud Run inyecta por `PORT`. El servicio SHALL usar 1 vCPU y 256 MiB de memoria, una sonda de arranque HTTP a `/healthz` y una cuenta de servicio de ejecución dedicada. El servicio SHALL ser accesible por HTTPS en su URL `*.run.app` y SHALL servir la misma API que la imagen en local.
 
 #### Scenario: Escala a cero y máximo de instancias
 - **WHEN** se describe el servicio desplegado

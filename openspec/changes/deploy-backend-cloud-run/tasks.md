@@ -8,12 +8,12 @@ Nota: este cambio se implementa después de archivar `connect-app-to-backend`. L
 
 ## 2. Preparación en GCP [usuario]
 
-- [ ] 2.1 [usuario] Crear el proyecto de GCP, vincular la cuenta de facturación y habilitar las APIs (`run.googleapis.com`, `artifactregistry.googleapis.com`, `iam.googleapis.com`, `iamcredentials.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`); verificar con `gcloud services list --enabled` y `gcloud billing projects describe`.
-- [ ] 2.2 [usuario] Crear el repositorio Docker de Artifact Registry en `northamerica-south1` y aplicar la política de limpieza que conserva las últimas 5 versiones (probar antes con `--dry-run`); verificar con `gcloud artifacts repositories describe` mostrando la política.
-- [ ] 2.3 [usuario] Crear las cuentas de servicio `boticario-deployer` y `boticario-runtime` con los roles de la decisión 7 (la de ejecución sin roles); verificar con `gcloud projects get-iam-policy` y `gcloud iam service-accounts get-iam-policy` que el despliegue tiene solo `run.admin`, escritura en el repositorio y `serviceAccountUser` sobre la de ejecución.
-- [ ] 2.4 [usuario] Crear el pool y el proveedor OIDC de Workload Identity Federation con la condición de atributo del repositorio y conceder `workloadIdentityUser` al `principalSet` del repositorio; verificar con `gcloud iam workload-identity-pools providers describe` (condición de atributo presente) y anotar el nombre del proveedor.
+- [x] 2.1 [usuario] Crear el proyecto de GCP, vincular la cuenta de facturación y habilitar las APIs (`run.googleapis.com`, `artifactregistry.googleapis.com`, `iam.googleapis.com`, `iamcredentials.googleapis.com`, `sts.googleapis.com`, `cloudresourcemanager.googleapis.com`); verificar con `gcloud services list --enabled` y `gcloud billing projects describe`.
+- [x] 2.2 [usuario] Crear el repositorio Docker de Artifact Registry en `northamerica-south1` y aplicar la política de limpieza que conserva las últimas 5 versiones (probar antes con `--dry-run`); verificar con `gcloud artifacts repositories describe` mostrando la política.
+- [x] 2.3 [usuario] Crear las cuentas de servicio `boticario-deployer` y `boticario-runtime` con los roles de la decisión 7 (la de ejecución sin roles); verificar con `gcloud projects get-iam-policy` y `gcloud iam service-accounts get-iam-policy` que el despliegue tiene solo `run.admin`, escritura en el repositorio y `serviceAccountUser` sobre la de ejecución.
+- [x] 2.4 [usuario] Crear el pool y el proveedor OIDC de Workload Identity Federation con la condición de atributo del repositorio y conceder `workloadIdentityUser` al `principalSet` del repositorio; verificar con `gcloud iam workload-identity-pools providers describe` (condición de atributo presente) y anotar el nombre del proveedor.
 - [ ] 2.5 [usuario] Crear la alerta de presupuesto de 1 USD con umbrales por correo; verificar con `gcloud billing budgets list` o en la consola.
-- [ ] 2.6 [usuario] Registrar en GitHub los secretos y variables del workflow (proyecto, proveedor de WIF, cuenta de despliegue, región, repositorio de imágenes); verificar con `gh secret list` y `gh variable list`, sin mostrar valores.
+- [x] 2.6 [usuario] Registrar en GitHub los secretos y variables del workflow (proyecto, proveedor de WIF, cuenta de despliegue, región, repositorio de imágenes); verificar con `gh secret list` y `gh variable list`, sin mostrar valores.
 
 ## 3. Workflow de imagen y despliegue
 

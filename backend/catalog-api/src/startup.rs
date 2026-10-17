@@ -130,11 +130,11 @@ mod tests {
     }
 
     #[tokio::test]
-    async fn valid_database_serves_healthz() {
+    async fn valid_database_serves_health() {
         let fixture = Fixture::standard();
         let app = prepare(&config_for(fixture.path.clone())).unwrap();
         let response = app
-            .oneshot(Request::get("/healthz").body(Body::empty()).unwrap())
+            .oneshot(Request::get("/health").body(Body::empty()).unwrap())
             .await
             .unwrap();
         assert_eq!(response.status(), StatusCode::OK);

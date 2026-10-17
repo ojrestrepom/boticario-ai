@@ -19,7 +19,7 @@ use crate::http;
         version = "1",
         description = "API de solo lectura del catálogo de plantas. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`."
     ),
-    paths(http::healthz, http::openapi_json, http::list_plants, http::get_plant),
+    paths(http::health, http::openapi_json, http::list_plants, http::get_plant),
     components(schemas(
         HealthDto,
         CommonNameDto,
@@ -75,7 +75,7 @@ mod tests {
         let paths: Vec<&str> = doc.paths.paths.keys().map(String::as_str).collect();
         assert_eq!(
             paths,
-            ["/healthz", "/openapi.json", "/v1/plants", "/v1/plants/{id}"]
+            ["/health", "/openapi.json", "/v1/plants", "/v1/plants/{id}"]
         );
     }
 

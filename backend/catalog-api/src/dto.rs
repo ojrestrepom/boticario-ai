@@ -8,7 +8,7 @@ use catalog_core::domain::{NameKind, Page, Part, Plant, PlantName, PlantSummary,
 use serde::Serialize;
 use utoipa::ToSchema;
 
-/// Respuesta de `GET /healthz`.
+/// Respuesta de `GET /health`.
 #[derive(Debug, Clone, Serialize, ToSchema)]
 pub struct HealthDto {
     /// Siempre `"ok"` si el servicio está activo.

@@ -10,4 +10,4 @@ services:
       PORT: ${PORT:-8080}
       RUST_LOG: ${RUST_LOG:-info}
     # Sin HOST: la imagen lo fija en 0.0.0.0 y cambiarlo dejaría la API inalcanzable.
-    # Sin healthcheck: la imagen no lleva curl; /healthz queda para sondas externas.
+    # Sin healthcheck: la imagen no lleva curl; /health queda para sondas externas.

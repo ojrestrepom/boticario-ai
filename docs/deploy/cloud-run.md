@@ -30,7 +30,7 @@ Artifact Registry (repositorio "boticario")
    |  despliega la imagen del <sha> como una revisión nueva
    v
 Cloud Run (servicio "boticario-api", corre como boticario-runtime)
-   |  el workflow comprueba con curl /healthz y el detalle de una planta
+   |  el workflow comprueba con curl /health y el detalle de una planta
    v
 la app, por HTTPS en la URL *.run.app
 ```
@@ -43,7 +43,7 @@ la app, por HTTPS en la URL *.run.app
 | Región `northamerica-south1` | Dónde viven el repositorio y el servicio (Tier 1) | Decisión de diseño | `gcloud config list` y `gcloud run services list` |
 | Repositorio de imágenes `boticario` | Artifact Registry Docker donde el workflow publica la imagen | Tú, paso 2 | `gcloud artifacts repositories describe "$REPO" --location="$REGION"` |
 | Política de limpieza | Borra versiones de más de un día salvo las 5 más recientes | Tú, paso 2 | `gcloud artifacts repositories list-cleanup-policies "$REPO" --location="$REGION"` |
-| Servicio `boticario-api` | Cloud Run: 1 vCPU, 256 MiB, 0 a 2 instancias, puerto 8080, público, corre como `boticario-runtime` y su sonda de arranque apunta a `/healthz` | El workflow, primer despliegue | `gcloud run services describe "$SERVICE" --region="$REGION"` |
+| Servicio `boticario-api` | Cloud Run: 1 vCPU, 256 MiB, 0 a 2 instancias, puerto 8080, público, corre como `boticario-runtime` y su sonda de arranque apunta a `/health`, ruta que también responde desde fuera (`/healthz` no se usa porque Cloud Run reserva las rutas terminadas en «z» y devuelve su propio 404) | El workflow, primer despliegue | `gcloud run services describe "$SERVICE" --region="$REGION"` |
 | Pool `github` y proveedor `boticario-ai` | Workload Identity Federation: aceptan tokens OIDC de GitHub solo del repositorio | Tú, paso 4 | `gcloud iam workload-identity-pools providers describe "$PROVIDER" --location=global --workload-identity-pool="$POOL"` |
 | Cuenta `boticario-deployer` | Identidad que el workflow asume para publicar y desplegar | Tú, pasos 3 y 4 | `gcloud iam service-accounts describe "$DEPLOYER_EMAIL"` |
 | Cuenta `boticario-runtime` | Identidad con la que corre el contenedor, sin roles | Tú, paso 3 | `gcloud iam service-accounts describe "$RUNTIME_EMAIL"` |
@@ -74,7 +74,7 @@ la app, por HTTPS en la URL *.run.app
 - Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`, y sus permisos son solo `contents: read` e `id-token: write`.
 - Seguridad: los despliegues se serializan con `concurrency` y no se cancelan a medias.
 - Seguridad: las acciones de terceros están fijadas por SHA con un comentario de versión.
-- Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/healthz` o el detalle de una planta no responden 200; no hay rollback automático, Cloud Run conserva la revisión anterior.
+- Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/health` o el detalle de una planta no responden 200; no hay rollback automático, Cloud Run conserva la revisión anterior.
 - Fiabilidad: una revisión que no pasa la sonda de arranque no recibe tráfico.
 
 ## Preparación única en Google Cloud

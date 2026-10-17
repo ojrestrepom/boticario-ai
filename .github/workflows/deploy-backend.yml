@@ -99,17 +99,20 @@ jobs:
             --cpu-throttling
             --port=8080
             --service-account=boticario-runtime@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
-            --startup-probe=httpGet.path=/healthz,httpGet.port=8080,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
+            --startup-probe=httpGet.path=/health,httpGet.port=8080,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
 
       # Verificacion posterior: falla el job si la API no responde 200. Los reintentos absorben el
       # arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.
+      # La ruta de salud es /health y no /healthz: Cloud Run reserva las rutas terminadas en «z»
+      # (/healthz) en la URL publica y responde su propio 404 sin llegar al contenedor. El detalle
+      # de una planta ejercita ademas la base de datos.
       - name: Verificar el servicio desplegado
         shell: bash
         env:
           SERVICE_URL: ${{ steps.deploy.outputs.url }}
         run: |
           set -euo pipefail
-          for path in /healthz /v1/plants/lavandula-angustifolia; do
+          for path in /health /v1/plants/lavandula-angustifolia; do
             status="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \
               --output /dev/null --write-out '%{http_code}' "${SERVICE_URL}${path}")"
             echo "GET ${path} -> ${status}"

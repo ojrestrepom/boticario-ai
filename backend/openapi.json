@@ -9,13 +9,13 @@
     "version": "1"
   },
   "paths": {
-    "/healthz": {
+    "/health": {
       "get": {
         "tags": [
           "health"
         ],
         "summary": "El servicio está activo.",
-        "operationId": "healthz",
+        "operationId": "health",
         "responses": {
           "200": {
             "description": "El servicio está activo",
@@ -249,7 +249,7 @@
       },
       "HealthDto": {
         "type": "object",
-        "description": "Respuesta de `GET /healthz`.",
+        "description": "Respuesta de `GET /health`.",
         "required": [
           "status"
         ],

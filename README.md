@@ -149,7 +149,7 @@ La primera construcción compila el backend, descarga el dataset de USDA y const
 
 Todos son `GET`, por defecto en `http://localhost:8080`:
 
-- `/healthz`: estado del servicio.
+- `/health`: estado del servicio.
 - `/v1/plants`: lista paginada, con búsqueda opcional por `q`.
 - `/v1/plants/{id}`: detalle de una planta.
 - `/openapi.json`: el contrato OpenAPI.
@@ -158,7 +158,7 @@ Todos son `GET`, por defecto en `http://localhost:8080`:
 curl 'http://localhost:8080/v1/plants?q=lavand'
 ```
 
-La imagen no define un `healthcheck`; para sondear el servicio desde fuera, usar `/healthz`.
+La imagen no define un `healthcheck`; para sondear el servicio desde fuera, usar `/health`.
 
 ### Configuración
 

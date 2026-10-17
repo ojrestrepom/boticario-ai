@@ -66,7 +66,7 @@ async fn api_serves_a_catalog_built_from_two_fixture_sources() {
     let repo = SqliteCatalogRepository::open(&out).unwrap();
     let app = router(AsyncCatalog::new(Arc::new(repo)));
 
-    let (status, body) = get(&app, "/healthz").await;
+    let (status, body) = get(&app, "/health").await;
     assert_eq!(status, StatusCode::OK);
     assert_eq!(body["status"], "ok");
 

@@ -10,7 +10,7 @@ use catalog_core::repository::CatalogRepository;
 use tokio::net::{TcpListener, TcpStream};
 use tokio::sync::oneshot;
 
-/// Repositorio vacío: `/healthz` no lo consulta.
+/// Repositorio vacío: `/health` no lo consulta.
 struct EmptyRepo;
 
 impl CatalogRepository for EmptyRepo {
@@ -21,7 +21,7 @@ impl CatalogRepository for EmptyRepo {
         catalog_core::domain::Page<catalog_core::domain::PlantSummary>,
         catalog_core::repository::RepositoryError,
     > {
-        unreachable!("el test solo pide /healthz")
+        unreachable!("el test solo pide /health")
     }
 
     fn get_plant(
@@ -65,7 +65,7 @@ fn send(stream: &TcpStream, bytes: &[u8]) {
 async fn idle_keep_alive_connection_does_not_delay_shutdown() {
     let (addr, signal, handle) = start(Duration::from_secs(5)).await;
     let stream = TcpStream::connect(addr).await.unwrap();
-    send(&stream, b"GET /healthz HTTP/1.1\r\nHost: x\r\n\r\n");
+    send(&stream, b"GET /health HTTP/1.1\r\nHost: x\r\n\r\n");
     // Se lee la respuesta para asegurar que la petición terminó y la conexión queda inactiva.
     let mut buf = [0u8; 1024];
     stream.readable().await.unwrap();
@@ -86,7 +86,7 @@ async fn incomplete_request_forces_shutdown_after_grace() {
     let (addr, signal, handle) = start(grace).await;
     let stream = TcpStream::connect(addr).await.unwrap();
     // Cabeceras sin la línea vacía final y socket abierto.
-    send(&stream, b"GET /healthz HTTP/1.1\r\nHost: x\r\n");
+    send(&stream, b"GET /health HTTP/1.1\r\nHost: x\r\n");
     // Margen para que el servidor haya aceptado la conexión antes de la señal.
     tokio::time::sleep(Duration::from_millis(100)).await;
 

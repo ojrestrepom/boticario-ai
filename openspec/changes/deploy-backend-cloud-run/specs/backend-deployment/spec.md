@@ -25,7 +25,7 @@ El workflow de despliegue SHALL construir la imagen del backend para linux/amd64
 - **THEN** la imagen no es accesible
 
 ### Requirement: Despliegue automático con verificación posterior
-El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow) y bajo demanda con `workflow_dispatch`. SHALL NOT ejecutarse por cambios que solo afecten a la app, la documentación u OpenSpec. Los despliegues SHALL serializarse sin cancelar uno en curso. Tras desplegar, el workflow SHALL consultar `GET /healthz` y `GET /v1/plants/lavandula-angustifolia` sobre la URL del servicio y SHALL fallar si alguna no responde 200.
+El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow) y bajo demanda con `workflow_dispatch`. SHALL NOT ejecutarse por cambios que solo afecten a la app, la documentación u OpenSpec. Los despliegues SHALL serializarse sin cancelar uno en curso. Tras desplegar, el workflow SHALL consultar `GET /health` y `GET /v1/plants/lavandula-angustifolia` sobre la URL del servicio y SHALL fallar si alguna no responde 200.
 
 #### Scenario: Cambio del backend en main
 - **WHEN** se hace `push` a `main` con un cambio bajo `backend/`
@@ -44,7 +44,7 @@ El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`
 - **THEN** la segunda espera a que termine la primera y ninguna se cancela a medias
 
 #### Scenario: Verificación posterior satisfactoria
-- **WHEN** el servicio desplegado responde 200 en `/healthz` y en `/v1/plants/lavandula-angustifolia`
+- **WHEN** el servicio desplegado responde 200 en `/health` y en `/v1/plants/lavandula-angustifolia`
 - **THEN** el job termina en éxito
 
 #### Scenario: Verificación posterior fallida
@@ -52,7 +52,7 @@ El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`
 - **THEN** el job termina en fallo
 
 ### Requirement: Configuración del servicio en Cloud Run
-El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con facturación por petición, escala a cero (`min-instances=0`), un máximo de 2 instancias, acceso público sin autenticación y la imagen escuchando en el puerto 8080 que Cloud Run inyecta por `PORT`. El servicio SHALL usar 1 vCPU y 256 MiB de memoria, una sonda de arranque HTTP a `/healthz` y una cuenta de servicio de ejecución dedicada. El servicio SHALL ser accesible por HTTPS en su URL `*.run.app` y SHALL servir la misma API que la imagen en local.
+El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con facturación por petición, escala a cero (`min-instances=0`), un máximo de 2 instancias, acceso público sin autenticación y la imagen escuchando en el puerto 8080 que Cloud Run inyecta por `PORT`. El servicio SHALL usar 1 vCPU y 256 MiB de memoria, una sonda de arranque HTTP a `/health` y una cuenta de servicio de ejecución dedicada. El servicio SHALL ser accesible por HTTPS en su URL `*.run.app` y SHALL servir la misma API que la imagen en local.
 
 #### Scenario: Escala a cero y máximo de instancias
 - **WHEN** se describe el servicio desplegado
@@ -68,7 +68,11 @@ El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con factu
 
 #### Scenario: Sonda de arranque
 - **WHEN** se describe el servicio desplegado
-- **THEN** tiene una sonda de arranque HTTP a `/healthz` en el puerto 8080
+- **THEN** tiene una sonda de arranque HTTP a `/health` en el puerto 8080
+
+#### Scenario: Ruta de salud alcanzable desde fuera
+- **WHEN** se consulta `GET /health` por la URL pública `*.run.app`
+- **THEN** la API responde 200
 
 #### Scenario: Acceso público por HTTPS
 - **WHEN** se consulta `GET /v1/plants?q=lavandula` por HTTPS en la URL del servicio sin credenciales

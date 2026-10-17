@@ -74,6 +74,6 @@ ENV HOST=0.0.0.0 \
 EXPOSE 8080
 USER app
 
-# Sin HEALTHCHECK: la imagen no lleva curl ni otras herramientas; /healthz queda para sondas externas.
+# Sin HEALTHCHECK: la imagen no lleva curl ni otras herramientas; /health queda para sondas externas.
 # Forma exec: el binario es PID 1 y recibe SIGTERM directamente (apagado ordenado).
 ENTRYPOINT ["/app/catalog-api"]

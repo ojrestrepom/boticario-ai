@@ -18,13 +18,13 @@ use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto};
 use crate::error::ApiError;
 use crate::openapi::openapi;
 
-/// Construye el router completo: `/healthz` y `/v1/...`, con errores `problem+json` para rutas y métodos desconocidos.
+/// Construye el router completo: `/health` y `/v1/...`, con errores `problem+json` para rutas y métodos desconocidos.
 pub fn router(catalog: AsyncCatalog) -> Router {
     let v1 = Router::new()
         .route("/plants", get(list_plants))
         .route("/plants/{id}", get(get_plant));
     Router::new()
-        .route("/healthz", get(healthz))
+        .route("/health", get(health))
         .route("/openapi.json", get(openapi_json))
         .nest("/v1", v1)
         .fallback(not_found)
@@ -65,14 +65,14 @@ pub(crate) async fn openapi_json() -> Json<utoipa::openapi::OpenApi> {
 /// El servicio está activo.
 #[utoipa::path(
     get,
-    path = "/healthz",
+    path = "/health",
     tag = "health",
     responses(
         (status = 200, description = "El servicio está activo", body = HealthDto),
         (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
     )
 )]
-pub(crate) async fn healthz() -> Json<HealthDto> {
+pub(crate) async fn health() -> Json<HealthDto> {
     Json(HealthDto { status: "ok" })
 }
 
@@ -286,12 +286,12 @@ mod tests {
     // ---- 7.1 ----
 
     #[tokio::test]
-    async fn healthz_is_ok_and_outside_v1() {
+    async fn health_is_ok_and_outside_v1() {
         let (_fixture, app) = app();
-        let (status, json) = get_json(&app, "/healthz").await;
+        let (status, json) = get_json(&app, "/health").await;
         assert_eq!(status, StatusCode::OK);
         assert_eq!(json, serde_json::json!({"status": "ok"}));
-        expect_problem(&app, Method::GET, "/v1/healthz", StatusCode::NOT_FOUND).await;
+        expect_problem(&app, Method::GET, "/v1/health", StatusCode::NOT_FOUND).await;
     }
 
     #[tokio::test]
@@ -624,7 +624,7 @@ mod tests {
             (Method::DELETE, "/v1/plants/zea-mays"),
             (Method::PUT, "/v1/plants/zea-mays"),
             (Method::PATCH, "/v1/plants/zea-mays"),
-            (Method::POST, "/healthz"),
+            (Method::POST, "/health"),
         ] {
             expect_problem(&app, method.clone(), uri, StatusCode::METHOD_NOT_ALLOWED).await;
             let (_, headers, _) = send(&app, method, uri).await;

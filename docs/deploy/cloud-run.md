@@ -77,6 +77,38 @@ la app, por HTTPS en la URL *.run.app
 - Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/health` o el detalle de una planta no responden 200; no hay rollback automático, Cloud Run conserva la revisión anterior.
 - Fiabilidad: una revisión que no pasa la sonda de arranque no recibe tráfico.
 
+## Costo esperado
+
+Con el tráfico de un proyecto académico, el servicio debería costar 0 USD al mes: Cloud Run factura por petición, escala a cero y tiene una capa gratuita mensual muy por encima de ese uso.
+
+La capa gratuita de Cloud Run con facturación por petición incluye cada mes, por cuenta de facturación, 2 millones de peticiones, 180.000 vCPU-segundos, 360.000 GiB-segundos y 1 GB de salida de red desde Norteamérica.
+
+`northamerica-south1` (Querétaro) es una región Tier 1 y está en Norteamérica, así que la capa aplica completa y sin recortes por región.
+
+La capa se aplica como un descuento en dólares sobre el uso de cada mes, no como un contador aparte, y exige una cuenta de facturación activa aunque no llegue a cobrarse nada.
+
+Artifact Registry incluye 0,5 GB de almacenamiento gratis al mes; la política de limpieza del paso 2 mantiene pocas versiones de la imagen para quedar dentro de ese límite.
+
+Lo que se paga fuera de la capa, con las tarifas Tier 1 (consúltalas en la página de precios, porque pueden cambiar):
+
+| Concepto | Tarifa Tier 1 |
+| --- | --- |
+| CPU | 0,000024 USD por vCPU-segundo |
+| Memoria | 0,0000025 USD por GiB-segundo |
+| Peticiones | 0,40 USD por millón |
+
+Controles que acotan el gasto:
+
+- `max-instances=2` limita cuánto puede escalar el servicio ante un pico de tráfico.
+- `min-instances=0` y la facturación por petición (`--cpu-throttling`) hacen que en reposo no haya instancias ni cobro.
+- La alerta de presupuesto del equivalente a 1 USD en la moneda de la cuenta (5000 COP en esta cuenta) avisa por correo, pero no corta el gasto ni apaga el servicio; el control final es el [desmontaje](#desmontaje).
+
+Para leer el consumo real, abre la consola de Facturación, Informes, y filtra por proyecto (`boticario-ai`) y por servicio (Cloud Run); allí se ve el uso y el descuento de la capa gratuita.
+
+`gcloud run services describe` no muestra consumo, solo la configuración del servicio.
+
+Fuentes: [funciones gratuitas de Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features), [precios de Cloud Run](https://cloud.google.com/run/pricing) y [ubicaciones de Cloud Run](https://docs.cloud.google.com/run/docs/locations) (nivel de precio de cada región).
+
 ## Preparación única en Google Cloud
 
 ### Prerrequisitos
@@ -387,7 +419,185 @@ Con esto hecho, el workflow de despliegue (`.github/workflows/deploy-backend.yml
 
 Desde entonces, cada cambio del backend que llegue a `main` se construye y se despliega solo.
 
-### Referencias
+## Operación
+
+Los comandos de esta sección suponen que estás en la raíz del repositorio, con `gcloud` y `gh` autenticados y las variables cargadas:
+
+```bash
+source .env.cloud-run
+```
+
+La URL pública del servicio es `https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
+
+### Despliegue automático
+
+El workflow `deploy-backend.yml` se dispara con un `push` a `main` que toque `backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow; un cambio solo en `app/` o en `docs/` no despliega.
+
+Construye la imagen `linux/amd64`, la publica en Artifact Registry con las etiquetas `<sha>` y `latest`, despliega la imagen del `<sha>` como una revisión nueva y verifica con `curl` que `/health` y `/v1/plants/lavandula-angustifolia` respondan 200.
+
+Tarda alrededor de 1 minuto cuando no cambia el código Rust (caché de capas) y unos 5 minutos cuando cambia `backend/`.
+
+Para ver las ejecuciones, seguir una en vivo o leer por qué falló:
+
+```bash
+gh run list --workflow deploy-backend.yml --limit 5
+gh run watch <id>
+gh run view <id> --log-failed
+```
+
+### Despliegue manual
+
+Lanza el workflow sin necesidad de un cambio en el backend (así se hizo el primer despliegue) y síguelo con los comandos anteriores:
+
+```bash
+gh workflow run deploy-backend.yml --ref main
+gh run list --workflow deploy-backend.yml --limit 1
+```
+
+### Despliegue de emergencia sin CI
+
+Si GitHub Actions no está disponible y la imagen ya está publicada, despliégala a mano indicando su SHA (lista las etiquetas con `gcloud artifacts docker images list "$REGION-docker.pkg.dev/$PROJECT_ID/$REPO"`):
+
+```bash
+gcloud run deploy "$SERVICE" \
+  --region="$REGION" \
+  --image="$REGION-docker.pkg.dev/$PROJECT_ID/$REPO/boticario-api:<sha>"
+```
+
+Por confirmar: la ayuda de `gcloud run deploy --help` no dice si los flags de configuración que no pasas se conservan de la revisión anterior; para no depender de eso, repite los flags del paso «Desplegar en Cloud Run» de `.github/workflows/deploy-backend.yml` (`--allow-unauthenticated`, `--execution-environment=gen1`, `--cpu=1`, `--memory=256Mi`, `--min-instances=0`, `--max-instances=2`, `--cpu-throttling`, `--port=8080`, `--service-account` y `--startup-probe`).
+
+### Logs
+
+Las últimas 50 entradas del servicio:
+
+```bash
+gcloud run services logs read "$SERVICE" --region="$REGION" --limit=50
+```
+
+Con `--log-filter="severity>=ERROR"` se limita a los errores y con `--freshness` se amplía la ventana (por defecto, 1 día).
+
+Para buscar con más detalle, usa el Logs Explorer de la consola de Google Cloud (Logging, Explorador de registros) con este filtro:
+
+```text
+resource.type="cloud_run_revision" resource.labels.service_name="boticario-api"
+```
+
+### Revisiones y rollback
+
+Cada despliegue crea una revisión nueva y Cloud Run conserva las anteriores. Lista las revisiones y mira cuál recibe el tráfico:
+
+```bash
+gcloud run revisions list --service="$SERVICE" --region="$REGION"
+gcloud run services describe "$SERVICE" --region="$REGION" --format='yaml(status.traffic)'
+```
+
+Para volver a una revisión anterior sin reconstruir ni tocar la imagen, envíale todo el tráfico:
+
+```bash
+gcloud run services update-traffic "$SERVICE" --region="$REGION" --to-revisions=<revisión>=100
+```
+
+Para volver a la última revisión desplegada, y que los despliegues siguientes vuelvan a recibir el tráfico solos:
+
+```bash
+gcloud run services update-traffic "$SERVICE" --region="$REGION" --to-latest
+```
+
+Comprobación: el `describe` anterior debe mostrar la revisión elegida con `percent: 100` tras el primer comando y `latestRevision: true` tras el segundo.
+
+Mientras el tráfico esté fijado a una revisión concreta, un despliegue nuevo crea su revisión pero no le da tráfico; termina el rollback con `--to-latest`.
+
+### Medir el arranque en frío
+
+Espera al menos 15 minutos sin tráfico para que la instancia se apague y mide varias veces la primera petición:
+
+```bash
+curl -s -o /dev/null -w 'total=%{time_total}s codigo=%{http_code}\n' https://boticario-api-d3xv5q3iaa-pv.a.run.app/health
+```
+
+Repite el mismo comando justo después, con la instancia ya caliente, para compararlo con el arranque en frío; la diferencia es el costo de arrancar la instancia.
+
+### Comprobaciones rápidas
+
+```bash
+curl -i https://boticario-api-d3xv5q3iaa-pv.a.run.app/health
+curl -s https://boticario-api-d3xv5q3iaa-pv.a.run.app/openapi.json | head -c 300
+curl -s 'https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=lavandula&limit=1'
+```
+
+Las comillas de la tercera son necesarias: sin ellas el shell interpreta el `&`.
+
+## Desmontaje
+
+Estos pasos devuelven el proyecto a costo cero, en orden inverso a la preparación; no los ejecutes mientras quieras conservar el servicio. Cada uno tiene su comprobación: el listado debe salir vacío. Con las variables cargadas (`source .env.cloud-run`):
+
+1. Elimina el servicio de Cloud Run:
+
+   ```bash
+   gcloud run services delete "$SERVICE" --region="$REGION"
+   gcloud run services list --region="$REGION"
+   ```
+
+2. Elimina el repositorio de Artifact Registry, lo que borra también todas las imágenes:
+
+   ```bash
+   gcloud artifacts repositories delete "$REPO" --location="$REGION"
+   gcloud artifacts repositories list --location="$REGION"
+   ```
+
+3. Quita el binding `workloadIdentityUser` del `principalSet` y borra las dos cuentas de servicio (al borrar una cuenta desaparecen sus bindings sobre ella):
+
+   ```bash
+   gcloud iam service-accounts remove-iam-policy-binding "$DEPLOYER_EMAIL" \
+     --member="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/$POOL/attribute.repository/$GITHUB_REPO" \
+     --role="roles/iam.workloadIdentityUser"
+   gcloud iam service-accounts delete "$DEPLOYER_EMAIL"
+   gcloud iam service-accounts delete "$RUNTIME_EMAIL"
+   gcloud iam service-accounts list
+   ```
+
+   El listado no debe mostrar ni `boticario-deployer` ni `boticario-runtime`. El rol `roles/run.admin` del proyecto queda como una referencia huérfana a la cuenta borrada, sin efecto.
+
+4. Elimina el proveedor y el pool de Workload Identity Federation; quedan en estado eliminado 30 días antes de borrarse del todo (los listados normales ya no los muestran, `--show-deleted` sí):
+
+   ```bash
+   gcloud iam workload-identity-pools providers delete "$PROVIDER" --location=global --workload-identity-pool="$POOL"
+   gcloud iam workload-identity-pools delete "$POOL" --location=global
+   gcloud iam workload-identity-pools list --location=global
+   ```
+
+5. Elimina el presupuesto; `gcloud billing budgets delete` pide el id, que se obtiene del listado por nombre:
+
+   ```bash
+   BUDGET_ID="$(gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID" --filter='displayName="boticario-ai presupuesto"' --format='value(name)')"
+   gcloud billing budgets delete "$BUDGET_ID" --billing-account="$BILLING_ACCOUNT_ID"
+   gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID"
+   ```
+
+6. Quita los secretos y las variables de GitHub:
+
+   ```bash
+   gh secret delete GCP_WORKLOAD_IDENTITY_PROVIDER --repo "$GITHUB_REPO"
+   gh secret delete GCP_DEPLOYER_SERVICE_ACCOUNT --repo "$GITHUB_REPO"
+   gh variable delete GCP_PROJECT_ID --repo "$GITHUB_REPO"
+   gh variable delete GCP_REGION --repo "$GITHUB_REPO"
+   gh variable delete GCP_ARTIFACT_REPOSITORY --repo "$GITHUB_REPO"
+   gh secret list --repo "$GITHUB_REPO"
+   gh variable list --repo "$GITHUB_REPO"
+   ```
+
+Con el workflow aún en el repositorio, un `push` al backend volvería a fallar en la autenticación; si no vas a volver a desplegar, bórralo también con un commit.
+
+Alternativa: borrar el proyecto entero elimina todo lo anterior (salvo el presupuesto, que vive en la cuenta de facturación, y los secretos y variables de GitHub) y se puede recuperar durante 30 días:
+
+```bash
+gcloud projects delete "$PROJECT_ID"
+gcloud projects list --filter="projectId=$PROJECT_ID"
+```
+
+El desmontaje no toca la app ni el repositorio: la app sigue funcionando contra el backend local con `docker compose up`.
+
+## Referencias
 
 - https://docs.cloud.google.com/billing/docs/how-to/create-billing-account
 - https://docs.cloud.google.com/sdk/docs/install-sdk
@@ -403,5 +613,18 @@ Desde entonces, cada cambio del backend que llegue a `main` se construye y se de
 - https://docs.cloud.google.com/sdk/gcloud/reference/billing/budgets/create
 - https://cli.github.com/manual/gh_secret_set
 - https://cli.github.com/manual/gh_variable_set
-
-<!-- Las secciones de costo, runbook y desmontaje se añaden en las tareas 4.1 y 4.2 -->
+- https://docs.cloud.google.com/free/docs/free-cloud-features
+- https://cloud.google.com/run/pricing
+- https://docs.cloud.google.com/run/docs/locations
+- https://docs.cloud.google.com/sdk/gcloud/reference/run/services/logs/read
+- https://docs.cloud.google.com/sdk/gcloud/reference/run/services/update-traffic
+- https://docs.cloud.google.com/sdk/gcloud/reference/run/revisions/list
+- https://docs.cloud.google.com/sdk/gcloud/reference/run/services/delete
+- https://docs.cloud.google.com/sdk/gcloud/reference/artifacts/repositories/delete
+- https://docs.cloud.google.com/sdk/gcloud/reference/iam/workload-identity-pools/delete
+- https://docs.cloud.google.com/sdk/gcloud/reference/billing/budgets/delete
+- https://docs.cloud.google.com/sdk/gcloud/reference/projects/delete
+- https://cli.github.com/manual/gh_run_list
+- https://cli.github.com/manual/gh_workflow_run
+- https://cli.github.com/manual/gh_secret_delete
+- https://cli.github.com/manual/gh_variable_delete

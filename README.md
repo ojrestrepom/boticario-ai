@@ -43,10 +43,12 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 - `data/`: la migración del esquema neutral (`data/migrations/`), la configuración de fuentes (`data/sources.toml`) y las salidas generadas e ignoradas por git `data/.cache/` y `data/build/`.
 - `docs/`: canvas, mockups y documentación de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
-- `.github/workflows/`: integración continua.
+- `.github/workflows/`: integración continua y despliegue.
 - `.flutter-version`: versión fijada del SDK de Flutter.
 - `mise.toml`: versión fijada de Rust para el desarrollo nativo del backend.
 - `Dockerfile`, `compose.yaml` y `.dockerignore`: imagen y arranque con Docker del backend.
+- `docs/deploy/cloud-run.md`: guía del despliegue del backend en Google Cloud Run (preparación, operación, costo y desmontaje).
+- `.github/workflows/deploy-backend.yml`: workflow que construye la imagen del backend y la despliega en Cloud Run.
 
 El repositorio es un monorepo: `app/` es exclusiva de Flutter, `backend/` es exclusivo de Rust y `data/` contiene artefactos de datos, no código.
 
@@ -73,7 +75,9 @@ Revisar y aceptar las licencias pendientes de forma interactiva. Verificar que `
 
 ### 2. Abrir y ejecutar en Android Studio
 
-La app necesita el backend en marcha: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; el HTTP en claro solo está habilitado en builds `debug` y `profile`, no en `release`, que usará HTTPS cuando haya un backend desplegado.
+La app necesita el backend en marcha: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; el HTTP en claro solo está habilitado en builds `debug` y `profile`, no en `release`, que exige HTTPS.
+
+Para usar el backend desplegado en Cloud Run no hace falta `docker compose up`: el build `release` exige HTTPS y se compila con `flutter build apk --release --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app` (o `flutter run --release -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app`); sin el define, la dirección sigue siendo la del emulador. La guía del despliegue está en [`docs/deploy/cloud-run.md`](docs/deploy/cloud-run.md).
 
 Abrir `app/` como proyecto (su raíz tiene `pubspec.yaml`). Configurar la ruta raíz del SDK de Flutter en el plugin de Flutter y elegir el dispositivo o emulador Android en la selección de dispositivo. En la terminal integrada, situada en `app/`:
 
@@ -115,6 +119,8 @@ flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
 ```
 
 Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Con un dispositivo físico, añadir `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`. Preparar y verificar previamente el SDK Android y sus licencias.
+
+Para correr el smoke contra el backend desplegado, sin `docker compose up`, pasar la dirección de Cloud Run: `flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
 
 ### 5. Comandos de calidad
 
@@ -194,13 +200,13 @@ docker compose down
 
 Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`. Si una construcción se comporta de forma inexplicable, `docker compose build --no-cache` ignora la caché de capas y reconstruye todo (las monturas de caché solo se limpian con `docker builder prune`).
 
-### Despliegue en amd64
+### Despliegue en Cloud Run
 
-La imagen se construye para la arquitectura del anfitrión (arm64 en un Mac con Apple Silicon). Para un despliegue en amd64:
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow), o a mano con `workflow_dispatch`. El servicio responde en https://boticario-api-d3xv5q3iaa-pv.a.run.app.
 
-```bash
-docker build --platform linux/amd64 .
-```
+La imagen local se construye para la arquitectura del anfitrión (arm64 en un Mac con Apple Silicon); `docker build --platform linux/amd64 .` queda como prueba local de la imagen que despliega el workflow.
+
+La preparación en Google Cloud, la operación, el costo esperado y el desmontaje están en la [guía de Cloud Run](docs/deploy/cloud-run.md).
 
 ### Desarrollo del backend
 
@@ -210,9 +216,11 @@ Para modificar el código Rust o ejecutarlo sin Docker, ver [`backend/README.md`
 
 El workflow [`.github/workflows/flutter.yml`](.github/workflows/flutter.yml) corre en push y pull request, con filtros de ruta `app/**`, `.flutter-version` y el propio workflow. Lee el pin [`.flutter-version`](.flutter-version) desde la raíz, instala ese SDK exacto y verifica la versión efectiva de Flutter antes de seguir.
 
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) construye la imagen amd64 del backend y la despliega en Cloud Run en cada push a `main` que toque el backend; ver [Despliegue en Cloud Run](#despliegue-en-cloud-run).
+
 El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
 
-Pendiente: el repositorio es un monorepo con `app/` exclusiva de Flutter, `backend/` para la API y la ingesta en Rust y `data/` para los artefactos de datos. Este workflow cubre solo `app/`; `backend/` y `data/` no tienen CI todavía, y la imagen del backend tampoco se construye en CI. Cuando la arquitectura esté más asentada habrá que revisar sus filtros de ruta y añadir CI propia para esos componentes; por ahora se deja sin diseñar de forma deliberada.
+Pendiente: el repositorio es un monorepo con `app/` exclusiva de Flutter, `backend/` para la API y la ingesta en Rust y `data/` para los artefactos de datos. Este workflow cubre solo `app/`; `backend/` y `data/` no tienen CI de pruebas todavía; la imagen del backend solo se construye en el workflow de despliegue. Cuando la arquitectura esté más asentada habrá que revisar sus filtros de ruta y añadir CI propia para esos componentes; por ahora se deja sin diseñar de forma deliberada.
 
 ## Documentación
 
@@ -222,6 +230,7 @@ Orden de lectura sugerido: Canvas, mockups, guía de la fuente USDA y guía del 
 - Mockups: [índice](docs/mockups/README.md), [pantallas](docs/mockups/pantallas.md) y [navegación](docs/mockups/navegacion.md).
 - Datos: [guía de la fuente USDA](docs/data/usda-catalog.md) y [guía del modelo de datos](docs/data/modelo-de-datos.md).
 - Desarrollo del backend: [`backend/README.md`](backend/README.md), con el flujo nativo con mise y cargo.
+- Despliegue: [guía de Cloud Run](docs/deploy/cloud-run.md).
 
 Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus informes de QA, está en `openspec/changes/archive/`.
 

@@ -33,28 +33,10 @@ gh auth status
 
 ### Variables
 
-Pega este bloque al principio de cada sesión de terminal (las variables no sobreviven al cerrarla) y edita los dos valores marcados.
-
-Todos los comandos de abajo usan estas variables, así que no hay nada más que sustituir.
+Las variables que usan todos los comandos viven en `.env.cloud-run.example`, en la raíz del repo, y no contienen secretos. Cópialo a `.env.cloud-run`, que es el archivo que editas y que git ignora, y cambia en él los dos valores marcados como «Edita estos dos valores»: `PROJECT_ID` (único en todo Google Cloud, con un sufijo propio) y `BILLING_ACCOUNT_ID`.
 
 ```bash
-# Edita estos dos valores.
-PROJECT_ID="boticario-ai-CAMBIAME"   # único en todo Google Cloud: 6-30 caracteres, minúsculas, dígitos y guiones; elige un sufijo propio
-BILLING_ACCOUNT_ID="XXXXXX-XXXXXX-XXXXXX"   # sale de: gcloud billing accounts list
-
-# Valores propuestos, coherentes con el diseño del cambio.
-REGION="southamerica-east1"
-REPO="boticario"                 # repositorio Docker de Artifact Registry
-SERVICE="boticario-api"          # servicio de Cloud Run
-DEPLOYER_SA="boticario-deployer"
-RUNTIME_SA="boticario-runtime"
-POOL="github"
-PROVIDER="boticario-ai"
-GITHUB_REPO="sebastianrodriguez1115/boticario-ai"
-
-# Derivados.
-DEPLOYER_EMAIL="$DEPLOYER_SA@$PROJECT_ID.iam.gserviceaccount.com"
-RUNTIME_EMAIL="$RUNTIME_SA@$PROJECT_ID.iam.gserviceaccount.com"
+cp .env.cloud-run.example .env.cloud-run
 ```
 
 Obtén tu `BILLING_ACCOUNT_ID` con el siguiente comando y copia la columna `ACCOUNT_ID` de la cuenta con `OPEN` en `True`:
@@ -63,13 +45,13 @@ Obtén tu `BILLING_ACCOUNT_ID` con el siguiente comando y copia la columna `ACCO
 gcloud billing accounts list
 ```
 
-Después de crear el proyecto (paso 1) añade también `PROJECT_NUMBER`, que es distinto del id y que usan los pasos 4 y 5.
-
-Si abres una terminal nueva, vuelve a pegar el bloque de arriba y esta línea:
+Carga las variables con `source` desde la raíz del repo, en cada terminal nueva (las variables no sobreviven al cerrarla):
 
 ```bash
-PROJECT_NUMBER="$(gcloud projects describe "$PROJECT_ID" --format='value(projectNumber)')"
+source .env.cloud-run
 ```
+
+`PROJECT_NUMBER`, que es distinto del id y que usan los pasos 4 a 6, queda vacío hasta que el proyecto exista: tras el paso 1 vuelve a ejecutar `source .env.cloud-run` (o la línea de `PROJECT_NUMBER` del archivo) para que deje de estarlo.
 
 ### Paso 1. Proyecto y facturación
 
@@ -102,7 +84,7 @@ gcloud services list --enabled
 
 Errores típicos:
 
-- `The project ID you specified is already in use by another project`: el id es global, elige otro `PROJECT_ID`, vuelve a pegar el bloque de variables y repite.
+- `The project ID you specified is already in use by another project`: el id es global, elige otro `PROJECT_ID`, edita `PROJECT_ID` en `.env.cloud-run`, vuelve a ejecutar `source .env.cloud-run` y repite.
 - Un comando posterior falla con `API [...] not enabled` justo después de habilitarla: la propagación tarda hasta un minuto, espera y repite.
 - `gcloud billing projects link` falla con permiso denegado: la cuenta con la que iniciaste sesión no administra esa cuenta de facturación.
 
@@ -246,7 +228,7 @@ gcloud iam workload-identity-pools providers describe "$PROVIDER" \
 
 Ese nombre también es `projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/$POOL/providers/$PROVIDER`.
 
-Si `PROJECT_NUMBER` está vacío, el `principalSet` queda malformado: vuelve a ejecutar la línea de `PROJECT_NUMBER` de la sección «Variables».
+Si `PROJECT_NUMBER` está vacío, el `principalSet` queda malformado: vuelve a ejecutar `source .env.cloud-run` (sección «Variables»).
 
 ### Paso 5. Alerta de presupuesto
 

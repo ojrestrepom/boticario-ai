@@ -4,7 +4,7 @@ Nota: este cambio se implementa después de archivar `connect-app-to-backend`. L
 
 ## 1. Guía de preparación
 
-- [x] 1.1 Crear `docs/deploy/cloud-run.md` con la sección de preparación única: prerrequisitos (cuenta de Google, cuenta de facturación con tarjeta creada en la consola, instalación del CLI de gcloud con Homebrew `brew install --cask google-cloud-sdk` o el instalador oficial, `gcloud auth login` y `gh auth login`) y los comandos `gcloud` en orden, cada uno con su comprobación y con las variables de shell (id de proyecto, región y nombres) definidas al principio para copiar y pegar; verificar que cada comando corresponde a una tarea del grupo 2 y que cada párrafo y elemento de lista está en una sola línea con `grep -n`.
+- [x] 1.1 Crear `docs/deploy/cloud-run.md` con la sección de preparación única: prerrequisitos (cuenta de Google, cuenta de facturación con tarjeta creada en la consola, instalación del CLI de gcloud con Homebrew `brew install --cask google-cloud-sdk` o el instalador oficial, `gcloud auth login` y `gh auth login`) y los comandos `gcloud` en orden, cada uno con su comprobación y con las variables en `.env.cloud-run.example` (copiado a `.env.cloud-run`, ignorado por git, y cargado con `source`); verificar que cada comando corresponde a una tarea del grupo 2 y que cada párrafo y elemento de lista está en una sola línea con `grep -n`.
 
 ## 2. Preparación en GCP [usuario]
 

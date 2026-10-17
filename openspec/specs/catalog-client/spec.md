@@ -117,7 +117,7 @@ La app SHALL mostrar como nombre principal de una planta su primer nombre común
 - **THEN** se muestra tal cual, sin traducirlo
 
 ### Requirement: Permisos y transporte en Android
-El manifest principal de Android SHALL declarar el permiso `INTERNET`. El tráfico HTTP en claro SHALL permitirse solo en los manifests de `debug` y `profile`. El build `release` SHALL NOT permitir HTTP en claro.
+El manifest principal de Android SHALL declarar el permiso `INTERNET`. Los manifests de `debug` y `profile` SHALL habilitar el tráfico HTTP en claro para la pila de red de Android. El manifest principal y los recursos de `release` SHALL NOT habilitarlo. La documentación SHALL indicar que el cliente Dart (`dart:io`) no está sujeto a esa restricción, por lo que el build `release` debe recibir una `API_BASE_URL` HTTPS.
 
 #### Scenario: Permiso en todos los builds
 - **WHEN** se revisa el manifest principal
@@ -130,6 +130,10 @@ El manifest principal de Android SHALL declarar el permiso `INTERNET`. El tráfi
 #### Scenario: Release sin HTTP en claro
 - **WHEN** se revisan el manifest principal y los recursos de `release`
 - **THEN** no habilitan HTTP en claro ni definen una configuración de seguridad de red que lo permita
+
+#### Scenario: Release con dirección HTTP
+- **WHEN** se compila un build `release` con `API_BASE_URL=http://…`
+- **THEN** el cliente Dart sí usa HTTP en claro, por lo que la documentación exige pasar la URL HTTPS del backend desplegado en `release`
 
 ### Requirement: Pruebas sin red
 Las pruebas unitarias y de widget SHALL ejecutarse sin red, con un cliente HTTP inyectado que sirve respuestas de prueba. La integración continua SHALL ejecutarlas sin backend ni conectividad.

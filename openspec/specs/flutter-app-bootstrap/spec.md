@@ -60,7 +60,7 @@ La aplicación SHALL presentar la estructura Inicio, sus textos y sus controles 
 - **THEN** el contenido esencial de Inicio permanece visible, sin recorte, y alcanzable con scroll vertical
 
 ### Requirement: Flujo de desarrollo reproducible y documentado
-El repositorio SHALL contener la app Android en `app/`, abrible en Android Studio, con prerequisitos, versión exacta de SDK, dependencias fijadas y comandos documentados; la configuración local del SDK SHALL permanecer sin versionar. La documentación SHALL cubrir cómo arrancar el backend con Docker y la dirección con la que lo alcanzan el emulador y un dispositivo físico.
+El repositorio SHALL contener la app Android en `app/`, abrible en Android Studio, con prerequisitos, versión exacta de SDK, dependencias fijadas y comandos documentados; la configuración local del SDK SHALL permanecer sin versionar. La documentación SHALL cubrir cómo arrancar el backend con Docker y la dirección con la que lo alcanzan el emulador y un dispositivo físico, y SHALL cubrir cómo compilar el build `release` y ejecutar el smoke contra el backend desplegado con `--dart-define=API_BASE_URL=https://…`. La documentación SHALL indicar que el build `release` debe apuntar a la URL HTTPS del backend desplegado y que el HTTP en claro queda para `debug` y `profile` con el backend local.
 
 #### Scenario: Apertura en Android Studio
 - **WHEN** un desarrollador abre la raíz `app/` en Android Studio con los prerequisitos documentados
@@ -85,6 +85,10 @@ El repositorio SHALL contener la app Android en `app/`, abrible en Android Studi
 #### Scenario: Backend y dirección documentados
 - **WHEN** un desarrollador consulta el quick start
 - **THEN** encuentra que debe arrancar el backend con Docker antes de ejecutar la app, que el emulador lo alcanza en `http://10.0.2.2:8080` y que un dispositivo físico necesita `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`
+
+#### Scenario: Release contra el backend desplegado
+- **WHEN** un desarrollador consulta la documentación para compilar el build `release` o ejecutar el smoke contra el backend desplegado
+- **THEN** encuentra los comandos con `--dart-define=API_BASE_URL=https://<url-de-cloud-run>`, que el build `release` debe apuntar a la URL HTTPS del backend desplegado y que el HTTP en claro queda para `debug` y `profile` con el backend local, y que, sin esa definición, la dirección por defecto sigue siendo la del emulador
 
 ### Requirement: Verificaciones reproducibles del incremento
 El proyecto SHALL ofrecer verificaciones reproducibles de formato, análisis y pruebas de Inicio, P06, el recorrido del catálogo, el cliente de la API y la política de emisión de mensajes solo en depuración, evaluando casos con el modo permitido y el no permitido; SHALL verificar retornos, inercia de las seis filas y estados de error y SHALL reportar fallo en CI ante error. Las pruebas unitarias y de widget SHALL ejecutarse sin red, con el cliente HTTP inyectado. Estas verificaciones SHALL ejecutarse con los comandos de prueba actuales en configuración de depuración; no se exige ni se presenta como prueba de binarios release/profile, cuyo silencio real es comportamiento normativo de `home-screen`.

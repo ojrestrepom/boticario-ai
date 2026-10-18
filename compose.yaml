@@ -9,5 +9,7 @@ services:
     environment:
       PORT: ${PORT:-8080}
       RUST_LOG: ${RUST_LOG:-info}
+      # Obligatorio y sin valor por defecto: sin él la API no arranca. Compose lee `.env` de la raíz (ya ignorado por git).
+      API_TOKENS: "${API_TOKENS:?API_TOKENS no esta definido; crea el archivo .env una vez con: echo API_TOKENS=$(openssl rand -hex 32) > .env}"
     # Sin HOST: la imagen lo fija en 0.0.0.0 y cambiarlo dejaría la API inalcanzable.
     # Sin healthcheck: la imagen no lleva curl; /health queda para sondas externas.

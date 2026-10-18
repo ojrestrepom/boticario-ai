@@ -152,11 +152,17 @@ El backend construye una base SQLite neutral con las plantas del catálogo y la 
 
 ### Prerrequisito
 
-Docker Desktop, o un Docker compatible, con Compose.
+Docker Desktop, o un Docker compatible, con Compose, y `openssl` para generar el token.
 
 ### Arrancar
 
-Desde la raíz del repositorio:
+La API exige un token de API en `/v1` y no arranca sin él. La primera vez, se crea el archivo `.env` de la raíz (git lo ignora) con un token aleatorio; Compose lo lee solo:
+
+```bash
+echo "API_TOKENS=$(openssl rand -hex 32)" > .env
+```
+
+Sin `API_TOKENS` (ni en el entorno ni en `.env`), `docker compose up` falla antes de arrancar con un mensaje que lo indica. Después, desde la raíz del repositorio:
 
 ```bash
 docker compose up --build
@@ -168,13 +174,17 @@ La primera construcción compila el backend, descarga el dataset de USDA y const
 
 Todos son `GET`, por defecto en `http://localhost:8080`:
 
-- `/health`: estado del servicio.
-- `/v1/plants`: lista paginada, con búsqueda opcional por `q`.
-- `/v1/plants/{id}`: detalle de una planta.
-- `/openapi.json`: el contrato OpenAPI.
+- `/health`: estado del servicio (público).
+- `/v1/plants`: lista paginada, con búsqueda opcional por `q` (exige token).
+- `/v1/plants/{id}`: detalle de una planta (exige token).
+- `/openapi.json`: el contrato OpenAPI (público).
+
+Todo lo que cuelga de `/v1` lleva la cabecera `Authorization: Bearer <token>`, con uno de los tokens de `API_TOKENS`. Sin token, o con uno que no coincide, la respuesta es 401. Para probar, se toma el token del `.env` sin copiarlo a mano:
 
 ```bash
-curl 'http://localhost:8080/v1/plants?q=lavand'
+TOKEN=$(sed -n 's/^API_TOKENS=//p' .env | cut -d, -f1)
+curl -H "Authorization: Bearer $TOKEN" 'http://localhost:8080/v1/plants?q=lavand'
+curl -i http://localhost:8080/v1/plants   # 401 con WWW-Authenticate: Bearer
 ```
 
 La imagen no define un `healthcheck`; para sondear el servicio desde fuera, usar `/health`.
@@ -185,11 +195,22 @@ La imagen no define un `healthcheck`; para sondear el servicio desde fuera, usar
 |---|---|---|
 | `PORT` | `8080` | Puerto de escucha y puerto publicado en el anfitrión. |
 | `RUST_LOG` | `info` | Filtro de logs. |
+| `API_TOKENS` | obligatoria, sin valor por defecto | Tokens de API válidos, separados por comas. Cada uno tiene de 32 a 256 caracteres (letras, dígitos y `-._~+/`); `openssl rand -hex 32` da uno de 64. |
 
 ```bash
 PORT=9090 docker compose up
 RUST_LOG=warn docker compose up
 ```
+
+Para rotar el token sin cortar a un cliente se ponen dos separados por coma (`API_TOKENS=<token-nuevo>,<token-viejo>`) y se retira el viejo cuando todos usen el nuevo. La imagen no contiene ningún token: llegan siempre por el entorno al ejecutar.
+
+### Límites de la autorización
+
+El token frena a clientes casuales y a quien no lo tiene, pero no es una credencial de usuario:
+
+- Un token embebido en el APK de la app se puede extraer. Autoriza a la app, no a una persona; rotarlo y revocarlo es barato.
+- Las peticiones rechazadas con 401 también llegan al servicio: en Cloud Run se facturan y consumen la cuota gratuita. `max-instances` y la alerta de presupuesto acotan el gasto.
+- No hay protección de borde (límite de tasa, WAF ni App Check); un ataque de volumen queda fuera de alcance.
 
 Dentro del contenedor la API siempre escucha en `0.0.0.0`; esa dirección no es configurable.
 

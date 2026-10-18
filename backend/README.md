@@ -37,13 +37,21 @@ Las fuentes activas y su prioridad se leen de [`data/sources.toml`](../data/sour
 
 ## 3. Ejecutar la API
 
-Desde la raíz del repositorio:
+`API_TOKENS` es obligatoria siempre, también en local. Desde la raíz del repositorio, con un token aleatorio solo para esa ejecución:
 
 ```bash
+API_TOKENS=$(openssl rand -hex 32) mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-api
+```
+
+Para no repetirlo, se puede crear una vez el `.env` de la raíz (git lo ignora; es el mismo que lee `docker compose`) y cargarlo en el shell:
+
+```bash
+echo "API_TOKENS=$(openssl rand -hex 32)" > .env
+set -a; . ./.env; set +a
 mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-api
 ```
 
-La API se niega a arrancar si no encuentra la base. Se configura con argumentos y variables de entorno:
+La API se niega a arrancar si no encuentra la base o si falta `API_TOKENS`. Se configura con argumentos y variables de entorno:
 
 | Nombre | Por defecto | Uso |
 |---|---|---|
@@ -51,19 +59,27 @@ La API se niega a arrancar si no encuentra la base. Se configura con argumentos 
 | `HOST` | `127.0.0.1` | Dirección de escucha. |
 | `PORT` | `8080` | Puerto de escucha. |
 | `RUST_LOG` | `info` | Filtro de logs. |
+| `API_TOKENS` | obligatoria | Tokens de API válidos, separados por comas (ver más abajo). `--help` y `--openapi` no la exigen. |
 | `NO_COLOR` | sin definir | Con cualquier valor no vacío, los logs no llevan colores ni en una terminal. |
 
 Los logs salen por stdout en texto, una línea por evento. Llevan colores (secuencias ANSI) solo si stdout es una terminal y `NO_COLOR` no tiene valor; redirigidos a un archivo, a una tubería o a un contenedor sin TTY salen en texto plano, que es lo que lee Cloud Logging. `RUST_LOG` fija el nivel, por ejemplo `RUST_LOG=warn`.
 
+### Tokens de API
+
+`API_TOKENS` es una lista separada por comas con uno o más tokens; así se pueden rotar sin cortar el servicio. Se ignoran los espacios alrededor de cada token y el salto de línea final. Cada token tiene de 32 a 256 caracteres y solo letras, dígitos y `-`, `.`, `_`, `~`, `+`, `/`. Si la variable falta, está vacía o tiene un token inválido, la API sale con código 2 y un mensaje que nombra la variable y el motivo, nunca el valor. Los tokens no aparecen en logs ni en el `Debug` de la configuración.
+
 Endpoints, todos `GET`:
 
-- `/health`: estado del servicio.
-- `/v1/plants`: lista paginada, con búsqueda opcional por `q`.
-- `/v1/plants/{id}`: detalle de una planta.
-- `/openapi.json`: el contrato OpenAPI.
+- `/health`: estado del servicio (público).
+- `/v1/plants`: lista paginada, con búsqueda opcional por `q` (exige token).
+- `/v1/plants/{id}`: detalle de una planta (exige token).
+- `/openapi.json`: el contrato OpenAPI (público).
+
+Todo camino bajo `/v1`, también los inexistentes y los métodos no permitidos, exige `Authorization: Bearer <token>` (el nombre del esquema no distingue mayúsculas). Sin la cabecera, con otro esquema o con un token que no coincide con ninguno, la respuesta es 401 `application/problem+json` con `WWW-Authenticate: Bearer`, siempre igual para no revelar el motivo.
 
 ```bash
-curl 'http://127.0.0.1:8080/v1/plants?q=lavand'
+TOKEN=<uno-de-los-tokens-de-API_TOKENS>
+curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants?q=lavand'
 ```
 
 ## 4. Contrato OpenAPI

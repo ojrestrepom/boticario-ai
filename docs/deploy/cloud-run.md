@@ -349,7 +349,7 @@ El importe de `--budget-amount` debe ir en la moneda de la cuenta de facturació
 gcloud billing accounts describe "$BILLING_ACCOUNT_ID" --format='value(currencyCode)'
 ```
 
-Si responde `USD`, deja `BUDGET_AMOUNT="1USD"` en `.env.cloud-run`. Si responde otra moneda, pon el equivalente aproximado a 1 USD, por ejemplo `BUDGET_AMOUNT="4000COP"` para una cuenta en pesos colombianos; el tipo de cambio es aproximado y la cifra la eliges tú. Después recarga las variables con `source .env.cloud-run` y crea el presupuesto:
+El valor por defecto de `.env.cloud-run.example` es `BUDGET_AMOUNT="5000COP"`, el equivalente aproximado a 1 USD para una cuenta en pesos colombianos como la de este proyecto. Si la cuenta responde otra moneda, cambia `BUDGET_AMOUNT` en `.env.cloud-run` por el equivalente aproximado a 1 USD en esa moneda, por ejemplo `BUDGET_AMOUNT="1USD"`; el tipo de cambio es aproximado y la cifra la eliges tú. Después recarga las variables con `source .env.cloud-run` y crea el presupuesto:
 
 ```bash
 gcloud billing budgets create \

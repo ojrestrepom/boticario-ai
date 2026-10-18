@@ -11,9 +11,9 @@ Nota: cada grupo es un commit. El orquestador hace el commit al aceptar el grupo
 
 ## 2. Puerta de CI en el despliegue (`backend-deployment`)
 
-- [ ] 2.1 Modificar `.github/workflows/deploy-backend.yml`: añadir el job `verify` (`uses: ./.github/workflows/backend-ci.yml`, `permissions: contents: read`), `needs: verify` en el job `deploy`, `permissions` de workflow reducidos a `contents: read` y `deploy` con `contents: read` e `id-token: write`, y `mise.toml` en los `paths`; verificar con `actionlint` y revisando que no queda ningún paso de construcción, publicación o despliegue fuera de `deploy`.
-- [ ] 2.2 Actualizar `docs/deploy/cloud-run.md` (flujo de despliegue con la puerta de verificación, el diagrama de «Arquitectura e inventario», la tabla del workflow y cómo relanzar si la CI falla) y la sección de despliegue del `README.md`; verificar que cada afirmación coincide con el YAML (`grep -n "verify\|needs" .github/workflows/deploy-backend.yml`) y con la regla de una línea por párrafo.
-- [ ] 2.3 Ejecutar `openspec validate add-backend-ci-and-plain-logs --strict` y revisar que los escenarios de `backend-ci` y `backend-deployment` se corresponden con lo implementado; verificar que la validación pasa.
+- [x] 2.1 Modificar `.github/workflows/deploy-backend.yml`: añadir el job `verify` (`uses: ./.github/workflows/backend-ci.yml`, `permissions: contents: read`), `needs: verify` en el job `deploy`, `permissions` de workflow reducidos a `contents: read` y `deploy` con `contents: read` e `id-token: write`, y `mise.toml` en los `paths`; verificar con `actionlint` y revisando que no queda ningún paso de construcción, publicación o despliegue fuera de `deploy`.
+- [x] 2.2 Actualizar `docs/deploy/cloud-run.md` (flujo de despliegue con la puerta de verificación, el diagrama de «Arquitectura e inventario», la tabla del workflow y cómo relanzar si la CI falla) y la sección de despliegue del `README.md`; verificar que cada afirmación coincide con el YAML (`grep -n "verify\|needs" .github/workflows/deploy-backend.yml`) y con la regla de una línea por párrafo.
+- [x] 2.3 Ejecutar `openspec validate add-backend-ci-and-plain-logs --strict` y revisar que los escenarios de `backend-ci` y `backend-deployment` se corresponden con lo implementado; verificar que la validación pasa.
 
 ## 3. Logs sin ANSI fuera de una terminal (`catalog-api`)
 

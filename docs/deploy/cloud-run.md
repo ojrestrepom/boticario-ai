@@ -15,7 +15,13 @@ push a main (o ejecución manual)
    |
    v
 GitHub Actions (deploy-backend.yml)
-   |  pide un token OIDC (id-token: write)
+   |
+   v
+job verify (backend-ci.yml): cargo fmt --check, clippy -D warnings y cargo test
+   |  si alguna falla, el flujo se detiene aquí: no se publica ninguna imagen ni se crea ninguna revisión
+   v
+job deploy (needs: verify)
+   |  pide un token OIDC (id-token: write, solo en este job)
    v
 Workload Identity Federation (pool "github", proveedor "boticario-ai")
    |  acepta solo el repositorio sebastianrodriguez1115/boticario-ai
@@ -50,7 +56,7 @@ la app, por HTTPS en la URL *.run.app
 | Presupuesto | Alerta por correo del equivalente a 1 USD, no corta el gasto | Tú, paso 5 | `gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID"` |
 | Secretos de GitHub | `GCP_WORKLOAD_IDENTITY_PROVIDER` y `GCP_DEPLOYER_SERVICE_ACCOUNT` | Tú, paso 6 | `gh secret list --repo "$GITHUB_REPO"` |
 | Variables de GitHub | `GCP_PROJECT_ID`, `GCP_REGION` y `GCP_ARTIFACT_REPOSITORY` | Tú, paso 6 | `gh variable list --repo "$GITHUB_REPO"` |
-| Workflow `deploy-backend.yml` | En `push` a `main` con cambios en la imagen o en `workflow_dispatch`: construye la imagen amd64, la publica con las etiquetas `<sha>` y `latest`, despliega el `<sha>` y verifica con `curl` | El repositorio, en `.github/workflows/` | `gh workflow view deploy-backend.yml` |
+| Workflow `deploy-backend.yml` | En `push` a `main` con cambios en la imagen o en `workflow_dispatch`: primero el job `verify` ejecuta las verificaciones del backend (`backend-ci.yml`) y, solo si pasan, el job `deploy` construye la imagen amd64, la publica con las etiquetas `<sha>` y `latest`, despliega el `<sha>` y verifica con `curl` | El repositorio, en `.github/workflows/` | `gh workflow view deploy-backend.yml` |
 
 ### Roles y permisos
 
@@ -71,10 +77,11 @@ la app, por HTTPS en la URL *.run.app
 - Seguridad: no hay claves JSON de larga duración; GitHub se autentica con tokens OIDC de corta duración.
 - Seguridad: la condición de atributo del proveedor solo admite tu repositorio y el `principalSet` se limita a él.
 - Seguridad: cada rol del deployer está en el ámbito más estrecho posible y la cuenta de ejecución no tiene roles.
-- Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`, y sus permisos son solo `contents: read` e `id-token: write`.
+- Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`; los permisos del workflow son solo `contents: read`, y el permiso `id-token: write` lo tiene únicamente el job `deploy`, no `verify`.
 - Seguridad: los despliegues se serializan con `concurrency` y no se cancelan a medias.
 - Seguridad: las acciones de terceros están fijadas por SHA con un comentario de versión.
 - Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/health` o el detalle de una planta no responden 200; no hay rollback automático, Cloud Run conserva la revisión anterior.
+- Fiabilidad: el job `deploy` depende de `verify` (`needs: verify`), así que un formato, un lint o una prueba que falle impide construir y publicar la imagen y crear la revisión; el servicio sigue sirviendo la anterior.
 - Fiabilidad: una revisión que no pasa la sonda de arranque no recibe tráfico.
 
 ## Costo esperado
@@ -431,9 +438,11 @@ La URL pública del servicio es `https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
 
 ### Despliegue automático
 
-El workflow `deploy-backend.yml` se dispara con un `push` a `main` que toque `backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow; un cambio solo en `app/` o en `docs/` no despliega.
+El workflow `deploy-backend.yml` se dispara con un `push` a `main` que toque `backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow; un cambio solo en `app/` o en `docs/` no despliega.
 
-Construye la imagen `linux/amd64`, la publica en Artifact Registry con las etiquetas `<sha>` y `latest`, despliega la imagen del `<sha>` como una revisión nueva y verifica con `curl` que `/health` y `/v1/plants/lavandula-angustifolia` respondan 200.
+Primero corre el job `verify`, que reutiliza `backend-ci.yml` (`cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace); solo si pasa, el job `deploy` construye la imagen `linux/amd64`, la publica en Artifact Registry con las etiquetas `<sha>` y `latest`, despliega la imagen del `<sha>` como una revisión nueva y verifica con `curl` que `/health` y `/v1/plants/lavandula-angustifolia` respondan 200.
+
+Si `verify` falla, `deploy` se omite y el servicio sigue con la revisión anterior. Corrige el fallo (el log sale con `gh run view <id> --log-failed`), súbelo a `main` o, si la corrección ya está en `main`, relanza el workflow con `workflow_dispatch` como se explica en «Despliegue manual». El rollback de Cloud Run (sección «Revisiones y rollback») no pasa por la CI: mueve el tráfico a una revisión existente sin ejecutar `verify`.
 
 Tarda alrededor de 1 minuto cuando no cambia el código Rust (caché de capas) y unos 5 minutos cuando cambia `backend/`.
 
@@ -447,7 +456,7 @@ gh run view <id> --log-failed
 
 ### Despliegue manual
 
-Lanza el workflow sin necesidad de un cambio en el backend (así se hizo el primer despliegue) y síguelo con los comandos anteriores:
+Lanza el workflow sin necesidad de un cambio en el backend (así se hizo el primer despliegue); también pasa por `verify` antes de construir. Síguelo con los comandos anteriores:
 
 ```bash
 gh workflow run deploy-backend.yml --ref main
@@ -484,7 +493,7 @@ resource.type="cloud_run_revision" resource.labels.service_name="boticario-api"
 
 ### Revisiones y rollback
 
-Cada despliegue crea una revisión nueva y Cloud Run conserva las anteriores. Lista las revisiones y mira cuál recibe el tráfico:
+Cada despliegue crea una revisión nueva y Cloud Run conserva las anteriores. El rollback mueve el tráfico entre revisiones que ya existen y no ejecuta la CI. Lista las revisiones y mira cuál recibe el tráfico:
 
 ```bash
 gcloud run revisions list --service="$SERVICE" --region="$REGION"

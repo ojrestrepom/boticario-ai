@@ -1,6 +1,7 @@
 name: Deploy backend
 
-# Construye la imagen amd64 del backend, la publica en Artifact Registry y la despliega en Cloud Run.
+# Verifica el backend (fmt, clippy y pruebas, via backend-ci.yml) y, solo si pasa, construye la imagen
+# amd64, la publica en Artifact Registry y la despliega en Cloud Run.
 # Solo corre desde main (o a mano) y cuando cambia algo que entra en la imagen o este mismo workflow.
 on:
   push:
@@ -11,15 +12,15 @@ on:
       - 'data/migrations/**'
       - 'data/sources.toml'
       - 'Dockerfile'
+      - 'mise.toml'
       - '.dockerignore'
       - '.github/workflows/deploy-backend.yml'
   workflow_dispatch:
 
-# Minimo privilegio: lectura del repositorio e id-token para pedir el token OIDC con el que
-# Workload Identity Federation entrega credenciales de corta duracion (sin claves JSON).
+# Minimo privilegio: a nivel de workflow solo lectura del repositorio. El id-token para pedir el
+# token OIDC (Workload Identity Federation) se concede unicamente al job deploy, no a verify.
 permissions:
   contents: read
-  id-token: write
 
 # Los despliegues se serializan y uno en curso no se interrumpe a medias (a diferencia de flutter.yml).
 concurrency:
@@ -27,9 +28,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Puerta de calidad: workflow reutilizable con fmt, clippy y pruebas. Si falla, deploy se omite
+  # y no se publica ninguna imagen ni se crea ninguna revision.
+  verify:
+    name: Verificar el backend
+    uses: ./.github/workflows/backend-ci.yml
+    permissions:
+      contents: read
+
   deploy:
     name: Build, push y deploy a Cloud Run
+    needs: verify
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
     # La compilacion de Rust sin cache tarda varios minutos.
     timeout-minutes: 45
     env:

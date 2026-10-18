@@ -202,7 +202,7 @@ Las cachés de construcción viven en el almacenamiento de Docker, no en el repo
 
 ### Despliegue en Cloud Run
 
-El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore` o el propio workflow), o a mano con `workflow_dispatch`. El servicio responde en https://boticario-api-d3xv5q3iaa-pv.a.run.app.
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) verifica el backend (`fmt`, `clippy` y pruebas, con el workflow reutilizable `backend-ci.yml`) y, solo si pasa, construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow), o a mano con `workflow_dispatch`. Si la verificación falla, no se publica ninguna imagen ni se crea ninguna revisión. El servicio responde en https://boticario-api-d3xv5q3iaa-pv.a.run.app.
 
 La imagen local se construye para la arquitectura del anfitrión (arm64 en un Mac con Apple Silicon); `docker build --platform linux/amd64 .` queda como prueba local de la imagen que despliega el workflow.
 
@@ -220,7 +220,7 @@ El job de CI de Flutter cubre unit y widget; **no** ejecuta el smoke Android ni 
 
 El workflow [`.github/workflows/backend-ci.yml`](.github/workflows/backend-ci.yml) verifica el backend: `cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace, con el Rust fijado en [`mise.toml`](mise.toml). Corre en pull requests y en pushes a ramas distintas de `main` que toquen `backend/`, `data/migrations/`, el `Dockerfile`, `mise.toml` o el propio workflow. El comando local equivalente está en la guía de [`backend/README.md`](backend/README.md#integración-continua).
 
-El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) construye la imagen amd64 del backend y la despliega en Cloud Run en cada push a `main` que toque el backend; ver [Despliegue en Cloud Run](#despliegue-en-cloud-run).
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) verifica el backend y, solo si pasa, construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend; ver [Despliegue en Cloud Run](#despliegue-en-cloud-run).
 
 ## Documentación
 

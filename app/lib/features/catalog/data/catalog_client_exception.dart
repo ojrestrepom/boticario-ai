@@ -4,6 +4,7 @@ enum CatalogClientErrorKind {
   server,
   badRequest,
   invalidResponse,
+  unauthorized,
 }
 
 /// Any failure talking to the catalog API. [message] is Spanish text that is

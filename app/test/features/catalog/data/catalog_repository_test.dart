@@ -24,6 +24,7 @@ void main() {
     http.Response Function(http.Request) handler, {
     String baseUrl = 'http://host:8080',
     Duration timeout = const Duration(seconds: 10),
+    String apiToken = '',
   }) {
     requests = [];
     return HttpCatalogRepository(
@@ -32,6 +33,7 @@ void main() {
         return handler(request);
       }),
       baseUrl: baseUrl,
+      apiToken: apiToken,
       timeout: timeout,
     );
   }
@@ -103,6 +105,59 @@ void main() {
     });
   });
 
+  group('API token', () {
+    const token = testApiToken;
+
+    test('listing sends the exact Bearer header and keeps Accept', () async {
+      final r = repo(emptyPage, apiToken: token);
+      await r.listPlants();
+      expect(requests.single.headers, {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
+    });
+
+    test('detail sends the exact Bearer header and keeps Accept', () async {
+      final r = repo((_) => http.Response('', 404), apiToken: token);
+      await r.getPlant('lavandula-angustifolia');
+      expect(requests.single.headers, {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
+    });
+
+    test('without a token there is no Authorization header', () async {
+      final r = repo(emptyPage);
+      await r.listPlants();
+      await r.getPlant('x').catchError((_) => null);
+      expect(requests, hasLength(2));
+      for (final request in requests) {
+        expect(request.headers.containsKey('Authorization'), isFalse);
+        expect(request.headers['Accept'], 'application/json');
+      }
+    });
+
+    test('apiTokenProvider reaches the repository', () async {
+      final api = FakeCatalogApi(requiredToken: token);
+      final container = ProviderContainer(
+        overrides: [
+          httpClientProvider.overrideWithValue(api.client),
+          apiTokenProvider.overrideWithValue(token),
+        ],
+      );
+      addTearDown(container.dispose);
+      final page = await container.read(catalogRepositoryProvider).listPlants();
+      expect(page.items, isNotEmpty);
+      expect(api.requests.single.headers['Authorization'], 'Bearer $token');
+    });
+
+    test('the default token is empty and sends no header', () {
+      final container = ProviderContainer();
+      addTearDown(container.dispose);
+      expect(container.read(apiTokenProvider), isEmpty);
+    });
+  });
+
   group('getPlant', () {
     test('requests the id path with Accept and parses the detail', () async {
       final r = repo(
@@ -150,6 +205,45 @@ void main() {
         ),
       );
       expect(r.listPlants(), _clientError(CatalogClientErrorKind.badRequest));
+    });
+
+    for (final status in [401, 403]) {
+      test('$status is an unauthorized error on list and detail, without '
+          'the token', () async {
+        final r = repo(
+          (_) => http.Response(
+            '{"status":$status}',
+            status,
+            headers: {'content-type': 'application/problem+json'},
+          ),
+          apiToken: testApiToken,
+        );
+        await expectLater(
+          r.listPlants(),
+          _clientError(CatalogClientErrorKind.unauthorized),
+        );
+        await expectLater(
+          r.getPlant('lavandula-angustifolia'),
+          _clientError(CatalogClientErrorKind.unauthorized),
+        );
+        try {
+          await r.getPlant('x');
+        } on CatalogClientException catch (error) {
+          expect(error.message, contains('no está autorizada'));
+          expect(error.message, isNot(contains(testApiToken)));
+          expect(error.toString(), isNot(contains(testApiToken)));
+        }
+      });
+    }
+
+    test('401 is not confused with 404 not found or an invalid body', () async {
+      final notFound = repo((_) => http.Response('', 404));
+      expect(await notFound.getPlant('x'), isNull);
+      final invalid = repo((_) => http.Response('{"x":1}', 200));
+      expect(
+        invalid.getPlant('x'),
+        _clientError(CatalogClientErrorKind.invalidResponse),
+      );
     });
 
     test('5xx is a server error', () {
@@ -251,6 +345,28 @@ void main() {
       final empty = await repository.listPlants(query: 'zzz', offset: 5);
       expect(empty.items, isEmpty);
       expect(empty.offset, 5);
+    });
+
+    test('fake API with a required token rejects a missing one', () async {
+      final api = FakeCatalogApi(requiredToken: testApiToken);
+      final noToken = HttpCatalogRepository(
+        client: api.client,
+        baseUrl: 'http://h',
+      );
+      await expectLater(
+        noToken.listPlants(),
+        _clientError(CatalogClientErrorKind.unauthorized),
+      );
+      await expectLater(
+        noToken.getPlant('lavandula-angustifolia'),
+        _clientError(CatalogClientErrorKind.unauthorized),
+      );
+      final withToken = HttpCatalogRepository(
+        client: api.client,
+        baseUrl: 'http://h',
+        apiToken: testApiToken,
+      );
+      expect((await withToken.listPlants()).items, isNotEmpty);
     });
 
     test('default base URL provider yields the emulator address', () {

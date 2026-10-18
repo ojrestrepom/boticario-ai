@@ -11,9 +11,12 @@ void main() {
   late ProviderContainer container;
 
   setUp(() {
-    api = FakeCatalogApi();
+    api = FakeCatalogApi(requiredToken: testApiToken);
     container = ProviderContainer(
-      overrides: [httpClientProvider.overrideWithValue(api.client)],
+      overrides: [
+        httpClientProvider.overrideWithValue(api.client),
+        apiTokenProvider.overrideWithValue(testApiToken),
+      ],
     );
     addTearDown(container.dispose);
   });
@@ -46,6 +49,20 @@ void main() {
     );
     await Future<void>.delayed(const Duration(milliseconds: 50));
     expect(api.requests, hasLength(1));
+  });
+
+  test('401 is an unauthorized error, not null like a 404', () async {
+    api.failure = FakeApiFailure.unauthorized;
+    await expectLater(
+      container.read(plantDetailProvider('lavandula-angustifolia').future),
+      throwsA(
+        isA<CatalogClientException>().having(
+          (e) => e.kind,
+          'kind',
+          CatalogClientErrorKind.unauthorized,
+        ),
+      ),
+    );
   });
 
   test('invalidating the provider repeats the request', () async {

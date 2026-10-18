@@ -21,10 +21,13 @@ GoRouter _currentRouter(WidgetTester tester) {
 }
 
 Future<FakeCatalogApi> _mount(WidgetTester tester) async {
-  final api = FakeCatalogApi();
+  final api = FakeCatalogApi(requiredToken: testApiToken);
   await tester.pumpWidget(
     ProviderScope(
-      overrides: [httpClientProvider.overrideWithValue(api.client)],
+      overrides: [
+        httpClientProvider.overrideWithValue(api.client),
+        apiTokenProvider.overrideWithValue(testApiToken),
+      ],
       child: const BoticarioApp(),
     ),
   );

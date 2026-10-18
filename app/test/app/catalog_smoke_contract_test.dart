@@ -12,16 +12,20 @@ void main() {
   testWidgets(
     'shared real-app smoke flow passes against the fake catalog API',
     (tester) async {
-      final api = FakeCatalogApi();
+      final api = FakeCatalogApi(requiredToken: testApiToken);
       await runCatalogSmoke(
         tester,
-        overrides: [httpClientProvider.overrideWithValue(api.client)],
+        overrides: [
+          httpClientProvider.overrideWithValue(api.client),
+          apiTokenProvider.overrideWithValue(testApiToken),
+        ],
         guardApplicationHttp: false,
         requestCount: () => api.requests.length,
       );
       expect(api.requests, isNotEmpty);
       for (final request in api.requests) {
         expect(request.url.path, startsWith('/v1/plants'));
+        expect(request.headers['Authorization'], 'Bearer $testApiToken');
       }
     },
   );
@@ -40,10 +44,13 @@ void main() {
       // it, so a retained scroll must clamp to the new extent.
       tester.view.physicalSize = const Size(1080, 3000);
       tester.view.devicePixelRatio = 3;
-      final api = FakeCatalogApi();
+      final api = FakeCatalogApi(requiredToken: testApiToken);
       await runCatalogSmoke(
         tester,
-        overrides: [httpClientProvider.overrideWithValue(api.client)],
+        overrides: [
+          httpClientProvider.overrideWithValue(api.client),
+          apiTokenProvider.overrideWithValue(testApiToken),
+        ],
         guardApplicationHttp: false,
         simulateKeyboardViewport: true,
         requestCount: () => api.requests.length,

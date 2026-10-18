@@ -15,9 +15,13 @@ final apiBaseUrlProvider = Provider<String>(
   (ref) => normalizeApiBaseUrl(apiBaseUrlFromEnvironment),
 );
 
+/// Tests override this with a fictitious token.
+final apiTokenProvider = Provider<String>((ref) => apiTokenFromEnvironment);
+
 final catalogRepositoryProvider = Provider<CatalogRepository>(
   (ref) => HttpCatalogRepository(
     client: ref.watch(httpClientProvider),
     baseUrl: ref.watch(apiBaseUrlProvider),
+    apiToken: ref.watch(apiTokenProvider),
   ),
 );

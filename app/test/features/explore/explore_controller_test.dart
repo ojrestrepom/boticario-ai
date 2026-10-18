@@ -201,6 +201,26 @@ void main() {
     expect(read().items, hasLength(3));
   });
 
+  testWidgets('an unauthorized error is shown and retry repeats the request', (
+    tester,
+  ) async {
+    init();
+    repo.calls[0].completer.completeError(
+      const CatalogClientException(
+        CatalogClientErrorKind.unauthorized,
+        'La app no está autorizada para usar el servidor.',
+      ),
+    );
+    await tester.pump();
+    expect(read().phase, ExplorePhase.error);
+    expect(read().errorMessage, contains('no está autorizada'));
+    expect(repo.calls, hasLength(1), reason: 'no automatic retry');
+
+    notifier().retry();
+    expect(read().phase, ExplorePhase.loading);
+    expect(repo.calls, hasLength(2));
+  });
+
   testWidgets('an unexpected error shows a generic message, not its text', (
     tester,
   ) async {

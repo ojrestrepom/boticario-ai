@@ -87,7 +87,10 @@ void main() {
     VoidCallback? onBack,
     VoidCallback? onHome,
   }) => ProviderScope(
-    overrides: [httpClientProvider.overrideWithValue(client)],
+    overrides: [
+      httpClientProvider.overrideWithValue(client),
+      apiTokenProvider.overrideWithValue(testApiToken),
+    ],
     child: MaterialApp(
       theme: buildBoticarioTheme(),
       home: PlantPassportRoutePage(
@@ -540,6 +543,27 @@ void main() {
     expect(find.text('Japanese Fir'), findsWidgets);
     expect(find.text('Familia'), findsOneWidget);
     expect(find.text('Registros tradicionales'), findsNothing);
+  });
+
+  testWidgets('a 401 shows unauthorized, not "not found", with retry', (
+    tester,
+  ) async {
+    final api = FakeCatalogApi(failure: FakeApiFailure.unauthorized);
+    await tester.pumpWidget(route(_rosemary, client: api.client));
+    await tester.pumpAndSettle();
+    expect(find.text('No se pudo cargar la planta'), findsOneWidget);
+    expect(find.textContaining('no está autorizada'), findsOneWidget);
+    expect(find.textContaining(testApiToken), findsNothing);
+    expect(find.text('Planta no encontrada'), findsNothing);
+    expect(find.text('Reintentar'), findsOneWidget);
+    expect(api.requests, hasLength(1), reason: 'no automatic retry');
+    expect(tester.takeException(), isNull);
+
+    api.failure = FakeApiFailure.none;
+    await tester.tap(find.text('Reintentar'));
+    await tester.pumpAndSettle();
+    expect(api.requests, hasLength(2));
+    expect(find.text('No se pudo cargar la planta'), findsNothing);
   });
 
   testWidgets('retry waits for the request and actions work in loading/error', (
@@ -1142,7 +1166,10 @@ void main() {
         });
         await tester.pumpWidget(
           ProviderScope(
-            overrides: [httpClientProvider.overrideWithValue(client)],
+            overrides: [
+              httpClientProvider.overrideWithValue(client),
+              apiTokenProvider.overrideWithValue(testApiToken),
+            ],
             child: MaterialApp(
               theme: buildBoticarioTheme(),
               builder: (context, child) => MediaQuery(

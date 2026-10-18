@@ -22,6 +22,9 @@
 // the repository's 10 s timeout fires: use `tester.pump(Duration(seconds: 11))`
 // or `fakeAsync` and `elapse`.
 //
+// With `requiredToken` the fake answers 401 unless the exact Bearer header is
+// sent; `FakeApiFailure.unauthorized` always answers 401.
+//
 // [FakeCatalogApi.requests] records every request so tests can assert that
 // only the two allowed endpoints are used, with `Accept: application/json`.
 import 'dart:async';
@@ -31,7 +34,10 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
-enum FakeApiFailure { none, serverError, timeout, connection }
+enum FakeApiFailure { none, serverError, timeout, connection, unauthorized }
+
+/// Fictitious API token for tests. It is not a secret and no backend accepts it.
+const testApiToken = 'test-token-not-a-secret-000000000000';
 
 const _jsonHeaders = {'content-type': 'application/json; charset=utf-8'};
 const _problemHeaders = {
@@ -43,7 +49,7 @@ String apiFixture(String name) =>
     File('test/fixtures/api/$name').readAsStringSync();
 
 class FakeCatalogApi {
-  FakeCatalogApi({this.failure = FakeApiFailure.none}) {
+  FakeCatalogApi({this.failure = FakeApiFailure.none, this.requiredToken}) {
     client = MockClient(_handle);
   }
 
@@ -57,11 +63,19 @@ class FakeCatalogApi {
   ];
 
   FakeApiFailure failure;
+
+  /// When set, any request without exactly `Authorization: Bearer <token>`
+  /// gets 401, like the real API.
+  final String? requiredToken;
   late final http.Client client;
   final List<http.BaseRequest> requests = [];
 
   Future<http.Response> _handle(http.Request request) async {
     requests.add(request);
+    final token = requiredToken;
+    if (token != null && request.headers['Authorization'] != 'Bearer $token') {
+      return _unauthorized();
+    }
     switch (failure) {
       case FakeApiFailure.none:
         break;
@@ -71,6 +85,8 @@ class FakeCatalogApi {
           500,
           headers: _problemHeaders,
         );
+      case FakeApiFailure.unauthorized:
+        return _unauthorized();
       case FakeApiFailure.timeout:
         return Completer<http.Response>().future;
       case FakeApiFailure.connection:
@@ -102,6 +118,12 @@ class FakeCatalogApi {
       headers: _problemHeaders,
     );
   }
+
+  http.Response _unauthorized() => http.Response(
+    '{"type":"about:blank","title":"Unauthorized","status":401}',
+    401,
+    headers: _problemHeaders,
+  );
 
   http.Response _list(Map<String, String> query) {
     final q = query['q'];

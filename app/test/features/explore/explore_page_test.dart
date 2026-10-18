@@ -90,7 +90,10 @@ void main() {
     tester.view.devicePixelRatio = 1;
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [httpClientProvider.overrideWithValue(client)],
+        overrides: [
+          httpClientProvider.overrideWithValue(client),
+          apiTokenProvider.overrideWithValue(testApiToken),
+        ],
         child: MaterialApp(
           builder: (context, child) => MediaQuery(
             data: MediaQuery.of(context).copyWith(
@@ -164,6 +167,25 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Common 0'), findsOneWidget);
     expect(find.text('Cargando catálogo...'), findsNothing);
+  });
+
+  testWidgets('a 401 shows the unauthorized error with the generic retry', (
+    tester,
+  ) async {
+    final api = FakeCatalogApi(failure: FakeApiFailure.unauthorized);
+    await pumpExplore(tester, client: api.client);
+    expect(find.textContaining('no está autorizada'), findsOneWidget);
+    expect(find.textContaining(testApiToken), findsNothing);
+    expect(find.text('Reintentar'), findsOneWidget);
+    expect(find.text('No se encontraron plantas'), findsNothing);
+    expect(api.requests, hasLength(1), reason: 'no automatic retry');
+    expect(tester.takeException(), isNull);
+
+    api.failure = FakeApiFailure.none;
+    await tester.tap(find.text('Reintentar'));
+    await tester.pumpAndSettle();
+    expect(api.requests, hasLength(2));
+    expect(find.text('Reintentar'), findsNothing);
   });
 
   testWidgets('retry shows loading until the second request completes', (

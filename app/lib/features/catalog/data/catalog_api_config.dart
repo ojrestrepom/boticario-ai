@@ -6,6 +6,11 @@ const String apiBaseUrlFromEnvironment = String.fromEnvironment(
   defaultValue: defaultApiBaseUrl,
 );
 
+/// API token sent as `Authorization: Bearer <token>`, set at build time with
+/// `--dart-define=API_TOKEN=...`. There is deliberately no default: without it
+/// the app still starts and sends no `Authorization` header.
+const String apiTokenFromEnvironment = String.fromEnvironment('API_TOKEN');
+
 const String defaultApiBaseUrl = 'http://10.0.2.2:8080';
 
 /// Validates [value] as an `http` or `https` address with a host and strips

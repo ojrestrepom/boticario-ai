@@ -27,8 +27,13 @@ class HttpCatalogRepository implements CatalogRepository {
   HttpCatalogRepository({
     required this._client,
     required String baseUrl,
+    String apiToken = '',
     this.timeout = const Duration(seconds: 10),
-  }) : _base = Uri.parse(normalizeApiBaseUrl(baseUrl));
+  }) : _base = Uri.parse(normalizeApiBaseUrl(baseUrl)),
+       _headers = {
+         'Accept': 'application/json',
+         if (apiToken.isNotEmpty) 'Authorization': 'Bearer $apiToken',
+       };
 
   static const int maxQueryLength = 200;
 
@@ -36,7 +41,8 @@ class HttpCatalogRepository implements CatalogRepository {
   final Uri _base;
   final Duration timeout;
 
-  static const _headers = {'Accept': 'application/json'};
+  /// Holds the token: never log it or put it in an error message.
+  final Map<String, String> _headers;
 
   @override
   Future<PlantPage> listPlants({
@@ -103,6 +109,12 @@ class HttpCatalogRepository implements CatalogRepository {
       throw CatalogClientException(
         CatalogClientErrorKind.server,
         'El servidor tuvo un problema (HTTP $status). Inténtalo de nuevo.',
+      );
+    }
+    if (status == 401 || status == 403) {
+      throw const CatalogClientException(
+        CatalogClientErrorKind.unauthorized,
+        'La app no está autorizada para usar el servidor. Inténtalo de nuevo más tarde.',
       );
     }
     if (status == 400) {

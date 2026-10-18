@@ -156,9 +156,11 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
         ("limit" = Option<u32>, Query, minimum = 1, maximum = 100, description = "Elementos por página (1 a 100, por defecto 20)."),
         ("offset" = Option<u32>, Query, minimum = 0, maximum = 2147483647, description = "Elementos a saltar (por defecto 0)."),
     ),
+    security(("bearerAuth" = [])),
     responses(
         (status = 200, description = "Página de plantas en orden de nombre científico e identificador", body = PageDto<PlantSummaryDto>),
         (status = 400, description = "Parámetro inválido", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 401, description = "Falta el token de API o no es válido", body = ProblemDto, content_type = "application/problem+json", headers(("WWW-Authenticate" = String, description = "Siempre `Bearer`"))),
         (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
         (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
     )
@@ -191,9 +193,11 @@ pub(crate) async fn list_plants(
     path = "/v1/plants/{id}",
     tag = "catalog",
     params(("id" = String, Path, description = "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.")),
+    security(("bearerAuth" = [])),
     responses(
         (status = 200, description = "Detalle de la planta", body = PlantDto),
         (status = 400, description = "Identificador no válido", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 401, description = "Falta el token de API o no es válido", body = ProblemDto, content_type = "application/problem+json", headers(("WWW-Authenticate" = String, description = "Siempre `Bearer`"))),
         (status = 404, description = "La planta no existe", body = ProblemDto, content_type = "application/problem+json"),
         (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
         (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),

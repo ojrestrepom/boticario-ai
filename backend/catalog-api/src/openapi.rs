@@ -3,7 +3,8 @@
 //! `#[derive(OpenApi)]` reúne las rutas anotadas con `#[utoipa::path]` y los esquemas de los DTOs (`ToSchema`) en un documento.
 //! El documento versionado en `backend/openapi.json` debe coincidir con el generado: un test lo comprueba.
 
-use utoipa::OpenApi;
+use utoipa::openapi::security::{HttpAuthScheme, HttpBuilder, SecurityScheme};
+use utoipa::{Modify, OpenApi};
 
 use crate::dto::{
     CommonNameDto, HealthDto, NameDto, NameKindDto, PageDto, PartDto, PlantDto, PlantSummaryDto,
@@ -32,9 +33,32 @@ use crate::http;
         UseDto,
         PlantDto,
         ProblemDto,
-    ))
+    )),
+    modifiers(&BearerAuth)
 )]
 struct ApiDoc;
+
+/// Declara el esquema de seguridad `bearerAuth`.
+///
+/// Las operaciones de `/v1` lo exigen con `security(...)` en su propia anotación; `/health` y `/openapi.json` no declaran seguridad y quedan públicas.
+struct BearerAuth;
+
+impl Modify for BearerAuth {
+    fn modify(&self, openapi: &mut utoipa::openapi::OpenApi) {
+        let components = openapi.components.get_or_insert_with(Default::default);
+        components.add_security_scheme(
+            "bearerAuth",
+            SecurityScheme::Http(
+                HttpBuilder::new()
+                    .scheme(HttpAuthScheme::Bearer)
+                    .description(Some(
+                        "Token de API en la cabecera `Authorization: Bearer <token>`. Es una credencial de acceso compartida por la app: no identifica a usuarios.",
+                    ))
+                    .build(),
+            ),
+        );
+    }
+}
 
 /// El documento OpenAPI del código actual.
 pub fn openapi() -> utoipa::openapi::OpenApi {
@@ -92,5 +116,56 @@ mod tests {
             description.contains(&format!("por defecto {DEFAULT_LIMIT}")),
             "{description}"
         );
+    }
+
+    #[test]
+    fn only_health_and_openapi_live_outside_v1() {
+        let doc = openapi();
+        for path in doc.paths.paths.keys() {
+            let in_v1 = path == "/v1" || path.starts_with("/v1/");
+            assert!(
+                in_v1 || path == "/health" || path == "/openapi.json",
+                "la ruta {path} está fuera de /v1 y no es /health ni /openapi.json: se serviría sin token; muévela bajo /v1 o decide explícitamente que es pública"
+            );
+        }
+    }
+
+    #[test]
+    fn security_is_required_exactly_on_v1_operations() {
+        let doc = serde_json::to_value(openapi()).unwrap();
+        let scheme = &doc["components"]["securitySchemes"]["bearerAuth"];
+        assert_eq!(scheme["type"], "http");
+        assert_eq!(scheme["scheme"], "bearer");
+        assert!(
+            doc.get("security").is_none(),
+            "no debe haber seguridad global"
+        );
+        for (path, item) in doc["paths"].as_object().unwrap() {
+            let in_v1 = path == "/v1" || path.starts_with("/v1/");
+            for (method, operation) in item.as_object().unwrap() {
+                let security = operation.get("security");
+                if in_v1 {
+                    assert_eq!(
+                        security,
+                        Some(&serde_json::json!([{"bearerAuth": []}])),
+                        "{method} {path}"
+                    );
+                    let unauthorized = &operation["responses"]["401"];
+                    assert!(
+                        unauthorized["content"]["application/problem+json"].is_object(),
+                        "{method} {path}: falta el 401 problem+json"
+                    );
+                    assert!(
+                        unauthorized["headers"]["WWW-Authenticate"].is_object(),
+                        "{method} {path}: falta WWW-Authenticate"
+                    );
+                } else {
+                    assert!(
+                        security.is_none(),
+                        "{method} {path} no debe exigir seguridad"
+                    );
+                }
+            }
+        }
     }
 }

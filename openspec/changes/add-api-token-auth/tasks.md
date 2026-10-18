@@ -16,8 +16,8 @@ Nota: cada grupo es un commit. El orquestador hace el commit al aceptar el grupo
 
 ## 3. Contrato OpenAPI (`catalog-api`)
 
-- [ ] 3.1 Declarar el esquema Bearer, el requisito de seguridad en las operaciones de `/v1`, la respuesta 401 con `ProblemDto` y la ausencia de seguridad en `/health` y `/openapi.json`; regenerar `backend/openapi.json` con el comando indicado en `openapi.rs` y verificar que el test de deriva pasa y que el documento no contiene ningún valor de token (`grep -n "Bearer\|bearerAuth" backend/openapi.json`).
-- [ ] 3.2 Añadir el test de rutas que falla si el documento tiene una ruta distinta de `/health` y `/openapi.json` fuera de `/v1`; verificar que pasa y que falla al añadir temporalmente una ruta falsa fuera de `/v1` en el documento de prueba (cambio temporal, no se confirma).
+- [x] 3.1 Declarar el esquema Bearer, el requisito de seguridad en las operaciones de `/v1`, la respuesta 401 con `ProblemDto` y la ausencia de seguridad en `/health` y `/openapi.json`; regenerar `backend/openapi.json` con el comando indicado en `openapi.rs` y verificar que el test de deriva pasa y que el documento no contiene ningún valor de token (`grep -n "Bearer\|bearerAuth" backend/openapi.json`).
+- [x] 3.2 Añadir el test de rutas que falla si el documento tiene una ruta distinta de `/health` y `/openapi.json` fuera de `/v1`; verificar que pasa y que falla al añadir temporalmente una ruta falsa fuera de `/v1` en el documento de prueba (cambio temporal, no se confirma).
 
 ## 4. Desarrollo local y contenedor (`backend-container`)
 

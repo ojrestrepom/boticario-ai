@@ -131,6 +131,24 @@
               }
             }
           },
+          "401": {
+            "description": "Falta el token de API o no es válido",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Siempre `Bearer`"
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
           "405": {
             "description": "Método no permitido; la respuesta incluye `Allow: GET`",
             "content": {
@@ -151,7 +169,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/v1/plants/{id}": {
@@ -193,6 +216,24 @@
               }
             }
           },
+          "401": {
+            "description": "Falta el token de API o no es válido",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Siempre `Bearer`"
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
           "404": {
             "description": "La planta no existe",
             "content": {
@@ -223,7 +264,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
@@ -537,6 +583,13 @@
             "description": "Referencia que respalda el uso."
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Token de API en la cabecera `Authorization: Bearer <token>`. Es una credencial de acceso compartida por la app: no identifica a usuarios."
       }
     }
   }

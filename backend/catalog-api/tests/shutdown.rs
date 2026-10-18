@@ -4,6 +4,7 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use catalog_api::async_catalog::AsyncCatalog;
+use catalog_api::auth::ApiTokens;
 use catalog_api::http::router;
 use catalog_api::startup::{ShutdownOutcome, serve};
 use catalog_core::repository::CatalogRepository;
@@ -43,7 +44,11 @@ async fn start(
 ) {
     let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
     let addr = listener.local_addr().unwrap();
-    let app = router(AsyncCatalog::new(Arc::new(EmptyRepo)));
+    let app = router(
+        AsyncCatalog::new(Arc::new(EmptyRepo)),
+        // Valor ficticio de prueba; no es un secreto.
+        ApiTokens::parse("test-token-not-a-secret-0000000000000000").unwrap(),
+    );
     let (tx, rx) = oneshot::channel::<()>();
     let handle = tokio::spawn(serve(
         listener,

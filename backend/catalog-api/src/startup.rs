@@ -20,6 +20,8 @@ use crate::repository::{OpenError, SqliteCatalogRepository};
 pub enum StartupError {
     /// No se pudo abrir la base (ausente, ilegible o de versión incompatible).
     Open(OpenError),
+    /// Se pidió servir sin tokens de API. `Config` los exige en modo `Serve`, así que solo ocurre si se construye a mano.
+    MissingApiTokens,
 }
 
 // Se delega en el `Display` de `OpenError`, que ya trae los mensajes accionables (ruta y `catalog-ingest build`, o versión encontrada y soportada).
@@ -27,6 +29,9 @@ impl fmt::Display for StartupError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::Open(err) => err.fmt(f),
+            Self::MissingApiTokens => {
+                write!(f, "falta API_TOKENS: no se puede servir sin tokens de API")
+            }
         }
     }
 }
@@ -40,9 +45,15 @@ impl From<OpenError> for StartupError {
 }
 
 /// Abre la base en solo lectura, comprueba su versión y devuelve el router listo para servir.
+///
+/// Los tokens de API salen de `config.api_tokens`; sin ellos no hay router.
 pub fn prepare(config: &Config) -> Result<Router, StartupError> {
+    let tokens = config
+        .api_tokens
+        .clone()
+        .ok_or(StartupError::MissingApiTokens)?;
     let repo = SqliteCatalogRepository::open(&config.db_path)?;
-    Ok(router(AsyncCatalog::new(Arc::new(repo))))
+    Ok(router(AsyncCatalog::new(Arc::new(repo)), tokens))
 }
 
 /// Plazo máximo, tras la señal de apagado, para que terminen las peticiones en curso.
@@ -108,7 +119,9 @@ mod tests {
             host: DEFAULT_HOST.to_string(),
             port: DEFAULT_PORT,
             mode: Mode::Serve,
-            api_tokens: None,
+            api_tokens: Some(
+                crate::auth::ApiTokens::parse("test-token-not-a-secret-0000000000000000").unwrap(),
+            ),
         }
     }
 
@@ -139,5 +152,15 @@ mod tests {
             .await
             .unwrap();
         assert_eq!(response.status(), StatusCode::OK);
+    }
+
+    #[test]
+    fn serving_without_tokens_is_a_startup_error() {
+        let fixture = Fixture::standard();
+        let mut config = config_for(fixture.path.clone());
+        config.api_tokens = None;
+        let err = prepare(&config).unwrap_err();
+        assert_eq!(err, StartupError::MissingApiTokens);
+        assert!(err.to_string().contains("API_TOKENS"));
     }
 }

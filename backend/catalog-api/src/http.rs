@@ -4,22 +4,26 @@
 //! Para el campo `instance` de los errores se usa `OriginalUri`: dentro de `nest("/v1", …)` el `Uri` normal ya llega sin el prefijo.
 
 use std::collections::HashMap;
+use std::sync::Arc;
 
 use axum::extract::rejection::{PathRejection, QueryRejection};
 use axum::extract::{OriginalUri, Path, Query, State};
 use axum::http::{HeaderValue, header};
 use axum::response::{IntoResponse, Response};
 use axum::routing::get;
-use axum::{Json, Router};
+use axum::{Json, Router, middleware};
 use catalog_core::domain::{DEFAULT_LIMIT, ListQuery, MAX_LIMIT, PlantId};
 
 use crate::async_catalog::AsyncCatalog;
+use crate::auth::{ApiTokens, require_token};
 use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto};
 use crate::error::ApiError;
 use crate::openapi::openapi;
 
 /// Construye el router completo: `/health` y `/v1/...`, con errores `problem+json` para rutas y métodos desconocidos.
-pub fn router(catalog: AsyncCatalog) -> Router {
+///
+/// Todo camino bajo `/v1` exige un token de `tokens` (`Authorization: Bearer`), también las rutas inexistentes y los métodos no permitidos. La capa va después de declarar los `fallback`, porque `route_layer` no los cubre.
+pub fn router(catalog: AsyncCatalog, tokens: ApiTokens) -> Router {
     let v1 = Router::new()
         .route("/plants", get(list_plants))
         .route("/plants/{id}", get(get_plant));
@@ -30,6 +34,10 @@ pub fn router(catalog: AsyncCatalog) -> Router {
         .fallback(not_found)
         .method_not_allowed_fallback(method_not_allowed)
         .with_state(catalog)
+        .layer(middleware::from_fn_with_state(
+            Arc::new(tokens),
+            require_token,
+        ))
 }
 
 async fn not_found(OriginalUri(uri): OriginalUri) -> Response {
@@ -229,20 +237,38 @@ mod tests {
     use super::*;
     use crate::test_support::Fixture;
 
+    /// Token ficticio de prueba; no es un secreto.
+    const TEST_TOKEN: &str = "test-token-not-a-secret-0000000000000000";
+
+    fn test_tokens() -> ApiTokens {
+        ApiTokens::parse(TEST_TOKEN).unwrap()
+    }
+
     /// Fixture y router sobre ella; la fixture debe vivir mientras se usa el router (borra su directorio al soltarse).
     fn app() -> (Fixture, Router) {
         let fixture = Fixture::standard();
-        let router = router(AsyncCatalog::new(Arc::new(fixture.repo())));
+        let router = router(AsyncCatalog::new(Arc::new(fixture.repo())), test_tokens());
         (fixture, router)
     }
 
-    /// Envía una petición al router sin abrir ningún puerto: `oneshot` consume una copia del servicio y devuelve la respuesta.
+    /// Envía una petición con el token de prueba válido.
     async fn send(app: &Router, method: Method, uri: &str) -> (StatusCode, HeaderMap, String) {
-        let request = Request::builder()
-            .method(method)
-            .uri(uri)
-            .body(Body::empty())
-            .unwrap();
+        let value = format!("Bearer {TEST_TOKEN}");
+        send_with(app, method, uri, Some(&value)).await
+    }
+
+    /// Envía una petición al router sin abrir ningún puerto: `oneshot` consume una copia del servicio y devuelve la respuesta. `authorization` es el valor literal de la cabecera, si se envía.
+    async fn send_with(
+        app: &Router,
+        method: Method,
+        uri: &str,
+        authorization: Option<&str>,
+    ) -> (StatusCode, HeaderMap, String) {
+        let mut builder = Request::builder().method(method).uri(uri);
+        if let Some(value) = authorization {
+            builder = builder.header(header::AUTHORIZATION, value);
+        }
+        let request = builder.body(Body::empty()).unwrap();
         let response = app.clone().oneshot(request).await.unwrap();
         let (parts, body) = response.into_parts();
         let bytes = body.collect().await.unwrap().to_bytes();
@@ -652,7 +678,10 @@ mod tests {
 
     #[tokio::test]
     async fn internal_failures_do_not_leak_details() {
-        let app = router(AsyncCatalog::new(Arc::new(FailingRepository)));
+        let app = router(
+            AsyncCatalog::new(Arc::new(FailingRepository)),
+            test_tokens(),
+        );
         for uri in ["/v1/plants", "/v1/plants/x"] {
             let (status, headers, body) = send(&app, Method::GET, uri).await;
             assert_eq!(status, StatusCode::INTERNAL_SERVER_ERROR, "{uri}");
@@ -661,5 +690,124 @@ mod tests {
             let json: Value = serde_json::from_str(&body).unwrap();
             assert_eq!(json["detail"], "error interno");
         }
+    }
+
+    // ---- autorización por token ----
+
+    #[tokio::test]
+    async fn valid_token_is_accepted_in_any_scheme_case() {
+        let (_fixture, app) = app();
+        for scheme in ["Bearer", "bearer", "BEARER"] {
+            let value = format!("{scheme} {TEST_TOKEN}");
+            let (status, _, _) = send_with(&app, Method::GET, "/v1/plants", Some(&value)).await;
+            assert_eq!(status, StatusCode::OK, "{scheme}");
+        }
+        // Varios espacios entre el esquema y el token.
+        let value = format!("Bearer   {TEST_TOKEN}");
+        let (status, _, _) = send_with(&app, Method::GET, "/v1/plants", Some(&value)).await;
+        assert_eq!(status, StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn rejected_credentials_all_get_the_same_401() {
+        let (_fixture, app) = app();
+        let prefix = format!("Bearer {}", &TEST_TOKEN[..TEST_TOKEN.len() - 1]);
+        let wrong = "Bearer test-token-not-a-secret-ffffffffffffffff".to_string();
+        let basic = format!("Basic {TEST_TOKEN}");
+        let cases: [Option<&str>; 7] = [
+            None,
+            Some(&wrong),
+            Some(&basic),
+            Some(&prefix),
+            Some(""),
+            Some("Bearer"),
+            Some("Bearer "),
+        ];
+        let mut reference: Option<(HeaderMap, String)> = None;
+        for authorization in cases {
+            let (status, headers, body) =
+                send_with(&app, Method::GET, "/v1/plants", authorization).await;
+            assert_eq!(status, StatusCode::UNAUTHORIZED, "{authorization:?}");
+            assert_eq!(
+                headers[header::CONTENT_TYPE],
+                "application/problem+json",
+                "{authorization:?}"
+            );
+            assert_eq!(headers[header::WWW_AUTHENTICATE], "Bearer");
+            match &reference {
+                None => reference = Some((headers, body)),
+                Some((ref_headers, ref_body)) => {
+                    assert_eq!(&body, ref_body, "{authorization:?}");
+                    assert_eq!(&headers, ref_headers, "{authorization:?}");
+                }
+            }
+        }
+        let body = reference.unwrap().1;
+        assert!(!body.contains("not-a-secret"), "{body}");
+    }
+
+    #[tokio::test]
+    async fn non_text_authorization_header_is_unauthorized() {
+        let (_fixture, app) = app();
+        let request = Request::builder()
+            .uri("/v1/plants")
+            .header(
+                header::AUTHORIZATION,
+                header::HeaderValue::from_bytes(b"Bearer \xff\xfe").unwrap(),
+            )
+            .body(Body::empty())
+            .unwrap();
+        let response = app.clone().oneshot(request).await.unwrap();
+        assert_eq!(response.status(), StatusCode::UNAUTHORIZED);
+    }
+
+    #[tokio::test]
+    async fn unknown_paths_and_methods_under_v1_need_the_token_first() {
+        let (_fixture, app) = app();
+        for (method, uri) in [
+            (Method::GET, "/v1/no-existe"),
+            (Method::GET, "/v1"),
+            (Method::GET, "/v1/"),
+            (Method::POST, "/v1/plants"),
+            (Method::GET, "/v1/plants/x/y"),
+        ] {
+            let (status, headers, _) = send_with(&app, method.clone(), uri, None).await;
+            assert_eq!(status, StatusCode::UNAUTHORIZED, "{method} {uri}");
+            assert_eq!(headers[header::WWW_AUTHENTICATE], "Bearer");
+        }
+        // Con token vuelven los errores normales.
+        expect_problem(
+            &app,
+            Method::POST,
+            "/v1/plants",
+            StatusCode::METHOD_NOT_ALLOWED,
+        )
+        .await;
+        expect_problem(&app, Method::GET, "/v1/no-existe", StatusCode::NOT_FOUND).await;
+    }
+
+    #[tokio::test]
+    async fn health_and_openapi_are_public() {
+        let (_fixture, app) = app();
+        for uri in ["/health", "/openapi.json"] {
+            let (status, _, _) = send_with(&app, Method::GET, uri, None).await;
+            assert_eq!(status, StatusCode::OK, "{uri}");
+        }
+        // Fuera de `/v1` un camino desconocido sigue siendo 404, y `/v10` no cuenta como `/v1`.
+        for uri in ["/nope", "/v10"] {
+            let (status, _, _) = send_with(&app, Method::GET, uri, None).await;
+            assert_eq!(status, StatusCode::NOT_FOUND, "{uri}");
+        }
+    }
+
+    #[tokio::test]
+    async fn any_configured_token_works() {
+        let fixture = Fixture::standard();
+        let second = "test-token-not-a-secret-1111111111111111";
+        let tokens = ApiTokens::parse(&format!("{TEST_TOKEN},{second}")).unwrap();
+        let app = router(AsyncCatalog::new(Arc::new(fixture.repo())), tokens);
+        let value = format!("Bearer {second}");
+        let (status, _, _) = send_with(&app, Method::GET, "/v1/plants", Some(&value)).await;
+        assert_eq!(status, StatusCode::OK);
     }
 }

@@ -5,7 +5,15 @@
 use std::error::Error;
 use std::fmt;
 
+use std::sync::Arc;
+
+use axum::extract::{Request, State};
+use axum::http::header::AUTHORIZATION;
+use axum::middleware::Next;
+use axum::response::{IntoResponse, Response};
 use subtle::{Choice, ConstantTimeEq};
+
+use crate::error::ApiError;
 
 /// Longitud mínima de un token, en caracteres.
 pub const MIN_TOKEN_LEN: usize = 32;
@@ -122,6 +130,73 @@ impl ApiTokens {
         }
         found.into()
     }
+}
+
+/// Clase del fallo de autorización. Solo se registra; el cliente recibe siempre la misma respuesta.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum AuthFailure {
+    /// No hay cabecera `Authorization`.
+    Missing,
+    /// La cabecera no es válida o usa otro esquema que `Bearer`.
+    Scheme,
+    /// Esquema `Bearer`, pero el token falta o no coincide con ninguno.
+    Mismatch,
+}
+
+impl AuthFailure {
+    fn as_str(self) -> &'static str {
+        match self {
+            Self::Missing => "ausente",
+            Self::Scheme => "esquema distinto",
+            Self::Mismatch => "no coincide",
+        }
+    }
+}
+
+/// Indica si el camino pertenece a `/v1`: exactamente `/v1` o `/v1/...`.
+fn is_protected(path: &str) -> bool {
+    path == "/v1" || path.starts_with("/v1/")
+}
+
+/// Extrae el token de un valor `Authorization: Bearer <token>` (el esquema no distingue mayúsculas).
+fn bearer_token(value: &str) -> Result<&str, AuthFailure> {
+    let (scheme, rest) = value.split_once(' ').unwrap_or((value, ""));
+    if !scheme.eq_ignore_ascii_case("Bearer") {
+        return Err(AuthFailure::Scheme);
+    }
+    Ok(rest.trim_start_matches(' '))
+}
+
+fn authorize(headers: &axum::http::HeaderMap, tokens: &ApiTokens) -> Result<(), AuthFailure> {
+    let value = headers.get(AUTHORIZATION).ok_or(AuthFailure::Missing)?;
+    // Un valor que no es texto ASCII visible no puede ser un token válido.
+    let value = value.to_str().map_err(|_| AuthFailure::Scheme)?;
+    let token = bearer_token(value)?;
+    if !token.is_empty() && tokens.contains(token.as_bytes()) {
+        Ok(())
+    } else {
+        Err(AuthFailure::Mismatch)
+    }
+}
+
+/// Middleware que exige un token de API válido a todo camino bajo `/v1`, antes del enrutado.
+///
+/// Registra el fallo a nivel `debug` con su clase, nunca con la cabecera ni el valor.
+pub async fn require_token(
+    State(tokens): State<Arc<ApiTokens>>,
+    request: Request,
+    next: Next,
+) -> Response {
+    let path = request.uri().path();
+    if is_protected(path)
+        && let Err(failure) = authorize(request.headers(), &tokens)
+    {
+        tracing::debug!(reason = failure.as_str(), path, "petición no autorizada");
+        return ApiError::Unauthorized
+            .into_response_at(request.uri())
+            .into_response();
+    }
+    next.run(request).await
 }
 
 #[cfg(test)]

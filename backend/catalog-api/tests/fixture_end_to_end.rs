@@ -7,6 +7,7 @@ use std::sync::Arc;
 use axum::body::Body;
 use axum::http::{Request, StatusCode};
 use catalog_api::async_catalog::AsyncCatalog;
+use catalog_api::auth::ApiTokens;
 use catalog_api::http::router;
 use catalog_api::repository::SqliteCatalogRepository;
 use catalog_ingest::adapter::SourceAdapter;
@@ -18,8 +19,15 @@ use http_body_util::BodyExt;
 use serde_json::Value;
 use tower::ServiceExt;
 
+// Valor ficticio de prueba; no es un secreto.
+const TEST_TOKEN: &str = "test-token-not-a-secret-0000000000000000";
+
 async fn get(app: &axum::Router, uri: &str) -> (StatusCode, Value) {
-    let request = Request::builder().uri(uri).body(Body::empty()).unwrap();
+    let request = Request::builder()
+        .uri(uri)
+        .header("Authorization", format!("Bearer {TEST_TOKEN}"))
+        .body(Body::empty())
+        .unwrap();
     let response = app.clone().oneshot(request).await.unwrap();
     let status = response.status();
     let bytes = response.into_body().collect().await.unwrap().to_bytes();
@@ -64,7 +72,10 @@ async fn api_serves_a_catalog_built_from_two_fixture_sources() {
 
     // La API sirve la base resultante sin saber de dónde viene.
     let repo = SqliteCatalogRepository::open(&out).unwrap();
-    let app = router(AsyncCatalog::new(Arc::new(repo)));
+    let app = router(
+        AsyncCatalog::new(Arc::new(repo)),
+        ApiTokens::parse(TEST_TOKEN).unwrap(),
+    );
 
     let (status, body) = get(&app, "/health").await;
     assert_eq!(status, StatusCode::OK);

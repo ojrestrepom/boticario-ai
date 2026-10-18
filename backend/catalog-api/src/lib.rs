@@ -6,6 +6,7 @@
 #![deny(missing_docs)]
 
 pub mod async_catalog;
+pub mod auth;
 pub mod config;
 pub mod dto;
 pub mod error;

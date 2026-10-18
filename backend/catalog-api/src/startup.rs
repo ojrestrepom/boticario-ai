@@ -108,6 +108,7 @@ mod tests {
             host: DEFAULT_HOST.to_string(),
             port: DEFAULT_PORT,
             mode: Mode::Serve,
+            api_tokens: None,
         }
     }
 

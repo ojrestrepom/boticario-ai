@@ -66,6 +66,8 @@ fn spawn_api(db: &Path, rust_log: Option<&str>) -> Api {
         .env("CATALOG_DB", db)
         .env("HOST", "127.0.0.1")
         .env("PORT", port.to_string())
+        // Valor ficticio de prueba; no es un secreto.
+        .env("API_TOKENS", "test-token-not-a-secret-0000000000000000")
         .env_remove("NO_COLOR")
         .env_remove("RUST_LOG")
         .stdout(Stdio::piped())

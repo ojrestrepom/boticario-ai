@@ -216,11 +216,11 @@ Para modificar el código Rust o ejecutarlo sin Docker, ver [`backend/README.md`
 
 El workflow [`.github/workflows/flutter.yml`](.github/workflows/flutter.yml) corre en push y pull request, con filtros de ruta `app/**`, `.flutter-version` y el propio workflow. Lee el pin [`.flutter-version`](.flutter-version) desde la raíz, instala ese SDK exacto y verifica la versión efectiva de Flutter antes de seguir.
 
+El job de CI de Flutter cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
+
+El workflow [`.github/workflows/backend-ci.yml`](.github/workflows/backend-ci.yml) verifica el backend: `cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace, con el Rust fijado en [`mise.toml`](mise.toml). Corre en pull requests y en pushes a ramas distintas de `main` que toquen `backend/`, `data/migrations/`, el `Dockerfile`, `mise.toml` o el propio workflow. El comando local equivalente está en la guía de [`backend/README.md`](backend/README.md#integración-continua).
+
 El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) construye la imagen amd64 del backend y la despliega en Cloud Run en cada push a `main` que toque el backend; ver [Despliegue en Cloud Run](#despliegue-en-cloud-run).
-
-El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
-
-Pendiente: el repositorio es un monorepo con `app/` exclusiva de Flutter, `backend/` para la API y la ingesta en Rust y `data/` para los artefactos de datos. Este workflow cubre solo `app/`; `backend/` y `data/` no tienen CI de pruebas todavía; la imagen del backend solo se construye en el workflow de despliegue. Cuando la arquitectura esté más asentada habrá que revisar sus filtros de ruta y añadir CI propia para esos componentes; por ahora se deja sin diseñar de forma deliberada.
 
 ## Documentación
 

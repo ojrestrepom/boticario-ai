@@ -89,6 +89,14 @@ Los tests marcados `#[ignore]` necesitan la salida real de `build` en `data/buil
 mise exec -- cargo test --workspace -- --ignored
 ```
 
+### Integración continua
+
+El workflow [`.github/workflows/backend-ci.yml`](../.github/workflows/backend-ci.yml) verifica el backend con tres pasos en serie: formato, clippy sin advertencias y las pruebas del workspace. Corre en cada pull request y en cada push a una rama distinta de `main` que toque `backend/`, `data/migrations/`, el `Dockerfile`, `mise.toml` o el propio workflow. El toolchain sale de [`mise.toml`](../mise.toml): la CI instala con mise esa versión de Rust, la misma que se usa en local. El comando local equivalente, desde `backend/`:
+
+```bash
+mise exec -- cargo fmt --check && mise exec -- cargo clippy --workspace --all-targets --locked -- -D warnings && mise exec -- cargo test --workspace --locked
+```
+
 ## 6. Cambiar el esquema
 
 1. Editar la migración de [`data/migrations/`](../data/migrations/).

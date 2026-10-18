@@ -1,0 +1,80 @@
+name: Backend CI
+
+# Verificacion del backend (formato, clippy y pruebas). Es reutilizable:
+# deploy-backend.yml la invoca como puerta previa al despliegue. En main el
+# push no la dispara por su cuenta (lo hace el despliegue) para no duplicarla.
+on:
+  workflow_call:
+  pull_request:
+    paths:
+      - 'backend/**'
+      - 'data/migrations/**'
+      - 'Dockerfile'
+      - 'mise.toml'
+      - '.github/workflows/backend-ci.yml'
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - 'backend/**'
+      - 'data/migrations/**'
+      - 'Dockerfile'
+      - 'mise.toml'
+      - '.github/workflows/backend-ci.yml'
+
+# Minimo privilegio: solo lectura del repositorio.
+permissions:
+  contents: read
+
+# Grupo literal: dentro de un workflow llamado, github.workflow es el nombre del
+# llamador. Se cancela lo obsoleto en ramas y pull requests, nunca en main.
+concurrency:
+  group: backend-ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  verify:
+    name: Format, clippy y tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    # Los comandos de Cargo se ejecutan desde backend/.
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      # La compilacion incremental no ayuda en un runner efimero y engorda la cache.
+      CARGO_INCREMENTAL: 0
+      # El visor de Actions interpreta ANSI; no afecta a los logs de la API.
+      CARGO_TERM_COLOR: always
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Instala el Rust fijado en mise.toml (unica fuente de la version).
+      - name: Instalar toolchain con mise
+        uses: jdx/mise-action@9b200bcecbfd6303e69a4a261b2e09e3757440a7 # v5.2.0
+
+      # El perfil de rustup del runner puede no incluir rustfmt ni clippy; se anaden de forma explicita.
+      - name: Anadir rustfmt y clippy
+        run: mise exec -- rustup component add rustfmt clippy
+
+      - name: Version efectiva de rustc
+        run: mise exec -- rustc --version
+
+      # Solo main guarda la cache; las ramas la restauran sin escribirla.
+      - name: Cache de Cargo
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          workspaces: backend
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: cargo fmt (check)
+        run: mise exec -- cargo fmt --check
+
+      - name: cargo clippy
+        run: mise exec -- cargo clippy --workspace --all-targets --locked -- -D warnings
+
+      - name: cargo test
+        run: mise exec -- cargo test --workspace --locked

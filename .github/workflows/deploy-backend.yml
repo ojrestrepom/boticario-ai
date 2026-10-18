@@ -95,6 +95,9 @@ jobs:
       # El despliegue usa la etiqueta del SHA (inmutable en la practica), no latest.
       # Los flags fijan explicitamente la configuracion del servicio; --allow-unauthenticated
       # (API publica) y --cpu-throttling (facturacion por peticion) no dependen de valores por defecto.
+      # API_TOKENS viene de Secret Manager con la version fijada (nunca latest: instancias del mismo
+      # servicio podrian arrancar con valores distintos durante una rotacion). Rotar el token es cambiar
+      # ese numero en un commit, que ademas despliega; ver docs/deploy/cloud-run.md (diseno D4 y D7).
       # La sonda de arranque espera 1 s antes del primer intento (initialDelaySeconds=1): la API escucha
       # ~0,2 s despues de crear la instancia; sin retardo el primer intento fallaba y el siguiente
       # llegaba a los 2 s (periodSeconds=2). Con 1 s el primer intento ya tiene exito.
@@ -115,26 +118,62 @@ jobs:
             --cpu-throttling
             --port=8080
             --service-account=boticario-runtime@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
+            --set-secrets=API_TOKENS=boticario-api-tokens:1
             --startup-probe=httpGet.path=/health,httpGet.port=8080,initialDelaySeconds=1,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
 
-      # Verificacion posterior: falla el job si la API no responde 200. Los reintentos absorben el
-      # arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.
+      # Verificacion posterior: falla el job si la API no responde lo esperado. Los reintentos absorben
+      # el arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.
       # La ruta de salud es /health y no /healthz: Cloud Run reserva algunas rutas terminadas en «z»
       # (como /healthz) en la URL publica y responde su propio 404 sin llegar al contenedor. El detalle
       # de una planta ejercita ademas la base de datos.
+      # Tres consultas: /health sin token (200), el detalle con el token de CI (200) y el mismo detalle
+      # sin token (401: prueba que la autorizacion esta activa; un 200 significaria servicio abierto).
+      # El token entra por env, nunca en la linea de comandos: la cabecera se pasa a curl por stdin
+      # (-H @-), asi que no aparece en la lista de procesos ni en un eco; sin set -x. GitHub ademas
+      # enmascara el valor del secreto en el log.
       - name: Verificar el servicio desplegado
         shell: bash
         env:
           SERVICE_URL: ${{ steps.deploy.outputs.url }}
+          API_VERIFY_TOKEN: ${{ secrets.API_VERIFY_TOKEN }}
         run: |
           set -euo pipefail
-          for path in /health /v1/plants/lavandula-angustifolia; do
+          if [ -z "${API_VERIFY_TOKEN}" ]; then
+            echo "::error::Falta el secreto de GitHub API_VERIFY_TOKEN (un token de CI de los que contiene boticario-api-tokens); ver docs/deploy/cloud-run.md"
+            exit 1
+          fi
+          plant=/v1/plants/lavandula-angustifolia
+
+          # Con reintentos para el arranque en frio; --fail convierte un 4xx/5xx en reintento y error.
+          expect_200() {
             status="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \
-              --output /dev/null --write-out '%{http_code}' "${SERVICE_URL}${path}")"
+              --output /dev/null --write-out '%{http_code}' "$@")"
             echo "GET ${path} -> ${status}"
             if [ "$status" != "200" ]; then
               echo "::error::${path} respondio ${status} y se esperaba 200"
               exit 1
             fi
-          done
+          }
+
+          path=/health
+          expect_200 "${SERVICE_URL}${path}"
+
+          path="$plant"
+          printf 'Authorization: Bearer %s\n' "$API_VERIFY_TOKEN" |
+            expect_200 -H @- "${SERVICE_URL}${path}"
+
+          # Sin token debe dar 401. Sin --fail ni reintentos: un 401 es el resultado correcto y un
+          # fallo de red debe fallar el job, no reintentarse hasta parecer otra cosa. El servicio
+          # ya respondio dos veces, asi que no hay arranque en frio que absorber.
+          status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' \
+            "${SERVICE_URL}${plant}")"
+          echo "GET ${plant} (sin token) -> ${status}"
+          if [ "$status" = "200" ]; then
+            echo "::error::${plant} respondio 200 sin token: el servicio estaria abierto, la autorizacion no esta activa"
+            exit 1
+          fi
+          if [ "$status" != "401" ]; then
+            echo "::error::${plant} sin token respondio ${status} y se esperaba 401"
+            exit 1
+          fi
           echo "Servicio disponible en ${SERVICE_URL}"

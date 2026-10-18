@@ -36,9 +36,10 @@ Artifact Registry (repositorio "boticario")
    |  despliega la imagen del <sha> como una revisión nueva
    v
 Cloud Run (servicio "boticario-api", corre como boticario-runtime)
-   |  el workflow comprueba con curl /health y el detalle de una planta
+   |  inyecta API_TOKENS desde Secret Manager (secreto boticario-api-tokens, versión fijada)
+   |  el workflow comprueba con curl /health, el detalle con token (200) y sin token (401)
    v
-la app, por HTTPS en la URL *.run.app
+la app, por HTTPS en la URL *.run.app, con Authorization: Bearer <token>
 ```
 
 ### Recursos
@@ -52,11 +53,12 @@ la app, por HTTPS en la URL *.run.app
 | Servicio `boticario-api` | Cloud Run: 1 vCPU, 256 MiB, 0 a 2 instancias, puerto 8080, público, corre como `boticario-runtime` y su sonda de arranque apunta a `/health`, ruta que también responde desde fuera (`/healthz` no se usa porque Cloud Run reserva algunas rutas terminadas en «z», como `/healthz`, y devuelve su propio 404; `/healthz/`, `/readyz` y `/livez` sí llegan a la API) | El workflow, primer despliegue | `gcloud run services describe "$SERVICE" --region="$REGION"` |
 | Pool `github` y proveedor `boticario-ai` | Workload Identity Federation: aceptan tokens OIDC de GitHub solo del repositorio | Tú, paso 4 | `gcloud iam workload-identity-pools providers describe "$PROVIDER" --location=global --workload-identity-pool="$POOL"` |
 | Cuenta `boticario-deployer` | Identidad que el workflow asume para publicar y desplegar | Tú, pasos 3 y 4 | `gcloud iam service-accounts describe "$DEPLOYER_EMAIL"` |
-| Cuenta `boticario-runtime` | Identidad con la que corre el contenedor, sin roles | Tú, paso 3 | `gcloud iam service-accounts describe "$RUNTIME_EMAIL"` |
+| Cuenta `boticario-runtime` | Identidad con la que corre el contenedor, sin roles en el proyecto y con acceso de lectura solo al secreto `boticario-api-tokens` | Tú, paso 3 | `gcloud iam service-accounts describe "$RUNTIME_EMAIL"` |
 | Presupuesto | Alerta por correo del equivalente a 1 USD, no corta el gasto | Tú, paso 5 | `gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID"` |
-| Secretos de GitHub | `GCP_WORKLOAD_IDENTITY_PROVIDER` y `GCP_DEPLOYER_SERVICE_ACCOUNT` | Tú, paso 6 | `gh secret list --repo "$GITHUB_REPO"` |
+| Secreto `boticario-api-tokens` | Secret Manager (API `secretmanager.googleapis.com`): la lista de tokens de API separados por comas (`<token-app>,<token-ci>`); Cloud Run la inyecta como `API_TOKENS` con la versión fijada en el workflow | Tú, paso 7 | `gcloud secrets describe "$SECRET_NAME"` y `gcloud secrets versions list "$SECRET_NAME"` (nunca muestran el valor) |
+| Secretos de GitHub | `GCP_WORKLOAD_IDENTITY_PROVIDER`, `GCP_DEPLOYER_SERVICE_ACCOUNT` y `API_VERIFY_TOKEN` (el token de CI, que forma parte de `API_TOKENS`) | Tú, pasos 6 y 7 | `gh secret list --repo "$GITHUB_REPO"` |
 | Variables de GitHub | `GCP_PROJECT_ID`, `GCP_REGION` y `GCP_ARTIFACT_REPOSITORY` | Tú, paso 6 | `gh variable list --repo "$GITHUB_REPO"` |
-| Workflow `deploy-backend.yml` | En `push` a `main` con cambios en la imagen o en `workflow_dispatch`: primero el job `verify` ejecuta las verificaciones del backend (`backend-ci.yml`) y, solo si pasan, el job `deploy` construye la imagen amd64, la publica con las etiquetas `<sha>` y `latest`, despliega el `<sha>` y verifica con `curl` | El repositorio, en `.github/workflows/` | `gh workflow view deploy-backend.yml` |
+| Workflow `deploy-backend.yml` | En `push` a `main` con cambios en la imagen o en `workflow_dispatch`: primero el job `verify` ejecuta las verificaciones del backend (`backend-ci.yml`) y, solo si pasan, el job `deploy` construye la imagen amd64, la publica con las etiquetas `<sha>` y `latest`, despliega el `<sha>` con `API_TOKENS` desde Secret Manager y verifica con `curl` (200 con token, 401 sin token) | El repositorio, en `.github/workflows/` | `gh workflow view deploy-backend.yml` |
 
 ### Roles y permisos
 
@@ -66,8 +68,11 @@ la app, por HTTPS en la URL *.run.app
 | `boticario-deployer` | `roles/artifactregistry.writer` | Repositorio `boticario` | Subir la imagen | El push de la imagen es rechazado |
 | `boticario-deployer` | `roles/iam.serviceAccountUser` | Cuenta `boticario-runtime` | Desplegar un servicio que corre como esa cuenta | El despliegue falla al asignar la cuenta de ejecución |
 | `principalSet` del repositorio | `roles/iam.workloadIdentityUser` | Cuenta `boticario-deployer` | Que el workflow de ese repositorio actúe como el deployer | La autenticación del workflow falla |
-| `boticario-runtime` | Ninguno | Ninguno | La API no llama a otros servicios de Google | No aplica: sin roles, un contenedor comprometido no alcanza nada del proyecto |
+| `boticario-runtime` | Ninguno | Proyecto | La API no llama a otros servicios de Google | No aplica: sin roles en el proyecto, un contenedor comprometido no alcanza nada de él |
+| `boticario-runtime` | `roles/secretmanager.secretAccessor` | Secreto `boticario-api-tokens` | Leer `API_TOKENS` al arrancar cada instancia | El despliegue falla: Cloud Run comprueba el acceso a los secretos |
 | Tu usuario | Billing Account Costs Manager o Administrator | Cuenta de facturación | Crear el presupuesto del paso 5 | No puedes crear la alerta |
+
+El deployer no necesita acceso al valor del secreto: para referenciarlo en `--set-secrets` basta con `roles/run.admin` y `roles/iam.serviceAccountUser` sobre la cuenta de ejecución, según [Configurar secretos en Cloud Run](https://docs.cloud.google.com/run/docs/configuring/services/secrets). Por eso el deployer no cambia y el token de CI vive en un secreto de GitHub, no se lee de Secret Manager.
 
 ### Controles de costo y seguridad
 
@@ -76,11 +81,14 @@ la app, por HTTPS en la URL *.run.app
 - Costo: la alerta de presupuesto avisa por correo al 50 %, 90 % y 100 %, pero no corta el gasto; el desmontaje es el control final.
 - Seguridad: no hay claves JSON de larga duración; GitHub se autentica con tokens OIDC de corta duración.
 - Seguridad: la condición de atributo del proveedor solo admite tu repositorio y el `principalSet` se limita a él.
-- Seguridad: cada rol del deployer está en el ámbito más estrecho posible y la cuenta de ejecución no tiene roles.
+- Seguridad: cada rol del deployer está en el ámbito más estrecho posible y la cuenta de ejecución no tiene roles en el proyecto: su único permiso es `secretAccessor` sobre `boticario-api-tokens`.
+- Seguridad: la API exige `Authorization: Bearer <token>` en `/v1`. El servicio sigue desplegándose con `--allow-unauthenticated` (sin autenticación de Cloud Run, para que la app alcance la URL), pero `/v1` responde 401 sin un token de `API_TOKENS`; `/health` y `/openapi.json` quedan abiertos.
+- Seguridad: `API_TOKENS` llega desde Secret Manager con la versión fijada (`--set-secrets=API_TOKENS=boticario-api-tokens:1`), nunca `latest`, así que rotar es cambiar ese número en un commit; el valor no queda en la configuración de las revisiones, solo la referencia.
+- Seguridad: el workflow pasa `API_VERIFY_TOKEN` por `env` y la cabecera a `curl` por stdin (`-H @-`), sin `set -x` ni `echo` del valor; GitHub además enmascara el secreto en el log.
 - Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`; los permisos del workflow son solo `contents: read`, y el permiso `id-token: write` lo tiene únicamente el job `deploy`, no `verify`.
 - Seguridad: los despliegues se serializan con `concurrency` y no se cancelan a medias.
 - Seguridad: las acciones de terceros están fijadas por SHA con un comentario de versión.
-- Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/health` o el detalle de una planta no responden 200; no hay rollback automático, Cloud Run conserva la revisión anterior.
+- Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/health` o el detalle de una planta con el token de CI no responden 200, o si el mismo detalle sin token no responde 401 (un 200 significaría que el servicio quedó abierto); sin `API_VERIFY_TOKEN` el paso falla antes de consultar; no hay rollback automático, Cloud Run conserva la revisión anterior.
 - Fiabilidad: el job `deploy` depende de `verify` (`needs: verify`), así que un formato, un lint o una prueba que falle impide construir y publicar la imagen y crear la revisión; el servicio sigue sirviendo la anterior.
 - Fiabilidad: una revisión que no pasa la sonda de arranque no recibe tráfico.
 
@@ -93,6 +101,10 @@ La capa gratuita de Cloud Run con facturación por petición incluye cada mes, p
 `northamerica-south1` (Querétaro) es una región Tier 1 y está en Norteamérica, así que la capa aplica completa y sin recortes por región.
 
 La capa se aplica como un descuento en dólares sobre el uso de cada mes, no como un contador aparte, y exige una cuenta de facturación activa aunque no llegue a cobrarse nada.
+
+Secret Manager tiene capa gratuita: 6 versiones activas del secreto y 10.000 accesos al mes (https://cloud.google.com/secret-manager/pricing; es un valor de la página de precios, revalídalo al crear el secreto en el paso 7). Con una variable de entorno desde un secreto hay un acceso por arranque de instancia, y con un secreto y pocas versiones el uso queda muy por debajo; pasado ese límite serían 0,06 USD por versión activa al mes y 0,03 USD por 10.000 accesos.
+
+Los 401 de la API se facturan como cualquier otra petición a Cloud Run (cuentan para los 2 millones mensuales gratuitos): el token no frena el tráfico hacia el servicio, solo las respuestas.
 
 Artifact Registry incluye 0,5 GB de almacenamiento gratis al mes; la política de limpieza del paso 2 mantiene pocas versiones de la imagen para quedar dentro de ese límite.
 
@@ -420,9 +432,120 @@ gh variable list --repo "$GITHUB_REPO"
 
 Si `gh` responde `HTTP 403` o `Resource not accessible`, el token no tiene el alcance `repo`: ejecuta `gh auth refresh -s repo` y repite.
 
+### Paso 7. Token de API (Secret Manager)
+
+La API exige un token en `/v1`. Los tokens viven en un único secreto de Secret Manager, `boticario-api-tokens`, como una lista separada por comas: `<token-app>,<token-ci>`. Cloud Run lo inyecta como la variable `API_TOKENS` con la versión fijada en el workflow (`--set-secrets=API_TOKENS=boticario-api-tokens:1`). La app usa el primero y la verificación del workflow el segundo, con `API_VERIFY_TOKEN`. Esta preparación debe estar hecha antes del primer despliegue con autenticación: sin el secreto, el despliegue falla (Cloud Run comprueba el acceso) y la revisión anterior sigue sirviendo.
+
+`SECRET_NAME` viene de `.env.cloud-run.example` (`boticario-api-tokens`) y debe coincidir con el nombre que usa el workflow. Con las variables cargadas (`source .env.cloud-run`), habilita la API:
+
+```bash
+gcloud services enable secretmanager.googleapis.com
+```
+
+Genera los dos tokens en variables de shell, sin mostrarlos (32 bytes aleatorios en hexadecimal son 64 caracteres, dentro del rango que acepta la API):
+
+```bash
+TOKEN_APP="$(openssl rand -hex 32)"
+TOKEN_CI="$(openssl rand -hex 32)"
+```
+
+Crea el secreto con la versión 1 leyendo el valor de la entrada estándar, para que no quede en el historial del shell ni en la lista de procesos (`printf` es un comando interno del shell). La replicación es automática porque Cloud Run no admite secretos regionales:
+
+```bash
+printf '%s,%s' "$TOKEN_APP" "$TOKEN_CI" | gcloud secrets create "$SECRET_NAME" \
+  --replication-policy=automatic \
+  --data-file=-
+```
+
+Da a la cuenta de ejecución acceso de lectura solo a este secreto:
+
+```bash
+gcloud secrets add-iam-policy-binding "$SECRET_NAME" \
+  --member="serviceAccount:$RUNTIME_EMAIL" \
+  --role="roles/secretmanager.secretAccessor"
+```
+
+Guarda el token de CI como secreto de GitHub, también por la entrada estándar (`gh secret set` la lee cuando no se pasa `--body`), y borra las dos variables del shell; a partir de aquí el valor solo existe en Secret Manager y en GitHub:
+
+```bash
+printf '%s' "$TOKEN_CI" | gh secret set API_VERIFY_TOKEN --repo "$GITHUB_REPO"
+unset TOKEN_APP TOKEN_CI
+```
+
+Cuando haga falta compilar la app, lee el token de la app del secreto (es el primer elemento de la lista) y escríbelo en `app/dart_defines.local.json`, el archivo que git ignora y que usa el [`README.md`](../../README.md), sin mostrarlo; desde la raíz:
+
+```bash
+SERVICE_URL="$(gcloud run services describe "$SERVICE" --region="$REGION" --format='value(status.url)')"
+TOKEN_APP="$(gcloud secrets versions access 1 --secret="$SECRET_NAME" | cut -d, -f1)"
+printf '{\n  "API_BASE_URL": "%s",\n  "API_TOKEN": "%s"\n}\n' "$SERVICE_URL" "$TOKEN_APP" > app/dart_defines.local.json
+chmod 600 app/dart_defines.local.json
+unset TOKEN_APP
+```
+
+Si todavía no existe el servicio (antes del primer despliegue), el primer comando no devuelve la URL: repite este bloque cuando el despliegue haya terminado. La app se compila con `flutter build apk --release --dart-define-from-file=dart_defines.local.json` desde `app/`.
+
+Comprobación: los tres comandos muestran nombres, versiones y miembros, nunca el valor. El primero debe listar la versión 1 en estado `enabled`; el segundo, `roles/secretmanager.secretAccessor` solo para `boticario-runtime`; el tercero, `API_VERIFY_TOKEN` junto a los otros dos secretos.
+
+```bash
+gcloud secrets versions list "$SECRET_NAME"
+gcloud secrets get-iam-policy "$SECRET_NAME"
+gh secret list --repo "$GITHUB_REPO"
+```
+
+Un token del tamaño y juego de caracteres incorrectos hace que la API no arranque (código de salida 2) y el despliegue falle en la sonda de arranque; el error del log nombra `API_TOKENS` y el motivo, nunca el valor.
+
+### Rotación del token
+
+La rotación no corta el servicio porque el secreto guarda una lista: durante la transición la API acepta el token nuevo y el viejo. El workflow fija la versión del secreto, así que cada versión nueva exige cambiar ese número en un commit, que además despliega. Con las variables cargadas:
+
+1. Genera el token nuevo y crea la versión 2 con `<nuevo>,<token-app>,<token-ci>`, construida a partir de la versión actual sin mostrarla:
+
+   ```bash
+   TOKEN_NEW="$(openssl rand -hex 32)"
+   CURRENT="$(gcloud secrets versions access latest --secret="$SECRET_NAME")"
+   printf '%s,%s' "$TOKEN_NEW" "$CURRENT" | gcloud secrets versions add "$SECRET_NAME" --data-file=-
+   unset CURRENT
+   gcloud secrets versions list "$SECRET_NAME"
+   ```
+
+   Comprobación: aparecen las versiones 1 y 2, ambas `enabled`.
+
+2. Cambia `API_TOKENS=boticario-api-tokens:1` por `:2` en `.github/workflows/deploy-backend.yml`, haz commit y push a `main`, y espera el despliegue (`gh run watch <id>`). Comprobación: el job termina en verde y `gcloud run services describe "$SERVICE" --region="$REGION" --format='yaml(spec.template.spec.containers[0].env)'` muestra `secretKeyRef` con `key: '2'` y ningún valor.
+
+3. Compila y distribuye la app con el token nuevo (`TOKEN_NEW` es ahora el primer elemento de la versión 2):
+
+   ```bash
+   TOKEN_APP="$(gcloud secrets versions access 2 --secret="$SECRET_NAME" | cut -d, -f1)"
+   ```
+
+   Escríbelo en `app/dart_defines.local.json` como en el paso 7 y compila. Comprobación: la app abre el catálogo con el token nuevo.
+
+4. Cuando no queden instalaciones con el token viejo, crea la versión 3 sin él (`<token-nuevo>,<token-ci>`), fija `:3` en el workflow, haz commit y push, espera el despliegue y desactiva las versiones anteriores:
+
+   ```bash
+   V2="$(gcloud secrets versions access 2 --secret="$SECRET_NAME")"
+   printf '%s,%s' "$(printf '%s' "$V2" | cut -d, -f1)" "$(printf '%s' "$V2" | cut -d, -f3)" | gcloud secrets versions add "$SECRET_NAME" --data-file=-
+   unset V2
+   # Tras desplegar con :3:
+   gcloud secrets versions disable 1 --secret="$SECRET_NAME"
+   gcloud secrets versions disable 2 --secret="$SECRET_NAME"
+   gcloud secrets versions list "$SECRET_NAME"
+   ```
+
+   Comprobación: la versión 3 está `enabled`, las 1 y 2 `disabled`, y el despliegue con `:3` termina en verde. Una revisión anterior de Cloud Run que referencia una versión desactivada no puede arrancar instancias nuevas, así que no hagas rollback a ella.
+
+Para rotar el token de CI, haz lo mismo con `<token-app>,<token-ci-nuevo>,<token-ci-viejo>` en el paso 1 (versión 2) y, antes del paso 4, actualiza el secreto de GitHub con el token de CI nuevo; en el paso 4 conserva los dos primeros elementos (`cut -d, -f1,2`):
+
+```bash
+printf '%s' "$TOKEN_CI_NEW" | gh secret set API_VERIFY_TOKEN --repo "$GITHUB_REPO"
+gh secret list --repo "$GITHUB_REPO"
+```
+
+Si un token se filtra, haz el paso 4 de inmediato: las apps ya instaladas con el token viejo dejan de funcionar (reciben 401), que es el comportamiento esperado de la revocación.
+
 ### Qué sigue
 
-Con esto hecho, el workflow de despliegue (`.github/workflows/deploy-backend.yml`) se crea en el repositorio y se lanza con `gh workflow run deploy-backend.yml`.
+Con los pasos 1 a 7 hechos, el workflow de despliegue (`.github/workflows/deploy-backend.yml`) se crea en el repositorio y se lanza con `gh workflow run deploy-backend.yml`.
 
 Desde entonces, cada cambio del backend que llegue a `main` se construye y se despliega solo.
 
@@ -440,7 +563,7 @@ La URL pública del servicio es `https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
 
 El workflow `deploy-backend.yml` se dispara con un `push` a `main` que toque `backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow; un cambio solo en `app/` o en `docs/` no despliega.
 
-Primero corre el job `verify`, que reutiliza `backend-ci.yml` (`cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace); solo si pasa, el job `deploy` construye la imagen `linux/amd64`, la publica en Artifact Registry con las etiquetas `<sha>` y `latest`, despliega la imagen del `<sha>` como una revisión nueva y verifica con `curl` que `/health` y `/v1/plants/lavandula-angustifolia` respondan 200.
+Primero corre el job `verify`, que reutiliza `backend-ci.yml` (`cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace); solo si pasa, el job `deploy` construye la imagen `linux/amd64`, la publica en Artifact Registry con las etiquetas `<sha>` y `latest`, despliega la imagen del `<sha>` como una revisión nueva y verifica con `curl` que `/health` responda 200, que `/v1/plants/lavandula-angustifolia` responda 200 con el token de CI (`API_VERIFY_TOKEN`) y que la misma ruta responda 401 sin token; si responde 200 sin token, el job falla porque el servicio estaría abierto.
 
 Si `verify` falla, `deploy` se omite y el servicio sigue con la revisión anterior. Corrige el fallo (el log sale con `gh run view <id> --log-failed`), súbelo a `main` o, si la corrección ya está en `main`, relanza el workflow con `workflow_dispatch` como se explica en «Despliegue manual». El rollback de Cloud Run (sección «Revisiones y rollback») no pasa por la CI: mueve el tráfico a una revisión existente sin ejecutar `verify`.
 
@@ -473,7 +596,7 @@ gcloud run deploy "$SERVICE" \
   --image="$REGION-docker.pkg.dev/$PROJECT_ID/$REPO/boticario-api:<sha>"
 ```
 
-Por confirmar: la ayuda de `gcloud run deploy --help` no dice si los flags de configuración que no pasas se conservan de la revisión anterior; para no depender de eso, repite los flags del paso «Desplegar en Cloud Run» de `.github/workflows/deploy-backend.yml` (`--allow-unauthenticated`, `--execution-environment=gen1`, `--cpu=1`, `--memory=256Mi`, `--min-instances=0`, `--max-instances=2`, `--cpu-throttling`, `--port=8080`, `--service-account` y `--startup-probe`).
+Por confirmar: la ayuda de `gcloud run deploy --help` no dice si los flags de configuración que no pasas se conservan de la revisión anterior; para no depender de eso, repite los flags del paso «Desplegar en Cloud Run» de `.github/workflows/deploy-backend.yml` (`--allow-unauthenticated`, `--execution-environment=gen1`, `--cpu=1`, `--memory=256Mi`, `--min-instances=0`, `--max-instances=2`, `--cpu-throttling`, `--port=8080`, `--service-account`, `--set-secrets=API_TOKENS=boticario-api-tokens:<n>` con la versión que fija el workflow y `--startup-probe`). Sin el flag de los secretos la nueva revisión no recibiría `API_TOKENS` y la API no arrancaría.
 
 ### Logs
 
@@ -533,10 +656,16 @@ Repite el mismo comando justo después, con la instancia ya caliente, para compa
 ```bash
 curl -i https://boticario-api-d3xv5q3iaa-pv.a.run.app/health
 curl -s https://boticario-api-d3xv5q3iaa-pv.a.run.app/openapi.json | head -c 300
-curl -s 'https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=lavandula&limit=1'
+curl -i 'https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=lavandula&limit=1'
 ```
 
-Las comillas de la tercera son necesarias: sin ellas el shell interpreta el `&`.
+Las comillas de la tercera son necesarias: sin ellas el shell interpreta el `&`. Sin token, la tercera debe responder 401. Con token, pásalo por la entrada estándar para que no quede en la línea de comandos:
+
+```bash
+TOKEN_APP="$(gcloud secrets versions access 1 --secret="$SECRET_NAME" | cut -d, -f1)"
+printf 'Authorization: Bearer %s\n' "$TOKEN_APP" | curl -s -H @- 'https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=lavandula&limit=1'
+unset TOKEN_APP
+```
 
 ## Desmontaje
 
@@ -549,14 +678,21 @@ Estos pasos devuelven el proyecto a costo cero, en orden inverso a la preparaci�
    gcloud run services list --region="$REGION"
    ```
 
-2. Elimina el repositorio de Artifact Registry, lo que borra también todas las imágenes:
+2. Elimina el secreto de Secret Manager, que borra todas sus versiones y su política de acceso:
+
+   ```bash
+   gcloud secrets delete "$SECRET_NAME"
+   gcloud secrets list
+   ```
+
+3. Elimina el repositorio de Artifact Registry, lo que borra también todas las imágenes:
 
    ```bash
    gcloud artifacts repositories delete "$REPO" --location="$REGION"
    gcloud artifacts repositories list --location="$REGION"
    ```
 
-3. Quita el binding `workloadIdentityUser` del `principalSet` y borra las dos cuentas de servicio (al borrar una cuenta desaparecen sus bindings sobre ella):
+4. Quita el binding `workloadIdentityUser` del `principalSet` y borra las dos cuentas de servicio (al borrar una cuenta desaparecen sus bindings sobre ella):
 
    ```bash
    gcloud iam service-accounts remove-iam-policy-binding "$DEPLOYER_EMAIL" \
@@ -569,7 +705,7 @@ Estos pasos devuelven el proyecto a costo cero, en orden inverso a la preparaci�
 
    El listado no debe mostrar ni `boticario-deployer` ni `boticario-runtime`. El rol `roles/run.admin` del proyecto queda como una referencia huérfana a la cuenta borrada, sin efecto.
 
-4. Elimina el proveedor y el pool de Workload Identity Federation; quedan en estado eliminado 30 días antes de borrarse del todo (los listados normales ya no los muestran, `--show-deleted` sí):
+5. Elimina el proveedor y el pool de Workload Identity Federation; quedan en estado eliminado 30 días antes de borrarse del todo (los listados normales ya no los muestran, `--show-deleted` sí):
 
    ```bash
    gcloud iam workload-identity-pools providers delete "$PROVIDER" --location=global --workload-identity-pool="$POOL"
@@ -577,7 +713,7 @@ Estos pasos devuelven el proyecto a costo cero, en orden inverso a la preparaci�
    gcloud iam workload-identity-pools list --location=global
    ```
 
-5. Elimina el presupuesto; `gcloud billing budgets delete` pide el id, que se obtiene del listado por nombre:
+6. Elimina el presupuesto; `gcloud billing budgets delete` pide el id, que se obtiene del listado por nombre:
 
    ```bash
    BUDGET_ID="$(gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID" --filter='displayName="boticario-ai presupuesto"' --format='value(name)')"
@@ -585,11 +721,12 @@ Estos pasos devuelven el proyecto a costo cero, en orden inverso a la preparaci�
    gcloud billing budgets list --billing-account="$BILLING_ACCOUNT_ID"
    ```
 
-6. Quita los secretos y las variables de GitHub:
+7. Quita los secretos y las variables de GitHub:
 
    ```bash
    gh secret delete GCP_WORKLOAD_IDENTITY_PROVIDER --repo "$GITHUB_REPO"
    gh secret delete GCP_DEPLOYER_SERVICE_ACCOUNT --repo "$GITHUB_REPO"
+   gh secret delete API_VERIFY_TOKEN --repo "$GITHUB_REPO"
    gh variable delete GCP_PROJECT_ID --repo "$GITHUB_REPO"
    gh variable delete GCP_REGION --repo "$GITHUB_REPO"
    gh variable delete GCP_ARTIFACT_REPOSITORY --repo "$GITHUB_REPO"
@@ -611,6 +748,12 @@ El desmontaje no toca la app ni el repositorio: la app sigue funcionando contra 
 ## Referencias
 
 - https://docs.cloud.google.com/billing/docs/how-to/create-billing-account
+- https://docs.cloud.google.com/run/docs/configuring/services/secrets
+- https://docs.cloud.google.com/run/docs/configuring/services/environment-variables (Google no recomienda las variables de entorno para guardar secretos como credenciales de bases de datos o claves de API, y recomienda Secret Manager)
+- https://cloud.google.com/secret-manager/pricing
+- https://docs.cloud.google.com/sdk/gcloud/reference/secrets/create
+- https://docs.cloud.google.com/sdk/gcloud/reference/secrets/add-iam-policy-binding
+- https://docs.cloud.google.com/sdk/gcloud/reference/secrets/versions
 - https://docs.cloud.google.com/sdk/docs/install-sdk
 - https://docs.cloud.google.com/sdk/gcloud/reference/billing/projects/link
 - https://docs.cloud.google.com/sdk/gcloud/reference/billing/projects/describe

@@ -10,6 +10,7 @@ pub mod config;
 pub mod dto;
 pub mod error;
 pub mod http;
+pub mod logging;
 pub mod openapi;
 pub mod repository;
 pub mod startup;

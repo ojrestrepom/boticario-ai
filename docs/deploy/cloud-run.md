@@ -485,6 +485,8 @@ gcloud run services logs read "$SERVICE" --region="$REGION" --limit=50
 
 Con `--log-filter="severity>=ERROR"` se limita a los errores y con `--freshness` se amplía la ventana (por defecto, 1 día).
 
+La API escribe sus logs en texto plano, sin secuencias ANSI de color, porque en Cloud Run stdout no es una terminal. Los colores solo aparecen al ejecutarla en una terminal local, y `NO_COLOR` con un valor no vacío los quita también allí. El nivel por defecto es `info` y se cambia con `RUST_LOG` (ver [`backend/README.md`](../../backend/README.md)).
+
 Para buscar con más detalle, usa el Logs Explorer de la consola de Google Cloud (Logging, Explorador de registros) con este filtro:
 
 ```text

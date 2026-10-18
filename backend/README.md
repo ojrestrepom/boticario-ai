@@ -51,6 +51,9 @@ La API se niega a arrancar si no encuentra la base. Se configura con argumentos 
 | `HOST` | `127.0.0.1` | Dirección de escucha. |
 | `PORT` | `8080` | Puerto de escucha. |
 | `RUST_LOG` | `info` | Filtro de logs. |
+| `NO_COLOR` | sin definir | Con cualquier valor no vacío, los logs no llevan colores ni en una terminal. |
+
+Los logs salen por stdout en texto, una línea por evento. Llevan colores (secuencias ANSI) solo si stdout es una terminal y `NO_COLOR` no tiene valor; redirigidos a un archivo, a una tubería o a un contenedor sin TTY salen en texto plano, que es lo que lee Cloud Logging. `RUST_LOG` fija el nivel, por ejemplo `RUST_LOG=warn`.
 
 Endpoints, todos `GET`:
 

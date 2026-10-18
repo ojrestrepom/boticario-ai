@@ -2,9 +2,11 @@
 //!
 //! Códigos de salida: 0 normal, 1 si el arranque falla (base ausente o incompatible, puerto ocupado), 2 si la configuración es inválida.
 
+use std::io::IsTerminal;
 use std::process::ExitCode;
 
 use catalog_api::config::{Mode, USAGE, from_env_and_args};
+use catalog_api::logging::use_ansi;
 use catalog_api::openapi::openapi_json;
 use catalog_api::startup::{SHUTDOWN_GRACE, ShutdownOutcome, prepare, serve};
 use tokio::net::TcpListener;
@@ -32,11 +34,15 @@ async fn main() -> ExitCode {
         Mode::Serve => {}
     }
 
-    // `RUST_LOG` controla el nivel; sin ella, `info`.
+    // `RUST_LOG` controla el nivel; sin ella, `info`. El color solo se usa en una terminal y sin `NO_COLOR`.
     tracing_subscriber::fmt()
         .with_env_filter(
             EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
         )
+        .with_ansi(use_ansi(
+            std::io::stdout().is_terminal(),
+            std::env::var("NO_COLOR").ok().as_deref(),
+        ))
         .init();
 
     let app = match prepare(&config) {

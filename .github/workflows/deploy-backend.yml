@@ -82,6 +82,9 @@ jobs:
       # El despliegue usa la etiqueta del SHA (inmutable en la practica), no latest.
       # Los flags fijan explicitamente la configuracion del servicio; --allow-unauthenticated
       # (API publica) y --cpu-throttling (facturacion por peticion) no dependen de valores por defecto.
+      # La sonda de arranque espera 1 s antes del primer intento (initialDelaySeconds=1): la API escucha
+      # ~0,2 s despues de crear la instancia; sin retardo el primer intento fallaba y el siguiente
+      # llegaba a los 2 s (periodSeconds=2). Con 1 s el primer intento ya tiene exito.
       - name: Desplegar en Cloud Run
         id: deploy
         uses: google-github-actions/deploy-cloudrun@2028e2d7d30a78c6910e0632e48dd561b064884d # v3.0.1
@@ -99,7 +102,7 @@ jobs:
             --cpu-throttling
             --port=8080
             --service-account=boticario-runtime@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
-            --startup-probe=httpGet.path=/health,httpGet.port=8080,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
+            --startup-probe=httpGet.path=/health,httpGet.port=8080,initialDelaySeconds=1,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
 
       # Verificacion posterior: falla el job si la API no responde 200. Los reintentos absorben el
       # arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.

@@ -8,14 +8,21 @@
 //   must be running first:
 //
 //       docker compose up -d                      # from the repository root
-//       flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
+//       flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO \
+//         --dart-define=API_TOKEN=<uno de los tokens de API_TOKENS>
+//
+//   The API requires `Authorization: Bearer <token>`, so the real app needs
+//   `API_TOKEN` too (the app reads it through `apiTokenFromEnvironment`). Without
+//   it the flow fails at once with a message that says so; the message never
+//   contains a token value.
 //
 //   The default base URL is `http://10.0.2.2:8080` (the host machine as seen
 //   from the Android emulator). On a physical device pass the address of the
 //   machine running the backend:
 //
 //       flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO \
-//         --dart-define=API_BASE_URL=http://192.168.1.20:8080
+//         --dart-define=API_BASE_URL=http://192.168.1.20:8080 \
+//         --dart-define=API_TOKEN=<token>
 //
 //   An application-level guard only lets `HttpClient` reach the host and port
 //   of that base URL; any other host fails the test with a clear error. It does
@@ -75,6 +82,13 @@ const _lavenderCommon = 'English Lavender';
 const _lavenderScientific = 'Lavandula angustifolia';
 const _lavenderPath = '/explore/lavandula-angustifolia';
 
+/// Shown when the real app runs without `API_TOKEN`. It names the define but
+/// never a token value.
+const missingApiTokenMessage =
+    'Falta API_TOKEN: la API exige un token. Añade '
+    '--dart-define=API_TOKEN=<token> con uno de los tokens de API_TOKENS del '
+    'backend (para el backend local, el .env de la raíz).';
+
 /// How long a screen may wait for the catalog API before the flow fails.
 const _networkTimeout = Duration(seconds: 30);
 
@@ -97,6 +111,11 @@ Future<void> runCatalogSmoke(
   bool simulateKeyboardViewport = false,
   int Function()? requestCount,
 }) {
+  // Real app against a real backend: the API needs a token. Fail before any
+  // request instead of with a 401 screen. Never print the token itself.
+  if (overrides == null && apiTokenFromEnvironment.isEmpty) {
+    throw TestFailure(missingApiTokenMessage);
+  }
   if (!guardApplicationHttp) {
     return _runCatalogSmoke(
       tester,

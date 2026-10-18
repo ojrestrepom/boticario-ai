@@ -32,8 +32,8 @@ Nota: cada grupo es un commit. El orquestador hace el commit al aceptar el grupo
 
 ## 6. Smoke y documentación de la app
 
-- [ ] 6.1 Hacer que `integration_test/app_test.dart` y `catalog_smoke.dart` envíen `API_TOKEN` con la guarda de host intacta y fallen con un mensaje claro si falta el define cuando corren contra un backend real; verificar con `flutter test test/app/catalog_smoke_contract_test.dart` (contrato con cliente falso) y compilando la prueba de integración con `flutter analyze`.
-- [ ] 6.2 Actualizar el `README.md` (secciones de la app, del smoke y del backend desplegado: `--dart-define=API_TOKEN=...`, opción `--dart-define-from-file` con un archivo local ignorado por git) y añadir ese archivo a `.gitignore`; verificar que los comandos documentados son los que se ejecutan en 7 y 9, que el archivo ignorado no aparece en `git status` y que el Markdown cumple la regla de una línea por párrafo.
+- [x] 6.1 Hacer que `integration_test/app_test.dart` y `catalog_smoke.dart` envíen `API_TOKEN` con la guarda de host intacta y fallen con un mensaje claro si falta el define cuando corren contra un backend real; verificar con `flutter test test/app/catalog_smoke_contract_test.dart` (contrato con cliente falso) y compilando la prueba de integración con `flutter analyze`.
+- [x] 6.2 Actualizar el `README.md` (secciones de la app, del smoke y del backend desplegado: `--dart-define=API_TOKEN=...`, opción `--dart-define-from-file` con un archivo local ignorado por git) y añadir ese archivo a `.gitignore`; verificar que los comandos documentados son los que se ejecutan en 7 y 9, que el archivo ignorado no aparece en `git status` y que el Markdown cumple la regla de una línea por párrafo.
 
 ## 7. Despliegue y guía de infraestructura (`backend-deployment`)
 

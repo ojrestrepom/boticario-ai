@@ -31,6 +31,9 @@ flutter_*.log
 xcuserdata/
 *.xcuserstate
 
+# Defines locales de la app (API_BASE_URL y API_TOKEN para --dart-define-from-file)
+app/dart_defines.local.json
+
 # Entorno y secretos; .gitignore no reemplaza una gestión segura de secretos
 .env
 .env.*

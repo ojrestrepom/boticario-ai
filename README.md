@@ -75,19 +75,32 @@ Revisar y aceptar las licencias pendientes de forma interactiva. Verificar que `
 
 ### 2. Abrir y ejecutar en Android Studio
 
-La app necesita el backend en marcha: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; `debug` y `profile` habilitan además el HTTP en claro en la pila de red de Android, que es lo que permite llegar al backend local, y `release` no lo habilita. Esa restricción no alcanza al cliente Dart (`dart:io`), así que la garantía de HTTPS la da la URL que se pasa en `API_BASE_URL`, no el build.
+La app necesita el backend en marcha y un token de API: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; `debug` y `profile` habilitan además el HTTP en claro en la pila de red de Android, que es lo que permite llegar al backend local, y `release` no lo habilita. Esa restricción no alcanza al cliente Dart (`dart:io`), así que la garantía de HTTPS la da la URL que se pasa en `API_BASE_URL`, no el build.
 
-Para usar el backend desplegado en Cloud Run no hace falta `docker compose up`: el build `release` debe apuntar a esa URL HTTPS (un `release` compilado con una URL `http://` la usaría tal cual) y se compila con `flutter build apk --release --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app` (o `flutter run --release -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app`); sin el define, la dirección sigue siendo la del emulador. Las pruebas con el backend local (`http://`) se dejan para `debug` y `profile`, que además no consumen la capa gratuita. La guía del despliegue está en [`docs/deploy/cloud-run.md`](docs/deploy/cloud-run.md).
+La API exige `Authorization: Bearer <token>` en `/v1`. La app toma el token al compilar de `--dart-define=API_TOKEN=<token>` (no hay valor por defecto ni token en el repositorio), junto a `API_BASE_URL`, en `flutter run`, `flutter build` y el smoke. Sin `API_TOKEN` la app arranca pero no envía `Authorization`, la API responde 401 y la app muestra un error de «no autorizada». El token sale de la lista `API_TOKENS` del backend: para el backend local, uno de los valores de `API_TOKENS` del `.env` de la raíz (ver [Backend: catálogo y API](#backend-catálogo-y-api)); para Cloud Run, el token de la app que guarda el secreto, según [`docs/deploy/cloud-run.md`](docs/deploy/cloud-run.md). Un token embebido en el APK se puede extraer, y solo identifica a la app, no al usuario: no es una credencial de usuario.
+
+Para no escribir el token en cada comando, Flutter admite `--dart-define-from-file`. Crear `app/dart_defines.local.json` (ignorado por git, nunca se commitea) con este contenido, sustituyendo los marcadores:
+
+```json
+{
+  "API_BASE_URL": "<URL-del-backend>",
+  "API_TOKEN": "<token-de-la-app>"
+}
+```
+
+y pasarlo desde `app/` con `--dart-define-from-file=dart_defines.local.json` (desde la raíz sería `app/dart_defines.local.json`), por ejemplo `flutter run -d ID_DEL_DISPOSITIVO --dart-define-from-file=dart_defines.local.json`. Es opcional: equivale a escribir los dos `--dart-define`.
+
+Para usar el backend desplegado en Cloud Run no hace falta `docker compose up`: el build `release` debe apuntar a esa URL HTTPS (un `release` compilado con una URL `http://` la usaría tal cual) y se compila con `flutter build apk --release --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app --dart-define=API_TOKEN=<token-de-la-app>` (o `flutter run --release -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app --dart-define=API_TOKEN=<token-de-la-app>`); sin el define de la dirección, esta sigue siendo la del emulador, y sin el del token la API responde 401. Las pruebas con el backend local (`http://`) se dejan para `debug` y `profile`, que además no consumen la capa gratuita. La guía del despliegue está en [`docs/deploy/cloud-run.md`](docs/deploy/cloud-run.md).
 
 Abrir `app/` como proyecto (su raíz tiene `pubspec.yaml`). Configurar la ruta raíz del SDK de Flutter en el plugin de Flutter y elegir el dispositivo o emulador Android en la selección de dispositivo. En la terminal integrada, situada en `app/`:
 
 ```bash
 flutter pub get --enforce-lockfile
 flutter analyze
-flutter run -d ID_DEL_DISPOSITIVO
+flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_TOKEN=<token-de-la-app>
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`. Para un dispositivo físico: `flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`. Para un dispositivo físico: `flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=http://<IP-del-Mac>:8080 --dart-define=API_TOKEN=<token-de-la-app>`.
 
 ### 3. Pruebas
 
@@ -110,17 +123,17 @@ Las fixtures de tipografía Roboto usadas por pruebas de layout están en [`app/
 
 ### 4. Smoke Android
 
-El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz). Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «English Lavender» / «Lavandula angustifolia»), filtros y retorno a Inicio.
+El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz) con su `API_TOKENS`. El smoke exige `--dart-define=API_TOKEN=<token-de-la-app>` y falla enseguida con un mensaje claro si falta. Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «English Lavender» / «Lavandula angustifolia»), filtros y retorno a Inicio.
 
 Desde `app/`:
 
 ```bash
-flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
+flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO --dart-define=API_TOKEN=<token-de-la-app>
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Con un dispositivo físico, añadir `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`. Preparar y verificar previamente el SDK Android y sus licencias.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Con un dispositivo físico, añadir `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`. También acepta `--dart-define-from-file=dart_defines.local.json`. Preparar y verificar previamente el SDK Android y sus licencias.
 
-Para correr el smoke contra el backend desplegado, sin `docker compose up`, pasar la dirección de Cloud Run: `flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
+Para correr el smoke contra el backend desplegado, sin `docker compose up`, pasar la dirección de Cloud Run: `flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app --dart-define=API_TOKEN=<token-de-la-app>`.
 
 ### 5. Comandos de calidad
 

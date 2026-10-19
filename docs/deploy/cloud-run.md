@@ -436,9 +436,10 @@ Si `gh` responde `HTTP 403` o `Resource not accessible`, el token no tiene el al
 
 La API exige un token en `/v1`. Los tokens viven en un único secreto de Secret Manager, `boticario-api-tokens`, como una lista separada por comas: `<token-app>,<token-ci>`. Cloud Run lo inyecta como la variable `API_TOKENS` con la versión fijada en el workflow (`--set-secrets=API_TOKENS=boticario-api-tokens:1`). La app usa el primero y la verificación del workflow el segundo, con `API_VERIFY_TOKEN`. Esta preparación debe estar hecha antes del primer despliegue con autenticación: sin el secreto, el despliegue falla (Cloud Run comprueba el acceso) y la revisión anterior sigue sirviendo.
 
-`SECRET_NAME` viene de `.env.cloud-run.example` (`boticario-api-tokens`) y debe coincidir con el nombre que usa el workflow. Con las variables cargadas (`source .env.cloud-run`), habilita la API:
+`SECRET_NAME` viene de `.env.cloud-run.example` (`boticario-api-tokens`) y debe coincidir con el nombre que usa el workflow. Si creaste tu `.env.cloud-run` antes de este cambio, no la tiene: añade la línea `SECRET_NAME="boticario-api-tokens"` (está en `.env.cloud-run.example`) y vuelve a ejecutar `source .env.cloud-run`. Sin ella, los comandos de `gcloud` fallan con un error poco claro (`Failed to find attribute [secret]`). Con las variables cargadas, comprueba que está definida (la guarda falla con un mensaje claro si no) y habilita la API:
 
 ```bash
+: "${SECRET_NAME:?define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example}"
 gcloud services enable secretmanager.googleapis.com
 ```
 
@@ -496,11 +497,12 @@ Un token del tamaño y juego de caracteres incorrectos hace que la API no arranq
 
 ### Rotación del token
 
-La rotación no corta el servicio porque el secreto guarda una lista: durante la transición la API acepta el token nuevo y el viejo. El workflow fija la versión del secreto, así que cada versión nueva exige cambiar ese número en un commit, que además despliega. Con las variables cargadas:
+La rotación no corta el servicio porque el secreto guarda una lista: durante la transición la API acepta el token nuevo y el viejo. El workflow fija la versión del secreto, así que cada versión nueva exige cambiar ese número en un commit, que además despliega. Con las variables cargadas (`source .env.cloud-run`). Los números de versión de este procedimiento (2 y 3) son de ejemplo, partiendo de que el secreto solo tiene la versión 1: el número real es el que imprime `gcloud secrets versions add` («Created version [N]…») o el que muestra `gcloud secrets versions list`, y ese N es el que va en el workflow (`API_TOKENS=boticario-api-tokens:N`) y en los comandos siguientes.
 
 1. Genera el token nuevo y crea la versión 2 con `<nuevo>,<token-app>,<token-ci>`, construida a partir de la versión actual sin mostrarla:
 
    ```bash
+   : "${SECRET_NAME:?define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example}"
    TOKEN_NEW="$(openssl rand -hex 32)"
    CURRENT="$(gcloud secrets versions access latest --secret="$SECRET_NAME")"
    printf '%s,%s' "$TOKEN_NEW" "$CURRENT" | gcloud secrets versions add "$SECRET_NAME" --data-file=-
@@ -534,14 +536,64 @@ La rotación no corta el servicio porque el secreto guarda una lista: durante la
 
    Comprobación: la versión 3 está `enabled`, las 1 y 2 `disabled`, y el despliegue con `:3` termina en verde. Una revisión anterior de Cloud Run que referencia una versión desactivada no puede arrancar instancias nuevas, así que no hagas rollback a ella.
 
-Para rotar el token de CI, haz lo mismo con `<token-app>,<token-ci-nuevo>,<token-ci-viejo>` en el paso 1 (versión 2) y, antes del paso 4, actualiza el secreto de GitHub con el token de CI nuevo; en el paso 4 conserva los dos primeros elementos (`cut -d, -f1,2`):
+#### Rotar el token de CI
 
-```bash
-printf '%s' "$TOKEN_CI_NEW" | gh secret set API_VERIFY_TOKEN --repo "$GITHUB_REPO"
-gh secret list --repo "$GITHUB_REPO"
-```
+Parte de que la versión actual es exactamente `<token-app>,<token-ci-viejo>` (sin una rotación de la app a medias). Los números de versión (2 y 3) son de ejemplo, como arriba: usa el N que imprime `gcloud secrets versions add` o que muestra `gcloud secrets versions list`.
 
-Si un token se filtra, haz el paso 4 de inmediato: las apps ya instaladas con el token viejo dejan de funcionar (reciben 401), que es el comportamiento esperado de la revocación.
+1. Genera el token de CI nuevo:
+
+   ```bash
+   : "${SECRET_NAME:?define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example}"
+   TOKEN_CI_NEW="$(openssl rand -hex 32)"
+   ```
+
+2. Crea una versión con `<app>,<ci-nuevo>,<ci-viejo>`, construida desde la versión actual sin mostrarla (el campo 1 es la app y el 2 el CI viejo):
+
+   ```bash
+   CURRENT="$(gcloud secrets versions access latest --secret="$SECRET_NAME")"
+   printf '%s,%s,%s' "$(printf '%s' "$CURRENT" | cut -d, -f1)" "$TOKEN_CI_NEW" "$(printf '%s' "$CURRENT" | cut -d, -f2)" | gcloud secrets versions add "$SECRET_NAME" --data-file=-
+   unset CURRENT
+   gcloud secrets versions list "$SECRET_NAME"
+   ```
+
+   Comprobación: aparece la versión nueva (por ejemplo la 2), `enabled`, junto a la 1.
+
+3. Fija esa versión en el workflow (`API_TOKENS=boticario-api-tokens:2`), haz commit y push a `main` y espera el despliegue. La verificación todavía usa el token de CI viejo, que sigue siendo válido en esta versión. Comprobación: el job termina en verde.
+
+4. Actualiza `API_VERIFY_TOKEN` con el token nuevo, por la entrada estándar:
+
+   ```bash
+   printf '%s' "$TOKEN_CI_NEW" | gh secret set API_VERIFY_TOKEN --repo "$GITHUB_REPO"
+   unset TOKEN_CI_NEW
+   gh secret list --repo "$GITHUB_REPO"
+   ```
+
+   Comprobación: `API_VERIFY_TOKEN` aparece con la fecha de actualización de ahora (el listado nunca muestra el valor).
+
+5. Crea la versión final `<app>,<ci-nuevo>`, fíjala en el workflow (`:3`), haz commit y push, y espera el despliegue; ahora la verificación usa el token nuevo:
+
+   ```bash
+   V="$(gcloud secrets versions access 2 --secret="$SECRET_NAME")"
+   printf '%s,%s' "$(printf '%s' "$V" | cut -d, -f1)" "$(printf '%s' "$V" | cut -d, -f2)" | gcloud secrets versions add "$SECRET_NAME" --data-file=-
+   unset V
+   gcloud secrets versions list "$SECRET_NAME"
+   ```
+
+   Comprobación: la versión final (por ejemplo la 3) está `enabled` y el despliegue con ella termina en verde.
+
+6. Desactiva las versiones anteriores y comprueba el estado:
+
+   ```bash
+   gcloud secrets versions disable 1 --secret="$SECRET_NAME"
+   gcloud secrets versions disable 2 --secret="$SECRET_NAME"
+   gcloud secrets versions list "$SECRET_NAME"
+   ```
+
+   Comprobación: solo la versión final está `enabled`.
+
+#### Si un token se filtra
+
+Retira el token de inmediato, sin esperar a que no queden instalaciones con él. Para el de la app, haz los pasos 1 a 4 de su rotación seguidos, sin esperar entre ellos (generar el token nuevo, crear la versión de transición, desplegar, compilar la app con el nuevo y, sin esperar, crear la versión final sin el viejo, fijarla, desplegar y desactivar las anteriores). Para el de CI, sigue los pasos 1 a 6 de «Rotar el token de CI» sin esperar entre ellos. Las apps ya instaladas con un token retirado dejan de funcionar (reciben 401), que es el comportamiento esperado de la revocación.
 
 ### Qué sigue
 
@@ -618,7 +670,16 @@ resource.type="cloud_run_revision" resource.labels.service_name="boticario-api"
 
 ### Revisiones y rollback
 
-Cada despliegue crea una revisión nueva y Cloud Run conserva las anteriores. El rollback mueve el tráfico entre revisiones que ya existen y no ejecuta la CI. Lista las revisiones y mira cuál recibe el tráfico:
+Cada despliegue crea una revisión nueva y Cloud Run conserva las anteriores. El rollback mueve el tráfico entre revisiones que ya existen y no ejecuta la CI.
+
+Aviso: las revisiones anteriores a `boticario-api-00007-fgc` (de la 00001 a la 00006) no tienen autorización por token, así que mandarles tráfico deja `/v1` abierto a cualquiera, sin token. Además, una revisión que referencia una versión del secreto desactivada no puede arrancar instancias nuevas. Haz rollback solo a revisiones posteriores a ese cambio y cuya versión del secreto siga habilitada. Para comprobarlo, mira qué versión referencia la revisión (`secretKeyRef`, con `key` igual al número de versión) y su estado:
+
+```bash
+gcloud run revisions describe <revisión> --region="$REGION" --format='yaml(spec.containers[0].env)'
+gcloud secrets versions list "$SECRET_NAME"
+```
+
+La versión que muestra el primer comando debe aparecer `enabled` en el segundo. Una revisión sin `API_TOKENS` en `env` es anterior al cambio. Lista las revisiones y mira cuál recibe el tráfico:
 
 ```bash
 gcloud run revisions list --service="$SERVICE" --region="$REGION"

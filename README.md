@@ -232,6 +232,8 @@ Tras cambiar el código o los datos, se reconstruye y se arranca de nuevo con `d
 docker compose down
 ```
 
+`docker compose` interpola `API_TOKENS` en todos sus subcomandos, no solo en `up`: `down`, `ps` y `logs` también fallan con «required variable API_TOKENS is missing a value» si la variable no está en el entorno ni en el `.env` de la raíz. Con el `.env` documentado arriba no ocurre. Si exportaste la variable solo en un shell, en otro shell hay que volver a definirla. Para detener basta un valor cualquiera, porque `down` no arranca la API: `API_TOKENS=x docker compose down`. Este fallo es intencionado en `up`: el servicio no debe arrancar sin token.
+
 Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`. Si una construcción se comporta de forma inexplicable, `docker compose build --no-cache` ignora la caché de capas y reconstruye todo (las monturas de caché solo se limpian con `docker builder prune`).
 
 ### Despliegue en Cloud Run

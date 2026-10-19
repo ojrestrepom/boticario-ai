@@ -51,6 +51,8 @@ set -a; . ./.env; set +a
 mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-api
 ```
 
+`docker compose` interpola `API_TOKENS` en todos sus subcomandos (`up`, `down`, `ps`, `logs`) y falla con «required variable API_TOKENS is missing a value» si no está en el entorno ni en el `.env` de la raíz. Con ese `.env` no pasa. Si la exportaste solo en un shell, en otro shell hay que volver a definirla. Para detener basta un valor cualquiera, porque `down` no arranca la API: `API_TOKENS=x docker compose down`.
+
 La API se niega a arrancar si no encuentra la base o si falta `API_TOKENS`. Se configura con argumentos y variables de entorno:
 
 | Nombre | Por defecto | Uso |

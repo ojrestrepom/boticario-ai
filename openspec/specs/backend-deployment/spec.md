@@ -25,7 +25,7 @@ El workflow de despliegue SHALL construir la imagen del backend para linux/amd64
 - **THEN** la imagen no es accesible
 
 ### Requirement: Despliegue automático con verificación posterior
-El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore`, `mise.toml` o el propio workflow) y bajo demanda con `workflow_dispatch`. SHALL NOT ejecutarse por cambios que solo afecten a la app, la documentación u OpenSpec. Antes de construir la imagen, el workflow SHALL ejecutar las verificaciones del backend definidas por la capability `backend-ci`, y SHALL construir, publicar y desplegar solo si pasan. Si fallan, SHALL NOT publicar ninguna imagen ni crear ninguna revisión. Los despliegues SHALL serializarse sin cancelar uno en curso. Tras desplegar, el workflow SHALL consultar `GET /health` y `GET /v1/plants/lavandula-angustifolia` sobre la URL del servicio y SHALL fallar si alguna no responde 200.
+El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore`, `mise.toml` o el propio workflow) y bajo demanda con `workflow_dispatch`. SHALL NOT ejecutarse por cambios que solo afecten a la app, la documentación u OpenSpec. Antes de construir la imagen, el workflow SHALL ejecutar las verificaciones del backend definidas por la capability `backend-ci`, y SHALL construir, publicar y desplegar solo si pasan. Si fallan, SHALL NOT publicar ninguna imagen ni crear ninguna revisión. Los despliegues SHALL serializarse sin cancelar uno en curso. Tras desplegar, el workflow SHALL consultar `GET /health` y `GET /v1/plants/lavandula-angustifolia` con el token de verificación sobre la URL del servicio y SHALL fallar si alguna no responde 200, y SHALL consultar `GET /v1/plants/lavandula-angustifolia` sin token y SHALL fallar si no responde 401. El token de verificación SHALL salir de un secreto de GitHub, SHALL NOT escribirse en los logs del workflow y SHALL ser uno de los aceptados por el servicio.
 
 #### Scenario: Cambio del backend en main
 - **WHEN** se hace `push` a `main` con un cambio bajo `backend/` y las verificaciones pasan
@@ -52,15 +52,23 @@ El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`
 - **THEN** la segunda espera a que termine la primera y ninguna se cancela a medias
 
 #### Scenario: Verificación posterior satisfactoria
-- **WHEN** el servicio desplegado responde 200 en `/health` y en `/v1/plants/lavandula-angustifolia`
+- **WHEN** el servicio desplegado responde 200 en `/health` y en `/v1/plants/lavandula-angustifolia` con el token de verificación, y 401 en esa ruta sin token
 - **THEN** el job termina en éxito
 
 #### Scenario: Verificación posterior fallida
-- **WHEN** alguna de las dos consultas no responde 200 tras el despliegue
+- **WHEN** alguna de las consultas con token no responde 200 tras el despliegue
 - **THEN** el job termina en fallo
 
+#### Scenario: Autorización inactiva
+- **WHEN** la consulta sin token a `/v1/plants/lavandula-angustifolia` responde 200 en vez de 401
+- **THEN** el job termina en fallo, porque el servicio estaría abierto
+
+#### Scenario: Token de verificación obsoleto
+- **WHEN** el secreto de GitHub con el token de verificación no coincide con ninguno de los tokens del servicio
+- **THEN** la consulta con token responde 401, el job termina en fallo y el log no contiene el valor del token
+
 ### Requirement: Configuración del servicio en Cloud Run
-El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con facturación por petición, escala a cero (`min-instances=0`), un máximo de 2 instancias, acceso público sin autenticación y la imagen escuchando en el puerto 8080 que Cloud Run inyecta por `PORT`. El servicio SHALL usar 1 vCPU y 256 MiB de memoria, una sonda de arranque HTTP a `/health` y una cuenta de servicio de ejecución dedicada. El servicio SHALL ser accesible por HTTPS en su URL `*.run.app` y SHALL servir la misma API que la imagen en local.
+El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con facturación por petición, escala a cero (`min-instances=0`), un máximo de 2 instancias, acceso público a nivel de IAM (`--allow-unauthenticated`, de modo que la autorización la hace la propia API con su token) y la imagen escuchando en el puerto 8080 que Cloud Run inyecta por `PORT`. El servicio SHALL usar 1 vCPU y 256 MiB de memoria, una sonda de arranque HTTP a `/health`, una cuenta de servicio de ejecución dedicada y la variable `API_TOKENS` tomada de un secreto de Secret Manager con una versión concreta, nunca `latest`. El servicio SHALL ser accesible por HTTPS en su URL `*.run.app` y SHALL servir la misma API que la imagen en local.
 
 #### Scenario: Escala a cero y máximo de instancias
 - **WHEN** se describe el servicio desplegado
@@ -78,16 +86,24 @@ El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con factu
 - **WHEN** se describe el servicio desplegado
 - **THEN** tiene una sonda de arranque HTTP a `/health` en el puerto 8080
 
+#### Scenario: Token desde Secret Manager
+- **WHEN** se describe el servicio desplegado
+- **THEN** `API_TOKENS` aparece como referencia a un secreto con una versión numerada, y ni la descripción del servicio, ni el workflow, ni los logs contienen el valor
+
 #### Scenario: Ruta de salud alcanzable desde fuera
-- **WHEN** se consulta `GET /health` por la URL pública `*.run.app`
+- **WHEN** se consulta `GET /health` por la URL pública `*.run.app` sin token
 - **THEN** la API responde 200
 
 #### Scenario: Acceso público por HTTPS
-- **WHEN** se consulta `GET /v1/plants?q=lavandula` por HTTPS en la URL del servicio sin credenciales
+- **WHEN** se consulta `GET /v1/plants?q=lavandula` por HTTPS en la URL del servicio con un token válido
 - **THEN** la API responde 200 con la lista de plantas
 
+#### Scenario: Acceso por HTTPS sin token rechazado
+- **WHEN** se consulta `GET /v1/plants?q=lavandula` por HTTPS en la URL del servicio sin token o con un token inválido
+- **THEN** la API responde 401 con `application/problem+json` y `WWW-Authenticate: Bearer`, y el servicio sigue accesible a nivel de IAM
+
 #### Scenario: Error del contrato
-- **WHEN** se consulta `GET /v1/plants/no-existe` en la URL del servicio
+- **WHEN** se consulta `GET /v1/plants/no-existe` en la URL del servicio con un token válido
 - **THEN** la API responde 404 con `application/problem+json`
 
 #### Scenario: Primera petición tras inactividad
@@ -95,7 +111,7 @@ El servicio `boticario-api` SHALL desplegarse en `northamerica-south1` con factu
 - **THEN** el servicio arranca una instancia, responde 200 y el tiempo de arranque en frío queda medido en el informe de QA
 
 ### Requirement: Identidad de despliegue sin claves de larga duración
-El workflow SHALL autenticarse en Google Cloud mediante Workload Identity Federation con el token OIDC de GitHub Actions, y SHALL NOT usar claves JSON de cuentas de servicio ni guardarlas en el repositorio o en los secretos de GitHub. La cuenta de servicio de despliegue SHALL tener solo permisos para administrar Cloud Run, escribir en el repositorio de Artifact Registry y actuar como la cuenta de ejecución. La cuenta de servicio de ejecución SHALL NOT tener roles. El proveedor de identidad SHALL estar restringido por condición de atributo al repositorio del proyecto.
+El workflow SHALL autenticarse en Google Cloud mediante Workload Identity Federation con el token OIDC de GitHub Actions, y SHALL NOT usar claves JSON de cuentas de servicio ni guardarlas en el repositorio o en los secretos de GitHub. La cuenta de servicio de despliegue SHALL tener solo permisos para administrar Cloud Run, escribir en el repositorio de Artifact Registry y actuar como la cuenta de ejecución. La cuenta de servicio de ejecución SHALL NOT tener roles en el proyecto; su único permiso SHALL ser `roles/secretmanager.secretAccessor` sobre el secreto de los tokens de API, y no sobre ningún otro recurso. El proveedor de identidad SHALL estar restringido por condición de atributo al repositorio del proyecto.
 
 #### Scenario: Sin claves almacenadas
 - **WHEN** se revisan el repositorio, sus secretos y el workflow
@@ -108,6 +124,10 @@ El workflow SHALL autenticarse en Google Cloud mediante Workload Identity Federa
 #### Scenario: Cuenta de ejecución sin roles
 - **WHEN** se listan los roles de la cuenta de servicio de ejecución en el proyecto
 - **THEN** no tiene ninguno
+
+#### Scenario: Acceso solo a su secreto
+- **WHEN** se consulta la política de IAM del secreto de los tokens y la de cualquier otro secreto del proyecto
+- **THEN** la cuenta de ejecución tiene `roles/secretmanager.secretAccessor` solo en el primero y ninguna otra identidad tiene acceso a su valor salvo el propietario del proyecto
 
 #### Scenario: Proveedor restringido al repositorio
 - **WHEN** se describe el proveedor de Workload Identity Federation
@@ -137,11 +157,15 @@ El servicio SHALL escribir sus logs en Cloud Logging y SHALL ser consultable su 
 - **THEN** las peticiones, los vCPU-s y los GiB-s quedan dentro de la capa gratuita
 
 ### Requirement: Documentación de preparación, operación, rollback y desmontaje
-El repositorio SHALL documentar en `docs/deploy/cloud-run.md` la preparación única en GCP con comandos reproducibles (proyecto, facturación, APIs, repositorio de imágenes, cuentas de servicio, Workload Identity Federation, permisos, política de limpieza y alerta de presupuesto), los secretos y variables de GitHub que necesita el workflow, el despliegue manual, la consulta de logs, el rollback a la revisión anterior y el desmontaje completo para volver a costo cero. El `README.md` SHALL enlazar a ese documento y SHALL actualizar la sección de despliegue en amd64.
+El repositorio SHALL documentar en `docs/deploy/cloud-run.md` la preparación única en GCP con comandos reproducibles (proyecto, facturación, APIs, repositorio de imágenes, cuentas de servicio, Workload Identity Federation, permisos, política de limpieza, alerta de presupuesto y secreto de los tokens de API con su permiso), los secretos y variables de GitHub que necesita el workflow, el despliegue manual, la consulta de logs, el rollback a la revisión anterior, la rotación del token de API y el desmontaje completo para volver a costo cero, incluido el secreto. El `README.md` SHALL enlazar a ese documento y SHALL actualizar la sección de despliegue en amd64.
 
 #### Scenario: Preparación documentada
 - **WHEN** un desarrollador consulta `docs/deploy/cloud-run.md` con una cuenta de Google nueva
-- **THEN** encuentra los comandos, en orden, para dejar listo el proyecto y los secretos y variables de GitHub
+- **THEN** encuentra los comandos, en orden, para dejar listo el proyecto, el secreto de los tokens y los secretos y variables de GitHub
+
+#### Scenario: Rotación documentada
+- **WHEN** el desarrollador quiere cambiar el token de API sin cortar el servicio
+- **THEN** el documento indica los pasos en orden (añadir un token nuevo junto al anterior, desplegar, actualizar el secreto de GitHub y la app, retirar el anterior) y cómo comprobar cada uno
 
 #### Scenario: Rollback documentado
 - **WHEN** una revisión desplegada falla
@@ -149,7 +173,7 @@ El repositorio SHALL documentar en `docs/deploy/cloud-run.md` la preparación ú
 
 #### Scenario: Desmontaje documentado
 - **WHEN** el desarrollador quiere dejar de pagar y de exponer el servicio
-- **THEN** el documento indica cómo eliminar el servicio, el repositorio de imágenes, las cuentas de servicio y la configuración de identidad, o el proyecto entero
+- **THEN** el documento indica cómo eliminar el servicio, el repositorio de imágenes, el secreto de los tokens, las cuentas de servicio y la configuración de identidad, o el proyecto entero
 
 #### Scenario: README enlaza
 - **WHEN** se consulta el `README.md`

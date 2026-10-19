@@ -1,0 +1,21 @@
+## gcloud run revisions describe boticario-api-00007-fgc --region=$REGION --format='yaml(spec.containers[0].env)'
+spec:
+  containers:
+  - env:
+    - name: API_TOKENS
+      valueFrom:
+        secretKeyRef:
+          key: '1'
+          name: boticario-api-tokens
+(fin; exit=0)
+## gcloud run revisions describe boticario-api-00006-lpw --region=$REGION --format='yaml(spec.containers[0].env)'
+
+  null
+(fin; exit=0)
+## gcloud run revisions describe boticario-api-00001-95z --region=$REGION --format='yaml(spec.containers[0].env)'
+
+  null
+(fin; exit=0)
+## gcloud secrets versions list
+NAME  STATE    CREATED              DESTROYED
+1     enabled  2026-10-18T23:30:53  -

@@ -1,0 +1,7 @@
+18:56:37 GET /v1/plants?limit=50&offset=0 Authorization=Bearer <token-local-1> otras-cabeceras=['accept', 'user-agent'] -> 200
+18:56:54 GET /v1/plants?q=lavandula&limit=50&offset=0 Authorization=Bearer <token-local-1> otras-cabeceras=['accept', 'user-agent'] -> 200
+18:57:03 GET /v1/plants/lavandula-angustifolia Authorization=Bearer <token-local-1> otras-cabeceras=['accept', 'user-agent'] -> 200
+18:57:49 GET /v1/plants?limit=50&offset=0 Authorization=Bearer <token-local-1> otras-cabeceras=['accept', 'user-agent'] -> 200
+backend recreado solo con <token-local-2>; app con <token-local-1>
+18:58:00 GET /v1/plants/abelmoschus-esculentus Authorization=Bearer <token-local-1> otras-cabeceras=['accept', 'user-agent'] -> 401
+18:58:42 GET /v1/plants/abelmoschus-esculentus Authorization=Bearer <token-local-1> otras-cabeceras=['accept', 'user-agent'] -> 401

@@ -1,0 +1,14 @@
+# CON-04
+
+ Network boticario-ai_default Creating 
+ Network boticario-ai_default Creating 
+ Network boticario-ai_default Created 
+ Network boticario-ai_default Created 
+ Container boticario-ai-api-1 Creating 
+ Container boticario-ai-api-1 Created 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started 
+
+PASS PORT=9090: /health 200 en 9090
+PASS el puerto 8080 del anfitrión no está publicado
+PASS 401 sin token también en 9090

@@ -1,0 +1,9 @@
+# AUT-01 Token válido en el listado (objetivo: local)
+
+### GET /v1/plants?limit=2   [Bearer <válido>]
+status=200
+content-type: application/json
+content-length: 336
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}

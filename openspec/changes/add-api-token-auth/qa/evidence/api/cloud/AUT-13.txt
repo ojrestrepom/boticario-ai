@@ -1,0 +1,53 @@
+# AUT-13 Escrituras sin token (objetivo: cloud)
+
+### POST /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+x-cloud-trace-context: f475f7d09622ad696aedc6531d6ca4e0
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### PUT /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+x-cloud-trace-context: ccaaff6e84cd0fa57fee461f2750d3b8
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### PATCH /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+x-cloud-trace-context: cb4a9027ba3109b4c618ef0281607a88;o=1
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### DELETE /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+x-cloud-trace-context: 23ef0e57b92a5b96c3d8a4b05fb101bf
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

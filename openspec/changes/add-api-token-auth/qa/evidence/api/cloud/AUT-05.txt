@@ -1,0 +1,13 @@
+# AUT-05 Token incorrecto (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [Bearer <aleatorio 64 hex>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: f208a7537e6c46c51cd431791a7ca122
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

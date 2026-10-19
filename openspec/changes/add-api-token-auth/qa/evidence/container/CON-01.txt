@@ -1,0 +1,11 @@
+# CON-01
+
+$ docker compose up -d   (sin API_TOKENS ni .env)
+exit=1
+error while interpolating services.api.environment.API_TOKENS: required variable API_TOKENS is missing a value: API_TOKENS no esta definido; crea el archivo .env una vez con: echo API_TOKENS=$(openssl rand -hex 32) > .env
+
+PASS falla (código distinto de 0)
+PASS el mensaje nombra API_TOKENS
+PASS no se creó ningún contenedor
+PASS no existe .env en la raíz
+PASS docker compose config con API_TOKENS definido: pasa

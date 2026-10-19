@@ -1,0 +1,8 @@
+# CFG-01
+
+$ docker run --rm boticario-backend:latest   (sin API_TOKENS)
+exit=2
+error de configuración: API_TOKENS es obligatoria para servir la API; define uno o más tokens separados por comas
+
+PASS código de salida 2
+PASS el mensaje nombra API_TOKENS

@@ -1,0 +1,129 @@
+{"case": "AUT-01", "check": "200", "ok": true, "detail": "200"}
+{"case": "AUT-01", "check": "application/json", "ok": true, "detail": ""}
+{"case": "AUT-01", "check": "items con 2 elementos y total", "ok": true, "detail": "2376"}
+{"case": "AUT-02", "check": "200", "ok": true, "detail": "200"}
+{"case": "AUT-02", "check": "detalle de lavandula-angustifolia", "ok": true, "detail": ""}
+{"case": "AUT-03", "check": "esquema bearer -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-03", "check": "esquema BEARER -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-03", "check": "esquema BeArEr -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-04", "check": "401", "ok": true, "detail": "401"}
+{"case": "AUT-04", "check": "application/problem+json", "ok": true, "detail": ""}
+{"case": "AUT-04", "check": "WWW-Authenticate: Bearer", "ok": true, "detail": "['Bearer']"}
+{"case": "AUT-04", "check": "sin datos del catálogo", "ok": true, "detail": ""}
+{"case": "AUT-04", "check": "cuerpo problem+json con status 401", "ok": true, "detail": "{'type': 'about:blank', 'title': 'Unauthorized', 'status': 401, 'detail': 'se requiere un token de API válido', 'instance': '/v1/plants'}"}
+{"case": "AUT-05", "check": "401 problem+json con WWW-Authenticate", "ok": true, "detail": ""}
+{"case": "AUT-05", "check": "mismo cuerpo y cabeceras que la cabecera ausente", "ok": true, "detail": ""}
+{"case": "AUT-06", "check": "401 idéntico a ausente", "ok": true, "detail": "401"}
+{"case": "AUT-07", "check": "prefijo de 63 caracteres -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-07", "check": "prefijo de 32 caracteres -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-07", "check": "prefijo de 1 caracteres -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-08", "check": "válido + x -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-08", "check": "válido en mayúsculas -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-08", "check": "válido sin el primer carácter -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-09", "check": "Basic <base64> -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-09", "check": "token sin esquema -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-09", "check": "Token <válido> -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-09", "check": "Bearer<válido> pegado -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-10", "check": "Authorization vacía -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-10", "check": "solo «Bearer» -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-10", "check": "«Bearer » sin token -> 401 idéntico", "ok": true, "detail": "401"}
+{"case": "AUT-11", "check": "sin token -> 401, no 404", "ok": true, "detail": "401"}
+{"case": "AUT-11", "check": "con token -> 404 problem+json", "ok": true, "detail": "404"}
+{"case": "AUT-11", "check": "el cuerpo 401 sigue siendo JSON válido con %22 en la ruta", "ok": true, "detail": ""}
+{"case": "AUT-12", "check": "/v1 sin token -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-12", "check": "/v1 con token -> 404", "ok": true, "detail": "404"}
+{"case": "AUT-12", "check": "/v1/ sin token -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-12", "check": "/v1/ con token -> 404", "ok": true, "detail": "404"}
+{"case": "AUT-13", "check": "POST sin token -> 401, no 405", "ok": true, "detail": "401"}
+{"case": "AUT-13", "check": "PUT sin token -> 401, no 405", "ok": true, "detail": "401"}
+{"case": "AUT-13", "check": "PATCH sin token -> 401, no 405", "ok": true, "detail": "401"}
+{"case": "AUT-13", "check": "DELETE sin token -> 401, no 405", "ok": true, "detail": "401"}
+{"case": "AUT-14", "check": "POST con token -> 405 problem+json", "ok": true, "detail": "405"}
+{"case": "AUT-14", "check": "PUT con token -> 405 problem+json", "ok": true, "detail": "405"}
+{"case": "AUT-14", "check": "PATCH con token -> 405 problem+json", "ok": true, "detail": "405"}
+{"case": "AUT-14", "check": "DELETE con token -> 405 problem+json", "ok": true, "detail": "405"}
+{"case": "AUT-14", "check": "el listado sigue intacto tras las escrituras", "ok": true, "detail": ""}
+{"case": "AUT-15", "check": "HEAD sin token -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-15", "check": "HEAD con token -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-15", "check": "OPTIONS sin token -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-15", "check": "OPTIONS con token", "ok": null, "detail": "405"}
+{"case": "AUT-16", "check": "/health [sin Authorization] -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-16", "check": "/health [Bearer <válido>] -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-16", "check": "/health [Bearer <incorrecto>] -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-16", "check": "/openapi.json [sin Authorization] -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-16", "check": "/openapi.json [Bearer <válido>] -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-16", "check": "/openapi.json [Bearer <incorrecto>] -> 200", "ok": true, "detail": "200"}
+{"case": "AUT-16", "check": "el cuerpo de /health es el mismo con y sin token", "ok": true, "detail": "[b'{\"status\":\"ok\"}', b'{\"status\":\"ok\"}', b'{\"status\":\"ok\"}']"}
+{"case": "AUT-16", "check": "/health no revela tokens configurados", "ok": true, "detail": "b'{\"status\":\"ok\"}'"}
+{"case": "AUT-17", "check": "16 rechazos con un único cuerpo y un único conjunto de cabeceras", "ok": true, "detail": "[]"}
+{"case": "AUT-17", "check": "cuerpo común del 401", "ok": null, "detail": "{\"type\":\"about:blank\",\"title\":\"Unauthorized\",\"status\":401,\"detail\":\"se requiere un token de API válido\",\"instance\":\"/v1/plants\"}"}
+{"case": "AUT-19", "check": "?token=<token> -> 401 (con un token válido)", "ok": true, "detail": "401"}
+{"case": "AUT-19", "check": "la respuesta no incluye la query", "ok": true, "detail": "{\"type\":\"about:blank\",\"title\":\"Unauthorized\",\"status\":401,\"detail\":\"se requiere un token de API válido\",\"instance\":\"/v1/plants\"}"}
+{"case": "AUT-19", "check": "X-Api-Key -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-19", "check": "Proxy-Authorization -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-19", "check": "Cookie -> 401", "ok": true, "detail": "401"}
+{"case": "AUT-20", "check": "inválida + válida", "ok": null, "detail": "401"}
+{"case": "AUT-20", "check": "válida + inválida", "ok": null, "detail": "200"}
+{"case": "AUT-20", "check": "dos inválidas -> 401 sin datos", "ok": true, "detail": "401"}
+{"case": "AUT-21", "check": "dos espacios entre esquema y token", "ok": null, "detail": "200"}
+{"case": "AUT-21", "check": "tabulador entre esquema y token", "ok": null, "detail": "401"}
+{"case": "AUT-21", "check": "espacio final tras el token", "ok": null, "detail": "200"}
+{"case": "AUT-22", "check": "bytes no ASCII -> 401, no 200 ni 5xx", "ok": true, "detail": "401"}
+{"case": "AUT-22", "check": "16 KB -> rechazo, no 200 ni 5xx", "ok": true, "detail": "401"}
+{"case": "AUT-22", "check": "100 KB", "ok": null, "detail": "401"}
+{"case": "AUT-22", "check": "100 KB no da 200 ni 5xx", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/V1/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/V1/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1X [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1X [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1x/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1x/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "//v1/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "//v1/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/x/../v1/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/x/../v1/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/./v1/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/./v1/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1/./plants [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/./plants [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/%76%31/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/%76%31/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1%2Fplants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1%2Fplants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1/plants/ [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants/ [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1;a/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1;a/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "/v1/plants;a=1 [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants;a=1 [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants%00 [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants%00 [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants/..;/plants [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants/..;/plants [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants#x [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants#x [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/%2e%2e/v1/plants [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/%2e%2e/v1/plants [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants%2F [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants%2F [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/%70lants [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/%70lants [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants?%00 [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "/v1/plants?%00 [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "http://localhost/v1/plants [sin Authorization] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "http://localhost/v1/plants [Bearer <incorrecto>] sin datos (estado 401)", "ok": true, "detail": "401"}
+{"case": "AUT-23", "check": "http://localhost//v1/plants [sin Authorization] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-23", "check": "http://localhost//v1/plants [Bearer <incorrecto>] sin datos (estado 404)", "ok": true, "detail": "404"}
+{"case": "AUT-24", "check": "limit=abc con token -> 400 problem+json que nombra limit", "ok": true, "detail": "400"}
+{"case": "AUT-24", "check": "/v1/plants/no-existe con token -> 404 problem+json", "ok": true, "detail": "404"}
+{"case": "AUT-24", "check": "limit=abc sin token -> 401 (la autorización precede)", "ok": true, "detail": "401"}
+{"case": "AUT-24", "check": "/v1/plants/no-existe sin token -> 401, no 404", "ok": true, "detail": "401"}
+{"case": "AUT-25", "check": "esquema HTTP Bearer", "ok": true, "detail": "{'type': 'http', 'scheme': 'bearer', 'description': 'Token de API en la cabecera `Authorization: Bearer <token>`. Es una credencial de acceso compartida por la app: no identifica a usuarios.'}"}
+{"case": "AUT-25", "check": "rutas solo /health, /openapi.json y /v1/*", "ok": true, "detail": "['/health', '/openapi.json', '/v1/plants', '/v1/plants/{id}']"}
+{"case": "AUT-25", "check": "seguridad Bearer en las operaciones de /v1", "ok": true, "detail": ""}
+{"case": "AUT-25", "check": "respuesta 401 application/problem+json en /v1", "ok": true, "detail": ""}
+{"case": "AUT-25", "check": "sin seguridad en /health ni /openapi.json", "ok": true, "detail": ""}
+{"case": "AUT-25", "check": "el documento no contiene ningún token", "ok": true, "detail": ""}
+{"case": "AUT-25", "check": "coincide con backend/openapi.json versionado", "ok": true, "detail": ""}
+{"case": "AUT-26", "check": "20 peticiones alternadas: válidas 200, inválidas 401", "ok": true, "detail": "[(True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401), (True, 200), (False, 401)]"}
+{"case": "AUT-18", "check": "0 apariciones de 6 sondas de token (token, prefijos y sufijos) en 127 respuestas", "ok": true, "detail": "{0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0}"}

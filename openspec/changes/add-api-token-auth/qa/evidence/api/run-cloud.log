@@ -1,0 +1,135 @@
+PASS AUT-01 200
+PASS AUT-01 application/json
+PASS AUT-01 items con 2 elementos y total
+PASS AUT-02 200
+PASS AUT-02 detalle de lavandula-angustifolia
+PASS AUT-03 esquema bearer -> 200
+PASS AUT-03 esquema BEARER -> 200
+PASS AUT-03 esquema BeArEr -> 200
+PASS AUT-04 401
+PASS AUT-04 application/problem+json
+PASS AUT-04 WWW-Authenticate: Bearer
+PASS AUT-04 sin datos del catálogo
+PASS AUT-04 cuerpo problem+json con status 401
+PASS AUT-05 401 problem+json con WWW-Authenticate
+PASS AUT-05 mismo cuerpo y cabeceras que la cabecera ausente
+PASS AUT-06 401 idéntico a ausente
+PASS AUT-07 prefijo de 63 caracteres -> 401 idéntico
+PASS AUT-07 prefijo de 32 caracteres -> 401 idéntico
+PASS AUT-07 prefijo de 1 caracteres -> 401 idéntico
+PASS AUT-08 válido + x -> 401 idéntico
+PASS AUT-08 válido en mayúsculas -> 401 idéntico
+PASS AUT-08 válido sin el primer carácter -> 401 idéntico
+PASS AUT-09 Basic <base64> -> 401 idéntico
+PASS AUT-09 token sin esquema -> 401 idéntico
+PASS AUT-09 Token <válido> -> 401 idéntico
+PASS AUT-09 Bearer<válido> pegado -> 401 idéntico
+PASS AUT-10 Authorization vacía -> 401 idéntico
+PASS AUT-10 solo «Bearer» -> 401 idéntico
+PASS AUT-10 «Bearer » sin token -> 401 idéntico
+PASS AUT-11 sin token -> 401, no 404
+PASS AUT-11 con token -> 404 problem+json
+PASS AUT-11 el cuerpo 401 sigue siendo JSON válido con %22 en la ruta
+PASS AUT-12 /v1 sin token -> 401
+PASS AUT-12 /v1 con token -> 404
+PASS AUT-12 /v1/ sin token -> 401
+PASS AUT-12 /v1/ con token -> 404
+PASS AUT-13 POST sin token -> 401, no 405
+PASS AUT-13 PUT sin token -> 401, no 405
+PASS AUT-13 PATCH sin token -> 401, no 405
+PASS AUT-13 DELETE sin token -> 401, no 405
+PASS AUT-14 POST con token -> 405 problem+json
+PASS AUT-14 PUT con token -> 405 problem+json
+PASS AUT-14 PATCH con token -> 405 problem+json
+PASS AUT-14 DELETE con token -> 405 problem+json
+PASS AUT-14 el listado sigue intacto tras las escrituras
+PASS AUT-15 HEAD sin token -> 401
+PASS AUT-15 HEAD con token -> 200
+PASS AUT-15 OPTIONS sin token -> 401
+OBS  AUT-15 OPTIONS con token: 405
+PASS AUT-16 /health [sin Authorization] -> 200
+PASS AUT-16 /health [Bearer <válido>] -> 200
+PASS AUT-16 /health [Bearer <incorrecto>] -> 200
+PASS AUT-16 /openapi.json [sin Authorization] -> 200
+PASS AUT-16 /openapi.json [Bearer <válido>] -> 200
+PASS AUT-16 /openapi.json [Bearer <incorrecto>] -> 200
+PASS AUT-16 el cuerpo de /health es el mismo con y sin token
+PASS AUT-16 /health no revela tokens configurados
+PASS AUT-17 16 rechazos con un único cuerpo y un único conjunto de cabeceras
+OBS  AUT-17 cuerpo común del 401: {"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+PASS AUT-19 ?token=<token> -> 401 (con uno incorrecto: el real quedaría en los logs de Cloud Run)
+PASS AUT-19 la respuesta no incluye la query
+PASS AUT-19 X-Api-Key -> 401
+PASS AUT-19 Proxy-Authorization -> 401
+PASS AUT-19 Cookie -> 401
+OBS  AUT-20 inválida + válida: 401
+OBS  AUT-20 válida + inválida: 200
+PASS AUT-20 dos inválidas -> 401 sin datos
+OBS  AUT-21 dos espacios entre esquema y token: 200
+OBS  AUT-21 tabulador entre esquema y token: 401
+OBS  AUT-21 espacio final tras el token: 200
+PASS AUT-22 bytes no ASCII -> 401, no 200 ni 5xx
+PASS AUT-22 16 KB -> rechazo, no 200 ni 5xx
+OBS  AUT-22 100 KB: 0
+PASS AUT-22 100 KB no da 200 ni 5xx
+PASS AUT-23 /V1/plants [sin Authorization] sin datos (estado 404)
+PASS AUT-23 /V1/plants [Bearer <incorrecto>] sin datos (estado 404)
+PASS AUT-23 /v1X [sin Authorization] sin datos (estado 404)
+PASS AUT-23 /v1X [Bearer <incorrecto>] sin datos (estado 404)
+PASS AUT-23 /v1x/plants [sin Authorization] sin datos (estado 404)
+PASS AUT-23 /v1x/plants [Bearer <incorrecto>] sin datos (estado 404)
+PASS AUT-23 //v1/plants [sin Authorization] sin datos (estado 401)
+PASS AUT-23 //v1/plants [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /x/../v1/plants [sin Authorization] sin datos (estado 302)
+PASS AUT-23 /x/../v1/plants [Bearer <incorrecto>] sin datos (estado 302)
+PASS AUT-23 /./v1/plants [sin Authorization] sin datos (estado 302)
+PASS AUT-23 /./v1/plants [Bearer <incorrecto>] sin datos (estado 302)
+PASS AUT-23 /v1/./plants [sin Authorization] sin datos (estado 302)
+PASS AUT-23 /v1/./plants [Bearer <incorrecto>] sin datos (estado 302)
+PASS AUT-23 /%76%31/plants [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /%76%31/plants [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /v1%2Fplants [sin Authorization] sin datos (estado 404)
+PASS AUT-23 /v1%2Fplants [Bearer <incorrecto>] sin datos (estado 404)
+PASS AUT-23 /v1/plants/ [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /v1/plants/ [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /v1;a/plants [sin Authorization] sin datos (estado 404)
+PASS AUT-23 /v1;a/plants [Bearer <incorrecto>] sin datos (estado 404)
+PASS AUT-23 /v1/plants;a=1 [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /v1/plants;a=1 [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /v1/plants%00 [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /v1/plants%00 [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /v1/plants/..;/plants [sin Authorization] sin datos (estado 302)
+PASS AUT-23 /v1/plants/..;/plants [Bearer <incorrecto>] sin datos (estado 302)
+PASS AUT-23 /v1/plants#x [sin Authorization] sin datos (estado 400)
+PASS AUT-23 /v1/plants#x [Bearer <incorrecto>] sin datos (estado 400)
+PASS AUT-23 /v1/%2e%2e/v1/plants [sin Authorization] sin datos (estado 302)
+PASS AUT-23 /v1/%2e%2e/v1/plants [Bearer <incorrecto>] sin datos (estado 302)
+PASS AUT-23 /v1/plants%2F [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /v1/plants%2F [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /v1/%70lants [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /v1/%70lants [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 /v1/plants?%00 [sin Authorization] sin datos (estado 401)
+PASS AUT-23 /v1/plants?%00 [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 http://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants [sin Authorization] sin datos (estado 401)
+PASS AUT-23 http://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-23 http://boticario-api-d3xv5q3iaa-pv.a.run.app//v1/plants [sin Authorization] sin datos (estado 401)
+PASS AUT-23 http://boticario-api-d3xv5q3iaa-pv.a.run.app//v1/plants [Bearer <incorrecto>] sin datos (estado 401)
+PASS AUT-24 limit=abc con token -> 400 problem+json que nombra limit
+PASS AUT-24 /v1/plants/no-existe con token -> 404 problem+json
+PASS AUT-24 limit=abc sin token -> 401 (la autorización precede)
+PASS AUT-24 /v1/plants/no-existe sin token -> 401, no 404
+PASS AUT-25 esquema HTTP Bearer
+PASS AUT-25 rutas solo /health, /openapi.json y /v1/*
+PASS AUT-25 seguridad Bearer en las operaciones de /v1
+PASS AUT-25 respuesta 401 application/problem+json en /v1
+PASS AUT-25 sin seguridad en /health ni /openapi.json
+PASS AUT-25 el documento no contiene ningún token
+PASS AUT-25 coincide con backend/openapi.json versionado
+PASS AUT-26 20 peticiones alternadas: válidas 200, inválidas 401
+PASS AUT-27 token de la app -> 200 (solo posible si Authorization llega intacta)
+PASS AUT-27 token de CI -> 200 (solo posible si Authorization llega intacta)
+PASS AUT-27 el 401 es el de la API (problem+json con WWW-Authenticate: Bearer), no el del frontal
+OBS  AUT-27 cabecera server: ['Google Frontend']
+PASS AUT-18 0 apariciones de 8 sondas de token (token, prefijos y sufijos) en 130 respuestas
+
+cloud: 124 PASS, 0 FAIL, 9 OBS

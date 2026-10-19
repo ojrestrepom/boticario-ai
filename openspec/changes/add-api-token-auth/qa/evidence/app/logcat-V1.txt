@@ -1,0 +1,186 @@
+--------- beginning of main
+10-18 18:56:12.341 I/le.boticario_ai( 8662): Late-enabling -Xcheck:jni
+10-18 18:56:12.425 I/le.boticario_ai( 8662): Using CollectorTypeCMC GC.
+10-18 18:56:12.508 D/nativeloader( 8662): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-18 18:56:13.054 D/ApplicationLoaders( 8662): Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+10-18 18:56:13.054 D/ApplicationLoaders( 8662): Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+10-18 18:56:13.401 D/nativeloader( 8662): Configuring clns-9 for other apk /data/app/~~T6qJkAtW3i8t78oO8n9bdQ==/com.example.boticario_ai-WScYM2O8nKivYN5bwgKr8g==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~T6qJkAtW3i8t78oO8n9bdQ==/com.example.boticario_ai-WScYM2O8nKivYN5bwgKr8g==/lib/arm64:/data/app/~~T6qJkAtW3i8t78oO8n9bdQ==/com.example.boticario_ai-WScYM2O8nKivYN5bwgKr8g==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.example.boticario_ai
+10-18 18:56:13.426 I/le.boticario_ai( 8662): AssetManager2(0xb400007e6d6daaf8) locale list changing from [] to [en-US]
+10-18 18:56:13.442 V/GraphicsEnvironment( 8662): Currently set values for:
+10-18 18:56:13.443 V/GraphicsEnvironment( 8662):   angle_gl_driver_selection_pkgs=[]
+10-18 18:56:13.443 V/GraphicsEnvironment( 8662):   angle_gl_driver_selection_values=[]
+10-18 18:56:13.443 V/GraphicsEnvironment( 8662): com.example.boticario_ai is not listed in per-application setting
+10-18 18:56:13.444 V/GraphicsEnvironment( 8662): ANGLE allowlist from config: com.dreamgames.royalmatch com.dts.freefiremax com.dxx.firenow com.gramgames.mergedragons com.ludo.king com.mojang.minecraftpe com.my.defense com.nintendo.zaka com.os.airforce com.playrix.fishdomdd.gplay io.teslatech.callbreak jp.konami.prospia net.peakgames.toonblast
+10-18 18:56:13.444 V/GraphicsEnvironment( 8662): com.example.boticario_ai is not listed in ANGLE allowlist or settings, returning default
+10-18 18:56:13.445 V/GraphicsEnvironment( 8662): Neither updatable production driver nor prerelease driver is supported.
+--------- beginning of system
+10-18 18:56:13.488 I/DisplayManager( 8662): Choreographer implicitly registered for the refresh rate.
+10-18 18:56:13.495 I/le.boticario_ai( 8662): AssetManager2(0xb400007e6d6d8898) locale list changing from [] to [en-US]
+10-18 18:56:13.505 E/ashmem  ( 8662): Pinning is deprecated since Android Q. Please use trim or other methods.
+10-18 18:56:13.513 I/FlutterActivityAndFragmentDelegate( 8662): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+10-18 18:56:13.524 D/FlutterJNI( 8662): Beginning load of flutter...
+10-18 18:56:13.528 I/ResourceExtractor( 8662): Resource version mismatch res_timestamp-1-1792367771490
+10-18 18:56:13.589 D/nativeloader( 8662): Load /data/app/~~T6qJkAtW3i8t78oO8n9bdQ==/com.example.boticario_ai-WScYM2O8nKivYN5bwgKr8g==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~T6qJkAtW3i8t78oO8n9bdQ==/com.example.boticario_ai-WScYM2O8nKivYN5bwgKr8g==/base.apk): ok
+10-18 18:56:13.592 D/FlutterJNI( 8662): flutter (null) was loaded normally!
+10-18 18:56:13.598 D/skia    ( 8662): [SkFontMgr Android Parser] '/product/etc/fonts_customization.xml' could not be opened
+10-18 18:56:13.643 I/EGL_emulation( 8662): Opening libGLESv1_CM_emulation.so
+10-18 18:56:13.644 I/EGL_emulation( 8662): Opening libGLESv2_emulation.so
+10-18 18:56:13.652 W/HWUI    ( 8662): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-18 18:56:13.652 W/HWUI    ( 8662): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-18 18:56:14.609 I/ResourceExtractor( 8662): Extracted baseline resource assets/flutter_assets/kernel_blob.bin
+10-18 18:56:14.611 I/ResourceExtractor( 8662): Extracted baseline resource assets/flutter_assets/vm_snapshot_data
+10-18 18:56:14.710 I/ResourceExtractor( 8662): Extracted baseline resource assets/flutter_assets/isolate_snapshot_data
+10-18 18:56:14.732 I/le.boticario_ai( 8662): AssetManager2(0xb400007e6d6dba98) locale list changing from [] to [en-US]
+10-18 18:56:14.744 W/le.boticario_ai( 8662): type=1400 audit(0.0:361): avc:  denied  { read } for  name="max_map_count" dev="proc" ino=16940 scontext=u:r:untrusted_app:s0:c221,c256,c512,c768 tcontext=u:object_r:proc_max_map_count:s0 tclass=file permissive=0 app=com.example.boticario_ai
+10-18 18:56:14.770 D/DesktopModeFlags( 8662): Toggle override initialized to: OVERRIDE_UNSET
+10-18 18:56:14.787 I/flutter ( 8662): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+10-18 18:56:14.932 I/flutter ( 8662): The Dart VM service is listening on http://127.0.0.1:33183/aZ9OLNoL0ZM=/
+10-18 18:56:15.339 I/le.boticario_ai( 8662): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported,test-api) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 18:56:15.339 I/le.boticario_ai( 8662): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 18:56:15.339 I/le.boticario_ai( 8662): hiddenapi: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 18:56:15.339 I/le.boticario_ai( 8662): hiddenapi: Accessing hidden method Landroid/util/LongArray;->get(I)J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 18:56:15.347 D/AccessibilityBridge( 8662): Setting not found: accessibility_display_inversion_enabled, using default: 0
+10-18 18:56:15.382 D/FlutterRenderer( 8662): Width is zero. 0,0
+10-18 18:56:15.398 D/CompatChangeReporter( 8662): Compat change id reported: 377864165; UID 10221; state: ENABLED
+10-18 18:56:15.436 W/HWUI    ( 8662): Unknown dataspace 0
+10-18 18:56:16.808 I/Choreographer( 8662): Skipped 81 frames!  The application may be doing too much work on its main thread.
+10-18 18:56:16.827 I/WindowExtensionsImpl( 8662): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+10-18 18:56:16.840 I/le.boticario_ai( 8662): Compiler allocated 5111KB to compile void android.view.ViewRootImpl.performTraversals()
+10-18 18:56:16.852 D/FlutterRenderer( 8662): Width is zero. 0,0
+10-18 18:56:16.912 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:17.746 I/Choreographer( 8662): Skipped 53 frames!  The application may be doing too much work on its main thread.
+10-18 18:56:17.791 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:17.799 D/WindowLayoutComponentImpl( 8662): Register WindowLayoutInfoListener on Context=com.example.boticario_ai.MainActivity@5d22041, of which baseContext=android.app.ContextImpl@f5292c3
+10-18 18:56:17.810 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:18.797 D/InsetsController( 8662): hide(ime(), fromIme=false)
+10-18 18:56:18.797 I/ImeTracker( 8662): com.example.boticario_ai:2a1eafb6: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-18 18:56:19.422 D/ProfileInstaller( 8662): Installing profile for com.example.boticario_ai
+10-18 18:56:28.025 I/le.boticario_ai( 8662): NativeAlloc concurrent mark compact GC freed 2191KB AllocSpace bytes, 4(76KB) LOS objects, 49% free, 2363KB/4727KB, paused 276us,2.479ms total 178.728ms
+10-18 18:56:36.771 I/flutter ( 8662): [Home] Explorar plantas y aceites
+10-18 18:56:37.564 I/Choreographer( 8662): Skipped 47 frames!  The application may be doing too much work on its main thread.
+10-18 18:56:37.582 I/le.boticario_ai( 8662): AssetManager2(0xb400007e6d6ffcb8) locale list changing from [] to [en-US]
+10-18 18:56:51.182 I/ImeTracker( 8662): com.example.boticario_ai:21cbf8b0: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+10-18 18:56:51.231 D/InsetsController( 8662): show(ime(), fromIme=false)
+10-18 18:56:51.232 D/InsetsController( 8662): Setting requestedVisibleTypes to -1 (was -9)
+10-18 18:56:51.287 I/AssistStructure( 8662): Flattened final assist data: 428 bytes, containing 1 windows, 3 views
+10-18 18:56:51.359 D/InputConnectionAdaptor( 8662): The input method toggled cursor monitoring on
+10-18 18:56:52.066 W/InteractionJankMonitor( 8662): Initializing without READ_DEVICE_CONFIG permission. enabled=true, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.example.boticario_ai
+10-18 18:56:52.070 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:52.137 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:52.586 I/ImeTracker( 8662): com.example.boticario_ai:21cbf8b0: onShown
+10-18 18:56:52.587 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:52.591 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:56:53.188 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 122935, 497654576, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:56:53.188 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 122984, 630904954, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:03.450 I/ImeTracker( 8662): com.example.boticario_ai:e2dac142: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+10-18 18:57:03.450 D/InsetsController( 8662): hide(ime(), fromIme=false)
+10-18 18:57:03.450 W/WindowOnBackDispatcher( 8662): sendCancelIfRunning: isInProgress=false callback=android.view.ImeBackAnimationController@407aaf4
+10-18 18:57:03.450 D/InsetsController( 8662): Setting requestedVisibleTypes to -9 (was -1)
+10-18 18:57:03.450 D/CompatChangeReporter( 8662): Compat change id reported: 395521150; UID 10221; state: ENABLED
+10-18 18:57:03.459 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.493 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.507 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.524 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.541 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.558 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.574 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.591 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.609 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.624 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.642 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.657 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.675 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.691 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.694 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:03.700 W/RemoteInputConnectionImpl( 8662): requestCursorUpdates on inactive InputConnection
+10-18 18:57:03.726 I/ImeTracker( 8662): system_server:f30f878e: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed App frame:UNKNOWN: 3, 124245, 20768495, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:UNKNOWN: 3, 124245, 20768495, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124253, 10140038, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124275, 8867164, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124290, 9362581, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124327, 12821958, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124349, 9994125, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124364, 10774084, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124386, 8761251, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124401, 10001710, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124423, 9264211, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124438, 9987753, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 124460, 10257254, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:03.752 V/PerfettoTrigger( 8662): Triggering /system/bin/trigger_perfetto com.android.telemetry.interaction-jank-monitor-81
+10-18 18:57:17.516 I/ImeTracker( 8662): com.example.boticario_ai:1c034b75: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+10-18 18:57:17.516 D/InsetsController( 8662): show(ime(), fromIme=false)
+10-18 18:57:17.516 D/InsetsController( 8662): Setting requestedVisibleTypes to -1 (was -9)
+10-18 18:57:17.537 D/InputConnectionAdaptor( 8662): The input method toggled cursor monitoring on
+10-18 18:57:17.624 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.641 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.658 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.677 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.691 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.708 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.724 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.741 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.758 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.774 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.791 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.807 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.825 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.843 I/ImeTracker( 8662): com.example.boticario_ai:1c034b75: onShown
+10-18 18:57:17.844 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.844 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125057, 6724027, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125093, 7395444, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125122, 8003278, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125158, 9159862, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125187, 9871155, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125223, 8593197, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125252, 9926031, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125288, 10217782, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125317, 8828908, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125353, 9779242, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125375, 8565617, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125404, 9363618, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.902 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125426, 10723202, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 18:57:17.903 V/PerfettoTrigger( 8662): Triggering /system/bin/trigger_perfetto com.android.telemetry.interaction-jank-monitor-80
+10-18 18:57:21.500 I/ImeTracker( 8662): com.example.boticario_ai:bd2ce3b1: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+10-18 18:57:21.500 D/InsetsController( 8662): hide(ime(), fromIme=false)
+10-18 18:57:21.500 W/WindowOnBackDispatcher( 8662): sendCancelIfRunning: isInProgress=false callback=android.view.ImeBackAnimationController@407aaf4
+10-18 18:57:21.500 D/InsetsController( 8662): Setting requestedVisibleTypes to -9 (was -1)
+10-18 18:57:21.578 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.581 W/WindowOnBackDispatcher( 8662): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@91aacda
+10-18 18:57:21.598 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.608 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.624 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.641 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.657 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.674 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.691 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.708 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.724 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.741 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.758 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.775 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.791 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.792 D/FlutterJNI( 8662): Sending viewport metrics to the engine.
+10-18 18:57:21.825 I/ImeTracker( 8662): system_server:a7621357: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125909, 11984020, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125931, 9971604, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125960, 8606897, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 125982, 9759064, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126011, 9348648, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126033, 9651065, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126062, 8269483, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126084, 8892358, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126113, 8527567, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126135, 8109901, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126164, 9830152, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126186, 9403444, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 W/FrameTracker( 8662): Missed SF frame:JANK_COMPOSER, 126215, 9410987, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 18:57:21.854 V/PerfettoTrigger( 8662): Not triggering com.android.telemetry.interaction-jank-monitor-81 - not enough time since last trigger
+10-18 18:57:24.649 I/flutter ( 8662): [Home] Buscar por objetivo
+10-18 18:57:37.702 W/WindowOnBackDispatcher( 8662): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@91aacda
+10-18 18:57:48.562 I/flutter ( 8662): [Home] Explorar plantas y aceites
+10-18 18:57:48.729 I/le.boticario_ai( 8662): AssetManager2(0xb400007e6d723578) locale list changing from [] to [en-US]
+10-18 18:59:03.221 W/WindowOnBackDispatcher( 8662): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@91aacda
+10-18 18:59:06.189 I/flutter ( 8662): [Home] Buscar por objetivo
+10-18 18:59:12.684 W/WindowOnBackDispatcher( 8662): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@91aacda

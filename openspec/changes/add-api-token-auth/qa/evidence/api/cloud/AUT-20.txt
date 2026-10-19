@@ -1,0 +1,36 @@
+# AUT-20 Cabeceras Authorization duplicadas (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [inválida y luego válida]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 3da7bc533b8f632738924e2db8a00f07
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida y luego inválida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 5cb27fa0e56becebcec566dad3080351
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [inválida y luego inválida]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: fc08e45044c56f4aa844dc1381e56d6d
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

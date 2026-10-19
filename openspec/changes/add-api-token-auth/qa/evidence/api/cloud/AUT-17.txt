@@ -1,0 +1,11 @@
+# AUT-17 Cuerpo y cabeceras idénticos entre rechazos (objetivo: cloud)
+
+Cuerpo común:
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+Cabeceras comunes:
+content-type: application/problem+json
+www-authenticate: Bearer
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close

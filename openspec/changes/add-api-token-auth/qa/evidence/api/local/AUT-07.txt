@@ -1,0 +1,28 @@
+# AUT-07 Prefijos del token válido (objetivo: local)
+
+### GET /v1/plants?limit=2   [Bearer <primeros 63 caracteres del válido>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Bearer <primeros 32 caracteres del válido>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Bearer <primeros 1 caracteres del válido>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

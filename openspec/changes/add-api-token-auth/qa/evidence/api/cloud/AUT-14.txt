@@ -1,0 +1,60 @@
+# AUT-14 Escrituras con token (objetivo: cloud)
+
+### POST /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+x-cloud-trace-context: fab1e12f0d51153f87ba589f4ceea1a2
+server: Google Frontend
+content-length: 147
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### PUT /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+x-cloud-trace-context: 19495b760850fa170fb7df285d6c668e
+server: Google Frontend
+content-length: 147
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### PATCH /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+x-cloud-trace-context: c7da81e662eb29ad8efba0376ae381ed
+server: Google Frontend
+content-length: 147
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### DELETE /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+x-cloud-trace-context: 43cf28302d961ff28faf88d3a2911e74
+server: Google Frontend
+content-length: 147
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Bearer <válido>]
+status=200
+content-type: application/json
+x-cloud-trace-context: 248d62a20ccb1eff11775733c30175dd
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}

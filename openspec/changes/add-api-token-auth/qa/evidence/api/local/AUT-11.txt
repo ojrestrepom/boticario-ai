@@ -1,0 +1,27 @@
+# AUT-11 Ruta inexistente (objetivo: local)
+
+### GET /v1/no-existe   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 132
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/no-existe"}
+
+### GET /v1/no-existe   [Bearer <válido>]
+status=404
+content-type: application/problem+json
+content-length: 125
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/no-existe"}
+
+### GET /v1/a%22b   [sin Authorization, ruta con comillas codificadas]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 128
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/a%22b"}

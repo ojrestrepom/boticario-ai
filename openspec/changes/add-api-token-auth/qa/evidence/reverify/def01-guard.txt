@@ -1,0 +1,18 @@
+## DEF-01: guarda del paso 7 (solo la línea de la guarda; el gcloud services enable del mismo bloque es una escritura y no se ejecutó)
+-- bash, SECRET_NAME vacía (sin definir)
+/private/tmp/claude-501/-Users-jsrc1115-Code-boticario-ai/4ddab13b-6789-4d5d-8a32-311afde5ae3e/scratchpad/rev/guard1.sh: line 1: SECRET_NAME: define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example
+exit=1
+-- bash, SECRET_NAME="" (definida vacía)
+/private/tmp/claude-501/-Users-jsrc1115-Code-boticario-ai/4ddab13b-6789-4d5d-8a32-311afde5ae3e/scratchpad/rev/guard1.sh: line 1: SECRET_NAME: define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example
+exit=1
+-- bash, SECRET_NAME definida
+exit=0
+-- zsh, SECRET_NAME vacía (sin definir)
+/private/tmp/claude-501/-Users-jsrc1115-Code-boticario-ai/4ddab13b-6789-4d5d-8a32-311afde5ae3e/scratchpad/rev/guard1.sh:1: SECRET_NAME: define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example
+exit=1
+-- zsh, SECRET_NAME="" (definida vacía)
+/private/tmp/claude-501/-Users-jsrc1115-Code-boticario-ai/4ddab13b-6789-4d5d-8a32-311afde5ae3e/scratchpad/rev/guard1.sh:1: SECRET_NAME: define SECRET_NAME en .env.cloud-run; ver .env.cloud-run.example
+exit=1
+-- zsh, SECRET_NAME definida
+exit=0
+URL: https://boticario-api-d3xv5q3iaa-pv.a.run.app longitud del token: 64

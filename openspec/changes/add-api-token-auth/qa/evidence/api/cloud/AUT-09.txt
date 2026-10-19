@@ -1,0 +1,49 @@
+# AUT-09 Esquema distinto (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [Basic <base64>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: e7b1f0f1a3317cc53184e310116c53c8
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [token sin esquema]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 7a40464c0efdeacb51cf12b05d831eee
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Token <válido>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 0d8c1e1990aa450a41731dd1ba3efd29
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Bearer<válido> pegado]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: c9c4dd9eb508e793afb85f5223c3f1ff
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

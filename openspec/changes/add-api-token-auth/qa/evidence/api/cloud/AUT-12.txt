@@ -1,0 +1,47 @@
+# AUT-12 Raíz del prefijo (objetivo: cloud)
+
+### GET /v1   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: c6ef1ac30d854b50c504a134e3764c03
+server: Google Frontend
+content-length: 122
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1"}
+
+### GET /v1   [Bearer <válido>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 6461b9e9c3c4bcd9033c97e7443c3a2e
+server: Google Frontend
+content-length: 115
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1"}
+
+### GET /v1/   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: d1fcd4f3e97d05c76f39ee469fa942c3
+server: Google Frontend
+content-length: 123
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/"}
+
+### GET /v1/   [Bearer <válido>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: e0d6871dcd039d4e7933f5d1d472265b
+server: Google Frontend
+content-length: 116
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/"}

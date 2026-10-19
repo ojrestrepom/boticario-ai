@@ -1,0 +1,7 @@
+# CON-07
+
+Config.Env: ["PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","HOST=0.0.0.0","PORT=8080","CATALOG_DB=/app/catalog.db","RUST_LOG=info"]
+
+PASS la imagen no define API_TOKENS
+PASS docker history sin API_TOKENS con valor ni tokens locales
+PASS 0 archivos del sistema de archivos de la imagen contienen un token local

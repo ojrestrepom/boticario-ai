@@ -1,0 +1,47 @@
+# AUT-24 Errores del contrato con token (objetivo: cloud)
+
+### GET /v1/plants?limit=abc   [Bearer <válido>]
+status=400
+content-type: application/problem+json
+x-cloud-trace-context: d08dceefe3d01c5eb8aca9683d3faff2
+server: Google Frontend
+content-length: 133
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Bad Request","status":400,"detail":"limit debe ser un entero","instance":"/v1/plants","param":"limit"}
+
+### GET /v1/plants/no-existe   [Bearer <válido>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 9fa45f3079a90417f462beb4563ca7f4
+server: Google Frontend
+content-length: 143
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"no existe una planta con ese identificador","instance":"/v1/plants/no-existe"}
+
+### GET /v1/plants?limit=abc   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 536d826fd7d3b81dc65347d778fdab5a
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants/no-existe   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 7a477b5254a7d726fdc393f0253403d6
+server: Google Frontend
+content-length: 139
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/no-existe"}

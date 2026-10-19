@@ -1,0 +1,10 @@
+miembro -> rol (los correos de usuario se sustituyen por <propietario>)
+serviceAccount:177181505486-compute@developer.gserviceaccount.com -> roles/editor
+serviceAccount:boticario-deployer@boticario-ai.iam.gserviceaccount.com -> roles/run.admin
+serviceAccount:service-177181505486@containerregistry.iam.gserviceaccount.com -> roles/containerregistry.ServiceAgent
+serviceAccount:service-177181505486@gcp-sa-artifactregistry.iam.gserviceaccount.com -> roles/artifactregistry.serviceAgent
+serviceAccount:service-177181505486@gcp-sa-pubsub.iam.gserviceaccount.com -> roles/pubsub.serviceAgent
+serviceAccount:service-177181505486@serverless-robot-prod.iam.gserviceaccount.com -> roles/run.serviceAgent
+user:<propietario> -> roles/owner
+
+roles de boticario-runtime en el proyecto: []

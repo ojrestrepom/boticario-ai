@@ -1,0 +1,17 @@
+# CFG-02
+
+$ API_TOKENS <vacía>
+exit=2
+error de configuración: API_TOKENS es obligatoria para servir la API; define uno o más tokens separados por comas
+
+PASS vacía: código 2 y mensaje con API_TOKENS
+$ API_TOKENS <solo espacios>
+exit=2
+error de configuración: API_TOKENS está vacía; define uno o más tokens separados por comas
+
+PASS solo espacios: código 2 y mensaje con API_TOKENS
+$ API_TOKENS <solo salto de línea>
+exit=2
+error de configuración: API_TOKENS está vacía; define uno o más tokens separados por comas
+
+PASS solo salto de línea: código 2 y mensaje con API_TOKENS

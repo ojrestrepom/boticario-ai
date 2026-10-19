@@ -1,0 +1,12 @@
+APP-16: búsqueda de tokens en el repositorio (archivos versionados, git grep -F; solo conteos)
+TOKEN_APP: 0 archivos versionados
+TOKEN_CI: 0 archivos versionados
+TOKEN_LOCAL_1: 0 archivos versionados
+TOKEN_LOCAL_2: 0 archivos versionados
+TOKEN_LOCAL_3: 0 archivos versionados
+
+Líneas con API_TOKEN y un literal de 20 o más caracteres en el código Dart (se espera solo el valor ficticio):
+
+Valores ficticios marcados en el código Dart (archivo:línea, valor recortado):
+app/test/support/fake_catalog_api.dart:40:const testApiToken = 'test-token-not-a-secret-000000000000';
+total de archivos Dart con API_TOKEN: 3

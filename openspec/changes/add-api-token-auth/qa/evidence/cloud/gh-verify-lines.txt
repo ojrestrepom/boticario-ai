@@ -1,0 +1,9 @@
+2026-10-18T23:41:47.2201174Z ^[[36;1mif [ -z "${API_VERIFY_TOKEN}" ]; then^[[0m
+2026-10-18T23:41:47.2202146Z ^[[36;1m  echo "::error::Falta el secreto de GitHub API_VERIFY_TOKEN (un token de CI de los que contiene boticario-api-tokens); ver docs/deploy/cloud-run.md"^[[0m
+2026-10-18T23:41:47.2210114Z ^[[36;1mprintf 'Authorization: ***' "$API_VERIFY_TOKEN" |^[[0m
+2026-10-18T23:41:47.2217775Z ^[[36;1mecho "Servicio disponible en ${SERVICE_URL}"^[[0m
+2026-10-18T23:41:47.2530907Z   API_VERIFY_TOKEN: ***
+2026-10-18T23:41:47.4464318Z GET /health -> 200
+2026-10-18T23:41:47.6618683Z GET /v1/plants/lavandula-angustifolia -> 200
+2026-10-18T23:41:47.8419405Z GET /v1/plants/lavandula-angustifolia (sin token) -> 401
+2026-10-18T23:41:47.8432102Z Servicio disponible en https://boticario-api-d3xv5q3iaa-pv.a.run.app

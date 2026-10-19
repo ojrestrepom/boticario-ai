@@ -1,0 +1,70 @@
+--------- beginning of main
+10-18 19:06:17.631 I/le.boticario_ai( 8827): Using CollectorTypeCMC GC.
+10-18 19:06:17.646 E/le.boticario_ai( 8827): Not starting debugger since process cannot load the jdwp agent.
+10-18 19:06:17.652 D/nativeloader( 8827): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-18 19:06:17.942 D/ApplicationLoaders( 8827): Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+10-18 19:06:17.942 D/ApplicationLoaders( 8827): Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+10-18 19:06:18.207 D/nativeloader( 8827): Configuring clns-9 for other apk /data/app/~~jOvQk-WpP4DEZROFpZtS4w==/com.example.boticario_ai-Q4Rg9tNlXtnc-cW6UHxVXQ==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~jOvQk-WpP4DEZROFpZtS4w==/com.example.boticario_ai-Q4Rg9tNlXtnc-cW6UHxVXQ==/lib/arm64:/data/app/~~jOvQk-WpP4DEZROFpZtS4w==/com.example.boticario_ai-Q4Rg9tNlXtnc-cW6UHxVXQ==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.example.boticario_ai
+10-18 19:06:18.210 I/le.boticario_ai( 8827): AssetManager2(0xb400007e6d6d0238) locale list changing from [] to [en-US]
+10-18 19:06:18.239 V/GraphicsEnvironment( 8827): Currently set values for:
+10-18 19:06:18.239 V/GraphicsEnvironment( 8827):   angle_gl_driver_selection_pkgs=[]
+10-18 19:06:18.239 V/GraphicsEnvironment( 8827):   angle_gl_driver_selection_values=[]
+10-18 19:06:18.239 V/GraphicsEnvironment( 8827): com.example.boticario_ai is not listed in per-application setting
+10-18 19:06:18.239 V/GraphicsEnvironment( 8827): ANGLE allowlist from config: com.dreamgames.royalmatch com.dts.freefiremax com.dxx.firenow com.gramgames.mergedragons com.ludo.king com.mojang.minecraftpe com.my.defense com.nintendo.zaka com.os.airforce com.playrix.fishdomdd.gplay io.teslatech.callbreak jp.konami.prospia net.peakgames.toonblast
+10-18 19:06:18.239 V/GraphicsEnvironment( 8827): com.example.boticario_ai is not listed in ANGLE allowlist or settings, returning default
+10-18 19:06:18.240 V/GraphicsEnvironment( 8827): Neither updatable production driver nor prerelease driver is supported.
+--------- beginning of system
+10-18 19:06:18.423 I/DisplayManager( 8827): Choreographer implicitly registered for the refresh rate.
+10-18 19:06:18.431 I/le.boticario_ai( 8827): AssetManager2(0xb400007e6d6d1b38) locale list changing from [] to [en-US]
+10-18 19:06:18.437 E/ashmem  ( 8827): Pinning is deprecated since Android Q. Please use trim or other methods.
+10-18 19:06:18.492 D/nativeloader( 8827): Load /data/app/~~jOvQk-WpP4DEZROFpZtS4w==/com.example.boticario_ai-Q4Rg9tNlXtnc-cW6UHxVXQ==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~jOvQk-WpP4DEZROFpZtS4w==/com.example.boticario_ai-Q4Rg9tNlXtnc-cW6UHxVXQ==/base.apk): ok
+10-18 19:06:18.500 D/skia    ( 8827): [SkFontMgr Android Parser] '/product/etc/fonts_customization.xml' could not be opened
+10-18 19:06:18.540 I/le.boticario_ai( 8827): AssetManager2(0xb400007e6d6d9b58) locale list changing from [] to [en-US]
+10-18 19:06:18.579 W/le.boticario_ai( 8827): type=1400 audit(0.0:369): avc:  denied  { read } for  name="max_map_count" dev="proc" ino=16940 scontext=u:r:untrusted_app:s0:c222,c256,c512,c768 tcontext=u:object_r:proc_max_map_count:s0 tclass=file permissive=0 app=com.example.boticario_ai
+10-18 19:06:18.627 D/DesktopModeFlags( 8827): Toggle override initialized to: OVERRIDE_UNSET
+10-18 19:06:18.660 I/EGL_emulation( 8827): Opening libGLESv1_CM_emulation.so
+10-18 19:06:18.660 I/EGL_emulation( 8827): Opening libGLESv2_emulation.so
+10-18 19:06:18.667 D/CompatChangeReporter( 8827): Compat change id reported: 377864165; UID 10222; state: ENABLED
+10-18 19:06:18.684 W/HWUI    ( 8827): Unknown dataspace 0
+10-18 19:06:18.693 W/HWUI    ( 8827): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-18 19:06:18.694 W/HWUI    ( 8827): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-18 19:06:18.712 I/flutter ( 8827): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+10-18 19:06:18.814 I/WindowExtensionsImpl( 8827): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+10-18 19:06:19.539 I/Choreographer( 8827): Skipped 42 frames!  The application may be doing too much work on its main thread.
+10-18 19:06:19.547 D/WindowLayoutComponentImpl( 8827): Register WindowLayoutInfoListener on Context=com.example.boticario_ai.MainActivity@fc860d1, of which baseContext=android.app.ContextImpl@da1390d
+10-18 19:06:20.132 D/InsetsController( 8827): hide(ime(), fromIme=false)
+10-18 19:06:20.132 I/ImeTracker( 8827): com.example.boticario_ai:c36660f9: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-18 19:06:24.169 D/ProfileInstaller( 8827): Installing profile for com.example.boticario_ai
+10-18 19:06:28.687 I/le.boticario_ai( 8827): AssetManager2(0xb400007e6d6f2518) locale list changing from [] to [en-US]
+10-18 19:06:36.437 I/ImeTracker( 8827): com.example.boticario_ai:2e9cdf09: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+10-18 19:06:36.440 D/InsetsController( 8827): show(ime(), fromIme=false)
+10-18 19:06:36.441 D/InsetsController( 8827): Setting requestedVisibleTypes to -1 (was -9)
+10-18 19:06:36.462 I/AssistStructure( 8827): Flattened final assist data: 428 bytes, containing 1 windows, 3 views
+10-18 19:06:36.776 I/le.boticario_ai( 8827): NativeAlloc concurrent mark compact GC freed 1935KB AllocSpace bytes, 0(0B) LOS objects, 49% free, 1997KB/3994KB, paused 94us,20.845ms total 195.148ms
+10-18 19:06:37.027 W/InteractionJankMonitor( 8827): Initializing without READ_DEVICE_CONFIG permission. enabled=true, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.example.boticario_ai
+10-18 19:06:37.285 I/ImeTracker( 8827): com.example.boticario_ai:2e9cdf09: onShown
+10-18 19:06:37.597 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 138354, 151301119, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 19:06:37.598 W/FrameTracker( 8827): Missed App frame:UNKNOWN: 3, 138375, 227931538, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 19:06:37.599 W/FrameTracker( 8827): Missed SF frame:UNKNOWN: 3, 138375, 227931538, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 19:06:37.599 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 138418, 146351958, CUJ=J<IME_INSETS_SHOW_ANIMATION::0@1@com.example.boticario_ai>
+10-18 19:06:37.666 V/PerfettoTrigger( 8827): Triggering /system/bin/trigger_perfetto com.android.telemetry.interaction-jank-monitor-80
+10-18 19:06:45.323 I/ImeTracker( 8827): com.example.boticario_ai:939d401d: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT fromUser false
+10-18 19:06:45.323 D/InsetsController( 8827): hide(ime(), fromIme=false)
+10-18 19:06:45.323 W/WindowOnBackDispatcher( 8827): sendCancelIfRunning: isInProgress=false callback=android.view.ImeBackAnimationController@8d4f8ef
+10-18 19:06:45.324 D/InsetsController( 8827): Setting requestedVisibleTypes to -9 (was -1)
+10-18 19:06:45.324 D/CompatChangeReporter( 8827): Compat change id reported: 395521150; UID 10222; state: ENABLED
+10-18 19:06:45.579 I/ImeTracker( 8827): system_server:4d0b0034: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 138935, 11866498, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 138950, 10281873, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 138972, 8447499, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 138987, 9389791, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139009, 9186042, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139024, 9272168, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139046, 10074502, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139068, 9874627, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139083, 7720503, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139105, 9548045, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139120, 8005254, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139142, 8139338, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 W/FrameTracker( 8827): Missed SF frame:JANK_COMPOSER, 139157, 9375672, CUJ=J<IME_INSETS_HIDE_ANIMATION::1@1@com.example.boticario_ai>
+10-18 19:06:45.606 V/PerfettoTrigger( 8827): Triggering /system/bin/trigger_perfetto com.android.telemetry.interaction-jank-monitor-81

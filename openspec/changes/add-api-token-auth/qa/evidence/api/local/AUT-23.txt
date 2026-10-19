@@ -1,0 +1,359 @@
+# AUT-23 Evasión de ruta (objetivo: local)
+
+### GET /V1/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 122
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/V1/plants"}
+
+### GET /V1/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 122
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/V1/plants"}
+
+### GET /v1X   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 116
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1X"}
+
+### GET /v1X   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 116
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1X"}
+
+### GET /v1x/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 123
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1x/plants"}
+
+### GET /v1x/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 123
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1x/plants"}
+
+### GET //v1/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 123
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"//v1/plants"}
+
+### GET //v1/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 123
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"//v1/plants"}
+
+### GET /x/../v1/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 127
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/x/../v1/plants"}
+
+### GET /x/../v1/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 127
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/x/../v1/plants"}
+
+### GET /./v1/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 124
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/./v1/plants"}
+
+### GET /./v1/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 124
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/./v1/plants"}
+
+### GET /v1/./plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 131
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/./plants"}
+
+### GET /v1/./plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 131
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/./plants"}
+
+### GET /%76%31/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 126
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/%76%31/plants"}
+
+### GET /%76%31/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 126
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/%76%31/plants"}
+
+### GET /v1%2Fplants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 124
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1%2Fplants"}
+
+### GET /v1%2Fplants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 124
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1%2Fplants"}
+
+### GET /v1/plants/   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 130
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/"}
+
+### GET /v1/plants/   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 130
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/"}
+
+### GET /v1;a/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 124
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1;a/plants"}
+
+### GET /v1;a/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 124
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1;a/plants"}
+
+### GET /v1/plants;a=1   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 133
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants;a=1"}
+
+### GET /v1/plants;a=1   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 133
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants;a=1"}
+
+### GET /v1/plants%00   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 132
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%00"}
+
+### GET /v1/plants%00   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 132
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%00"}
+
+### GET /v1/plants/..;/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 140
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/..;/plants"}
+
+### GET /v1/plants/..;/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 140
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/..;/plants"}
+
+### GET /v1/plants#x   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants#x   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/%2e%2e/v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 139
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/%2e%2e/v1/plants"}
+
+### GET /v1/%2e%2e/v1/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 139
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/%2e%2e/v1/plants"}
+
+### GET /v1/plants%2F   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 132
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%2F"}
+
+### GET /v1/plants%2F   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 132
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%2F"}
+
+### GET /v1/%70lants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 131
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/%70lants"}
+
+### GET /v1/%70lants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 131
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/%70lants"}
+
+### GET /v1/plants?%00   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?%00   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://localhost/v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://localhost/v1/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://localhost//v1/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+content-length: 123
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"//v1/plants"}
+
+### GET http://localhost//v1/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+content-length: 123
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"//v1/plants"}

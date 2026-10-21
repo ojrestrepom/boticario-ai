@@ -14,6 +14,8 @@ from .ema_pdf import DEFAULT_DELAY, EmaPdfStep, pin_ema_pdfs
 from .goals import DEFAULT_GOALS_CATALOG, DEFAULT_GOALS_MAP, DEFAULT_SEED_DIR, load_goals_catalog, load_goals_map
 from .schema import DEFAULT_RECORD_SCHEMA, load_schema
 from .seed import DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, read_prompt_version, schema_version, seal
+from .resolve_universe import DEFAULT_CATALOG_DB, DEFAULT_TAXONOMY_DB, DEFAULT_UNIVERSE_DIR, run_resolve
+from .taxonomy import UniverseError
 from .validate import validate_directory
 from .wiki import SERVICES, make_step, read_entries
 from .sources import DEFAULT_CACHE_DIR, DEFAULT_SOURCES_FILE, SourceError, load_sources
@@ -47,6 +49,12 @@ def build_parser():
     report = commands.add_parser("safety-report", help="clasifica con el mapa de seguridad las filas extraídas y muestra la cobertura")
     report.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de las extracciones")
     report.add_argument("--map", default=str(DEFAULT_SAFETY_MAP), help="mapa de seguridad")
+    resolve = commands.add_parser("resolve", help="resuelve los nombres de USDA y de la EMA y escribe el universo de plantas en data/work/universe/")
+    resolve.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de las extracciones")
+    resolve.add_argument("--taxonomy-db", default=str(DEFAULT_TAXONOMY_DB), help="índice de WCVP y WFO (se recrea si falta o cambian los checksums)")
+    resolve.add_argument("--out-dir", default=str(DEFAULT_UNIVERSE_DIR), help="directorio de salida (universe.json, report.json, report.md)")
+    resolve.add_argument("--catalog-db", default=str(DEFAULT_CATALOG_DB), help="catalog.db con los IDs actuales, solo para comparar (opcional)")
+    resolve.add_argument("--rebuild-index", action="store_true", help="recrea el índice aunque esté vigente")
     validate = commands.add_parser("validate", help="valida los registros de la semilla contra sus paquetes")
     validate.add_argument("--records", default=str(DEFAULT_SEED_DIR / "plants"), help="directorio de registros (por defecto data/seed/plants)")
     validate.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes (por defecto data/work/bundles)")
@@ -85,6 +93,18 @@ def run_validate(args):
             json.dump(report, handle, indent=2, ensure_ascii=False)
             handle.write("\n")
     return 1 if summary["errors"] else 0
+
+
+def run_resolve_command(args):
+    sources = load_sources(args.sources)
+    try:
+        _, report = run_resolve(sources, args.cache_dir, args.db, args.taxonomy_db, args.out_dir,
+                                catalog_db=args.catalog_db, force_index=args.rebuild_index)
+    except UniverseError as error:
+        print("error: %s" % error, file=sys.stderr)
+        return 1
+    failed = report["checks"]["duplicate_ids"] or not report["checks"]["lavandula-angustifolia"]
+    return 1 if failed else 0
 
 
 def run_plan(args):
@@ -193,6 +213,8 @@ def main(argv=None):
             return run_safety_report(args)
         if args.command == "extract":
             return run_extract_command(args)
+        if args.command == "resolve":
+            return run_resolve_command(args)
         if args.command == "validate":
             return run_validate(args)
         if args.command == "plan":

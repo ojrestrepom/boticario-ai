@@ -16,7 +16,7 @@ Con el entorno creado, esos comandos se ejecutan con `tools/catalog-seed/.venv/b
 ## Estructura
 
 - `cli.py`: punto de entrada de línea de comandos.
-- `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `workdb.py`, `usda_extract.py`, `tppt_extract.py`, `efsa_extract.py`, `ema_extract.py`, `pdf_sections.py` y `extract.py` extraen las fuentes al formato intermedio; `ema_pdf.py` descarga los PDF de la EMA; `safety.py` y `safety_report.py` aplican el mapa de seguridad; `cli.py` define los comandos).
+- `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `workdb.py`, `usda_extract.py`, `tppt_extract.py`, `efsa_extract.py`, `ema_extract.py`, `pdf_sections.py` y `extract.py` extraen las fuentes al formato intermedio; `ema_pdf.py` descarga los PDF de la EMA; `safety.py` y `safety_report.py` aplican el mapa de seguridad; `taxonomy/` es el resolvedor taxonómico y `resolve_universe.py` el comando `resolve`; `cli.py` define los comandos).
 - `sources.json`: registro de fuentes.
 - `schema/record.schema.json`: esquema JSON del registro v1.
 - `safety-map.json`: mapa de seguridad versionado (niveles por fuente y categoría).
@@ -41,6 +41,7 @@ python3 -I tools/catalog-seed/cli.py ema-pdf --status
 python3 -I tools/catalog-seed/cli.py extract
 tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py extract --source efsa --source ema_pdf
 tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py safety-report
+python3 -I tools/catalog-seed/cli.py resolve
 python3 -I tools/catalog-seed/cli.py validate --records data/seed/plants --bundles data/work/bundles
 python3 -I tools/catalog-seed/cli.py plan --bundles data/work/bundles --seed data/seed
 python3 -I tools/catalog-seed/cli.py seal --seed data/seed
@@ -52,6 +53,7 @@ python3 -I tools/catalog-seed/cli.py seal --seed data/seed
 - `pin --source <id>` fija el snapshot de una fuente declarada con `size` y `checksum` en `null` (véase «Fijar un snapshot»).
 - `fetch --service <wikidata|wikipedia_es|commons> --input <archivo>` consulta lo pendiente de esos servicios (véase «Wikidata, Wikipedia en español y Commons»).
 - `ema-pdf` descarga las páginas y los PDF de la EMA (véase «PDF de la EMA»); `extract [--source <id>]` escribe las filas normalizadas de USDA, la EMA, TPPT y EFSA en `data/work/sources.db` (véase «Extracción y formato intermedio»); `safety-report` muestra la clasificación del mapa de seguridad sobre esas filas (véase «Mapa de seguridad»).
+- `resolve` resuelve los nombres de USDA y la EMA y escribe el universo en `data/work/universe/` (véase «Resolvedor taxonómico y universo»).
 - `validate`, `plan` y `seal` trabajan con la semilla y los paquetes (véanse «Validador», «Plan de regeneración» y «Sellado y manifiesto»).
 - `--source <id>` limita el comando a una fuente y se puede repetir.
 - `--sources <ruta>` y `--cache-dir <ruta>` cambian el archivo de fuentes y la caché (útil en pruebas).
@@ -331,6 +333,80 @@ El verificador (`catalog_seed/sources.py`) rechaza cualquier fuente que no esté
 
 - Admitidas: `usda`, `wcvp`, `wfo`, `ema_json`, `ema_pdf`, `tppt`, `efsa`, `wikidata`, `wikipedia_es` y `commons`.
 - Descartadas (mensaje específico): AromaDb, EssOilDB, sCentInDB, FDA PPDB, Comisión E, OMS/WHO, NHPID, iNaturalist y DrugBank.
+
+## Resolvedor taxonómico y universo (tareas 2.1 a 2.6)
+
+El paquete `catalog_seed/taxonomy/` resuelve nombres científicos al aceptado de WCVP (con WFO de respaldo) y arma el universo de plantas. Es biblioteca estándar de Python 3.9 y no usa la red.
+
+### Normalización (`names.py`)
+
+- `parse_name` normaliza a NFC y separa género, especie, rango y epíteto infraespecífico, autor y autor de la especie. Decodifica entidades HTML, reconoce el rango canónico (`subsp.`, `var.`, `f.`, ...) y se queda con el último marcador, separa marcadores pegados al epíteto y el autor pegado al epíteto (`Lavandula roseaL.`), completa los trinomios sin marcador, reconoce los autónimos y descarta cultivares entre comillas o con `cv.`.
+- Un híbrido (`×`, `x` o `+`) es una marca del nombre, no parte de la clave. `aggr.`, `s.l.` y `s.str.` también quedan como marca. `sp`/`spp` y los nombres de un solo término son «solo género» y no se buscan.
+- Las claves de búsqueda son `key_full` (género, especie, rango y epíteto infraespecífico, en minúsculas) y `key_binomial`. Al cargar el índice se aplican las mismas reglas a WCVP y WFO, así que las dos claves coinciden.
+- `split_source_names` separa una celda con varios nombres: por `;` y por coma cuando lo que sigue parece otro nombre, expande los géneros abreviados de la EMA (`C. laevigata`), quita `syn.` y descarta los fragmentos `Combination: ...` y los de menos de 4 caracteres.
+
+### Índice (`index.py`)
+
+`build_index` carga en `data/work/taxonomy.db` (unos 1 GB, unos 25 s) los nombres y la distribución de WCVP y la clasificación de WFO. Descarta las filas de rango superior a especie y las de epíteto no interpretable (WCVP: 42.142 de género o incompleta y 13 de epíteto inválido; WFO: 57.249 de rango superior o incompleta y 29 de epíteto inválido). Queda con 1.406.829 nombres de WCVP, 1.995.338 filas de distribución y 1.606.736 nombres de WFO. El metadato del índice guarda la versión del formato y el checksum de WCVP y de WFO con que se hizo. `Backbone` lee un backbone de solo lectura: `lookup(key_full)`, `get(id)`, `synonyms(id)` y `distribution(id)`. Cada fila lleva estado, aceptado, `homotypic` (solo WCVP), basiónimo, familia y rango.
+
+### Resolución (`resolver.py`)
+
+- `resolve` busca la clave completa y, si no hay candidatos, la clave de reserva de los autónimos y después el binomio (marca `fallback_binomial`). Cada candidato sigue su cadena de aceptados hasta un nombre aceptado.
+- Prioridad por estado: aceptado, luego sinónimo, luego ilegítimo, inválido u ortográfico con aceptado, luego mal aplicado. Los nombres sin aceptado utilizable quedan `unresolved`.
+- Desempate por autor: se compara apellido por apellido, el basiónimo con el basiónimo y la combinación con la combinación, con prefijo de 3 letras y `L.` igual a `Linnaeus`; el puntaje debe ser 0,5 o más. Si varios candidatos empatan en estado y apuntan a aceptados distintos, el nombre es `ambiguous` y no se fusiona con ninguno. Un sinónimo con otro candidato hacia un aceptado distinto también es ambiguo salvo que el autor desempate.
+- `resolve_name` aplica WCVP primero. Si WCVP no encuentra el nombre, prueba las variantes ortográficas del epíteto (`-ii`/`-i`, `-us`/`-a`/`-um`, `ph`/`f`, ...), que se aceptan solo si todas dan el mismo aceptado y quedan marcadas `orthographic_variant`. Si WCVP sigue sin resolver (no encontrado, ambiguo o sin aceptado) y WFO da un único aceptado, se usa el de WFO con la marca `wfo_fallback`. Si los dos resuelven pero aceptan nombres distintos, se conserva el de WCVP con `backbone_disagreement`. Nunca se mezclan IDs de los dos backbones: `backbone` dice cuál dio el resultado.
+
+### Universo, colisiones, IDs y alias (`universe.py`, `ids.py`)
+
+- `build_universe` resuelve las entradas y agrupa las que llegan al mismo aceptado. Solo se fusionan el propio aceptado y sus sinónimos homotípicos (`homotypic_synonym` verdadero en WCVP o mismo basiónimo). Cada grupo de sinónimos heterotípicos que son homotípicos entre sí es una planta propia, con el ID y el nombre de su mejor fila (el basiónimo si está en el grupo) y los flags `split_group` y `grupo-partido`. Un grupo sin el propio aceptado ni homotípicos, con un solo grupo heterotípico, no se parte: queda con el aceptado.
+- Las entradas sin resolver (ambiguas, sin resolver o solo género) son plantas con la identidad de la fuente, con flags `homonym_unresolved`, `unresolved`/`unmatched` o `genus_only`.
+- El ID es `plant_slug` del nombre aceptado de WCVP (`×` y `+` como `x`, `-` como separador). Si dos plantas terminan con el mismo ID, `build_universe` lanza `UniverseError` y el comando falla sin escribir nada.
+- Los alias son el slug del nombre literal de cada entrada (el `TAXON` de USDA) cuando difiere del ID. Se descartan los que igualan el ID de otra planta y los que quedarían en dos plantas (`Universe.discarded_aliases`).
+- `Universe.assign(nombre, autor)` asigna una fila de uso o de otra fuente a una planta. En un grupo partido el orden es: misma clave de nombre, miembro homotípico con el mismo basiónimo, miembro que es el propio aceptado y, si ninguno aplica, queda sin asignar (`Universe.unassigned`) y marca el grupo con `unassigned_rows`. Las tareas 3.2 y 3.5 la usarán para repartir usos y filas de TPPT, EFSA y EMA.
+
+### Comando `resolve`
+
+```sh
+python3 -I tools/catalog-seed/cli.py resolve
+```
+
+- Entradas: cada `usda_taxon` de `data/work/sources.db` (nombre = `TAXON`, autor = `TAXAUTHOR`) y cada especie de las fichas de la EMA (`ema_herbal`, celda `botanical_name` separada con `split_source_names("ema", ...)`). Una especie de la EMA que ya está en USDA no crea una planta: se une a la que ya existe. Una especie que ningún nombre de USDA alcanza crea una planta nueva. Es el criterio por identidad resuelta, no por texto: si la EMA nombra un sinónimo heterotípico de una planta de USDA, el sinónimo es una planta propia con la regla de colisiones.
+- Combinaciones de la EMA: las fichas cuyo `botanical_name` es `Combination: ...` o está vacío no aportan especies, porque no tienen objetivos propios y sus especies ya están en monografías simples. La ficha fusionada `hyperici-herba` (marcada como combinación al deduplicar, pero formada por dos monografías simples, *Hypericum perforatum* y *Cimicifuga racemosa*) sí aporta las suyas. Son 7 fichas sin especies de las 204.
+- Índice: usa `data/work/taxonomy.db` si su metadato coincide con los checksums de WCVP y WFO de `sources.json`; si falta o cambió alguno, lo recrea desde la caché verificada (`require_verified_files`, sin red). `--rebuild-index` fuerza la recreación.
+- Salidas en `data/work/universe/` (`--out-dir`): `universe.json`, `report.json` y `report.md`. Compara los IDs con `data/build/catalog.db` si existe (`--catalog-db`), solo en lectura. Termina con código 1 si hay IDs repetidos o falta `lavandula-angustifolia`.
+- Las opciones `--db` y `--taxonomy-db` cambian el SQLite de las extracciones y la ubicación del índice.
+
+### Formato de `universe.json` (`catalog-universe/1`)
+
+- Raíz: `format`, `inputs` (`wcvp` y `wfo` con `<algoritmo>:<checksum>`, `usda` y `ema_json` con la versión de la extracción, `indexVersion`), `checks` (`duplicate_ids` y `lavandula-angustifolia`), `plantCount` y `plants`, ordenadas por `id`. No lleva fechas, así que la salida es determinista.
+- Planta: `id`, `name` (nombre aceptado o, en una identidad de la fuente, el nombre de la entrada), `author`, `kind`, `backbone` (`wcvp`, `wfo` o null), `acceptedId` y `matchedId` (IDs del backbone indicado; `matchedId` solo en plantas heterotípicas), `family`, `entries`, `aliases`, `flags`, `reviewFlags` y `collision`.
+- `kind`: `resolved` (el aceptado y sus homotípicos), `heterotypic` (planta propia de un grupo partido), `ambiguous`, `unresolved`, `unmatched` o `genus_only` (identidad de la fuente).
+- `entries`: una por entrada que llegó a la planta, con `source` (`usda` o `ema`), `key` (`usda:<FNFNUM>` o `ema:<slug de la ficha>#<n>`), `name`, `author`, `outcome` (resultado de la resolución), `matchedName` y `relation` (`aceptado`, `homotípico`, `heterotípico` o null si no resolvió). Las claves son las que usarán las tareas 3.2 y 3.5 para ubicar las filas de `sources.db`.
+- `flags`: marcas del resolvedor y del grupo (por ejemplo `wfo_fallback`, `orthographic_variant`, `backbone_disagreement`, `split_group`, `author_tiebreak`). `reviewFlags` son los flags de revisión en el formato del registro: `{code, target: "scientificName", message}` con los códigos `identidad-ambigua`, `solo-genero`, `sin-resolucion`, `respaldo-wfo`, `variante-ortografica`, `backbones-discrepan`, `grupo-partido` y `filas-sin-asignar`.
+- `collision`: null, o `{acceptedName, members, split}` con los IDs de todas las plantas del grupo partido.
+
+`report.json` guarda las cifras, la comparación con los IDs actuales, las listas de revisión por motivo, los alias descartados y todos los grupos con varias entradas (`collision_groups`, con la relación y el resultado de cada miembro). `report.md` es la versión legible, con los grupos partidos y los fusionados por separado.
+
+### Resultado con los datos reales y diferencias con el piloto
+
+| Cifra | Piloto | Real |
+| --- | --- | --- |
+| Entradas de USDA resueltas con WCVP (de 2.376) | unas 2.125 | 2.125 por WCVP (más 44 por variante ortográfica y 14 por respaldo de WFO) |
+| Plantas | unas 2.411 | 2.414 (2.346 con entradas de USDA y 68 solo de la EMA) |
+| Homónimos ambiguos | unos 19 | 19 |
+| Sin resolver (USDA) | 164 | 112 tras variantes y respaldo (170 antes de ellos) |
+| Solo género | 62 o 63 | 62 de USDA, 63 plantas con la de la EMA |
+| IDs distintos de los actuales | unos 500 | 475 entre las plantas con entradas de USDA, 543 en todo el universo |
+| `lavandula-angustifolia` | presente | presente |
+| IDs repetidos | ninguno | ninguno |
+
+- Plantas por tipo: 2.144 `resolved`, 71 `heterotypic`, 19 `ambiguous`, 117 sin resolver, 63 solo género. Hay 522 alias en 515 plantas y 1 descartado (`cynara-cardunculus-subsp-cardunculus`, que es el ID de otra planta).
+- Contra los 2.376 IDs actuales de `data/build/catalog.db`: 1.871 se conservan como ID, 505 pasan a alias y ninguno se pierde.
+- El piloto cuenta 164 sin resolver; aquí quedan 112 de USDA después de rescatar 58 con variantes y respaldo de WFO (170 antes de rescatar). La diferencia de 6 no se pudo atribuir: la tarea 2.7 (contraste con el script del piloto) no se ha hecho. Lo mismo aplica a las 3 plantas de más.
+- 143 de las 2.633 entradas no resuelven (124 sin resolver, 19 ambiguas) y 63 son solo género. Entre las 8 de la EMA sin encontrar hay nombres mal escritos en la ficha (`Salvia fructicosa`, `Eschscholzia california`) y variantes que la lista de variantes no cubre (`Curcuma xanthorrhiza` frente a `zanthorrhiza` en WCVP, `Zizyphus` frente a `Ziziphus`, que es una variante de género).
+- Los fragmentos de la EMA que son sinónimos entre paréntesis (`(syn. Aloysia triphylla ...;Verbena triphylla ...;Lippia citriodora ...)`) o texto libre (`Salix [various species including S. purpurea L.`) entran como entradas propias y pueden crear plantas espurias (`lippia-citriodora`, `salix-various-species-including-s-purpurea-l`). Aparecen en las listas de revisión.
+- `backbone_disagreement`: 75 entradas. En 17 WCVP y WFO aceptan el mismo binomio y solo difieren en la variedad o subespecie (por eso la cifra parece inflada), y en 58 aceptan especies distintas (por ejemplo `Urginea maritima` es *Drimia maritima* en WCVP y *Squilla maritima* en WFO).
+- Grupos de colisión: 214 grupos reúnen varias entradas con el mismo aceptado, 52 se parten y los 52 tienen al menos un heterotípico partido. Hay 71 plantas `heterotypic`. `report.md` los lista con la relación de cada miembro y su resultado.
 
 ## Pruebas
 

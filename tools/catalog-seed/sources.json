@@ -10,6 +10,75 @@
       "size": 6033990,
       "checksum": {"algorithm": "md5", "value": "45ae44a0544586b8ac22a232beaac344"},
       "enabled": true
+    },
+    {
+      "id": "wcvp",
+      "version": "WCVP v16 (wcvp.zip, Kew SFTP; coincide con el piloto)",
+      "url": "https://sftp.kew.org/pub/data-repositories/WCVP/wcvp.zip",
+      "filename": "wcvp.zip",
+      "license": "CC BY 3.0",
+      "attribution": "Royal Botanic Gardens, Kew. World Checklist of Vascular Plants (WCVP), v16. https://powo.science.kew.org/",
+      "size": 88179649,
+      "checksum": {"algorithm": "sha256", "value": "d32ea2b3a85e489b14e83bcc9eae7274532e1d113753f7be290d4b2dfde573fa"},
+      "enabled": true
+    },
+    {
+      "id": "wfo",
+      "version": "World Flora Online Plant List 2026-06 (Zenodo 20782718, _DwC_backbone_R.zip)",
+      "url": "https://zenodo.org/api/records/20782718/files/_DwC_backbone_R.zip/content",
+      "filename": "_DwC_backbone_R.zip",
+      "license": "CC0",
+      "attribution": "World Flora Online (2026). WFO Plant List, June 2026. Zenodo. https://zenodo.org/records/20782718",
+      "size": 121660019,
+      "checksum": {"algorithm": "md5", "value": "0e4486945cd9f7af548ca87eb9a870ed"},
+      "enabled": true
+    },
+    {
+      "id": "ema_json",
+      "version": "Snapshot fijado el 2026-10-20, meta.timestamp 2026-10-20T18:00:54Z",
+      "url": "https://www.ema.europa.eu/en/documents/report/medicines-output-herbal_medicines-report-output-json_en.json",
+      "filename": "herbal_medicines.json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "attribution": "European Medicines Agency (EMA). Herbal medicines for human use. https://www.ema.europa.eu/",
+      "size": 202757,
+      "checksum": {"algorithm": "sha256", "value": "e2b19f2fe9114514d593940d77684d39ab9977d22cbccb8a54354db2c93eee17"},
+      "enabled": true
+    },
+    {
+      "id": "tppt",
+      "version": "Snapshot fijado el 2026-10-20: tppt-db.zip (SQLite, base tppt-db.db fechada 2026-05-11 en el ZIP)",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)",
+      "attribution": "Agroscope (Swiss Confederation). TPPT, Toxic Plants and Phytotoxins database. https://www.agroscope.admin.ch/",
+      "enabled": true,
+      "files": [
+        {
+          "url": "https://www.agroscope.admin.ch/dam/en/sd-web/NBRXfMO1Wj9m/tppt-db.zip",
+          "filename": "tppt-db.zip",
+          "size": 1188682,
+          "checksum": {"algorithm": "sha256", "value": "8c16c7c5f8032ddd20ebcbb06f35ed1d9fb94ee10a91bd1384cc504465a47b85"}
+        }
+      ]
+    },
+    {
+      "id": "efsa",
+      "version": "EFSA Compendium of Botanicals 2016 (Zenodo 996024, publicado 2016-07-05)",
+      "license": "CC BY 4.0",
+      "attribution": "EFSA (2016). EFSA's compendium of botanicals. Zenodo. https://doi.org/10.5281/zenodo.996024",
+      "enabled": true,
+      "files": [
+        {
+          "url": "https://zenodo.org/api/records/996024/files/BOTANIC.xls/content",
+          "filename": "BOTANIC.xls",
+          "size": 1297920,
+          "checksum": {"algorithm": "md5", "value": "5f906c745071266a3726421db6a0deb0"}
+        },
+        {
+          "url": "https://zenodo.org/api/records/996024/files/ENDPOINTSTUDY.xls/content",
+          "filename": "ENDPOINTSTUDY.xls",
+          "size": 468992,
+          "checksum": {"algorithm": "md5", "value": "d0c10ece17f726470b34cf2fe6d313e6"}
+        }
+      ]
     }
   ]
 }

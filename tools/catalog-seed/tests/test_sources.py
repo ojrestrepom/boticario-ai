@@ -60,6 +60,47 @@ class SourceListTests(unittest.TestCase):
         self.assertEqual(usda.checksum, "45ae44a0544586b8ac22a232beaac344")
         self.assertTrue(usda.enabled)
 
+    def test_shipped_sources_declare_all_phase_one_sources(self):
+        sources = {s.id: s for s in load_sources(DEFAULT_SOURCES_FILE)}
+        self.assertTrue({"usda", "wcvp", "wfo", "ema_json", "tppt", "efsa"} <= set(sources))
+        for source in sources.values():
+            self.assertTrue(source.pinned, source.id)
+        self.assertEqual(sources["wcvp"].size, 88179649)
+        self.assertEqual(sources["wfo"].checksum, "0e4486945cd9f7af548ca87eb9a870ed")
+        self.assertEqual([f.filename for f in sources["efsa"].files], ["BOTANIC.xls", "ENDPOINTSTUDY.xls"])
+        self.assertIn("meta.timestamp", sources["ema_json"].version)
+
+    def test_multi_file_source_is_valid_and_single_file_stays_compatible(self):
+        single = copy.deepcopy(make_source().data)
+        multi = {k: v for k, v in single.items() if k not in ("url", "filename", "size", "checksum")}
+        multi["files"] = [
+            {k: single[k] for k in ("url", "filename", "size", "checksum")},
+            dict({k: single[k] for k in ("url", "size", "checksum")}, filename="otro.zip")]
+        source = validate_source(multi)
+        self.assertEqual(len(source.files), 2)
+        self.assertEqual(validate_source(single).filename, "insumo.zip")
+
+    def test_files_and_single_file_fields_are_exclusive(self):
+        data = copy.deepcopy(make_source().data)
+        data["files"] = [{k: data[k] for k in ("url", "filename", "size", "checksum")}]
+        with self.assertRaises(SourceError):
+            validate_source(data)
+
+    def test_duplicate_filenames_in_files_are_rejected(self):
+        data = copy.deepcopy(make_source().data)
+        entry = {k: data.pop(k) for k in ("url", "filename", "size", "checksum")}
+        data["files"] = [entry, dict(entry)]
+        with self.assertRaises(SourceError):
+            validate_source(data)
+
+    def test_size_and_checksum_must_be_both_null_or_both_set(self):
+        data = copy.deepcopy(make_source().data)
+        data["checksum"] = None
+        with self.assertRaises(SourceError):
+            validate_source(data)
+        data["size"] = None
+        self.assertFalse(validate_source(data).pinned)
+
 
 if __name__ == "__main__":
     unittest.main()

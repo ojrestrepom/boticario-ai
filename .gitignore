@@ -67,5 +67,11 @@ node_modules/
 
 # Artefactos de datos y compilación del backend en Rust
 data/.cache/
+data/work/
 data/build/
 backend/target/
+
+# Entorno virtual de las herramientas del catálogo y cachés de Python
+tools/catalog-seed/.venv/
+__pycache__/
+*.pyc

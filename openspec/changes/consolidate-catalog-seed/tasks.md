@@ -4,12 +4,12 @@ Nota: las tareas 1 a 6 y 11 usan las herramientas de `tools/catalog-seed/` (Pyth
 
 ## 1. Fuentes y descargas
 
-- [ ] 1.1 Crear `tools/catalog-seed/` con un `README.md`, el módulo de configuración de fuentes (`sources.json`: identificador, versión o snapshot, URL, licencia, atribución, tamaño y checksum) y el comando `download` con caché en `data/.cache/` y verificación de checksum; verificar con pruebas de Python: insumo íntegro, alterado y ausente (la ausente falla indicando el paso de descarga y no abre la red).
+- [x] 1.1 Crear `tools/catalog-seed/` con un `README.md`, el módulo de configuración de fuentes (`sources.json`: identificador, versión o snapshot, URL, licencia, atribución, tamaño y checksum) y el comando `download` con caché en `data/.cache/` y verificación de checksum; verificar con pruebas de Python: insumo íntegro, alterado y ausente (la ausente falla indicando el paso de descarga y no abre la red).
 - [ ] 1.2 Declarar y descargar USDA (ZIP de figshare con tamaño 6.033.990 y MD5 `45ae44a0544586b8ac22a232beaac344`), WCVP v16 y WFO Plant List 2026-06; verificar con `download` que los tres checksums quedan registrados en `sources.json` y que una segunda ejecución no vuelve a descargar.
 - [ ] 1.3 Declarar y descargar la EMA (snapshot fijo con su `meta.timestamp`, deduplicado por URL: 204 fichas), TPPT de Agroscope (confirmar formato, categorías de toxicidad y términos de uso) y EFSA Compendium 2016 (Zenodo 996024); verificar contando 204 fichas de la EMA tras deduplicar y que el formato y las categorías de TPPT quedan anotados en el `README.md` de las herramientas.
 - [ ] 1.4 Implementar la descarga con límite de peticiones y reanudación para Wikidata (consulta SPARQL por lotes con POST, `User-Agent` identificable, `Retry-After` respetado, una respuesta por archivo en la caché), Wikipedia en español y metadatos de Commons; verificar con pruebas con un servidor falso: una respuesta 429 con `Retry-After` detiene el paso con estado de reanudación sin reintentar antes del plazo, y una segunda ejecución solo consulta lo pendiente.
-- [ ] 1.5 Añadir la lista de fuentes admitidas y la lista de descartadas (AromaDb, EssOilDB, sCentInDB, FDA PPDB, Comisión E, OMS, NHPID, iNaturalist, DrugBank) al verificador de fuentes; verificar con una prueba que una fuente fuera de la lista falla.
-- [ ] 1.6 Comprobar `.gitignore` y `.dockerignore`: `data/.cache/` y `data/work/` ignorados por Git y excluidos del contexto de Docker; verificar con `git check-ignore -v data/.cache/x data/work/x` y revisando el `.dockerignore`.
+- [x] 1.5 Añadir la lista de fuentes admitidas y la lista de descartadas (AromaDb, EssOilDB, sCentInDB, FDA PPDB, Comisión E, OMS, NHPID, iNaturalist, DrugBank) al verificador de fuentes; verificar con una prueba que una fuente fuera de la lista falla.
+- [x] 1.6 Comprobar `.gitignore` y `.dockerignore`: `data/.cache/` y `data/work/` ignorados por Git y excluidos del contexto de Docker; verificar con `git check-ignore -v data/.cache/x data/work/x` y revisando el `.dockerignore`.
 
 ## 2. Resolvedor taxonómico
 

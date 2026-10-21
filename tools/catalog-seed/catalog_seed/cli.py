@@ -1,9 +1,16 @@
 import argparse
 import json
 import sys
+import time
 
-from .download import download_source, pin_source, require_verified_files
-from .ema import describe_snapshot
+from .download import download_source, pin_source, require_verified, require_verified_files
+from .ema import dedupe_records, describe_snapshot, load_json, snapshot_timestamp
+from .extract import EXTRACTABLE, run_extract
+from . import workdb
+from .safety import DEFAULT_SAFETY_MAP, SafetyMapError, load_safety_map
+from .safety_report import format_report
+from .workdb import DEFAULT_DB
+from .ema_pdf import DEFAULT_DELAY, EmaPdfStep, pin_ema_pdfs
 from .goals import DEFAULT_GOALS_CATALOG, DEFAULT_GOALS_MAP, DEFAULT_SEED_DIR, load_goals_catalog, load_goals_map
 from .schema import DEFAULT_RECORD_SCHEMA, load_schema
 from .seed import DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, read_prompt_version, schema_version, seal
@@ -29,6 +36,17 @@ def build_parser():
     fetch.add_argument("--batch-size", type=int, help="entradas por petición (por defecto según el servicio)")
     fetch.add_argument("--delay", type=float, default=1.0, help="segundos entre peticiones (por defecto 1)")
     fetch.add_argument("--endpoint", help="URL del servicio (solo para pruebas)")
+    emapdf = commands.add_parser("ema-pdf", help="descarga las páginas y los PDF de la EMA con espera y reanudación, y registra los checksums en sources.json")
+    emapdf.add_argument("--delay", type=float, default=DEFAULT_DELAY, help="segundos entre peticiones (por defecto 15)")
+    emapdf.add_argument("--limit", type=int, help="máximo de peticiones en esta ejecución (para pruebas manuales)")
+    emapdf.add_argument("--wait", type=int, default=0, help="si hay límite de peticiones, espera hasta este número de segundos por ejecución y sigue (por defecto 0: se detiene)")
+    emapdf.add_argument("--status", action="store_true", help="solo imprime cuántos PDF hay descargados y pendientes; no abre la red")
+    extract = commands.add_parser("extract", help="extrae las filas normalizadas de una fuente a data/work/sources.db")
+    extract.add_argument("--source", action="append", choices=EXTRACTABLE, help="fuente a extraer (repetible; por defecto todas las activas)")
+    extract.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de salida (por defecto data/work/sources.db)")
+    report = commands.add_parser("safety-report", help="clasifica con el mapa de seguridad las filas extraídas y muestra la cobertura")
+    report.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de las extracciones")
+    report.add_argument("--map", default=str(DEFAULT_SAFETY_MAP), help="mapa de seguridad")
     validate = commands.add_parser("validate", help="valida los registros de la semilla contra sus paquetes")
     validate.add_argument("--records", default=str(DEFAULT_SEED_DIR / "plants"), help="directorio de registros (por defecto data/seed/plants)")
     validate.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes (por defecto data/work/bundles)")
@@ -87,6 +105,66 @@ def run_seal(args):
     return 0
 
 
+def _ema_records(args):
+    source = next((s for s in load_sources(args.sources) if s.id == "ema_json"), None)
+    if source is None:
+        raise SourceError("la fuente 'ema_json' no está declarada en %s" % args.sources)
+    return dedupe_records(load_json(require_verified(source, args.cache_dir)))
+
+
+def run_ema_pdf(args):
+    records = _ema_records(args)
+    step = EmaPdfStep(args.cache_dir, delay=args.delay)
+    if args.status:
+        print(json.dumps(dict(step.inventory(records), state=step.read_state()), indent=2, ensure_ascii=False))
+        return 0
+    waited = 0
+    while True:
+        result = step.run(records, limit=args.limit)
+        if result["status"] != "rate_limited" and result["status"] != "waiting":
+            break
+        wait = max(0, int(step.read_state().get("retry_not_before_epoch", 0) - time.time())) + 1
+        if waited + wait > args.wait:
+            break
+        print("límite de peticiones (%s); espera %d s" % (result["reason"], wait), flush=True)
+        time.sleep(wait)
+        waited += wait
+    added, total = pin_ema_pdfs(args.sources, records, args.cache_dir, version=_pdf_version(records, args))
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+    print("sources.json: %d PDF nuevos registrados, %d en total" % (added, total))
+    return 2 if result["status"] in ("rate_limited", "waiting") else 0
+
+
+def _pdf_version(records, args):
+    ema = next(s for s in load_sources(args.sources) if s.id == "ema_json")
+    stamp = snapshot_timestamp(load_json(require_verified(ema, args.cache_dir)))
+    return ("PDF de las páginas de las fichas del snapshot de ema_json (meta.timestamp %s); "
+            "monografía final de la UE o borrador y declaración pública final, registrados por el comando ema-pdf" % stamp)
+
+
+def run_safety_report(args):
+    connection = workdb.open_db(args.db)
+    try:
+        print(format_report(connection, load_safety_map(args.map)))
+    finally:
+        connection.close()
+    return 0
+
+
+def run_extract_command(args):
+    sources = load_sources(args.sources)
+    wanted = args.source or list(EXTRACTABLE)
+    for source in sources:
+        if source.id not in wanted:
+            continue
+        if not source.enabled:
+            print("%s: desactivada, omitida" % source.id)
+            continue
+        stats = run_extract(source, sources, args.cache_dir, args.db)
+        print("%s: %s" % (source.id, ", ".join("%s=%s" % item for item in sorted(stats.items()))))
+    return 0
+
+
 def run_fetch(args):
     try:
         entries = read_entries(args.input)
@@ -109,6 +187,12 @@ def main(argv=None):
     try:
         if args.command == "fetch":
             return run_fetch(args)
+        if args.command == "ema-pdf":
+            return run_ema_pdf(args)
+        if args.command == "safety-report":
+            return run_safety_report(args)
+        if args.command == "extract":
+            return run_extract_command(args)
         if args.command == "validate":
             return run_validate(args)
         if args.command == "plan":
@@ -133,6 +217,9 @@ def main(argv=None):
                     print("%s: ya estaba fijada; para cambiar el snapshot ponga size y checksum en null y ejecute pin de nuevo" % source.id)
             return 0
         for source in sources:
+            if source.id == "ema_pdf" and not args.offline:
+                print("ema_pdf: se descarga con el comando ema-pdf (espera entre peticiones y reanudación)")
+                continue
             if args.offline:
                 if not source.enabled:
                     print("%s: desactivada, omitida" % source.id)
@@ -144,7 +231,7 @@ def main(argv=None):
             print("%s: %s%s" % (source.id, {"disabled": "desactivada, omitida", "cached": "en caché, verificada",
                                               "downloaded": "descargada y verificada"}[status],
                                   " (%s)" % path if path else ""))
-    except SourceError as error:
+    except (SourceError, SafetyMapError) as error:
         print("error: %s" % error, file=sys.stderr)
         return 1
     return 0

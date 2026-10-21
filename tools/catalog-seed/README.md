@@ -4,19 +4,23 @@ Estas herramientas, en Python, preparan offline la semilla del catálogo de plan
 
 ## Entorno
 
-Se necesita Python 3.9 o superior y, por ahora, solo la biblioteca estándar. No hace falta instalar nada. Si más adelante se añaden dependencias, se declaran en `tools/catalog-seed/requirements.txt` y se instalan en un entorno virtual local, ignorado por Git:
+Se necesita Python 3.9 o superior. Los comandos y las pruebas que no leen `.xls` ni PDF usan solo la biblioteca estándar y funcionan con el `python3` del sistema. Las extracciones de EFSA (`xlrd`) y de los PDF de la EMA (`pdfminer.six`) necesitan las dependencias de `tools/catalog-seed/requirements.txt`, con versión fija, en un entorno virtual local ignorado por Git:
 
 ```sh
 python3 -m venv tools/catalog-seed/.venv
 tools/catalog-seed/.venv/bin/pip install -r tools/catalog-seed/requirements.txt
 ```
 
+Con el entorno creado, esos comandos se ejecutan con `tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py ...` en lugar de `python3 -I ...`. Sin él, `extract --source efsa` y `extract --source ema_pdf` fallan con un mensaje que lo indica, y las pruebas que necesitan esas bibliotecas se omiten (`skipTest`). No se instala nada en el sistema.
+
 ## Estructura
 
 - `cli.py`: punto de entrada de línea de comandos.
-- `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `cli.py` define los comandos).
+- `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `workdb.py`, `usda_extract.py`, `tppt_extract.py`, `efsa_extract.py`, `ema_extract.py`, `pdf_sections.py` y `extract.py` extraen las fuentes al formato intermedio; `ema_pdf.py` descarga los PDF de la EMA; `safety.py` y `safety_report.py` aplican el mapa de seguridad; `cli.py` define los comandos).
 - `sources.json`: registro de fuentes.
 - `schema/record.schema.json`: esquema JSON del registro v1.
+- `safety-map.json`: mapa de seguridad versionado (niveles por fuente y categoría).
+- `requirements.txt`: dependencias opcionales con versión fija.
 - `goals-map.json`: mapa de áreas terapéuticas de la EMA a objetivos y subáreas.
 - `prompt/consolidate.md`: prompt versionado del consolidador (variante A).
 - `tests/`: pruebas con `unittest`, sin red.
@@ -32,6 +36,11 @@ python3 -I tools/catalog-seed/cli.py download --offline
 python3 -I tools/catalog-seed/cli.py download --force
 python3 -I tools/catalog-seed/cli.py pin --source ema_json
 python3 -I tools/catalog-seed/cli.py fetch --service wikidata --input data/work/nombres.txt
+python3 -I tools/catalog-seed/cli.py ema-pdf --wait 7200
+python3 -I tools/catalog-seed/cli.py ema-pdf --status
+python3 -I tools/catalog-seed/cli.py extract
+tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py extract --source efsa --source ema_pdf
+tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py safety-report
 python3 -I tools/catalog-seed/cli.py validate --records data/seed/plants --bundles data/work/bundles
 python3 -I tools/catalog-seed/cli.py plan --bundles data/work/bundles --seed data/seed
 python3 -I tools/catalog-seed/cli.py seal --seed data/seed
@@ -42,6 +51,7 @@ python3 -I tools/catalog-seed/cli.py seal --seed data/seed
 - `--offline` solo verifica la caché y nunca abre la red. Si el insumo falta o está alterado, termina con error e indica el paso de descarga necesario.
 - `pin --source <id>` fija el snapshot de una fuente declarada con `size` y `checksum` en `null` (véase «Fijar un snapshot»).
 - `fetch --service <wikidata|wikipedia_es|commons> --input <archivo>` consulta lo pendiente de esos servicios (véase «Wikidata, Wikipedia en español y Commons»).
+- `ema-pdf` descarga las páginas y los PDF de la EMA (véase «PDF de la EMA»); `extract [--source <id>]` escribe las filas normalizadas de USDA, la EMA, TPPT y EFSA en `data/work/sources.db` (véase «Extracción y formato intermedio»); `safety-report` muestra la clasificación del mapa de seguridad sobre esas filas (véase «Mapa de seguridad»).
 - `validate`, `plan` y `seal` trabajan con la semilla y los paquetes (véanse «Validador», «Plan de regeneración» y «Sellado y manifiesto»).
 - `--source <id>` limita el comando a una fuente y se puede repetir.
 - `--sources <ruta>` y `--cache-dir <ruta>` cambian el archivo de fuentes y la caché (útil en pruebas).
@@ -101,6 +111,7 @@ Ejemplo con varios archivos (EFSA, abreviado):
 | `wcvp` | WCVP v16, `wcvp.zip` (Kew SFTP) | CC BY 3.0 | 88.179.649 | sha256 `d32ea2b3a85e489b14e83bcc9eae7274532e1d113753f7be290d4b2dfde573fa` |
 | `wfo` | WFO Plant List 2026-06, `_DwC_backbone_R.zip` (Zenodo 20782718) | CC0 | 121.660.019 | md5 `0e4486945cd9f7af548ca87eb9a870ed` (el que publica Zenodo) |
 | `ema_json` | Hierbas de la EMA, snapshot con `meta.timestamp` 2026-10-20T18:00:54Z | citando a la EMA (términos no verificados) | 202.757 | sha256 `e2b19f2fe9114514d593940d77684d39ab9977d22cbccb8a54354db2c93eee17` |
+| `ema_pdf` | PDF de las monografías y declaraciones públicas de la EMA: 205 archivos (fuente de varios archivos), registrados por `ema-pdf` | citando a la EMA (términos no verificados) | por archivo | sha256 por archivo, fijado en `sources.json` |
 | `tppt` | Agroscope TPPT, `tppt-db.zip` (SQLite) | uso abierto citando la fuente (opendata.swiss) | 1.188.682 | sha256 `8c16c7c5f8032ddd20ebcbb06f35ed1d9fb94ee10a91bd1384cc504465a47b85` |
 | `efsa` | Compendium of Botanicals 2016: `BOTANIC.xls` y `ENDPOINTSTUDY.xls` (Zenodo 996024) | CC BY 4.0 | 1.297.920 y 468.992 | md5 `5f906c745071266a3726421db6a0deb0` y `d0c10ece17f726470b34cf2fe6d313e6` (los de Zenodo) |
 
@@ -131,7 +142,100 @@ El JSON tiene `meta` (`total_records` y `timestamp`) y `data` con una fila por p
 
 ## EFSA
 
-El Compendium of Botanicals de 2016 (Zenodo 996024, CC BY 4.0) son dos libros de Excel antiguos (`.xls`): `BOTANIC.xls` y `ENDPOINTSTUDY.xls`, que por sus nombres contienen las especies botánicas y los estudios con sus criterios de valoración (su contenido aún no se ha inspeccionado). Los md5 declarados son los que publica Zenodo y la descarga los verifica. Leer un `.xls` necesitará una dependencia (por ejemplo `xlrd`) que se decidirá en la tarea que los use.
+El Compendium of Botanicals de 2016 (Zenodo 996024, CC BY 4.0) son dos libros de Excel antiguos (`.xls`) de una sola hoja cada uno. Los md5 declarados son los que publica Zenodo y la descarga los verifica. Leerlos necesita `xlrd` (véase «Entorno»).
+
+- `BOTANIC.xls` (3.449 filas, 863 cadenas `scientificNames` distintas): una fila por botánico y sustancia, con `scientificNames` (varios nombres separados por «;»), `PlantPart`, `Preparation`, `SubstanceName`, `expression_result`, `RESVAL`, `Unit`, `ResultType` y la cita (`CITATION`, `DOCTYPE`).
+- `ENDPOINTSTUDY.xls` (972 filas, 332 cadenas `scientificNames`): una fila por estudio, con `STUDYCATEGORY` (salud humana o de animales de destino), `TESTSPECIES`, `ROUTE`, `TESTTYPE`, `ENDPOINT`, `TOXICITYSUMMARY` y `EFFECT_DESC`; 894 de las 972 filas no informan la dosis.
+- El compendio reúne botánicos con sustancias de posible preocupación para la salud humana: sirve para la definición de la tarea 4.4 (véase «Mapa de seguridad»).
+
+## PDF de la EMA
+
+`ema-pdf` descarga lo que la tarea 3.3 necesita de la EMA con la misma mecánica de límite de peticiones y reanudación que `fetch`:
+
+```sh
+python3 -I tools/catalog-seed/cli.py ema-pdf --wait 7200
+python3 -I tools/catalog-seed/cli.py ema-pdf --status
+```
+
+- Para cada ficha de `ema_json` (204, deduplicadas) guarda su página en `data/.cache/ema_pdf/pages/<slug>.html` y elige los documentos de esa página con `ema_pdf.select_documents`: la monografía de la UE final, sin `draft-`, `second-draft-`, `superseded-` ni `call-` (convocatorias de datos), y si hay varias de la misma ficha las de la revisión más alta; si no hay final, el borrador más avanzado; y la declaración pública final (un borrador de declaración, publicado a veces bajo `herbal-monograph/`, solo cuando la ficha no tiene nada más).
+- Espera 15 s entre peticiones (`--delay`), respeta `Retry-After` y deja el estado en `data/.cache/ema_pdf/_state.json`; una respuesta 200 que no empieza por `%PDF-` (la página HTML de error de la EMA) se rechaza, no se cachea y se trata como un límite disfrazado (reintento tras 60 s). Un documento que falla 3 veces se deja de pedir y se lista en `failed`. Una segunda ejecución solo pide lo que falta.
+- `--wait <segundos>` hace que, ante un límite de peticiones, el comando espere hasta ese total y siga; sin él, termina con código 2 y el estado listo para reanudar. `--status` solo cuenta lo descargado y lo pendiente, sin red.
+- Los PDF quedan en `data/.cache/ema_pdf/<slug>__<tipo>__<nombre>.pdf` (tipo `monograph-final`, `monograph-draft` o `public-statement`; los nombres de más de 200 caracteres se acortan con un hash). Al terminar, el comando registra en `sources.json` (fuente `ema_pdf`, de varios archivos) la URL, el tamaño y el sha256 de cada PDF: ese es el mecanismo de `pin` de esta fuente, porque la lista de archivos solo se conoce tras leer las páginas. Una ejecución posterior verifica los ya registrados y falla si alguno cambió; retira de la lista los que la selección vigente ya no elige. `download --offline` verifica los 205 PDF; `download` no los descarga (indica usar `ema-pdf`).
+- Estado de la descarga completa (20 de octubre de 2026): 204 páginas y 205 PDF descargados y registrados, 0 pendientes y 0 fallidos, en 410 peticiones (unas 1,8 horas con 15 s de espera). 177 fichas tienen monografía (178 documentos: 174 finales y 4 borradores; `epilobii-herba` tiene dos), 25 solo declaración pública y 2 no publican ninguna (`calendulae-herba`, que solo tiene una convocatoria de datos, y `valerianae-radix-passiflorae-herba`, una combinación).
+
+## Extracción y formato intermedio
+
+`extract` lee los insumos verificados (`download.require_verified`, nunca la red) y escribe las filas normalizadas en el SQLite `data/work/sources.db`, ignorado por Git:
+
+```sh
+python3 -I tools/catalog-seed/cli.py extract --source usda --source tppt --source ema_json
+tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py extract --source efsa --source ema_pdf
+```
+
+Tabla `source_row(source, record_type, row_key, raw_name_cell, fnfnum, qid, content_json)`, clave primaria `(source, record_type, row_key)`; el ref de un dato es `<record_type>:<row_key>`. `raw_name_cell` es la celda del nombre científico tal cual, sin normalizar (el resolvedor la normaliza); `fnfnum` solo lo llevan las filas de USDA que ya lo traen; `qid` queda reservado para Wikidata; `content_json` es JSON canónico (claves ordenadas). La tabla `extraction(source, version, rows, inputs_json)` anota con qué insumos se hicieron las filas. Extraer una fuente reemplaza todas sus filas, así que repetir el comando da lo mismo.
+
+| source | record_type | row_key | raw_name_cell | Filas |
+| --- | --- | --- | --- | --- |
+| `usda` | `usda_taxon` | FNFNUM | TAXON | 2.376 |
+| `usda` | `usda_common_name` | `<FNFNUM>-<n>` | CNNAM | 2.920 |
+| `usda` | `usda_part` | `<FNFNUM>-<PPCO>` | TAXON de FNFTAX | 6.740 |
+| `usda` | `usda_use` | ETHNO | TAXON de ETHNOBOT | 82.873 |
+| `usda` | `usda_reference` | REFERENCE | REFERENCE | 2.043 |
+| `ema_json` | `ema_herbal` | slug de la ficha | `botanical_name` | 204 |
+| `ema_pdf` | `ema_pdf_doc` | slug | `botanical_name` | 204 |
+| `ema_pdf` | `ema_pdf` | `<slug>:4.3`, `:4.4`, `:4.5` o `:CONCLUSIONS` | `botanical_name` | 561 |
+| `tppt` | `tppt_plant` | Plant_number | Latin_plant_name | 844 |
+| `efsa` | `efsa_botanic` | número de fila de la hoja | `scientificNames` | 3.449 |
+| `efsa` | `efsa_endpoint` | número de fila de la hoja | `scientificNames` | 972 |
+
+- USDA (parte de la 3.2): los CSV del ZIP se leen en Windows-1252 con comillas CSV estándar, como el adaptador Rust (que no se modifica); en este ZIP todos son ASCII. `usda_part` resume `FARMACY_NEW` por (FNFNUM, PPCO): `rows`, `distinct_compounds`, hasta 10 compuestos por cantidad (`top_amount`: mayor de las columnas `AMT_*` por compuesto, con su `QUANT_UNIT` si lo hay) y hasta 10 por EOPCT (`top_eo`); el compuesto `EO` y sus variantes (`EO (ASSUMED)`, `EO(ASS.)`) llevan `eo: true` y la parte `has_eo`. Las 13 filas de `FARMACY_NEW` sin PPCO se omiten (contadas en `farmacy_rows_empty_ppco`). `usda_use` guarda la REFERENCE corta tal como viene (11 filas no la tienen) y no lleva `longref`, porque el LONGREF propio de ETHNOBOT va siempre vacío. `usda_common_name` lleva un idioma heurístico (`und` si el nombre termina en una etiqueta entre paréntesis, si no `en`), el mismo que el adaptador Rust. **La asignación de usos a plantas y la selección de hasta 5 candidatas por clave quedan para el armado de paquetes** (3.2 y 3.5), porque necesitan el resolvedor; por eso la 3.2 no está marcada.
+- EMA (JSON): `ema_herbal` guarda `therapeutic_areas` y `outcomes` ya separados por «;» (el resultado combinado `European Union herbal monograph;European Union list entry` queda en dos valores) y, en las fichas fusionadas, las filas originales con sus propias áreas.
+- EMA (PDF): `pdf_sections.py` implementa el modo `pdfminer-cols` del spike. Cada fila `ema_pdf` guarda `columns` (`well_established_use`, `traditional_use`, `both_columns` o `single_column`), `text` (las columnas rotuladas), las páginas y el documento. Solo las monografías numeradas tienen 4.3, 4.4 y 4.5: se recuperaron las tres secciones en las 178 monografías (174 finales y 4 borradores, 100 %). En las declaraciones públicas se extrae `CONCLUSIONS` con `safety_data` falso y la nota «declaración pública sin datos de seguridad» cuando las conclusiones no mencionan contraindicaciones, advertencias, interacciones, toxicidad o seguridad (21 de 25; las otras 4, como kava y bálsamo del Perú, hablan de preocupaciones de seguridad). Se corrigieron respecto del spike: títulos partidos en el medio de una palabra por PDF fragmentados, números de sección sin punto («4.3 Contraindications») o solos en una línea (monografías de 2009), y cabeceras en mayúsculas. Residuos conocidos: en un PDF fragmentado (`quercus-cortex`) quedan palabras partidas («Inte rnal»), que pueden esconder un patrón de gravedad.
+- TPPT: `tppt_plant` guarda la planta con `human_toxicity`, `animal_toxicity`, `n_toxins` y las toxinas elegidas: todas las de composición «major toxin» (también «major known toxin», «major toxin and aglycone» y «major toxin and metabolite») y hasta 15 más ordenadas por importancia de la composición. Cada toxina lleva `composition`, `major`, `psm_class`, `casrn` y sus dosis de `Toxicity_data` (enlazadas por `Phytotoxin_number`); la planta lleva el comentario de `Remarks` (por `Plant_genus`, quitando espacios) y las entradas de `Bibliography` citadas por esas dosis (por `Abbreviation`; el `Data_source` puede traer varias separadas por «, »; 70 citas, como `clinitox.ch`, no están en Bibliography). Se extrae el SQLite a un directorio temporal y se abre de solo lectura.
+- EFSA: ver la sección anterior; cada fila guarda las columnas útiles con sus nombres, números enteros sin «.0» y `scientificNames` sin tocar en `raw_name_cell`.
+
+Dependencia del armado de paquetes (3.5): la extracción de WCVP (taxonomía y distribución) de la 3.3 no está aquí, porque el resolvedor construye el índice de WCVP con la distribución (tarea 2.2); los paquetes la tomarán de él.
+
+## Mapa de seguridad
+
+`safety-map.json` (versión 1) fija el nivel mínimo (`bajo`, `medio`, `alto`) que cada fuente da a una planta; `catalog_seed/safety.py` lo aplica y `safety-report` clasifica con él las filas extraídas y lista las categorías sin cubrir. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva `safety` nulo y un `reviewFlag`, y nunca se presenta como segura. Cada categoría presente en los datos tiene un nivel o `level: null` explícito con su motivo (`why`), y las pruebas lo comprueban con los datos reales.
+
+TPPT (`Human_toxicity`, 22 valores; se separa por «, » y se compara el prefijo antes del paréntesis, en minúsculas):
+
+| Categoría | Nivel | Motivo |
+| --- | --- | --- |
+| very strong toxic, strong toxic | alto | Mandato del diseño |
+| carcinogenic, phototoxic | medio | Mandato del diseño |
+| allergenic | bajo | Mandato del diseño |
+| toxic (también «toxic (unknown strength)») | medio | Tóxica sin gradación, entre «weak toxic» y «strong toxic»; la fuerza desconocida no justifica bajarla |
+| weak toxic | bajo | TPPT la califica de débil |
+| skin-irritating | bajo | Irritación local y reversible, como «allergenic» |
+| liver toxic | medio | Toxicidad de un órgano concreto, sistémica |
+| cytotoxic | medio | Una sola planta; por precaución se trata como toxicidad de órgano |
+| estrogenic | medio | Actividad hormonal, relevante en embarazo, lactancia y condiciones sensibles a hormonas |
+| nontoxic | sin nivel | Ausencia de toxicidad conocida: no hace segura a la planta |
+| unknown | sin nivel | Sin dato |
+| infested plants only | sin nivel | El peligro es la contaminación, no la planta sana |
+| stimulating | sin nivel | Efecto farmacológico, no toxicidad |
+
+`Animal_toxicity` (9 valores, con calificadores de especie) queda toda sin nivel: no fija el nivel para personas y se conserva como dato. Los niveles de `toxic`, `weak toxic`, `skin-irritating`, `liver toxic`, `cytotoxic`, `estrogenic` y los cuatro sin nivel son propuestas de esta tarea (los otros cinco vienen del diseño) y están por aprobar.
+
+EMA, sección 4.5 de la monografía (una clasificación por columna; la ficha toma la más grave). Una interacción es **grave** (alto) si el texto coincide con alguno de estos patrones, sin distinguir mayúsculas (`severe_patterns` del mapa): `contraindicated`; una prohibición expresa de combinar («not to be used concomitantly», «not to use concomitantly», «concomitant use … should be avoided»); `serotonin syndrome`; riesgo hemorrágico (aumento del efecto de anticoagulantes o antiagregantes, o «bleeding times»); interacción con warfarina (`interactions with warfarin`, `increased INR`, «potentiate … warfarin»); y `life-threatening`, `fatal` o `death`. Si no, el texto es `none-reported` («None reported», «None known», «Not known», «No clinically relevant interactions») o `no-studies` («No interaction studies have been performed», «No data available») cuando, sin los rótulos «Indication n)», es solo eso, y en otro caso `interactions` (interacciones concretas sin término de gravedad, como la absorción retrasada o la precaución con inhibidores de la MAO). Solo `severe` fija nivel; las demás clases (y las fichas sin documento, sin sección, o con solo declaración pública) quedan sin nivel. Resultado sobre las 204 fichas:
+
+| Clase | Nivel | Fichas | Ejemplos |
+| --- | --- | --- | --- |
+| `severe` | alto | 10 | `hyperici-herba` y `hyperici-herba-0` (contraindicado con ciclosporina y anticoagulantes cumarínicos, síndrome serotoninérgico), `allii-sativi-bulbus` (contraindicado con saquinavir, tiempos de sangrado), `liquiritiae-radix` (no usar con diuréticos), `ginkgo-folium`, `salicis-cortex`, `sabalis-serrulatae-fructus` (warfarina), `vaccinii-macrocarpi-fructus` (warfarina), `species-digestivae`, `combination-species-pectorales` |
+| `interactions` | ninguno | 22 | `matricariae-flos` (CYP450 tras trasplante renal), `lini-semen`, `psyllii-semen` (absorción retrasada), `sennae-folium` (hipopotasemia), `mate-folium` (inhibidores de la MAO), `fucus` (litio), `agni-casti-fructus` |
+| `none-reported` | ninguno | 143 | `absinthii-herba`, `arnicae-flos`, `calendulae-flos`, `althaeae-radix` |
+| `no-studies` | ninguno | 2 | `fragariae-folium`, `melissae-folium` |
+| `statement-no-safety` | ninguno | 20 | `citri-bergamiae-aetheroleum`, `cannabis-flos`, `caryophylli-flos` |
+| `statement-with-safety` | ninguno | 5 | `piperis-methystici-rhizoma`, `balsamum-peruvianum`, `chelidonii-herba`, `adhatodae-vasicae-folium`, `salviae-officinalis-aetheroleum` |
+| `sin-documento` | ninguno | 2 | `calendulae-herba`, `valerianae-radix-passiflorae-herba` |
+| `no-section`, `no-descargada` | ninguno | 0 | |
+
+Límites de la regla: la clasificación es por texto, no clínica. Los laxantes antraquinónicos (`sennae-folium` y similares: la hipopotasemia potencia los glucósidos cardíacos) quedan en `interactions` porque el texto no usa un término de gravedad, aunque el regaliz, que advierte lo mismo, queda en `severe` por «not to be used concomitantly». Las cinco declaraciones públicas con `safety_data` hablan de preocupaciones de seguridad (hepatotoxicidad del kava, por ejemplo) que esta regla no convierte en nivel; queda como decisión del usuario si deben fijar un mínimo. Los textos de las clases `severe` y `interactions` van al paquete para que el consolidador cite la sección y su columna.
+
+EFSA, definición de «sustancia de preocupación»: una planta la tiene si `BOTANIC.xls` la lista con al menos una fila con `SubstanceName` y con `ResultType` distinto de «Non Detected Value (<LOD)» (la sustancia no está). Fija un mínimo `medio` (la propuesta del diseño) y nunca `alto` por sí sola: EFSA no gradúa gravedad ni dosis. Los estudios de `ENDPOINTSTUDY.xls` son evidencia que va al paquete y no fijan nivel (cada grupo de efecto, categoría de estudio y tipo de resultado presente está en el mapa, con nivel o explícitamente sin él). Advertencia: el mínimo es amplio, porque las 863 cadenas `scientificNames` del compendio tienen al menos una sustancia contada (incluidas 1,8-cineol, alcanfor, tuyona, cumarina y taninos); por ejemplo, la lavanda (alcanfor, 1,8-cineol) quedaría con mínimo `medio`. Conviene que el usuario confirme si esa amplitud es la deseada o si debe restringirse a un subconjunto de sustancias.
 
 ## Wikidata, Wikipedia en español y Commons
 
@@ -234,7 +338,10 @@ Desde la raíz del repositorio, sin red:
 
 ```sh
 python3 -I -m unittest discover -s tools/catalog-seed/tests -v
+tools/catalog-seed/.venv/bin/python3 -I -m unittest discover -s tools/catalog-seed/tests -v
 ```
+
+Con el `python3` del sistema se omiten (con `skipTest`) las pruebas que necesitan `xlrd` o `pdfminer.six` y las que necesitan los insumos reales en `data/.cache/`; con el entorno virtual corren todas. Los fixtures de la extracción están en `tests/fixtures/extract/` (dos `.xls` y dos PDF mínimos con sus scripts generadores).
 
 Con `-I` Python no añade directorios a `sys.path`, así que `tests/support.py` calcula la ruta de `tools/catalog-seed/` y la agrega antes de importar el paquete; cada archivo de pruebas importa `support` primero.
 

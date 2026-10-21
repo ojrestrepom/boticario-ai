@@ -18,6 +18,8 @@ DISCARDED_SOURCES = (
 CHECKSUM_ALGORITHMS = ("md5", "sha256")
 BASE_FIELDS = ("id", "version", "license", "attribution", "enabled")
 FILE_FIELDS = ("url", "filename", "size", "checksum")
+# Fuentes cuya lista de archivos se genera al descargar (la EMA: los PDF salen de las páginas de cada ficha): 'files' puede estar vacía.
+GENERATED_FILE_LISTS = ("ema_pdf",)
 
 
 class SourceError(Exception):
@@ -141,7 +143,7 @@ def validate_source(data):
         if any(field in data for field in FILE_FIELDS):
             raise SourceError("fuente '%s': use 'files' o los campos de un solo archivo, no ambos" % data["id"])
         entries = data["files"]
-        if not isinstance(entries, list) or not entries:
+        if not isinstance(entries, list) or (not entries and data["id"] not in GENERATED_FILE_LISTS):
             raise SourceError("fuente '%s': 'files' debe ser una lista no vacía" % data["id"])
         names = []
         for entry in entries:

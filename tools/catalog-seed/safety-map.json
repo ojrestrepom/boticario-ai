@@ -1,0 +1,298 @@
+{
+ "version": 1,
+ "levels": [
+  "bajo",
+  "medio",
+  "alto"
+ ],
+ "description": "Niveles mínimos de seguridad que fija cada fuente. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva safety nulo y un reviewFlag, y nunca se presenta como segura. level null significa sin nivel, por el motivo indicado.",
+ "tppt": {
+  "match": "Se separa por «, » y se compara en minúsculas el prefijo anterior al paréntesis (los calificadores como «only wild growing plants» o la especie animal no cambian la categoría).",
+  "human_toxicity": {
+   "very strong toxic": {
+    "level": "alto",
+    "why": "Mandato del diseño: la categoría más alta de toxicidad humana de TPPT."
+   },
+   "strong toxic": {
+    "level": "alto",
+    "why": "Mandato del diseño: toxicidad humana fuerte según TPPT."
+   },
+   "toxic": {
+    "level": "medio",
+    "why": "Tóxica sin gradación: entre «weak toxic» (bajo) y «strong toxic» (alto). Se toma el valor intermedio porque no justifica alarma máxima ni se puede tratar como leve. Incluye «toxic (unknown strength)», que comparte el prefijo: la fuerza desconocida no permite bajarla a bajo."
+   },
+   "weak toxic": {
+    "level": "bajo",
+    "why": "TPPT la califica de débilmente tóxica: efectos leves o solo a dosis altas."
+   },
+   "carcinogenic": {
+    "level": "medio",
+    "why": "Mandato del diseño: riesgo carcinogénico, a largo plazo y dependiente de la exposición."
+   },
+   "phototoxic": {
+    "level": "medio",
+    "why": "Mandato del diseño: reacciones de la piel con la luz, relevantes para el uso tópico."
+   },
+   "allergenic": {
+    "level": "bajo",
+    "why": "Mandato del diseño: riesgo de alergia en personas sensibles."
+   },
+   "skin-irritating": {
+    "level": "bajo",
+    "why": "Irritación local y reversible de la piel; misma gravedad que «allergenic»."
+   },
+   "liver toxic": {
+    "level": "medio",
+    "why": "Toxicidad de un órgano concreto (hígado): efecto sistémico y potencialmente grave, sin la gradación de «strong toxic»."
+   },
+   "cytotoxic": {
+    "level": "medio",
+    "why": "Toxicidad celular (una sola planta): por precaución se trata como una toxicidad de órgano, medio."
+   },
+   "estrogenic": {
+    "level": "medio",
+    "why": "Actividad hormonal: relevante en embarazo, lactancia y condiciones sensibles a hormonas; por precaución, medio."
+   },
+   "stimulating": {
+    "level": null,
+    "why": "Describe un efecto farmacológico estimulante, no una toxicidad; no fija nivel (los usos y advertencias los trata el paquete)."
+   },
+   "nontoxic": {
+    "level": null,
+    "why": "Indica ausencia de toxicidad conocida en TPPT, pero eso no hace segura a la planta (la spec prohíbe presentarla como segura): sin nivel."
+   },
+   "unknown": {
+    "level": null,
+    "why": "Sin dato de toxicidad: sin nivel (no equivale a segura)."
+   },
+   "infested plants only": {
+    "level": null,
+    "why": "El peligro viene de la contaminación (por ejemplo hongos) y no de la planta sana: sin nivel."
+   }
+  },
+  "animal_toxicity": {
+   "very strong toxic": {
+    "level": null,
+    "why": "Toxicidad en animales (ganado, caballos, perros, gatos): no fija el nivel para personas; se conserva como dato del paquete."
+   },
+   "strong toxic": {
+    "level": null,
+    "why": "Toxicidad en animales: no fija el nivel para personas; se conserva como dato del paquete."
+   },
+   "toxic": {
+    "level": null,
+    "why": "Toxicidad en animales: no fija el nivel para personas; se conserva como dato del paquete."
+   },
+   "weak toxic": {
+    "level": null,
+    "why": "Toxicidad en animales: no fija el nivel para personas; se conserva como dato del paquete."
+   }
+  }
+ },
+ "efsa": {
+  "definition": {
+   "text": "Una planta tiene una sustancia de preocupación si el compendio de EFSA (BOTANIC.xls) la lista con al menos una fila cuyo nombre de sustancia (SubstanceName) no está vacío y cuyo tipo de resultado no es «Non Detected Value (<LOD)». El compendio reúne botánicos con sustancias de posible preocupación para la salud humana, así que cada fila es una sustancia de ese tipo en ese botánico; las filas «no detectada» se excluyen porque indican que la sustancia no está. Los estudios de ENDPOINTSTUDY.xls son evidencia y no fijan nivel.",
+   "table": "BOTANIC",
+   "substance_field": "SubstanceName",
+   "exclude_result_types": [
+    "Non Detected Value (<LOD)"
+   ]
+  },
+  "classes": {
+   "substance-of-concern": {
+    "level": "medio",
+    "why": "Propuesta del diseño (D8): una sustancia del compendio fija un mínimo medio. EFSA por sí sola no fija alto: no gradúa la gravedad ni la dosis (tampoco los umbrales), así que alto queda para TPPT y las interacciones graves de la EMA. Cubre sustancias muy distintas (1,8-cineol, alcanfor, tuyona, cumarina, taninos): el mínimo es deliberadamente amplio y el consolidador debe justificarlo con la sustancia concreta."
+   },
+   "no-substance": {
+    "level": null,
+    "why": "La planta no figura en el compendio, o solo con filas «no detectada»: sin nivel por EFSA (no equivale a segura)."
+   }
+  },
+  "result_types": {
+   "Numerical Value": {
+    "level": "medio",
+    "why": "Fila de BOTANIC con valor numérico: cuenta como sustancia de preocupación."
+   },
+   "Non Quantified Value (<LOQ)": {
+    "level": "medio",
+    "why": "Por debajo del límite de cuantificación pero no declarada ausente: cuenta, por precaución."
+   },
+   "Non Detected Value (<LOD)": {
+    "level": null,
+    "why": "Sustancia no detectada: no cuenta."
+   },
+   "": {
+    "level": "medio",
+    "why": "Fila sin valor numérico (la sustancia se cita sin cuantificar): cuenta como sustancia de preocupación."
+   }
+  },
+  "study_categories": {
+   "Human health": {
+    "level": null,
+    "why": "Estudios en personas o relevantes para ellas: evidencia, sin nivel propio."
+   },
+   "Animal (target species) health": {
+    "level": null,
+    "why": "Salud de animales de destino (ganado, mascotas): no fija el nivel para personas."
+   }
+  },
+  "endpoint_effects": {
+   "digestive": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "urogenital": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "neurologic": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "cardiovascular / hematological": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "systemic": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "reproductive": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "respiratory": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "glandular": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "other": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "teratogenic": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "irritation": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "hepatotoxicity": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "neurotoxicity": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "endocrine": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "immunotoxicity": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "musclo-skeletal": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "not reported": {
+    "level": null,
+    "why": "El estudio no informa el efecto: no hay evidencia que clasificar."
+   },
+   "not applicable": {
+    "level": null,
+    "why": "Sin efecto aplicable: no hay evidencia que clasificar."
+   },
+   "none": {
+    "level": null,
+    "why": "El estudio no halló efecto: no es evidencia de peligro, ni de seguridad de la planta."
+   },
+   "": {
+    "level": null,
+    "why": "Estudio sin efecto codificado (el texto libre queda en el paquete)."
+   }
+  }
+ },
+ "ema": {
+  "section": "4.5",
+  "description": "Se clasifica el texto de la sección 4.5 de la monografía de la UE (interacciones con otros medicamentos), una vez por columna (uso bien establecido o tradicional). La clase de la ficha es la más grave de sus columnas, en el orden severe, interactions, no-studies, none-reported. Un texto es severe si coincide con algún severe_patterns (sin distinguir mayúsculas); si no, es none-reported o no-studies si, sin los rótulos «Indication n)», coincide entero con la expresión respectiva; en otro caso es interactions.",
+  "severe_patterns": [
+   {
+    "id": "contraindicated",
+    "regex": "\\bcontra-?indicated\\b",
+    "why": "La EMA declara contraindicado el uso concomitante (por ejemplo hipérico con ciclosporina o anticoagulantes cumarínicos, ajo con saquinavir): es el término más fuerte de la monografía."
+   },
+   {
+    "id": "not-to-be-used-together",
+    "regex": "\\b(not to be|should not be|must not be|shall not be|is not to be|are not to be)\\s+(used|taken|administered|combined|given)\\s+(concomitantly|together|in combination|simultaneously|with)\\b|\\bnot to use\\s+(concomitantly|together|in combination)\\b|\\bconcomitant use\\b[^.]{0,100}\\b(should be avoided|is not recommended)\\b",
+    "why": "Prohibición o desaconsejo expreso de combinar (regaliz con diuréticos, glucósidos cardíacos y corticoides; arándano con warfarina). No incluye «should not be taken ½ to 1 hour before», que solo separa horarios."
+   },
+   {
+    "id": "serotonin-syndrome",
+    "regex": "\\bserotonin(ergic)? syndrome\\b",
+    "why": "Reacción potencialmente grave descrita con antidepresivos (hipérico)."
+   },
+   {
+    "id": "bleeding-risk",
+    "regex": "\\b(increase\\w*|enhance\\w*|potentiat\\w*|prolong\\w*)\\b[^.]{0,40}\\b(bleeding|anticoagula\\w+|anti-?platelet)|\\b(bleeding times?|haemorrhag\\w*|hemorrhag\\w*)\\b",
+    "why": "Aumento del efecto de anticoagulantes o antiagregantes, o del riesgo de sangrado (ajo, sauce): el riesgo es hemorrágico."
+   },
+   {
+    "id": "warfarin-interaction",
+    "regex": "\\binteractions? with warfarin\\b|\\bpotentiat\\w*[^.]{0,40}\\bwarfarin\\b|\\bincreased INR\\b",
+    "why": "Interacción descrita con warfarina (palmito, arándano rojo): afecta la coagulación en pacientes anticoagulados."
+   },
+   {
+    "id": "life-threatening",
+    "regex": "\\b(life-threatening|fatal|death)\\b",
+    "why": "Desenlace grave citado de forma expresa."
+   }
+  ],
+  "none_reported_regex": "(none|nothing)( (reported|known))?|not (known|reported)|no (clinically relevant )?interactions?( (have been|has been|are|were))?( (observed|reported|known))?|none reported",
+  "no_studies_regex": "no interaction studies (have|has) been (performed|conducted|carried out)|no data( are| is)? available|not available|unknown",
+  "classes": {
+   "severe": {
+    "level": "alto",
+    "why": "Mandato del diseño: las interacciones graves de la EMA fijan alto. «Grave» se define de forma verificable con severe_patterns."
+   },
+   "interactions": {
+    "level": null,
+    "why": "Hay interacciones concretas pero sin término de gravedad (por ejemplo, retraso de la absorción de otros medicamentos, o CYP3A4 con precaución): no fijan nivel y el texto va al paquete para que el consolidador lo cite."
+   },
+   "no-studies": {
+    "level": null,
+    "why": "La EMA no tiene datos («No interaction studies have been performed», «No data available»): ausencia de evidencia, no de interacciones, y no hace segura a la planta."
+   },
+   "none-reported": {
+    "level": null,
+    "why": "«None reported» y equivalentes: la EMA no registra interacciones, sin que eso sea una garantía de seguridad."
+   },
+   "no-section": {
+    "level": null,
+    "why": "La monografía no trae la sección 4.5 en un formato que se pueda extraer: sin nivel y con reviewFlag de extracción."
+   },
+   "statement-no-safety": {
+    "level": null,
+    "why": "Declaración pública sin datos de seguridad (la monografía no se pudo establecer): sin nivel."
+   },
+   "statement-with-safety": {
+    "level": null,
+    "why": "Declaración pública cuyas conclusiones mencionan seguridad: el texto va al paquete; sin nivel automático porque no tiene sección 4.5 numerada."
+   },
+   "sin-documento": {
+    "level": null,
+    "why": "La ficha de la EMA no publica monografía ni declaración (por ejemplo, combinaciones): sin datos de seguridad de la EMA."
+   },
+   "no-descargada": {
+    "level": null,
+    "why": "Ficha cuyos PDF aún no se han descargado: debe resolverse antes de armar paquetes."
+   }
+  }
+ }
+}

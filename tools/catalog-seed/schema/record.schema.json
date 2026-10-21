@@ -1,0 +1,554 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boticario-ai.local/catalog-seed/record.schema.json",
+  "title": "Registro consolidado v1 de una planta",
+  "description": "Esquema del registro de la semilla del catálogo (openspec/changes/consolidate-catalog-seed). Subconjunto de JSON Schema validado por catalog_seed/schema.py.",
+  "x-recordVersion": 1,
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "recordVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "bundleHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "promptVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "scientificName": {
+      "$ref": "#/$defs/name"
+    },
+    "synonyms": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "$ref": "#/$defs/name"
+      }
+    },
+    "family": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "value",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "displayName": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "string",
+          "minLength": 1
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "value",
+        "language",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "commonNames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "language": {
+            "type": "string",
+            "minLength": 1
+          },
+          "refs": {
+            "$ref": "#/$defs/refList"
+          }
+        },
+        "required": [
+          "text",
+          "language",
+          "refs"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "origin": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "value",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "description": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "value",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "partsUsed": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "refs": {
+            "$ref": "#/$defs/refList"
+          }
+        },
+        "required": [
+          "value",
+          "refs"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "oil": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Esencial"
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "type",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "traditionalUses": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "properties": {
+          "activity": {
+            "type": "string",
+            "minLength": 1
+          },
+          "activitySource": {
+            "type": "string",
+            "minLength": 1
+          },
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "countries": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "refs": {
+            "$ref": "#/$defs/refList"
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ref": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^[a-z0-9_]+:.+$"
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "key",
+                "ref",
+                "text"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "pendingReview": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "activity",
+          "activitySource",
+          "n",
+          "countries",
+          "refs",
+          "citations",
+          "pendingReview"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string",
+            "enum": [
+              "relajacion-estres",
+              "mejorar-el-sueno",
+              "cuidado-de-la-piel",
+              "alivio-respiratorio",
+              "cansancio-y-fatiga",
+              "otros-objetivos"
+            ]
+          },
+          "subarea": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "digestion",
+              "vias-urinarias-y-genitales",
+              "dolor-e-inflamacion",
+              "boca-y-garganta",
+              "circulacion",
+              "molestias-oculares",
+              null
+            ]
+          },
+          "area": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pendingReview": {
+            "type": "boolean"
+          },
+          "refs": {
+            "$ref": "#/$defs/refList"
+          }
+        },
+        "required": [
+          "goal",
+          "subarea",
+          "area",
+          "evidence",
+          "pendingReview",
+          "refs"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "safety": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "alto",
+            "medio",
+            "bajo"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "level",
+        "text",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "image": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pageUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "licenseUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "attributionRequired": {
+          "type": "boolean"
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "url",
+        "pageUrl",
+        "author",
+        "license",
+        "licenseUrl",
+        "attributionRequired",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dataset": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "dataset",
+          "license"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "refs": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9_]+:.+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/refEntry"
+      }
+    },
+    "reviewFlags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/flag"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "refKey": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+:.+$"
+    },
+    "refList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/refKey"
+      }
+    },
+    "refEntry": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "dataset",
+        "label",
+        "license"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        }
+      },
+      "required": [
+        "name",
+        "authors",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "flag": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "code",
+        "target",
+        "message"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "recordVersion",
+    "bundleHash",
+    "promptVersion",
+    "model",
+    "aliases",
+    "scientificName",
+    "synonyms",
+    "family",
+    "displayName",
+    "commonNames",
+    "origin",
+    "description",
+    "partsUsed",
+    "oil",
+    "traditionalUses",
+    "goals",
+    "safety",
+    "image",
+    "sources",
+    "refs",
+    "reviewFlags"
+  ]
+}

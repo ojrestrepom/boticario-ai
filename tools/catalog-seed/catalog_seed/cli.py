@@ -1,8 +1,13 @@
 import argparse
+import json
 import sys
 
 from .download import download_source, pin_source, require_verified_files
 from .ema import describe_snapshot
+from .goals import DEFAULT_GOALS_CATALOG, DEFAULT_GOALS_MAP, DEFAULT_SEED_DIR, load_goals_catalog, load_goals_map
+from .schema import DEFAULT_RECORD_SCHEMA, load_schema
+from .seed import DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, read_prompt_version, schema_version, seal
+from .validate import validate_directory
 from .wiki import SERVICES, make_step, read_entries
 from .sources import DEFAULT_CACHE_DIR, DEFAULT_SOURCES_FILE, SourceError, load_sources
 
@@ -24,7 +29,62 @@ def build_parser():
     fetch.add_argument("--batch-size", type=int, help="entradas por petición (por defecto según el servicio)")
     fetch.add_argument("--delay", type=float, default=1.0, help="segundos entre peticiones (por defecto 1)")
     fetch.add_argument("--endpoint", help="URL del servicio (solo para pruebas)")
+    validate = commands.add_parser("validate", help="valida los registros de la semilla contra sus paquetes")
+    validate.add_argument("--records", default=str(DEFAULT_SEED_DIR / "plants"), help="directorio de registros (por defecto data/seed/plants)")
+    validate.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes (por defecto data/work/bundles)")
+    validate.add_argument("--schema", default=str(DEFAULT_RECORD_SCHEMA), help="esquema del registro")
+    validate.add_argument("--goals-map", default=str(DEFAULT_GOALS_MAP), help="mapa de objetivos")
+    validate.add_argument("--goals", default=str(DEFAULT_GOALS_CATALOG), help="catálogo de objetivos")
+    validate.add_argument("--out", help="escribe el informe completo en este archivo JSON")
+    plan = commands.add_parser("plan", help="lista las plantas a regenerar (sin registro, otro bundleHash, otro prompt u otro esquema)")
+    plan.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes")
+    plan.add_argument("--seed", default=str(DEFAULT_SEED_DIR), help="directorio de la semilla (con plants/)")
+    plan.add_argument("--prompt", default=str(DEFAULT_PROMPT), help="prompt de consolidación")
+    plan.add_argument("--schema", default=str(DEFAULT_RECORD_SCHEMA), help="esquema del registro")
+    plan.add_argument("--json", action="store_true", help="imprime el plan como JSON")
+    sealer = commands.add_parser("seal", help="escribe o actualiza manifest.json con las fuentes, versiones, conteos y seedHash")
+    sealer.add_argument("--seed", default=str(DEFAULT_SEED_DIR), help="directorio de la semilla (con plants/ y goals.json)")
+    sealer.add_argument("--prompt", default=str(DEFAULT_PROMPT), help="prompt de consolidación")
+    sealer.add_argument("--schema", default=str(DEFAULT_RECORD_SCHEMA), help="esquema del registro")
     return parser
+
+
+def run_validate(args):
+    report = validate_directory(args.records, args.bundles, schema=load_schema(args.schema),
+                                goals_map=load_goals_map(args.goals_map), catalog=load_goals_catalog(args.goals))
+    for message in report["global"]:
+        print("error: %s" % message)
+    for plant, result in report["plants"].items():
+        for message in result["errors"]:
+            print("error: %s: %s" % (plant, message))
+        for message in result["warnings"]:
+            print("advertencia: %s: %s" % (plant, message))
+    summary = report["summary"]
+    print("%d registros, %d con errores, %d errores, %d advertencias"
+          % (summary["records"], summary["recordsWithErrors"], summary["errors"], summary["warnings"]))
+    if args.out:
+        with open(args.out, "w", encoding="utf-8") as handle:
+            json.dump(report, handle, indent=2, ensure_ascii=False)
+            handle.write("\n")
+    return 1 if summary["errors"] else 0
+
+
+def run_plan(args):
+    schema = load_schema(args.schema)
+    plan = compute_plan(args.bundles, args.seed, read_prompt_version(args.prompt), schema_version(schema))
+    if args.json:
+        print(json.dumps(plan, indent=2, ensure_ascii=False))
+    else:
+        for item in plan:
+            print("%s\t%s" % (item["id"], ",".join(item["reasons"])))
+        print("%d plantas a regenerar" % len(plan))
+    return 0
+
+
+def run_seal(args):
+    manifest, changed = seal(args.seed, args.sources, schema_path=args.schema, prompt_path=args.prompt)
+    print("manifest.json %s: %d plantas, seedHash %s" % ("actualizado" if changed else "sin cambios", manifest["plantCount"], manifest["seedHash"]))
+    return 0
 
 
 def run_fetch(args):
@@ -49,6 +109,12 @@ def main(argv=None):
     try:
         if args.command == "fetch":
             return run_fetch(args)
+        if args.command == "validate":
+            return run_validate(args)
+        if args.command == "plan":
+            return run_plan(args)
+        if args.command == "seal":
+            return run_seal(args)
         sources = load_sources(args.sources)
         if args.source:
             known = {s.id for s in sources}

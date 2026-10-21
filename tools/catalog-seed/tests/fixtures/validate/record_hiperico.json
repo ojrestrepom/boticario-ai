@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+  "commonNames": [],
+  "description": null,
+  "displayName": null,
+  "family": {
+    "refs": [
+      "wcvp:2"
+    ],
+    "value": "Hypericaceae"
+  },
+  "goals": [
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": true,
+      "refs": [
+        "ema_herbal:hyperici-herba-0"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "hypericum-perforatum",
+  "image": null,
+  "model": "modelo-de-prueba",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 1,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:hyperici-herba-0": {
+      "dataset": "ema",
+      "label": "EMA: Hyperici herba",
+      "license": "Reutilización citando a la EMA"
+    },
+    "ema_pdf:hyperici-herba-0:4.5": {
+      "dataset": "ema",
+      "label": "EMA: monografía de Hyperici herba, sección 4.5",
+      "license": "Reutilización citando a la EMA"
+    },
+    "wcvp:2": {
+      "dataset": "wcvp",
+      "label": "WCVP v16: Hypericum perforatum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "interacciones-graves-estres",
+      "message": "Interacciones graves en el área de estrés y ánimo: el objetivo queda pendiente de revisión.",
+      "target": "goals.relajacion-estres"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:hyperici-herba-0:4.5"
+    ],
+    "text": "La EMA registra interacciones graves con otros medicamentos."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Hypericum perforatum",
+    "refs": [
+      "wcvp:2"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema",
+      "license": "Reutilización citando a la EMA"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

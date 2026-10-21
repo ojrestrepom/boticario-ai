@@ -1,0 +1,194 @@
+{
+  "bundleHash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+  "bundleVersion": "1",
+  "identity": {
+    "accepted": {
+      "wcvp": {
+        "authors": "L.",
+        "family": "Asteraceae",
+        "name": "Matricaria chamomilla",
+        "ref": "wcvp:1",
+        "status": "Accepted"
+      }
+    },
+    "collision": null,
+    "flags": [],
+    "nameSet": [
+      {
+        "backbone": "wcvp",
+        "name": "Matricaria chamomilla",
+        "why": "accepted"
+      }
+    ],
+    "notes": [],
+    "primaryBackbone": "wcvp",
+    "proposedId": "matricaria-chamomilla",
+    "universe": [
+      {
+        "fnfnum": "605",
+        "source": "usda",
+        "taxon": "Matricaria recutita"
+      }
+    ]
+  },
+  "plantKey": "matricaria-recutita",
+  "refs": {
+    "commons_file:Matricaria_chamomilla.jpg": {
+      "dataset": "commons",
+      "label": "Commons: Matricaria chamomilla.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    "ema_herbal:matricariae-flos": {
+      "dataset": "ema",
+      "label": "EMA: Matricariae flos",
+      "license": "Reutilización citando a la EMA"
+    },
+    "usda_ethnobot:605:1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 605/1",
+      "license": "CC0"
+    },
+    "usda_ethnobot:605:2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 605/2",
+      "license": "CC0"
+    },
+    "usda_reference:BURKILL1966": {
+      "dataset": "usda",
+      "label": "Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:OTRA": {
+      "dataset": "usda",
+      "label": "Otra obra de USDA",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "The Wealth of India",
+      "license": "CC0"
+    },
+    "wcvp:1": {
+      "dataset": "wcvp",
+      "label": "WCVP v16: Matricaria chamomilla L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata_item:Q29536": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q29536",
+      "license": "CC0"
+    }
+  },
+  "sections": {
+    "descriptions": [],
+    "distribution": {
+      "introduced": [],
+      "native": [
+        "Europa"
+      ],
+      "ref": "wcvp:1"
+    },
+    "images": [
+      {
+        "attributionRequired": true,
+        "author": "Autor de ejemplo",
+        "license": "CC BY-SA 4.0",
+        "licenseClass": "share_alike",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "pageUrl": "https://commons.example.invalid/File:m.jpg",
+        "ref": "commons_file:Matricaria_chamomilla.jpg",
+        "url": "https://upload.example.invalid/m.jpg"
+      }
+    ],
+    "names": [
+      {
+        "language": "es",
+        "ref": "wikidata_item:Q29536",
+        "source": "wikidata",
+        "text": "manzanilla"
+      }
+    ],
+    "parts": [],
+    "regulatory": [
+      {
+        "combination": "No",
+        "englishName": "Matricaria flower",
+        "latinName": "Matricariae flos",
+        "outcome": "European Union herbal monograph;European Union list entry",
+        "ref": "ema_herbal:matricariae-flos",
+        "status": "F: Assessment finalised",
+        "therapeuticAreas": [
+          "Gastrointestinal disorders",
+          "Skin disorders and minor wounds"
+        ]
+      }
+    ],
+    "safety": [],
+    "taxonomy": [
+      {
+        "authors": "L.",
+        "backbone": "wcvp",
+        "family": "Asteraceae",
+        "name": "Matricaria chamomilla",
+        "rank": "Species",
+        "ref": "wcvp:1",
+        "status": "Accepted"
+      }
+    ],
+    "uses": [
+      {
+        "activity": "Sedative",
+        "candidates": {
+          "Burkill,1966": [
+            {
+              "citation": "Burkill, 1966",
+              "ref": "usda_reference:BURKILL1966"
+            }
+          ],
+          "Woi.10": [
+            {
+              "citation": "The Wealth of India",
+              "ref": "usda_reference:WOI"
+            }
+          ]
+        },
+        "citations": [
+          "Woi.10",
+          "Burkill,1966"
+        ],
+        "countries": [
+          "Spain"
+        ],
+        "n": 3,
+        "refs": [
+          "usda_ethnobot:605:1"
+        ]
+      },
+      {
+        "activity": "Carminative",
+        "candidates": {},
+        "citations": [
+          "Woi.Syria"
+        ],
+        "countries": [
+          "Egypt"
+        ],
+        "n": 2,
+        "refs": [
+          "usda_ethnobot:605:2"
+        ]
+      }
+    ],
+    "wikidata": [
+      {
+        "eswikiTitle": "Matricaria chamomilla",
+        "p1843Es": [
+          "manzanilla"
+        ],
+        "p225": "Matricaria chamomilla",
+        "qid": "Q29536",
+        "ref": "wikidata_item:Q29536"
+      }
+    ]
+  }
+}

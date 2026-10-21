@@ -41,6 +41,7 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 - `app/`: aplicación Flutter.
 - `backend/`: workspace de Cargo con tres crates, con su guía de desarrollo en [`backend/README.md`](backend/README.md). `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` descarga los insumos, importa la capa cruda, consolida las fuentes y escribe la base. `catalog-api` sirve esa base por HTTP.
 - `data/`: la migración del esquema neutral (`data/migrations/`), la configuración de fuentes (`data/sources.toml`) y las salidas generadas e ignoradas por git `data/.cache/` y `data/build/`.
+- `tools/catalog-seed/`: herramientas en Python, solo para el desarrollador, que preparan la semilla del catálogo (fuentes, esquema del registro, validador, plan de regeneración y sellado); véase [`tools/catalog-seed/README.md`](tools/catalog-seed/README.md).
 - `docs/`: canvas, mockups y documentación de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
 - `.github/workflows/`: integración continua y despliegue.

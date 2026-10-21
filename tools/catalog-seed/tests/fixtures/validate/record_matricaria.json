@@ -1,0 +1,221 @@
+{
+  "aliases": [
+    "matricaria-recutita"
+  ],
+  "bundleHash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata_item:Q29536"
+      ],
+      "text": "Manzanilla"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata_item:Q29536"
+    ],
+    "value": "Manzanilla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:1"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:matricariae-flos"
+      ],
+      "subarea": "digestion"
+    },
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:matricariae-flos"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "matricaria-chamomilla",
+  "image": {
+    "attributionRequired": true,
+    "author": "Autor de ejemplo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "pageUrl": "https://commons.example.invalid/File:m.jpg",
+    "refs": [
+      "commons_file:Matricaria_chamomilla.jpg"
+    ],
+    "url": "https://upload.example.invalid/m.jpg"
+  },
+  "model": "modelo-de-prueba",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:1"
+    ],
+    "value": "Europa"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:matricariae-flos"
+      ],
+      "value": "Flor"
+    }
+  ],
+  "promptVersion": 1,
+  "recordVersion": 1,
+  "refs": {
+    "commons_file:Matricaria_chamomilla.jpg": {
+      "dataset": "commons",
+      "label": "Commons: Matricaria chamomilla.jpg",
+      "license": "CC BY-SA 4.0"
+    },
+    "ema_herbal:matricariae-flos": {
+      "dataset": "ema",
+      "label": "EMA: Matricariae flos",
+      "license": "Reutilización citando a la EMA"
+    },
+    "usda_ethnobot:605:1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 605/1",
+      "license": "CC0"
+    },
+    "usda_ethnobot:605:2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 605/2",
+      "license": "CC0"
+    },
+    "usda_reference:BURKILL1966": {
+      "dataset": "usda",
+      "label": "Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "The Wealth of India",
+      "license": "CC0"
+    },
+    "wcvp:1": {
+      "dataset": "wcvp",
+      "label": "WCVP v16: Matricaria chamomilla L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata_item:Q29536": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q29536",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene una candidata correspondiente en el paquete.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "Ninguna fuente de seguridad menciona la planta.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Matricaria chamomilla",
+    "refs": [
+      "wcvp:1"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema",
+      "license": "Reutilización citando a la EMA"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Matricaria recutita",
+      "refs": [
+        "wcvp:1"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:BURKILL1966",
+          "text": "Burkill, 1966"
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_ethnobot:605:1",
+        "usda_reference:WOI",
+        "usda_reference:BURKILL1966"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 2,
+      "pendingReview": true,
+      "refs": [
+        "usda_ethnobot:605:2"
+      ]
+    }
+  ]
+}

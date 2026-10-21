@@ -15,9 +15,9 @@ import time
 from . import workdb
 from .download import require_verified_files
 from .sources import REPO_ROOT, SourceError
-from .taxonomy import Entry, build_universe, open_backbone, parse_name, split_source_names
+from .taxonomy import Entry, build_universe, open_backbone, parse_name, split_source_cell
 from .taxonomy.index import INDEX_VERSION, build_index
-from .taxonomy.universe import RESOLVED, _classify, _Resolved
+from .taxonomy.universe import RESOLVED
 
 DEFAULT_TAXONOMY_DB = workdb.DEFAULT_WORK_DIR / "taxonomy.db"
 DEFAULT_UNIVERSE_DIR = workdb.DEFAULT_WORK_DIR / "universe"
@@ -93,15 +93,25 @@ def collect_entries(connection):
         raise SourceError("sources.db no tiene filas ema_herbal; ejecute: python3 -I tools/catalog-seed/cli.py extract --source ema_json")
     ema_entries = 0
     ficha_without_species = []
+    modified_cells = []
     for row in ema_rows:
-        fragments = split_source_names("ema", row["raw_name_cell"])
+        fragments, changes = split_source_cell("ema", row["raw_name_cell"])
         if not fragments:
             ficha_without_species.append(row["row_key"])
+        made = []
         for i, text in enumerate(fragments):
-            entries.append(Entry.from_text("ema", "ema:%s#%d" % (row["row_key"], i + 1), text))
+            entry = Entry.from_text("ema", "ema:%s#%d" % (row["row_key"], i + 1), text)
+            entries.append(entry)
+            made.append(entry)
             ema_entries += 1
+            parsed = parse_name(text)
+            if parsed.author_removed:
+                changes = changes + ["autor de %s limpiado, se quitó «%s»" % (entry.name, "; ".join(parsed.author_removed))]
+        if changes:
+            modified_cells.append({"fiche": row["row_key"], "cell": row["raw_name_cell"], "changes": changes,
+                                   "entries": [{"name": e.name, "author": e.author} for e in made]})
     summary = {"usda_entries": len(usda_rows), "ema_fiches": len(ema_rows), "ema_entries": ema_entries,
-               "ema_fiches_without_species": sorted(ficha_without_species)}
+               "ema_fiches_without_species": sorted(ficha_without_species), "ema_modified_cells": modified_cells}
     return entries, summary
 
 
@@ -114,11 +124,7 @@ def extraction_versions(connection):
 
 def relation_of(uni, key):
     """`A` (propio aceptado), `H` (homotípico) o `X` (heterotípico); None si la entrada no resolvió."""
-    res = uni.resolutions[key]
-    if res["outcome"] not in RESOLVED:
-        return None
-    bb = uni.wcvp if res["backbone"] == "wcvp" else uni.wfo
-    return _classify(_Resolved(uni.entries[key], res, bb.get(res["matched_id"]), bb.get(res["accepted_id"])))
+    return uni.relation(key)
 
 
 # --- universe.json --------------------------------------------------------------------------------------------------
@@ -208,6 +214,8 @@ def _resolution_route(res):
         return None
     if "wfo_fallback" in flags:
         return "wfo_fallback"
+    if "fuzzy_match" in flags:
+        return "fuzzy_match"
     if "orthographic_variant" in flags:
         return "orthographic_variant"
     return "wcvp"
@@ -247,7 +255,7 @@ def build_report(uni, entries_summary, inputs, catalog_ids):
             if uni.entries[key].source == "usda":
                 usda_routes[route] = usda_routes.get(route, 0) + 1
     review = {"ambiguous": [], "unresolved": [], "genus_only": [], "wfo_fallback": [], "orthographic_variant": [],
-              "backbone_disagreement": []}
+              "fuzzy_match": [], "accepted_above_species": [], "backbone_disagreement": []}
     disagreement = {"rango": 0, "especie": 0}
     for key in sorted(uni.resolutions, key=lambda k: (uni.entries[k].source, k)):
         res, entry = uni.resolutions[key], uni.entries[key]
@@ -256,12 +264,19 @@ def build_report(uni, entries_summary, inputs, catalog_ids):
             review["ambiguous"].append(dict(base, notes=res["notes"]))
         elif res["outcome"] in ("unresolved", "unmatched"):
             review["unresolved"].append(dict(base, outcome=res["outcome"], notes=res["notes"]))
+            if "accepted_above_species" in res["flags"]:
+                review["accepted_above_species"].append(dict(base, matched=res["matched_name"], notes=res["notes"]))
         elif res["outcome"] == "genus_only":
             review["genus_only"].append(base)
         else:
             flags = set(res["flags"])
             if "wfo_fallback" in flags:
                 review["wfo_fallback"].append(dict(base, accepted=res["accepted_name"], backbone=res["backbone"]))
+            if "fuzzy_match" in flags:
+                review["fuzzy_match"].append(dict(base, matched=res["matched_name"], accepted=res["accepted_name"],
+                                                  acceptedId=res["accepted_id"], backbone=res["backbone"],
+                                                  distance=res["fuzzy"]["distance"], kind=res["fuzzy"]["kind"],
+                                                  fuzzyKey=res["fuzzy"]["key"]))
             if "orthographic_variant" in flags:
                 review["orthographic_variant"].append(dict(base, matched=res["matched_name"], accepted=res["accepted_name"]))
             if "backbone_disagreement" in flags:
@@ -289,6 +304,7 @@ def build_report(uni, entries_summary, inputs, catalog_ids):
         "backbone_disagreement": dict(disagreement, total=disagreement["rango"] + disagreement["especie"]),
         "comparison_with_current": compare_with_current(uni, catalog_ids),
         "checks": checks_of(uni),
+        "ema_modified_cells": entries_summary.get("ema_modified_cells", []),
         "review": review,
         "discarded_aliases": [{"plant": p, "alias": a, "reason": r} for p, a, r in uni.discarded_aliases],
         "collision_groups": groups,
@@ -322,6 +338,8 @@ def render_markdown(report):
             % (e["usda_entries"], e["ema_entries"], e["ema_fiches"], len(e["ema_fiches_without_species"])),
             "- Resultado de las entradas de USDA: %s." % ", ".join("%s %d" % kv for kv in e["outcomes_usda"].items()),
             "- Resultado de las entradas de la EMA: %s." % ", ".join("%s %d" % kv for kv in e["outcomes_ema"].items()),
+            "- Coincidencias aproximadas (`fuzzy_match`): %d; con aceptado de rango superior a especie: %d."
+            % (len(report["review"]["fuzzy_match"]), len(report["review"]["accepted_above_species"])),
             "- Vía de resolución de las entradas de USDA: %s." % ", ".join("%s %d" % kv for kv in sorted(report["routes"]["usda"].items())),
             "- Plantas: %d (%s)." % (p["total"], ", ".join("%s %d" % kv for kv in p["by_kind"].items())),
             "- Plantas con entradas de USDA: %d; solo de la EMA: %d; con ambas: %d." % (p["from_usda"], p["ema_only"], p["usda_and_ema"]),
@@ -347,6 +365,16 @@ def render_markdown(report):
         out.extend(line(i) for i in items) if items else out.append("Ninguno.")
         out.append("")
 
+    cells = report["ema_modified_cells"]
+    out.append("## Celdas de la EMA modificadas (%d)" % len(cells))
+    out.append("")
+    out.append("Reglas: una celda que empieza por «Combination» no aporta especies; los grupos `(syn. ...)` y los fragmentos `syn. ...` se descartan; `(various species)` y `and Género (various species)` se descartan; `Género [various species including G. a L.; G. b L.]` se expande a las especies listadas; un grupo final entre paréntesis tras el autor (sinónimo o nota) se quita del autor, salvo el autor del basiónimo al principio (`(L.) Moench`).")
+    out.append("")
+    for c in cells:
+        out.append("- `%s`: «%s» pasa a [%s]; cambios: %s" % (
+            c["fiche"], _plain(c["cell"]), "; ".join(("%s%s" % (e["name"], (" " + e["author"]) if e["author"] else "")) for e in c["entries"]) or "sin especies",
+            " | ".join(_plain(x) for x in c["changes"])))
+    out.append("")
     section("Homónimos ambiguos", review["ambiguous"],
             lambda i: "- `%s` %s%s: %s" % (i["key"], i["name"], _author(i), _plain(i["notes"])))
     section("Sin resolver", review["unresolved"],
@@ -354,6 +382,11 @@ def render_markdown(report):
     section("Solo género", review["genus_only"], lambda i: "- `%s` %s" % (i["key"], i["name"]))
     section("Respaldo de WFO", review["wfo_fallback"],
             lambda i: "- `%s` %s%s resuelve a %s (WFO)" % (i["key"], i["name"], _author(i), i["accepted"]))
+    section("Aceptado de rango superior a especie (accepted_above_species)", review["accepted_above_species"],
+            lambda i: "- `%s` %s%s: %s" % (i["key"], i["name"], _author(i), _plain(i["notes"])))
+    section("Coincidencia aproximada (fuzzy_match)", review["fuzzy_match"],
+            lambda i: "- `%s` %s%s -> %s (distancia %d, %s), aceptado %s (%s %s)" % (
+                i["key"], i["name"], _author(i), i["matched"], i["distance"], i["kind"], i["accepted"], i["backbone"], i["acceptedId"]))
     section("Variante ortográfica", review["orthographic_variant"],
             lambda i: "- `%s` %s%s coincide con %s, aceptado %s" % (i["key"], i["name"], _author(i), i["matched"], i["accepted"]))
     section("Discrepancia entre backbones (backbone_disagreement)", review["backbone_disagreement"],

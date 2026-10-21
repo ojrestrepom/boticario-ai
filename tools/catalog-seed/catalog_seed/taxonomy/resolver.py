@@ -56,7 +56,10 @@ def _empty(outcome, backbone):
     return {"outcome": outcome, "backbone": backbone, "matched_id": "", "matched_name": "", "matched_status": "",
             "matched_key": "", "accepted_id": "", "accepted_name": "", "accepted_authors": "", "accepted_rank": "",
             "accepted_family": "", "accepted_key": "", "fallback_binomial": False, "homonym_present": False,
-            "flags": [], "notes": "", "candidates": [], "parsed": None}
+            "flags": [], "notes": "", "candidates": [], "parsed": None, "fuzzy": None}
+
+
+_NOT_INDEXED = "aceptado_"
 
 
 def _accepted_of(row, bb):
@@ -70,7 +73,7 @@ def _accepted_of(row, bb):
             return None, "sin_aceptado"
         nxt = bb.get(aid)
         if nxt is None:
-            return None, "aceptado_%s_no_esta_en_el_indice" % aid
+            return None, "%s%s_no_esta_en_el_indice" % (_NOT_INDEXED, aid)
         cur = nxt
     return None, "cadena_de_aceptados_demasiado_larga"
 
@@ -117,6 +120,13 @@ def _decide(ev, author, out, flags):
         e = top[0]
         out["outcome"] = "unresolved"
         _set_matched(out, e)
+        above = [x for x in top if x["note"].startswith(_NOT_INDEXED)]
+        if above:
+            flags.append("accepted_above_species")
+            ids = sorted(set(x["note"][len(_NOT_INDEXED):].split("_")[0] for x in above))
+            out["notes"] = ("aceptado de rango superior a especie (plant_name_id %s): el índice solo guarda especies e "
+                            "inferiores, así que no se puede nombrar al aceptado" % ", ".join(ids))
+            return
         out["notes"] = "solo filas sin aceptado utilizable (%s)" % ", ".join(sorted(set(x["c"]["status"] for x in top)))
         return
     acc_ids = sorted(set(e["acc"]["id"] for e in top))
@@ -262,17 +272,131 @@ def resolve_variants(name_text, backbone, hint=None, author=None):
     return out
 
 
+# Coincidencia aproximada (último recurso, flag `fuzzy_match`). Distancia de edición con transposición adyacente como
+# una sola operación. Umbrales: el epíteto de especie admite distancia 1 si mide de 5 a 7 letras y 2 si mide 8 o más
+# (con menos de 5 no se intenta); el género admite distancia 1 con el epíteto exacto si mide 5 letras o más.
+FUZZY_SHORT_EPITHET = 5
+FUZZY_LONG_EPITHET = 8
+FUZZY_MAX_GENUS_DISTANCE = 1
+FUZZY_MIN_GENUS_LENGTH = 5
+
+
+def fuzzy_max_distance(epithet):
+    """Distancia máxima de edición permitida para un epíteto de esa longitud (0 = no se intenta)."""
+    n = len(epithet)
+    if n < FUZZY_SHORT_EPITHET:
+        return 0
+    return 1 if n < FUZZY_LONG_EPITHET else 2
+
+
+def edit_distance(a, b, limit):
+    """Distancia de edición (inserción, borrado, sustitución, transposición adyacente); `limit + 1` si la supera."""
+    if abs(len(a) - len(b)) > limit:
+        return limit + 1
+    prev2 = None
+    prev = list(range(len(b) + 1))
+    for i in range(1, len(a) + 1):
+        cur = [i] + [0] * len(b)
+        for j in range(1, len(b) + 1):
+            cost = 0 if a[i - 1] == b[j - 1] else 1
+            cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost)
+            if prev2 is not None and i > 1 and j > 1 and a[i - 1] == b[j - 2] and a[i - 2] == b[j - 1]:
+                cur[j] = min(cur[j], prev2[j - 2] + 1)
+        if min(cur) > limit:
+            return limit + 1
+        prev2, prev = prev, cur
+    return prev[-1]
+
+
+def resolve_fuzzy(name_text, backbone, hint=None, author=None):
+    """Coincidencia aproximada del nombre en un backbone. Solo para nombres sin ningún candidato (ni con variantes).
+
+    Busca el epíteto de especie con distancia pequeña dentro del mismo género, o el género con distancia 1 y el epíteto
+    exacto. Toma la distancia mínima en la que existe alguna fila y exige un único aceptado a esa distancia; si hay más de
+    uno, el resultado es `ambiguous` y no se elige. El resultado lleva `fuzzy_match` y `fuzzy` (distancia, tipo, clave).
+    """
+    text = name_text if not author else "%s %s" % (name_text, author)
+    p = parse_name(text, hint=hint)
+    base = _empty("unmatched", backbone.kind)
+    base["parsed"] = p
+    base["flags"] = list(p.flags)
+    if not p.ok or p.genus_only:
+        return base
+    cands = []   # (distancia, tipo, género, especie)
+    limit = fuzzy_max_distance(p.species)
+    if limit:
+        for sp in backbone.species_of_genus(p.genus):
+            if sp != p.species:
+                d = edit_distance(sp, p.species, limit)
+                if d <= limit:
+                    cands.append((d, "epíteto", p.genus, sp))
+    if len(p.genus) >= FUZZY_MIN_GENUS_LENGTH:
+        for g in backbone.genera():
+            if g != p.genus and abs(len(g) - len(p.genus)) <= FUZZY_MAX_GENUS_DISTANCE:
+                if edit_distance(g, p.genus, FUZZY_MAX_GENUS_DISTANCE) <= FUZZY_MAX_GENUS_DISTANCE:
+                    cands.append((1, "género", g, p.species))
+    found = []   # (distancia, tipo, clave, filas, binomio_de_respaldo)
+    for d, kind, g, sp in sorted(cands):
+        key_full, key_bin = make_keys(g, sp, p.infra_rank, p.infra_epithet)
+        if p.autonym:
+            key_full = key_bin
+        rows, via_binomial = backbone.lookup(key_full), False
+        if not rows and p.infra_epithet and key_bin != key_full:
+            rows, via_binomial = backbone.lookup(key_bin), True
+        if rows:
+            found.append((d, kind, key_full if not via_binomial else key_bin, rows, via_binomial))
+    if not found:
+        base["notes"] = "sin coincidencia aproximada para %s" % p.key_full
+        return base
+    best = min(f[0] for f in found)
+    results = []
+    for d, kind, key, rows, via_binomial in found:
+        if d != best:
+            continue
+        out = _empty("unmatched", backbone.kind)
+        out["parsed"] = p
+        flags = list(p.flags)
+        out["flags"] = flags
+        _decide(_evaluate(rows, backbone), _tiebreak_author(p, via_binomial), out, flags)
+        if via_binomial:
+            flags.append("fallback_binomial")
+            out["fallback_binomial"] = True
+        out["fuzzy"] = {"distance": d, "kind": kind, "key": key}
+        results.append(out)
+    usable = [o for o in results if o["outcome"] in ("accepted", "synonym")]
+    clash = [o for o in results if o["outcome"] == "ambiguous"]
+    accepted_ids = sorted(set(o["accepted_id"] for o in usable))
+    if not usable and not clash:
+        base["notes"] = "coincidencia aproximada sin aceptado utilizable: " + "; ".join(
+            "%s (distancia %d)" % (o["fuzzy"]["key"], best) for o in results)
+        return base
+    if clash or len(accepted_ids) > 1:
+        base["outcome"] = "ambiguous"
+        base["flags"] = sorted(set(base["flags"] + ["fuzzy_match", "homonym_unresolved"]))
+        base["notes"] = "coincidencia aproximada con varios candidatos a distancia %d: %s" % (best, "; ".join(
+            "%s -> %s" % (o["fuzzy"]["key"], o["accepted_name"] or o["notes"]) for o in results))
+        return base
+    usable.sort(key=lambda o: (o["outcome"] != "accepted", o["fuzzy"]["key"]))
+    out = usable[0]
+    out["flags"] = sorted(set(out["flags"] + ["fuzzy_match"]))
+    out["notes"] = ("coincidencia aproximada con %s (distancia %d, %s); " % (out["fuzzy"]["key"], best, out["fuzzy"]["kind"])
+                    + out["notes"]).strip("; ")
+    return out
+
+
 def _resolved(r):
     return r["outcome"] in ("accepted", "synonym")
 
 
-def resolve_name(name_text, wcvp, wfo=None, hint=None, author=None, use_variants=True):
+def resolve_name(name_text, wcvp, wfo=None, hint=None, author=None, use_variants=True, use_fuzzy=None):
     """Resolución completa: WCVP, variantes ortográficas de WCVP, respaldo de WFO y variantes de WFO.
 
     - WFO solo se usa si WCVP da `unmatched`, `ambiguous` o `unresolved` y WFO da un único aceptado (flag `wfo_fallback`).
     - Si los dos resuelven y discrepan en el aceptado, se conserva el de WCVP con `backbone_disagreement`.
     - Una variante ortográfica se acepta solo como respaldo marcado (`orthographic_variant`); la de WCVP precede al
       respaldo de WFO porque un sinónimo de WFO exacto puede apuntar a otra especie (`Cistus ladaniferus`).
+    - La coincidencia aproximada (`fuzzy_match`) es el último recurso en WCVP: solo si el nombre no tiene ningún candidato,
+      ni con variantes ortográficas, y antes del respaldo de WFO. Se activa junto con `use_variants` (o con `use_fuzzy`).
     - Nunca se mezclan IDs de los dos backbones: `backbone` dice cuál dio el resultado.
     """
     rw = resolve(name_text, wcvp, hint, author)
@@ -286,12 +410,16 @@ def resolve_name(name_text, wcvp, wfo=None, hint=None, author=None, use_variants
             rw["wfo_accepted_id"] = rf["accepted_id"]
             rw["wfo_accepted_name"] = rf["accepted_name"]
         return rw
-    if use_variants and rw["outcome"] == "unmatched":
-        rv = resolve_variants(name_text, wcvp, hint, author)
-        if _resolved(rv):
-            return rv
-        if rv["outcome"] == "ambiguous":
-            return rv
+    fuzzy_on = use_variants if use_fuzzy is None else use_fuzzy
+    if rw["outcome"] == "unmatched" and (use_variants or fuzzy_on):
+        if use_variants:
+            rv = resolve_variants(name_text, wcvp, hint, author)
+            if _resolved(rv) or rv["outcome"] == "ambiguous":
+                return rv
+        if fuzzy_on:
+            rz = resolve_fuzzy(name_text, wcvp, hint, author)
+            if _resolved(rz) or rz["outcome"] == "ambiguous":
+                return rz
     if rf is not None and _resolved(rf):
         rf["flags"] = sorted(set(rf["flags"] + ["wfo_fallback"]))
         rf["notes"] = ("respaldo de WFO (WCVP: %s); " % rw["outcome"] + rf["notes"]).strip("; ")

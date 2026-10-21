@@ -31,6 +31,8 @@ brassica oleracea var. acephala|valeriana officinalis|valeriana officinalis subs
 veratrum album virescens|veratrum lobelianum|poa annua|poa annua var. reptans|crataegus azarolus|crataegus monogyna
 aquilegia vulgaris|aquilegia vulgaris inversa|mentha arvensis|mentha arvensis var. piperascens|acorus calamus
 acorus calamus subsp. gramineus|gossypium hirsutum
+eschscholzia californica|salvia fruticosa|salvia triloba|aloysia citrodora|aloysia triphylla|lippia citriodora|ziziphus jujuba
+curcuma zanthorrhiza|taraxacum officinale|croton macrostachyus|croton microstachys|croton tenuicaulis
 """.replace("\n", "|").split("|")) - {""}
 
 

@@ -231,6 +231,8 @@ class Backbone(object):
         self.table = "wcvp_name" if kind == "wcvp" else "wfo_name"
         self._lookup_cache = {}
         self._get_cache = {}
+        self._species_cache = {}
+        self._genera = None
 
     def close(self):
         self.db.close()
@@ -257,6 +259,22 @@ class Backbone(object):
             r = self.db.execute(self.sql + "WHERE %s = ?" % self.idcol, (value,)).fetchone()
             self._get_cache[id_] = self._row(r) if r else None
         return self._get_cache[id_]
+
+    def species_of_genus(self, genus):
+        """Epítetos de especie (en minúscula) de las filas del género, para la coincidencia aproximada. Con caché."""
+        genus = genus.lower()
+        if genus not in self._species_cache:
+            cur = self.db.execute("SELECT DISTINCT key_binomial FROM %s WHERE key_binomial >= ? AND key_binomial < ?"
+                                  % self.table, (genus + " ", genus + "!"))
+            self._species_cache[genus] = sorted(r[0][len(genus) + 1:] for r in cur.fetchall())
+        return self._species_cache[genus]
+
+    def genera(self):
+        """Géneros (en minúscula) con al menos una fila en el índice. Se lee una vez por conexión."""
+        if self._genera is None:
+            cur = self.db.execute("SELECT DISTINCT genus FROM %s" % self.table)
+            self._genera = sorted(set(r[0].lower() for r in cur.fetchall() if r[0]))
+        return self._genera
 
     def status_class(self, status):
         return STATUS_CLASS[self.kind].get(status, 5)

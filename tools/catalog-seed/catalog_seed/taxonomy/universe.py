@@ -84,6 +84,8 @@ _FLAG_CODES = (
     ("unresolved", "sin-resolucion", "El nombre no resuelve a un aceptado en ningún backbone."),
     ("unmatched", "sin-resolucion", "El nombre no aparece en ningún backbone."),
     ("wfo_fallback", "respaldo-wfo", "El aceptado viene del respaldo de WFO, no de WCVP."),
+    ("fuzzy_match", "coincidencia-aproximada", "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión."),
+    ("accepted_above_species", "aceptado-superior-a-especie", "El aceptado del nombre es de rango superior a especie; la planta conserva el nombre de la fuente."),
     ("orthographic_variant", "variante-ortografica", "El nombre resolvió por una variante ortográfica del epíteto."),
     ("backbone_disagreement", "backbones-discrepan", "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP."),
     ("split_group", "grupo-partido", "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas."),
@@ -124,6 +126,11 @@ def _homotypic_with(row, other):
     return bool((rb and rb == ob) or (rb and rb == other["id"]) or (ob and ob == row["id"]))
 
 
+def classify_relation(matched, accepted, backbone_kind):
+    """Relación de una fila coincidente con su aceptado: `A` (es el propio aceptado), `H` (homotípico) o `X` (heterotípico)."""
+    return _classify(_Resolved(None, {"backbone": backbone_kind}, matched, accepted))
+
+
 def _classify(r):
     matched, accepted = r.matched, r.accepted
     if matched["key_full"] == accepted["key_full"]:
@@ -152,6 +159,14 @@ class Universe(object):
             if p.id == plant_id:
                 return p
         return None
+
+    def relation(self, key):
+        """Relación de una entrada con su aceptado (`A`, `H` o `X`); None si la entrada no resolvió."""
+        res = self.resolutions[key]
+        if res["outcome"] not in RESOLVED:
+            return None
+        bb = self.wcvp if res["backbone"] == "wcvp" else self.wfo
+        return classify_relation(bb.get(res["matched_id"]), bb.get(res["accepted_id"]), res["backbone"])
 
     def plant_of_entry(self, key):
         for p in self.plants:

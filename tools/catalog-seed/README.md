@@ -343,7 +343,12 @@ El paquete `catalog_seed/taxonomy/` resuelve nombres científicos al aceptado de
 - `parse_name` normaliza a NFC y separa género, especie, rango y epíteto infraespecífico, autor y autor de la especie. Decodifica entidades HTML, reconoce el rango canónico (`subsp.`, `var.`, `f.`, ...) y se queda con el último marcador, separa marcadores pegados al epíteto y el autor pegado al epíteto (`Lavandula roseaL.`), completa los trinomios sin marcador, reconoce los autónimos y descarta cultivares entre comillas o con `cv.`.
 - Un híbrido (`×`, `x` o `+`) es una marca del nombre, no parte de la clave. `aggr.`, `s.l.` y `s.str.` también quedan como marca. `sp`/`spp` y los nombres de un solo término son «solo género» y no se buscan.
 - Las claves de búsqueda son `key_full` (género, especie, rango y epíteto infraespecífico, en minúsculas) y `key_binomial`. Al cargar el índice se aplican las mismas reglas a WCVP y WFO, así que las dos claves coinciden.
-- `split_source_names` separa una celda con varios nombres: por `;` y por coma cuando lo que sigue parece otro nombre, expande los géneros abreviados de la EMA (`C. laevigata`), quita `syn.` y descarta los fragmentos `Combination: ...` y los de menos de 4 caracteres.
+- `split_source_names` (y `split_source_cell`, que además devuelve las notas de lo que cambió) separa una celda con varios nombres: por `;` y por coma cuando lo que sigue parece otro nombre, expande los géneros abreviados de la EMA (`C. laevigata`) y descarta los fragmentos de menos de 4 caracteres. Reglas de las celdas de la EMA:
+  - Una celda que empieza por `Combination` no aporta especies (antes solo se descartaba el fragmento que la abría, y `Thymus zygis L. and Primula veris L.` pasaba como nombre).
+  - Los nombres que la celda marca como sinónimos no son entradas: se descartan los grupos `(syn. ...)` completos, con paréntesis anidados y con todo lo que sigue hasta el final de la celda si el paréntesis nunca se cierra (`verbenae-citriodorae-folium` queda solo con *Aloysia citrodora*), y los fragmentos `syn. ...` (`Cynara scolymus`, `Paullinia sorbilis`).
+  - `Género [various species including G. a L.; G. b L.]` se expande a las especies listadas, con el género completo (`salicis-cortex` da *Salix purpurea*, *S. daphnoides* y *S. fragilis*, con autores limpios).
+  - `(various species)` y `and Género (various species)` se descartan: solo salen las especies nombradas. `aloes-folii-succus-siccatus` da únicamente *Aloe barbadensis* Mill., porque la celda no nombra ninguna otra especie y una entrada de solo género crearía una planta `aloe` sin objetivo; las demás especies de *Aloe* entran por otras fuentes.
+  - `clean_author` (usado por `parse_name`) limpia el autor: quita los grupos finales entre paréntesis que siguen a un autor (`Bertol. (V. thapsiforme Schrad)` queda `Bertol.`; `(Vent.) Schott et Endl. (C. vera K. Schum.)` queda `(Vent.) Schott et Endl.`), la cola en minúscula tras coma (`(L.) Merr., oleum`) y el autor duplicado (`L.L.`). Conserva el autor del basiónimo, que va al principio (`(L.) Moench`). El flag es `author_note_removed` y `ParsedName.author_removed` guarda lo quitado.
 
 ### Índice (`index.py`)
 
@@ -355,6 +360,8 @@ El paquete `catalog_seed/taxonomy/` resuelve nombres científicos al aceptado de
 - Prioridad por estado: aceptado, luego sinónimo, luego ilegítimo, inválido u ortográfico con aceptado, luego mal aplicado. Los nombres sin aceptado utilizable quedan `unresolved`.
 - Desempate por autor: se compara apellido por apellido, el basiónimo con el basiónimo y la combinación con la combinación, con prefijo de 3 letras y `L.` igual a `Linnaeus`; el puntaje debe ser 0,5 o más. Si varios candidatos empatan en estado y apuntan a aceptados distintos, el nombre es `ambiguous` y no se fusiona con ninguno. Un sinónimo con otro candidato hacia un aceptado distinto también es ambiguo salvo que el autor desempate.
 - `resolve_name` aplica WCVP primero. Si WCVP no encuentra el nombre, prueba las variantes ortográficas del epíteto (`-ii`/`-i`, `-us`/`-a`/`-um`, `ph`/`f`, ...), que se aceptan solo si todas dan el mismo aceptado y quedan marcadas `orthographic_variant`. Si WCVP sigue sin resolver (no encontrado, ambiguo o sin aceptado) y WFO da un único aceptado, se usa el de WFO con la marca `wfo_fallback`. Si los dos resuelven pero aceptan nombres distintos, se conserva el de WCVP con `backbone_disagreement`. Nunca se mezclan IDs de los dos backbones: `backbone` dice cuál dio el resultado.
+- Coincidencia aproximada (`resolve_fuzzy`, flag `fuzzy_match`): es el último recurso en WCVP y solo se aplica cuando el nombre no tiene ningún candidato, ni siquiera con las variantes ortográficas, y antes del respaldo de WFO. Busca (a) un epíteto de especie con distancia de edición pequeña dentro del mismo género o (b) un género con distancia 1 y el epíteto exacto. La distancia cuenta inserción, borrado, sustitución y transposición adyacente. Umbrales: epíteto de menos de 5 letras no se intenta; de 5 a 7 letras, distancia 1; de 8 o más, distancia 1 o 2; género de 5 letras o más, distancia 1. Se toma la distancia mínima en la que existe alguna fila y se exige un único aceptado a esa distancia; si hay dos o más aceptados distintos (o un homónimo sin resolver), el nombre es `ambiguous` con `fuzzy_match` y no se elige ninguno. El resultado lleva `fuzzy` (`distance`, `kind` `epíteto` o `género`, `key`) y una nota. No corrige erratas del epíteto infraespecífico. Desactivar `use_variants` desactiva también la coincidencia aproximada (o `use_fuzzy=False`). Como corre antes del respaldo de WFO, un nombre que WFO tiene exacto pero WCVP no puede pasar por la coincidencia aproximada de WCVP (en los datos reales les pasó a 9 entradas de USDA, listadas en el informe).
+- Aceptado de rango superior a especie: si un nombre es sinónimo de un aceptado que el índice no carga (solo guarda especies e inferiores), queda `unresolved` con el flag `accepted_above_species` y la nota «aceptado de rango superior a especie (plant_name_id N)». La planta conserva su nombre y su ID (`taraxacum-officinale`, cuyo aceptado en WCVP es la sección 2916959). El índice no guarda el nombre de ese aceptado; leerlo desde el CSV de WCVP queda como mejora si hace falta.
 
 ### Universo, colisiones, IDs y alias (`universe.py`, `ids.py`)
 
@@ -371,7 +378,7 @@ python3 -I tools/catalog-seed/cli.py resolve
 ```
 
 - Entradas: cada `usda_taxon` de `data/work/sources.db` (nombre = `TAXON`, autor = `TAXAUTHOR`) y cada especie de las fichas de la EMA (`ema_herbal`, celda `botanical_name` separada con `split_source_names("ema", ...)`). Una especie de la EMA que ya está en USDA no crea una planta: se une a la que ya existe. Una especie que ningún nombre de USDA alcanza crea una planta nueva. Es el criterio por identidad resuelta, no por texto: si la EMA nombra un sinónimo heterotípico de una planta de USDA, el sinónimo es una planta propia con la regla de colisiones.
-- Combinaciones de la EMA: las fichas cuyo `botanical_name` es `Combination: ...` o está vacío no aportan especies, porque no tienen objetivos propios y sus especies ya están en monografías simples. La ficha fusionada `hyperici-herba` (marcada como combinación al deduplicar, pero formada por dos monografías simples, *Hypericum perforatum* y *Cimicifuga racemosa*) sí aporta las suyas. Son 7 fichas sin especies de las 204.
+- Combinaciones de la EMA: las fichas cuyo `botanical_name` empieza por `Combination` o está vacío no aportan especies, porque no tienen objetivos propios y sus especies ya están en monografías simples. La ficha fusionada `hyperici-herba` (marcada como combinación al deduplicar, pero formada por dos monografías simples, *Hypericum perforatum* y *Cimicifuga racemosa*) sí aporta las suyas. Son 7 fichas sin especies de las 204.
 - Índice: usa `data/work/taxonomy.db` si su metadato coincide con los checksums de WCVP y WFO de `sources.json`; si falta o cambió alguno, lo recrea desde la caché verificada (`require_verified_files`, sin red). `--rebuild-index` fuerza la recreación.
 - Salidas en `data/work/universe/` (`--out-dir`): `universe.json`, `report.json` y `report.md`. Compara los IDs con `data/build/catalog.db` si existe (`--catalog-db`), solo en lectura. Termina con código 1 si hay IDs repetidos o falta `lavandula-angustifolia`.
 - Las opciones `--db` y `--taxonomy-db` cambian el SQLite de las extracciones y la ubicación del índice.
@@ -382,10 +389,176 @@ python3 -I tools/catalog-seed/cli.py resolve
 - Planta: `id`, `name` (nombre aceptado o, en una identidad de la fuente, el nombre de la entrada), `author`, `kind`, `backbone` (`wcvp`, `wfo` o null), `acceptedId` y `matchedId` (IDs del backbone indicado; `matchedId` solo en plantas heterotípicas), `family`, `entries`, `aliases`, `flags`, `reviewFlags` y `collision`.
 - `kind`: `resolved` (el aceptado y sus homotípicos), `heterotypic` (planta propia de un grupo partido), `ambiguous`, `unresolved`, `unmatched` o `genus_only` (identidad de la fuente).
 - `entries`: una por entrada que llegó a la planta, con `source` (`usda` o `ema`), `key` (`usda:<FNFNUM>` o `ema:<slug de la ficha>#<n>`), `name`, `author`, `outcome` (resultado de la resolución), `matchedName` y `relation` (`aceptado`, `homotípico`, `heterotípico` o null si no resolvió). Las claves son las que usarán las tareas 3.2 y 3.5 para ubicar las filas de `sources.db`.
-- `flags`: marcas del resolvedor y del grupo (por ejemplo `wfo_fallback`, `orthographic_variant`, `backbone_disagreement`, `split_group`, `author_tiebreak`). `reviewFlags` son los flags de revisión en el formato del registro: `{code, target: "scientificName", message}` con los códigos `identidad-ambigua`, `solo-genero`, `sin-resolucion`, `respaldo-wfo`, `variante-ortografica`, `backbones-discrepan`, `grupo-partido` y `filas-sin-asignar`.
+- `flags`: marcas del resolvedor y del grupo (por ejemplo `wfo_fallback`, `orthographic_variant`, `fuzzy_match`, `accepted_above_species`, `backbone_disagreement`, `split_group`, `author_tiebreak`). `reviewFlags` son los flags de revisión en el formato del registro: `{code, target: "scientificName", message}` con los códigos `identidad-ambigua`, `solo-genero`, `sin-resolucion`, `respaldo-wfo`, `variante-ortografica`, `coincidencia-aproximada`, `aceptado-superior-a-especie`, `backbones-discrepan`, `grupo-partido` y `filas-sin-asignar`.
 - `collision`: null, o `{acceptedName, members, split}` con los IDs de todas las plantas del grupo partido.
 
-`report.json` guarda las cifras, la comparación con los IDs actuales, las listas de revisión por motivo, los alias descartados y todos los grupos con varias entradas (`collision_groups`, con la relación y el resultado de cada miembro). `report.md` es la versión legible, con los grupos partidos y los fusionados por separado.
+`report.json` guarda las cifras, la comparación con los IDs actuales, las celdas de la EMA modificadas (`ema_modified_cells`: celda original, especies resultantes y notas), las listas de revisión por motivo (incluidas todas las coincidencias aproximadas, con el nombre de origen, el nombre de WCVP, la distancia y el aceptado, y los nombres con aceptado de rango superior a especie), los alias descartados y todos los grupos con varias entradas (`collision_groups`, con la relación y el resultado de cada miembro). `report.md` es la versión legible, con los grupos partidos y los fusionados por separado.
+
+### Resultado con los datos reales y diferencias con el piloto
+
+| Cifra | Piloto | Real |
+| --- | --- | --- |
+| Entradas de USDA resueltas con WCVP (de 2.376) | unas 2.125 | 2.125 por WCVP (más 87 por coincidencia aproximada, 44 por variante ortográfica y 5 por respaldo de WFO) |
+| Plantas | unas 2.411 | 2.406 (2.341 con entradas de USDA y 65 solo de la EMA) |
+| Homónimos ambiguos | unos 19 | 21 (19 más dos de la coincidencia aproximada) |
+| Sin resolver (USDA) | 164 | 32 tras variantes, coincidencia aproximada y respaldo |
+| Solo género | 62 o 63 | 62 de USDA y 62 plantas |
+| IDs distintos de los actuales | unos 500 | 616 en todo el universo (los IDs con errata del catálogo actual pasan a alias) |
+| `lavandula-angustifolia` | presente | presente |
+| IDs repetidos | ninguno | ninguno |
+
+- Plantas por tipo: 2.214 `resolved`, 75 `heterotypic`, 21 `ambiguous`, 34 sin resolver (33 `unmatched` y 1 `unresolved`), 62 solo género. Hay 604 alias en 595 plantas y 1 descartado (`cynara-cardunculus-subsp-cardunculus`, que es el ID de otra planta).
+- Contra los 2.376 IDs actuales de `data/build/catalog.db`: 1.790 se conservan como ID, 586 pasan a alias y ninguno se pierde.
+- Antes de las correcciones de calidad (primera generación del universo) había 2.414 plantas, 117 sin resolver, 63 solo género, 52 grupos partidos y 14 entradas por el respaldo de WFO. Las correcciones cambian eso así: 8 plantas menos (las erratas de la EMA y de USDA se unen a su planta; desaparecen `lippia-citriodora`, `salix-various-species-including-s-purpurea-l`, `eschscholzia-california` y `salvia-fructicosa`), 83 sin resolver menos, 1 solo género menos (el de `Salix [...]`), 4 grupos partidos más (al unirse, una entrada nueva vuelve heterotípico a un sinónimo que antes estaba solo) y 9 entradas del respaldo de WFO que pasan a coincidencia aproximada.
+- El piloto cuenta 164 sin resolver; aquí quedan 32 de USDA. La tarea 2.7 (contraste con el script del piloto) no se ha hecho, así que las diferencias de cifras con el piloto no se han atribuido.
+- Coincidencias aproximadas: 91 entradas (87 de USDA y 4 de la EMA: `Curcuma xanthorrhiza` dos veces, `Eschscholzia california` y `Salvia fructicosa`), todas listadas en `report.md` con la distancia y el aceptado para revisarlas una por una. 54 son de epíteto con distancia 1, 19 de epíteto con distancia 2 y 18 de género (`Zizyphus`, `Macroptylium`, `Syzgium`, ...). Dos más quedaron `ambiguous` (`Croton macrostachys` y `Zizyphus trinervia`).
+- Aceptado de rango superior a especie: 5 entradas de *Taraxacum officinale* (USDA y 4 fichas de la EMA), todas una sola planta `taraxacum-officinale` `unresolved` con el flag `accepted_above_species`.
+- Las 32 entradas de USDA que siguen sin resolver y las 7 de la EMA (3 sin encontrar y las 4 de *Taraxacum officinale*) aparecen en la lista de revisión; ya no hay plantas espurias por sinónimos de la EMA.
+- `backbone_disagreement`: 74 entradas. En 17 WCVP y WFO aceptan el mismo binomio y solo difieren en la variedad o subespecie (por eso la cifra parece inflada), y en 57 aceptan especies distintas (por ejemplo `Urginea maritima` es *Drimia maritima* en WCVP y *Squilla maritima* en WFO).
+- Grupos de colisión: 225 grupos reúnen varias entradas con el mismo aceptado, 56 se parten y los 56 tienen al menos un heterotípico partido. Hay 75 plantas `heterotypic`. La regla de colisiones no cambió: los grupos partidos siguen pendientes de decisión. `report.md` los lista con la relación de cada miembro y su resultado.
+
+## Pruebas de 1.4 y datos reales
+
+Las pruebas de descarga usan un servidor HTTP local (`http.server` en un hilo), sin red externa. Una consulta real de humo con tres nombres (Mentha ×piperita, Arnica montana, Matricaria chamomilla), dos resúmenes de Wikipedia y dos imágenes de Commons confirmó el formato; esas respuestas quedan en la caché local, ignorada por Git.
+
+## Esquema del registro
+
+`schema/record.schema.json` es el esquema JSON (draft 2020-12) del registro v1 de una planta, y es la fuente única de la forma del registro: el validador de Python lo aplica y el lector de Rust usará tipos equivalentes con `deny_unknown_fields`. Declara su versión en la extensión `x-recordVersion` (hoy 1), que el registro copia en `recordVersion` y que `plan` y `seal` comparan.
+
+Campos (todos obligatorios, sin campos adicionales en ningún nivel): `id`, `recordVersion`, `bundleHash`, `promptVersion` (entero), `model`, `aliases`, `scientificName` (`name`, `authors`, `refs`), `synonyms` (hasta 10), `family`, `displayName`, `commonNames`, `origin`, `description` (hasta 400 caracteres), `partsUsed` (hasta 5), `oil`, `traditionalUses` (hasta 20 grupos), `goals`, `safety` (un objeto con `level` alto, medio o bajo, o `null`), `image`, `sources`, `refs` (subconjunto del diccionario del paquete; cada entrada lleva `dataset`, `label`, `license` y, opcional, `url`) y `reviewFlags` (objetos `{code, target, message}`; una cadena suelta no es válida). No hay campo `basis`: la variante A solo usa el paquete.
+
+Decisiones de forma que la spec deja abiertas:
+
+- Un grupo de `traditionalUses` lleva `activity`, `activitySource`, `n`, `countries` (en español), `refs`, `pendingReview` y `citations`: una lista de `{key, ref, text}`, con la clave corta tal como viene de USDA, el ref `usda_reference:*` de la candidata elegida y su cita completa. Una clave sin candidata va como `{key, ref: null, text: "<clave> (sin resolver)"}`.
+- `goals[]` lleva `goal`, `subarea` (nulo salvo en `otros-objetivos`), `area` (traducción del mapa), `evidence`, `pendingReview` y `refs`; los ids de `goal` y `subarea` son enumeraciones cerradas iguales a las de `data/seed/goals.json` (una prueba lo comprueba).
+- Las entradas de `refs` pueden llevar `url` (enlace a la fuente, que el paquete trae cuando la fuente lo tiene). Es obligatoria para los refs de `wikipedia_es` con licencia CC BY-SA, porque la descripción resumida de Wikipedia registra su licencia y el enlace al artículo.
+- Los códigos de `reviewFlags` van en minúsculas con guiones (por ejemplo `cita-sin-resolver`); el esquema no limita la lista de códigos. El `target` del flag de un objetivo es `goals.<goal>` y el de un grupo, `traditionalUses[<índice>]`.
+
+`catalog_seed/schema.py` implementa a mano, sin `jsonschema`, el subconjunto usado: `type` (nombre o lista), `enum`, `const`, `properties`, `required`, `additionalProperties` (`false` o esquema), `propertyNames` (solo `pattern`), `items`, `minItems`, `maxItems`, `minLength`, `maxLength`, `minimum`, `maximum`, `pattern`, `$ref` a `#/$defs/<nombre>` y `$defs`; ignora las anotaciones (`title`, `description`, `$comment`, `x-*`). Cargar un esquema con otra palabra clave falla, para que nadie confíe en una restricción que no se aplica.
+
+## Mapa de objetivos y catálogo
+
+- `goals-map.json`: para cada área terapéutica de la EMA (`areas`), la traducción al español (`es`), el objetivo (`goal`) y la subárea (`subarea`, solo en `otros-objetivos`). Incluye las 15 áreas del snapshot real, con las variantes «Urinary tract and gynaecology disorders», «Digestive disorder» y «Eye discomfort». Declara además `countedOutcomes` (`European Union herbal monograph` y `European Union list entry`), el separador `;` del campo y `emptyArea`: una ficha sin área (24 de las 204 del snapshot) no genera objetivos y está tratada de forma explícita.
+- `data/seed/goals.json`: el catálogo de la semilla con los seis objetivos y las seis subáreas de `otros-objetivos` (`id`, `label` provisional en español y `position`; las subáreas llevan además `goalId`). Forma parte del `seedHash`.
+- Las pruebas comprueban con el snapshot real de la EMA de la caché (se omiten con `skipTest` si no está) que cada área de las 204 fichas se asigna, que las cinco áreas con objetivo propio coinciden con la spec y que todo id del mapa existe en el catálogo.
+
+## Prompt de consolidación
+
+`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y, cuando exista (tarea 4.4), el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión.
+
+## Contrato del paquete que usa el validador
+
+El paquete lo construye la tarea 3.5; el validador solo depende de esta parte de su contrato: `refs`, `bundleHash`, `identity.proposedId`, `sections.regulatory[]` (`ref`, `therapeuticAreas`, `outcome`, `combination`), `sections.safety[]` (`source`, `humanToxicity` para TPPT y `severeInteractions` para la EMA), `sections.images[].ref`, `sections.descriptions[].url` y `sections.uses[]` (`activity` y, por grupo, `citations` con las claves cortas y `candidates`: un objeto de clave a lista de `{ref, citation}`). La marca `severeInteractions` es provisional hasta que la tarea 4.4 defina el mapa de seguridad.
+
+## Validador
+
+`validate` comprueba cada archivo de `--records` (por defecto `data/seed/plants`) contra su paquete de `--bundles` (por defecto `data/work/bundles`, emparejado por `identity.proposedId`):
+
+- el esquema (si falla, no se hacen las demás comprobaciones);
+- que `id` es `identity.proposedId` y `bundleHash` el del paquete, y que el archivo se llama como el `id`;
+- que todo ref citado existe en `refs` del paquete y en el subconjunto `refs` del registro, con el mismo dataset, etiqueta, licencia y `url`, y que todo ref de `wikipedia_es` con licencia CC BY-SA trae `url`;
+- que cada objetivo tiene respaldo de la EMA (un ref de una ficha cuyo resultado, separado por `;`, incluye monografía o entrada de lista, que no es un producto combinado y cuya área, según el mapa, da ese objetivo y subárea), que `subarea` es nula salvo en `otros-objetivos`, y que no hay objetivos repetidos;
+- que una planta con TPPT «strong toxic» o «very strong toxic» (valores separados por «, », prefijo antes del paréntesis) no tiene objetivos;
+- que el objetivo `relajacion-estres` de una planta con interacciones graves en la EMA lleva `pendingReview` verdadero, y que todo objetivo con `pendingReview` tiene un `reviewFlag` cuyo `target` lo señala;
+- que todo grupo con `pendingReview` tiene un `reviewFlag` con `target` `traditionalUses[<índice>]`, que todo grupo con una cita sin resolver es pendiente y tiene el flag `cita-sin-resolver`, que toda cita apunta a un `usda_reference:*` del paquete (y a una candidata de esa clave cuando el paquete las trae) o está marcada «(sin resolver)», y que `activitySource` es una actividad literal del paquete;
+- que la imagen tiene licencia CC0, dominio público, CC BY o CC BY-SA (se rechazan NC y ND), `attributionRequired` verdadero para CC BY y CC BY-SA, y es una imagen del paquete.
+
+Las expresiones de dosis o eficacia (`dosis`, `mg`, `ml`, `gotas`, `cucharada`, `cura`, `trata`, `tratamiento`, `previene`, `elimina`, `alivia`, `eficaz` y similares) en los textos visibles son advertencias, no errores. El comando imprime errores y advertencias por planta y un resumen, escribe el informe completo con `--out` y termina con código 1 si hay algún error.
+
+## Plan de regeneración
+
+`plan` recorre los paquetes de `--bundles` y lista las plantas que no tienen registro en `<seed>/plants/<id>.json` o cuyo registro tiene otro `bundleHash`, otra `promptVersion` (la de `prompt/consolidate.md`) u otra `recordVersion` (la del esquema), con los motivos (`sin-registro`, `bundleHash`, `promptVersion`, `recordVersion`). Con `--json` imprime el plan como JSON. Sin cambios, la lista está vacía; subir la versión del prompt las pone todas en cola; un cambio de una fuente que altere un solo paquete deja solo esa planta.
+
+## Sellado y manifiesto
+
+`seal` lee `<seed>/plants/*.json` y `<seed>/goals.json`, comprueba que cada registro cumple el esquema, que su archivo se llama como su `id` y que su `promptVersion` es la del prompt vigente (si no, hay que regenerar antes de sellar), y escribe `<seed>/manifest.json` con claves ordenadas, sangría de 2 espacios y salto de línea final, sin marcas de tiempo. Campos:
+
+- `formatVersion`: versión del formato del manifiesto (1).
+- `sources`: las fuentes con `enabled: true` de `sources.json`, con `id`, `version`, `license`, `attribution` y `files` (`filename`, `size`, `checksum`). Una fuente activa sin snapshot fijado hace fallar el sellado; una desactivada no se lista.
+- `promptVersion` y `recordVersion`: las del prompt y el esquema vigentes.
+- `models`: los modelos distintos de los registros, ordenados (puede haber más de uno si se regeneró por tandas).
+- `plantCount`: número de plantas.
+- `reviewFlags`: para cada `code`, cuántas plantas lo tienen.
+- `seedHash`: `sha256:` más el sha256 de la concatenación UTF-8 de `plant\n<id>\n<JSON canónico del registro>\n` para cada registro ordenado por `id`, seguida de `goals\n<JSON canónico de goals.json>\n`. El JSON canónico tiene las claves ordenadas, separadores `,` y `:` sin espacios y caracteres sin escapar, así que no depende de la sangría de los archivos.
+
+`seal` no reescribe los registros ni escribe la semilla real (tarea 6.1); las pruebas lo ejercitan sobre un directorio de semilla de fixtures.
+
+## Extracción de seguridad de los PDF de la EMA (spike 3.1)
+
+El spike de la tarea 3.1 (detalle en [`tools/catalog-seed/spikes/ema-pdf/README.md`](tools/catalog-seed/spikes/ema-pdf/README.md)) comprobó si se pueden extraer de los PDF de la EMA las secciones 4.3 (contraindicaciones), 4.4 (advertencias y precauciones) y 4.5 (interacciones), con su numeración y sin mezclar columnas.
+
+- Se cumple el criterio de D9 en los 8 PDF de la muestra (7 monografías, entre ellas *Hyperici herba*, y 1 declaración pública) con `pdfminer.six`, leyendo las coordenadas de cada línea para separar la columna de uso bien establecido de la de uso tradicional.
+- `pypdf` y `pdfminer.six` en texto plano no bastan: `pypdf` concatena las columnas sin etiquetarlas en las monografías con dos columnas con contenido (hipérico, menta, valeriana) y `pdfminer.six` entrelaza líneas en la sección 4.5 del hipérico.
+- La declaración pública de *Citrus bergamia* no tiene secciones de seguridad: se registrará como «declaración pública sin datos de seguridad» y no se inventarán secciones vacías.
+- La EMA limita las descargas: hay que esperar unos 15 segundos entre PDF, responde 429 con `Retry-After` y a veces entrega una página HTML de error en lugar del PDF, así que antes de cachear un archivo se comprueba que empiece por `%PDF-`.
+- Herramienta recomendada para la tarea 3.3: `pdfminer.six` con `extract_pages()` y coordenadas (modo `pdfminer-cols` del spike), solo para el desarrollador. `pdftotext -layout` no se probó y no es necesario.
+
+## Fuentes admitidas y descartadas
+
+El verificador (`catalog_seed/sources.py`) rechaza cualquier fuente que no esté en la lista de admitidas.
+
+- Admitidas: `usda`, `wcvp`, `wfo`, `ema_json`, `ema_pdf`, `tppt`, `efsa`, `wikidata`, `wikipedia_es` y `commons`.
+- Descartadas (mensaje específico): AromaDb, EssOilDB, sCentInDB, FDA PPDB, Comisión E, OMS/WHO, NHPID, iNaturalist y DrugBank.
+
+## Resolvedor taxonómico y universo (tareas 2.1 a 2.6)
+
+El paquete `catalog_seed/taxonomy/` resuelve nombres científicos al aceptado de WCVP (con WFO de respaldo) y arma el universo de plantas. Es biblioteca estándar de Python 3.9 y no usa la red.
+
+### Normalización (`names.py`)
+
+- `parse_name` normaliza a NFC y separa género, especie, rango y epíteto infraespecífico, autor y autor de la especie. Decodifica entidades HTML, reconoce el rango canónico (`subsp.`, `var.`, `f.`, ...) y se queda con el último marcador, separa marcadores pegados al epíteto y el autor pegado al epíteto (`Lavandula roseaL.`), completa los trinomios sin marcador, reconoce los autónimos y descarta cultivares entre comillas o con `cv.`.
+- Un híbrido (`×`, `x` o `+`) es una marca del nombre, no parte de la clave. `aggr.`, `s.l.` y `s.str.` también quedan como marca. `sp`/`spp` y los nombres de un solo término son «solo género» y no se buscan.
+- Las claves de búsqueda son `key_full` (género, especie, rango y epíteto infraespecífico, en minúsculas) y `key_binomial`. Al cargar el índice se aplican las mismas reglas a WCVP y WFO, así que las dos claves coinciden.
+- `split_source_names` (y `split_source_cell`, que además devuelve las notas de lo que cambió) separa una celda con varios nombres: por `;` y por coma cuando lo que sigue parece otro nombre, expande los géneros abreviados de la EMA (`C. laevigata`) y descarta los fragmentos de menos de 4 caracteres. Reglas de las celdas de la EMA:
+  - Una celda que empieza por `Combination` no aporta especies (antes solo se descartaba el fragmento que la abría, y `Thymus zygis L. and Primula veris L.` pasaba como nombre).
+  - Los nombres que la celda marca como sinónimos no son entradas: se descartan los grupos `(syn. ...)` completos, con paréntesis anidados y con todo lo que sigue hasta el final de la celda si el paréntesis nunca se cierra (`verbenae-citriodorae-folium` queda solo con *Aloysia citrodora*), y los fragmentos `syn. ...` (`Cynara scolymus`, `Paullinia sorbilis`).
+  - `Género [various species including G. a L.; G. b L.]` se expande a las especies listadas, con el género completo (`salicis-cortex` da *Salix purpurea*, *S. daphnoides* y *S. fragilis*, con autores limpios).
+  - `(various species)` y `and Género (various species)` se descartan: solo salen las especies nombradas. `aloes-folii-succus-siccatus` da únicamente *Aloe barbadensis* Mill., porque la celda no nombra ninguna otra especie y una entrada de solo género crearía una planta `aloe` sin objetivo; las demás especies de *Aloe* entran por otras fuentes.
+  - `clean_author` (usado por `parse_name`) limpia el autor: quita los grupos finales entre paréntesis que siguen a un autor (`Bertol. (V. thapsiforme Schrad)` queda `Bertol.`; `(Vent.) Schott et Endl. (C. vera K. Schum.)` queda `(Vent.) Schott et Endl.`), la cola en minúscula tras coma (`(L.) Merr., oleum`) y el autor duplicado (`L.L.`). Conserva el autor del basiónimo, que va al principio (`(L.) Moench`). El flag es `author_note_removed` y `ParsedName.author_removed` guarda lo quitado.
+
+### Índice (`index.py`)
+
+`build_index` carga en `data/work/taxonomy.db` (unos 1 GB, unos 25 s) los nombres y la distribución de WCVP y la clasificación de WFO. Descarta las filas de rango superior a especie y las de epíteto no interpretable (WCVP: 42.142 de género o incompleta y 13 de epíteto inválido; WFO: 57.249 de rango superior o incompleta y 29 de epíteto inválido). Queda con 1.406.829 nombres de WCVP, 1.995.338 filas de distribución y 1.606.736 nombres de WFO. El metadato del índice guarda la versión del formato y el checksum de WCVP y de WFO con que se hizo. `Backbone` lee un backbone de solo lectura: `lookup(key_full)`, `get(id)`, `synonyms(id)` y `distribution(id)`. Cada fila lleva estado, aceptado, `homotypic` (solo WCVP), basiónimo, familia y rango.
+
+### Resolución (`resolver.py`)
+
+- `resolve` busca la clave completa y, si no hay candidatos, la clave de reserva de los autónimos y después el binomio (marca `fallback_binomial`). Cada candidato sigue su cadena de aceptados hasta un nombre aceptado.
+- Prioridad por estado: aceptado, luego sinónimo, luego ilegítimo, inválido u ortográfico con aceptado, luego mal aplicado. Los nombres sin aceptado utilizable quedan `unresolved`.
+- Desempate por autor: se compara apellido por apellido, el basiónimo con el basiónimo y la combinación con la combinación, con prefijo de 3 letras y `L.` igual a `Linnaeus`; el puntaje debe ser 0,5 o más. Si varios candidatos empatan en estado y apuntan a aceptados distintos, el nombre es `ambiguous` y no se fusiona con ninguno. Un sinónimo con otro candidato hacia un aceptado distinto también es ambiguo salvo que el autor desempate.
+- `resolve_name` aplica WCVP primero. Si WCVP no encuentra el nombre, prueba las variantes ortográficas del epíteto (`-ii`/`-i`, `-us`/`-a`/`-um`, `ph`/`f`, ...), que se aceptan solo si todas dan el mismo aceptado y quedan marcadas `orthographic_variant`. Si WCVP sigue sin resolver (no encontrado, ambiguo o sin aceptado) y WFO da un único aceptado, se usa el de WFO con la marca `wfo_fallback`. Si los dos resuelven pero aceptan nombres distintos, se conserva el de WCVP con `backbone_disagreement`. Nunca se mezclan IDs de los dos backbones: `backbone` dice cuál dio el resultado.
+- Coincidencia aproximada (`resolve_fuzzy`, flag `fuzzy_match`): es el último recurso en WCVP y solo se aplica cuando el nombre no tiene ningún candidato, ni siquiera con las variantes ortográficas, y antes del respaldo de WFO. Busca (a) un epíteto de especie con distancia de edición pequeña dentro del mismo género o (b) un género con distancia 1 y el epíteto exacto. La distancia cuenta inserción, borrado, sustitución y transposición adyacente. Umbrales: epíteto de menos de 5 letras no se intenta; de 5 a 7 letras, distancia 1; de 8 o más, distancia 1 o 2; género de 5 letras o más, distancia 1. Se toma la distancia mínima en la que existe alguna fila y se exige un único aceptado a esa distancia; si hay dos o más aceptados distintos (o un homónimo sin resolver), el nombre es `ambiguous` con `fuzzy_match` y no se elige ninguno. El resultado lleva `fuzzy` (`distance`, `kind` `epíteto` o `género`, `key`) y una nota. No corrige erratas del epíteto infraespecífico. Desactivar `use_variants` desactiva también la coincidencia aproximada (o `use_fuzzy=False`). Como corre antes del respaldo de WFO, un nombre que WFO tiene exacto pero WCVP no puede pasar por la coincidencia aproximada de WCVP (en los datos reales les pasó a 9 entradas de USDA, listadas en el informe).
+- Aceptado de rango superior a especie: si un nombre es sinónimo de un aceptado que el índice no carga (solo guarda especies e inferiores), queda `unresolved` con el flag `accepted_above_species` y la nota «aceptado de rango superior a especie (plant_name_id N)». La planta conserva su nombre y su ID (`taraxacum-officinale`, cuyo aceptado en WCVP es la sección 2916959). El índice no guarda el nombre de ese aceptado; leerlo desde el CSV de WCVP queda como mejora si hace falta.
+
+### Universo, colisiones, IDs y alias (`universe.py`, `ids.py`)
+
+- `build_universe` resuelve las entradas y agrupa las que llegan al mismo aceptado. Solo se fusionan el propio aceptado y sus sinónimos homotípicos (`homotypic_synonym` verdadero en WCVP o mismo basiónimo). Cada grupo de sinónimos heterotípicos que son homotípicos entre sí es una planta propia, con el ID y el nombre de su mejor fila (el basiónimo si está en el grupo) y los flags `split_group` y `grupo-partido`. Un grupo sin el propio aceptado ni homotípicos, con un solo grupo heterotípico, no se parte: queda con el aceptado.
+- Las entradas sin resolver (ambiguas, sin resolver o solo género) son plantas con la identidad de la fuente, con flags `homonym_unresolved`, `unresolved`/`unmatched` o `genus_only`.
+- El ID es `plant_slug` del nombre aceptado de WCVP (`×` y `+` como `x`, `-` como separador). Si dos plantas terminan con el mismo ID, `build_universe` lanza `UniverseError` y el comando falla sin escribir nada.
+- Los alias son el slug del nombre literal de cada entrada (el `TAXON` de USDA) cuando difiere del ID. Se descartan los que igualan el ID de otra planta y los que quedarían en dos plantas (`Universe.discarded_aliases`).
+- `Universe.assign(nombre, autor)` asigna una fila de uso o de otra fuente a una planta. En un grupo partido el orden es: misma clave de nombre, miembro homotípico con el mismo basiónimo, miembro que es el propio aceptado y, si ninguno aplica, queda sin asignar (`Universe.unassigned`) y marca el grupo con `unassigned_rows`. Las tareas 3.2 y 3.5 la usarán para repartir usos y filas de TPPT, EFSA y EMA.
+
+### Comando `resolve`
+
+```sh
+python3 -I tools/catalog-seed/cli.py resolve
+```
+
+- Entradas: cada `usda_taxon` de `data/work/sources.db` (nombre = `TAXON`, autor = `TAXAUTHOR`) y cada especie de las fichas de la EMA (`ema_herbal`, celda `botanical_name` separada con `split_source_names("ema", ...)`). Una especie de la EMA que ya está en USDA no crea una planta: se une a la que ya existe. Una especie que ningún nombre de USDA alcanza crea una planta nueva. Es el criterio por identidad resuelta, no por texto: si la EMA nombra un sinónimo heterotípico de una planta de USDA, el sinónimo es una planta propia con la regla de colisiones.
+- Combinaciones de la EMA: las fichas cuyo `botanical_name` empieza por `Combination` o está vacío no aportan especies, porque no tienen objetivos propios y sus especies ya están en monografías simples. La ficha fusionada `hyperici-herba` (marcada como combinación al deduplicar, pero formada por dos monografías simples, *Hypericum perforatum* y *Cimicifuga racemosa*) sí aporta las suyas. Son 7 fichas sin especies de las 204.
+- Índice: usa `data/work/taxonomy.db` si su metadato coincide con los checksums de WCVP y WFO de `sources.json`; si falta o cambió alguno, lo recrea desde la caché verificada (`require_verified_files`, sin red). `--rebuild-index` fuerza la recreación.
+- Salidas en `data/work/universe/` (`--out-dir`): `universe.json`, `report.json` y `report.md`. Compara los IDs con `data/build/catalog.db` si existe (`--catalog-db`), solo en lectura. Termina con código 1 si hay IDs repetidos o falta `lavandula-angustifolia`.
+- Las opciones `--db` y `--taxonomy-db` cambian el SQLite de las extracciones y la ubicación del índice.
+
+### Formato de `universe.json` (`catalog-universe/1`)
+
+- Raíz: `format`, `inputs` (`wcvp` y `wfo` con `<algoritmo>:<checksum>`, `usda` y `ema_json` con la versión de la extracción, `indexVersion`), `checks` (`duplicate_ids` y `lavandula-angustifolia`), `plantCount` y `plants`, ordenadas por `id`. No lleva fechas, así que la salida es determinista.
+- Planta: `id`, `name` (nombre aceptado o, en una identidad de la fuente, el nombre de la entrada), `author`, `kind`, `backbone` (`wcvp`, `wfo` o null), `acceptedId` y `matchedId` (IDs del backbone indicado; `matchedId` solo en plantas heterotípicas), `family`, `entries`, `aliases`, `flags`, `reviewFlags` y `collision`.
+- `kind`: `resolved` (el aceptado y sus homotípicos), `heterotypic` (planta propia de un grupo partido), `ambiguous`, `unresolved`, `unmatched` o `genus_only` (identidad de la fuente).
+- `entries`: una por entrada que llegó a la planta, con `source` (`usda` o `ema`), `key` (`usda:<FNFNUM>` o `ema:<slug de la ficha>#<n>`), `name`, `author`, `outcome` (resultado de la resolución), `matchedName` y `relation` (`aceptado`, `homotípico`, `heterotípico` o null si no resolvió). Las claves son las que usarán las tareas 3.2 y 3.5 para ubicar las filas de `sources.db`.
+- `flags`: marcas del resolvedor y del grupo (por ejemplo `wfo_fallback`, `orthographic_variant`, `fuzzy_match`, `accepted_above_species`, `backbone_disagreement`, `split_group`, `author_tiebreak`). `reviewFlags` son los flags de revisión en el formato del registro: `{code, target: "scientificName", message}` con los códigos `identidad-ambigua`, `solo-genero`, `sin-resolucion`, `respaldo-wfo`, `variante-ortografica`, `coincidencia-aproximada`, `aceptado-superior-a-especie`, `backbones-discrepan`, `grupo-partido` y `filas-sin-asignar`.
+- `collision`: null, o `{acceptedName, members, split}` con los IDs de todas las plantas del grupo partido.
+
+`report.json` guarda las cifras, la comparación con los IDs actuales, las celdas de la EMA modificadas (`ema_modified_cells`: celda original, especies resultantes y notas), las listas de revisión por motivo (incluidas todas las coincidencias aproximadas, con el nombre de origen, el nombre de WCVP, la distancia y el aceptado, y los nombres con aceptado de rango superior a especie), los alias descartados y todos los grupos con varias entradas (`collision_groups`, con la relación y el resultado de cada miembro). `report.md` es la versión legible, con los grupos partidos y los fusionados por separado.
 
 ### Resultado con los datos reales y diferencias con el piloto
 

@@ -137,6 +137,33 @@ class ResolveCommandTests(support.TempDirTestCase):
         self.assertIn("citrus-x-bergamia", text)
         self.assertIn("heterotípico; planta propia `citrus-x-bergamia`", text)
 
+    def test_report_lists_modified_ema_cells_and_fuzzy_matches(self):
+        self.store([usda_row("1", "Zizyphus jujuba", "MILL."), usda_row("2", "Taraxacum officinale", "WEBER EX F. H. WIGG.")],
+                   [ema_row("verbenae", "Aloysia citrodora Paláu (syn. Aloysia triphylla (L’Hér.) Kuntze;Verbena triphylla L’Hér.;Lippia citriodora Kunth"),
+                    ema_row("salicis", "Salix [various species including S. purpurea L.; S. daphnoides Vill.]"),
+                    ema_row("viola", "Viola arvensis Murray (Gaud)"),
+                    ema_row("eschscholziae", "Eschscholzia california Cham.")])
+        self.run_cli()
+        report = self.report()
+        cells = {c["fiche"]: c for c in report["ema_modified_cells"]}
+        self.assertEqual(sorted(cells), ["salicis", "verbenae", "viola"])
+        self.assertEqual([e["name"] for e in cells["verbenae"]["entries"]], ["Aloysia citrodora"])
+        self.assertEqual([(e["name"], e["author"]) for e in cells["salicis"]["entries"]],
+                         [("Salix purpurea", "L."), ("Salix daphnoides", "Vill.")])
+        self.assertEqual(cells["viola"]["entries"][0]["author"], "Murray")
+        fuzzy = {i["key"]: i for i in report["review"]["fuzzy_match"]}
+        self.assertEqual(sorted(fuzzy), ["ema:eschscholziae#1", "usda:1"])
+        self.assertEqual((fuzzy["usda:1"]["matched"], fuzzy["usda:1"]["distance"], fuzzy["usda:1"]["accepted"]),
+                         ("Ziziphus jujuba", 1, "Ziziphus jujuba"))
+        self.assertEqual([i["key"] for i in report["review"]["accepted_above_species"]], ["usda:2"])
+        ids = {p["id"] for p in self.universe()["plants"]}
+        self.assertTrue({"ziziphus-jujuba", "eschscholzia-californica", "taraxacum-officinale", "salix-purpurea"} <= ids)
+        self.assertFalse({"lippia-citriodora", "eschscholzia-california"} & ids)
+        with open(os.path.join(self.out, "report.md"), encoding="utf-8") as handle:
+            text = handle.read()
+        self.assertIn("## Coincidencia aproximada (fuzzy_match) (2)", text)
+        self.assertIn("## Celdas de la EMA modificadas (3)", text)
+
     def test_exit_code_is_zero_when_the_pilot_plant_is_present(self):
         self.store([usda_row("1", "Lavandula angustifolia", "Mill.")], [ema_row("lavandulae-flos", "Lavandula angustifolia Mill.")])
         code, _, err = self.run_cli()

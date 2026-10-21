@@ -60,6 +60,7 @@ class ParsedName(object):
         self.chimera = False
         self.author = ""
         self.species_author = ""
+        self.author_removed = []     # notas quitadas del autor por `clean_author`
         self.flags = []
         self.genus_only = False
         self.autonym = False
@@ -375,8 +376,11 @@ def parse_name(text, hint=None):
     else:
         p.author = " ".join(author_tokens).strip()
         p.species_author = p.author
-    p.author = _tidy_author(p.author)
-    p.species_author = _tidy_author(p.species_author)
+    p.author, removed_a = clean_author(p.author)
+    p.species_author, removed_s = clean_author(p.species_author)
+    if removed_a or removed_s:
+        p.author_removed = removed_a or removed_s
+        flags.append("author_note_removed")
 
     if p.infra_epithet and not valid_epithet(p.infra_epithet):
         flags.append("invalid_epithet")
@@ -395,9 +399,56 @@ def parse_name(text, hint=None):
     return p
 
 
+def _strip_trailing_group(text):
+    """Quita un grupo final entre paréntesis (balanceado) si queda texto antes de él; None si no hay tal grupo."""
+    t = text.rstrip()
+    if t.endswith(")."):
+        t = t[:-1]
+    if not t.endswith(")"):
+        return None
+    depth = 0
+    for idx in range(len(t) - 1, -1, -1):
+        if t[idx] == ")":
+            depth += 1
+        elif t[idx] == "(":
+            depth -= 1
+            if depth == 0:
+                prefix = t[:idx].rstrip()
+                return prefix if prefix else None
+    return None
+
+
+_AUTHOR_TAIL_WORDS_RE = re.compile(r"^(.*?\.),\s+[a-z]+(?:\s+[a-z]+)*$")
+_DOUBLED_AUTHOR_RE = re.compile(r"^([A-Z][A-Za-z\-]*\.)\1$")
+
+
+def clean_author(author):
+    """Autor sin notas: quita grupos finales entre paréntesis tras un autor (sinónimos), colas en minúscula tras coma y
+    autores duplicados (`L.L.`). Conserva el autor del basiónimo, que va al principio (`(L.) Moench`).
+
+    Devuelve (autor limpio, lista de notas quitadas).
+    """
+    a = (author or "").strip().strip(",;").strip()
+    removed = []
+    while True:
+        prefix = _strip_trailing_group(a)
+        if prefix is None:
+            break
+        removed.append(a[len(prefix):].strip())
+        a = prefix.strip().strip(",;").strip()
+    m = _AUTHOR_TAIL_WORDS_RE.match(a)
+    if m:
+        removed.append(a[len(m.group(1)):].strip(", "))
+        a = m.group(1)
+    m = _DOUBLED_AUTHOR_RE.match(a)
+    if m:
+        removed.append(m.group(1))
+        a = m.group(1)
+    return a, removed
+
+
 def _tidy_author(a):
-    a = (a or "").strip().strip(",;").strip()
-    return a
+    return clean_author(a)[0]
 
 
 def _finish_hybrid_flags(p):
@@ -458,22 +509,81 @@ def _expand_abbreviations(fragments):
     return out
 
 
-def split_source_names(source, cell):
-    """Nombres científicos contenidos en una celda de una fuente.
+_SYN_GROUP_RE = re.compile(r"\(\s*(?:syn|synonyms?)\b\.?:?", re.IGNORECASE)
+_GENUS_BRACKET_RE = re.compile(r"^([A-Z][a-zà-ÿ\-]+)\s*\[([^\]]*)\]\s*\.?$")
+_BRACKET_INTRO_RE = re.compile(r"^(?:various\s+)?species\s+(?:including|such\s+as)\s+", re.IGNORECASE)
+_VARIOUS_TAIL_RE = re.compile(r"\s+(?:and|&)\s+[A-Z][a-zà-ÿ\-]+\s*\(\s*various\s+species\s*\)", re.IGNORECASE)
+_VARIOUS_RE = re.compile(r"\s*\(\s*various\s+species\s*\)", re.IGNORECASE)
 
-    - `ema`, `ema_json`, `ema_pdf`: decodifica entidades HTML, separa por `;`, por coma cuando lo siguiente parece otro
-      nombre, expande géneros abreviados, quita `syn.` y descarta `Combination: ...` y fragmentos de menos de 4 caracteres.
-    - `efsa`: separa por `;` y `$`, con las mismas reglas de abreviatura, sin separar por coma.
-    - Las demás fuentes traen un nombre por celda.
-    """
+
+def _group_end(text, start):
+    """Índice del paréntesis que cierra el que abre en `start`, o -1 si queda sin cerrar."""
+    depth = 0
+    for idx in range(start, len(text)):
+        if text[idx] == "(":
+            depth += 1
+        elif text[idx] == ")":
+            depth -= 1
+            if depth == 0:
+                return idx
+    return -1
+
+
+def _drop_synonym_groups(text, changes):
+    """Quita los grupos `(syn. ...)` (con sus paréntesis anidados). Si el grupo no cierra, descarta hasta el final de la celda."""
+    while True:
+        m = _SYN_GROUP_RE.search(text)
+        if not m:
+            return text
+        end = _group_end(text, m.start())
+        if end < 0:
+            changes.append("sinónimos descartados (grupo sin cerrar): %s" % text[m.start():].strip())
+            return text[:m.start()].rstrip()
+        changes.append("sinónimos descartados: %s" % text[m.start():end + 1])
+        text = (text[:m.start()].rstrip() + " " + text[end + 1:].lstrip()).strip()
+
+
+def _expand_bracket_list(text, changes):
+    """`Genus [various species including G. a L.; G. b L.]` -> `Genus a L.; Genus b L.` (solo las especies que nombra)."""
+    m = _GENUS_BRACKET_RE.match(text)
+    if not m:
+        return text
+    genus, body = m.group(1), _BRACKET_INTRO_RE.sub("", m.group(2).strip())
+    items = []
+    for item in body.split(";"):
+        item = item.strip()
+        am = _ABBREV_RE.match(item)
+        if am and genus.startswith(am.group(1)):
+            item = "%s %s" % (genus, am.group(2))
+        if item:
+            items.append(item)
+    changes.append("lista entre corchetes expandida: %s" % "; ".join(items))
+    return "; ".join(items)
+
+
+def split_source_cell(source, cell):
+    """Como `split_source_names`, pero devuelve también las notas de los cambios hechos a la celda: (nombres, [nota])."""
     src = (source or "").lower()
+    changes = []
     if src in ("ema", "ema_json", "ema_pdf", "efsa"):
         text = unicodedata.normalize("NFC", html.unescape(cell or ""))
         text = re.sub(r"\s+", " ", text).strip()
+        if src != "efsa":
+            if text.lower().startswith("combination"):
+                return [], ["ficha de combinación: la celda no aporta especies"]
+            text = _expand_bracket_list(text, changes)
+            before = text
+            text = _VARIOUS_RE.sub("", _VARIOUS_TAIL_RE.sub("", text)).strip()
+            if text != before:
+                changes.append("«(various species)» descartado; solo salen las especies nombradas")
+            text = _drop_synonym_groups(text, changes)
         fragments = []
         for chunk in re.split(r"[;$]" if src == "efsa" else r";", text):
             chunk = chunk.strip()
             if not chunk or chunk.lower().startswith("combination"):
+                continue
+            if src != "efsa" and _SYN_RE.match(chunk):
+                changes.append("sinónimo descartado: %s" % chunk)
                 continue
             fragments.extend(_split_commas(chunk) if src != "efsa" else [chunk])
         cleaned = []
@@ -481,9 +591,23 @@ def split_source_names(source, cell):
             frag = _SYN_RE.sub("", frag.strip()).strip().rstrip(",;")
             if len(frag) >= 4 and not frag.lower().startswith("combination"):
                 cleaned.append(frag)
-        return _expand_abbreviations(cleaned)
+        return _expand_abbreviations(cleaned), changes
     one = clean_text(cell)
-    return [one] if one else []
+    return ([one] if one else []), changes
+
+
+def split_source_names(source, cell):
+    """Nombres científicos contenidos en una celda de una fuente.
+
+    - `ema`, `ema_json`, `ema_pdf`: decodifica entidades HTML. Una celda que empieza por «Combination» no aporta
+      nombres. Quita los grupos `(syn. ...)` y los fragmentos `syn. ...` (los sinónimos que la celda marca no son
+      entradas), quita `(various species)` y `and Género (various species)` (solo salen las especies nombradas),
+      expande `Género [various species including G. a L.; G. b L.]` a las especies listadas, separa por `;` y por coma
+      cuando lo siguiente parece otro nombre, expande géneros abreviados y descarta fragmentos de menos de 4 caracteres.
+    - `efsa`: separa por `;` y `$`, con las mismas reglas de abreviatura, sin separar por coma.
+    - Las demás fuentes traen un nombre por celda.
+    """
+    return split_source_cell(source, cell)[0]
 
 
 # --- Autores -------------------------------------------------------------------------------------------------------

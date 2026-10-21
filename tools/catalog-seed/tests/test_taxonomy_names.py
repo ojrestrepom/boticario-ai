@@ -2,7 +2,7 @@ import unittest
 
 import taxonomy_support  # noqa: F401
 from catalog_seed.taxonomy import (author_score, authors_match, canonical_rank, epithet_variants, parse_name, plant_slug,
-                                   slug, split_source_names)
+                                   slug, split_source_cell, split_source_names)
 
 
 class ParseNameTest(unittest.TestCase):
@@ -160,7 +160,30 @@ class SplitSourceNamesTest(unittest.TestCase):
 
     def test_ema_syn_combination_and_short_fragments(self):
         out = split_source_names("ema", "syn. Mentha foo L.; Combination: Mentha x Salvia; ab; Mentha bar L.")
-        self.assertEqual(out, ["Mentha foo L.", "Mentha bar L."])
+        self.assertEqual(out, ["Mentha bar L."])
+
+    def test_ema_synonyms_marked_by_the_cell_are_not_entries(self):
+        # Caso real verbenae-citriodorae-folium: el grupo `(syn. ...` nunca se cierra y cubre el resto de la celda.
+        out = split_source_names("ema", "Aloysia citrodora Paláu (syn. Aloysia triphylla (L’Hér.) Kuntze;Verbena triphylla L’Hér.;Lippia citriodora Kunth")
+        self.assertEqual(out, ["Aloysia citrodora Paláu"])
+        # Grupo cerrado con paréntesis anidados (serenoa) y fragmento `syn.` (cynarae-folium).
+        out = split_source_names("ema", "Serenoa repens (W.Bartram) Small (syn. Sabal serrulata (Michx.) Schult.f.)")
+        self.assertEqual(out, ["Serenoa repens (W.Bartram) Small"])
+        self.assertEqual(split_source_names("ema", "Cynara cardunculusL.;syn. C. scolymusL."), ["Cynara cardunculusL."])
+        names, changes = split_source_cell("ema", "Salvia fructicosa Mill. (syn. Salvia triloba L. fil)")
+        self.assertEqual(names, ["Salvia fructicosa Mill."])
+        self.assertIn("Salvia triloba", changes[0])
+
+    def test_ema_bracket_list_gives_the_listed_species(self):
+        out = split_source_names("ema", "Salix [various species including S. purpurea L.; S. daphnoides Vill.; S. fragilis L.]")
+        self.assertEqual(out, ["Salix purpurea L.", "Salix daphnoides Vill.", "Salix fragilis L."])
+
+    def test_ema_various_species_tail_is_dropped(self):
+        self.assertEqual(split_source_names("ema", "Aloe barbadensis Mill. and Aloe (various species)"), ["Aloe barbadensis Mill."])
+
+    def test_ema_whole_combination_cell_gives_no_names(self):
+        cell = "Combination: Thymus vulgaris L.; Thymus zygis L. and Primula veris L.; Primula elatior (L.) Hill"
+        self.assertEqual(split_source_names("ema", cell), [])
 
     def test_efsa_semicolon_and_dollar(self):
         out = split_source_names("efsa", "Mentha piperita L.$M. spicata L.;Salvia officinalis L., Smith")
@@ -170,6 +193,31 @@ class SplitSourceNamesTest(unittest.TestCase):
         self.assertEqual(split_source_names("usda", ' "Mentha  x piperita" '), ["Mentha x piperita"])
         self.assertEqual(split_source_names("tppt", "Foo bar; baz"), ["Foo bar; baz"])
         self.assertEqual(split_source_names("usda", "  "), [])
+
+
+class CleanAuthorTest(unittest.TestCase):
+    def author(self, text):
+        return parse_name(text).species_author
+
+    def test_synonym_note_after_the_author_is_removed(self):
+        self.assertEqual(self.author("Cola nitida (Vent.) Schott et Endl. (C. vera K. Schum.)"), "(Vent.) Schott et Endl.")
+        self.assertEqual(self.author("Verbascum densiflorum Bertol. (V. thapsiforme Schrad)"), "Bertol.")
+        self.assertEqual(self.author("Viola arvensis Murray (Gaud)"), "Murray")
+        self.assertEqual(self.author("Filipendula ulmaria (L.) Maxim. (= Spiraea ulmaria L.)."), "(L.) Maxim.")
+        self.assertEqual(self.author("Syzygium aromaticum (L.) Merr. et L.M.Perry (syn. Eugenia caryophyllus (Spreng.) Bullock)"),
+                         "(L.) Merr. et L.M.Perry")
+        self.assertIn("author_note_removed", parse_name("Viola arvensis Murray (Gaud)").flags)
+
+    def test_basionym_author_in_parentheses_is_kept(self):
+        for text, expected in (("Echinacea purpurea (L.) Moench", "(L.) Moench"), ("Fragaria x ananassa (Weston) Duchesne ex Rozier", "(Weston) Duchesne ex Rozier"),
+                               ("Matricaria recutita (L.) Rauschert", "(L.) Rauschert")):
+            p = parse_name(text)
+            self.assertEqual(p.species_author, expected)
+            self.assertNotIn("author_note_removed", p.flags)
+
+    def test_doubled_author_and_lowercase_tail(self):
+        self.assertEqual(self.author("Quercus robur L.L."), "L.")
+        self.assertEqual(self.author("Glycine max (L.) Merr., oleum"), "(L.) Merr.")
 
 
 class AuthorTest(unittest.TestCase):

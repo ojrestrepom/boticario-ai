@@ -193,14 +193,20 @@ Términos sin verificar, documentados como tales:
 - EMA: reutilización permitida citando a la EMA, según términos no verificados en el portal.
 - TPPT (Agroscope): según opendata.swiss el uso es abierto citando la fuente y el uso comercial requiere permiso. El proyecto es académico y se usa con atribución. Si cambia el enfoque, hay que pedir permiso.
 
-Alternativas: excluir TPPT y la EMA hasta verificar (se pierde la seguridad y los objetivos, que son el motivo del cambio) y publicar sin CC BY-SA (no es posible si se resume Wikipedia; la alternativa es no usar Wikipedia y dejar `description` solo desde EMA y USDA, a revisar con el usuario).
+Alternativas: excluir TPPT y la EMA hasta verificar (se pierde la seguridad y los objetivos, que son el motivo del cambio) y publicar sin CC BY-SA (no es posible si se resume Wikipedia). Decisión del usuario: Wikipedia se mantiene como fuente de `description`, con la atribución y la licencia CC BY-SA 4.0 registradas por campo.
+
+### D14. Retirar una fuente es un cambio de configuración
+
+Las fuentes se activan y desactivan en la configuración de las herramientas (`tools/catalog-seed/sources.json`, campo `enabled`), sin tocar código. Al desactivar una fuente, sus filas y sus refs salen de los paquetes, cambia el `bundleHash` de las plantas que la usaban y `plan` regenera solo esas plantas. El prompt y el validador no dependen de que exista una fuente concreta: un campo sin datos queda `null` y ninguna regla exige que una fuente esté presente (las reglas que usan la EMA o TPPT, como los objetivos y la seguridad, se aplican a lo que haya en el paquete). La atribución y la sección «Fuentes» del cambio 2 se derivan de los refs y de la lista de fuentes del manifiesto, así que la fuente desaparece sola; el manifiesto deja de listarla. Si se retira Wikipedia, `description` queda `null` o se resume de otras fuentes del paquete, como la EMA, y no hay migración manual: se regeneran las plantas afectadas. Esto vale para cualquier fuente; las que alimentan reglas específicas (la EMA para objetivos, TPPT para toxicidad) pueden retirarse igual, con la consecuencia de que las plantas pierden esos datos.
+
+Alternativa descartada: código condicional por fuente en el prompt o el validador, que haría costoso retirar o añadir una.
 
 ## Risks / Trade-offs
 
 - **[Cambio de unos 500 IDs]** Un cliente con un ID guardado dejaría de encontrarlo. → Hoy no se encontró persistencia de IDs; los alias se guardan; `lavandula-angustifolia` se conserva; la tarea 10 recorre todos los IDs fijados en tests, fixtures y workflows. El cambio 2 decide si la API los resuelve.
 - **[Límite de peticiones de Wikidata]** El piloto recibió 429 con `Retry-After: 1000`. → POST, lotes, caché, reanudación y paquetes marcados como incompletos (D10). La imagen y el nombre en español son enriquecimiento, no bloquean una planta.
 - **[Extracción de PDF de la EMA]** No está probada. → Spike antes de generalizar, con criterio de éxito y plan de salida (D9).
-- **[Licencias CC BY-SA]** Wikipedia (y posiblemente imágenes de Commons) obliga a conservar la licencia en lo derivado. → Se registran por campo y por imagen; si el usuario prefiere evitarlo, se retira Wikipedia de las descripciones (D12).
+- **[Licencias CC BY-SA]** Wikipedia (y posiblemente imágenes de Commons) obliga a conservar la licencia en lo derivado. → Se registran por campo y por imagen; el usuario decidió mantener Wikipedia; retirarla después es un cambio de configuración (D14).
 - **[Términos de la EMA y TPPT sin verificar]** → Se documentan como no verificados y se pide verificar antes de publicar la app; TPPT está limitado a uso académico con atribución.
 - **[Costo de la generación]** Unos 23 millones de tokens o US$40-70 en batch. → Corrida de control de 20 plantas para medir, generación incremental, decisión explícita del modo (D11) y tope por lote.
 - **[Variabilidad del LLM]** Dos ejecuciones pueden dar textos distintos para la misma planta, y el LLM puede omitir, traducir mal o inventar. → La política de la variante A, el validador (refs, objetivos con respaldo, plantas tóxicas sin objetivos, licencias de imagen, palabras de dosis), `reviewFlags`, versionado del prompt y el modelo, y una regeneración que solo toca lo que cambió. No se promete texto idéntico entre corridas, y por eso la reproducibilidad vive en la semilla versionada, no en el LLM. La traducción de `activity` no la verifica ningún validador; la conserva `activitySource` y la revisión de la corrida de control la muestrea.
@@ -221,5 +227,4 @@ Alternativas: excluir TPPT y la EMA hasta verificar (se pierde la seguridad y lo
 ## Open Questions
 
 - Si el cambio 2 resolverá los alias en la API (redirección o búsqueda por alias). No afecta a la semilla, que ya los guarda.
-- Si Wikipedia se mantiene como fuente de `description` dadas las obligaciones CC BY-SA (D12), o si la descripción se limita a EMA y USDA. La semilla admite ambas.
 - El formato exacto del archivo de TPPT y sus categorías de toxicidad completas; se confirman al descargarlo en la tarea 1.3.

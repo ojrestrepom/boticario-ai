@@ -21,6 +21,10 @@ Cada fuente que alimenta la semilla SHALL declararse con identificador, versión
 - **WHEN** se descarga el JSON de la EMA, que se actualiza dos veces al día
 - **THEN** el manifiesto registra el `meta.timestamp` del snapshot y su checksum, y las ejecuciones posteriores usan ese snapshot hasta que se decida actualizarlo
 
+#### Scenario: Retirar una fuente
+- **WHEN** una fuente, por ejemplo Wikipedia, se desactiva en la configuración de las herramientas y se calcula el plan de regeneración
+- **THEN** solo figuran como pendientes las plantas cuyo paquete usaba esa fuente, ningún registro regenerado contiene refs de ella, `description` queda `null` o se resume de otras fuentes del paquete, el validador no da errores y el manifiesto deja de listar la fuente
+
 #### Scenario: Fuente fuera de la lista
 - **WHEN** se intenta añadir una fuente descartada, como DrugBank o iNaturalist
 - **THEN** el manifiesto y el validador de fuentes la rechazan por no estar en la lista de fuentes admitidas

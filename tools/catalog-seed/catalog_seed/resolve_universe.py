@@ -7,6 +7,7 @@ monografías simples); la ficha fusionada `hyperici-herba` (marcada como combina
 monografías simples) sí aporta sus dos especies. Una especie de la EMA que ya está en USDA no crea una planta: se une a la
 planta que ya existe. Solo crea una planta nueva la que ningún nombre de USDA alcanza.
 """
+import contextlib
 import json
 import os
 import sqlite3
@@ -425,6 +426,32 @@ def render_markdown(report):
         render_group(g)
     out.append("")
     return "\n".join(out)
+
+
+@contextlib.contextmanager
+def build_universe_from_work(db_path, taxonomy_db, log=print):
+    """Construye el universo en memoria sin escribir salidas. Entrega `(universo, resumen_de_entradas)`.
+
+    Usa `sources.db` y un índice taxonómico ya construido (`resolve` lo crea); los respaldos del universo se cierran al salir del bloque,
+    así que `Universe.assign` solo se puede llamar dentro de él.
+    """
+    if not os.path.isfile(str(db_path)):
+        raise SourceError("no existe %s; ejecute primero: python3 -I tools/catalog-seed/cli.py extract" % db_path)
+    if not os.path.isfile(str(taxonomy_db)):
+        raise SourceError("no existe %s; ejecute primero: python3 -I tools/catalog-seed/cli.py resolve" % taxonomy_db)
+    connection = workdb.open_db(db_path)
+    try:
+        entries, summary = collect_entries(connection)
+    finally:
+        connection.close()
+    wcvp = open_backbone(str(taxonomy_db), "wcvp")
+    wfo = open_backbone(str(taxonomy_db), "wfo")
+    try:
+        log("resolviendo %d entradas..." % len(entries))
+        yield build_universe(entries, wcvp, wfo), summary
+    finally:
+        wcvp.close()
+        wfo.close()
 
 
 # --- Orquestación ---------------------------------------------------------------------------------------------------

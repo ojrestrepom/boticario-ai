@@ -76,7 +76,7 @@ La resolución SHALL usar WCVP como backbone principal: primero por clave comple
 
 #### Scenario: Respaldo de WFO
 - **WHEN** WCVP no resuelve un nombre y WFO da un único aceptado
-- **THEN** la planta usa ese aceptado con una marca de respaldo, y la colisión se evalúa con la misma regla que el resto
+- **THEN** la planta usa ese aceptado con una marca de respaldo, y la colisión se evalúa con el mismo criterio que el resto
 
 #### Scenario: Variante ortográfica
 - **WHEN** USDA registra `Cistus ladaniferus` y WCVP tiene `Cistus ladanifer`
@@ -98,15 +98,35 @@ El universo de la semilla SHALL ser el de las plantas de USDA FNFTAX más las es
 - **THEN** no se crea una planta nueva en la semilla
 
 ### Requirement: Regla de colisiones y separación de plantas
-Cuando varias plantas del universo resuelvan al mismo aceptado, solo SHALL fusionarse el propio aceptado y sus sinónimos homotípicos (`homotypic_synonym` verdadero en WCVP). Cada miembro heterotípico SHALL quedar como planta propia, con un ID derivado de su propio nombre, con su propio nombre científico y marcada para revisión. Las filas de uso y de otras fuentes de un grupo partido SHALL asignarse, en este orden, al miembro con la misma clave, al miembro homotípico con el mismo basiónimo, al miembro que es el propio aceptado y, si ninguno aplica, quedar sin asignar y marcadas para revisión.
+Cuando varias plantas del universo resuelvan al mismo aceptado, SHALL fusionarse siempre el propio aceptado con sus sinónimos homotípicos (`homotypic_synonym` verdadero en WCVP). Un miembro heterotípico SHALL quedar como planta propia, con un ID derivado de su propio nombre, su propio nombre científico y un `reviewFlag`, solo si su nombre científico tiene un artículo propio en Wikipedia en español (que exista, no sea una redirección y sea distinto del artículo del nombre aceptado del grupo, también tras seguir las redirecciones) o si figura en una lista versionada de excepciones «separar siempre». En otro caso SHALL fusionarse con la planta del aceptado, su nombre SHALL quedar como sinónimo y alias, y el registro SHALL llevar un `reviewFlag` de fusión heterotípica para revisión humana. La decisión de cada grupo SHALL registrarse una vez en un archivo versionado de las herramientas, con la evidencia de Wikipedia (título consultado, si existe, redirección y destino, fecha), y las corridas siguientes SHALL leer ese archivo en lugar de consultar a Wikipedia, de modo que desactivar Wikipedia o un cambio de Wikipedia no altere decisiones registradas ni IDs. Un grupo sin decisión registrada y sin datos de Wikipedia SHALL usar la regla conservadora: cada heterotípico es planta propia con `reviewFlag`. Las filas de uso y de otras fuentes de un grupo partido SHALL asignarse, en este orden, al miembro con la misma clave, al miembro homotípico con el mismo basiónimo, al miembro que es el propio aceptado y, si ninguno aplica, quedar sin asignar y marcadas para revisión. Las filas de un miembro fusionado SHALL asignarse a la planta del aceptado.
 
-#### Scenario: Cítricos separados
-- **WHEN** bergamota, lima, naranja, pomelo y limón comparten aceptado en el backbone por sinonimia heterotípica
-- **THEN** cada uno queda como planta distinta con su propio ID y nombre científico, y la bergamota usa `Citrus × bergamia` y no el nombre del aceptado
+#### Scenario: Canela fusionada
+- **WHEN** *Cinnamomum zeylanicum* es heterotípico del aceptado *Cinnamomum verum* y su artículo de Wikipedia en español es una redirección a *C. verum*
+- **THEN** se fusiona con la planta de *Cinnamomum verum*, `Cinnamomum zeylanicum` queda como sinónimo y alias, y el registro lleva el `reviewFlag` de fusión heterotípica
 
-#### Scenario: Brasicas
-- **WHEN** brócoli, repollo y kale se resuelven a *Brassica oleracea*
-- **THEN** quedan como plantas separadas si son heterotípicas y se fusionan solo si son sinónimos homotípicos del aceptado
+#### Scenario: Bergamota separada
+- **WHEN** la bergamota comparte aceptado con el limón por sinonimia heterotípica y su nombre `Citrus × bergamia` tiene artículo propio en Wikipedia en español
+- **THEN** queda como planta distinta con su propio ID y nombre científico, con `reviewFlag`, y no usa el nombre del aceptado
+
+#### Scenario: Cítricos y brasicas separados
+- **WHEN** lima, naranja, pomelo, brócoli y repollo comparten aceptado con otra planta y cada nombre tiene artículo propio en Wikipedia en español
+- **THEN** cada uno queda como planta distinta con su propio ID y nombre científico
+
+#### Scenario: Hinojo dulce separado por excepción
+- **WHEN** *Foeniculum vulgare* var. *dulce* no tiene artículo propio en Wikipedia en español y figura en la lista de excepciones «separar siempre»
+- **THEN** queda como planta propia con su ID y `reviewFlag`, y no se fusiona con *Foeniculum vulgare*
+
+#### Scenario: Thevetia fusionada por artículo compartido
+- **WHEN** *Thevetia peruviana* tiene artículo en Wikipedia en español pero el artículo del aceptado *Cascabela thevetia* redirige a él
+- **THEN** ambos nombres comparten artículo, *Thevetia peruviana* se fusiona con la planta de *Cascabela thevetia* y el registro lleva el `reviewFlag` de fusión heterotípica
+
+#### Scenario: Wikipedia desactivada sin cambiar decisiones registradas
+- **WHEN** se desactiva Wikipedia en la configuración y existe una decisión registrada para un grupo
+- **THEN** la corrida usa la decisión registrada, y los IDs y la composición de las plantas del grupo no cambian
+
+#### Scenario: Grupo nuevo sin datos de Wikipedia
+- **WHEN** aparece un grupo sin decisión registrada y no hay datos de Wikipedia
+- **THEN** cada miembro heterotípico queda como planta propia con `reviewFlag`, sin fusiones
 
 #### Scenario: Fila sin asignación
 - **WHEN** una fila de uso no coincide con la clave, el basiónimo ni el aceptado de ningún miembro del grupo partido
@@ -114,7 +134,7 @@ Cuando varias plantas del universo resuelvan al mismo aceptado, solo SHALL fusio
 
 #### Scenario: Respaldo de WFO y colisiones
 - **WHEN** el respaldo de WFO lleva *Citrus meyerii* al aceptado del limón
-- **THEN** se aplica la regla de colisiones y *Citrus meyerii* no se fusiona con el limón salvo que sea homotípico
+- **THEN** se aplica el mismo criterio de colisiones: *Citrus meyerii* no se fusiona con el limón solo si tiene artículo propio en Wikipedia en español o figura en las excepciones (*Citrus meyeri* está en la lista inicial), y en otro caso se fusiona con `reviewFlag`
 
 ### Requirement: Identificadores públicos fijos y únicos
 El ID público de cada planta SHALL ser el slug del nombre aceptado de WCVP (minúsculas, `×` como `x`, `-` como separador), generado una sola vez y guardado en la semilla. Un cambio posterior del nombre aceptado en WCVP SHALL cambiar el nombre mostrado y SHALL NOT cambiar el ID. Los IDs anteriores de la planta SHALL guardarse como alias en la semilla. Si dos plantas terminan con el mismo ID, el armado SHALL fallar, y un alias SHALL NOT coincidir con el ID de otra planta.
@@ -223,7 +243,7 @@ El LLM SHALL elegir, traducir y resumir únicamente lo que está en el paquete y
 - **THEN** el validador lo advierte y el registro no se acepta sin revisión
 
 #### Scenario: Planta separada por colisión
-- **WHEN** el registro corresponde a la bergamota separada del limón
+- **WHEN** el registro corresponde a la bergamota separada del limón por tener artículo propio en Wikipedia en español
 - **THEN** su `scientificName` es el de su propio nombre (por ejemplo *Citrus × bergamia*) y no el del aceptado
 
 ### Requirement: Objetivos derivados solo de la EMA
@@ -246,7 +266,7 @@ Los `goals` SHALL salir únicamente de las áreas terapéuticas de la EMA y solo
 - **THEN** el objetivo `relajacion-estres` se registra con `pendingReview` verdadero y un `reviewFlag` con `target` en ese objetivo, y los consumidores lo omiten hasta que se revise
 
 ### Requirement: Niveles de seguridad
-El nivel `safety.level` SHALL derivarse de las fuentes con categorías definidas y versionadas en el repo: «strong toxic» y «very strong toxic» de TPPT a alto, «carcinogenic» y «phototoxic» a medio, «allergenic» a bajo, las interacciones graves de la EMA a alto y la presencia de una sustancia de preocupación del compendio de EFSA según la definición versionada. Una planta sin datos de seguridad SHALL llevar `safety` nulo y un `reviewFlag`, y SHALL NOT presentarse como segura.
+El nivel `safety.level` SHALL derivarse de las fuentes con categorías definidas y versionadas en el repo (`safety-map.json`). TPPT: «strong toxic» y «very strong toxic» a alto; «toxic», «toxic (unknown strength)», «liver toxic», «cytotoxic», «estrogenic», «carcinogenic» y «phototoxic» a medio; «weak toxic», «skin-irritating» y «allergenic» a bajo; «nontoxic», «unknown», «infested plants only» y «stimulating» sin nivel; la toxicidad en animales no fija nivel. EMA: las interacciones graves a alto y las declaraciones públicas con datos de seguridad a medio. EFSA: una planta SHALL fijar medio solo si tiene al menos una fila, distinta de «Non Detected Value (<LOD)», cuya sustancia figura en una lista versionada de sustancias de alta preocupación (genotóxicas o carcinógenas; tuyona, pulegona, mentofurano y cumarina; furocumarinas fototóxicas; y venenos potentes), con los nombres exactos de las sustancias del compendio; las demás sustancias SHALL ser evidencia para el texto de seguridad y SHALL NOT fijar nivel. El nivel final SHALL ser el más alto entre las fuentes. Una planta sin datos de seguridad SHALL llevar `safety` nulo y un `reviewFlag`, y SHALL NOT presentarse como segura.
 
 #### Scenario: Planta tóxica
 - **WHEN** TPPT clasifica una planta como «strong toxic» para humanos
@@ -255,6 +275,22 @@ El nivel `safety.level` SHALL derivarse de las fuentes con categorías definidas
 #### Scenario: Fototóxica
 - **WHEN** TPPT clasifica una planta como «phototoxic» y no hay datos de mayor gravedad
 - **THEN** su nivel es `medio`
+
+#### Scenario: Sustancia de la lista de EFSA
+- **WHEN** el compendio de EFSA registra estragol o tuyona para una planta
+- **THEN** su nivel es al menos `medio`, y el paquete indica qué sustancias de la lista lo activaron
+
+#### Scenario: Solo evidencia de EFSA
+- **WHEN** el compendio de EFSA registra para una planta solo 1,8-cineol o alcanfor
+- **THEN** EFSA no fija nivel y las sustancias quedan como evidencia para el texto
+
+#### Scenario: Declaración pública con datos de seguridad
+- **WHEN** la EMA publica para una planta (por ejemplo la kava) una declaración pública cuyas conclusiones mencionan seguridad
+- **THEN** su nivel es al menos `medio`
+
+#### Scenario: Categorías aprobadas de TPPT
+- **WHEN** TPPT clasifica una planta como «toxic» o «weak toxic» para humanos y no hay datos de mayor gravedad
+- **THEN** su nivel es `medio` o `bajo` respectivamente, y «nontoxic» no fija nivel ni hace segura a la planta
 
 #### Scenario: Sin datos
 - **WHEN** ninguna fuente de seguridad menciona la planta

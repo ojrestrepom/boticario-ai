@@ -1,4 +1,5 @@
 import unittest
+import unittest.mock
 
 import extract_support as support
 from catalog_seed import efsa_extract, safety, tppt_extract
@@ -26,10 +27,18 @@ class TpptLevelTests(unittest.TestCase):
         self.assertEqual(self.level("phototoxic"), "medio")
         self.assertEqual(self.level("allergenic"), "bajo")
 
-    def test_proposed_levels(self):
+    def test_approved_levels(self):
         for value, expected in (("toxic", "medio"), ("weak toxic", "bajo"), ("toxic (unknown strength)", "medio"), ("skin-irritating", "bajo"),
                                 ("liver toxic", "medio"), ("cytotoxic", "medio"), ("estrogenic", "medio")):
             self.assertEqual(self.level(value), expected, value)
+
+    def test_every_approved_tppt_category(self):
+        approved = {"toxic": "medio", "toxic (unknown strength)": "medio", "liver toxic": "medio", "cytotoxic": "medio", "estrogenic": "medio",
+                    "weak toxic": "bajo", "skin-irritating": "bajo", "nontoxic": None, "unknown": None, "infested plants only": None, "stimulating": None}
+        for value, expected in approved.items():
+            self.assertEqual(self.level(value), expected, value)
+        for value in ("very strong toxic", "strong toxic", "very strong toxic (cat)"):
+            self.assertIsNone(tppt_level(safety_map(), value, "animal_toxicity")["level"], value)
 
     def test_explicitly_without_level(self):
         for value in ("nontoxic", "unknown", "infested plants only", "stimulating"):
@@ -85,8 +94,40 @@ class EfsaConcernTests(unittest.TestCase):
         self.assertEqual(result["rows_excluded"], 2)
 
     def test_loq_and_unquantified_rows_count(self):
-        rows = [{"substance_name": "camphor", "result_type": "Non Quantified Value (<LOQ)"}, {"substance_name": "cineole"}]
-        self.assertEqual(efsa_concern(safety_map(), rows)["substances"], ["camphor", "cineole"])
+        rows = [{"substance_name": "estragole", "result_type": "Non Quantified Value (<LOQ)"}, {"substance_name": "alpha-thujone"}]
+        result = efsa_concern(safety_map(), rows)
+        self.assertEqual(result["concern_substances"], ["alpha-thujone", "estragole"])
+        self.assertEqual(result["level"], "medio")
+
+    def test_plant_with_only_cineole_has_no_efsa_level(self):
+        rows = [{"substance_name": "1,8-cineole", "result_type": "Numerical Value"}, {"substance_name": "Camphor", "result_type": "Numerical Value"}]
+        result = efsa_concern(safety_map(), rows)
+        self.assertIsNone(result["level"])
+        self.assertEqual(result["concern_substances"], [])
+        self.assertEqual(result["evidence_substances"], ["1,8-cineole", "Camphor"])
+
+    def test_estragole_fixes_medium_and_reports_the_trigger(self):
+        rows = [{"substance_name": "1,8-cineole", "result_type": "Numerical Value"}, {"substance_name": "estragole", "result_type": "Numerical Value"}]
+        result = efsa_concern(safety_map(), rows)
+        self.assertEqual(result["level"], "medio")
+        self.assertEqual(result["concern_substances"], ["estragole"])
+        self.assertEqual(result["concern_groups"], ["genotoxico-carcinogeno"])
+        self.assertEqual(result["evidence_substances"], ["1,8-cineole"])
+
+    def test_thujone_fixes_medium_and_names_are_compared_loosely(self):
+        for name in ("alpha-thujone", "beta-thujone", "ALPHA-THUJONE", " alpha-thujone "):
+            self.assertEqual(efsa_concern(safety_map(), [{"substance_name": name, "result_type": "Numerical Value"}])["level"], "medio", name)
+        self.assertIsNone(efsa_concern(safety_map(), [{"substance_name": "thujone", "result_type": "Numerical Value"}])["level"])   # nombre que el compendio no usa
+
+    def test_excluded_and_candidate_substances_do_not_fix_a_level(self):
+        for name in ("anethole", "carvacrol", "Tannins", "Oxalates", "Lectins", "Saponins", "caffeine", "Emodin", "elemicin", "myristicin", "Cyanogenic glycosides"):
+            self.assertIsNone(efsa_concern(safety_map(), [{"substance_name": name, "result_type": "Numerical Value"}])["level"], name)
+
+    def test_concern_list_and_exclusions_do_not_overlap(self):
+        listed = {safety.substance_key(e["substance"]) for e in safety_map()["efsa"]["concern_list"]["substances"]}
+        for group in safety_map()["efsa"]["evidence_only"]:
+            for name in group["substances"]:
+                self.assertNotIn(safety.substance_key(name), listed, name)
 
     def test_efsa_never_sets_high_on_its_own(self):
         self.assertNotIn("alto", [e["level"] for e in safety_map()["efsa"]["classes"].values()])
@@ -111,6 +152,25 @@ class EfsaConcernTests(unittest.TestCase):
                 self.assertIn(efsa_effect_group(content.get("toxicity_summary")), config["endpoint_effects"])
         hemlock = [r.content for r in rows if r.record_type == "efsa_botanic" and r.raw_name_cell.startswith("Conium maculatum")]
         self.assertEqual(efsa_concern(safety_map(), hemlock)["level"], "medio")
+
+    def test_real_data_list_uses_exact_compendium_names(self):
+        support.require_module(self, "xlrd")
+        botanic = support.require_real(self, "efsa", "BOTANIC.xls")
+        endpoint = support.require_real(self, "efsa", "ENDPOINTSTUDY.xls")
+        rows, _ = efsa_extract.extract(botanic, endpoint)
+        config = safety_map()["efsa"]
+        present = {r.content["substance_name"] for r in rows if r.record_type == "efsa_botanic"}
+        keys = {safety.substance_key(n) for n in present}
+        exact = {e["substance"] for e in config["concern_list"]["substances"]}
+        self.assertEqual(exact - present, set(), "nombres de la lista que el compendio no usa")
+        for group in config["evidence_only"]:
+            for name in group["substances"]:
+                self.assertIn(safety.substance_key(name), keys, name)
+        # Cada sustancia del compendio queda en la lista o fuera de ella (evidencia): ninguna clave ambigua entre variantes de nombre.
+        listed = {safety.substance_key(n) for n in exact}
+        for name in present:
+            result = efsa_concern(safety_map(), [{"substance_name": name, "result_type": "Numerical Value"}])
+            self.assertEqual(bool(result["concern_substances"]), safety.substance_key(name) in listed, name)
 
 
 def section(**columns):
@@ -170,7 +230,29 @@ class EmaInteractionTests(unittest.TestCase):
     def test_every_class_in_the_map_has_a_level_or_a_reason_for_none(self):
         for name, entry in safety_map()["ema"]["classes"].items():
             self.assertTrue(entry["why"], name)
-        self.assertEqual({n: e["level"] for n, e in safety_map()["ema"]["classes"].items() if e["level"]}, {"severe": "alto"})
+        self.assertEqual({n: e["level"] for n, e in safety_map()["ema"]["classes"].items() if e["level"]},
+                         {"severe": "alto", "statement-with-safety": "medio"})
+
+    def test_public_statement_with_safety_data_is_medium(self):
+        classes = safety_map()["ema"]["classes"]
+        self.assertEqual(classes["statement-with-safety"]["level"], "medio")
+        self.assertIsNone(classes["statement-no-safety"]["level"])
+
+    def test_report_gives_medium_to_statements_with_safety_data(self):
+        from catalog_seed import safety_report, workdb
+        conn = unittest.mock.MagicMock()
+        rows = {("ema_pdf", "ema_pdf_doc"): [{"row_key": "kava", "content": {"status": "declaracion-publica"}},
+                                              {"row_key": "otra", "content": {"status": "declaracion-publica"}}],
+                ("ema_pdf", "ema_pdf"): []}
+
+        def fetch(connection, source, record_type, row_key=None):
+            if row_key:
+                return [{"content": {"safety_data": True}}] if row_key.startswith("kava") else []
+            return rows[(source, record_type)]
+        with unittest.mock.patch.object(workdb, "fetch_rows", fetch):
+            result = safety_report.ema_classification(conn, safety_map())
+        self.assertEqual((result["kava"]["class"], result["kava"]["level"]), ("statement-with-safety", "medio"))
+        self.assertEqual((result["otra"]["class"], result["otra"]["level"]), ("statement-no-safety", None))
 
     def test_real_pdfs_every_monograph_class_is_covered(self):
         support.require_module(self, "pdfminer", "pdfminer.six")
@@ -196,7 +278,7 @@ class EmaInteractionTests(unittest.TestCase):
 class MapValidityTests(unittest.TestCase):
     def test_levels_are_valid_and_every_entry_is_justified(self):
         data = safety_map()
-        self.assertEqual(data["version"], 1)
+        self.assertEqual(data["version"], 2)
         self.assertEqual(tuple(data["levels"]), safety.LEVELS)
 
     def test_invalid_level_is_rejected(self):
@@ -211,6 +293,42 @@ class MapValidityTests(unittest.TestCase):
                 json.dump(data, handle)
             with self.assertRaises(safety.SafetyMapError):
                 load_safety_map(path)
+
+    def load_modified(self, change):
+        import json
+        import os
+        import tempfile
+        data = json.loads(json.dumps(safety_map()))
+        change(data)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "m.json")
+            with open(path, "w") as handle:
+                json.dump(data, handle)
+            return load_safety_map(path)
+
+    def test_malformed_concern_list_entries_are_rejected(self):
+        def entries(data):
+            return data["efsa"]["concern_list"]["substances"]
+        bad = {
+            "sin sustancia": lambda d: entries(d).append({"group": "veneno-potente"}),
+            "grupo inexistente": lambda d: entries(d).append({"substance": "nueva", "group": "no-existe"}),
+            "sin grupo": lambda d: entries(d).append({"substance": "nueva"}),
+            "repetida": lambda d: entries(d).append({"substance": "ESTRAGOLE", "group": "genotoxico-carcinogeno"}),
+            "why vacío": lambda d: entries(d).append({"substance": "nueva", "group": "veneno-potente", "why": " "}),
+            "no es objeto": lambda d: entries(d).append("estragole"),
+            "grupo sin why": lambda d: d["efsa"]["concern_list"]["groups"].update({"x": {}}),
+            "lista vacía": lambda d: d["efsa"]["concern_list"].update({"substances": []}),
+            "sin lista": lambda d: d["efsa"].pop("concern_list"),
+        }
+        for name, change in bad.items():
+            with self.assertRaises(safety.SafetyMapError, msg=name):
+                self.load_modified(change)
+
+    def test_every_concern_entry_has_group_and_reason(self):
+        concern = safety_map()["efsa"]["concern_list"]
+        self.assertEqual(set(concern["groups"]), {"genotoxico-carcinogeno", "toxico-con-limite", "furocumarina-fototoxica", "veneno-potente"})
+        for entry in concern["substances"]:
+            self.assertIn(entry["group"], concern["groups"])
 
 
 if __name__ == "__main__":

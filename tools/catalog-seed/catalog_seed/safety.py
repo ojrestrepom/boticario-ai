@@ -7,7 +7,7 @@ nivel (`level: null`) con su motivo, y las pruebas lo verifican con los datos re
 
 - TPPT: Human_toxicity, separado por «, » y comparado por el prefijo anterior al paréntesis (sin mayúsculas).
 - EMA: la sección 4.5 de la monografía se clasifica con reglas de texto explícitas (patrones de interacción grave).
-- EFSA: «sustancia de preocupación» según la definición del mapa.
+- EFSA: «sustancia de preocupación» según la lista versionada `efsa.concern_list` del mapa; el resto de las sustancias es evidencia sin nivel.
 """
 import json
 import re
@@ -63,7 +63,47 @@ def load_safety_map(path=DEFAULT_SAFETY_MAP):
     for table in ("classes", "result_types", "study_categories", "endpoint_effects"):
         for name, entry in data["efsa"][table].items():
             _check_entry("efsa.%s.%s" % (table, name), entry)
+    for name in ("substance-of-concern", "evidence-only", "no-substance"):
+        if name not in data["efsa"]["classes"]:
+            raise SafetyMapError("efsa.classes: falta la clase %r" % name)
+    _check_concern_list(data["efsa"].get("concern_list"))
+    for index, group in enumerate(data["efsa"].get("evidence_only", [])):
+        names = group.get("substances") if isinstance(group, dict) else None
+        if not names or not all(isinstance(n, str) and n.strip() for n in names) or not isinstance(group.get("why"), str) or not group["why"].strip():
+            raise SafetyMapError("efsa.evidence_only[%d]: necesita 'substances' (lista de nombres) y 'why'" % index)
     return data
+
+
+def substance_key(name):
+    """Clave de comparación de un nombre de sustancia: sin mayúsculas, con espacios (también duros) colapsados."""
+    return " ".join(str(name).split()).casefold()
+
+
+def _check_concern_list(concern):
+    if not isinstance(concern, dict) or not isinstance(concern.get("version"), int):
+        raise SafetyMapError("efsa.concern_list: necesita 'version' entera")
+    groups = concern.get("groups")
+    if not isinstance(groups, dict) or not groups:
+        raise SafetyMapError("efsa.concern_list.groups: necesita al menos un grupo")
+    for group, entry in groups.items():
+        if not isinstance(entry, dict) or not isinstance(entry.get("why"), str) or not entry["why"].strip():
+            raise SafetyMapError("efsa.concern_list.groups.%s: necesita 'why'" % group)
+    substances = concern.get("substances")
+    if not isinstance(substances, list) or not substances:
+        raise SafetyMapError("efsa.concern_list.substances: debe ser una lista no vacía")
+    seen = set()
+    for index, entry in enumerate(substances):
+        where = "efsa.concern_list.substances[%d]" % index
+        if not isinstance(entry, dict) or not isinstance(entry.get("substance"), str) or not entry["substance"].strip():
+            raise SafetyMapError("%s: necesita 'substance' (nombre exacto del compendio)" % where)
+        if entry.get("group") not in groups:
+            raise SafetyMapError("%s: el grupo %r no existe en 'groups'" % (where, entry.get("group")))
+        if "why" in entry and (not isinstance(entry["why"], str) or not entry["why"].strip()):
+            raise SafetyMapError("%s: 'why' debe ser un texto no vacío" % where)
+        key = substance_key(entry["substance"])
+        if key in seen:
+            raise SafetyMapError("%s: sustancia repetida %r" % (where, entry["substance"]))
+        seen.add(key)
 
 
 # --- TPPT ---------------------------------------------------------------
@@ -143,20 +183,26 @@ def ema_interaction_class(safety_map, section):
 # --- EFSA ---------------------------------------------------------------
 
 def efsa_concern(safety_map, botanic_contents):
-    """Sustancias de preocupación de una planta: filas de BOTANIC (contenidos de efsa_botanic) que cumplen la definición.
+    """Sustancias de una planta según la lista de alta preocupación (efsa.concern_list).
 
-    Devuelve {level, substances: [nombres únicos ordenados], rows_counted, rows_excluded}.
+    botanic_contents: contenidos de efsa_botanic. Una fila cuenta si tiene sustancia y su tipo de resultado no está excluido.
+    Devuelve {level, concern_substances: [las de la lista que activaron el nivel, con su grupo en concern_groups], evidence_substances:
+    [las demás, solo evidencia], substances: todas las que cuentan, rows_counted, rows_excluded}.
     """
     config = safety_map["efsa"]
     excluded_types = set(config["definition"]["exclude_result_types"])
+    by_key = {substance_key(e["substance"]): e for e in config["concern_list"]["substances"]}
     counted, excluded = [], 0
     for row in botanic_contents:
         if not row.get("substance_name") or row.get("result_type") in excluded_types:
             excluded += 1
             continue
         counted.append(row["substance_name"])
-    level = safety_map["efsa"]["classes"]["substance-of-concern"]["level"] if counted else None
-    return {"level": level, "substances": sorted(set(counted)), "rows_counted": len(counted), "rows_excluded": excluded}
+    concern = sorted({n for n in counted if substance_key(n) in by_key})
+    evidence = sorted({n for n in counted if substance_key(n) not in by_key})
+    level = config["classes"]["substance-of-concern"]["level"] if concern else None
+    return {"level": level, "concern_substances": concern, "concern_groups": sorted({by_key[substance_key(n)]["group"] for n in concern}),
+            "evidence_substances": evidence, "substances": sorted(set(counted)), "rows_counted": len(counted), "rows_excluded": excluded}
 
 
 def efsa_effect_group(value):

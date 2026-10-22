@@ -1,11 +1,11 @@
 {
- "version": 1,
+ "version": 2,
  "levels": [
   "bajo",
   "medio",
   "alto"
  ],
- "description": "Niveles mínimos de seguridad que fija cada fuente. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva safety nulo y un reviewFlag, y nunca se presenta como segura. level null significa sin nivel, por el motivo indicado.",
+ "description": "Niveles mínimos de seguridad que fija cada fuente. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva safety nulo y un reviewFlag, y nunca se presenta como segura. level null significa sin nivel, por el motivo indicado. Versión 2: niveles de TPPT aprobados, declaraciones públicas de la EMA con datos de seguridad en medio y EFSA limitada a una lista versionada de sustancias de alta preocupación.",
  "tppt": {
   "match": "Se separa por «, » y se compara en minúsculas el prefijo anterior al paréntesis (los calificadores como «only wild growing plants» o la especie animal no cambian la categoría).",
   "human_toxicity": {
@@ -91,7 +91,7 @@
  },
  "efsa": {
   "definition": {
-   "text": "Una planta tiene una sustancia de preocupación si el compendio de EFSA (BOTANIC.xls) la lista con al menos una fila cuyo nombre de sustancia (SubstanceName) no está vacío y cuyo tipo de resultado no es «Non Detected Value (<LOD)». El compendio reúne botánicos con sustancias de posible preocupación para la salud humana, así que cada fila es una sustancia de ese tipo en ese botánico; las filas «no detectada» se excluyen porque indican que la sustancia no está. Los estudios de ENDPOINTSTUDY.xls son evidencia y no fijan nivel.",
+   "text": "Una planta tiene una sustancia de preocupación si el compendio de EFSA (BOTANIC.xls) la lista con al menos una fila cuyo nombre de sustancia (SubstanceName) está en concern_list y cuyo tipo de resultado no es «Non Detected Value (<LOD)». Las demás sustancias del compendio son evidencia para el texto de seguridad y no fijan nivel. La comparación del nombre ignora mayúsculas, espacios repetidos y espacios duros, pero no cambia prefijos estereoquímicos ni plurales: cada variante del compendio figura por separado en la lista. Los estudios de ENDPOINTSTUDY.xls son evidencia y no fijan nivel.",
    "table": "BOTANIC",
    "substance_field": "SubstanceName",
    "exclude_result_types": [
@@ -101,7 +101,11 @@
   "classes": {
    "substance-of-concern": {
     "level": "medio",
-    "why": "Propuesta del diseño (D8): una sustancia del compendio fija un mínimo medio. EFSA por sí sola no fija alto: no gradúa la gravedad ni la dosis (tampoco los umbrales), así que alto queda para TPPT y las interacciones graves de la EMA. Cubre sustancias muy distintas (1,8-cineol, alcanfor, tuyona, cumarina, taninos): el mínimo es deliberadamente amplio y el consolidador debe justificarlo con la sustancia concreta."
+    "why": "Decisión del usuario (D8, variante B: lista amplia): una fila no «no detectada» de una sustancia de concern_list fija un mínimo medio. EFSA por sí sola no fija alto: no gradúa la gravedad ni la dosis, así que alto queda para TPPT y las interacciones graves de la EMA."
+   },
+   "evidence-only": {
+    "level": null,
+    "why": "Sustancia del compendio que no está en concern_list: es evidencia para el texto de seguridad y no fija nivel."
    },
    "no-substance": {
     "level": null,
@@ -111,11 +115,11 @@
   "result_types": {
    "Numerical Value": {
     "level": "medio",
-    "why": "Fila de BOTANIC con valor numérico: cuenta como sustancia de preocupación."
+    "why": "Fila de BOTANIC con valor numérico: cuenta si su sustancia está en concern_list."
    },
    "Non Quantified Value (<LOQ)": {
     "level": "medio",
-    "why": "Por debajo del límite de cuantificación pero no declarada ausente: cuenta, por precaución."
+    "why": "Por debajo del límite de cuantificación pero no declarada ausente: cuenta si su sustancia está en concern_list, por precaución."
    },
    "Non Detected Value (<LOD)": {
     "level": null,
@@ -123,7 +127,7 @@
    },
    "": {
     "level": "medio",
-    "why": "Fila sin valor numérico (la sustancia se cita sin cuantificar): cuenta como sustancia de preocupación."
+    "why": "Fila sin valor numérico (la sustancia se cita sin cuantificar): cuenta si su sustancia está en concern_list."
    }
   },
   "study_categories": {
@@ -217,7 +221,689 @@
     "level": null,
     "why": "Estudio sin efecto codificado (el texto libre queda en el paquete)."
    }
-  }
+  },
+  "concern_list": {
+   "version": 1,
+   "about": "Lista versionada de sustancias de alta preocupación, con los nombres exactos de SubstanceName en BOTANIC.xls. Cada entrada lleva su grupo; el motivo es el del grupo salvo que la entrada traiga un 'why' propio. Las sustancias que no figuran aquí son evidencia sin nivel.",
+   "groups": {
+    "genotoxico-carcinogeno": {
+     "why": "Genotóxicas o carcinógenas: estragol, metileugenol, safrol, isosafrol, asarona y beta-asarona, ácidos aristolóquicos y Aristolochia, alcaloides pirrolizidínicos y ptaquilósido. El riesgo es a largo plazo y no depende de la planta entera."
+    },
+    "toxico-con-limite": {
+     "why": "Tuyona (alfa y beta), pulegona, mentofurano y cumarina: sustancias con límites de ingesta en la UE o toxicidad conocida (neurotoxicidad, hepatotoxicidad) que justifican un mínimo medio."
+    },
+    "furocumarina-fototoxica": {
+     "why": "Furocumarinas fototóxicas (psoralenos lineales y angulares): reacciones de la piel con la luz, relevantes para el uso tópico."
+    },
+    "veneno-potente": {
+     "why": "Venenos potentes: glucósidos cardíacos (cardenólidos y bufadienólidos), alcaloides tropánicos, aconitina, ricina, abrina, taxina, cucurbitacinas y otros de esa clase (coniina, estricnina, colchicina, cicutoxina, enantotoxina)."
+    }
+   },
+   "substances": [
+    {
+     "substance": "estragole",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "methyleugenol",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Safrole",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "isosafrole",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "asarone",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "beta-asarone",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "trans-isoasarone",
+     "group": "genotoxico-carcinogeno",
+     "why": "Isómero de la asarona (alfa-asarona): se trata como asarona. Familia de la beta-asarona."
+    },
+    {
+     "substance": "Aristolochia",
+     "group": "genotoxico-carcinogeno",
+     "why": "Aristolochia figura como género en el compendio por sus ácidos aristolóquicos (nefrotóxicos y carcinógenos)."
+    },
+    {
+     "substance": "Pyrrolizidine alkaloids",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Lycopsamine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Heliotrine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "heliotridine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Senecionine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Echimidine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Intermedine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Senkirkine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Amabiline",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Monocrotaline",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Supinine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Symphytine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Trichodesmine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Seneci(o)phylline",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "ptaquiloside",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "alpha-thujone",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "beta-thujone",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "pulegone",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "(+)-pulegone",
+     "group": "toxico-con-limite",
+     "why": "Variante estereoquímica del nombre del compendio: pulegona."
+    },
+    {
+     "substance": "menthofuran",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "(R)-(+)-Menthofuran",
+     "group": "toxico-con-limite",
+     "why": "Variante estereoquímica del nombre del compendio: mentofurano."
+    },
+    {
+     "substance": "Coumarin",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "Bergapten",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "psoralen",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Methoxsalen",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "imperatorin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "isoimperatorin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Isopimpinellin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Phellopterin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "8-geranoxypsoralen",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Bergamottin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "angelicin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "oxypeucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "oxypeucedanin hydrate",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "isooxypeucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "oxyimperatorin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "8-methoxy-peucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "peucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "isobergapten",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "bergaptol",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "pimpinellin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "sphondin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "archangelicin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Furanocoumarins",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "cardenolide glycosides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cardenolides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "bufadienolide glycosides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "bryophyllin A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "bryophyllin C",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "acetyldigitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "adonitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "antiarins",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "asclepin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cannogenol",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cheirotoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "convallatoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "convalloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "corchoroside A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "corchoroside B",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "coroloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "corotoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cymarin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "deglucocoroloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "deglucohyrcanoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "deslanoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digitanols glycosides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "erysimoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "evatromonoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "glucoevatromonoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "frugosid",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "gitaloxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "gitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "gitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "16-anhydrogitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "16-propionylgitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "glucoside scillaine (or scillitoxin)",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "glucoverodoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "helveticoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "hyrcanogenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "hyrcanoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "K-strophanthidin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "lanatoside A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "lanatoside B",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "lanatoside D",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "odoroside G",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "odoroside H",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "olitoriside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "oleandrigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "oleandrin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "ouabain",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "periplogenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "proscillaridin A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "rhodexin A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "scillaren A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strebloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strophantidin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strophantoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strospeside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "thevetine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "toxicariosids",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "uzarin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "verodoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Tropane alkaloids",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Atropine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Hyoscyamine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Scopolamine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Cocain",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "aconitine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Ricin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Abrin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "taxine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacins",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacin I",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacin I-glycoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine B",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine C",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine D",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine E",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "coniine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strychnine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Colchicin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cicutoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "oenanthotoxin",
+     "group": "veneno-potente"
+    }
+   ]
+  },
+  "evidence_only": [
+   {
+    "substances": [
+     "1,8-cineole",
+     "Camphor",
+     "(-)-camphor",
+     "borneol",
+     "l-borneol",
+     "fenchone",
+     "linalool",
+     "alpha-pinene",
+     "beta-pinene",
+     "sabinene",
+     "myrcene"
+    ],
+    "candidate": false,
+    "why": "Terpenos y aceites esenciales comunes (1,8-cineol, alcanfor): la preocupación depende de dosis y vía que el compendio no gradúa; evidencia para el texto, sin nivel."
+   },
+   {
+    "substances": [
+     "Tannins",
+     "Proanthocyanidins (condensed tannins)",
+     "Ellagitannins (hydrolysable tannins)",
+     "gallotannins",
+     "tannic acid"
+    ],
+    "candidate": false,
+    "why": "Taninos: presentes en gran parte de las plantas; se leen como evidencia y no fijan nivel."
+   },
+   {
+    "substances": [
+     "Calcium oxalate",
+     "Oxalates",
+     "oxalic acid"
+    ],
+    "candidate": false,
+    "why": "Oxalatos: riesgo en consumo alto o en predispuestos, no un mínimo medio para toda la planta."
+   },
+   {
+    "substances": [
+     "Lectins",
+     "Saponins",
+     "Triterpene saponins",
+     "caffeine",
+     "Theobromine",
+     "theophylline"
+    ],
+    "candidate": false,
+    "why": "Lectinas, saponinas y metilxantinas (cafeína): efectos conocidos y dependientes de la dosis; evidencia sin nivel."
+   },
+   {
+    "substances": [
+     "anethole",
+     "carvacrol",
+     "eugenol",
+     "Carvone",
+     "cinnamaldehyde",
+     "thymoquinone"
+    ],
+    "candidate": false,
+    "why": "Fenilpropanoides y terpenos de especias y aceites (anetol, carvacrol): fuera por decisión del usuario; evidencia sin nivel."
+   },
+   {
+    "substances": [
+     "Aloe-emodin",
+     "anthraquinones",
+     "1,8-dihydroxyanthraquinone derivatives",
+     "anthracene derivatives",
+     "chrysophanol",
+     "rhein",
+     "physcion",
+     "aloin A",
+     "aloin B"
+    ],
+    "candidate": false,
+    "why": "Antraquinonas: efecto laxante conocido y tratado por las monografías de la EMA; evidencia sin nivel."
+   },
+   {
+    "substances": [
+     "Cyanogenic glycosides",
+     "Cyanide",
+     "amygdalin",
+     "prunasin",
+     "linamarin",
+     "lotaustralin"
+    ],
+    "candidate": true,
+    "why": "Glucósidos cianogénicos: dudosos; quedan fuera como candidatos a la lista."
+   },
+   {
+    "substances": [
+     "Emodin",
+     "emodin anthron"
+    ],
+    "candidate": true,
+    "why": "Emodina: dudosa; queda fuera como candidata."
+   },
+   {
+    "substances": [
+     "elemicin",
+     "myristicin"
+    ],
+    "candidate": true,
+    "why": "Elemicina y miristicina: dudosas; quedan fuera como candidatas."
+   },
+   {
+    "substances": [
+     "Platyphylline",
+     "Tussilagine",
+     "isotussilagine"
+    ],
+    "candidate": true,
+    "why": "Alcaloides pirrolizidínicos de necina saturada: sin el doble enlace que causa la hepatotoxicidad; candidatos si el usuario los quiere."
+   },
+   {
+    "substances": [
+     "Acetyllandromedol"
+    ],
+    "candidate": true,
+    "why": "Diterpenos tipo grayanotoxina: venenos potentes de Ericaceae; candidatos a la lista."
+   }
+  ]
  },
  "ema": {
   "section": "4.5",
@@ -282,8 +968,8 @@
     "why": "Declaración pública sin datos de seguridad (la monografía no se pudo establecer): sin nivel."
    },
    "statement-with-safety": {
-    "level": null,
-    "why": "Declaración pública cuyas conclusiones mencionan seguridad: el texto va al paquete; sin nivel automático porque no tiene sección 4.5 numerada."
+    "level": "medio",
+    "why": "Decisión del usuario: declaración pública cuyas conclusiones mencionan seguridad (kava, bálsamo del Perú, celidonia, adhatoda, aceite de salvia): no trae sección 4.5 pero la EMA documenta un problema de seguridad, así que fija medio. El texto va al paquete."
    },
    "sin-documento": {
     "level": null,

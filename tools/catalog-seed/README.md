@@ -458,6 +458,16 @@ Cada fuente de `sources.json` tiene `enabled`. Una fuente desactivada no aporta 
 - Topes: el paquete ya acota los sinónimos homotípicos (15), las áreas nativas (25), las imágenes (5), las sustancias de evidencia de EFSA (25), los estudios de EFSA (10) y las toxinas de TPPT (20), y cada recorte dice su total (`homotypicTotal`, `nativeAreaCount`, `toxinsTotal`, `evidenceTotal`, `studiesTotal` o una nota). Con los datos reales solo se activan el de áreas nativas (590 plantas, que conservan las regiones), el de imágenes (10), el de estudios (3) y el de toxinas (1).
 - Propuesta de tope, sin aplicar: limitar `uses` a los 40 grupos con más filas (`DEFAULT_LIMITS["useGroups"]` en `bundles.py`; el registro tiene hasta 20 grupos y el consolidador agrupa actividades equivalentes, así que 40 deja margen), con una nota en `identity.notes` que dice cuántos grupos y filas se omitieron. Simulado sobre el universo: afecta a 162 plantas, omite 2.529 de las 35.935 filas de uso asignadas (7 %) y todos los grupos omitidos tienen una o dos filas; el máximo baja a 22.074 tokens (`momordica-charantia`), cerca del 21.700 del piloto, el p50 no cambia (2.785), el p90 pasa a 9.140 y el total a 9,60 millones. Con 30 grupos, 5 refs y 10 claves por grupo el máximo sería 19.024 y el total 9,29 millones (263 plantas afectadas). Recortar solo `useRefs` o `useKeys` no baja el máximo. Los límites están en `DEFAULT_LIMITS` (con `useGroups`, `useRefs` y `useKeys` sin límite); adoptar el tope cambia el `bundleHash` de las plantas afectadas y las pone en la cola de `plan`, así que es una decisión del usuario.
 
+### Corrida de control (tarea 5.1)
+
+`tools/catalog-seed/control.txt` fija las 20 plantas de la corrida de control: las del piloto con los IDs del universo actual (romero es `salvia-rosmarinus`, manzanilla `matricaria-chamomilla` y el almendro `prunus-amygdalus`, que lleva `prunus-dulcis` como alias y no se fusiona con el cerezo), con la cicuta como tóxica de TPPT, *Pelargonium sidoides* y *Rhodiola rosea* como plantas solo de la EMA, y el almendro en lugar de *Datura stramonium*. Los comentarios van en líneas propias (`#` solo comenta líneas completas). Sirve para repetir la consolidación sobre un conjunto pequeño y conocido, comparable con el piloto, antes de la generación completa.
+
+```sh
+python3 -I tools/catalog-seed/cli.py bundles --plants tools/catalog-seed/control.txt --report data/work/bundles-control-report.json
+```
+
+Los 20 paquetes validan contra `schema/bundle.schema.json`. Tamaños en tokens estimados: ricino 30.420, manzanilla 19.197, romero 16.384, hipérico 15.879, eucalipto 13.468, menta 13.463, valeriana 13.274, tomillo 11.519, caléndula 10.685, consuelda 8.036, pasiflora 7.875, cicuta 7.783, melisa 7.685, lavanda 6.551, árbol del té 4.512, almendro 4.015, *Pelargonium sidoides* 3.141, *Rhodiola rosea* 3.132, bergamota 1.982 y lavandín 1.351. Promedio 10.018, p50 8.036 y máximo 30.420 (ricino), frente a 8.300 y 21.700 del piloto. El promedio queda a un 21 % del piloto; el máximo lo explica el ricino, con muchas actividades de uso de USDA (`uses` 19.477 y `refs` 7.601 de sus 30.420), el caso que cubre la propuesta de tope de `useGroups`. Sin el ricino el máximo es 19.197 (manzanilla) y el promedio 8.944.
+
 ### Cobertura con los datos reales
 
 | Sección | Plantas con datos | Plantas sin datos |

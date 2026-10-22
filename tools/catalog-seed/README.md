@@ -368,7 +368,7 @@ Decisiones de forma que la spec deja abiertas:
 
 ## Prompt de consolidación
 
-`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión; la versión 2 lo alinea con el paquete real de la 3.5 (véase «Paquetes por planta») y la versión 3 aplica la revisión de la corrida de control (véase «Revisión de la corrida de control (tarea 5.3)»): fuentes de `displayName` y de nombres comunes, catálogo cerrado de códigos de flag, un grupo por actividad del paquete, orden de selección con más de 20 grupos, países sin traducción segura, partes usadas, claves `Eb<vol>: 000` y descripción sin Wikipedia.
+`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión; la versión 2 lo alinea con el paquete real de la 3.5 (véase «Paquetes por planta») y la versión 3 aplica la revisión de la corrida de control (véase «Revisión de la corrida de control (tarea 5.3)»): fuentes de `displayName` y de nombres comunes, catálogo cerrado de códigos de flag, un grupo por actividad del paquete, orden de selección con más de 20 grupos, países sin traducción segura, partes usadas, claves `Eb<vol>: 000` y descripción sin Wikipedia. La versión 4 aplica la segunda repetición de la 5.3: `displayName` entre todos los nombres en español del paquete (el más usado y genérico), formato único del texto de las citas de obras generales con volumen o página, y actividades sin traducción segura con el término original de USDA tal cual (véase «Defectos de la corrida con el prompt v3 y su corrección (prompt v4)»).
 
 ## Paquetes por planta (tareas 3.5, 3.6 y 4.7)
 
@@ -500,7 +500,7 @@ Comprobaciones con los paquetes reales (la sección de pruebas `RealBundlesTests
 
 ## Revisión de la corrida de control (tarea 5.3)
 
-Revisión de los 20 registros de la corrida 5.2 (prompt v2, `data/work/control/lote-1/` y `lote-2/`). Las correcciones salen en el prompt v3, en el validador y en el armado de paquetes; la 5.3 sigue abierta hasta repetir la corrida con el prompt v3.
+Revisión de los 20 registros de la corrida 5.2 (prompt v2, `data/work/control/lote-1/` y `lote-2/`). Las correcciones salen en el prompt v3, en el validador y en el armado de paquetes. Las repeticiones con el prompt v3 (`data/work/control/v3/`) y con el prompt v4 (`data/work/control/v4/`) siguen en las subsecciones finales; la 5.3 sigue abierta a la espera de la decisión del usuario sobre las observaciones de la última subsección.
 
 ### Lista de comprobación planta por planta
 
@@ -572,6 +572,93 @@ Decisiones que siguen pendientes del usuario y que no se cambiaron: el nivel de 
 | 2 | 10 | 04:41:12Z a 04:47:15Z | 6 min 3 s | 223.036 | unos 22.300 |
 
 El promedio es de unos 20.300 tokens por planta, contra 12.000 a 15.500 en el piloto. Extrapolado a 2.355 plantas son unos 48 millones de tokens, contra los 23 millones estimados. Los tokens son el total que reporta el agente, incluidas las lecturas del prompt, los esquemas y los mapas en cada lote. Los lotes corrieron en paralelo, con agentes de Claude Code del modelo balanceado. El validador dio 0 errores y 0 advertencias en los 20 registros.
+
+### Resultados con el prompt v4
+
+Los 20 registros de `data/work/control/v4/lote-1/` y `lote-2/` se armaron con los paquetes de `data/work/bundles/` y Wikipedia activa. El validador (`lote-1-validate.json` y `lote-2-validate.json`) da 0 errores y 0 advertencias en los 20. Las cifras salen de los registros.
+
+| Planta | `displayName` | Objetivos | Seguridad | Grupos | Grupos pendientes | Citas sin resolver | Flags |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Lavanda | Lavanda | `mejorar-el-sueno`, `relajacion-estres` | medio | 11 | 0 | 0 | - |
+| Eucalipto | Eucalipto blanco | `alivio-respiratorio`, `otros-objetivos` (dolor e inflamación) | `null` | 20 | 3 | 3 | `cita-sin-resolver` (3), `sin-datos-de-seguridad` |
+| Romero | Romero | `otros-objetivos` (circulación, digestión) | medio | 20 | 17 | 17 | `cita-sin-resolver` (17) |
+| Manzanilla | Manzanilla | `cuidado-de-la-piel`, `alivio-respiratorio`, `otros-objetivos` (boca y garganta, digestión) | bajo | 20 | 15 | 15 | `cita-sin-resolver` (15) |
+| Menta | Menta piperita | `cuidado-de-la-piel`, `alivio-respiratorio`, `otros-objetivos` (dolor e inflamación, digestión) | medio | 20 | 4 | 4 | `cita-sin-resolver` (4) |
+| Cicuta | Conium maculatum (`la`) | - | alto | 20 | 2 | 2 | `sin-nombre-comun-es`, `cita-sin-resolver` (2) |
+| Ricino | Ricino | - (omitidos por toxicidad) | alto | 20 | 11 | 11 | `objetivos-omitidos-por-toxicidad`, `idioma-de-nombre-dudoso`, `cita-sin-resolver` (11) |
+| Valeriana | Valeriana común | `mejorar-el-sueno`, `relajacion-estres` | medio | 20 | 1 | 1 | `idioma-de-nombre-dudoso`, `cita-sin-resolver` (1) |
+| Pasiflora | Pasiflora | `mejorar-el-sueno`, `relajacion-estres` | `null` | 20 | 0 | 0 | `idioma-de-nombre-dudoso`, `sin-datos-de-seguridad` |
+| Melisa | Toronjil | `mejorar-el-sueno`, `relajacion-estres`, `otros-objetivos` (digestión) | `null` | 20 | 0 | 0 | `sin-datos-de-seguridad` |
+| Tomillo | Tomillo | `alivio-respiratorio` | bajo | 20 | 5 | 5 | `cita-sin-resolver` (5) |
+| Caléndula | Botón de oro | `cuidado-de-la-piel`, `otros-objetivos` (boca y garganta) | `null` | 20 | 5 | 6 | `cita-sin-resolver` (5), `sin-datos-de-seguridad` |
+| Hipérico | Hipérico | `cuidado-de-la-piel`, `relajacion-estres` (pendiente), `otros-objetivos` (digestión) | alto | 20 | 4 | 4 | `cita-sin-resolver` (4), `interacciones-graves-estres` |
+| Consuelda | Consuelda | `otros-objetivos` (dolor e inflamación) | medio | 20 | 2 | 2 | `cita-sin-resolver` (2) |
+| Árbol del té | Árbol de té | `otros-objetivos` (boca y garganta), `cuidado-de-la-piel` | medio | 1 | 0 | 0 | - |
+| Lavandín | Lavandula × intermedia (`la`) | - | `null` | 0 | 0 | 0 | `sin-nombre-comun-es`, `sin-datos-de-seguridad` |
+| *Pelargonium sidoides* | Geranio africano | `alivio-respiratorio` | medio | 0 | 0 | 0 | - |
+| Rodiola | Rodiola | `cansancio-y-fatiga`, `relajacion-estres` | `null` | 4 | 0 | 0 | `sin-datos-de-seguridad` |
+| Bergamota | Bergamota | - | `null` | 0 | 0 | 0 | `grupo-partido`, `sin-datos-de-seguridad` |
+| Almendro | Almendro | - | bajo | 1 | 0 | 0 | - |
+
+Totales: 277 grupos, 69 pendientes y 70 citas sin resolver (la caléndula tiene un grupo con dos). En la corrida 5.2 (prompt v2) los grupos pendientes sumaban 58.
+
+### Costo y tiempo de cada versión del prompt
+
+| Versión | Lote | Tokens del agente | Duración | Tokens por planta |
+| --- | --- | --- | --- | --- |
+| v3 | 1 | 215.477 | 7 min 18 s | unos 19.800 en promedio de los dos lotes |
+| v3 | 2 | 180.945 | 4 min 58 s | |
+| v4 | 1 | 210.122 | 7 min 19 s | unos 18.000 en promedio de los dos lotes |
+| v4 | 2 | 149.187 | 4 min 22 s | |
+
+La v4 cuesta unos 1.800 tokens menos por planta que la v3. Ambas siguen por encima de los 12.000 a 15.500 tokens por planta del piloto.
+
+### Observaciones abiertas para el usuario
+
+Son hallazgos de la repetición con el prompt v4. No se resolvieron: esperan la decisión del usuario antes de marcar la 5.3.
+
+1. **Grupos pendientes.** 69 de los 277 grupos quedan pendientes y 68 de ellos tienen al menos una cita resuelta: casi siempre se suma `Woi.Syria`, que no tiene candidata, a las claves que sí se resuelven.
+2. **Actividades sensibles.** Entre los usos aparecen actividades como Cancer, Tumor, Abortifacient, Fatality, Poison, Aphrodisiac y Diabetes, que se traducen y se registran como uso tradicional.
+3. **`safety` nulo.** `safety` es `null` cuando ninguna entrada fija nivel, aunque la EMA traiga contraindicaciones; es el caso del eucalipto.
+4. **`displayName` de la caléndula.** Sale «Botón de oro».
+5. **Falsos positivos de `EO`.** El compuesto `EO` de USDA activa `oil` en el almendro y la cicuta, que podrían no ser aceites esenciales.
+
+### Prueba con Wikipedia desactivada (tarea 5.4)
+
+Se repite el flujo con `wikipedia_es` desactivada en tres plantas de la corrida de control: lavanda, menta y manzanilla. Todo ocurre fuera de `data/seed/` y de `data/work/bundles/`, en `data/work/control/wiki-off/`; `sources.json` se cambia solo durante la prueba y se restaura al final (`git diff tools/catalog-seed/sources.json` queda vacío).
+
+```sh
+W=data/work/control/wiki-off
+mkdir -p $W/seed/plants $W/bundles
+cp data/work/control/v4/lote-*/{lavandula-angustifolia,mentha-x-piperita,matricaria-chamomilla}.json $W/seed/plants/
+cp data/seed/goals.json $W/seed/goals.json
+printf "lavandula-angustifolia\nmentha-x-piperita\nmatricaria-chamomilla\n" > $W/plants.txt
+# desactivar: "enabled": false en wikipedia_es de tools/catalog-seed/sources.json
+python3 -I tools/catalog-seed/cli.py bundles --plants $W/plants.txt --out $W/bundles
+python3 -I tools/catalog-seed/cli.py plan --bundles $W/bundles --seed $W/seed
+# regenerar los tres registros en $W/seed/plants con el prompt v4 y los paquetes nuevos
+python3 -I tools/catalog-seed/cli.py validate --records $W/seed/plants --bundles $W/bundles
+grep -i wikipedia $W/seed/plants/*.json
+python3 -I tools/catalog-seed/cli.py plan --bundles $W/bundles --seed $W/seed
+python3 -I tools/catalog-seed/cli.py seal --seed $W/seed
+# restaurar "enabled": true y comprobar con git diff
+```
+
+- Rutas propias: `bundles --out`, `plan --bundles --seed`, `validate --records --bundles` y `seal --seed` admiten directorios propios, así que no hizo falta cambiar código. `seal` escribe `manifest.json` dentro de `--seed` y lee ahí `goals.json`, por lo que la semilla de prueba lleva una copia de `data/seed/goals.json`. Antes de desactivar la fuente se armaron los mismos tres paquetes con Wikipedia activa y el `plan` dio «0 plantas a regenerar»; los paquetes coinciden con los de `data/work/bundles/`.
+- `plan` con Wikipedia desactivada: «3 plantas a regenerar», las tres con el motivo `bundleHash` (`lavandula-angustifolia`, `matricaria-chamomilla` y `mentha-x-piperita`). En cada paquete cambia solo la sección `descriptions` (queda vacía) y se retira el ref `wikipedia_es:<título>`; la identidad y las demás secciones no cambian.
+- Regeneración: `displayName`, `commonNames` y `description` se redactaron a partir de los paquetes nuevos, sin copiar lo que dependía de Wikipedia; el resto del registro (usos, objetivos, seguridad, imagen) no depende de ella y se conservó, con el `bundleHash` nuevo y `refs` y `sources` recalculados desde los refs citados.
+- `validate`: «3 registros, 0 con errores, 0 errores, 0 advertencias».
+- `plan` después: «0 plantas a regenerar».
+- `seal`: «manifest.json actualizado: 3 plantas». Las fuentes del manifiesto son `commons`, `efsa`, `ema_json`, `ema_pdf`, `tppt`, `usda`, `wcvp`, `wfo` y `wikidata`; `wikipedia_es` no figura. Los flags contados son `cita-sin-resolver` (2 plantas) y `sin-nombre-comun-es` (1).
+- `grep -i wikipedia` sobre los tres registros solo encuentra la URL de la imagen de Commons (`https://upload.wikimedia.org/wikipedia/commons/...`), donde «wikipedia» es un tramo de la ruta del servidor de archivos de Wikimedia y no la fuente `wikipedia_es`. Commons sigue activa y la imagen es legítima, así que no se quitó. Filtrando esa URL (`grep -i wikipedia ... | grep -vi 'upload.wikimedia.org/wikipedia/commons'`) no sale nada; tampoco queda ningún ref ni dataset `wikipedia_es`.
+
+| Planta | `displayName` antes | `displayName` ahora | `description` | Refs |
+| --- | --- | --- | --- | --- |
+| Lavanda | Lavanda (Wikipedia) | Lavandula angustifolia (`la`), con `sin-nombre-comun-es` | `null` (antes una frase de Wikipedia) | 31 a 30; sin `wikipedia_es:Lavandula angustifolia`; `commonNames` pierde «Lavanda» |
+| Menta | Menta piperita (Wikipedia y Wikidata) | Menta piperita (solo `wikidata:Q156037`, el P1843) | `null` | 64 a 63; sin `wikipedia_es:Mentha × piperita`; `commonNames` pasa de 9 a 2 (se pierden los siete nombres de la primera frase del resumen) |
+| Manzanilla | Manzanilla (Wikidata) | Manzanilla (sin cambio) | `null` | 81 a 80; sin `wikipedia_es:Matricaria chamomilla`; `commonNames` pierde «Manzanilla de Castilla» y «Manzanilla alemana» queda solo con el ref de Wikidata |
+
+En las tres plantas, `sources` pierde `wikipedia_es` y `bundleHash` cambia; los demás campos son idénticos. La lavanda queda sin nombre común en español porque su único nombre en español venía del resumen de Wikipedia: es el resultado esperado de la política de solo el paquete. Con Wikipedia desactivada ya no hay `description` en ninguna de las tres, porque el prompt no permite construirla desde la taxonomía.
 
 ## Contrato del paquete que usa el validador
 

@@ -1318,6 +1318,30 @@
           "checksum": {"algorithm": "md5", "value": "d0c10ece17f726470b34cf2fe6d313e6"}
         }
       ]
+    },
+    {
+      "id": "wikidata",
+      "version": "Wikidata Query Service, consulta dirigida por nombre científico (P225); cada respuesta se guarda en la caché con su fecha",
+      "url": "https://query.wikidata.org/sparql",
+      "license": "CC0 1.0",
+      "attribution": "Colaboradores de Wikidata (https://www.wikidata.org). Datos estructurados bajo CC0 1.0.",
+      "enabled": true
+    },
+    {
+      "id": "wikipedia_es",
+      "version": "API REST de es.wikipedia.org (page/summary) de los artículos enlazados desde Wikidata; cada respuesta se guarda en la caché con su revisión y fecha",
+      "url": "https://es.wikipedia.org/api/rest_v1/page/summary/",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Colaboradores de Wikipedia en español (https://es.wikipedia.org). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.",
+      "enabled": true
+    },
+    {
+      "id": "commons",
+      "version": "API de Wikimedia Commons (imageinfo con extmetadata) de las imágenes P18 de Wikidata; cada respuesta se guarda en la caché con su fecha",
+      "url": "https://commons.wikimedia.org/w/api.php",
+      "license": "por archivo: CC0, dominio público, CC BY o CC BY-SA",
+      "attribution": "Autor, página y licencia de cada archivo de Wikimedia Commons, según sus metadatos.",
+      "enabled": true
     }
   ]
 }

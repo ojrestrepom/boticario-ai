@@ -1,12 +1,14 @@
 """Comando extract: lee los insumos verificados de una fuente y escribe sus filas normalizadas en data/work/sources.db."""
 from pathlib import Path
 
-from . import ema, ema_extract, efsa_extract, tppt_extract, usda_extract, workdb
+from . import ema, ema_extract, efsa_extract, tppt_extract, usda_extract, wiki_extract, workdb
 from .download import require_verified, require_verified_files
 from .ema_pdf import slug_of
 from .sources import DEFAULT_CACHE_DIR, SourceError
 
-EXTRACTABLE = ("usda", "ema_json", "ema_pdf", "tppt", "efsa")
+EXTRACTABLE = ("usda", "ema_json", "ema_pdf", "tppt", "efsa", "wikidata", "wikipedia_es", "commons")
+# Wikipedia y Commons se descargan a partir de los ítems de Wikidata: sin Wikidata activa no hay de dónde enlazarlas.
+DEPENDS_ON_WIKIDATA = ("wikipedia_es", "commons")
 
 
 def _ema_records(sources, cache_dir):
@@ -42,12 +44,27 @@ def extract_source(source, sources, cache_dir=DEFAULT_CACHE_DIR):
         return rows, {"ema_herbal": len(rows)}
     if source.id == "ema_pdf":
         return _extract_pdf(source, sources, cache_dir)
+    if source.id in wiki_extract.EXTRACTORS:
+        return wiki_extract.EXTRACTORS[source.id](cache_dir)
     raise SourceError("la fuente '%s' no tiene extracción (%s)" % (source.id, ", ".join(EXTRACTABLE)))
+
+
+def skip_reason(source, sources):
+    """Motivo para omitir una fuente al extraer (desactivada o sin la Wikidata de la que depende); None si se extrae."""
+    if not source.enabled:
+        return "desactivada, omitida"
+    if source.id in DEPENDS_ON_WIKIDATA:
+        wikidata = next((s for s in sources if s.id == "wikidata"), None)
+        if wikidata is None or not wikidata.enabled:
+            return "omitida: depende de wikidata, que está desactivada o no está declarada"
+    return None
 
 
 def run_extract(source, sources, cache_dir, db_path):
     rows, stats = extract_source(source, sources, cache_dir)
     inputs = [{"filename": f.filename, "size": f.size, "checksum": f.checksum} for f in source.files]
+    if source.is_service:
+        inputs = [{"service": source.id, "cache": "data/.cache/%s/" % source.id}]
     connection = workdb.open_db(db_path)
     try:
         workdb.replace_source(connection, source.id, rows, source.version, inputs)

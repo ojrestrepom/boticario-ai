@@ -102,5 +102,52 @@ class SourceListTests(unittest.TestCase):
         self.assertFalse(validate_source(data).pinned)
 
 
+class ServiceSourceTests(unittest.TestCase):
+    """Wikidata, Wikipedia en español y Commons son servicios en línea: sin archivo, tamaño ni checksum."""
+
+    def data(self, source_id="wikidata", **overrides):
+        data = {"id": source_id, "version": "consulta dirigida", "url": "https://query.example/sparql", "license": "CC0 1.0",
+                "attribution": "Colaboradores de Wikidata", "enabled": True}
+        data.update(overrides)
+        return data
+
+    def test_service_source_is_valid_without_file_fields(self):
+        for name in ("wikidata", "wikipedia_es", "commons"):
+            source = validate_source(self.data(name))
+            self.assertTrue(source.is_service)
+            self.assertEqual(source.files, [])
+            self.assertTrue(source.pinned)
+            self.assertEqual(source.url, "https://query.example/sparql")
+            self.assertIsNone(source.checksum)
+            self.assertEqual(source.cache_path("/cache").name, name)
+
+    def test_service_source_keeps_the_common_fields_and_enabled(self):
+        self.assertFalse(validate_source(self.data(enabled=False)).enabled)
+        for field in ("version", "license", "attribution", "enabled", "url"):
+            data = self.data()
+            del data[field]
+            with self.assertRaises(SourceError, msg=field):
+                validate_source(data)
+        with self.assertRaises(SourceError):
+            validate_source(self.data(enabled="si"))
+
+    def test_service_source_rejects_file_fields(self):
+        for field, value in (("filename", "x.json"), ("size", 3), ("checksum", None), ("files", [])):
+            with self.assertRaises(SourceError, msg=field) as ctx:
+                validate_source(self.data(**{field: value}))
+            self.assertIn("servicio en línea", str(ctx.exception))
+
+    def test_file_sources_are_not_services(self):
+        self.assertFalse(make_source().is_service)
+
+    def test_shipped_services_have_license_attribution_and_enabled(self):
+        sources = {s.id: s for s in load_sources(DEFAULT_SOURCES_FILE)}
+        self.assertEqual(sources["wikipedia_es"].license, "CC BY-SA 4.0")
+        self.assertIn("CC0", sources["commons"].license)
+        for name in ("wikidata", "wikipedia_es", "commons"):
+            self.assertIsInstance(sources[name].enabled, bool)
+            self.assertTrue(sources[name].attribution)
+
+
 if __name__ == "__main__":
     unittest.main()

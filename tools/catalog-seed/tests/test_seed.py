@@ -46,7 +46,7 @@ class SeedCase(unittest.TestCase):
 
     def write_sources(self, **overrides):
         usda = support.make_source(**overrides)
-        off = support.make_source(id="wikipedia_es", enabled=False, license="CC BY-SA 4.0")
+        off = support.make_service_source("wikipedia_es", enabled=False)
         dump(self.sources, {"sources": [usda.data, off.data]})
 
     def plan(self, record_version=1):

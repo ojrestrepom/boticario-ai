@@ -123,6 +123,16 @@ class Step:
     def load(self, key):
         return json.loads(self.cache_path(key).read_text(encoding="utf-8"))["response"]
 
+    def iter_cached(self):
+        """(clave, respuesta) de cada archivo de la caché del servicio, en orden de nombre de archivo."""
+        if not self.dir.is_dir():
+            return
+        for path in sorted(self.dir.glob("*.json")):
+            if path.name == RESUME_FILE:
+                continue
+            record = json.loads(path.read_text(encoding="utf-8"))
+            yield record["key"], record["response"]
+
     def resume_path(self):
         return self.dir / RESUME_FILE
 
@@ -196,6 +206,10 @@ def normalize_name(name):
 QID = re.compile(r"Q[0-9]+")
 
 
+def split_values(text):
+    return [v for v in text.split("|") if v]
+
+
 class WikidataStep(Step):
     """SPARQL por lotes y por POST. Entradas: nombres (P225) o QIDs; un archivo por entrada."""
 
@@ -217,18 +231,25 @@ class WikidataStep(Step):
             values.append("{ VALUES ?req { %s } ?item wdt:P225 ?req }" % quoted)
         return (
             "SELECT ?req ?item ?taxon "
+            "(GROUP_CONCAT(DISTINCT ?auth; separator=\"|\") AS ?authors) "
+            "(SAMPLE(?labelEs) AS ?label) "
+            "(GROUP_CONCAT(DISTINCT ?alias; separator=\"|\") AS ?aliases) "
             "(GROUP_CONCAT(DISTINCT ?es; separator=\"|\") AS ?esNames) "
             "(GROUP_CONCAT(DISTINCT ?img; separator=\"|\") AS ?images) "
             "(SAMPLE(?eswikiTitle) AS ?eswiki) "
             "(GROUP_CONCAT(DISTINCT ?gbifId; separator=\"|\") AS ?gbif) "
             "(GROUP_CONCAT(DISTINCT ?powoId; separator=\"|\") AS ?powo) "
+            "(GROUP_CONCAT(DISTINCT ?ipniId; separator=\"|\") AS ?ipni) "
             "WHERE { " + " UNION ".join(values) + " "
-            "OPTIONAL { ?item wdt:P225 ?taxon } "
+            "OPTIONAL { ?item p:P225 ?st . ?st ps:P225 ?taxon . OPTIONAL { ?st pq:P405 ?authItem . ?authItem wdt:P428 ?auth } } "
+            "OPTIONAL { ?item rdfs:label ?labelEs . FILTER(LANG(?labelEs) = \"es\") } "
+            "OPTIONAL { ?item skos:altLabel ?alias . FILTER(LANG(?alias) = \"es\") } "
             "OPTIONAL { ?item wdt:P1843 ?es . FILTER(LANG(?es) = \"es\") } "
             "OPTIONAL { ?item wdt:P18 ?img } "
             "OPTIONAL { ?sl schema:about ?item ; schema:isPartOf <https://es.wikipedia.org/> ; schema:name ?eswikiTitle } "
             "OPTIONAL { ?item wdt:P846 ?gbifId } "
             "OPTIONAL { ?item wdt:P5037 ?powoId } "
+            "OPTIONAL { ?item wdt:P961 ?ipniId } "
             "} GROUP BY ?req ?item ?taxon"
         )
 
@@ -251,11 +272,15 @@ class WikidataStep(Step):
             item = {
                 "qid": val("item").rsplit("/", 1)[-1],
                 "taxon": val("taxon"),
+                "authors": split_values(val("authors")),
+                "labelEs": val("label"),
+                "aliasesEs": split_values(val("aliases")),
                 "spanishNames": [v for v in val("esNames").split("|") if v],
                 "images": [v for v in val("images").split("|") if v],
                 "eswiki": val("eswiki"),
                 "gbif": [v for v in val("gbif").split("|") if v],
                 "powo": [v for v in val("powo").split("|") if v],
+                "ipni": split_values(val("ipni")),
             }
             request_key = val("req") or item["qid"]
             if request_key in items:

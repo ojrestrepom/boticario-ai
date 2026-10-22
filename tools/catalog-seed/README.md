@@ -36,6 +36,9 @@ python3 -I tools/catalog-seed/cli.py download --offline
 python3 -I tools/catalog-seed/cli.py download --force
 python3 -I tools/catalog-seed/cli.py pin --source ema_json
 python3 -I tools/catalog-seed/cli.py fetch --service wikidata --input data/work/nombres.txt
+python3 -I tools/catalog-seed/cli.py wiki-fetch --plan
+python3 -I tools/catalog-seed/cli.py wiki-fetch --wait 7200
+python3 -I tools/catalog-seed/cli.py wiki-assign
 python3 -I tools/catalog-seed/cli.py ema-pdf --wait 7200
 python3 -I tools/catalog-seed/cli.py ema-pdf --status
 python3 -I tools/catalog-seed/cli.py extract
@@ -52,6 +55,7 @@ python3 -I tools/catalog-seed/cli.py seal --seed data/seed
 - `--offline` solo verifica la caché y nunca abre la red. Si el insumo falta o está alterado, termina con error e indica el paso de descarga necesario.
 - `pin --source <id>` fija el snapshot de una fuente declarada con `size` y `checksum` en `null` (véase «Fijar un snapshot»).
 - `fetch --service <wikidata|wikipedia_es|commons> --input <archivo>` consulta lo pendiente de esos servicios (véase «Wikidata, Wikipedia en español y Commons»).
+- `wiki-fetch` descarga Wikidata (por nombre), los resúmenes de Wikipedia en español y los metadatos de Commons de las plantas del universo, y `wiki-assign` rehace sin red la asignación de esos ítems a las plantas (véase «Wikidata, Wikipedia en español y Commons»).
 - `ema-pdf` descarga las páginas y los PDF de la EMA (véase «PDF de la EMA»); `extract [--source <id>]` escribe las filas normalizadas de USDA, la EMA, TPPT y EFSA en `data/work/sources.db` (véase «Extracción y formato intermedio»); `safety-report` muestra la clasificación del mapa de seguridad sobre esas filas (véase «Mapa de seguridad»).
 - `resolve` resuelve los nombres de USDA y la EMA y escribe el universo en `data/work/universe/` (véase «Resolvedor taxonómico y universo»).
 - `validate`, `plan` y `seal` trabajan con la semilla y los paquetes (véanse «Validador», «Plan de regeneración» y «Sellado y manifiesto»).
@@ -71,6 +75,8 @@ Un objeto con la lista `sources`. Cada fuente tiene estos campos comunes, todos 
 - `enabled`: `true` o `false`; una fuente desactivada no se descarga y permite retirarla por configuración.
 
 Los archivos se declaran de una de dos formas, excluyentes. Fuente de un solo archivo: los campos `url`, `filename` (nombre en la caché, sin rutas), `size` (bytes) y `checksum` (objeto con `algorithm`, `md5` o `sha256`, y `value` en hexadecimal) van en la propia fuente. Fuente con varios archivos: una lista `files` donde cada elemento tiene esos mismos cuatro campos, con `filename` distinto. Los archivos se guardan en `data/.cache/<id>/<filename>` y se verifican todos; basta que uno falle para que falle la fuente.
+
+Tercera forma, para los servicios en línea (`wikidata`, `wikipedia_es` y `commons`): no hay archivo que verificar, porque la respuesta depende de la consulta. Se declaran con los campos comunes más `url` (el servicio que se consulta) y sin `filename`, `size`, `checksum` ni `files`; el validador rechaza esos campos en un servicio. Cada respuesta se guarda en `data/.cache/<id>/` con la fecha de la consulta, y `download` y `pin` los omiten (los descarga `wiki-fetch`). `enabled: false` apaga el servicio: ni se descarga ni se extrae. Wikipedia y Commons se descargan a partir de los ítems de Wikidata, así que sin `wikidata` activa también se omiten.
 
 `size` y `checksum` deben ser ambos valores o ambos `null`. `null` significa «snapshot sin fijar»: la fuente no se descarga con `download` hasta que `pin` registre ambos valores.
 
@@ -116,6 +122,9 @@ Ejemplo con varios archivos (EFSA, abreviado):
 | `ema_pdf` | PDF de las monografías y declaraciones públicas de la EMA: 205 archivos (fuente de varios archivos), registrados por `ema-pdf` | citando a la EMA (términos no verificados) | por archivo | sha256 por archivo, fijado en `sources.json` |
 | `tppt` | Agroscope TPPT, `tppt-db.zip` (SQLite) | uso abierto citando la fuente (opendata.swiss) | 1.188.682 | sha256 `8c16c7c5f8032ddd20ebcbb06f35ed1d9fb94ee10a91bd1384cc504465a47b85` |
 | `efsa` | Compendium of Botanicals 2016: `BOTANIC.xls` y `ENDPOINTSTUDY.xls` (Zenodo 996024) | CC BY 4.0 | 1.297.920 y 468.992 | md5 `5f906c745071266a3726421db6a0deb0` y `d0c10ece17f726470b34cf2fe6d313e6` (los de Zenodo) |
+| `wikidata` | Wikidata Query Service, consulta por nombre (servicio en línea) | CC0 1.0 | no aplica | no aplica (cada respuesta se guarda con su fecha) |
+| `wikipedia_es` | API REST de es.wikipedia.org, `page/summary` (servicio en línea) | CC BY-SA 4.0 | no aplica | no aplica (cada respuesta se guarda con su revisión y fecha) |
+| `commons` | API de Wikimedia Commons, `imageinfo` con `extmetadata` (servicio en línea) | por archivo: CC0, dominio público, CC BY o CC BY-SA | no aplica | no aplica |
 
 Los datos de WCVP, WFO, USDA y EFSA coinciden con los del piloto o con los checksums publicados por sus repositorios. Los checksums de la EMA y TPPT los registró `pin`, porque estas fuentes no publican uno.
 
@@ -189,6 +198,9 @@ Tabla `source_row(source, record_type, row_key, raw_name_cell, fnfnum, qid, cont
 | `tppt` | `tppt_plant` | Plant_number | Latin_plant_name | 844 |
 | `efsa` | `efsa_botanic` | número de fila de la hoja | `scientificNames` | 3.449 |
 | `efsa` | `efsa_endpoint` | número de fila de la hoja | `scientificNames` | 972 |
+| `wikidata` | `wikidata` | QID | P225 | 4.319 |
+| `wikipedia_es` | `wikipedia_es` | título canónico del artículo | título | 1.412 |
+| `commons` | `commons` | `File:...` | `File:...` | 2.634 |
 
 - USDA (parte de la 3.2): los CSV del ZIP se leen en Windows-1252 con comillas CSV estándar, como el adaptador Rust (que no se modifica); en este ZIP todos son ASCII. `usda_part` resume `FARMACY_NEW` por (FNFNUM, PPCO): `rows`, `distinct_compounds`, hasta 10 compuestos por cantidad (`top_amount`: mayor de las columnas `AMT_*` por compuesto, con su `QUANT_UNIT` si lo hay) y hasta 10 por EOPCT (`top_eo`); el compuesto `EO` y sus variantes (`EO (ASSUMED)`, `EO(ASS.)`) llevan `eo: true` y la parte `has_eo`. Las 13 filas de `FARMACY_NEW` sin PPCO se omiten (contadas en `farmacy_rows_empty_ppco`). `usda_use` guarda la REFERENCE corta tal como viene (11 filas no la tienen) y no lleva `longref`, porque el LONGREF propio de ETHNOBOT va siempre vacío. `usda_common_name` lleva un idioma heurístico (`und` si el nombre termina en una etiqueta entre paréntesis, si no `en`), el mismo que el adaptador Rust. **La asignación de usos a plantas y la selección de hasta 5 candidatas por clave quedan para el armado de paquetes** (3.2 y 3.5), porque necesitan el resolvedor; por eso la 3.2 no está marcada.
 - EMA (JSON): `ema_herbal` guarda `therapeutic_areas` y `outcomes` ya separados por «;» (el resultado combinado `European Union herbal monograph;European Union list entry` queda en dos valores) y, en las fichas fusionadas, las filas originales con sus propias áreas.
@@ -241,15 +253,76 @@ EFSA, definición de «sustancia de preocupación»: una planta la tiene si `BOT
 
 ## Wikidata, Wikipedia en español y Commons
 
-`catalog_seed/wiki.py` descarga estos tres servicios con la misma mecánica. No son archivos de `sources.json`, porque sus respuestas dependen de la consulta; sus entradas vienen de un archivo de texto con una entrada por línea (vacías y líneas con `#` se ignoran) que generará el resolvedor taxonómico.
+Tarea 3.4. Tres servicios en línea declarados en `sources.json` (`wikidata`, `wikipedia_es` y `commons`, con licencia, atribución y `enabled`; véase «Formato de `sources.json`»). La mecánica de descarga está en `catalog_seed/wiki.py`, el flujo en `wiki_fetch.py`, la asignación a plantas en `wiki_assign.py`, la extracción en `wiki_extract.py` y la clasificación de licencias en `licenses.py`.
 
-- Wikidata (`https://query.wikidata.org/sparql`): consulta SPARQL por lotes y por POST. Las entradas son nombres científicos (P225) o QIDs. Cada lote devuelve P225, nombres comunes en español (P1843 con idioma `es`), imágenes (P18), el sitelink de eswiki, GBIF (P846) y POWO/IPNI (P5037). P225 escribe los híbridos pegando el signo al epíteto (`Mentha ×piperita`), así que `Mentha × piperita` se normaliza a esa forma antes de consultar. En el piloto GET dio 429 con `Retry-After: 1000` y POST funcionó.
-- Wikipedia en español (`https://es.wikipedia.org/api/rest_v1/page/summary/<título>`): una petición por título; un 404 se guarda como `{"missing": true}` para no volver a pedirlo.
-- Commons (`https://commons.wikimedia.org/w/api.php`): `prop=imageinfo` con `iiprop=url|size|mime|extmetadata` por lotes de títulos; acepta nombres de archivo, `File:...` o las URL `Special:FilePath/...` que devuelve P18.
-- `User-Agent`: `BoticarioAI-catalog-seed/0.1 (academic project)`, genérico y sin correo personal.
-- Caché: un archivo JSON por entrada en `data/.cache/wikidata/`, `data/.cache/wikipedia_es/` y `data/.cache/commons/` (nombre con el texto de la entrada y un hash corto). Cada archivo guarda la clave, la fecha y la respuesta ya separada por entrada; una entrada sin resultado se guarda vacía y no se vuelve a consultar.
-- Lotes: `--batch-size` (por defecto 20 en Wikidata y Commons, 1 en Wikipedia) y una pausa `--delay` de 1 s entre peticiones.
-- Límite de peticiones: una respuesta 429 o 503 detiene el paso. Se respeta `Retry-After` (segundos o fecha HTTP); si falta, se espera 300 s. El paso escribe `_resume.json` en la carpeta del servicio con `retry_not_before` y la cantidad pendiente, conserva lo ya guardado y termina con código 2 y un mensaje con la hora de reintento. Mientras no pase esa hora, otra ejecución sale sin abrir la red. Al pasar, consulta solo las entradas sin archivo y borra el estado al completar. Otros errores HTTP detienen el paso con error y no guardan nada del lote.
+### Descarga
+
+```sh
+python3 -I tools/catalog-seed/cli.py wiki-fetch --plan
+python3 -I tools/catalog-seed/cli.py wiki-fetch --wait 7200
+python3 -I tools/catalog-seed/cli.py wiki-assign
+python3 -I tools/catalog-seed/cli.py extract --source wikidata --source wikipedia_es --source commons
+python3 -I tools/catalog-seed/cli.py fetch --service wikidata --input data/work/nombres.txt
+```
+
+- `wiki-fetch` necesita `data/work/universe/universe.json` y `data/work/taxonomy.db` (los escribe `resolve`). `--plan` cuenta nombres y peticiones y estima el tiempo sin abrir la red. Sin `--plan` hace tres pasos y termina escribiendo la asignación: (1) Wikidata para todos los nombres, (2) el resumen de Wikipedia de los artículos enlazados por los ítems que pasan el filtro de homónimos y (3) los metadatos de Commons de las imágenes P18 de esos mismos ítems. Los pasos 2 y 3 se calculan desde la caché de Wikidata, así que no descargan nada de un homónimo.
+- Es reanudable. Cada respuesta es un archivo de `data/.cache/<servicio>/` y una segunda ejecución solo pide lo que falta. Un 429 o 503 detiene el paso y deja `_resume.json` con la hora mínima de reintento (respeta `Retry-After`); `--wait <segundos>` espera esa hora, hasta el total indicado, y sigue. Si el total no alcanza, el comando termina con código 2 y el mensaje con la hora de reintento: se vuelve a lanzar el mismo comando.
+- Descarga por nombre, no por planta, para que valga aunque cambie la regla de colisiones. Los nombres son, por cada planta con aceptado (no las ambiguas, sin resolver ni de solo género): su nombre, los de sus entradas, el aceptado de WCVP y sus sinónimos homotípicos (`Synonym` con `homotypic_synonym` verdadero, solo en WCVP y en plantas `resolved`). Se suman dos nombres de control, *Lavandula latifolia* y *Passiflora edulis*, los homónimos del piloto, para comprobar el filtro con datos reales. El híbrido se normaliza a la forma de P225 (`Mentha ×piperita`).
+- Wikidata (`https://query.wikidata.org/sparql`): SPARQL por POST, 40 nombres por petición (`--batch-size` en `fetch`, hasta 100). Por ítem devuelve QID, P225 con su autor (P405 y la abreviatura P428, si existe), etiqueta y alias en español, nombres comunes en español (P1843 con idioma `es`), imágenes P18, el sitelink de eswiki y los identificadores GBIF (P846), POWO (P5037) e IPNI (P961). En el piloto GET dio 429 con `Retry-After: 1000` y POST funcionó.
+- Wikipedia en español (`https://es.wikipedia.org/api/rest_v1/page/summary/<título>`): una petición por título; un 404 se guarda como `{"missing": true}`.
+- Commons (`https://commons.wikimedia.org/w/api.php`): `prop=imageinfo` con `iiprop=url|size|mime|extmetadata`, 50 títulos por petición; acepta `File:...` o las URL `Special:FilePath/...` que devuelve P18.
+- `User-Agent`: `BoticarioAI-catalog-seed/0.1 (academic project)`, genérico y sin correo ni datos personales.
+- Fuente desactivada (`enabled: false`): ni se descarga ni se extrae. Con `wikidata` desactivada tampoco se descargan ni se extraen Wikipedia y Commons, porque dependen de sus ítems. `fetch` (la entrada manual por archivo) también omite un servicio desactivado. Que los paquetes omitan sus refs es de las tareas 3.5 y 4.7.
+
+### Regla de asignación a plantas
+
+`wiki-assign` (y el final de `wiki-fetch`) recalcula la asignación solo desde la caché y `universe.json`, en unos 2 segundos, y escribe `data/work/wiki/assignment.json`, `report.json` y `report.md`. La 3.5 la usará al armar los paquetes.
+
+- Filtro de homónimos (spec): un ítem de Wikidata solo entra en una planta si su nombre (P225) resuelve, con `resolve_name` y el autor de Wikidata como desempate, al aceptado de esa planta. Un ítem cuyo nombre resuelve a otro aceptado no entra: *Lavandula latifolia* no llega a la lavanda ni *Passiflora edulis* a la pasiflora.
+- Un ítem queda sin asignar, con su motivo: `sin-nombre`, `sin-resolver`, `ambiguo` (homónimo que el resolvedor no resuelve), `rango-inferior-sin-coincidencia` (el nombre infraespecífico solo coincidió por su binomio), `fuera-del-universo` (el aceptado no es de ninguna planta) o `heterotipico-sin-planta`.
+- Grupo de una sola planta: el ítem va a esa planta (`grupo-unico`). Grupo partido (varias plantas con el mismo aceptado): a la planta con el mismo nombre (`misma-clave`); si el nombre es el propio aceptado o un sinónimo homotípico, a la planta que contiene al aceptado (`aceptado` u `homotipico`); un sinónimo heterotípico sin planta propia queda sin asignar (`heterotipico-sin-planta`) y no se le da al aceptado. Si la regla de colisiones cambia (criterio de Wikipedia), basta volver a ejecutar `resolve` y `wiki-assign`: no hay que descargar de nuevo.
+- Wikipedia y Commons se asignan por el ítem que las enlaza (sitelink de eswiki y P18). Un artículo cuyo tipo no es `standard` (por ejemplo una desambiguación) no cuenta como resumen.
+- Estado de Wikidata por planta: `con-item`, `sin-item` (Wikidata respondió pero ningún ítem pasa el filtro), `sin-respuesta` (ninguna de sus consultas está en la caché, o Wikidata está desactivada) y `no-consultada` (la planta no tiene aceptado: ambigua, sin resolver o de solo género). El paquete de la 3.5 declarará `sin-respuesta` y `sin-item` en su sección `wikidata` y en `flags`.
+- Evidencia adicional: los identificadores IPNI (P961) y POWO (P5037) se contrastan con los `ipni_id` de WCVP del aceptado y sus sinónimos: `coincide`, `discrepa` o `sin-dato`. No reemplaza el filtro; las discrepancias quedan en el informe para revisión (casi todas son ítems de una subespecie o variedad cuyo ID es el de ese rango).
+- `assignment.json` (`catalog-wiki-assignment/1`): `items` (por QID: `plantId`, `reason`, nombre y aceptado resueltos, `flags` del resolvedor, `requestedFor`, `homonym`, `ipni`, `eswiki`) y `plants` (por ID: estado de Wikidata, QIDs, nombres comunes en español de P1843, artículos de Wikipedia e imágenes de Commons admitidas y descartadas con su motivo), más los pendientes de descarga.
+
+### Filas en `sources.db`
+
+`extract --source wikidata|wikipedia_es|commons` lee solo la caché y escribe una fila por elemento, con el ref `<record_type>:<row_key>`:
+
+- `wikidata:<QID>`: `qid`, `taxon` (P225, también en `raw_name_cell`), `authors`, `labelEs`, `aliasesEs`, `spanishNames` (P1843), `images` (títulos `File:...`), `eswiki`, `gbif`, `ipni`, `powo` y `queried` (nombres con los que se encontró). Incluye todos los ítems de la caché, también los que el filtro no asigna a ninguna planta; la asignación dice cuáles usar. La columna `qid` guarda el QID.
+- `wikipedia_es:<título>`: `title` (canónico), `displayTitle`, `description`, `extract`, `url` (la del artículo, para el ref del paquete), `revision`, `timestamp`, `lang` y `wikibaseItem`. Solo artículos de tipo `standard` enlazados por algún ítem.
+- `commons:<File:...>`: solo imágenes con licencia admitida, con `title`, `pageUrl`, `fileUrl`, `author` (el `Artist` sin HTML, o el `Credit` si falta), `license`, `licenseCode`, `licenseUrl`, `attributionRequired`, `mime`, `width` y `height`. Las descartadas se cuentan en la salida del comando y salen en el informe.
+
+### Licencias
+
+- Wikipedia es CC BY-SA 4.0; su resumen se guarda con título, URL del artículo, revisión y fecha. Wikidata es CC0. Commons se decide por archivo.
+- Admitidas (cualquier versión y variantes portadas): CC0, dominio público (`pd`, `PD-old`, ...), CC BY y CC BY-SA. `attributionRequired` es verdadero en CC BY y CC BY-SA (siempre con atribución, D12) y falso en CC0 y dominio público. La URL de la licencia es la de Commons; si falta, la canónica de Creative Commons.
+- Descartadas, con su motivo: `no-comercial` (NC), `sin-derivadas` (ND), `gfdl` (GFDL sola; una imagen con GFDL y además CC BY-SA se admite por la segunda), `otra-licencia` (conocida pero fuera de la lista, como Free Art License), `licencia-desconocida` (sin metadatos de licencia), `sin-autor` (exige atribución y no trae ni `Artist` ni `Credit`, así que no se podría atribuir) y `archivo-no-encontrado`. Una restricción NC o ND prima sobre la familia: CC BY-NC-SA no cuenta como CC BY-SA.
+
+### Resultado con los datos reales
+
+Descarga del 21 de octubre de 2026, con el universo de 2.406 plantas (`catalog-universe/1`).
+
+| Cifra | Valor |
+| --- | --- |
+| Nombres consultados | 5.993, incluidos los 2 de control |
+| Plantas consultadas | 2.289 de 2.406 (117 sin aceptado: 21 ambiguas, 34 sin resolver y 62 de solo género) |
+| Peticiones | Wikidata 150, Wikipedia 1.553 (1.414 resúmenes y 139 respuestas 429), Commons 61 (56 y 5 respuestas 429) |
+| Tiempo | 2 h 42 min; más de 100 min fueron esperas de `Retry-After` (de 40 a 46 s por cada una de las 144 respuestas 429) |
+| Ítems de Wikidata | 4.319; 4.265 asignados a una planta y 54 sin asignar (15 `ambiguo`, 37 `fuera-del-universo`, 2 `heterotipico-sin-planta`) |
+| Plantas con ítem de Wikidata | 2.252 (`con-item`); 37 `sin-item`; 117 `no-consultada`; ninguna `sin-respuesta` |
+| Plantas con nombre común en español (P1843) | 231 (950 si se cuentan los alias en español, que mezclan nombres comunes y sinónimos científicos) |
+| Plantas con resumen de Wikipedia | 1.407 (1.412 resúmenes) |
+| Plantas con imagen admitida | 1.838 (2.634 imágenes: 1.447 CC BY-SA, 568 dominio público, 522 CC BY, 97 CC0) |
+| Plantas con alguna imagen descartada | 160; en 82 se descartaron todas |
+| Imágenes descartadas por motivo | `sin-autor` 125, `otra-licencia` 25, `gfdl` 15 (165 archivos; no hay NC ni ND porque Commons solo aloja licencias libres) |
+| Homónimos | 54 ítems descartados (ninguna planta los recibe) y 11 reasignados a otra planta |
+
+- Ejemplos de descartados: *Spermacoce assurgens* pedido por `spermacoce-remota` (ambiguo), *Thymus capitatus* pedido por `thymbra-capitata` (ambiguo), *Lonicera alba* pedido por `chiococca-alba` (resuelve a *Symphoricarpos albus*) y *Callicarpa arborea* pedido por `callicarpa-arborea` (resuelve a *Callicarpa tomentosa*, fuera del universo). Ejemplos de reasignados: *Cytisus albus* pedido por `chamaecytisus-albus` va a `cytisus-multiflorus`, y *Nerium grandiflorum* pedido por `cryptostegia-grandiflora` va a `nerium-oleander`.
+- Controles del piloto: la lavanda (`lavandula-angustifolia`) tiene solo el ítem Q42081 y su imagen; el ítem de *L. latifolia* (Q905916) va a `lavandula-latifolia`. La pasiflora (`passiflora-incarnata`) tiene los ítems Q128939 y Q111273695 (*Granadilla incarnata*, un sinónimo homotípico); el de *P. edulis* (Q156790) va a `passiflora-edulis`. Una prueba sobre la asignación real lo comprueba (se omite si no existe `data/work/wiki/assignment.json`).
+- Evidencia de IPNI y POWO: de los 4.265 ítems asignados, 4.118 coinciden, 73 discrepan y 74 no traen dato.
+- La estimación previa (unos 10 min para Wikidata, y de 1 a 1,5 h en total) quedó corta porque Wikipedia REST cortó con 429 cada 10 a 13 peticiones.
 
 ## Pruebas de 1.4 y datos reales
 

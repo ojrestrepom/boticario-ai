@@ -20,6 +20,9 @@ BASE_FIELDS = ("id", "version", "license", "attribution", "enabled")
 FILE_FIELDS = ("url", "filename", "size", "checksum")
 # Fuentes cuya lista de archivos se genera al descargar (la EMA: los PDF salen de las páginas de cada ficha): 'files' puede estar vacía.
 GENERATED_FILE_LISTS = ("ema_pdf",)
+# Servicios en línea: no hay archivo ni checksum, porque la respuesta depende de la consulta. Se declaran con `url` (el servicio)
+# y sin `filename`, `size`, `checksum` ni `files`; cada respuesta se guarda en data/.cache/<id>/ con la fecha de la consulta.
+SERVICE_SOURCES = ("wikidata", "wikipedia_es", "commons")
 
 
 class SourceError(Exception):
@@ -57,7 +60,11 @@ class Source:
         self.license = data["license"]
         self.attribution = data["attribution"]
         self.enabled = data["enabled"]
-        entries = data["files"] if "files" in data else [data]
+        self.is_service = self.id in SERVICE_SOURCES
+        if self.is_service:
+            entries = []
+        else:
+            entries = data["files"] if "files" in data else [data]
         self.files = [SourceFile(self.id, entry) for entry in entries]
 
     @property
@@ -67,26 +74,27 @@ class Source:
     # Compatibilidad con las fuentes de un solo archivo.
     @property
     def url(self):
-        return self.files[0].url
+        return self.data["url"] if self.is_service else self.files[0].url
 
     @property
     def filename(self):
-        return self.files[0].filename
+        return None if self.is_service else self.files[0].filename
 
     @property
     def size(self):
-        return self.files[0].size
+        return None if self.is_service else self.files[0].size
 
     @property
     def algorithm(self):
-        return self.files[0].algorithm
+        return None if self.is_service else self.files[0].algorithm
 
     @property
     def checksum(self):
-        return self.files[0].checksum
+        return None if self.is_service else self.files[0].checksum
 
     def cache_path(self, cache_dir=DEFAULT_CACHE_DIR):
-        return self.files[0].cache_path(cache_dir)
+        """Archivo de la caché; para un servicio, su carpeta."""
+        return Path(cache_dir) / self.id if self.is_service else self.files[0].cache_path(cache_dir)
 
 
 def check_source_id(source_id):
@@ -139,7 +147,13 @@ def validate_source(data):
             raise SourceError("fuente '%s': '%s' debe ser texto no vacío" % (data["id"], field))
     if not isinstance(data["enabled"], bool):
         raise SourceError("fuente '%s': 'enabled' debe ser booleano" % data["id"])
-    if "files" in data:
+    if data["id"] in SERVICE_SOURCES:
+        extra = [field for field in ("filename", "size", "checksum", "files") if field in data]
+        if extra:
+            raise SourceError("fuente '%s': es un servicio en línea y no lleva %s" % (data["id"], ", ".join(extra)))
+        if not isinstance(data.get("url"), str) or not data["url"].strip():
+            raise SourceError("fuente '%s': falta 'url' (el servicio que se consulta) como texto no vacío" % data["id"])
+    elif "files" in data:
         if any(field in data for field in FILE_FIELDS):
             raise SourceError("fuente '%s': use 'files' o los campos de un solo archivo, no ambos" % data["id"])
         entries = data["files"]

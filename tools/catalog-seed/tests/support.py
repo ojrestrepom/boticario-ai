@@ -26,3 +26,17 @@ def make_source(payload=PAYLOAD, **overrides):
     }
     data.update(overrides)
     return Source(data)
+
+
+def make_service_source(source_id="wikipedia_es", **overrides):
+    """Fuente de un servicio en línea (Wikidata, Wikipedia, Commons): sin archivo ni checksum."""
+    data = {
+        "id": source_id,
+        "version": "test",
+        "url": "https://example.invalid/servicio",
+        "license": "CC BY-SA 4.0",
+        "attribution": "Fixture",
+        "enabled": True,
+    }
+    data.update(overrides)
+    return Source(data)

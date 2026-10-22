@@ -5,7 +5,7 @@ import time
 
 from .download import download_source, pin_source, require_verified, require_verified_files
 from .ema import dedupe_records, describe_snapshot, load_json, snapshot_timestamp
-from .extract import EXTRACTABLE, run_extract
+from .extract import EXTRACTABLE, run_extract, skip_reason
 from . import workdb
 from .safety import DEFAULT_SAFETY_MAP, SafetyMapError, load_safety_map
 from .safety_report import format_report
@@ -18,6 +18,7 @@ from .resolve_universe import DEFAULT_CATALOG_DB, DEFAULT_TAXONOMY_DB, DEFAULT_U
 from .taxonomy import UniverseError
 from .validate import validate_directory
 from .wiki import SERVICES, make_step, read_entries
+from . import wiki_fetch
 from .sources import DEFAULT_CACHE_DIR, DEFAULT_SOURCES_FILE, SourceError, load_sources
 
 
@@ -43,6 +44,17 @@ def build_parser():
     emapdf.add_argument("--limit", type=int, help="máximo de peticiones en esta ejecución (para pruebas manuales)")
     emapdf.add_argument("--wait", type=int, default=0, help="si hay límite de peticiones, espera hasta este número de segundos por ejecución y sigue (por defecto 0: se detiene)")
     emapdf.add_argument("--status", action="store_true", help="solo imprime cuántos PDF hay descargados y pendientes; no abre la red")
+    wiki = commands.add_parser("wiki-fetch", help="descarga Wikidata (por nombre), los resúmenes de Wikipedia y los metadatos de Commons del universo, con límite de peticiones y reanudación")
+    wiki.add_argument("--universe", default=str(wiki_fetch.DEFAULT_UNIVERSE), help="universe.json (por defecto data/work/universe/universe.json)")
+    wiki.add_argument("--taxonomy-db", default=str(wiki_fetch.DEFAULT_TAXONOMY_DB), help="índice de WCVP y WFO")
+    wiki.add_argument("--out-dir", default=str(wiki_fetch.DEFAULT_WIKI_DIR), help="salida de la asignación y el informe (por defecto data/work/wiki)")
+    wiki.add_argument("--delay", type=float, default=1.0, help="segundos entre peticiones (por defecto 1)")
+    wiki.add_argument("--wait", type=int, default=0, help="si hay límite de peticiones, espera hasta este número de segundos en total y sigue (por defecto 0: se detiene)")
+    wiki.add_argument("--plan", action="store_true", help="solo cuenta nombres y peticiones y estima el tiempo; no abre la red")
+    assign = commands.add_parser("wiki-assign", help="rehace la asignación de ítems a plantas y el informe desde la caché, sin red")
+    assign.add_argument("--universe", default=str(wiki_fetch.DEFAULT_UNIVERSE), help="universe.json")
+    assign.add_argument("--taxonomy-db", default=str(wiki_fetch.DEFAULT_TAXONOMY_DB), help="índice de WCVP y WFO")
+    assign.add_argument("--out-dir", default=str(wiki_fetch.DEFAULT_WIKI_DIR), help="salida (assignment.json, report.json, report.md)")
     extract = commands.add_parser("extract", help="extrae las filas normalizadas de una fuente a data/work/sources.db")
     extract.add_argument("--source", action="append", choices=EXTRACTABLE, help="fuente a extraer (repetible; por defecto todas las activas)")
     extract.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de salida (por defecto data/work/sources.db)")
@@ -177,8 +189,9 @@ def run_extract_command(args):
     for source in sources:
         if source.id not in wanted:
             continue
-        if not source.enabled:
-            print("%s: desactivada, omitida" % source.id)
+        reason = skip_reason(source, sources)
+        if reason:
+            print("%s: %s" % (source.id, reason))
             continue
         stats = run_extract(source, sources, args.cache_dir, args.db)
         print("%s: %s" % (source.id, ", ".join("%s=%s" % item for item in sorted(stats.items()))))
@@ -186,6 +199,10 @@ def run_extract_command(args):
 
 
 def run_fetch(args):
+    declared = next((s for s in load_sources(args.sources) if s.id == args.service), None)
+    if declared is not None and not declared.enabled:
+        print("%s: desactivada, omitida" % args.service)
+        return 0
     try:
         entries = read_entries(args.input)
     except OSError as error:
@@ -202,6 +219,24 @@ def run_fetch(args):
     return 2
 
 
+def run_wiki_fetch(args):
+    enabled = wiki_fetch.enabled_services(load_sources(args.sources))
+    status, _ = wiki_fetch.fetch(args.universe, args.taxonomy_db, args.cache_dir, enabled, args.delay, args.wait, plan_only=args.plan)
+    if status in ("disabled", "plan"):
+        return 0
+    wiki_fetch.assign(args.universe, args.taxonomy_db, args.cache_dir, enabled, args.out_dir)
+    return 0 if status == "complete" else 2
+
+
+def run_wiki_assign(args):
+    enabled = wiki_fetch.enabled_services(load_sources(args.sources))
+    if not enabled["wikidata"]:
+        print("wikidata: desactivada; no hay asignación que calcular")
+        return 0
+    wiki_fetch.assign(args.universe, args.taxonomy_db, args.cache_dir, enabled, args.out_dir)
+    return 0
+
+
 def main(argv=None):
     args = build_parser().parse_args(argv)
     try:
@@ -213,6 +248,10 @@ def main(argv=None):
             return run_safety_report(args)
         if args.command == "extract":
             return run_extract_command(args)
+        if args.command == "wiki-fetch":
+            return run_wiki_fetch(args)
+        if args.command == "wiki-assign":
+            return run_wiki_assign(args)
         if args.command == "resolve":
             return run_resolve_command(args)
         if args.command == "validate":
@@ -232,6 +271,8 @@ def main(argv=None):
             for source in sources:
                 if not source.enabled:
                     print("%s: desactivada, omitida" % source.id)
+                elif source.is_service:
+                    print("%s: servicio en línea, no hay snapshot que fijar" % source.id)
                 elif pin_source(source, args.sources, args.cache_dir,
                                 describe=describe_snapshot if source.id == "ema_json" else None):
                     print("%s: snapshot fijado y registrado en %s" % (source.id, args.sources))
@@ -239,6 +280,10 @@ def main(argv=None):
                     print("%s: ya estaba fijada; para cambiar el snapshot ponga size y checksum en null y ejecute pin de nuevo" % source.id)
             return 0
         for source in sources:
+            if source.is_service:
+                print("%s: %s" % (source.id, "desactivada, omitida" if not source.enabled else
+                                  "servicio en línea; se consulta con el comando wiki-fetch (con espera entre peticiones y reanudación)"))
+                continue
             if source.id == "ema_pdf" and not args.offline:
                 print("ema_pdf: se descarga con el comando ema-pdf (espera entre peticiones y reanudación)")
                 continue

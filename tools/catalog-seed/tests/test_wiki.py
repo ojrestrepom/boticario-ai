@@ -20,7 +20,9 @@ SPARQL = {"head": {}, "results": {"bindings": [
     {"req": {"value": "Mentha ×piperita"}, "item": {"value": "http://www.wikidata.org/entity/Q26309"},
      "taxon": {"value": "Mentha ×piperita"}, "esNames": {"value": "menta|hierbabuena inglesa"},
      "images": {"value": "http://commons.wikimedia.org/wiki/Special:FilePath/Mentha%20piperita.jpg"},
-     "eswiki": {"value": "Mentha × piperita"}, "gbif": {"value": "3034025"}, "powo": {"value": "429467-1"}},
+     "eswiki": {"value": "Mentha × piperita"}, "gbif": {"value": "3034025"}, "powo": {"value": "429467-1"},
+     "authors": {"value": "L."}, "label": {"value": "Mentha × piperita"}, "aliases": {"value": "Mentha piperita|Menta"},
+     "ipni": {"value": "450969-1"}},
     {"req": {"value": "Arnica montana"}, "item": {"value": "http://www.wikidata.org/entity/Q147709"},
      "taxon": {"value": "Arnica montana"}, "esNames": {"value": ""}, "images": {"value": ""},
      "eswiki": {"value": "Arnica montana"}, "gbif": {"value": ""}, "powo": {"value": ""}},
@@ -139,7 +141,8 @@ class WikidataTests(WikiTestCase):
         self.assertEqual(request["agent"], USER_AGENT)
         query = parse_qs(request["body"])["query"][0]
         self.assertIn('"Mentha ×piperita"', query)
-        for prop in ("P225", "P1843", "P18", "P846", "P5037", "es.wikipedia.org"):
+        for prop in ("P225", "P405", "P428", "P1843", "P18", "P846", "P5037", "P961", "rdfs:label", "skos:altLabel",
+                     "es.wikipedia.org"):
             self.assertIn(prop, query)
         mint = step.load("Mentha ×piperita")["items"][0]
         self.assertEqual(mint["qid"], "Q26309")
@@ -147,6 +150,13 @@ class WikidataTests(WikiTestCase):
         self.assertEqual(mint["eswiki"], "Mentha × piperita")
         self.assertEqual(mint["gbif"], ["3034025"])
         self.assertEqual(mint["powo"], ["429467-1"])
+        self.assertEqual(mint["ipni"], ["450969-1"])
+        self.assertEqual(mint["authors"], ["L."])
+        self.assertEqual(mint["labelEs"], "Mentha × piperita")
+        self.assertEqual(mint["aliasesEs"], ["Mentha piperita", "Menta"])
+        # Una respuesta sin los campos nuevos da listas vacías.
+        arnica = step.load("Arnica montana")["items"][0]
+        self.assertEqual((arnica["ipni"], arnica["aliasesEs"], arnica["authors"], arnica["labelEs"]), ([], [], [], ""))
         self.assertEqual(step.load("Nada inventada"), {"items": []})
         files = [f for f in os.listdir(os.path.join(self.cache, "wikidata")) if f.endswith(".json")]
         self.assertEqual(len(files), 3)

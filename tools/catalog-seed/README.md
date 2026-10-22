@@ -554,6 +554,14 @@ Todas las citas sin resolver son `Woi.Syria`, que no tiene candidatas. Los grupo
 6. **URL de las imágenes con `utm_*`.** `licenses.clean_file_url` quita los parámetros `utm_*` al extraer (`wiki_extract.py`) y al armar el paquete (`bundles.py`), con pruebas. Los 20 paquetes de control se reconstruyeron con `bundles --plants tools/catalog-seed/control.txt`; cambia el `bundleHash` de las plantas con imagen, así que los registros de la 5.2 ya no validan contra ellos hasta repetir la corrida.
 7. **Ambigüedades menores.** Las partes usadas salen de las fichas de la EMA u otras fuentes de uso, no de las partes químicas de USDA. Una clave `Eb<vol>: 000` se deja sin resolver: `000` es un marcador de USDA y no una página, y citarla literal o con un flag presentaría como cita una página inexistente; el grupo queda pendiente con el flujo habitual. La descripción es `null` cuando no hay resumen de Wikipedia: la taxonomía y la distribución ya salen en `scientificName`, `family` y `origin`, y una frase derivada las repetiría con redacción dispar.
 
+### Defectos de la corrida con el prompt v3 y su corrección (prompt v4)
+
+La repetición de la 5.3 con el prompt v3 (`data/work/control/v3/lote-1/` y `lote-2/`) mostró tres reglas aplicadas de forma dispar o con mal resultado. El prompt v4 las corrige.
+
+1. **`displayName` por orden de fuente, no por uso.** Con «primer nombre de la fuente (a)» salieron «Melissa» (género en latín, con «toronjil» en el paquete), «Pera del Bey» en vez de «bergamota», «manzanilla de Castilla», «eucalipto blanco», «Botón de oro», «Árbol del té de hoja estrecha», «Tomillo común» y «valeriana común». En la v4 el candidato es cualquier nombre en español de las fuentes (a) a (e); se elige el más usado y genérico (el corto si es cabeza de otros más largos, y el que aparece en más fuentes), nunca uno fuera del paquete ni el nombre latino del género o la especie.
+2. **Texto de las citas resueltas sin formato único.** El lote 1 copió la cita completa de la candidata con la clave entre paréntesis y el lote 2 escribió la forma corta. En la v4, para una obra general con volumen o página (`Woi.<n>`, `Eb<vol>: <pág>`), `text` es el título de la obra más el volumen o la página («The Wealth of India, vol. 10», «Economic Botany 24: 441»); si la clave coincide con su candidata, es la cita completa literal. `Eb<vol>: 000` sigue sin resolver.
+3. **Actividad sin traducción segura anotada.** Un agente escribió «Fumitory (sin traducción segura)». En la v4, `activity` lleva el término original de USDA tal cual, sin anotaciones.
+
 Decisiones que siguen pendientes del usuario y que no se cambiaron: el nivel de seguridad cuando ninguna entrada fija nivel y el tratamiento de actividades sensibles como «Cancer», «Tumor», «Abortifacient» o «Fatality».
 
 ### Costo y tiempo de la corrida 5.2

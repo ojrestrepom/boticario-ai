@@ -4,4 +4,5 @@ from .names import (ParsedName, author_score, authors_match, canonical_rank, cle
                     parse_name, split_source_cell, split_source_names)
 from .resolver import (epithet_variants, resolve, resolve_name, resolve_fuzzy, resolve_variants, synonyms)  # noqa: F401
 from .ids import plant_slug, slug  # noqa: F401
+from .collisions import CollisionFileError, CollisionRules, load_rules  # noqa: F401
 from .universe import Entry, Plant, Universe, UniverseError, build_universe  # noqa: F401

@@ -162,3 +162,37 @@ def result_group(result, plant_id, activity):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FusedHeterotypicUsdaTest(unittest.TestCase):
+    """Un heterotípico fusionado por la regla de colisiones comparte la planta del aceptado en todas las asignaciones."""
+
+    @classmethod
+    def setUpClass(cls):
+        import collision_support as cs
+        cls.wcvp, cls.wfo = cs.backbones()
+        entries = [Entry("usda", "usda:1", "Cinnamomum verum"), Entry("usda", "usda:2", "Cinnamomum zeylanicum"),
+                   Entry("usda", "usda:3", "Cinnamomum aromaticum")]
+        cls.uni = build_universe(entries, cls.wcvp, cls.wfo,
+                                 rules=cs.rules_for(build_universe(entries, cls.wcvp, cls.wfo), {
+                                     "Cinnamomum zeylanicum": ("fuse", "redireccion"), "Cinnamomum aromaticum": ("separate", "articulo-propio")}))
+
+    def test_names_parts_and_use_rows_of_the_fused_name_reach_the_accepted_plant(self):
+        db = workdb.open_db(":memory:")
+        workdb.replace_source(db, "usda", [
+            taxon("1", "Cinnamomum verum"), taxon("2", "Cinnamomum zeylanicum"), taxon("3", "Cinnamomum aromaticum"),
+            Row("usda_common_name", "2-1", {"name": "Ceylon cinnamon", "language": "en"}, raw_name_cell="Ceylon cinnamon", fnfnum="2"),
+            Row("usda_part", "2-BK", {"ppco": "BK", "ppna": "Bark", "rows": 2, "has_eo": False}, raw_name_cell="Cinnamomum zeylanicum", fnfnum="2"),
+            Row("usda_common_name", "3-1", {"name": "Cassia", "language": "en"}, raw_name_cell="Cassia", fnfnum="3"),
+            use("1", "Cinnamomum verum", "Colic", "India", "Woi.1"),
+            use("2", "Cinnamomum zeylanicum", "Colic", "Sri Lanka", "Woi.1"),
+            use("3", "Cinnamomum aromaticum", "Cough", "China", "Woi.1"),
+        ], "test", {})
+        result = assign_usda(self.uni, db)
+        verum = result.by_plant["cinnamomum-verum"]
+        self.assertEqual([c["ref"] for c in verum["commonNames"]], ["usda_common_name:2-1"])
+        self.assertEqual([p["ref"] for p in verum["parts"]], ["usda_part:2-BK"])
+        self.assertEqual([(g["activity"], g["n"], g["countries"]) for g in verum["useGroups"]], [("Colic", 2, ["India", "Sri Lanka"])])
+        self.assertEqual([c["ref"] for c in result.by_plant["cinnamomum-aromaticum"]["commonNames"]], ["usda_common_name:3-1"])
+        self.assertEqual(result.unassigned, [])
+        self.assertEqual(result.stats["use_rows_assigned"], 3)

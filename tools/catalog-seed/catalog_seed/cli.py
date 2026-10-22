@@ -14,8 +14,10 @@ from .ema_pdf import DEFAULT_DELAY, EmaPdfStep, pin_ema_pdfs
 from .goals import DEFAULT_GOALS_CATALOG, DEFAULT_GOALS_MAP, DEFAULT_SEED_DIR, load_goals_catalog, load_goals_map
 from .schema import DEFAULT_RECORD_SCHEMA, load_schema
 from .seed import DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, read_prompt_version, schema_version, seal
-from .resolve_universe import DEFAULT_CATALOG_DB, DEFAULT_TAXONOMY_DB, DEFAULT_UNIVERSE_DIR, run_resolve
-from .taxonomy import UniverseError
+from .collisions_decide import DEFAULT_DELAY as COLLISIONS_DELAY, run_collisions_decide
+from .resolve_universe import (DEFAULT_CATALOG_DB, DEFAULT_DECISIONS, DEFAULT_EXCEPTIONS, DEFAULT_TAXONOMY_DB, DEFAULT_UNIVERSE_DIR,
+                               run_resolve)
+from .taxonomy import CollisionFileError, UniverseError
 from .validate import validate_directory
 from .wiki import SERVICES, make_step, read_entries
 from . import wiki_fetch
@@ -67,6 +69,14 @@ def build_parser():
     resolve.add_argument("--out-dir", default=str(DEFAULT_UNIVERSE_DIR), help="directorio de salida (universe.json, report.json, report.md)")
     resolve.add_argument("--catalog-db", default=str(DEFAULT_CATALOG_DB), help="catalog.db con los IDs actuales, solo para comparar (opcional)")
     resolve.add_argument("--rebuild-index", action="store_true", help="recrea el índice aunque esté vigente")
+    resolve.add_argument("--decisions", default=str(DEFAULT_DECISIONS), help="decisiones de colisión registradas (por defecto collision-decisions.json); resolve no abre la red")
+    resolve.add_argument("--exceptions", default=str(DEFAULT_EXCEPTIONS), help="excepciones «separar siempre» (por defecto collision-exceptions.json)")
+    decide = commands.add_parser("collisions-decide", help="consulta es.wikipedia.org solo para los grupos de colisión sin decisión, aplica el criterio de Wikipedia y agrega las decisiones al archivo (no sobrescribe las registradas)")
+    decide.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de las extracciones")
+    decide.add_argument("--taxonomy-db", default=str(DEFAULT_TAXONOMY_DB), help="índice de WCVP y WFO (lo crea resolve)")
+    decide.add_argument("--decisions", default=str(DEFAULT_DECISIONS), help="archivo de decisiones")
+    decide.add_argument("--exceptions", default=str(DEFAULT_EXCEPTIONS), help="archivo de excepciones")
+    decide.add_argument("--delay", type=float, default=COLLISIONS_DELAY, help="segundos entre peticiones (por defecto 1)")
     validate = commands.add_parser("validate", help="valida los registros de la semilla contra sus paquetes")
     validate.add_argument("--records", default=str(DEFAULT_SEED_DIR / "plants"), help="directorio de registros (por defecto data/seed/plants)")
     validate.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes (por defecto data/work/bundles)")
@@ -111,12 +121,19 @@ def run_resolve_command(args):
     sources = load_sources(args.sources)
     try:
         _, report = run_resolve(sources, args.cache_dir, args.db, args.taxonomy_db, args.out_dir,
-                                catalog_db=args.catalog_db, force_index=args.rebuild_index)
+                                catalog_db=args.catalog_db, force_index=args.rebuild_index,
+                                decisions_path=args.decisions, exceptions_path=args.exceptions)
     except UniverseError as error:
         print("error: %s" % error, file=sys.stderr)
         return 1
     failed = report["checks"]["duplicate_ids"] or not report["checks"]["lavandula-angustifolia"]
     return 1 if failed else 0
+
+
+def run_collisions_decide_command(args):
+    result = run_collisions_decide(load_sources(args.sources), args.cache_dir, args.db, args.taxonomy_db, args.decisions,
+                                   args.exceptions, delay=args.delay)
+    return 2 if result["status"] in ("rate_limited", "waiting") else 0
 
 
 def run_plan(args):
@@ -254,6 +271,8 @@ def main(argv=None):
             return run_wiki_assign(args)
         if args.command == "resolve":
             return run_resolve_command(args)
+        if args.command == "collisions-decide":
+            return run_collisions_decide_command(args)
         if args.command == "validate":
             return run_validate(args)
         if args.command == "plan":
@@ -298,7 +317,7 @@ def main(argv=None):
             print("%s: %s%s" % (source.id, {"disabled": "desactivada, omitida", "cached": "en caché, verificada",
                                               "downloaded": "descargada y verificada"}[status],
                                   " (%s)" % path if path else ""))
-    except (SourceError, SafetyMapError) as error:
+    except (SourceError, SafetyMapError, CollisionFileError) as error:
         print("error: %s" % error, file=sys.stderr)
         return 1
     return 0

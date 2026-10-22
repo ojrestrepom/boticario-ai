@@ -7,7 +7,9 @@ recalcula sin red desde la caché y desde `universe.json`:
   y el ítem se asigna a la planta cuyo aceptado es el resultado; si ninguna planta lo tiene, queda sin asignar con su motivo. Es el
   filtro de homónimos: un ítem de *Lavandula latifolia* no llega a *Lavandula angustifolia* porque su nombre resuelve a otro aceptado.
 - En un grupo partido (varias plantas con el mismo aceptado) el ítem va a la planta del mismo nombre, o a la que contiene al
-  aceptado si el nombre es el propio aceptado o un sinónimo homotípico; un sinónimo heterotípico sin planta propia queda sin asignar.
+  aceptado si el nombre es el propio aceptado o un sinónimo homotípico. Un sinónimo heterotípico fusionado por la regla de colisiones
+  (`fusedMatchedIds` de la planta en `universe.json`) va a la planta del aceptado en la que se fusionó; uno sin planta propia ni
+  fusión queda sin asignar (`heterotipico-sin-planta`).
 - Wikipedia y Commons se asignan por el ítem que las enlaza (sitelink de eswiki y P18), así que heredan su planta.
 """
 from .licenses import MISSING, classify
@@ -143,6 +145,11 @@ class Assigner:
         for plant in group:
             if plant.get("matchedId") and str(plant["matchedId"]) == str(res["matched_id"]):
                 out["plantId"], out["reason"] = plant["id"], "misma-clave"
+                return out
+        fused_id = "%s:%s" % (res["backbone"], res["matched_id"])
+        for plant in group:
+            if fused_id in (plant.get("fusedMatchedIds") or []):
+                out["plantId"], out["reason"] = plant["id"], "heterotipico-fusionado"
                 return out
         backbone = self.wcvp if res["backbone"] == "wcvp" else self.wfo
         relation = classify_relation(backbone.get(res["matched_id"]), backbone.get(res["accepted_id"]), res["backbone"])

@@ -17,12 +17,15 @@ from . import workdb
 from .download import require_verified_files
 from .sources import REPO_ROOT, SourceError
 from .taxonomy import Entry, build_universe, open_backbone, parse_name, split_source_cell
+from .taxonomy.collisions import file_digest, load_rules
 from .taxonomy.index import INDEX_VERSION, build_index
 from .taxonomy.universe import RESOLVED
 
 DEFAULT_TAXONOMY_DB = workdb.DEFAULT_WORK_DIR / "taxonomy.db"
 DEFAULT_UNIVERSE_DIR = workdb.DEFAULT_WORK_DIR / "universe"
 DEFAULT_CATALOG_DB = REPO_ROOT / "data" / "build" / "catalog.db"
+DEFAULT_DECISIONS = REPO_ROOT / "tools" / "catalog-seed" / "collision-decisions.json"
+DEFAULT_EXCEPTIONS = REPO_ROOT / "tools" / "catalog-seed" / "collision-exceptions.json"
 UNIVERSE_FORMAT = "catalog-universe/1"
 REPORT_FORMAT = "catalog-universe-report/1"
 WCVP_MEMBERS = ("wcvp_names.csv", "wcvp_distribution.csv")
@@ -137,6 +140,11 @@ def _group_of(uni, plant):
     return None
 
 
+def _collision_of_entry(uni):
+    """Registro de colisión por clave de entrada (solo los heterotípicos de grupos con colisión)."""
+    return {key: record for record in uni.collisions for key in record["entries"]}
+
+
 def plant_document(uni, plant, group):
     entries = []
     for entry in plant.entries:
@@ -150,10 +158,19 @@ def plant_document(uni, plant, group):
     if group is not None and len(group) > 1:
         collision = {"acceptedName": uni.resolutions[group[0].entries[0].key]["accepted_name"],
                      "members": sorted(p.id for p in group), "split": True}
-    return {"id": plant.id, "name": plant.name, "author": plant.author, "kind": plant.kind, "backbone": plant.backbone or None,
-            "acceptedId": plant.accepted_id or None, "matchedId": plant.matched_id or None, "family": plant.family or None,
-            "entries": entries, "aliases": list(plant.aliases), "flags": sorted(plant.flags),
-            "reviewFlags": plant.review_flags, "collision": collision}
+    document = {"id": plant.id, "name": plant.name, "author": plant.author, "kind": plant.kind, "backbone": plant.backbone or None,
+                "acceptedId": plant.accepted_id or None, "matchedId": plant.matched_id or None, "family": plant.family or None,
+                "entries": entries, "aliases": list(plant.aliases), "flags": sorted(plant.flags),
+                "reviewFlags": plant.review_flags, "collision": collision}
+    # Campos agregados al formato catalog-universe/1 (compatibles: solo suman claves).
+    if plant.fused:
+        document["fusedHeterotypic"] = [{"name": f["name"], "reason": f["reason"], "entries": f["entries"]} for f in plant.fused]
+        document["fusedMatchedIds"] = sorted(set(i for f in plant.fused for i in f["ids"]))
+    if plant.kind == "heterotypic":
+        record = next((r for r in uni.collisions if r["plant"] == plant.id), None)
+        if record:
+            document["collisionDecision"] = {"state": record["state"], "decision": record["decision"], "reason": record["reason"]}
+    return document
 
 
 def universe_document(uni, inputs, checks):
@@ -224,6 +241,7 @@ def _resolution_route(res):
 
 def _collision_groups(uni):
     groups = []
+    by_entry = _collision_of_entry(uni)
     for akey in sorted(uni.groups):
         plants = uni.groups[akey]
         n_entries = sum(len(p.entries) for p in plants)
@@ -233,15 +251,47 @@ def _collision_groups(uni):
         for plant in plants:
             for entry in plant.entries:
                 rel = relation_of(uni, entry.key)
+                record = by_entry.get(entry.key)
                 members.append({"key": entry.key, "source": entry.source, "name": entry.name, "author": entry.author,
                                 "relation": RELATION_LABEL[rel], "plant": plant.id,
-                                "result": "fusionado" if plant.kind == "resolved" else "planta propia"})
+                                "result": "fusionado" if plant.kind == "resolved" else "planta propia",
+                                "decision": record["decision"] if record else None,
+                                "reason": record["reason"] if record else None,
+                                "state": record["state"] if record else None})
         accepted_name = uni.resolutions[plants[0].entries[0].key]["accepted_name"]
         split = any(p.split for p in plants)
+        states = set(m["state"] for m in members if m["state"])
         groups.append({"accepted": accepted_name, "acceptedKey": akey, "split": split,
                        "heterotypicSplit": any(p.kind == "heterotypic" for p in plants),
+                       "heterotypicFused": any(p.fused for p in plants),
+                       "decisionState": None if not states else ("decidido" if states == {"decidido"} else
+                                                                 "sin-decision" if states == {"sin-decision"} else "parcial"),
                        "plants": [p.id for p in plants], "members": members})
     return groups
+
+
+def collision_decisions_summary(uni):
+    """Cifras de la regla de colisiones: grupos y miembros heterotípicos decididos, fusionados, separados y sin decisión."""
+    records = uni.collisions
+    by_group = {}
+    for record in records:
+        by_group.setdefault(record["accepted_key"], []).append(record)
+    group_state = {"decidido": 0, "parcial": 0, "sin-decision": 0}
+    for members in by_group.values():
+        states = set(m["state"] for m in members)
+        group_state["decidido" if states == {"decidido"} else "sin-decision" if states == {"sin-decision"} else "parcial"] += 1
+    fused, separated = {}, {}
+    for record in records:
+        if record["state"] != "decidido":
+            continue
+        bucket = fused if record["decision"] == "fuse" else separated
+        bucket[record["reason"]] = bucket.get(record["reason"], 0) + 1
+    undecided = [{"accepted": r["accepted"], "acceptedKey": r["accepted_key"], "member": r["name"], "plant": r["plant"],
+                  "exception": r["exception"]} for r in records if r["state"] == "sin-decision"]
+    return {"groups": len(by_group), "groupsByState": group_state, "members": len(records),
+            "fused": sum(fused.values()), "fusedByReason": dict(sorted(fused.items())),
+            "separated": sum(separated.values()), "separatedByReason": dict(sorted(separated.items())),
+            "undecided": len(undecided), "undecidedMembers": sorted(undecided, key=lambda u: (u["accepted"], u["member"]))}
 
 
 def build_report(uni, entries_summary, inputs, catalog_ids):
@@ -301,7 +351,8 @@ def build_report(uni, entries_summary, inputs, catalog_ids):
                    "aliases": sum(len(p.aliases) for p in uni.plants), "discarded_aliases": len(uni.discarded_aliases)},
         "collisions": {"groups_with_several_entries": len(groups), "split_groups": sum(1 for g in groups if g["split"]),
                        "groups_with_heterotypic_split": sum(1 for g in groups if g["heterotypicSplit"]),
-                       "unassigned_rows": len(uni.unassigned)},
+                       "groups_with_heterotypic_fused": sum(1 for g in groups if g["heterotypicFused"]),
+                       "unassigned_rows": len(uni.unassigned), "decisions": collision_decisions_summary(uni)},
         "backbone_disagreement": dict(disagreement, total=disagreement["rango"] + disagreement["especie"]),
         "comparison_with_current": compare_with_current(uni, catalog_ids),
         "checks": checks_of(uni),
@@ -318,6 +369,10 @@ def checks_of(uni):
 
 
 # --- report.md ------------------------------------------------------------------------------------------------------
+
+def _counts(counts):
+    return ", ".join("%s %d" % kv for kv in counts.items()) or "ninguno"
+
 
 def _author(item):
     return (" " + item["author"]) if item.get("author") else ""
@@ -345,8 +400,12 @@ def render_markdown(report):
             "- Plantas: %d (%s)." % (p["total"], ", ".join("%s %d" % kv for kv in p["by_kind"].items())),
             "- Plantas con entradas de USDA: %d; solo de la EMA: %d; con ambas: %d." % (p["from_usda"], p["ema_only"], p["usda_and_ema"]),
             "- Alias: %d en %d plantas; descartados: %d." % (p["aliases"], p["with_aliases"], p["discarded_aliases"]),
-            "- Grupos donde varias entradas resolvieron al mismo aceptado: %d; partidos: %d; con al menos un heterotípico partido: %d."
-            % (c["groups_with_several_entries"], c["split_groups"], c["groups_with_heterotypic_split"]),
+            "- Grupos donde varias entradas resolvieron al mismo aceptado: %d; partidos: %d; con al menos un heterotípico partido: %d; con al menos un heterotípico fusionado: %d."
+            % (c["groups_with_several_entries"], c["split_groups"], c["groups_with_heterotypic_split"], c["groups_with_heterotypic_fused"]),
+            "- Regla de colisiones (criterio de Wikipedia): %d grupos con miembros heterotípicos (%s); %d miembros: %d fusionados (%s), %d separados (%s), %d sin decisión."
+            % (c["decisions"]["groups"], ", ".join("%s %d" % kv for kv in c["decisions"]["groupsByState"].items()),
+               c["decisions"]["members"], c["decisions"]["fused"], _counts(c["decisions"]["fusedByReason"]),
+               c["decisions"]["separated"], _counts(c["decisions"]["separatedByReason"]), c["decisions"]["undecided"]),
             "- Discrepancias de backbone: %d (%d solo de rango infraespecífico, %d de especie)."
             % (report["backbone_disagreement"]["total"], report["backbone_disagreement"]["rango"], report["backbone_disagreement"]["especie"]),
             "- Comprobaciones: IDs repetidos %d; `%s` %s."
@@ -402,10 +461,21 @@ def render_markdown(report):
     groups = report["collision_groups"]
     out.append("## Grupos de colisión (%d)" % len(groups))
     out.append("")
-    out.append("Cada grupo reúne varias entradas que resolvieron al mismo aceptado. Relación: aceptado (el propio aceptado), homotípico (se fusiona con el aceptado) o heterotípico (planta propia con flag de revisión cuando el grupo se parte).")
+    out.append("Cada grupo reúne varias entradas que resolvieron al mismo aceptado. Relación: aceptado (el propio aceptado), homotípico (se fusiona con el aceptado) o heterotípico. Un heterotípico se fusiona con el aceptado (con flag `fusion-heterotipica`) o queda como planta propia (con flag `grupo-partido`) según la decisión registrada en `collision-decisions.json`; sin decisión queda como planta propia.")
     out.append("")
-    out.append("Grupos con al menos un heterotípico partido: %d." % report["collisions"]["groups_with_heterotypic_split"])
+    out.append("Grupos con al menos un heterotípico partido: %d; con al menos un heterotípico fusionado: %d." % (
+        report["collisions"]["groups_with_heterotypic_split"], report["collisions"]["groups_with_heterotypic_fused"]))
     out.append("")
+    undecided = report["collisions"]["decisions"]["undecidedMembers"]
+    out.append("### Heterotípicos sin decisión registrada (%d)" % len(undecided))
+    out.append("")
+    out.append("Quedan como planta propia con flag (regla conservadora) hasta que `collisions-decide` los decida." if undecided else "Ninguno.")
+    out.append("")
+    for u in undecided:
+        out.append("- %s (aceptado %s): planta `%s`%s" % (u["member"], u["accepted"], u["plant"],
+                                                          "; figura en las excepciones: %s" % u["exception"] if u["exception"] else ""))
+    if undecided:
+        out.append("")
     split_groups = [g for g in groups if g["split"]]
     merged_groups = [g for g in groups if not g["split"]]
 
@@ -413,7 +483,8 @@ def render_markdown(report):
         out.append("- Aceptado **%s**: %s" % (g["accepted"], "partido en %s" % ", ".join("`%s`" % i for i in g["plants"])
                                               if g["split"] else "una sola planta `%s`" % g["plants"][0]))
         for m in g["members"]:
-            out.append("  - `%s` %s%s: %s; %s `%s`" % (m["key"], m["name"], _author(m), m["relation"], m["result"], m["plant"]))
+            decision = " [%s, %s]" % ({"fuse": "fusionar", "separate": "separar"}[m["decision"]], m["reason"] or "sin decisión") if m["decision"] else ""
+            out.append("  - `%s` %s%s: %s; %s `%s`%s" % (m["key"], m["name"], _author(m), m["relation"], m["result"], m["plant"], decision))
 
     out.append("### Grupos partidos (%d)" % len(split_groups))
     out.append("")
@@ -429,12 +500,15 @@ def render_markdown(report):
 
 
 @contextlib.contextmanager
-def build_universe_from_work(db_path, taxonomy_db, log=print):
+def build_universe_from_work(db_path, taxonomy_db, log=print, rules=None):
     """Construye el universo en memoria sin escribir salidas. Entrega `(universo, resumen_de_entradas)`.
 
     Usa `sources.db` y un índice taxonómico ya construido (`resolve` lo crea); los respaldos del universo se cierran al salir del bloque,
-    así que `Universe.assign` solo se puede llamar dentro de él.
+    así que `Universe.assign` solo se puede llamar dentro de él. `rules` son las reglas de colisión (`CollisionRules`); por defecto se
+    leen `collision-decisions.json` y `collision-exceptions.json` de las herramientas, igual que hace `resolve`.
     """
+    if rules is None:
+        rules = load_rules(DEFAULT_DECISIONS, DEFAULT_EXCEPTIONS)
     if not os.path.isfile(str(db_path)):
         raise SourceError("no existe %s; ejecute primero: python3 -I tools/catalog-seed/cli.py extract" % db_path)
     if not os.path.isfile(str(taxonomy_db)):
@@ -448,7 +522,7 @@ def build_universe_from_work(db_path, taxonomy_db, log=print):
     wfo = open_backbone(str(taxonomy_db), "wfo")
     try:
         log("resolviendo %d entradas..." % len(entries))
-        yield build_universe(entries, wcvp, wfo), summary
+        yield build_universe(entries, wcvp, wfo, rules=rules), summary
     finally:
         wcvp.close()
         wfo.close()
@@ -462,8 +536,13 @@ def _dump(path, document):
         handle.write("\n")
 
 
-def run_resolve(sources, cache_dir, db_path, taxonomy_db, out_dir, catalog_db=None, force_index=False, log=print):
-    """Devuelve (universe_document, report) y escribe universe.json, report.json y report.md en `out_dir`."""
+def run_resolve(sources, cache_dir, db_path, taxonomy_db, out_dir, catalog_db=None, force_index=False, log=print,
+                decisions_path=None, exceptions_path=None):
+    """Devuelve (universe_document, report) y escribe universe.json, report.json y report.md en `out_dir`.
+
+    Lee las decisiones de colisión y las excepciones (si existen) y no abre la red: la consulta a Wikipedia es del comando
+    `collisions-decide`.
+    """
     started = time.time()
     if not os.path.isfile(str(db_path)):
         raise SourceError("no existe %s; ejecute primero: python3 -I tools/catalog-seed/cli.py extract" % db_path)
@@ -478,9 +557,10 @@ def run_resolve(sources, cache_dir, db_path, taxonomy_db, out_dir, catalog_db=No
     wfo = open_backbone(str(taxonomy_db), "wfo")
     try:
         log("resolviendo %d entradas..." % len(entries))
-        uni = build_universe(entries, wcvp, wfo)
+        uni = build_universe(entries, wcvp, wfo, rules=load_rules(decisions_path, exceptions_path))
         inputs = {"wcvp": labels["wcvp"], "wfo": labels["wfo"], "usda": versions.get("usda"), "ema_json": versions.get("ema_json"),
-                  "indexVersion": INDEX_VERSION}
+                  "indexVersion": INDEX_VERSION, "collisionDecisions": file_digest(decisions_path),
+                  "collisionExceptions": file_digest(exceptions_path)}
         report = build_report(uni, summary, inputs, current_ids(catalog_db))
         if index_stats is not None:
             report["index_build"] = {"wcvp_names": index_stats["wcvp_names"], "wfo_names": index_stats["wfo_names"],

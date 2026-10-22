@@ -116,6 +116,31 @@ class SplitGroupTests(AssignTestCase):
         self.assertEqual(items["Q13"]["reason"], "heterotipico-sin-planta")
 
 
+class FusedHeterotypicTests(AssignTestCase):
+    def setUp(self):
+        super().setUp()
+        # Adhatoda zeylanica (id 12) se fusionó con el aceptado por la regla de colisiones; Adhatoda vasica sigue separada.
+        for plant in self.universe["plants"]:
+            if plant["id"] == "justicia-adhatoda":
+                plant["fusedMatchedIds"] = ["wcvp:12"]
+
+    def test_item_of_a_fused_heterotypic_goes_to_the_fused_plant(self):
+        self.store("Adhatoda zeylanica", ws.item("Q13", "Adhatoda zeylanica", ["Medik."], spanishNames=["adhatoda"], eswiki="Adhatoda"))
+        self.store("Adhatoda vasica", ws.item("Q10", "Adhatoda vasica", ["Nees"]))
+        document = self.assign()
+        items = document["items"]
+        self.assertEqual((items["Q13"]["plantId"], items["Q13"]["reason"]), ("justicia-adhatoda", "heterotipico-fusionado"))
+        self.assertEqual((items["Q10"]["plantId"], items["Q10"]["reason"]), ("adhatoda-vasica", "misma-clave"))
+        self.assertEqual(document["plants"]["justicia-adhatoda"]["spanishNames"], ["adhatoda"])
+        self.assertEqual(document["pending"]["wikipedia_es"], ["Adhatoda"])
+
+    def test_heterotypic_without_fusion_or_plant_stays_unassigned(self):
+        self.store("Adhatoda zeylanica", ws.item("Q13", "Adhatoda zeylanica", ["Medik."]))
+        for plant in self.universe["plants"]:
+            plant.pop("fusedMatchedIds", None)
+        self.assertEqual(self.assign()["items"]["Q13"]["reason"], "heterotipico-sin-planta")
+
+
 class IpniEvidenceTests(AssignTestCase):
     def test_ipni_and_powo_ids_are_compared_with_wcvp(self):
         self.store("Lavandula angustifolia", ws.item("Q1", "Lavandula angustifolia", ["Mill."], ipni=["449008-1"]))

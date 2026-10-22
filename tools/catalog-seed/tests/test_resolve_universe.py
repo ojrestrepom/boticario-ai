@@ -75,9 +75,10 @@ class ResolveCommandTests(support.TempDirTestCase):
 
     def run_cli(self, *extra):
         out, err = io.StringIO(), io.StringIO()
+        files = ["--decisions", os.path.join(self.tmp, "decisions.json"), "--exceptions", os.path.join(self.tmp, "exceptions.json")]
         with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
             code = cli.main(["--sources", self.sources, "--cache-dir", self.cache, "resolve", "--db", self.db,
-                             "--taxonomy-db", self.taxonomy, "--out-dir", self.out, "--catalog-db", self.catalog] + list(extra))
+                             "--taxonomy-db", self.taxonomy, "--out-dir", self.out, "--catalog-db", self.catalog] + files + list(extra))
         return code, out.getvalue(), err.getvalue()
 
     def universe(self):
@@ -109,7 +110,8 @@ class ResolveCommandTests(support.TempDirTestCase):
         self.assertEqual(document["format"], "catalog-universe/1")
         self.assertEqual(set(document), {"format", "inputs", "checks", "plantCount", "plants"})
         self.assertEqual(document["plantCount"], len(document["plants"]))
-        self.assertEqual(set(document["inputs"]), {"wcvp", "wfo", "usda", "ema_json", "indexVersion"})
+        self.assertEqual(set(document["inputs"]), {"wcvp", "wfo", "usda", "ema_json", "indexVersion", "collisionDecisions",
+                                                 "collisionExceptions"})
         plant = {p["id"]: p for p in document["plants"]}["citrus-x-limon"]
         self.assertEqual(set(plant), {"id", "name", "author", "kind", "backbone", "acceptedId", "matchedId", "family", "entries",
                                       "aliases", "flags", "reviewFlags", "collision"})
@@ -122,6 +124,48 @@ class ResolveCommandTests(support.TempDirTestCase):
         self.assertEqual(bergamot["entries"][0]["relation"], "heterotípico")
         self.assertIn("grupo-partido", [f["code"] for f in bergamot["reviewFlags"]])
         self.assertEqual(self.universe()["plants"], sorted(self.universe()["plants"], key=lambda p: p["id"]))
+
+    def write_decisions(self, decision, reason):
+        document = {"format": "catalog-collision-decisions/1", "groups": {"citrus limon": {"accepted": "Citrus × limon", "members": {
+            "citrus bergamia": {"name": "Citrus × bergamia", "decision": decision, "reason": reason}}}}}
+        with open(os.path.join(self.tmp, "decisions.json"), "w", encoding="utf-8") as handle:
+            json.dump(document, handle)
+
+    def test_without_decisions_the_report_lists_the_member_as_undecided(self):
+        self.run_cli()
+        decisions = self.report()["collisions"]["decisions"]
+        self.assertEqual((decisions["members"], decisions["undecided"], decisions["fused"], decisions["separated"]), (1, 1, 0, 0))
+        self.assertEqual(decisions["groupsByState"], {"decidido": 0, "parcial": 0, "sin-decision": 1})
+        self.assertEqual(decisions["undecidedMembers"][0]["plant"], "citrus-x-bergamia")
+        with open(os.path.join(self.out, "report.md"), encoding="utf-8") as handle:
+            self.assertIn("### Heterotípicos sin decisión registrada (1)", handle.read())
+        self.assertIsNone(self.universe()["inputs"]["collisionDecisions"])
+
+    def test_recorded_fusion_merges_the_member_and_is_reported(self):
+        self.write_decisions("fuse", "redireccion")
+        self.run_cli()
+        plants = {p["id"]: p for p in self.universe()["plants"]}
+        self.assertNotIn("citrus-x-bergamia", plants)
+        lemon = plants["citrus-x-limon"]
+        self.assertEqual(lemon["aliases"], ["citrus-bergamia", "citrus-limon"])
+        self.assertIn("fusion-heterotipica", [f["code"] for f in lemon["reviewFlags"]])
+        self.assertEqual(lemon["fusedHeterotypic"], [{"name": "Citrus × bergamia", "reason": "redireccion", "entries": ["ema:citri-bergamiae-aetheroleum#1"]}])
+        self.assertEqual(len(lemon["fusedMatchedIds"]), 1)
+        self.assertIsNone(lemon["collision"])
+        report = self.report()
+        decisions = report["collisions"]["decisions"]
+        self.assertEqual((decisions["fused"], decisions["fusedByReason"], decisions["undecided"]), (1, {"redireccion": 1}, 0))
+        self.assertEqual(report["collisions"]["split_groups"], 0)
+        self.assertEqual(report["collisions"]["groups_with_heterotypic_fused"], 1)
+        self.assertEqual(report["comparison_with_current"]["current_ids_lost"], ["lavandula-angustifolia"])
+        self.assertEqual(len(self.universe()["inputs"]["collisionDecisions"]), 64)
+
+    def test_recorded_separation_keeps_the_member_as_its_own_plant(self):
+        self.write_decisions("separate", "articulo-propio")
+        self.run_cli()
+        bergamot = {p["id"]: p for p in self.universe()["plants"]}["citrus-x-bergamia"]
+        self.assertEqual(bergamot["collisionDecision"], {"state": "decidido", "decision": "separate", "reason": "articulo-propio"})
+        self.assertEqual(self.report()["collisions"]["decisions"]["separatedByReason"], {"articulo-propio": 1})
 
     def test_report_and_comparison_with_current_ids(self):
         self.run_cli()

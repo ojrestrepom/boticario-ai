@@ -1,9 +1,13 @@
 """Universo de plantas, regla de colisiones, IDs únicos, alias y asignación de filas (tarea 2.5).
 
 Flujo: `build_universe(entries, wcvp, wfo)` resuelve cada entrada (`Entry`: una planta de USDA o una especie de la EMA),
-agrupa las que llegan al mismo aceptado y aplica la regla de colisiones. `Universe.assign(...)` asigna después las filas
-de uso y de otras fuentes a una planta del universo.
+agrupa las que llegan al mismo aceptado y aplica la regla de colisiones («criterio de Wikipedia», véase `collisions.py`):
+el aceptado y sus sinónimos homotípicos se fusionan siempre; un miembro heterotípico queda como planta propia solo si su
+decisión registrada es `separate`, y se fusiona con la planta del aceptado (con flag de revisión) si es `fuse`. Sin decisión
+registrada rige la regla conservadora: planta propia con flag. Las decisiones llegan como datos (`CollisionRules`); el armado
+no abre la red. `Universe.assign(...)` asigna después las filas de uso y de otras fuentes a una planta del universo.
 """
+from .collisions import FUSE, CollisionRules
 from .ids import plant_slug
 from .names import parse_name
 from .resolver import resolve_name
@@ -63,6 +67,7 @@ class Plant(object):
         self.keys = set()           # claves de nombre que identifican a la planta (para asignar filas)
         self.member_rows = []       # filas del backbone que pertenecen a la planta (para la regla de homotipia)
         self.is_core = False        # contiene al propio aceptado
+        self.fused = []             # heterotípicos fusionados: {name, member, reason, entries, ids}
 
     @property
     def review_flags(self):
@@ -72,7 +77,7 @@ class Plant(object):
         return {"id": self.id, "name": self.name, "author": self.author, "kind": self.kind, "backbone": self.backbone,
                 "accepted_id": self.accepted_id, "matched_id": self.matched_id, "family": self.family,
                 "entries": [e.key for e in self.entries], "aliases": list(self.aliases), "flags": sorted(self.flags),
-                "reviewFlags": self.review_flags, "split": self.split}
+                "reviewFlags": self.review_flags, "split": self.split, "fused": [f["name"] for f in self.fused]}
 
     def __repr__(self):
         return "Plant(%s, %r, %s)" % (self.id, self.name, self.kind)
@@ -89,6 +94,7 @@ _FLAG_CODES = (
     ("orthographic_variant", "variante-ortografica", "El nombre resolvió por una variante ortográfica del epíteto."),
     ("backbone_disagreement", "backbones-discrepan", "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP."),
     ("split_group", "grupo-partido", "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas."),
+    ("heterotypic_merge", "fusion-heterotipica", "Se fusionaron con el aceptado sinónimos heterotípicos sin artículo propio en Wikipedia en español; requiere revisión humana."),
     ("unassigned_rows", "filas-sin-asignar", "Hay filas del grupo que no se pudieron asignar a ninguna planta."),
 )
 
@@ -97,6 +103,8 @@ def _review_flags(plant):
     out = []
     for flag, code, message in _FLAG_CODES:
         if flag in plant.flags:
+            if flag == "heterotypic_merge" and plant.fused:
+                message = message.replace("sinónimos heterotípicos", "los sinónimos heterotípicos (%s)" % ", ".join(f["name"] for f in plant.fused))
             out.append({"code": code, "target": "scientificName", "message": message})
     return out
 
@@ -151,6 +159,7 @@ class Universe(object):
         self.resolutions = {}        # key -> dict de resolución
         self.groups = {}             # accepted_key -> [Plant]
         self.discarded_aliases = []  # (planta, alias, motivo)
+        self.collisions = []         # un registro por miembro heterotípico de un grupo con colisión (véase `_plants_for_group`)
         self.unassigned = []         # filas sin asignar: dicts
 
     # --- consultas
@@ -178,7 +187,12 @@ class Universe(object):
         counts = {}
         for res in self.resolutions.values():
             counts[res["outcome"]] = counts.get(res["outcome"], 0) + 1
+        members = self.collisions
         return {"entries": len(self.entries), "plants": len(self.plants),
+                "collision_members": len(members),
+                "collision_members_fused": sum(1 for m in members if m["decision"] == FUSE),
+                "collision_members_separated": sum(1 for m in members if m["decision"] != FUSE),
+                "collision_members_undecided": sum(1 for m in members if m["state"] == "sin-decision"),
                 "resolution_outcomes": counts,
                 "split_groups": sum(1 for g in self.groups.values() if any(p.split for p in g)),
                 "ambiguous": sum(1 for p in self.plants if p.kind == "ambiguous"),
@@ -191,7 +205,8 @@ class Universe(object):
         """Asigna una fila (de uso o de otra fuente) a una planta. Devuelve `(plant | None, motivo)`.
 
         Orden en un grupo partido: misma clave; miembro homotípico (mismo basiónimo o uno es el basiónimo del otro);
-        el miembro que es el propio aceptado; si ninguno, sin asignar (se registra en `self.unassigned`).
+        el miembro que es el propio aceptado; si ninguno, sin asignar (se registra en `self.unassigned`). Un heterotípico fusionado
+        comparte las claves y las filas del backbone de la planta del aceptado, así que sus filas llegan a ella por la misma clave.
         """
         res = resolve_name(name, self.wcvp, self.wfo, hint=hint, author=author)
         p = res["parsed"]
@@ -243,12 +258,14 @@ def _tag(row, kind):
     return row
 
 
-def build_universe(entries, wcvp, wfo=None, use_variants=True):
+def build_universe(entries, wcvp, wfo=None, use_variants=True, rules=None):
     """Resuelve las entradas, aplica la regla de colisiones y asigna IDs únicos y alias.
 
     Pasa primero las entradas de USDA y luego las de la EMA que no estén en USDA; las de la EMA que caigan en una planta
-    ya existente se unen a ella. Falla con `UniverseError` si dos plantas terminan con el mismo ID.
+    ya existente se unen a ella. Falla con `UniverseError` si dos plantas terminan con el mismo ID. `rules` (`CollisionRules`)
+    trae las decisiones registradas y las excepciones; sin ellas, todo heterotípico de un grupo con colisión es planta propia.
     """
+    rules = rules or CollisionRules()
     uni = Universe(wcvp, wfo)
     resolved = []
     standalone = []
@@ -270,7 +287,7 @@ def build_universe(entries, wcvp, wfo=None, use_variants=True):
         r.kind = _classify(r)
         groups.setdefault(r.accepted["key_full"], []).append(r)
     for akey in sorted(groups):
-        uni.groups[akey] = _plants_for_group(akey, groups[akey])
+        uni.groups[akey] = _plants_for_group(akey, groups[akey], rules, uni.collisions)
         uni.plants.extend(uni.groups[akey])
 
     # Identidades de la fuente (sin resolver, ambiguas, solo género).
@@ -330,16 +347,28 @@ def _best_row(cluster):
     return pool[0] if pool else rows[0]
 
 
-def _plants_for_group(akey, items):
+def _decision_of(rules, akey, cluster, row):
+    """Registro de un miembro heterotípico: la decisión registrada o, sin ella, la regla conservadora (planta propia)."""
+    keys = set(r.matched["key_full"] for r in cluster)
+    for r in cluster:
+        parsed = r.res["parsed"]
+        keys.update(k for k in (parsed.key_full, parsed.key_alt) if k)
+    stored = rules.decision(akey, row["key_full"])
+    return {"accepted_key": akey, "member": row["key_full"], "name": row["name"], "entries": [r.entry.key for r in cluster],
+            "names": sorted(set(r.entry.name for r in cluster)), "keys": sorted(keys), "exception": rules.exception_reason(keys),
+            "state": "decidido" if stored else "sin-decision",
+            "decision": stored["decision"] if stored else "separate", "reason": stored["reason"] if stored else None,
+            "plant": None}
+
+
+def _plants_for_group(akey, items, rules, collisions):
     core = [r for r in items if r.kind in ("A", "H")]
     others = [r for r in items if r.kind == "X"]
     clusters = _cluster_x(others)
-    split = (1 if core else 0) + len(clusters) > 1
     # Aceptado de referencia: el de WCVP si existe en el grupo.
     ref = next((r for r in items if r.res["backbone"] == "wcvp"), items[0])
-    plants = []
-    if core or not split:
-        members = core if core else others
+
+    def accepted_plant(members):
         plant = Plant(plant_slug(ref.accepted["name"]), ref.accepted["name"], ref.accepted["author"], "resolved")
         plant.backbone = ref.res["backbone"]
         plant.accepted_id = ref.accepted["id"]
@@ -349,12 +378,30 @@ def _plants_for_group(akey, items):
         plant.member_rows.append(_tag(ref.accepted, ref.res["backbone"]))
         for r in members:
             _join(plant, r)
-        plants.append(plant)
-        clusters_left = clusters if core else []
-    else:
-        clusters_left = clusters
-    for cl in clusters_left:
+        return plant
+
+    if not core and len(clusters) <= 1:
+        # Un solo nombre heterotípico y ningún otro miembro: no hay colisión, la planta lleva el nombre del aceptado.
+        return [accepted_plant(others)]
+    fused, separated = [], []
+    for cl in clusters:
         row = _best_row(cl)
+        record = _decision_of(rules, akey, cl, row)
+        record["accepted"] = ref.accepted["name"]
+        record["accepted_names"] = sorted(set(r.entry.name for r in core))
+        collisions.append(record)
+        (fused if record["decision"] == FUSE else separated).append((cl, row, record))
+    members = list(core) + [r for cl, _, _ in fused for r in cl]
+    plants = []
+    if members:
+        plant = accepted_plant(members)
+        for cl, row, record in fused:
+            plant.flags.add("heterotypic_merge")
+            plant.fused.append({"name": row["name"], "member": record["member"], "reason": record["reason"],
+                                "entries": record["entries"], "ids": sorted(set("%s:%s" % (r.res["backbone"], r.matched["id"]) for r in cl))})
+            record["plant"] = plant.id
+        plants.append(plant)
+    for cl, row, record in separated:
         r0 = cl[0]
         plant = Plant(plant_slug(row["name"]), row["name"], row["author"], "heterotypic")
         plant.backbone = r0.res["backbone"]
@@ -364,8 +411,9 @@ def _plants_for_group(akey, items):
         for r in cl:
             _join(plant, r)
         plant.flags.add("split_group")
+        record["plant"] = plant.id
         plants.append(plant)
-    if split:
+    if len(plants) > 1:
         for plant in plants:
             plant.split = True
             plant.flags.add("split_group")

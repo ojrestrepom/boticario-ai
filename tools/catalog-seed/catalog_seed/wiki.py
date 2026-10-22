@@ -25,6 +25,8 @@ RESUME_FILE = "_resume.json"
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
 WIKIPEDIA_ES_ENDPOINT = "https://es.wikipedia.org/api/rest_v1/page/summary/"
 COMMONS_ENDPOINT = "https://commons.wikimedia.org/w/api.php"
+WIKIPEDIA_ES_API = "https://es.wikipedia.org/w/api.php"
+TITLES_BATCH = 50
 
 SERVICES = ("wikidata", "wikipedia_es", "commons")
 DEFAULT_BATCH = {"wikidata": 20, "wikipedia_es": 1, "commons": 20}
@@ -309,6 +311,51 @@ class WikipediaStep(Step):
                 self.store(title, json.loads(payload.decode("utf-8")))
             else:
                 raise SourceError("wikipedia_es respondió HTTP %d para '%s'" % (status, title))
+
+
+class WikipediaTitlesStep(Step):
+    """Existencia y redirecciones de títulos de es.wikipedia.org (API de MediaWiki, hasta 50 títulos por petición).
+
+    Sirve a la regla de colisiones (`collisions-decide`). Un archivo por título en `<caché>/wikipedia_es/titulos/`, con
+    `{title, exists, redirect, target, disambiguation, date}`: `target` es el título final tras seguir las redirecciones.
+    """
+
+    def __init__(self, cache_dir=DEFAULT_CACHE_DIR, endpoint=None, delay=1.0, **kwargs):
+        super().__init__("wikipedia_es", cache_dir=cache_dir, endpoint=endpoint or WIKIPEDIA_ES_API, batch_size=1,
+                         delay=delay, **kwargs)
+        self.batch_size = TITLES_BATCH
+        self.dir = Path(cache_dir) / "wikipedia_es" / "titulos"
+
+    def key_of(self, entry):
+        return " ".join(entry.replace("_", " ").split())
+
+    def fetch_batch(self, batch):
+        titles = [self.key_of(e) for e in batch]
+        query = urllib.parse.urlencode({
+            "action": "query", "format": "json", "formatversion": "2", "redirects": "1", "prop": "pageprops",
+            "ppprop": "disambiguation", "titles": "|".join(titles)})
+        status, payload = self.call(self.endpoint + "?" + query, None, {"Accept": "application/json"})
+        if status != 200:
+            raise SourceError("wikipedia_es respondió HTTP %d; no se guarda nada de este lote" % status)
+        try:
+            data = json.loads(payload.decode("utf-8"))["query"]
+        except (ValueError, KeyError):
+            raise SourceError("wikipedia_es devolvió una respuesta inesperada")
+        normalized = {n["from"]: n["to"] for n in data.get("normalized", [])}
+        redirects = {r["from"]: r["to"] for r in data.get("redirects", [])}
+        pages = {p.get("title"): p for p in data.get("pages", [])}
+        date = iso(self.now())[:10]
+        for title in titles:
+            final = normalized.get(title, title)
+            hops = 0
+            while final in redirects and hops < 10:
+                final = redirects[final]
+                hops += 1
+            page = pages.get(final)
+            exists = bool(page) and not page.get("missing") and not page.get("invalid")
+            self.store(title, {"title": title, "exists": exists, "redirect": exists and final != normalized.get(title, title),
+                               "target": final if exists else None,
+                               "disambiguation": exists and "disambiguation" in (page.get("pageprops") or {}), "date": date})
 
 
 class CommonsStep(Step):

@@ -3,7 +3,9 @@
 Los nombres comunes y las partes traen FNFNUM y se asignan por la entrada `usda:<FNFNUM>` del universo. Las filas de uso
 (ETHNOBOT) solo traen el nombre (TAXON) y el autor (TAXAUTHOR): se asignan con `Universe.assign`, por resolución taxonómica y
 no por nombre exacto, de modo que una fila bajo un sinónimo (*Matricaria recutita*) llega a la planta del aceptado. Cada par distinto
-(TAXON, TAXAUTHOR) se resuelve una sola vez, en orden alfabético. `Universe.assign` registra en el universo (`unassigned` y el flag
+(TAXON, TAXAUTHOR) se resuelve una sola vez, en orden alfabético. Una fila bajo un sinónimo heterotípico fusionado por la regla de
+colisiones (*Cinnamomum zeylanicum*) llega a la planta del aceptado en la que se fusionó, tanto por FNFNUM (la entrada `usda:<FNFNUM>`
+es de esa planta) como por `Universe.assign` (comparte sus claves). `Universe.assign` registra en el universo (`unassigned` y el flag
 `unassigned_rows`) las filas que no puede asignar, así que la llamada tiene ese efecto lateral.
 
 Resultado por planta (`UsdaAssignment.by_plant[plant_id]`, orden estable):

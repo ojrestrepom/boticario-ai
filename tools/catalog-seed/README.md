@@ -16,9 +16,10 @@ Con el entorno creado, esos comandos se ejecutan con `tools/catalog-seed/.venv/b
 ## Estructura
 
 - `cli.py`: punto de entrada de línea de comandos.
-- `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `workdb.py`, `usda_extract.py`, `tppt_extract.py`, `efsa_extract.py`, `ema_extract.py`, `pdf_sections.py` y `extract.py` extraen las fuentes al formato intermedio; `ema_pdf.py` descarga los PDF de la EMA; `safety.py` y `safety_report.py` aplican el mapa de seguridad; `taxonomy/` es el resolvedor taxonómico (con `collisions.py`, los datos de la regla de colisiones), `resolve_universe.py` el comando `resolve`, `collisions_decide.py` el comando `collisions-decide`, `usda_assign.py` y `citations.py` la asignación de USDA y las citas candidatas, y `wiki_assign.py` y `wiki_fetch.py` la asignación y la descarga de Wikidata, Wikipedia y Commons; `cli.py` define los comandos).
+- `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `workdb.py`, `usda_extract.py`, `tppt_extract.py`, `efsa_extract.py`, `ema_extract.py`, `pdf_sections.py` y `extract.py` extraen las fuentes al formato intermedio; `ema_pdf.py` descarga los PDF de la EMA; `safety.py` y `safety_report.py` aplican el mapa de seguridad; `taxonomy/` es el resolvedor taxonómico (con `collisions.py`, los datos de la regla de colisiones), `resolve_universe.py` el comando `resolve`, `collisions_decide.py` el comando `collisions-decide`, `usda_assign.py` y `citations.py` la asignación de USDA y las citas candidatas, y `wiki_assign.py` y `wiki_fetch.py` la asignación y la descarga de Wikidata, Wikipedia y Commons; `bundles.py` arma los paquetes por planta y mide su tamaño; `cli.py` define los comandos).
 - `sources.json`: registro de fuentes.
 - `schema/record.schema.json`: esquema JSON del registro v1.
+- `schema/bundle.schema.json`: esquema JSON del paquete por planta v1 (véase «Paquetes por planta»).
 - `safety-map.json`: mapa de seguridad versionado (niveles por fuente y categoría).
 - `collision-decisions.json` y `collision-exceptions.json`: decisiones registradas y excepciones «separar siempre» de la regla de colisiones (véase «Regla de colisiones»).
 - `requirements.txt`: dependencias opcionales con versión fija.
@@ -47,6 +48,9 @@ tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py extract --sour
 tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py safety-report
 python3 -I tools/catalog-seed/cli.py resolve
 python3 -I tools/catalog-seed/cli.py collisions-decide
+python3 -I tools/catalog-seed/cli.py bundles
+python3 -I tools/catalog-seed/cli.py bundles --plants data/work/plantas.txt --out data/work/bundles
+python3 -I tools/catalog-seed/cli.py bundle-sizes --top 10
 python3 -I tools/catalog-seed/cli.py validate --records data/seed/plants --bundles data/work/bundles
 python3 -I tools/catalog-seed/cli.py plan --bundles data/work/bundles --seed data/seed
 python3 -I tools/catalog-seed/cli.py seal --seed data/seed
@@ -60,6 +64,7 @@ python3 -I tools/catalog-seed/cli.py seal --seed data/seed
 - `wiki-fetch` descarga Wikidata (por nombre), los resúmenes de Wikipedia en español y los metadatos de Commons de las plantas del universo, y `wiki-assign` rehace sin red la asignación de esos ítems a las plantas (véase «Wikidata, Wikipedia en español y Commons»).
 - `ema-pdf` descarga las páginas y los PDF de la EMA (véase «PDF de la EMA»); `extract [--source <id>]` escribe las filas normalizadas de USDA, la EMA, TPPT y EFSA en `data/work/sources.db` (véase «Extracción y formato intermedio»); `safety-report` muestra la clasificación del mapa de seguridad sobre esas filas (véase «Mapa de seguridad»).
 - `resolve` resuelve los nombres de USDA y la EMA y escribe el universo en `data/work/universe/`; lee las decisiones de colisión y no abre la red (véase «Resolvedor taxonómico y universo»). `collisions-decide` es el único paso con red de la regla de colisiones: consulta Wikipedia solo para los grupos sin decisión y agrega las decisiones a `collision-decisions.json` (véase «Regla de colisiones»).
+- `bundles` arma sin red los paquetes por planta en `data/work/bundles/` y `bundle-sizes` mide los de un directorio (véase «Paquetes por planta»).
 - `validate`, `plan` y `seal` trabajan con la semilla y los paquetes (véanse «Validador», «Plan de regeneración» y «Sellado y manifiesto»).
 - `--source <id>` limita el comando a una fuente y se puede repetir.
 - `--sources <ruta>` y `--cache-dir <ruta>` cambian el archivo de fuentes y la caché (útil en pruebas).
@@ -210,7 +215,7 @@ Tabla `source_row(source, record_type, row_key, raw_name_cell, fnfnum, qid, cont
 - TPPT: `tppt_plant` guarda la planta con `human_toxicity`, `animal_toxicity`, `n_toxins` y las toxinas elegidas: todas las de composición «major toxin» (también «major known toxin», «major toxin and aglycone» y «major toxin and metabolite») y hasta 15 más ordenadas por importancia de la composición. Cada toxina lleva `composition`, `major`, `psm_class`, `casrn` y sus dosis de `Toxicity_data` (enlazadas por `Phytotoxin_number`); la planta lleva el comentario de `Remarks` (por `Plant_genus`, quitando espacios) y las entradas de `Bibliography` citadas por esas dosis (por `Abbreviation`; el `Data_source` puede traer varias separadas por «, »; 70 citas, como `clinitox.ch`, no están en Bibliography). Se extrae el SQLite a un directorio temporal y se abre de solo lectura.
 - EFSA: ver la sección anterior; cada fila guarda las columnas útiles con sus nombres, números enteros sin «.0» y `scientificNames` sin tocar en `raw_name_cell`.
 
-Dependencia del armado de paquetes (3.5): la extracción de WCVP (taxonomía y distribución) de la 3.3 no está aquí, porque el resolvedor construye el índice de WCVP con la distribución (tarea 2.2); los paquetes la tomarán de él.
+La extracción de WCVP (taxonomía y distribución) de la 3.3 no está aquí, porque el resolvedor construye el índice de WCVP con la distribución (tarea 2.2); los paquetes la toman de él (`Backbone.distribution`).
 
 ## Mapa de seguridad
 
@@ -283,17 +288,17 @@ python3 -I tools/catalog-seed/cli.py fetch --service wikidata --input data/work/
 - Wikipedia en español (`https://es.wikipedia.org/api/rest_v1/page/summary/<título>`): una petición por título; un 404 se guarda como `{"missing": true}`.
 - Commons (`https://commons.wikimedia.org/w/api.php`): `prop=imageinfo` con `iiprop=url|size|mime|extmetadata`, 50 títulos por petición; acepta `File:...` o las URL `Special:FilePath/...` que devuelve P18.
 - `User-Agent`: `BoticarioAI-catalog-seed/0.1 (academic project)`, genérico y sin correo ni datos personales.
-- Fuente desactivada (`enabled: false`): ni se descarga ni se extrae. Con `wikidata` desactivada tampoco se descargan ni se extraen Wikipedia y Commons, porque dependen de sus ítems. `fetch` (la entrada manual por archivo) también omite un servicio desactivado. Que los paquetes omitan sus refs es de las tareas 3.5 y 4.7.
+- Fuente desactivada (`enabled: false`): ni se descarga ni se extrae. Con `wikidata` desactivada tampoco se descargan ni se extraen Wikipedia y Commons, porque dependen de sus ítems. `fetch` (la entrada manual por archivo) también omite un servicio desactivado. Los paquetes omiten las filas y los refs de una fuente desactivada (véase «Paquetes por planta»).
 
 ### Regla de asignación a plantas
 
-`wiki-assign` (y el final de `wiki-fetch`) recalcula la asignación solo desde la caché y `universe.json`, en unos 2 segundos, y escribe `data/work/wiki/assignment.json`, `report.json` y `report.md`. La 3.5 la usará al armar los paquetes.
+`wiki-assign` (y el final de `wiki-fetch`) recalcula la asignación solo desde la caché y `universe.json`, en unos 2 segundos, y escribe `data/work/wiki/assignment.json`, `report.json` y `report.md`. El comando `bundles` no lee ese archivo: recalcula la asignación con las mismas funciones desde la caché y las fuentes activas del momento, para que el paquete no dependa de un archivo viejo.
 
 - Filtro de homónimos (spec): un ítem de Wikidata solo entra en una planta si su nombre (P225) resuelve, con `resolve_name` y el autor de Wikidata como desempate, al aceptado de esa planta. Un ítem cuyo nombre resuelve a otro aceptado no entra: *Lavandula latifolia* no llega a la lavanda ni *Passiflora edulis* a la pasiflora.
 - Un ítem queda sin asignar, con su motivo: `sin-nombre`, `sin-resolver`, `ambiguo` (homónimo que el resolvedor no resuelve), `rango-inferior-sin-coincidencia` (el nombre infraespecífico solo coincidió por su binomio), `fuera-del-universo` (el aceptado no es de ninguna planta) o `heterotipico-sin-planta`.
 - Grupo de una sola planta: el ítem va a esa planta (`grupo-unico`). Grupo partido (varias plantas con el mismo aceptado): a la planta con el mismo nombre (`misma-clave`); si el nombre es el propio aceptado o un sinónimo homotípico, a la planta que contiene al aceptado (`aceptado` u `homotipico`); un sinónimo heterotípico fusionado por la regla de colisiones va a la planta del aceptado en la que se fusionó (`heterotipico-fusionado`, por los `fusedMatchedIds` de la planta en `universe.json`), y uno sin planta propia ni fusión queda sin asignar (`heterotipico-sin-planta`) y no se le da al aceptado. Si la regla de colisiones cambia, basta volver a ejecutar `resolve` y `wiki-assign`: solo hay que descargar los nombres nuevos que el cambio introduce (por ejemplo, el aceptado de un grupo que antes no tenía planta propia).
 - Wikipedia y Commons se asignan por el ítem que las enlaza (sitelink de eswiki y P18). Un artículo cuyo tipo no es `standard` (por ejemplo una desambiguación) no cuenta como resumen.
-- Estado de Wikidata por planta: `con-item`, `sin-item` (Wikidata respondió pero ningún ítem pasa el filtro), `sin-respuesta` (ninguna de sus consultas está en la caché, o Wikidata está desactivada) y `no-consultada` (la planta no tiene aceptado: ambigua, sin resolver o de solo género). El paquete de la 3.5 declarará `sin-respuesta` y `sin-item` en su sección `wikidata` y en `flags`.
+- Estado de Wikidata por planta: `con-item`, `sin-item` (Wikidata respondió pero ningún ítem pasa el filtro), `sin-respuesta` (ninguna de sus consultas está en la caché, o Wikidata está desactivada) y `no-consultada` (la planta no tiene aceptado: ambigua, sin resolver o de solo género). El paquete declara el estado en su sección `wikidata` y en `identity.flags` (`wikidata-sin-respuesta`, `wikidata-sin-item` y `wikidata-no-consultada`).
 - Evidencia adicional: los identificadores IPNI (P961) y POWO (P5037) se contrastan con los `ipni_id` de WCVP del aceptado y sus sinónimos: `coincide`, `discrepa` o `sin-dato`. No reemplaza el filtro; las discrepancias quedan en el informe para revisión (casi todas son ítems de una subespecie o variedad cuyo ID es el de ese rango).
 - `assignment.json` (`catalog-wiki-assignment/1`): `items` (por QID: `plantId`, `reason`, nombre y aceptado resueltos, `flags` del resolvedor, `requestedFor`, `homonym`, `ipni`, `eswiki`) y `plants` (por ID: estado de Wikidata, QIDs, nombres comunes en español de P1843, artículos de Wikipedia e imágenes de Commons admitidas y descartadas con su motivo), más los pendientes de descarga.
 
@@ -349,6 +354,7 @@ Decisiones de forma que la spec deja abiertas:
 
 - Un grupo de `traditionalUses` lleva `activity`, `activitySource`, `n`, `countries` (en español), `refs`, `pendingReview` y `citations`: una lista de `{key, ref, text}`, con la clave corta tal como viene de USDA, el ref `usda_reference:*` de la candidata elegida y su cita completa. Una clave sin candidata va como `{key, ref: null, text: "<clave> (sin resolver)"}`.
 - `goals[]` lleva `goal`, `subarea` (nulo salvo en `otros-objetivos`), `area` (traducción del mapa), `evidence`, `pendingReview` y `refs`; los ids de `goal` y `subarea` son enumeraciones cerradas iguales a las de `data/seed/goals.json` (una prueba lo comprueba).
+- `image.author` admite `null`: Commons no trae autor en las imágenes de dominio público o CC0 que no lo informan (73 de las 2.634 admitidas), y el paquete no inventa uno.
 - Las entradas de `refs` pueden llevar `url` (enlace a la fuente, que el paquete trae cuando la fuente lo tiene). Es obligatoria para los refs de `wikipedia_es` con licencia CC BY-SA, porque la descripción resumida de Wikipedia registra su licencia y el enlace al artículo.
 - Los códigos de `reviewFlags` van en minúsculas con guiones (por ejemplo `cita-sin-resolver`); el esquema no limita la lista de códigos. El `target` del flag de un objetivo es `goals.<goal>` y el de un grupo, `traditionalUses[<índice>]`.
 
@@ -362,11 +368,129 @@ Decisiones de forma que la spec deja abiertas:
 
 ## Prompt de consolidación
 
-`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y, cuando exista (tarea 4.4), el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión.
+`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión; la versión 2 lo alinea con el paquete real de la 3.5 (véase «Paquetes por planta»).
+
+## Paquetes por planta (tareas 3.5, 3.6 y 4.7)
+
+El paquete es la entrada del consolidador de la variante A: todo lo que el LLM puede usar de una planta, con un ref `<record_type>:<row_key>` por fila. `catalog_seed/bundles.py` lo arma sin red como función pura de `sources.db`, `taxonomy.db`, las decisiones de colisión (`collision-decisions.json` y `collision-exceptions.json`), el mapa de seguridad, el mapa de objetivos y la caché de Wikidata, Wikipedia y Commons, y su forma está en `schema/bundle.schema.json` (validada con `schema.py`).
+
+```sh
+python3 -I tools/catalog-seed/cli.py bundles
+python3 -I tools/catalog-seed/cli.py bundles --plants data/work/plantas.txt --out data/work/bundles --report data/work/bundles-report.json
+python3 -I tools/catalog-seed/cli.py bundle-sizes --top 10
+```
+
+- `bundles` construye el universo en memoria con `build_universe_from_work` (las mismas decisiones que `resolve`), asigna a las plantas las filas de USDA, TPPT, EFSA, la EMA, Wikidata, Wikipedia y Commons, y escribe `data/work/bundles/<id>.json` (JSON canónico: claves ordenadas, sin espacios y un salto de línea final; ignorado por Git). Tarda unos 80 s para las 2.355 plantas, casi todo en resolver las 2.627 entradas del universo.
+- `--plants <archivo>` arma solo los IDs listados (uno por línea; `#` comenta) y no borra los demás paquetes; sin él se arma todo el universo y se retiran los `*.json` de plantas que ya no existen. `--report` guarda las cifras de secciones y tamaños en un JSON. `bundle-sizes` mide un directorio de paquetes ya escrito.
+- La asignación de Wikidata, Wikipedia y Commons se recalcula en cada corrida con `wiki_assign.build_assignment` (filtro de homónimos incluido) sobre el universo en memoria y las fuentes activas de `sources.json`; no se lee `data/work/wiki/assignment.json`, para que el paquete no dependa de un archivo viejo.
+
+### Formato
+
+- Raíz: `bundleVersion` (`"1"`), `plantKey` (el ID), `bundleHash` (`sha256:` más el sha256 del JSON canónico sin el propio `bundleHash`), `identity`, `sections` y `refs`.
+- `identity`: `proposedId`, `name`, `authors`, `kind` y `family`; `universe` (las entradas de USDA y de la EMA que llegaron a la planta, con su resultado y su relación con el aceptado); `primaryBackbone`; `accepted` (el aceptado de WCVP y el de WFO; el del backbone no principal se obtiene resolviendo allí el nombre aceptado, y falta si no resuelve a uno solo); `nameSet` (nombres con `reason` y `backbone`: `universe` es el nombre propio de la planta, y los demás motivos son `entrada-usda`, `entrada-ema`, `heterotipico-fusionado`, `aceptado-del-grupo` y `sinonimo-homotipico`); `aliases`; `collision`; `flags` y `notes`.
+- `identity.collision` es `null` o `{role, acceptedName, split, members, fused, decision}`: `role` es `separada` para un heterotípico con planta propia y `aceptado` para la planta que contiene al aceptado; `members` son las plantas del grupo partido; `fused` lista los heterotípicos fusionados con su motivo y sus entradas; `decision` es la decisión registrada de un heterotípico separado.
+- `identity.flags` son objetos `{code, target, message}`: los `reviewFlags` del universo (identidad ambigua, solo género, grupo partido, fusión heterotípica...), los de Wikidata (`wikidata-sin-respuesta`, `wikidata-sin-item` y `wikidata-no-consultada`, con `target` `wikidata`) y `extraccion-seguridad-fallida` cuando la extracción de los PDF de la EMA falló o quedó incompleta. `identity.notes` son frases sobre fusiones, distribución compartida, imágenes descartadas y recortes del paquete.
+- `sections.taxonomy`: filas de WCVP y WFO con `role` (`aceptado`, `propio` para un heterotípico separado, `heterotipico-fusionado` y `sinonimo-homotipico`), ref `wcvp:<plant_name_id>` o `wfo:<taxon_id>`. `sections.distribution`: `null` o la distribución de WCVP del aceptado (`native` e `introduced` son regiones; `nativeAreas` trae hasta 25 áreas nativas y `nativeAreaCount` el total; `of` dice `aceptado-compartido` para un heterotípico separado, cuya distribución es la del aceptado del grupo).
+- `sections.names`: nombres comunes de USDA (con su idioma heurístico), de Wikidata (P1843 y la etiqueta en español si difiere del nombre científico) y de TPPT (inglés y alemán). `sections.descriptions`: resúmenes de Wikipedia en español con `url`, licencia CC BY-SA 4.0 y revisión. `sections.parts`: las partes de USDA con química (`hasEo`, `eoCompounds`, `topAmount` y `topEo`). `sections.images`: imágenes de Commons con licencia admitida (hasta 5), con `author` nulo cuando Commons no lo trae (solo dominio público o CC0).
+- `sections.uses`: un grupo por actividad con `n`, `countries`, `refs` (`usda_use:*`), `citations` (las claves cortas tal como vienen) y `candidates` (clave a lista de hasta 5 `{ref, citation}` con ref `usda_reference:*`; una clave sin candidatas no figura). Salen ordenados por filas y actividad.
+- `sections.regulatory`: una ficha de la EMA por fila (`ema_herbal:<slug>`) con `outcome` unido por `;`, `therapeuticAreas`, `combination`, `status` y `goalCandidates`: los objetivos que salen de aplicar `goals-map.json` a las áreas cuando el resultado incluye monografía o entrada de lista y no es un producto combinado (vacía en otro caso, con los mismos criterios que el validador; una prueba compara ambos). En una ficha fusionada de dos especies (`hyperici-herba`) cada planta recibe las áreas y el resultado de su propia fila.
+- `sections.safety`: una entrada por fuente y sección, con el nivel que fija el mapa de seguridad (`level`) y su motivo (`levelReason`). TPPT: `humanToxicity`, `categories` con su nivel, parte tóxica y toxinas (hasta 20; sin las dosis en animales); el motivo es el `why` de las categorías de mayor nivel. EMA: una entrada por sección 4.3, 4.4 y 4.5 de la monografía o `CONCLUSIONS` de la declaración pública, con su texto y página; la 4.5 lleva `interactionClass`, `columns`, `matchedPatterns` y `severeInteractions` (la marca que usa el validador, calculada con `safety.ema_interaction_class`), y las `CONCLUSIONS` con datos de seguridad llevan `medio`. EFSA: una sola entrada con `concernSubstances` (las de la lista versionada que activaron el nivel, con su grupo), `evidenceSubstances` (hasta 25, sin nivel) y `studies` de ENDPOINTSTUDY (hasta 10, evidencia). El armado no decide el nivel final: lo calcula el consolidador como el más alto entre las entradas.
+- `sections.wikidata`: `{status, items}` con `status` `con-item`, `sin-item`, `sin-respuesta` o `no-consultada` (véase «Wikidata, Wikipedia en español y Commons») y un ítem por QID asignado con su P225, autores, nombres en español, título de eswiki, identificadores y `match` (el motivo de la asignación).
+- `refs`: ref a `{dataset, label, license, url?}`. `dataset` es el `id` de la fuente de `sources.json`; la licencia es la de la fuente, salvo Commons (la del archivo); `url` la traen la EMA (la página de la ficha o el PDF), Wikidata, Wikipedia (obligatoria) y Commons. Toda fila citada tiene su entrada y no hay entradas sin uso (lo comprueban las pruebas).
+
+Ejemplo resumido de la lavanda (`lavandula-angustifolia`, datos reales):
+
+```json
+{
+  "bundleVersion": "1",
+  "plantKey": "lavandula-angustifolia",
+  "bundleHash": "sha256:…",
+  "identity": {
+    "proposedId": "lavandula-angustifolia", "name": "Lavandula angustifolia", "authors": "Mill.", "kind": "resolved", "family": "Lamiaceae",
+    "primaryBackbone": "wcvp",
+    "accepted": {"wcvp": {"ref": "wcvp:108971", "name": "Lavandula angustifolia", "…": "…"}, "wfo": {"ref": "wfo:wfo-0000224116", "…": "…"}},
+    "nameSet": [{"name": "Lavandula angustifolia", "reason": "universe", "backbone": "wcvp", "ref": "wcvp:108971", "authors": "Mill."}, "…"],
+    "collision": null, "flags": [], "notes": [], "aliases": [], "universe": ["…"]
+  },
+  "sections": {
+    "taxonomy": ["…"], "distribution": {"native": ["Southeastern Europe", "Southwestern Europe"], "nativeAreas": ["France", "Italy", "Spain"], "of": "aceptado", "…": "…"},
+    "names": [{"ref": "usda_common_name:544-1", "text": "English Lavender", "language": "en", "source": "usda"}, "…"],
+    "descriptions": [{"ref": "wikipedia_es:Lavandula angustifolia", "url": "https://es.wikipedia.org/wiki/Lavandula_angustifolia", "license": "CC BY-SA 4.0", "…": "…"}],
+    "parts": ["…"], "uses": [{"activity": "…", "n": 3, "refs": ["usda_use:…"], "citations": ["Woi.10"], "candidates": {"Woi.10": [{"ref": "usda_reference:WOI", "citation": "…"}]}, "…": "…"}],
+    "regulatory": [{"ref": "ema_herbal:lavandulae-flos", "outcome": "European Union herbal monograph", "goalCandidates": [{"goal": "mejorar-el-sueno", "subarea": null, "…": "…"}, "…"], "…": "…"}],
+    "safety": [{"source": "efsa", "level": "medio", "concernSubstances": [{"substance": "alpha-thujone", "group": "toxico-con-limite", "…": "…"}], "…": "…"}, {"source": "ema_pdf", "section": "4.5", "interactionClass": "none-reported", "severeInteractions": false, "…": "…"}, "…"],
+    "images": [{"ref": "commons:File:…", "license": "Public domain", "attributionRequired": false, "…": "…"}],
+    "wikidata": {"status": "con-item", "items": [{"ref": "wikidata:Q42081", "qid": "Q42081", "p225": "Lavandula angustifolia", "…": "…"}]}
+  },
+  "refs": {"wcvp:108971": {"dataset": "wcvp", "label": "WCVP: Lavandula angustifolia Mill.", "license": "CC BY 3.0"}, "…": "…"}
+}
+```
+
+### Asignación de las filas
+
+- USDA: `assign_usda` (véase «Asignación de USDA y citas candidatas»). TPPT: cada planta de `tppt_plant` se asigna con `Universe.assign` por su nombre latino. EFSA: la celda `scientificNames` trae varios nombres separados por «;» o «$» (`split_source_names("efsa", ...)` los separa) y la fila va a cada planta distinta a la que llega alguno de sus nombres. La EMA: por las entradas `ema:<slug>#<n>` de la planta, sin resolver nada más.
+- Con los datos reales: TPPT asigna 284 de sus 844 plantas a 283 plantas del universo (de las 560 restantes, 555 resuelven a especies que no están en el universo, 3 no resuelven y 2 caen en un grupo partido sin miembro que las reciba); EFSA asigna 2.143 de las 3.449 filas de `BOTANIC.xls` a 489 plantas y 528 de los 972 estudios de `ENDPOINTSTUDY.xls` a 204 plantas (los nombres que no llegan son sobre todo especies fuera del universo: 594, frente a 30 que no resuelven y 1 sin miembro). Los nombres sin asignar de los grupos partidos marcan el grupo con `filas-sin-asignar`. Una planta del universo sin fila de una fuente simplemente no trae esa sección.
+- Una planta sin datos de una fuente lo declara: Wikidata lo dice en `sections.wikidata.status` y en `identity.flags`; una ficha de la EMA sin PDF extraído lo dice con una entrada `ema_pdf` con `status` `extraccion-fallida` (y el flag `extraccion-seguridad-fallida`); las demás fuentes dejan la sección vacía y el consolidador lo traduce en `null` o lista vacía (y `sin-datos-de-seguridad` para `safety`).
+
+### Determinismo
+
+El paquete no usa fechas ni el orden de las tablas: todas las listas se ordenan y el hash es el del JSON canónico. Con los datos reales, dos construcciones completas dan archivos idénticos byte a byte (`diff -r`). Las pruebas comprueban que dos construcciones dan el mismo JSON y que un cambio de un insumo de una planta (un texto de la EMA, un nombre de Wikidata) cambia solo el `bundleHash` de esa planta.
+
+### Fuentes desactivadas (D14, tarea 4.7)
+
+Cada fuente de `sources.json` tiene `enabled`. Una fuente desactivada no aporta filas ni refs al paquete, y el paquete no declara qué fuentes están activas (si lo hiciera, cambiaría el hash de todas las plantas). El prompt y el validador no dependen de ninguna fuente concreta (una prueba comprueba que no mencionan `enabled`): un campo sin datos queda `null`. Desactivar Wikipedia solo cambia el `bundleHash` de las plantas que tenían un resumen; desactivar `wikidata` quita también Wikipedia y Commons, porque se asignan por sus ítems, y deja el estado de Wikidata de las plantas consultadas en `sin-respuesta`; desactivar `wcvp` no es posible (la taxonomía principal es la identidad) y `bundles` falla diciéndolo. Las pruebas usan fixtures con Wikipedia desactivada en 3 de 6 plantas (`plan` detecta solo esas 3 por el cambio de `bundleHash`, los paquetes no traen refs de Wikipedia y un registro de ejemplo con `description` nula o resumida de la EMA pasa el validador sin errores). Con los datos reales, desactivar `wikipedia_es` cambia el hash de exactamente las 1.406 plantas con resumen de Wikipedia (de 2.355) y ningún paquete conserva refs de Wikipedia (comprobado fuera de las pruebas, con una copia en memoria de la configuración).
+
+### Tamaños (tarea 3.6)
+
+`bundle-sizes` (y el final de `bundles`) mide el JSON canónico de cada paquete en tokens estimados (caracteres ÷ 3,5): p50, p90, máximo, promedio y total, las plantas más grandes con sus secciones mayores y el total por sección. Resultado con los datos reales (21 de octubre de 2026, 2.355 paquetes, 38 MB en disco):
+
+| Cifra | Estimado (D6) | Real |
+| --- | --- | --- |
+| p50 | unos 2.900 tokens | 2.785 |
+| Total | unos 9,7 millones | 9.959.543 (9,96 millones, 2,7 % más) |
+| p90 | no estimado | 9.262 |
+| Promedio | no estimado | 4.229 |
+| Máximo | 21.700 en el piloto (20 plantas elegidas) | 35.833 (`curcuma-longa`) |
+| Paquetes de más de 10.000 / 20.000 / 30.000 tokens | no estimado | 206 / 25 / 4 |
+
+- Diferencias: el p50 y el total están en el orden de lo estimado. El máximo supera lo del piloto porque el universo incluye plantas con cientos de filas de uso de USDA y porque el paquete v1 suma lo que el piloto no tenía: las secciones 4.3 a 4.5 de la EMA, EFSA, TPPT y los candidatos de objetivos. Como referencia, 20 plantas conocidas parecidas a las del piloto (lavanda, manzanilla, menta, hipérico, pasiflora, valeriana, árbol del té, caléndula, bergamota, canela, jengibre, eucalipto, romero, salvia, tomillo, hinojo, ajo, aloe, equinácea y ginkgo; no es la lista exacta del piloto) dan un promedio de unos 13.900 tokens y un máximo de unos 29.000 (`allium-sativum`), frente a los 8.300 y 21.700 del piloto.
+- Qué infla los paquetes grandes: el total por sección es `uses` 3,39 millones (34 %), `refs` 2,48 millones (25 %), `identity` 0,80 millones, `parts` 0,64 millones, `taxonomy` 0,49 millones, `images` 0,47 millones, `safety` 0,40 millones, `wikidata` 0,37 millones, `distribution` 0,31 millones, `descriptions` 0,22 millones, `names` 0,13 millones y `regulatory` 0,05 millones. En las diez plantas más grandes `uses` pesa de 16.800 a 24.300 tokens y `refs` de 5.600 a 7.600: una planta con 100 o más actividades distintas tiene 100 grupos, cada clave de cita lleva hasta 5 candidatas con su cita completa (cerca del 80 % de `uses`) y cada fila `usda_use:*` aparece en su grupo y en `refs`.
+- Topes: el paquete ya acota los sinónimos homotípicos (15), las áreas nativas (25), las imágenes (5), las sustancias de evidencia de EFSA (25), los estudios de EFSA (10) y las toxinas de TPPT (20), y cada recorte dice su total (`homotypicTotal`, `nativeAreaCount`, `toxinsTotal`, `evidenceTotal`, `studiesTotal` o una nota). Con los datos reales solo se activan el de áreas nativas (590 plantas, que conservan las regiones), el de imágenes (10), el de estudios (3) y el de toxinas (1).
+- Propuesta de tope, sin aplicar: limitar `uses` a los 40 grupos con más filas (`DEFAULT_LIMITS["useGroups"]` en `bundles.py`; el registro tiene hasta 20 grupos y el consolidador agrupa actividades equivalentes, así que 40 deja margen), con una nota en `identity.notes` que dice cuántos grupos y filas se omitieron. Simulado sobre el universo: afecta a 162 plantas, omite 2.529 de las 35.935 filas de uso asignadas (7 %) y todos los grupos omitidos tienen una o dos filas; el máximo baja a 22.074 tokens (`momordica-charantia`), cerca del 21.700 del piloto, el p50 no cambia (2.785), el p90 pasa a 9.140 y el total a 9,60 millones. Con 30 grupos, 5 refs y 10 claves por grupo el máximo sería 19.024 y el total 9,29 millones (263 plantas afectadas). Recortar solo `useRefs` o `useKeys` no baja el máximo. Los límites están en `DEFAULT_LIMITS` (con `useGroups`, `useRefs` y `useKeys` sin límite); adoptar el tope cambia el `bundleHash` de las plantas afectadas y las pone en la cola de `plan`, así que es una decisión del usuario.
+
+### Cobertura con los datos reales
+
+| Sección | Plantas con datos | Plantas sin datos |
+| --- | --- | --- |
+| `taxonomy` | 2.238 | 117 |
+| `distribution` | 2.223 | 132 |
+| `names` | 1.589 | 766 |
+| `descriptions` | 1.406 | 949 |
+| `parts` | 2.244 | 111 |
+| `uses` | 1.453 | 902 |
+| `regulatory` | 206 | 2.149 |
+| `safety` | 731 | 1.624 |
+| `images` | 1.828 | 527 |
+| `wikidata` (con ítems) | 2.212 | 143 |
+
+El estado de Wikidata es `con-item` en 2.212 plantas, `sin-item` en 26 y `no-consultada` en 117 (las sin aceptado: ambiguas, sin resolver o de solo género); ninguna `sin-respuesta`. Las plantas sin `taxonomy` son esas 117. Hay 23 plantas separadas por colisión (su distribución es la del aceptado compartido), 45 con el flag `fusion-heterotipica` y 8 con `filas-sin-asignar`.
+
+Comprobaciones con los paquetes reales (la sección de pruebas `RealBundlesTests` las repite si existen en `data/work/bundles/`):
+
+- La lavanda tiene solo el ítem Q42081 y nada de *L. latifolia* (ni su QID, ni su nombre, ni sus filas); la pasiflora tiene los ítems Q128939 y Q111273695 (*Granadilla incarnata*, homotípico) y nada de *P. edulis*.
+- El hipérico (`hypericum-perforatum`) trae `severeInteractions` verdadero en las secciones 4.5 de `hyperici-herba-0` y de `hyperici-herba` y el candidato `relajacion-estres` en `hyperici-herba-0` (la ficha combinada `hyperici-herba` no cuenta).
+- La menta (`mentha-x-piperita`) cuenta el resultado combinado `European Union herbal monograph;European Union list entry` y trae los candidatos `dolor-e-inflamacion`, `cuidado-de-la-piel`, `alivio-respiratorio` y `digestion`; el árbol del té (`melaleuca-alternifolia`) y la caléndula (`calendula-officinalis`) traen `boca-y-garganta` y `cuidado-de-la-piel` (la ficha `calendulae-herba` no tiene resultado y no aporta candidatos).
+- La bergamota (`citrus-x-bergamia`) se arma como *Citrus × bergamia* (`role` `separada`, aceptado compartido *Citrus × limon*). La canela (`cinnamomum-verum`) trae *Cinnamomum zeylanicum* fusionado: 41 filas de uso de USDA, su ítem de Wikidata Q12892282 y los motivos en `identity.collision.fused`.
+
+### Cambios al contrato con el prompt, el validador y el registro
+
+- `prompt/consolidate.md` sube a la versión 2: describe las secciones reales del paquete, usa `identity.name` y `nameSet` con motivo `universe` para el nombre propio, `goalCandidates` como punto de partida de los objetivos, el nivel por entrada de `sections.safety` (en lugar de las categorías provisionales), los flags de Wikidata y `author` nulo en la imagen, y retira la preparación de EFSA como indicio de aceite esencial (el paquete no la trae).
+- `schema/record.schema.json`: `image.author` admite `null`. Commons no trae autor en 73 de sus 2.634 imágenes admitidas, todas de dominio público, que no exigen atribución; el paquete no inventa un autor.
+- `catalog_seed/validate.py` no cambia: el contrato que usa coincide con lo que arma el paquete. Los fixtures de `tests/fixtures/validate/` se actualizaron al formato real (datasets por fuente, refs `usda_use:*`, `commons:*` y `wikidata:*`, `wikidata` como objeto) y las pruebas comprueban que cumplen `bundle.schema.json`.
 
 ## Contrato del paquete que usa el validador
 
-El paquete lo construye la tarea 3.5; el validador solo depende de esta parte de su contrato: `refs`, `bundleHash`, `identity.proposedId`, `sections.regulatory[]` (`ref`, `therapeuticAreas`, `outcome`, `combination`), `sections.safety[]` (`source`, `humanToxicity` para TPPT y `severeInteractions` para la EMA), `sections.images[].ref`, `sections.descriptions[].url` y `sections.uses[]` (`activity` y, por grupo, `citations` con las claves cortas y `candidates`: un objeto de clave a lista de `{ref, citation}`). La marca `severeInteractions` es provisional hasta que la tarea 4.4 defina el mapa de seguridad.
+El validador solo depende de esta parte del paquete (véase «Paquetes por planta» para el resto): `refs`, `bundleHash`, `identity.proposedId`, `sections.regulatory[]` (`ref`, `therapeuticAreas`, `outcome`, `combination`), `sections.safety[]` (`source`, `humanToxicity` para TPPT y `severeInteractions` para la EMA), `sections.images[].ref`, `sections.descriptions[].url` y `sections.uses[]` (`activity` y, por grupo, `citations` con las claves cortas y `candidates`: un objeto de clave a lista de `{ref, citation}`). La marca `severeInteractions` la genera `bundles` con `safety.ema_interaction_class` (patrones de gravedad del mapa de seguridad v2) y la comprueba `tests/test_bundles.py`.
 
 ## Validador
 
@@ -453,7 +577,7 @@ El paquete `catalog_seed/taxonomy/` resuelve nombres científicos al aceptado de
 - Las entradas sin resolver (ambiguas, sin resolver o solo género) son plantas con la identidad de la fuente, con flags `homonym_unresolved`, `unresolved`/`unmatched` o `genus_only`.
 - El ID es `plant_slug` del nombre aceptado de WCVP (`×` y `+` como `x`, `-` como separador). Si dos plantas terminan con el mismo ID, `build_universe` lanza `UniverseError` y el comando falla sin escribir nada.
 - Los alias son el slug del nombre literal de cada entrada (el `TAXON` de USDA) cuando difiere del ID. Se descartan los que igualan el ID de otra planta y los que quedarían en dos plantas (`Universe.discarded_aliases`).
-- `Universe.assign(nombre, autor)` asigna una fila de uso o de otra fuente a una planta. En un grupo partido el orden es: misma clave de nombre, miembro homotípico con el mismo basiónimo, miembro que es el propio aceptado y, si ninguno aplica, queda sin asignar (`Universe.unassigned`) y marca el grupo con `unassigned_rows`. Un heterotípico fusionado aporta sus claves y sus filas del backbone a la planta del aceptado, así que sus filas (y las de sus homotípicos) llegan a ella. La tarea 3.2 la usa para repartir los usos de USDA (véase «Asignación de USDA y citas candidatas») y la 3.5 la usará para las filas de TPPT, EFSA y EMA.
+- `Universe.assign(nombre, autor)` asigna una fila de uso o de otra fuente a una planta. En un grupo partido el orden es: misma clave de nombre, miembro homotípico con el mismo basiónimo, miembro que es el propio aceptado y, si ninguno aplica, queda sin asignar (`Universe.unassigned`) y marca el grupo con `unassigned_rows`. Un heterotípico fusionado aporta sus claves y sus filas del backbone a la planta del aceptado, así que sus filas (y las de sus homotípicos) llegan a ella. La tarea 3.2 la usa para repartir los usos de USDA (véase «Asignación de USDA y citas candidatas») y el armado de paquetes (3.5) para las filas de TPPT y EFSA.
 
 ### Regla de colisiones (criterio de Wikipedia)
 
@@ -577,7 +701,7 @@ python3 -I -m unittest discover -s tools/catalog-seed/tests -v
 tools/catalog-seed/.venv/bin/python3 -I -m unittest discover -s tools/catalog-seed/tests -v
 ```
 
-Con el `python3` del sistema se omiten (con `skipTest`) las pruebas que necesitan `xlrd` o `pdfminer.six` y las que necesitan los insumos reales en `data/.cache/`; con el entorno virtual corren todas. Los fixtures de la extracción están en `tests/fixtures/extract/` (dos `.xls` y dos PDF mínimos con sus scripts generadores).
+Con el `python3` del sistema se omiten (con `skipTest`) las pruebas que necesitan `xlrd` o `pdfminer.six`, las que necesitan los insumos reales en `data/.cache/` y las de `RealBundlesTests` (necesitan `data/work/bundles/`); con el entorno virtual corren las de esas bibliotecas, y las de datos reales corren cuando existen esos datos. Los fixtures de la extracción están en `tests/fixtures/extract/` (dos `.xls` y dos PDF mínimos con sus scripts generadores).
 
 Con `-I` Python no añade directorios a `sys.path`, así que `tests/support.py` calcula la ruta de `tools/catalog-seed/` y la agrega antes de importar el paquete; cada archivo de pruebas importa `support` primero.
 

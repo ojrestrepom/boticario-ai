@@ -14,6 +14,7 @@ from .ema_pdf import DEFAULT_DELAY, EmaPdfStep, pin_ema_pdfs
 from .goals import DEFAULT_GOALS_CATALOG, DEFAULT_GOALS_MAP, DEFAULT_SEED_DIR, load_goals_catalog, load_goals_map
 from .schema import DEFAULT_RECORD_SCHEMA, load_schema
 from .seed import DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, read_prompt_version, schema_version, seal
+from . import bundles as bundles_lib
 from .collisions_decide import DEFAULT_DELAY as COLLISIONS_DELAY, run_collisions_decide
 from .resolve_universe import (DEFAULT_CATALOG_DB, DEFAULT_DECISIONS, DEFAULT_EXCEPTIONS, DEFAULT_TAXONOMY_DB, DEFAULT_UNIVERSE_DIR,
                                run_resolve)
@@ -77,6 +78,16 @@ def build_parser():
     decide.add_argument("--decisions", default=str(DEFAULT_DECISIONS), help="archivo de decisiones")
     decide.add_argument("--exceptions", default=str(DEFAULT_EXCEPTIONS), help="archivo de excepciones")
     decide.add_argument("--delay", type=float, default=COLLISIONS_DELAY, help="segundos entre peticiones (por defecto 1)")
+    bundle = commands.add_parser("bundles", help="arma sin red los paquetes por planta (la entrada del LLM) en data/work/bundles/ y mide su tamaño")
+    bundle.add_argument("--plants", help="archivo con un ID de planta por línea; sin él se arman todas las plantas del universo")
+    bundle.add_argument("--out", default=str(DEFAULT_BUNDLES_DIR), help="directorio de salida (por defecto data/work/bundles)")
+    bundle.add_argument("--db", default=str(DEFAULT_DB), help="SQLite de las extracciones")
+    bundle.add_argument("--taxonomy-db", default=str(DEFAULT_TAXONOMY_DB), help="índice de WCVP y WFO (lo crea resolve)")
+    bundle.add_argument("--report", help="escribe las cifras (secciones y tamaños) en este archivo JSON")
+    sizes = commands.add_parser("bundle-sizes", help="mide los paquetes de un directorio en tokens estimados (caracteres ÷ 3,5)")
+    sizes.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes")
+    sizes.add_argument("--top", type=int, default=10, help="cuántas plantas más grandes listar (por defecto 10)")
+    sizes.add_argument("--json", action="store_true", help="imprime el informe como JSON")
     validate = commands.add_parser("validate", help="valida los registros de la semilla contra sus paquetes")
     validate.add_argument("--records", default=str(DEFAULT_SEED_DIR / "plants"), help="directorio de registros (por defecto data/seed/plants)")
     validate.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes (por defecto data/work/bundles)")
@@ -134,6 +145,30 @@ def run_collisions_decide_command(args):
     result = run_collisions_decide(load_sources(args.sources), args.cache_dir, args.db, args.taxonomy_db, args.decisions,
                                    args.exceptions, delay=args.delay)
     return 2 if result["status"] in ("rate_limited", "waiting") else 0
+
+
+def run_bundles(args):
+    plant_ids = bundles_lib.read_plant_ids(args.plants) if args.plants else None
+    bundles, stats = bundles_lib.run_bundles(load_sources(args.sources), args.cache_dir, args.db, args.taxonomy_db, args.out, plant_ids=plant_ids)
+    report = bundles_lib.size_report(list(bundles.values()))
+    print("%d paquetes escritos en %s (%.1f s)" % (len(bundles), args.out, stats["seconds"]))
+    if stats["removedStale"]:
+        print("paquetes retirados por ya no estar en el universo: %d" % len(stats["removedStale"]))
+    for name in bundles_lib.SECTIONS:
+        print("  %-13s con datos en %5d plantas, sin datos en %5d" % (name, stats["coverage"]["withSection"][name], stats["coverage"]["withoutSection"][name]))
+    print("  estado de Wikidata: %s" % ", ".join("%s %d" % kv for kv in stats["coverage"]["wikidataStatus"].items()))
+    print(bundles_lib.format_sizes(report))
+    if args.report:
+        with open(args.report, "w", encoding="utf-8") as handle:
+            json.dump({"stats": stats, "sizes": report}, handle, indent=2, ensure_ascii=False, sort_keys=True)
+            handle.write("\n")
+    return 0
+
+
+def run_bundle_sizes(args):
+    report = bundles_lib.size_report(bundles_lib.read_bundles(args.bundles), top=args.top)
+    print(json.dumps(report, indent=2, ensure_ascii=False) if args.json else bundles_lib.format_sizes(report))
+    return 0
 
 
 def run_plan(args):
@@ -273,6 +308,10 @@ def main(argv=None):
             return run_resolve_command(args)
         if args.command == "collisions-decide":
             return run_collisions_decide_command(args)
+        if args.command == "bundles":
+            return run_bundles(args)
+        if args.command == "bundle-sizes":
+            return run_bundle_sizes(args)
         if args.command == "validate":
             return run_validate(args)
         if args.command == "plan":

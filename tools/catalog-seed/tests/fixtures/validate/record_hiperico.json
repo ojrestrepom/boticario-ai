@@ -32,18 +32,20 @@
   "recordVersion": 1,
   "refs": {
     "ema_herbal:hyperici-herba-0": {
-      "dataset": "ema",
+      "dataset": "ema_json",
       "label": "EMA: Hyperici herba",
-      "license": "Reutilización citando a la EMA"
+      "license": "Reutilización citando a la EMA",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/hyperici-herba-0"
     },
     "ema_pdf:hyperici-herba-0:4.5": {
-      "dataset": "ema",
+      "dataset": "ema_pdf",
       "label": "EMA: monografía de Hyperici herba, sección 4.5",
-      "license": "Reutilización citando a la EMA"
+      "license": "Reutilización citando a la EMA",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/ejemplo-hyperici-herba-0_en.pdf"
     },
     "wcvp:2": {
       "dataset": "wcvp",
-      "label": "WCVP v16: Hypericum perforatum L.",
+      "label": "WCVP: Hypericum perforatum L.",
       "license": "CC BY 3.0"
     }
   },
@@ -70,7 +72,11 @@
   },
   "sources": [
     {
-      "dataset": "ema",
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA"
+    },
+    {
+      "dataset": "ema_pdf",
       "license": "Reutilización citando a la EMA"
     },
     {

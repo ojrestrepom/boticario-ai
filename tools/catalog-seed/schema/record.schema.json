@@ -369,7 +369,10 @@
           "minLength": 1
         },
         "author": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "minLength": 1
         },
         "license": {

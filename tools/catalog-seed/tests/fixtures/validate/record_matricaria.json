@@ -7,7 +7,7 @@
     {
       "language": "es",
       "refs": [
-        "wikidata_item:Q29536"
+        "wikidata:Q29536"
       ],
       "text": "Manzanilla"
     }
@@ -16,7 +16,7 @@
   "displayName": {
     "language": "es",
     "refs": [
-      "wikidata_item:Q29536"
+      "wikidata:Q29536"
     ],
     "value": "Manzanilla"
   },
@@ -56,7 +56,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
     "pageUrl": "https://commons.example.invalid/File:m.jpg",
     "refs": [
-      "commons_file:Matricaria_chamomilla.jpg"
+      "commons:File:Matricaria chamomilla.jpg"
     ],
     "url": "https://upload.example.invalid/m.jpg"
   },
@@ -79,45 +79,48 @@
   "promptVersion": 1,
   "recordVersion": 1,
   "refs": {
-    "commons_file:Matricaria_chamomilla.jpg": {
+    "commons:File:Matricaria chamomilla.jpg": {
       "dataset": "commons",
-      "label": "Commons: Matricaria chamomilla.jpg",
-      "license": "CC BY-SA 4.0"
+      "label": "Wikimedia Commons: File:Matricaria chamomilla.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.example.invalid/File:m.jpg"
     },
     "ema_herbal:matricariae-flos": {
-      "dataset": "ema",
+      "dataset": "ema_json",
       "label": "EMA: Matricariae flos",
-      "license": "Reutilización citando a la EMA"
-    },
-    "usda_ethnobot:605:1": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: uso etnobotánico 605/1",
-      "license": "CC0"
-    },
-    "usda_ethnobot:605:2": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: uso etnobotánico 605/2",
-      "license": "CC0"
+      "license": "Reutilización citando a la EMA",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/matricariae-flos"
     },
     "usda_reference:BURKILL1966": {
       "dataset": "usda",
-      "label": "Burkill, 1966",
+      "label": "USDA Dr. Duke: referencia BURKILL1966",
       "license": "CC0"
     },
     "usda_reference:WOI": {
       "dataset": "usda",
-      "label": "The Wealth of India",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:1001": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1001",
+      "license": "CC0"
+    },
+    "usda_use:1002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1002",
       "license": "CC0"
     },
     "wcvp:1": {
       "dataset": "wcvp",
-      "label": "WCVP v16: Matricaria chamomilla L.",
+      "label": "WCVP: Matricaria chamomilla L.",
       "license": "CC BY 3.0"
     },
-    "wikidata_item:Q29536": {
+    "wikidata:Q29536": {
       "dataset": "wikidata",
       "label": "Wikidata Q29536",
-      "license": "CC0"
+      "license": "CC0",
+      "url": "https://www.wikidata.org/wiki/Q29536"
     }
   },
   "reviewFlags": [
@@ -146,7 +149,7 @@
       "license": "CC BY-SA 4.0"
     },
     {
-      "dataset": "ema",
+      "dataset": "ema_json",
       "license": "Reutilización citando a la EMA"
     },
     {
@@ -193,7 +196,7 @@
       "n": 3,
       "pendingReview": false,
       "refs": [
-        "usda_ethnobot:605:1",
+        "usda_use:1001",
         "usda_reference:WOI",
         "usda_reference:BURKILL1966"
       ]
@@ -214,7 +217,7 @@
       "n": 2,
       "pendingReview": true,
       "refs": [
-        "usda_ethnobot:605:2"
+        "usda_use:1002"
       ]
     }
   ]

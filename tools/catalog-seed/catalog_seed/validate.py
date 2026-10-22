@@ -69,7 +69,7 @@ def is_toxic_by_tppt(bundle):
 
 
 def has_severe_interactions(bundle):
-    """Provisional hasta la tarea 4.4: la extracción de la EMA marca severeInteractions en la sección de seguridad."""
+    """El armado de paquetes (bundles.py) marca severeInteractions en la sección 4.5 de la EMA con safety.ema_interaction_class (mapa de seguridad v2)."""
     return any(entry.get("source") == "ema_pdf" and entry.get("severeInteractions") is True
                for entry in bundle.get("sections", {}).get("safety", []))
 

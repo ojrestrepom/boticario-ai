@@ -170,6 +170,7 @@ class WikipediaTests(BundleTestCase):
         image = self.built["hypericum-perforatum"]["sections"]["images"][0]
         self.assertIsNone(image["author"])
         self.assertFalse(image["attributionRequired"])
+        self.assertEqual(image["url"], "https://upload.example/Hiperico.jpg")  # sin parámetros utm_*
 
 
 class UsesTests(BundleTestCase):

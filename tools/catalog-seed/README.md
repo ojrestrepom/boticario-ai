@@ -356,7 +356,7 @@ Decisiones de forma que la spec deja abiertas:
 - `goals[]` lleva `goal`, `subarea` (nulo salvo en `otros-objetivos`), `area` (traducción del mapa), `evidence`, `pendingReview` y `refs`; los ids de `goal` y `subarea` son enumeraciones cerradas iguales a las de `data/seed/goals.json` (una prueba lo comprueba).
 - `image.author` admite `null`: Commons no trae autor en las imágenes de dominio público o CC0 que no lo informan (73 de las 2.634 admitidas), y el paquete no inventa uno.
 - Las entradas de `refs` pueden llevar `url` (enlace a la fuente, que el paquete trae cuando la fuente lo tiene). Es obligatoria para los refs de `wikipedia_es` con licencia CC BY-SA, porque la descripción resumida de Wikipedia registra su licencia y el enlace al artículo.
-- Los códigos de `reviewFlags` van en minúsculas con guiones (por ejemplo `cita-sin-resolver`); el esquema no limita la lista de códigos. El `target` del flag de un objetivo es `goals.<goal>` y el de un grupo, `traditionalUses[<índice>]`.
+- Los códigos de `reviewFlags` van en minúsculas con guiones (por ejemplo `cita-sin-resolver`); el esquema no limita la lista de códigos, pero el catálogo cerrado está en `flag-codes.json` y el validador avisa de cualquier otro. El `target` del flag de un objetivo es `goals.<goal>` y el de un grupo, `traditionalUses[<índice>]`.
 
 `catalog_seed/schema.py` implementa a mano, sin `jsonschema`, el subconjunto usado: `type` (nombre o lista), `enum`, `const`, `properties`, `required`, `additionalProperties` (`false` o esquema), `propertyNames` (solo `pattern`), `items`, `minItems`, `maxItems`, `minLength`, `maxLength`, `minimum`, `maximum`, `pattern`, `$ref` a `#/$defs/<nombre>` y `$defs`; ignora las anotaciones (`title`, `description`, `$comment`, `x-*`). Cargar un esquema con otra palabra clave falla, para que nadie confíe en una restricción que no se aplica.
 
@@ -368,7 +368,7 @@ Decisiones de forma que la spec deja abiertas:
 
 ## Prompt de consolidación
 
-`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión; la versión 2 lo alinea con el paquete real de la 3.5 (véase «Paquetes por planta»).
+`prompt/consolidate.md` es el prompt autocontenido de la variante A. Su línea `prompt-version: <n>` es la versión que cada registro guarda en `promptVersion`; subirla hace que `plan` ponga todas las plantas en cola. Recibe el paquete, el esquema, el mapa de objetivos, el catálogo de objetivos y el mapa de seguridad. Incorpora la política de solo el paquete y las correcciones del piloto: resultado combinado de la EMA separado por `;`, nombre científico propio en plantas separadas por colisión, nombres `und` claramente españoles con ref, `EO` como aceite esencial y no un aceite fijo, ningún objetivo para plantas tóxicas según TPPT, hipérico y similares con `pendingReview`, y emparejamiento de claves cortas de cita con las candidatas del paquete (con «(sin resolver)» y su `reviewFlag` cuando no hay candidata). Cada cambio de reglas sube la versión; la versión 2 lo alinea con el paquete real de la 3.5 (véase «Paquetes por planta») y la versión 3 aplica la revisión de la corrida de control (véase «Revisión de la corrida de control (tarea 5.3)»): fuentes de `displayName` y de nombres comunes, catálogo cerrado de códigos de flag, un grupo por actividad del paquete, orden de selección con más de 20 grupos, países sin traducción segura, partes usadas, claves `Eb<vol>: 000` y descripción sin Wikipedia.
 
 ## Paquetes por planta (tareas 3.5, 3.6 y 4.7)
 
@@ -466,7 +466,7 @@ Cada fuente de `sources.json` tiene `enabled`. Una fuente desactivada no aporta 
 python3 -I tools/catalog-seed/cli.py bundles --plants tools/catalog-seed/control.txt --report data/work/bundles-control-report.json
 ```
 
-Los 20 paquetes validan contra `schema/bundle.schema.json`. Tamaños en tokens estimados: ricino 30.420, manzanilla 19.197, romero 16.384, hipérico 15.879, eucalipto 13.468, menta 13.463, valeriana 13.274, tomillo 11.519, caléndula 10.685, consuelda 8.036, pasiflora 7.875, cicuta 7.783, melisa 7.685, lavanda 6.551, árbol del té 4.512, almendro 4.015, *Pelargonium sidoides* 3.141, *Rhodiola rosea* 3.132, bergamota 1.982 y lavandín 1.351. Promedio 10.018, p50 8.036 y máximo 30.420 (ricino), frente a 8.300 y 21.700 del piloto. El promedio queda a un 21 % del piloto; el máximo lo explica el ricino, con muchas actividades de uso de USDA (`uses` 19.477 y `refs` 7.601 de sus 30.420), el caso que cubre la propuesta de tope de `useGroups`. Sin el ricino el máximo es 19.197 (manzanilla) y el promedio 8.944.
+Los 20 paquetes validan contra `schema/bundle.schema.json`. Tamaños en tokens estimados: ricino 30.420, manzanilla 19.197, romero 16.384, hipérico 15.879, eucalipto 13.468, menta 13.463, valeriana 13.274, tomillo 11.519, caléndula 10.685, consuelda 8.036, pasiflora 7.875, cicuta 7.783, melisa 7.685, lavanda 6.551, árbol del té 4.512, almendro 4.015, *Pelargonium sidoides* 3.141, *Rhodiola rosea* 3.132, bergamota 1.982 y lavandín 1.351. Promedio 10.018, p50 8.036 y máximo 30.420 (ricino), frente a 8.300 y 21.700 del piloto. El promedio queda a un 21 % del piloto; el máximo lo explica el ricino, con muchas actividades de uso de USDA (`uses` 19.477 y `refs` 7.601 de sus 30.420), el caso que cubre la propuesta de tope de `useGroups`. Sin el ricino el máximo es 19.197 (manzanilla) y el promedio 8.944. Tras quitar los parámetros `utm_*` de las URL de las imágenes (tarea 5.3), los paquetes se reconstruyeron y el promedio es 9.985, el p50 8.014 y el máximo 30.398.
 
 ### Cobertura con los datos reales
 
@@ -498,6 +498,73 @@ Comprobaciones con los paquetes reales (la sección de pruebas `RealBundlesTests
 - `schema/record.schema.json`: `image.author` admite `null`. Commons no trae autor en 73 de sus 2.634 imágenes admitidas, todas de dominio público, que no exigen atribución; el paquete no inventa un autor.
 - `catalog_seed/validate.py` no cambia: el contrato que usa coincide con lo que arma el paquete. Los fixtures de `tests/fixtures/validate/` se actualizaron al formato real (datasets por fuente, refs `usda_use:*`, `commons:*` y `wikidata:*`, `wikidata` como objeto) y las pruebas comprueban que cumplen `bundle.schema.json`.
 
+## Revisión de la corrida de control (tarea 5.3)
+
+Revisión de los 20 registros de la corrida 5.2 (prompt v2, `data/work/control/lote-1/` y `lote-2/`). Las correcciones salen en el prompt v3, en el validador y en el armado de paquetes; la 5.3 sigue abierta hasta repetir la corrida con el prompt v3.
+
+### Lista de comprobación planta por planta
+
+«Correcto» es lo comprobado y conforme a la tarea; «-» es que la tarea no pide esa comprobación para la planta. Los niveles de seguridad son los del mapa v2.
+
+| Planta | Objetivos | Identidad | Aceite esencial | Nivel de seguridad | Citas sin resolver (grupos pendientes) |
+| --- | --- | --- | --- | --- | --- |
+| Lavanda (`lavandula-angustifolia`) | - | Correcto: sin datos de *L. latifolia* | Correcto, según `EO` | medio | 0 (0) |
+| Romero (`salvia-rosmarinus`) | - | - | Esencial | medio | 15 (15) |
+| Menta (`mentha-x-piperita`) | Correcto: tiene objetivos | - | Esencial | medio | 3 (3) |
+| Valeriana (`valeriana-officinalis`) | - | - | Esencial | medio | 0 (0) |
+| Consuelda (`symphytum-officinale`) | - | - | `null` | medio | 0 (0) |
+| Árbol del té (`melaleuca-alternifolia`) | Correcto: tiene objetivos | - | Esencial | medio | 0 (0) |
+| *Pelargonium sidoides* (`pelargonium-sidoides`) | - | - | `null` | medio | 0 (0) |
+| Manzanilla (`matricaria-chamomilla`) | - | - | Esencial | bajo | 12 (12) |
+| Tomillo (`thymus-vulgaris`) | - | - | Esencial | bajo | 5 (5) |
+| Almendro (`prunus-amygdalus`) | - | Correcto: no está fusionado con el cerezo | Esencial (`EO` en USDA); se anota para revisión | bajo | 0 (0) |
+| Eucalipto (`eucalyptus-globulus`) | - | - | Esencial | `null` | 3 (3) |
+| Pasiflora (`passiflora-incarnata`) | - | Correcto: sin datos de *P. edulis* | `null` | `null` | 0 (0) |
+| Melisa (`melissa-officinalis`) | - | - | Esencial | `null` | 0 (0) |
+| Caléndula (`calendula-officinalis`) | Correcto: tiene objetivos | - | Esencial | `null` | 6 (5) |
+| Lavandín (`lavandula-x-intermedia`) | - | - | Esencial | `null` | 0 (0) |
+| Rodiola (`rhodiola-rosea`) | - | - | `null` | `null` | 0 (0) |
+| Bergamota (`citrus-x-bergamia`) | - | Correcto: es *Citrus × bergamia* | Esencial | `null` | 0 (0) |
+| Cicuta (`conium-maculatum`) | Correcto: sin objetivos | - | Esencial (`EO` en USDA); se anota para revisión | alto | 2 (2) |
+| Ricino (`ricinus-communis`) | Correcto: objetivos omitidos por toxicidad de TPPT | - | `null`, porque es un aceite fijo | alto | 9 (9) |
+| Hipérico (`hypericum-perforatum`) | Correcto: `relajacion-estres` con `pendingReview` y `reviewFlag` `interacciones-graves-estres` | - | Esencial (`EO` en USDA); se anota para revisión | alto | 4 (4) |
+
+Todas las citas sin resolver son `Woi.Syria`, que no tiene candidatas. Los grupos pendientes de las 20 plantas suman 58, y los casos más cargados fueron el romero (15) y la manzanilla (12), porque el prompt v2 no ordenaba qué grupos entran cuando hay más de 20.
+
+### Revisión manual de emparejamientos de claves de cita
+
+| Clave | Candidata elegida | Veredicto |
+| --- | --- | --- |
+| `Burkill,1966` | `Burkill, 1966` | Correcto |
+| `Woi.6`, `Woi.7`, `Woi.9`, `Woi.10` | `WOI`, con el texto «The Wealth of India, vol. n» | Correcto |
+| `Eb24: 441`, `Eb28: 323`, `Eb33: 229` | `EB`, con el texto «Economic Botany <vol>: <pág>», descartando las `EBxx:yyy` de otros volúmenes | Correcto |
+| `Duke,1972` | `Duke` (1972), descartando `DUKE1992A` y `DUKE1992B` | Correcto |
+| `Nas` | `NAS2` (farmacología herbal de China) y no `NAS` (Lost Crops of the Incas), por los países del grupo | Correcto |
+| `Standley` | `Standley` (Trees and shrubs of Mexico) y no `Standley,1931`, por los países del grupo | Discutible |
+| `Woi.Syria`, `Uph` | Sin candidata: «(sin resolver)» | Correcto |
+| `Eb33: 000` | - | Dudoso: `000` no es una página real |
+
+### Defectos encontrados y su corrección (prompt v3)
+
+1. **`displayName` y nombres comunes dispares** (por ejemplo «Botón de oro» para la caléndula y «Poison Hemlock» en inglés para la cicuta). El prompt fija cinco fuentes válidas de un nombre en español, todas con ref y en orden: (a) el nombre con el que el resumen de Wikipedia presenta la planta, (b) la etiqueta en español de Wikidata, (c) los P1843, (d) `sections.names` en español y (e) los alias de Wikidata, solo si son claramente nombres comunes. Usarlas no lleva flag. Sin nombre en español, el `displayName` es el nombre científico con `sin-nombre-comun-es`. En `commonNames` solo se normalizan tildes y mayúsculas si la forma aparece en el paquete.
+2. **Códigos de flag inventados** (`nombre-comun-ausente`, `sin-nombre-comun-en-espanol`, `sin-objetivos-de-bienestar`, `objetivos-omitidos-por-toxicidad` fuera de lista, `idioma-de-nombre-dudoso`, `nombre-comun-de-resumen`). El catálogo cerrado vive en `flag-codes.json`, el prompt lo reproduce en una tabla y el validador da una advertencia ante un código fuera de él; una prueba comprueba que el prompt y el JSON listan los mismos códigos.
+3. **Grupos fusionados.** El prompt v2 pedía agrupar actividades equivalentes, pero el validador exige que `activitySource` sea una actividad del paquete y que las citas sean las candidatas de ese grupo. El prompt v3 dice que cada grupo es una sola actividad del paquete, sin fusionar. El esquema no cambia.
+4. **Selección con más de 20 grupos.** Primero los grupos con alguna clave con candidata, por `n` descendente y luego por actividad; después el resto en el mismo orden.
+5. **Países sin traducción segura** (`Nc`, `Dr`, `US*`): se omite el país, no el grupo; la lista puede quedar vacía. El prompt trae la tabla de equivalencias seguras (`Elsewhere`, `Mediterranean`, `US(Co)`).
+6. **URL de las imágenes con `utm_*`.** `licenses.clean_file_url` quita los parámetros `utm_*` al extraer (`wiki_extract.py`) y al armar el paquete (`bundles.py`), con pruebas. Los 20 paquetes de control se reconstruyeron con `bundles --plants tools/catalog-seed/control.txt`; cambia el `bundleHash` de las plantas con imagen, así que los registros de la 5.2 ya no validan contra ellos hasta repetir la corrida.
+7. **Ambigüedades menores.** Las partes usadas salen de las fichas de la EMA u otras fuentes de uso, no de las partes químicas de USDA. Una clave `Eb<vol>: 000` se deja sin resolver: `000` es un marcador de USDA y no una página, y citarla literal o con un flag presentaría como cita una página inexistente; el grupo queda pendiente con el flujo habitual. La descripción es `null` cuando no hay resumen de Wikipedia: la taxonomía y la distribución ya salen en `scientificName`, `family` y `origin`, y una frase derivada las repetiría con redacción dispar.
+
+Decisiones que siguen pendientes del usuario y que no se cambiaron: el nivel de seguridad cuando ninguna entrada fija nivel y el tratamiento de actividades sensibles como «Cancer», «Tumor», «Abortifacient» o «Fatality».
+
+### Costo y tiempo de la corrida 5.2
+
+| Lote | Plantas | Inicio y fin (2026-10-22, UTC) | Duración | Tokens del agente | Tokens por planta |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 10 | 04:41:12Z a 04:48:07Z | 6 min 55 s | 182.108 | unos 18.200 |
+| 2 | 10 | 04:41:12Z a 04:47:15Z | 6 min 3 s | 223.036 | unos 22.300 |
+
+El promedio es de unos 20.300 tokens por planta, contra 12.000 a 15.500 en el piloto. Extrapolado a 2.355 plantas son unos 48 millones de tokens, contra los 23 millones estimados. Los tokens son el total que reporta el agente, incluidas las lecturas del prompt, los esquemas y los mapas en cada lote. Los lotes corrieron en paralelo, con agentes de Claude Code del modelo balanceado. El validador dio 0 errores y 0 advertencias en los 20 registros.
+
 ## Contrato del paquete que usa el validador
 
 El validador solo depende de esta parte del paquete (véase «Paquetes por planta» para el resto): `refs`, `bundleHash`, `identity.proposedId`, `sections.regulatory[]` (`ref`, `therapeuticAreas`, `outcome`, `combination`), `sections.safety[]` (`source`, `humanToxicity` para TPPT y `severeInteractions` para la EMA), `sections.images[].ref`, `sections.descriptions[].url` y `sections.uses[]` (`activity` y, por grupo, `citations` con las claves cortas y `candidates`: un objeto de clave a lista de `{ref, citation}`). La marca `severeInteractions` la genera `bundles` con `safety.ema_interaction_class` (patrones de gravedad del mapa de seguridad v2) y la comprueba `tests/test_bundles.py`.
@@ -515,7 +582,7 @@ El validador solo depende de esta parte del paquete (véase «Paquetes por plant
 - que todo grupo con `pendingReview` tiene un `reviewFlag` con `target` `traditionalUses[<índice>]`, que todo grupo con una cita sin resolver es pendiente y tiene el flag `cita-sin-resolver`, que toda cita apunta a un `usda_reference:*` del paquete (y a una candidata de esa clave cuando el paquete las trae) o está marcada «(sin resolver)», y que `activitySource` es una actividad literal del paquete;
 - que la imagen tiene licencia CC0, dominio público, CC BY o CC BY-SA (se rechazan NC y ND), `attributionRequired` verdadero para CC BY y CC BY-SA, y es una imagen del paquete.
 
-Las expresiones de dosis o eficacia (`dosis`, `mg`, `ml`, `gotas`, `cucharada`, `cura`, `trata`, `tratamiento`, `previene`, `elimina`, `alivia`, `eficaz` y similares) en los textos visibles son advertencias, no errores. El comando imprime errores y advertencias por planta y un resumen, escribe el informe completo con `--out` y termina con código 1 si hay algún error.
+Un `code` de `reviewFlags` que no esté en `flag-codes.json` (el catálogo cerrado que reproduce el prompt v3, con el `target` y el significado de cada código) es una advertencia, no un error. Las expresiones de dosis o eficacia (`dosis`, `mg`, `ml`, `gotas`, `cucharada`, `cura`, `trata`, `tratamiento`, `previene`, `elimina`, `alivia`, `eficaz` y similares) en los textos visibles son advertencias, no errores. El comando imprime errores y advertencias por planta y un resumen, escribe el informe completo con `--out` y termina con código 1 si hay algún error.
 
 ## Plan de regeneración
 

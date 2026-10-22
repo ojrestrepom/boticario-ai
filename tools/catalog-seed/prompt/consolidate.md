@@ -1,6 +1,6 @@
 # Prompt de consolidación (variante A)
 
-prompt-version: 2
+prompt-version: 3
 
 Este archivo es el prompt versionado del consolidador del catálogo de Boticario AI. La línea `prompt-version: <n>` de arriba es la versión que el registro guarda en `promptVersion`; cámbiala cada vez que cambie una regla de este prompt, porque `plan` vuelve a poner en cola todas las plantas cuando la versión cambia.
 
@@ -33,11 +33,18 @@ Todos los campos del esquema son obligatorios; no agregues campos que el esquema
 - `aliases`: exactamente `identity.aliases` (los IDs anteriores de la planta: los slugs del `TAXON` literal de USDA que no sean el `id`). Si el paquete no trae ninguno, lista vacía. Un alias nunca iguala el `id` de otra planta.
 - `scientificName` y `family`: el nombre propio de la planta, que es el de `identity.nameSet` con motivo `universe` (también `identity.name` y `identity.authors`), con su ref y los autores de esa fila de `sections.taxonomy`. Para una planta resuelta es el aceptado del backbone primario (`identity.accepted`); para una planta separada por colisión (`identity.collision.role` es `separada`) es su propio nombre y no el del aceptado compartido (`identity.collision.acceptedName`). Ejemplo: la bergamota es *Citrus × bergamia*, no el nombre del limón. `family` sale de `identity.family`.
 - `synonyms`: hasta 10, tomados de `identity.nameSet` (motivos `sinonimo-homotipico` y `heterotipico-fusionado`) y de `sections.taxonomy` (roles `sinonimo-homotipico` y `heterotipico-fusionado`), cada uno con el `ref` de su fila. No listes todos los sinónimos de un taxón amplio ni inventes ninguno. Si el paquete trae `identity.homotypicTotal`, hay más sinónimos de los listados.
-- `displayName`: el nombre común en español con el que la gente busca la planta, tomado del paquete (`sections.names` en español, que incluye los nombres P1843 y la etiqueta en español de Wikidata, `sections.wikidata.items[].p1843Es`, o el título de Wikipedia en español de `sections.descriptions`). Si no hay ninguno, usa un nombre del paquete en otro idioma con su `language` o el nombre científico, y registra un `reviewFlag`. Nunca aportes un nombre por tu cuenta, en especial para una planta tóxica.
-- `commonNames`: nombres por idioma, español primero, sin duplicados, solo del paquete y con ref. Un nombre con idioma `und` se acepta como español si es claramente español, siempre con su ref.
+- `displayName`: el nombre común en español con el que la gente busca la planta, con ref. Sale solo de estas fuentes del paquete, en este orden de preferencia (usa la primera que dé un nombre):
+  1. (a) el nombre común con el que el resumen de Wikipedia en español (`sections.descriptions`) presenta la planta: el título si es un nombre común y no el científico, o el primer nombre de «conocida como …», «llamada …» o una fórmula similar en la primera frase;
+  2. (b) la etiqueta en español de Wikidata (`sections.wikidata.items[].labelEs`), si no es el nombre científico;
+  3. (c) los nombres P1843 en español de Wikidata (`p1843Es`);
+  4. (d) los nombres en español de `sections.names`;
+  5. (e) los alias en español de Wikidata (`aliasesEs`), solo si son claramente nombres comunes y no sinónimos científicos.
+
+  Usar cualquiera de (a) a (e) es normal y no lleva `reviewFlag`: son fuentes válidas del paquete. Si no hay ningún nombre en español, el `displayName` es el nombre científico (nunca un nombre en otro idioma) y el registro lleva un `reviewFlag` `sin-nombre-comun-es` con `target` `displayName`. Nunca aportes un nombre por tu cuenta, en especial para una planta tóxica.
+- `commonNames`: nombres por idioma, español primero, sin duplicados, solo del paquete y con ref. Un nombre con idioma `und` se acepta como español si es claramente español, siempre con su ref; si dudas del idioma de un nombre, regístralo con `idioma-de-nombre-dudoso` (`target` `commonNames`). Puedes normalizar mayúsculas y tildes de un nombre del paquete solo si la forma con tilde o mayúscula aparece también en el paquete; si no aparece, el nombre va tal cual viene.
 - `origin`: la región nativa en una frase corta, a partir de `sections.distribution.native` (regiones nativas de WCVP; `nativeAreas` trae algunas áreas y `nativeAreaCount` su total). Sin lista de países. Si `sections.distribution.of` es `aceptado-compartido`, la distribución es la del aceptado del grupo y no la de esta planta: no la presentes como propia (`origin` queda `null`) y registra el motivo en `identity.notes`.
-- `description`: de 1 a 2 frases neutras sobre qué planta es (porte, aspecto, dónde crece), de hasta 400 caracteres, resumidas solo de `sections.descriptions` (resúmenes de Wikipedia en español, con licencia CC BY-SA 4.0) o de otras secciones del paquete, como los nombres de `sections.regulatory` o la distribución, sin afirmaciones de salud. Si el paquete no trae descripciones ni otra fuente, `null`: una fuente desactivada o una planta sin artículo no se completa con generalidades. Cita el ref del que sale cada hecho; el ref de un resumen de Wikipedia lleva su `url`.
-- `partsUsed`: hasta 5 partes que las fuentes asocian a usos o preparados, en español (por ejemplo la EMA `Matricariae flos` es «Flor»), cada una con ref.
+- `description`: de 1 a 2 frases neutras sobre qué planta es (porte, aspecto, dónde crece), de hasta 400 caracteres, resumidas solo de `sections.descriptions` (resúmenes de Wikipedia en español, con licencia CC BY-SA 4.0), sin afirmaciones de salud. Si el paquete no trae descripciones (porque la planta no tiene artículo o Wikipedia está desactivada), `description` es `null`: no la construyas a partir de la taxonomía ni de la distribución. Motivo: esos datos ya salen en `scientificName`, `family` y `origin`, una frase derivada los repetiría y los agentes la redactarían de forma dispar. Cita el ref de donde sale cada hecho; el ref de un resumen de Wikipedia lleva su `url`.
+- `partsUsed`: hasta 5 partes que las fuentes asocian a usos o preparados, en español, cada una con ref. Salen de las fichas de la EMA (`sections.regulatory[].latinName`: `flos` es «Flor», `folium` «Hoja», `radix` «Raíz», `herba` «Parte aérea») o de otras fuentes de uso del paquete. No salen de las partes químicas de USDA (`sections.parts`), que describen dónde está un compuesto y no un uso.
 - `oil`: `{type: "Esencial", refs}` si el paquete registra un aceite esencial de la planta: el compuesto `EO` de USDA (`sections.parts[].hasEo`) cuenta como aceite esencial, igual que un preparado `aetheroleum` de la EMA (`sections.regulatory[].latinName`). Un aceite fijo, como el de ricino, no lo activa. Sin ese registro, `null`.
 - `traditionalUses`, `goals`, `safety`, `image`, `sources`, `refs` y `reviewFlags`: véanse las secciones siguientes.
 - `sources`: los datasets que respaldan al menos un valor del registro, con la licencia que traen los refs, sin duplicados.
@@ -45,13 +52,23 @@ Todos los campos del esquema son obligatorios; no agregues campos que el esquema
 
 ## Usos tradicionales y citas abreviadas
 
-`traditionalUses` tiene hasta 20 grupos. Agrupa las actividades equivalentes de `sections.uses`, tradúcelas al español en `activity` y conserva el texto original, literal, de una actividad del paquete en `activitySource`. Prioriza los grupos con más filas y con cita resuelta. `n` es el número de filas del grupo, `countries` son los países traducidos al español, sin conservar el original, y `refs` son los refs de las filas que respaldan el grupo, más los refs de las citas resueltas.
+`traditionalUses` tiene hasta 20 grupos. Cada grupo corresponde a una sola actividad de `sections.uses`: no fusiones actividades equivalentes (por ejemplo «Fever» y «Febrifuge» son dos grupos), porque el validador exige que `activitySource` sea una actividad del paquete y que las citas sean las candidatas de ese grupo. Traduce la actividad al español en `activity` y conserva el texto original, literal, en `activitySource`. `n` es el número de filas del grupo tal como viene en el paquete, `countries` son los países traducidos al español, sin conservar el original, y `refs` son los refs de las filas que respaldan el grupo, más los refs de las citas resueltas.
+
+Si el paquete trae más de 20 grupos, elige 20 en este orden: primero los grupos con al menos una clave de cita que tenga candidata en `candidates`, por `n` de mayor a menor y luego por actividad (alfabético); después el resto, en el mismo orden. Así no se llena el registro con grupos que solo citan claves sin candidata (como `Woi.Syria`) y quedarían pendientes de revisión.
+
+Traducción de países: traduce un país solo si su traducción es segura (un nombre de país corriente, como «Spain» a «España»). Si no puedes traducirlo con seguridad (por ejemplo `Nc`, `Dr` o `US*` de USDA), omite ese país del grupo sin descartar el grupo; si todos los países del grupo son así, `countries` queda como lista vacía. Equivalencias seguras ya usadas:
+
+| Original | Español |
+| --- | --- |
+| `Elsewhere` | Otros lugares |
+| `Mediterranean` | Región mediterránea |
+| `US(Co)` | Estados Unidos (Colorado) |
 
 Cada grupo trae sus claves cortas de REFERENCE tal como vienen de USDA en `citations` (`Woi.10`, `Eb24: 441`, `Burkill,1966`) y, por clave, hasta 5 entradas candidatas en `candidates` (un objeto de clave a lista de `{ref, citation}`), cada una con su ref `usda_reference:<REFERENCE>` y su cita completa; una clave sin candidatas no figura en `candidates`. Si un grupo trae `refsTotal` o `citationsTotal`, el paquete recortó sus refs o sus claves, y si `identity.notes` dice que se omitieron grupos, no inventes los omitidos. Resuelve cada clave así:
 
 1. Elige entre las candidatas de esa clave la que corresponda y cita su ref. El campo `citations` del grupo lleva un objeto `{key, ref, text}` por clave: `key` es la clave tal como viene, `ref` el ref `usda_reference:*` de la candidata y `text` la cita completa de la candidata, con el volumen o la página tomados de la clave. Ejemplos: `Woi.10` con la candidata `WOI` da «The Wealth of India, vol. 10»; `Eb24: 441` con la candidata `EB` da «Economic Botany 24: 441»; `Burkill,1966` con la candidata `Burkill, 1966` da «Burkill, 1966».
 2. Nunca construyas una cita que no esté en las candidatas ni cites un ref que no sea una candidata.
-3. Si ninguna candidata corresponde a la clave (por ejemplo una obra poco clara como `Woi.Syria`), deja la clave sin resolver: `{key: "<clave>", ref: null, text: "<clave> (sin resolver)"}`. Ese grupo lleva `pendingReview: true` y el registro lleva un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo afectado, donde `<índice>` es la posición del grupo en `traditionalUses` (empieza en 0).
+3. Si ninguna candidata corresponde a la clave (por ejemplo una obra poco clara como `Woi.Syria`, o una clave sin página real como `Eb33: 000`, donde `000` es un marcador de USDA y no una página; la regla es dejarla sin resolver y no citarla literal, para no presentar una página inexistente como cita), deja la clave sin resolver: `{key: "<clave>", ref: null, text: "<clave> (sin resolver)"}`. Ese grupo lleva `pendingReview: true` y el registro lleva un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo afectado, donde `<índice>` es la posición del grupo en `traditionalUses` (empieza en 0).
 4. Un grupo sin ninguna cita sin resolver lleva `pendingReview: false`.
 
 ## Objetivos
@@ -62,7 +79,7 @@ Los `goals` salen únicamente de `sections.regulatory` (la EMA) y de `goals-map.
 2. Mapea cada área terapéutica (separadas por `;`) con `goals-map.json`. `area` lleva la traducción al español del área, tomada del mapa. `evidence` es una frase breve en español, sin eficacia, por ejemplo «La EMA tiene una monografía en esta área». `refs` son los refs de las fichas de la EMA que lo respaldan.
 3. `subarea` es el id de la subárea solo cuando `goal` es `otros-objetivos`; en los demás objetivos es `null`. No repitas el mismo par `goal` y `subarea`: junta en `area`, `evidence` y `refs` todas las áreas que lo respaldan.
 4. Los ids de `goal` y `subarea` deben existir en `data/seed/goals.json`.
-5. Una planta que TPPT marque como «strong toxic» o «very strong toxic» no recibe ningún objetivo, aunque la EMA le asigne un área. Para decidirlo, separa `humanToxicity` (de la entrada `tppt` de `sections.safety`) por «, » y compara el prefijo anterior al paréntesis. Registra un `reviewFlag` que lo explique.
+5. Una planta que TPPT marque como «strong toxic» o «very strong toxic» no recibe ningún objetivo, aunque la EMA le asigne un área. Para decidirlo, separa `humanToxicity` (de la entrada `tppt` de `sections.safety`) por «, » y compara el prefijo anterior al paréntesis. Registra el `reviewFlag` `objetivos-omitidos-por-toxicidad` (`target` `goals`).
 6. Una planta con interacciones graves registradas por la EMA (`severeInteractions` verdadero en alguna entrada `ema_pdf` de `sections.safety`) y el área «Mental stress and mood disorders» (como el hipérico) lleva el objetivo `relajacion-estres` con `pendingReview: true` y un `reviewFlag` `{code: "interacciones-graves-estres", target: "goals.relajacion-estres", message}`. Todo objetivo con `pendingReview` verdadero necesita un `reviewFlag` cuyo `target` lo señale (`goals.<goal>`).
 7. Sin ficha de la EMA que cuente, `goals` es una lista vacía. Nunca derives objetivos de los usos tradicionales de USDA.
 
@@ -84,7 +101,34 @@ Si ninguna entrada fija nivel, `safety` es `null` y el registro lleva un `review
 
 ## reviewFlags
 
-`reviewFlags` es una lista de objetos `{code, target, message}`; nunca cadenas sueltas. `code` va en minúsculas con guiones, `target` indica el campo o el objetivo afectado (`scientificName`, `safety`, `goals.<goal>`, `traditionalUses[<índice>]`) y `message` es una frase concreta en español. Copia todos los objetos de `identity.flags` (ya traen `code`, `target` y `message`, incluidos los de Wikidata `wikidata-sin-respuesta`, `wikidata-sin-item` y `wikidata-no-consultada` y el de fusión heterotípica) y registra los motivos que expliquen `identity.notes`: identidad ambigua (`identidad-ambigua`), solo género (`solo-genero`), sin resolución (`sin-resolucion`), respaldo de WFO (`respaldo-wfo`) o de variante ortográfica (`variante-ortografica`), backbones en discrepancia (`backbones-discrepan`), grupo partido (`grupo-partido`), filas sin asignar (`filas-sin-asignar`), extracción de seguridad fallida (`extraccion-seguridad-fallida`), conflicto entre fuentes (`conflicto-entre-fuentes`), interacciones graves en estrés y ánimo (`interacciones-graves-estres`), citas sin resolver (`cita-sin-resolver`), ausencia de datos de seguridad (`sin-datos-de-seguridad`), fusión heterotípica (`fusion-heterotipica`) y datos de Wikidata ausentes (`wikidata-sin-respuesta`, `wikidata-sin-item`, `wikidata-no-consultada`). Los flags no bloquean la presencia de la planta en el catálogo.
+`reviewFlags` es una lista de objetos `{code, target, message}`; nunca cadenas sueltas. `code` es uno de los códigos de la tabla siguiente, que es el catálogo cerrado (`tools/catalog-seed/flag-codes.json`); no inventes códigos ni sinónimos (nada de `nombre-comun-ausente`, `sin-objetivos-de-bienestar` ni similares): el validador avisa de cualquier código fuera del catálogo. `target` indica el campo o el objetivo afectado (`scientificName`, `displayName`, `safety`, `goals`, `goals.<goal>`, `traditionalUses[<índice>]`) y `message` es una frase concreta en español. Copia todos los objetos de `identity.flags` tal como vienen (los marcados «paquete»), y registra los demás (los marcados «registro») cuando ocurra lo que describen. Los flags no bloquean la presencia de la planta en el catálogo.
+
+| Código | Origen | Target | Significado |
+| --- | --- | --- | --- |
+| `identidad-ambigua` | paquete | `scientificName` | El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente. |
+| `solo-genero` | paquete | `scientificName` | La entrada solo nombra el género. |
+| `sin-resolucion` | paquete | `scientificName` | El nombre no resuelve a un aceptado en ningún backbone. |
+| `respaldo-wfo` | paquete | `scientificName` | El aceptado viene del respaldo de WFO, no de WCVP. |
+| `coincidencia-aproximada` | paquete | `scientificName` | El nombre resolvió por coincidencia aproximada (errata probable). |
+| `aceptado-superior-a-especie` | paquete | `scientificName` | El aceptado es de rango superior a especie. |
+| `variante-ortografica` | paquete | `scientificName` | El nombre resolvió por una variante ortográfica del epíteto. |
+| `backbones-discrepan` | paquete | `scientificName` | WCVP y WFO discrepan en el aceptado. |
+| `grupo-partido` | paquete | `scientificName` | El aceptado lo comparten plantas heterotípicas; esta es una de las separadas. |
+| `fusion-heterotipica` | paquete | `scientificName` | Se fusionaron sinónimos heterotípicos sin artículo propio en Wikipedia; requiere revisión humana. |
+| `filas-sin-asignar` | paquete | `scientificName` | Hay filas del grupo sin asignar a ninguna planta. |
+| `wikidata-sin-respuesta` | paquete | `wikidata` | Wikidata no respondió o está desactivada. |
+| `wikidata-sin-item` | paquete | `wikidata` | Ningún ítem de Wikidata pasa el filtro de homónimos. |
+| `wikidata-no-consultada` | paquete | `wikidata` | La planta no tiene aceptado, así que no se consultó Wikidata. |
+| `extraccion-seguridad-fallida` | paquete | `safety` | La extracción de los PDF de la EMA falló (entrada `ema_pdf` con `status` `extraccion-fallida`). |
+| `cita-sin-resolver` | registro | `traditionalUses[<índice>]` | Un grupo tiene una clave de cita sin candidata; un flag por grupo afectado. |
+| `interacciones-graves-estres` | registro | `goals.relajacion-estres` | Interacciones graves de la EMA y área de estrés y ánimo; objetivo pendiente. |
+| `sin-datos-de-seguridad` | registro | `safety` | Ninguna entrada fija nivel; la planta no se presenta como segura. |
+| `objetivos-omitidos-por-toxicidad` | registro | `goals` | TPPT marca la planta como «strong toxic» o «very strong toxic» y se omiten los objetivos que la EMA le asigna. |
+| `sin-nombre-comun-es` | registro | `displayName` | El paquete no trae ningún nombre común en español; el `displayName` es el nombre científico. |
+| `idioma-de-nombre-dudoso` | registro | `commonNames` | No es seguro que un nombre del paquete sea español. |
+| `conflicto-entre-fuentes` | registro | campo afectado | Dos fuentes se contradicen y se usó la más autorizada. |
+
+Una planta sin objetivos porque la EMA no tiene fichas que cuenten no lleva flag: `goals` vacío ya lo dice.
 
 ## Antes de entregar
 

@@ -214,6 +214,7 @@ class ExtractTests(unittest.TestCase):
         self.assertTrue(image["content"]["attributionRequired"])
         self.assertEqual(image["content"]["author"], "Ana")
         self.assertTrue(image["content"]["pageUrl"].startswith("https://commons.wikimedia.org/wiki/File:Ok"))
+        self.assertEqual(image["content"]["fileUrl"], "https://upload.example/Ok.jpg")  # sin parámetros utm_*
         self.assertEqual(stats, {"wikidata": 4, "wikipedia_es": 3, "commons": 2})
 
     def test_extract_is_repeatable(self):

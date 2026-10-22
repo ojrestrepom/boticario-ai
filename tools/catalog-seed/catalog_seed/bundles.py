@@ -27,6 +27,7 @@ from pathlib import Path
 
 from . import goals as goals_lib
 from . import safety, workdb
+from .licenses import clean_file_url
 from .resolve_universe import universe_document
 from .seed import DEFAULT_BUNDLES_DIR, canonical_json
 from .sources import SourceError
@@ -643,7 +644,7 @@ class Builder(object):
                     c = row["content"]
                     ref = refs.add("commons:%s" % entry["title"], "commons", "Wikimedia Commons: %s" % entry["title"],
                                    license=c.get("license"), url=c.get("pageUrl"))
-                    images.append({"ref": ref, "title": c.get("title"), "url": c.get("fileUrl"), "pageUrl": c.get("pageUrl"), "author": c.get("author"),
+                    images.append({"ref": ref, "title": c.get("title"), "url": clean_file_url(c.get("fileUrl")), "pageUrl": c.get("pageUrl"), "author": c.get("author"),
                                    "license": c.get("license"), "licenseCode": c.get("licenseCode"), "licenseUrl": c.get("licenseUrl"),
                                    "attributionRequired": bool(c.get("attributionRequired")), "mime": c.get("mime"), "width": c.get("width"),
                                    "height": c.get("height"), "qid": entry["qid"]})

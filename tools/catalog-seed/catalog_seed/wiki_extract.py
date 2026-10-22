@@ -10,7 +10,7 @@ Solo lee la caché (nunca la red). Filas, con el ref `<record_type>:<row_key>`:
 La extracción no filtra homónimos: guarda lo que hay en la caché, que la descarga solo llena para los ítems que pasan el filtro
 (Wikipedia y Commons). La asignación a plantas (`wiki_assign.build_assignment`) dice qué ítem va a qué planta.
 """
-from .licenses import MISSING, classify, strip_html
+from .licenses import MISSING, classify, clean_file_url, strip_html
 from .wiki import CommonsStep, WikidataStep, WikipediaStep, commons_title
 from .wiki_assign import IPNI_PREFIX, _wikidata_items
 from .workdb import Row
@@ -86,7 +86,7 @@ def commons_rows(cache_dir):
             stats[key] = stats.get(key, 0) + 1
             continue
         content = {
-            "title": response["title"], "pageUrl": info.get("descriptionurl", ""), "fileUrl": info.get("url", ""),
+            "title": response["title"], "pageUrl": info.get("descriptionurl", ""), "fileUrl": clean_file_url(info.get("url", "")),
             "author": result["author"] or result["credit"], "license": result["license"], "licenseCode": result["licenseCode"],
             "licenseUrl": result["licenseUrl"], "attributionRequired": result["attributionRequired"],
             "mime": info.get("mime", ""), "width": info.get("width"), "height": info.get("height"),

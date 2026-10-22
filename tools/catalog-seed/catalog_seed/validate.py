@@ -11,7 +11,19 @@ from pathlib import Path
 
 from . import goals as goals_lib
 from .schema import load_schema, validate as validate_schema
-from .sources import SourceError
+from .sources import TOOL_DIR, SourceError
+
+FLAG_CODES_PATH = TOOL_DIR / "flag-codes.json"
+
+
+def load_flag_codes(path=FLAG_CODES_PATH):
+    """Conjunto de códigos de reviewFlags del catálogo cerrado (flag-codes.json)."""
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return set(json.load(handle)["codes"])
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise SourceError("catálogo de códigos de flag ilegible %s: %s" % (path, error))
+
 
 UNRESOLVED_MARK = "(sin resolver)"
 TOXIC_LEVELS = ("strong toxic", "very strong toxic")
@@ -157,7 +169,7 @@ def _goal_targets(goal, index):
     return targets
 
 
-def validate_record(record, bundle, schema, goals_map, catalog):
+def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None):
     """Valida un registro contra su paquete. Devuelve (errores, advertencias)."""
     errors, warnings = [], []
     plant = record.get("id", "?") if isinstance(record, dict) else "?"
@@ -275,6 +287,12 @@ def validate_record(record, bundle, schema, goals_map, catalog):
         image_refs = {entry.get("ref") for entry in bundle.get("sections", {}).get("images", [])}
         if not image_refs & set(image["refs"]):
             errors.append("image: ningún ref corresponde a una imagen del paquete")
+
+    # Códigos de flag fuera del catálogo cerrado: advertencia.
+    known = flag_codes if flag_codes is not None else load_flag_codes()
+    for index, flag in enumerate(record["reviewFlags"]):
+        if flag["code"] not in known:
+            warnings.append("reviewFlags[%d]: el código '%s' no está en el catálogo de flag-codes.json" % (index, flag["code"]))
 
     # Palabras de dosis o eficacia: advertencia.
     for path, text in _visible_texts(record):

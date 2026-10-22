@@ -254,7 +254,7 @@ def wikimedia_rows():
                                             "pageUrl": "https://commons.wikimedia.org/wiki/File:Lavanda.jpg", "author": "Ana", "license": "CC BY-SA 4.0",
                                             "licenseCode": "cc-by-sa", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
                                             "attributionRequired": True, "mime": "image/jpeg", "width": 800, "height": 600}, raw_name_cell="File:Lavanda.jpg"),
-        Row("commons", "File:Hiperico.jpg", {"title": "File:Hiperico.jpg", "fileUrl": "https://upload.example/Hiperico.jpg",
+        Row("commons", "File:Hiperico.jpg", {"title": "File:Hiperico.jpg", "fileUrl": "https://upload.example/Hiperico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
                                              "pageUrl": "https://commons.wikimedia.org/wiki/File:Hiperico.jpg", "author": None, "license": "Public domain",
                                              "licenseCode": "public-domain", "licenseUrl": None, "attributionRequired": False, "mime": "image/jpeg",
                                              "width": 10, "height": 10}, raw_name_cell="File:Hiperico.jpg"),

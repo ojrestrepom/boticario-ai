@@ -2,8 +2,10 @@ import contextlib
 import io
 import json
 import os
+import re
 import tempfile
 import unittest
+from pathlib import Path
 
 import fixtures_support as fx
 import support  # noqa: F401
@@ -11,7 +13,7 @@ import support  # noqa: F401
 from catalog_seed import goals
 from catalog_seed.cli import main
 from catalog_seed.schema import load_schema
-from catalog_seed.validate import image_license_kind, toxic_categories, validate_directory, validate_record
+from catalog_seed.validate import image_license_kind, load_flag_codes, toxic_categories, validate_directory, validate_record
 
 
 class ValidatorCase(unittest.TestCase):
@@ -122,6 +124,21 @@ class ScenarioTests(ValidatorCase):
     def test_texto_sin_dosis_no_da_advertencias(self):
         _, warnings = self.run_validator(fx.record())
         self.assertEqual(warnings, [])
+
+    def test_codigo_de_flag_fuera_del_catalogo_es_advertencia(self):
+        record = fx.record()
+        record["reviewFlags"].append({"code": "nombre-comun-ausente", "target": "displayName", "message": "Sin nombre."})
+        errors, warnings = self.run_validator(record)
+        self.assertEqual(errors, [])
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("'nombre-comun-ausente' no está en el catálogo", warnings[0])
+
+    def test_catalogo_de_codigos_y_prompt_coinciden(self):
+        codes = load_flag_codes()
+        self.assertIn("sin-nombre-comun-es", codes)
+        prompt = (Path(__file__).resolve().parent.parent / "prompt" / "consolidate.md").read_text(encoding="utf-8")
+        listed = set(re.findall(r"^\| `([a-z-]+)` \|", prompt, re.MULTILINE))
+        self.assertEqual(listed, codes)
 
     def test_grupo_pendiente_sin_flag(self):
         record = fx.record()

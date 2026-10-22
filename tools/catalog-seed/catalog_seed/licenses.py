@@ -6,6 +6,7 @@ atribución y no trae autor ni crédito también se descarta, porque no se podr�
 """
 import html
 import re
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 LICENSE_URLS = {
     "cc0": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -27,6 +28,15 @@ _CC_BY = re.compile(r"^cc[- ]by(?P<sa>[- ]sa)?[- ](?P<version>\d(?:\.\d)?)(?:[- 
 _CC_RESTRICTED = re.compile(r"^cc[- ]by\b.*[- ](?P<kind>nc|nd)\b")
 _SPLIT = re.compile(r"\s*(?:,|;|\+|/| and | or )\s*")
 _TAG = re.compile(r"<[^>]*>")
+
+
+def clean_file_url(url):
+    """La URL del archivo sin los parámetros de seguimiento `utm_*` que Commons añade a imageinfo."""
+    if not isinstance(url, str) or "utm_" not in url:
+        return url
+    parts = urlsplit(url)
+    query = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True) if not k.lower().startswith("utm_")]
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
 
 
 def meta(extmetadata, name):

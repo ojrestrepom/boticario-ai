@@ -62,9 +62,9 @@ class SeedCase(unittest.TestCase):
 
 class PromptTests(unittest.TestCase):
     def test_real_prompt_declares_its_version(self):
-        self.assertEqual(read_prompt_version(DEFAULT_PROMPT), 2)
+        self.assertEqual(read_prompt_version(DEFAULT_PROMPT), 3)
         with open(DEFAULT_PROMPT, encoding="utf-8") as handle:
-            self.assertRegex(handle.read(), r"(?m)^prompt-version: 2$")
+            self.assertRegex(handle.read(), r"(?m)^prompt-version: 3$")
 
     def test_prompt_without_version_fails(self):
         path = os.path.join(tempfile.mkdtemp(), "p.md")

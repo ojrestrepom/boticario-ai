@@ -97,6 +97,7 @@ def item(qid, taxon, authors=None, **fields):
 def commons_response(title, **meta):
     """Respuesta de la caché de Commons con los extmetadata dados (clave: valor)."""
     return {"title": title, "imageinfo": {
-        "url": "https://upload.example/" + title.split(":", 1)[1].replace(" ", "_"),
+        "url": "https://upload.example/" + title.split(":", 1)[1].replace(" ", "_")
+        + "?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
         "descriptionurl": "https://commons.wikimedia.org/wiki/" + title.replace(" ", "_"), "mime": "image/jpeg", "width": 800,
         "height": 600, "extmetadata": {k: {"value": v} for k, v in meta.items()}}}

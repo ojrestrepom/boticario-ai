@@ -834,6 +834,31 @@ Las fuentes de servicio en línea (`wikidata`, `wikipedia_es` y `commons`) van c
 
 La semilla provisional de la tarea 6.2 (`data/seed/plants/` y `manifest.json`, con los 20 registros v7 de la corrida de control) no se publica: el `push` a `main` despliega.
 
+## Generación completa (grupo 11)
+
+Decisión del usuario para la tarea 11.1 (2026-10-25): modo A, agentes de Claude Code con un workflow. Sus palabras: «El workflow me parece aceptable». Sobre las fases: «Dos fases me parece bien». Sobre el tope: «Lo que nos alcance con las ventanas de 5 horas que tenemos, no importa si nos gastamos todos mis tokens disponibles».
+
+Preparación (tarea 11.2), sin red: se reconstruyeron los paquetes de todo el universo con `bundles` (2.355), porque los de las plantas fuera del control se habían armado antes de la limpieza de `utm_*` en las URL de imágenes. Los 20 paquetes de control conservan el `bundleHash` que guardan sus registros de `data/seed/plants/`. Después `plan --bundles data/work/bundles --seed data/seed --json` dio 2.335 plantas, todas con motivo `sin-registro`: el universo menos las 20 de control. El plan queda en `data/work/generation/plan.json`.
+
+Fases:
+
+- Fase 1: las plantas del plan con al menos una entrada de la EMA, es decir, con alguna entrada `ema:` en `data/work/universe/universe.json`. Es el mismo conjunto que el de las plantas cuyo paquete trae una sección `regulatory` no vacía (los dos criterios coinciden en las 189).
+- Fase 2: el resto del plan.
+
+Cifras:
+
+| Fase | Plantas | Lotes de 10 | Archivos |
+| --- | --- | --- | --- |
+| 1 | 189 | 19 (el último de 9) | `data/work/generation/phase1/lot-NN.txt` y `lots.json` |
+| 2 | 2.146 | 215 (el último de 6) | `data/work/generation/phase2/lots.json` |
+| Total | 2.335 | 234 | |
+
+Los lotes siguen el orden del plan, por `id`. Cada `lots.json` lista los lotes con sus IDs.
+
+Costo estimado: unos 18.500 tokens por planta según la corrida de control, es decir, unos 3,5 millones de tokens para la fase 1 y unos 39,7 millones para la fase 2 (unos 43 millones en total). El tope es el que alcance con las ventanas de 5 horas.
+
+Reanudación: `plan` solo pone en cola las plantas sin registro (o con otro `bundleHash`, `promptVersion` o `recordVersion`), así que, si la ejecución se corta, se vuelve a correr `plan` y se retoman las pendientes. El workflow escribe los registros en `data/work/generation/phase<N>/records/`, un archivo por planta, y esos directorios se importan al final con `seal --from`.
+
 ## Extracción de seguridad de los PDF de la EMA (spike 3.1)
 
 El spike de la tarea 3.1 (detalle en [`tools/catalog-seed/spikes/ema-pdf/README.md`](tools/catalog-seed/spikes/ema-pdf/README.md)) comprobó si se pueden extraer de los PDF de la EMA las secciones 4.3 (contraindicaciones), 4.4 (advertencias y precauciones) y 4.5 (interacciones), con su numeración y sin mezclar columnas.

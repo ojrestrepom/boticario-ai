@@ -83,13 +83,21 @@ def universe():
         plant("adhatoda-vasica", "Adhatoda vasica", 10, matched_id=11, kind="heterotypic"),
         {"id": "genero-suelto", "name": "Salvia", "author": "", "kind": "genus_only", "backbone": None, "acceptedId": None,
          "matchedId": None, "family": None, "entries": [], "aliases": [], "flags": [], "reviewFlags": [], "collision": None},
+        {"id": "planta-sin-resolver", "name": "Taraxacum officinale", "author": "", "kind": "unresolved", "backbone": "wcvp",
+         "acceptedId": None, "matchedId": None, "family": None, "aliases": [], "flags": [], "reviewFlags": [], "collision": None,
+         "entries": [{"source": "usda", "key": "usda:1", "name": n, "author": "", "outcome": "unresolved", "matchedName": n,
+                      "relation": None} for n in ("Taraxacum officinale", "Taraxacum vulgare", "Taraxacum officinale")]},
+        {"id": "planta-ambigua", "name": "Avicennia tomentosa", "author": "", "kind": "ambiguous", "backbone": "wcvp",
+         "acceptedId": None, "matchedId": None, "family": None, "aliases": [], "flags": [], "reviewFlags": [], "collision": None,
+         "entries": [{"source": "usda", "key": "usda:2", "name": "Avicennia tomentosa", "author": "", "outcome": "ambiguous",
+                      "matchedName": None, "relation": None}]},
     ]
     return {"format": "catalog-universe/1", "inputs": {"wcvp": "fixture"}, "plantCount": len(plants), "plants": plants}
 
 
 def item(qid, taxon, authors=None, **fields):
     data = {"qid": qid, "taxon": taxon, "authors": authors or [], "labelEs": "", "aliasesEs": [], "spanishNames": [],
-            "images": [], "eswiki": "", "gbif": [], "powo": [], "ipni": []}
+            "images": [], "eswiki": "", "gbif": [], "powo": [], "ipni": [], "ranks": []}
     data.update(fields)
     return data
 

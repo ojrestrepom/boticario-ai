@@ -39,8 +39,11 @@ class NamePlanTests(AssignTestCase):
         self.assertEqual(self.plan["byName"]["Lavandula officinalis"], ["lavandula-angustifolia"])
         self.assertEqual(len(names), len(set(names)))
 
-    def test_plants_without_an_accepted_name_are_not_queried(self):
-        self.assertEqual(self.plan["byPlant"]["genero-suelto"], [])
+    def test_unresolved_plants_query_their_entry_names_and_genus_only_their_genus_but_ambiguous_nothing(self):
+        self.assertEqual(self.plan["byPlant"]["genero-suelto"], ["Salvia"])
+        self.assertEqual(self.plan["byPlant"]["planta-sin-resolver"], ["Taraxacum officinale", "Taraxacum vulgare"])
+        self.assertEqual(self.plan["byPlant"]["planta-ambigua"], [])
+        self.assertNotIn("Avicennia tomentosa", self.plan["names"])
 
 
 class HomonymFilterTests(AssignTestCase):
@@ -98,6 +101,61 @@ class HomonymFilterTests(AssignTestCase):
         document = self.assign()
         self.assertEqual(document["items"]["Q1"]["reason"], "sin-nombre")
         self.assertEqual(document["items"]["Q2"]["reason"], "sin-resolver")
+
+
+class OwnNameTests(AssignTestCase):
+    def test_unresolved_plant_takes_the_item_with_its_exact_p225(self):
+        self.store("Taraxacum officinale", ws.item("Q131", "Taraxacum officinale", ["F.H.Wigg."], spanishNames=["diente de león"]))
+        document = self.assign()
+        plant = document["plants"]["planta-sin-resolver"]
+        self.assertEqual(plant["wikidata"], {"status": wa.STATUS_WITH_ITEM, "items": ["Q131"]})
+        self.assertEqual(plant["spanishNames"], ["diente de león"])
+        self.assertEqual(document["items"]["Q131"]["reason"], wa.OWN_NAME_REASON)
+        self.assertFalse(document["items"]["Q131"]["homonym"])
+
+    def test_item_with_a_different_p225_does_not_enter(self):
+        self.store("Taraxacum officinale", ws.item("Q132", "Taraxacum campylodes"))
+        document = self.assign()
+        self.assertIsNone(document["items"]["Q132"]["plantId"])
+        self.assertEqual(document["plants"]["planta-sin-resolver"]["wikidata"]["status"], wa.STATUS_NO_ITEM)
+
+    def test_two_items_with_the_same_p225_are_homonyms_and_none_enters(self):
+        self.store("Taraxacum officinale", ws.item("Q131", "Taraxacum officinale"), ws.item("Q133", "Taraxacum officinale"))
+        document = self.assign()
+        self.assertEqual(document["plants"]["planta-sin-resolver"]["wikidata"]["items"], [])
+        self.assertEqual(document["plants"]["planta-sin-resolver"]["wikidata"]["status"], wa.STATUS_NO_ITEM)
+        self.assertTrue(all(document["items"][q]["plantId"] is None for q in ("Q131", "Q133")))
+
+    def test_ambiguous_plant_is_not_queried_and_gets_nothing(self):
+        self.store("Avicennia tomentosa", ws.item("Q500", "Avicennia tomentosa"))
+        document = self.assign()
+        self.assertIsNone(document["items"]["Q500"]["plantId"])
+        self.assertEqual(document["plants"]["planta-ambigua"]["wikidata"], {"status": wa.STATUS_NOT_QUERIED, "items": []})
+
+    def test_genus_only_plant_needs_the_genus_rank(self):
+        self.store("Salvia", ws.item("Q1", "Salvia", ranks=[wa.GENUS_RANK]))
+        document = self.assign()
+        self.assertEqual(document["plants"]["genero-suelto"]["wikidata"], {"status": wa.STATUS_WITH_ITEM, "items": ["Q1"]})
+        self.assertEqual(document["items"]["Q1"]["reason"], wa.OWN_NAME_REASON)
+
+    def test_genus_only_plant_rejects_other_ranks_or_unknown_rank(self):
+        self.store("Salvia", ws.item("Q2", "Salvia", ranks=["Q7432"]))
+        self.assertEqual(self.assign()["plants"]["genero-suelto"]["wikidata"]["items"], [])
+        self.store("Salvia", ws.item("Q3", "Salvia"))
+        self.assertEqual(self.assign()["plants"]["genero-suelto"]["wikidata"]["items"], [])
+
+    def test_plants_with_an_accepted_name_do_not_change(self):
+        items = (ws.item("Q42081", "Lavandula angustifolia", ["Mill."]), ws.item("Q905916", "Lavandula latifolia", ["Medik."]))
+        self.store("Lavandula angustifolia", *items)
+        before = self.assign()
+        self.store("Taraxacum officinale", ws.item("Q131", "Taraxacum officinale"))
+        self.store("Salvia", ws.item("Q1", "Salvia", ranks=[wa.GENUS_RANK]))
+        after = self.assign()
+        for pid, plant in before["plants"].items():
+            if pid not in ("planta-sin-resolver", "genero-suelto"):
+                self.assertEqual(after["plants"][pid], plant)
+        for qid in ("Q42081", "Q905916"):
+            self.assertEqual(after["items"][qid], before["items"][qid])
 
 
 class SplitGroupTests(AssignTestCase):
@@ -164,9 +222,10 @@ class DeclaredStatusTests(AssignTestCase):
         self.assertEqual(status["lavandula-angustifolia"], wa.STATUS_WITH_ITEM)
         self.assertEqual(status["passiflora-incarnata"], wa.STATUS_NO_ITEM)
         self.assertEqual(status["justicia-adhatoda"], wa.STATUS_NO_RESPONSE)
-        self.assertEqual(status["genero-suelto"], wa.STATUS_NOT_QUERIED)
+        self.assertEqual(status["genero-suelto"], wa.STATUS_NO_RESPONSE)
+        self.assertEqual(status["planta-ambigua"], wa.STATUS_NOT_QUERIED)
         summary = wa.summarize(document)
-        self.assertEqual(summary["plantsByWikidataStatus"][wa.STATUS_NO_RESPONSE], 3)
+        self.assertEqual(summary["plantsByWikidataStatus"][wa.STATUS_NO_RESPONSE], 5)
 
     def test_disabled_wikidata_assigns_nothing(self):
         self.store("Lavandula angustifolia", ws.item("Q42081", "Lavandula angustifolia", ["Mill."]))

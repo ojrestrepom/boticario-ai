@@ -527,8 +527,9 @@ class BundlesCommandTests(unittest.TestCase):
             schema = load_schema(BUNDLE_SCHEMA)
             for bundle in written:
                 self.assertEqual(validate(bundle, schema), [])
-                # Caché vacía: no se pide nada a la red. Las plantas sin aceptado (Cimicifuga, que el fixture no tiene) no se consultan.
-                expected = "no-consultada" if bundle["identity"]["kind"] not in ("resolved", "heterotypic") else "sin-respuesta"
+                # Caché vacía: no se pide nada a la red. Solo las ambiguas no se consultan; las demás sin aceptado
+                # (Cimicifuga, que el fixture no tiene) se consultan por su nombre propio y aquí no tienen respuesta.
+                expected = "no-consultada" if bundle["identity"]["kind"] == "ambiguous" else "sin-respuesta"
                 self.assertEqual(bundle["sections"]["wikidata"]["status"], expected, bundle["plantKey"])
             with open(report, encoding="utf-8") as handle:
                 self.assertEqual(json.load(handle)["stats"]["bundles"], len(written))

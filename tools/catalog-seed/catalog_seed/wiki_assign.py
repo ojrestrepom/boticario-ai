@@ -10,6 +10,11 @@ recalcula sin red desde la caché y desde `universe.json`:
   aceptado si el nombre es el propio aceptado o un sinónimo homotípico. Un sinónimo heterotípico fusionado por la regla de colisiones
   (`fusedMatchedIds` de la planta en `universe.json`) va a la planta del aceptado en la que se fusionó; uno sin planta propia ni
   fusión queda sin asignar (`heterotipico-sin-planta`).
+- Plantas sin aceptado (regla del nombre propio, conservadora): una planta sin resolver (`unresolved`, `unmatched`) consulta los
+  nombres de sus entradas y una de solo género (`genus_only`) su género. Un ítem que el filtro deja sin asignar entra en la planta
+  solo si su P225 es exactamente uno de esos nombres, ningún otro ítem de la caché tiene el mismo P225 (homónimos) y la planta es la
+  única que lo pide; en las de solo género además el ítem debe declarar el rango género (P105 = Q34740). Las ambiguas (`ambiguous`)
+  no se consultan. Esos ítems llevan el motivo `nombre-propio`.
 - Wikipedia y Commons se asignan por el ítem que las enlaza (sitelink de eswiki y P18), así que heredan su planta.
 """
 from .licenses import MISSING, classify
@@ -21,6 +26,10 @@ ASSIGNMENT_FORMAT = "catalog-wiki-assignment/1"
 # Homónimos del piloto: se consultan como control para comprobar el filtro con datos reales (no pertenecen a ninguna planta).
 CONTROL_NAMES = ("Lavandula latifolia", "Passiflora edulis")
 IPNI_PREFIX = "urn:lsid:ipni.org:names:"
+
+GENUS_RANK = "Q34740"
+OWN_NAME_REASON = "nombre-propio"
+OWN_NAME_KINDS = ("unresolved", "unmatched", "genus_only")
 
 STATUS_WITH_ITEM = "con-item"
 STATUS_NO_ITEM = "sin-item"
@@ -38,8 +47,34 @@ def _queryable(plant):
     return plant["kind"] not in UNRESOLVED_KINDS and plant.get("backbone") and plant.get("acceptedId")
 
 
+def genus_name(plant):
+    """Género de una planta de solo género ("Aloe spp." da "Aloe"), o None si el nombre no es género + abreviatura."""
+    parts = plant["name"].split()
+    if parts and parts[0].isalpha() and parts[0][0].isupper() and parts[0].isascii():
+        return normalize_name(parts[0])
+    return None
+
+
+def own_name_candidates(plant):
+    """Nombres propios de una planta sin aceptado (regla conservadora); las ambiguas no tienen ninguno."""
+    if plant["kind"] == "genus_only":
+        genus = genus_name(plant)
+        return [genus] if genus else []
+    if plant["kind"] not in ("unresolved", "unmatched"):
+        return []
+    names = [plant["name"]] + [e["name"] for e in plant["entries"]]
+    out = []
+    for name in names:
+        name = normalize_name(name)
+        if " " in name and name not in out:
+            out.append(name)
+    return out
+
+
 def plant_names(plant, wcvp):
     """Nombres a consultar de una planta: su nombre, los de sus entradas y, en WCVP, el aceptado y sus sinónimos homotípicos."""
+    if plant["kind"] in OWN_NAME_KINDS:
+        return own_name_candidates(plant)
     if not _queryable(plant):
         return []
     names = [plant["name"]]
@@ -219,9 +254,21 @@ def build_assignment(universe, wcvp, wfo, name_plan, steps, enabled=None):
                         "commons": {"admitted": [], "discarded": []}} for p in load_plants(universe)}
     items_out = {}
     wiki_items = _wikidata_items(wikidata) if enabled.get("wikidata") else {}
+    own, by_taxon = {}, {}
+    for plant in load_plants(universe):
+        if plant["kind"] in OWN_NAME_KINDS:
+            for name in name_plan["byPlant"].get(plant["id"], []):
+                own.setdefault(name, []).append(plant)
+    for item in wiki_items.values():
+        by_taxon.setdefault(normalize_name(item.get("taxon") or ""), []).append(item["qid"])
     if wiki_items:
         for qid, item in sorted(wiki_items.items()):
             result = assigner.assign(item)
+            if not result["plantId"] and result["reason"] == "sin-resolver":
+                claimants = own.get(result["taxon"], [])
+                if (len(claimants) == 1 and len(by_taxon.get(result["taxon"], [])) == 1
+                        and (claimants[0]["kind"] != "genus_only" or GENUS_RANK in (item.get("ranks") or []))):
+                    result["plantId"], result["reason"] = claimants[0]["id"], OWN_NAME_REASON
             requested = sorted({pid for name in item["queried"] for pid in name_plan["byName"].get(name, [])})
             result.update(requestedFor=requested, ipni=assigner.ipni_evidence(item, result) if result["plantId"] else "sin-dato",
                           eswiki=item.get("eswiki") or None, queried=sorted(item["queried"]),

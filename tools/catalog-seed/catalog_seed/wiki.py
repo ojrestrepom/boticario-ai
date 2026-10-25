@@ -242,6 +242,7 @@ class WikidataStep(Step):
             "(GROUP_CONCAT(DISTINCT ?gbifId; separator=\"|\") AS ?gbif) "
             "(GROUP_CONCAT(DISTINCT ?powoId; separator=\"|\") AS ?powo) "
             "(GROUP_CONCAT(DISTINCT ?ipniId; separator=\"|\") AS ?ipni) "
+            "(GROUP_CONCAT(DISTINCT ?rankId; separator=\"|\") AS ?ranks) "
             "WHERE { " + " UNION ".join(values) + " "
             "OPTIONAL { ?item p:P225 ?st . ?st ps:P225 ?taxon . OPTIONAL { ?st pq:P405 ?authItem . ?authItem wdt:P428 ?auth } } "
             "OPTIONAL { ?item rdfs:label ?labelEs . FILTER(LANG(?labelEs) = \"es\") } "
@@ -252,6 +253,7 @@ class WikidataStep(Step):
             "OPTIONAL { ?item wdt:P846 ?gbifId } "
             "OPTIONAL { ?item wdt:P5037 ?powoId } "
             "OPTIONAL { ?item wdt:P961 ?ipniId } "
+            "OPTIONAL { ?item wdt:P105 ?rankItem . BIND(STRAFTER(STR(?rankItem), \"/entity/\") AS ?rankId) } "
             "} GROUP BY ?req ?item ?taxon"
         )
 
@@ -283,6 +285,7 @@ class WikidataStep(Step):
                 "gbif": [v for v in val("gbif").split("|") if v],
                 "powo": [v for v in val("powo").split("|") if v],
                 "ipni": split_values(val("ipni")),
+                "ranks": split_values(val("ranks")),
             }
             request_key = val("req") or item["qid"]
             if request_key in items:

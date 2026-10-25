@@ -600,10 +600,8 @@ class Builder(object):
     def _wiki(self, plant, doc, refs, notes):
         info = (self.wiki or {}).get("plants", {}).get(plant.id)
         names, descriptions, images, items = [], [], [], []
-        if not doc["acceptedId"]:
-            status = STATUS_NOT_QUERIED
-        elif info is None:
-            status = STATUS_NO_RESPONSE
+        if info is None:
+            status = STATUS_NO_RESPONSE if doc["acceptedId"] else STATUS_NOT_QUERIED
         else:
             status = info["wikidata"]["status"]
         if info is not None and self.enabled.get("wikidata"):

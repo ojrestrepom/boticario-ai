@@ -13,6 +13,7 @@ pub mod hash;
 pub mod input;
 pub mod raw;
 pub mod seed;
+pub mod seed_build;
 pub mod sources;
 pub mod usda;
 pub mod write;

@@ -5,8 +5,9 @@ use std::process::exit;
 use std::time::Instant;
 
 use catalog_ingest::IngestError;
-use catalog_ingest::build::{BuildReport, build, rederive};
+use catalog_ingest::build::{BuildReport, rederive};
 use catalog_ingest::download::{DownloadOutcome, download_input};
+use catalog_ingest::seed_build::build_from_dir;
 use catalog_ingest::sources::{default_registry, load_sources_config};
 
 /// Texto de ayuda; se imprime ante argumentos inválidos y con `--help`.
@@ -15,11 +16,13 @@ fn usage() -> &'static str {
 
 Subcomandos:
   download   Descarga y verifica los insumos de las fuentes activas en <data-dir>/.cache
-  build      Verifica los insumos de <data-dir>/.cache (no descarga), importa el crudo a <data-dir>/build/raw.db y escribe <data-dir>/build/catalog.db
+  build      Lee y verifica la semilla (<data-dir>/seed por defecto) y escribe el catálogo (<data-dir>/build/catalog.db por defecto), sin red
   rederive   Rehace <data-dir>/build/catalog.db desde <data-dir>/build/raw.db, sin el insumo original
 
 Opciones:
   --data-dir <ruta>   Directorio de datos (por defecto: data, relativo al directorio de trabajo)
+  --seed <ruta>       Solo build: directorio de la semilla (por defecto: <data-dir>/seed)
+  --out <ruta>        Solo build: archivo de salida (por defecto: <data-dir>/build/catalog.db)
   --help              Muestra esta ayuda
 
 Se ejecuta desde la raíz del repositorio:
@@ -37,6 +40,8 @@ enum Command {
 struct Args {
     command: Command,
     data_dir: PathBuf,
+    seed: Option<PathBuf>,
+    out: Option<PathBuf>,
 }
 
 /// Interpreta los argumentos (sin el nombre del programa). `Err` lleva el motivo para mostrar.
@@ -49,6 +54,8 @@ fn parse_args(mut args: impl Iterator<Item = String>) -> Result<Args, String> {
         None => return Err("falta el subcomando".to_string()),
     };
     let mut data_dir = PathBuf::from("data");
+    let mut seed = None;
+    let mut out = None;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--data-dir" => {
@@ -57,10 +64,29 @@ fn parse_args(mut args: impl Iterator<Item = String>) -> Result<Args, String> {
                     .map(PathBuf::from)
                     .ok_or("--data-dir necesita una ruta")?;
             }
+            "--seed" => {
+                seed = Some(
+                    args.next()
+                        .map(PathBuf::from)
+                        .ok_or("--seed necesita una ruta")?,
+                );
+            }
+            "--out" => {
+                out = Some(
+                    args.next()
+                        .map(PathBuf::from)
+                        .ok_or("--out necesita una ruta")?,
+                );
+            }
             other => return Err(format!("argumento desconocido \"{other}\"")),
         }
     }
-    Ok(Args { command, data_dir })
+    Ok(Args {
+        command,
+        data_dir,
+        seed,
+        out,
+    })
 }
 
 fn run_download(data_dir: &Path) -> Result<(), IngestError> {
@@ -89,18 +115,39 @@ fn print_report(report: &BuildReport, started: Instant) {
     println!("tiempo: {:.2?}", started.elapsed());
 }
 
-fn run_build(data_dir: &Path) -> Result<(), IngestError> {
+fn run_build(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     let started = Instant::now();
-    let config = load_sources_config(&data_dir.join("sources.toml"))?;
-    let build_dir = data_dir.join("build");
-    let report = build(
-        &default_registry(),
-        &config,
-        &data_dir.join(".cache"),
-        &build_dir.join("raw.db"),
-        &build_dir.join("catalog.db"),
-    )?;
-    print_report(&report, started);
+    let seed_dir = args
+        .seed
+        .clone()
+        .unwrap_or_else(|| args.data_dir.join("seed"));
+    let out = args
+        .out
+        .clone()
+        .unwrap_or_else(|| args.data_dir.join("build").join("catalog.db"));
+    let report = build_from_dir(&seed_dir, &out)?;
+    println!("semilla: {}", seed_dir.display());
+    println!("salida: {}", out.display());
+    println!("plantas: {}", report.plants);
+    println!("nombres: {}", report.names);
+    println!(
+        "grupos de uso: {} ({} pendientes de revisión)",
+        report.use_groups, report.pending_use_groups
+    );
+    println!("usos: {}", report.uses);
+    println!("citas sin resolver: {}", report.unresolved_citations);
+    println!(
+        "objetivos de planta: {} ({} pendientes de revisión)",
+        report.plant_goals, report.pending_goals
+    );
+    println!("seguridad: {}", report.safety);
+    println!("imágenes: {}", report.images);
+    println!("referencias: {}", report.references);
+    println!("fuentes: {}", report.sources);
+    println!("alias: {}", report.aliases);
+    println!("avisos de revisión: {}", report.review_flags);
+    println!("hash: {}", report.content_hash);
+    println!("tiempo: {:.2?}", started.elapsed());
     Ok(())
 }
 
@@ -132,9 +179,9 @@ fn main() {
         }
     };
     let result = match args.command {
-        Command::Download => run_download(&args.data_dir),
-        Command::Build => run_build(&args.data_dir),
-        Command::Rederive => run_rederive(&args.data_dir),
+        Command::Download => run_download(&args.data_dir).map_err(Into::into),
+        Command::Build => run_build(&args),
+        Command::Rederive => run_rederive(&args.data_dir).map_err(Into::into),
     };
     if let Err(err) = result {
         eprintln!("error: {err}");

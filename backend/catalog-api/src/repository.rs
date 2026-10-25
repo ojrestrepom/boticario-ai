@@ -393,7 +393,7 @@ mod tests {
             err,
             OpenError::Repository(RepositoryError::IncompatibleSchema {
                 found: 99,
-                supported: 1
+                supported: SCHEMA_VERSION
             })
         );
     }

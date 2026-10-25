@@ -9,7 +9,7 @@ use diesel::sqlite::Sqlite;
 use diesel_migrations::{EmbeddedMigrations, embed_migrations};
 
 /// Versión del esquema; súbela cuando las migraciones de `data/migrations/` cambien de forma incompatible.
-pub const SCHEMA_VERSION: u32 = 1;
+pub const SCHEMA_VERSION: u32 = 2;
 
 /// Clave de la tabla `metadata` donde se guarda la versión del esquema.
 pub const SCHEMA_VERSION_KEY: &str = "schema_version";
@@ -57,9 +57,11 @@ mod tests {
     use diesel::Connection;
     use rusqlite::Connection as Rusqlite;
 
-    /// El `up.sql` de la migración, leído en tiempo de compilación para buscar en él.
-    const UP_SQL: &str =
-        include_str!("../../../data/migrations/2026-10-12-000000_catalog_v1/up.sql");
+    /// El `up.sql` de cada migración, leído en tiempo de compilación para buscar en él.
+    const UP_SQL: [&str; 2] = [
+        include_str!("../../../data/migrations/2026-10-12-000000_catalog_v1/up.sql"),
+        include_str!("../../../data/migrations/2026-10-26-000000_catalog_v2/up.sql"),
+    ];
 
     fn schema_in_memory() -> SqliteConnection {
         let mut conn = SqliteConnection::establish(":memory:").unwrap();
@@ -120,14 +122,65 @@ mod tests {
             "plant_part_source",
             "plant_use_source",
             "reference_source",
+            "plant_profile",
+            "plant_use_group",
+            "plant_use_group_ref",
+            "goal",
+            "goal_subarea",
+            "plant_goal",
+            "plant_goal_ref",
+            "plant_safety",
+            "plant_safety_ref",
+            "plant_image",
+            "plant_alias",
+            "plant_review_flag",
         ];
         expected.sort();
         assert_eq!(tables, expected);
     }
 
     #[test]
+    fn v2_tables_accept_the_new_shapes_and_reject_inconsistent_rows() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("v2.db");
+        {
+            let mut conn = SqliteConnection::establish(path.to_str().unwrap()).unwrap();
+            apply_schema(&mut conn).unwrap();
+        }
+        let conn = Rusqlite::open(&path).unwrap();
+        conn.pragma_update(None, "foreign_keys", true).unwrap();
+        conn.execute_batch(
+            "INSERT INTO plant VALUES ('p', 'P p', 'p p', NULL, NULL);
+             INSERT INTO reference VALUES ('d:1', 'cita', 'd', 'lic', NULL);
+             INSERT INTO goal VALUES ('g', 'G', 1), ('h', 'H', 2);
+             INSERT INTO goal_subarea VALUES ('s', 'h', 'S', 1);
+             INSERT INTO plant_use_group VALUES (1, 'p', 1, 'a', 'a', 1, '[]', 1);
+             INSERT INTO plant_use_group_ref VALUES (1, 'k', 1, 'k (sin resolver)', 0, NULL);
+             INSERT INTO plant_use_group_ref VALUES (1, 'j', 2, 'cita', 1, 'd:1');
+             INSERT INTO plant_goal VALUES (1, 'p', 'g', NULL, 1, 'area', 'ev', 0);
+             INSERT INTO plant_safety VALUES ('p', NULL, 'precaución');
+             INSERT INTO plant_image VALUES ('p', 'u', 'pu', NULL, 'CC0', NULL, 0);",
+        )
+        .unwrap();
+        for bad in [
+            // Cita resuelta sin referencia.
+            "INSERT INTO plant_use_group_ref VALUES (1, 'x', 3, 't', 1, NULL)",
+            // Cita sin resolver con referencia.
+            "INSERT INTO plant_use_group_ref VALUES (1, 'x', 3, 't', 0, 'd:1')",
+            // Subárea de otro objetivo.
+            "INSERT INTO plant_goal VALUES (2, 'p', 'g', 's', 2, 'area', 'ev', 0)",
+            // Objetivo repetido para la misma planta, subárea y área.
+            "INSERT INTO plant_goal VALUES (2, 'p', 'g', NULL, 2, 'area', 'ev', 0)",
+            // Nivel de seguridad fuera de la lista.
+            "INSERT INTO plant_safety VALUES ('q', 'extremo', 't')",
+        ] {
+            assert!(conn.execute(bad, []).is_err(), "debería fallar: {bad}");
+        }
+    }
+
+    #[test]
     fn schema_has_no_dataset_terms() {
-        let sql = UP_SQL.to_lowercase();
+        let sql = UP_SQL.join("\n").to_lowercase();
         // Los términos se arman con `concat!` para que este archivo tampoco los contenga literalmente: el test de independencia de la API busca esos nombres en todo el código de `catalog-core`.
         for term in [
             concat!("us", "da"),

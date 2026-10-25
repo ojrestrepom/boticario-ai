@@ -16,7 +16,7 @@ use crate::raw::quote_ident;
 /// Tablas del esquema neutral, en el orden fijo en que se vuelcan.
 ///
 /// Un test comprueba que coincide con las tablas que crea `apply_schema`.
-pub const NEUTRAL_TABLES: [&str; 12] = [
+pub const NEUTRAL_TABLES: [&str; 24] = [
     "metadata",
     "source",
     "plant",
@@ -29,6 +29,18 @@ pub const NEUTRAL_TABLES: [&str; 12] = [
     "plant_part_source",
     "plant_use_source",
     "reference_source",
+    "plant_profile",
+    "plant_use_group",
+    "plant_use_group_ref",
+    "goal",
+    "goal_subarea",
+    "plant_goal",
+    "plant_goal_ref",
+    "plant_safety",
+    "plant_safety_ref",
+    "plant_image",
+    "plant_alias",
+    "plant_review_flag",
 ];
 
 /// Calcula el SHA-256 (hexadecimal) del contenido lógico de la base `db`.

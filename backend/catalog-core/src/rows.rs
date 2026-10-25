@@ -6,13 +6,15 @@
 //! - `Queryable` + `Selectable`: Diesel construye la fila al leer, y `Selectable` comprueba en compilación que los campos coinciden con las columnas.
 //! - `Insertable`: Diesel la acepta en `insert_into(tabla).values(&fila)`.
 //!
-//! Las tablas con id entero que asigna SQLite (`plant_name`, `plant_part`, `plant_use`) tienen además un `New…` para insertar: no lleva el id, que se pide de vuelta con `RETURNING`.
+//! Las tablas con id entero que asigna SQLite (`plant_name`, `plant_part`, `plant_use`, `plant_use_group`, `plant_goal`, `plant_review_flag`) tienen además un `New…` para insertar: no lleva el id, que se pide de vuelta con `RETURNING`.
 
 use diesel::prelude::*;
 
 use crate::schema::{
-    metadata, plant, plant_name, plant_name_source, plant_part, plant_part_source, plant_source_id,
-    plant_use, plant_use_source, reference, reference_source, source,
+    goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
+    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_review_flag,
+    plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
+    plant_use_group_ref, plant_use_source, reference, reference_source, source,
 };
 
 /// Fila de `metadata`.
@@ -207,4 +209,266 @@ pub struct ReferenceSourceRow {
     pub reference_id: String,
     /// Fuente que la aporta.
     pub source_id: String,
+}
+
+/// Fila de `reference` con su procedencia (`dataset`, `license` y `url`), que las filas de la v1 no traen.
+///
+/// `ReferenceRow` sigue siendo la forma que lee la API; esta es la que escribe la construcción desde la semilla.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = reference)]
+pub struct ReferenceProvenanceRow {
+    /// Identificador de la referencia.
+    pub id: String,
+    /// Cita bibliográfica.
+    pub citation: String,
+    /// Dataset del que sale la referencia.
+    pub dataset: Option<String>,
+    /// Licencia del dato.
+    pub license: Option<String>,
+    /// URL de la referencia, si la tiene.
+    pub url: Option<String>,
+}
+
+/// Fila de `plant_profile`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_profile)]
+pub struct PlantProfileRow {
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// Nombre para mostrar.
+    pub display_name: Option<String>,
+    /// Autores del nombre científico canónico.
+    pub authors: Option<String>,
+    /// Origen de la planta.
+    pub origin: Option<String>,
+    /// Descripción breve.
+    pub description: Option<String>,
+    /// Tipo de aceite, si la planta lo tiene.
+    pub oil_type: Option<String>,
+    /// Versión del formato del registro de origen.
+    pub record_version: i32,
+    /// Hash del paquete de evidencia del registro.
+    pub bundle_hash: String,
+    /// Versión del prompt que produjo el registro.
+    pub prompt_version: i32,
+}
+
+/// Fila de `plant_use_group`, tal como se lee.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable)]
+#[diesel(table_name = plant_use_group)]
+pub struct PlantUseGroupRow {
+    /// Id asignado por SQLite.
+    pub id: i32,
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// Posición del grupo en el registro.
+    pub position: i32,
+    /// Actividad en español.
+    pub activity: String,
+    /// Etiqueta original de la actividad.
+    pub activity_source: String,
+    /// Número de registros que respaldan el grupo.
+    pub n: i32,
+    /// Países, como arreglo JSON de textos en español.
+    pub countries: String,
+    /// Verdadero si ninguna cita del grupo está resuelta.
+    pub pending_review: bool,
+}
+
+/// Fila nueva de `plant_use_group`: sin id.
+#[derive(Debug, Clone, Insertable)]
+#[diesel(table_name = plant_use_group)]
+pub struct NewPlantUseGroup<'a> {
+    /// Planta (ID público).
+    pub plant_id: &'a str,
+    /// Posición del grupo en el registro.
+    pub position: i32,
+    /// Actividad en español.
+    pub activity: &'a str,
+    /// Etiqueta original de la actividad.
+    pub activity_source: &'a str,
+    /// Número de registros que respaldan el grupo.
+    pub n: i32,
+    /// Países, como arreglo JSON de textos en español.
+    pub countries: &'a str,
+    /// Verdadero si ninguna cita del grupo está resuelta.
+    pub pending_review: bool,
+}
+
+/// Fila de `plant_use_group_ref`: una cita de un grupo, resuelta o no.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_use_group_ref)]
+pub struct PlantUseGroupRefRow {
+    /// Grupo al que pertenece la cita.
+    pub use_group_id: i32,
+    /// Clave de la cita en el registro.
+    pub key: String,
+    /// Posición de la cita en el grupo.
+    pub position: i32,
+    /// Texto de la cita (para una sin resolver, la clave seguida de «(sin resolver)»).
+    pub text: String,
+    /// Si la cita se resolvió a una referencia.
+    pub resolved: bool,
+    /// Referencia resuelta; es `None` si y solo si `resolved` es falso.
+    pub reference_id: Option<String>,
+}
+
+/// Fila de `goal`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = goal)]
+pub struct GoalRow {
+    /// Identificador del objetivo.
+    pub id: String,
+    /// Etiqueta para mostrar.
+    pub label: String,
+    /// Orden de presentación.
+    pub position: i32,
+}
+
+/// Fila de `goal_subarea`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = goal_subarea)]
+pub struct GoalSubareaRow {
+    /// Identificador de la subárea.
+    pub id: String,
+    /// Objetivo al que pertenece.
+    pub goal_id: String,
+    /// Etiqueta para mostrar.
+    pub label: String,
+    /// Orden de presentación.
+    pub position: i32,
+}
+
+/// Fila de `plant_goal`, tal como se lee.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable)]
+#[diesel(table_name = plant_goal)]
+pub struct PlantGoalRow {
+    /// Id asignado por SQLite.
+    pub id: i32,
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// Objetivo.
+    pub goal_id: String,
+    /// Subárea, si el objetivo la tiene.
+    pub subarea_id: Option<String>,
+    /// Posición en el registro.
+    pub position: i32,
+    /// Área concreta dentro del objetivo.
+    pub area: String,
+    /// Evidencia que respalda el objetivo.
+    pub evidence: String,
+    /// Si el objetivo espera una revisión humana.
+    pub pending_review: bool,
+}
+
+/// Fila nueva de `plant_goal`: sin id.
+#[derive(Debug, Clone, Insertable)]
+#[diesel(table_name = plant_goal)]
+pub struct NewPlantGoal<'a> {
+    /// Planta (ID público).
+    pub plant_id: &'a str,
+    /// Objetivo.
+    pub goal_id: &'a str,
+    /// Subárea, si el objetivo la tiene.
+    pub subarea_id: Option<&'a str>,
+    /// Posición en el registro.
+    pub position: i32,
+    /// Área concreta dentro del objetivo.
+    pub area: &'a str,
+    /// Evidencia que respalda el objetivo.
+    pub evidence: &'a str,
+    /// Si el objetivo espera una revisión humana.
+    pub pending_review: bool,
+}
+
+/// Fila de `plant_goal_ref`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_goal_ref)]
+pub struct PlantGoalRefRow {
+    /// Objetivo de planta respaldado.
+    pub plant_goal_id: i32,
+    /// Referencia que lo respalda.
+    pub reference_id: String,
+}
+
+/// Fila de `plant_safety`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_safety)]
+pub struct PlantSafetyRow {
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// `alto`, `medio` o `bajo`; `None` es una precaución sin nivel.
+    pub level: Option<String>,
+    /// Texto de la precaución.
+    pub text: String,
+}
+
+/// Fila de `plant_safety_ref`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_safety_ref)]
+pub struct PlantSafetyRefRow {
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// Referencia que respalda la seguridad.
+    pub reference_id: String,
+}
+
+/// Fila de `plant_image`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_image)]
+pub struct PlantImageRow {
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// URL de la imagen.
+    pub url: String,
+    /// URL de la página de origen de la imagen.
+    pub page_url: String,
+    /// Autor, si se conoce.
+    pub author: Option<String>,
+    /// Licencia de la imagen.
+    pub license: String,
+    /// URL del texto de la licencia, si existe.
+    pub license_url: Option<String>,
+    /// Si hay que mostrar la atribución al usar la imagen.
+    pub attribution_required: bool,
+}
+
+/// Fila de `plant_alias`.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_alias)]
+pub struct PlantAliasRow {
+    /// ID anterior de la planta.
+    pub alias: String,
+    /// Planta a la que resuelve (ID público).
+    pub plant_id: String,
+}
+
+/// Fila de `plant_review_flag`, tal como se lee.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable)]
+#[diesel(table_name = plant_review_flag)]
+pub struct PlantReviewFlagRow {
+    /// Id asignado por SQLite.
+    pub id: i32,
+    /// Planta (ID público).
+    pub plant_id: String,
+    /// Código de la marca.
+    pub code: String,
+    /// Dato al que apunta la marca.
+    pub target: String,
+    /// Mensaje para quien revisa.
+    pub message: String,
+}
+
+/// Fila nueva de `plant_review_flag`: sin id.
+#[derive(Debug, Clone, Insertable)]
+#[diesel(table_name = plant_review_flag)]
+pub struct NewPlantReviewFlag<'a> {
+    /// Planta (ID público).
+    pub plant_id: &'a str,
+    /// Código de la marca.
+    pub code: &'a str,
+    /// Dato al que apunta la marca.
+    pub target: &'a str,
+    /// Mensaje para quien revisa.
+    pub message: &'a str,
 }

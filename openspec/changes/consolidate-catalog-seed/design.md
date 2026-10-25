@@ -76,6 +76,24 @@ La API actual sigue funcionando sin cambios de código. La construcción escribe
 
 Tablas nuevas (los nombres y columnas exactos se fijan en la tarea 7.1 y se registran en `docs/data/modelo-de-datos.md`): `plant_profile` (`plant_id`, `display_name`, `authors`, `origin`, `description`, `oil_type`, `record_version`, `bundle_hash`, `prompt_version`), `plant_use_group` (con `pending_review`) y `plant_use_group_ref` (actividad traducida y original, `n`, países ya en español), `goal` y `goal_subarea` (catálogo de objetivos, véase D8), `plant_goal` (`plant_id`, `goal_id`, `subarea_id`, `area`, `evidence`, `pending_review`) y `plant_goal_ref`, `plant_safety` y `plant_safety_ref`, `plant_image`, `plant_alias` y `plant_review_flag` (`plant_id`, `code`, `target`, `message`). `reference` se amplía con `dataset` y `license`, y `source` y las tablas de atribución (`plant_*_source`) siguen vigentes: se rellenan con el dataset de los refs de cada dato. Las claves de fuente quedan como dato de procedencia, no como identificador público. `SCHEMA_VERSION` sube; la API la comprueba al arrancar y debe aceptar la nueva (tarea 7.1).
 
+Nombres y columnas fijados en la tarea 7.1 (migración `data/migrations/2026-10-26-000000_catalog_v2`, `SCHEMA_VERSION` 2). Los valores lógicos son `BOOLEAN` con `CHECK (x IN (0, 1))` y las posiciones (`position`) conservan el orden del registro.
+
+`plant_profile (plant_id PK, display_name, authors, origin, description, oil_type, record_version, bundle_hash, prompt_version)`: una fila por planta; `display_name`, `authors`, `origin`, `description` y `oil_type` son nulables porque el registro admite `null` en esos campos. `authors` son los del nombre científico canónico y `oil_type` guarda `oil.type` (hoy solo `Esencial`).
+
+`plant_use_group (id, plant_id, position, activity, activity_source, n, countries, pending_review)`: `countries` es un arreglo JSON de textos en español, porque solo se lee completo y nunca se filtra por país; `pending_review` es verdadero solo si el grupo no tiene ninguna cita resuelta, y esos grupos no generan filas en `plant_use`.
+
+`plant_use_group_ref (use_group_id, key, position, text, resolved, reference_id)` con clave primaria `(use_group_id, key)`: guarda también las citas sin resolver (`reference_id` nulo, `text` = «<clave> (sin resolver)»), y un `CHECK` exige que `resolved` sea verdadero si y solo si hay `reference_id`.
+
+`goal (id, label, position)` y `goal_subarea (id, goal_id, label, position)` salen de `data/seed/goals.json`. `plant_goal (id, plant_id, goal_id, subarea_id, position, area, evidence, pending_review)` lleva una clave foránea compuesta `(goal_id, subarea_id)` hacia `goal_subarea (goal_id, id)`, de modo que la subárea debe ser del objetivo (si es nula no se comprueba), y un índice único `(plant_id, goal_id, COALESCE(subarea_id, ''), area)`. El índice `(goal_id, subarea_id, plant_id)` sirve la consulta de plantas por objetivo y subárea. `plant_goal_ref (plant_goal_id, reference_id)` enlaza con `reference`.
+
+`plant_safety (plant_id PK, level, text)` con `level` nulable (`alto`, `medio` o `bajo`; nulo es una precaución sin nivel) y sin fila cuando el registro no trae `safety`. `plant_safety_ref (plant_id, reference_id)` enlaza con `reference`.
+
+`plant_image (plant_id PK, url, page_url, author, license, license_url, attribution_required)`: como máximo una imagen por planta; `author` y `license_url` son nulables.
+
+`plant_alias (alias PK, plant_id)`: el alias es único en toda la base porque resuelve a una sola planta; el error de alias que iguala el ID de otra planta lo detecta la construcción (tarea 7.4). `plant_review_flag (id, plant_id, code, target, message)` con índices por planta y por código.
+
+`reference` gana `dataset`, `license` y `url` como columnas nulables (las filas de la v1 no las traen); la construcción desde la semilla las escribe siempre y rechaza un dato sin dataset o licencia (tarea 7.4). El `label` de las referencias de la semilla va a `citation`, y su `url` a `reference.url` (el cambio 2 la usa para enlazar el artículo en la atribución de «Fuentes»). Las `refs` a nivel de dato (nombre, origen, descripción, grupo de uso, imagen) siguen reflejándose en la atribución (`plant_*_source`) y no tienen tabla propia.
+
 Se retira el marco de adaptadores: `SourceAdapter`, `default_registry`, el adaptador de USDA, `raw.rs`, `download.rs` y `data/sources.toml`. Se conservan `normalize`/`slug`, la escritura atómica, `content_hash`, el esquema neutral y su test de independencia de datasets.
 
 Alternativas:

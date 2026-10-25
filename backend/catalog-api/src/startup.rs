@@ -140,7 +140,11 @@ mod tests {
         let text = prepare(&config_for(fixture.path.clone()))
             .unwrap_err()
             .to_string();
-        assert!(text.contains("99") && text.contains('1'), "{text}");
+        assert!(
+            text.contains("99")
+                && text.contains(&catalog_core::version::SCHEMA_VERSION.to_string()),
+            "{text}"
+        );
     }
 
     #[tokio::test]

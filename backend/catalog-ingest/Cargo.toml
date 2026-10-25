@@ -6,22 +6,11 @@ publish.workspace = true
 
 [dependencies]
 catalog-core.workspace = true
-toml.workspace = true
 serde.workspace = true
-zip.workspace = true
-csv.workspace = true
-encoding_rs.workspace = true
-md-5.workspace = true
 sha2.workspace = true
 rusqlite.workspace = true
 diesel.workspace = true
-ureq.workspace = true
 serde_json.workspace = true
-tempfile = { workspace = true, optional = true }
 
 [dev-dependencies]
 tempfile.workspace = true
-
-[features]
-# Expone `test_support` (fixtures) a otros crates, solo para sus pruebas.
-test-fixtures = ["dep:tempfile"]

@@ -12,15 +12,10 @@ catalog-core = { path = "catalog-core" }
 catalog-ingest = { path = "catalog-ingest" }
 unicode-normalization = "0.1"
 rusqlite = { version = "0.40", features = ["bundled"] }
-zip = { version = "9", default-features = false, features = ["deflate"] }
-csv = "1"
-encoding_rs = "0.8"
-md-5 = "0.11"
 tempfile = "3"
 toml = "1"
 serde = { version = "1", features = ["derive"] }
 sha2 = "0.11"
-ureq = { version = "3", default-features = false, features = ["rustls"] }
 diesel = { version = "2.3", default-features = false, features = ["sqlite", "returning_clauses_for_sqlite_3_35", "r2d2"] }
 diesel_migrations = { version = "2.3", default-features = false, features = ["sqlite"] }
 libsqlite3-sys = { version = "0.38", features = ["bundled"] }

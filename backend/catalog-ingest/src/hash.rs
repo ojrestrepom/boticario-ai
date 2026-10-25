@@ -2,7 +2,7 @@
 //!
 //! El archivo SQLite puede cambiar byte a byte sin que cambie su contenido (páginas libres, orden interno), así que no se hashea el archivo: se vuelcan las filas de cada tabla en un orden total y se hashea el volcado.
 //!
-//! Este módulo y `raw` son la única excepción al uso de Diesel (decisión 14 del diseño): el volcado recorre tablas y columnas que solo se conocen en tiempo de ejecución (se leen con `PRAGMA table_info`), así que usa SQL dinámico con `rusqlite`.
+//! Este módulo es la única excepción al uso de Diesel (decisión 14 del diseño): el volcado recorre tablas y columnas que solo se conocen en tiempo de ejecución (se leen con `PRAGMA table_info`), así que usa SQL dinámico con `rusqlite`.
 
 use std::path::Path;
 
@@ -11,7 +11,11 @@ use rusqlite::{Connection, OpenFlags};
 use sha2::{Digest, Sha256};
 
 use crate::error::IngestError;
-use crate::raw::quote_ident;
+
+/// Entre comillas dobles, duplicando las internas, para usar nombres arbitrarios como identificadores SQL.
+fn quote_ident(name: &str) -> String {
+    format!("\"{}\"", name.replace('"', "\"\""))
+}
 
 /// Tablas del esquema neutral, en el orden fijo en que se vuelcan.
 ///
@@ -112,17 +116,8 @@ fn dump_table(conn: &Connection, table: &str, hasher: &mut Sha256) -> Result<(),
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::test_support::{sample_catalog, sample_inputs};
-    use crate::{consolidate::consolidate, write::write_catalog};
     use catalog_core::version::apply_schema;
-    use diesel::{Connection as _, SqliteConnection};
-
-    fn hash_of(catalog: &crate::consolidate::Catalog) -> String {
-        let dir = tempfile::tempdir().unwrap();
-        let out = dir.path().join("catalog.db");
-        write_catalog(catalog, &out).unwrap();
-        content_hash(&out).unwrap()
-    }
+    use diesel::{Connection as _, RunQueryDsl, SqliteConnection};
 
     #[test]
     fn table_list_matches_schema() {
@@ -147,33 +142,36 @@ mod tests {
         assert_eq!(tables, listed);
     }
 
+    /// Base mínima con el esquema aplicado y una planta, en `dir`.
+    fn make_db(dir: &std::path::Path, name: &str, scientific: &str) -> std::path::PathBuf {
+        let path = dir.join(name);
+        let mut conn = SqliteConnection::establish(path.to_str().unwrap()).unwrap();
+        apply_schema(&mut conn).unwrap();
+        diesel::sql_query(format!(
+            "INSERT INTO plant (id, scientific_name, scientific_name_normalized, family) VALUES ('p', '{scientific}', '{scientific}', NULL)"
+        ))
+        .execute(&mut conn)
+        .unwrap();
+        path
+    }
+
     #[test]
-    fn same_catalog_in_two_paths_has_same_hash() {
-        let catalog = sample_catalog();
-        let hash = hash_of(&catalog);
+    fn same_content_in_two_paths_has_same_hash() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = make_db(dir.path(), "a.db", "Lavandula angustifolia");
+        let b = make_db(dir.path(), "b.db", "Lavandula angustifolia");
+        let hash = content_hash(&a).unwrap();
         assert_eq!(hash.len(), 64);
         assert!(hash.chars().all(|c| c.is_ascii_hexdigit()));
-        assert_eq!(hash, hash_of(&catalog));
+        assert_eq!(hash, content_hash(&b).unwrap());
     }
 
     #[test]
-    fn changing_an_activity_changes_the_hash() {
-        let mut inputs = sample_inputs();
-        inputs[0].records.plants[0].uses[0].activity = "Sedativd".into();
-        assert_ne!(
-            hash_of(&consolidate(inputs).unwrap()),
-            hash_of(&sample_catalog())
-        );
-    }
-
-    #[test]
-    fn changing_a_multivalued_spelling_changes_the_hash() {
-        let mut inputs = sample_inputs();
-        inputs[1].records.plants[0].scientific_name = "LAVANDULA  angustifoliA".into();
-        assert_ne!(
-            hash_of(&consolidate(inputs).unwrap()),
-            hash_of(&sample_catalog())
-        );
+    fn changing_a_value_changes_the_hash() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = make_db(dir.path(), "a.db", "Lavandula angustifolia");
+        let b = make_db(dir.path(), "b.db", "Lavandula angustifolid");
+        assert_ne!(content_hash(&a).unwrap(), content_hash(&b).unwrap());
     }
 
     #[test]

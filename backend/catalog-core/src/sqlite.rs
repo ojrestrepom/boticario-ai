@@ -40,8 +40,8 @@ mod tests {
     #[test]
     fn read_only_url_escapes_uri_characters() {
         assert_eq!(
-            read_only_url(Path::new("a#b?c%d/raw.db")).unwrap(),
-            "file:a%23b%3Fc%25d/raw.db?mode=ro"
+            read_only_url(Path::new("a#b?c%d/catalog.db")).unwrap(),
+            "file:a%23b%3Fc%25d/catalog.db?mode=ro"
         );
     }
 }

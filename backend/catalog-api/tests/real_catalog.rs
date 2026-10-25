@@ -40,6 +40,7 @@ fn lavender_is_found_in_the_real_catalog() {
         .get_plant(&PlantId("lavandula-angustifolia".to_string()))
         .unwrap()
         .unwrap();
-    assert_eq!(plant.uses.len(), 10);
-    assert_eq!(plant.parts.len(), 4);
+    // No se fija cuántos: la semilla puede cambiar la curación.
+    assert!(!plant.uses.is_empty(), "la lavanda debe tener usos");
+    assert!(!plant.parts.is_empty(), "la lavanda debe tener partes");
 }

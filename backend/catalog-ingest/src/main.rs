@@ -1,39 +1,31 @@
-//! CLI de ingesta: descarga los insumos y construye el catálogo.
+//! CLI de ingesta: construye el catálogo desde la semilla.
 
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::process::exit;
 use std::time::Instant;
 
-use catalog_ingest::IngestError;
-use catalog_ingest::build::{BuildReport, rederive};
-use catalog_ingest::download::{DownloadOutcome, download_input};
 use catalog_ingest::seed_build::build_from_dir;
-use catalog_ingest::sources::{default_registry, load_sources_config};
 
 /// Texto de ayuda; se imprime ante argumentos inválidos y con `--help`.
 fn usage() -> &'static str {
     "Uso: catalog-ingest <subcomando> [--data-dir <ruta>]
 
 Subcomandos:
-  download   Descarga y verifica los insumos de las fuentes activas en <data-dir>/.cache
-  build      Lee y verifica la semilla (<data-dir>/seed por defecto) y escribe el catálogo (<data-dir>/build/catalog.db por defecto), sin red
-  rederive   Rehace <data-dir>/build/catalog.db desde <data-dir>/build/raw.db, sin el insumo original
+  build      Lee y verifica la semilla (<data-dir>/seed por defecto) y escribe el catálogo (<data-dir>/build/catalog.db por defecto), sin red ni LLM
 
 Opciones:
   --data-dir <ruta>   Directorio de datos (por defecto: data, relativo al directorio de trabajo)
-  --seed <ruta>       Solo build: directorio de la semilla (por defecto: <data-dir>/seed)
-  --out <ruta>        Solo build: archivo de salida (por defecto: <data-dir>/build/catalog.db)
+  --seed <ruta>       directorio de la semilla (por defecto: <data-dir>/seed)
+  --out <ruta>        archivo de salida (por defecto: <data-dir>/build/catalog.db)
   --help              Muestra esta ayuda
 
 Se ejecuta desde la raíz del repositorio:
-  mise exec -- cargo run --manifest-path backend/Cargo.toml -p catalog-ingest -- download"
+  mise exec -- cargo run --manifest-path backend/Cargo.toml -p catalog-ingest -- build"
 }
 
 /// Subcomando elegido por el usuario.
 enum Command {
-    Download,
     Build,
-    Rederive,
 }
 
 /// Argumentos ya interpretados.
@@ -47,9 +39,7 @@ struct Args {
 /// Interpreta los argumentos (sin el nombre del programa). `Err` lleva el motivo para mostrar.
 fn parse_args(mut args: impl Iterator<Item = String>) -> Result<Args, String> {
     let command = match args.next().as_deref() {
-        Some("download") => Command::Download,
         Some("build") => Command::Build,
-        Some("rederive") => Command::Rederive,
         Some(other) => return Err(format!("subcomando desconocido \"{other}\"")),
         None => return Err("falta el subcomando".to_string()),
     };
@@ -89,32 +79,6 @@ fn parse_args(mut args: impl Iterator<Item = String>) -> Result<Args, String> {
     })
 }
 
-fn run_download(data_dir: &Path) -> Result<(), IngestError> {
-    let config = load_sources_config(&data_dir.join("sources.toml"))?;
-    let registry = default_registry();
-    let cache_dir = data_dir.join(".cache");
-    for active in registry.resolve(&config)? {
-        let id = active.adapter.source().id.0;
-        match download_input(active.adapter, &cache_dir)? {
-            DownloadOutcome::AlreadyPresent(path) => {
-                println!("{id}: ya estaba y está verificado: {}", path.display());
-            }
-            DownloadOutcome::Downloaded(path) => {
-                println!("{id}: descargado y verificado: {}", path.display());
-            }
-        }
-    }
-    Ok(())
-}
-
-/// Resumen común de `build` y `rederive`.
-fn print_report(report: &BuildReport, started: Instant) {
-    println!("fuentes: {}", report.sources);
-    println!("plantas: {}", report.plants);
-    println!("hash: {}", report.content_hash);
-    println!("tiempo: {:.2?}", started.elapsed());
-}
-
 fn run_build(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     let started = Instant::now();
     let seed_dir = args
@@ -151,20 +115,6 @@ fn run_build(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn run_rederive(data_dir: &Path) -> Result<(), IngestError> {
-    let started = Instant::now();
-    let config = load_sources_config(&data_dir.join("sources.toml"))?;
-    let build_dir = data_dir.join("build");
-    let report = rederive(
-        &default_registry(),
-        &config,
-        &build_dir.join("raw.db"),
-        &build_dir.join("catalog.db"),
-    )?;
-    print_report(&report, started);
-    Ok(())
-}
-
 fn main() {
     let mut raw = std::env::args().skip(1).peekable();
     if matches!(raw.peek().map(String::as_str), Some("--help" | "-h")) {
@@ -179,9 +129,7 @@ fn main() {
         }
     };
     let result = match args.command {
-        Command::Download => run_download(&args.data_dir).map_err(Into::into),
         Command::Build => run_build(&args),
-        Command::Rederive => run_rederive(&args.data_dir).map_err(Into::into),
     };
     if let Err(err) = result {
         eprintln!("error: {err}");

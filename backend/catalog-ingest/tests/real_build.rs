@@ -1,15 +1,17 @@
-//! Comprueba la construcción real (`data/build/`) contra los valores de referencia del análisis previo.
+//! Comprueba la construcción real (`data/build/catalog.db`) contra la semilla de `data/seed/`.
 //!
-//! Está marcado `#[ignore]` porque necesita `data/build/raw.db` y `data/build/catalog.db`, que existen solo tras ejecutar `build`. Ejecútalo con `cargo test -p catalog-ingest --test real_build -- --ignored --nocapture`.
+//! Está marcado `#[ignore]` porque necesita `data/build/catalog.db`, que existe solo tras ejecutar `build`. Ejecútalo con `cargo test -p catalog-ingest --test real_build -- --ignored --nocapture`.
+//!
+//! No fija conteos de la curación (usos o partes de una planta): comprueba que la base refleja la semilla y que la lavanda existe con usos y partes.
 
 use std::path::{Path, PathBuf};
 
 use catalog_core::schema::{plant, plant_name, plant_part, plant_use, reference};
-use catalog_ingest::usda::derive_with_stats;
+use catalog_ingest::seed::load_seed;
 use diesel::prelude::*;
 
-fn build_dir() -> PathBuf {
-    Path::new(env!("CARGO_MANIFEST_DIR")).join("../../data/build")
+fn data_dir() -> PathBuf {
+    Path::new(env!("CARGO_MANIFEST_DIR")).join("../../data")
 }
 
 fn open_read_only(db: &Path) -> SqliteConnection {
@@ -18,49 +20,48 @@ fn open_read_only(db: &Path) -> SqliteConnection {
 }
 
 #[test]
-#[ignore = "necesita data/build/ construido con `build`"]
-fn real_catalog_matches_reference_values() {
-    let mut catalog = open_read_only(&build_dir().join("catalog.db"));
+#[ignore = "necesita data/build/catalog.db construido con `build`"]
+fn real_catalog_reflects_the_seed() {
+    let seed = load_seed(&data_dir().join("seed")).unwrap();
+    let mut catalog = open_read_only(&data_dir().join("build/catalog.db"));
 
     let plants: i64 = plant::table.count().get_result(&mut catalog).unwrap();
-    let with_uses = plant_use::table
-        .select(plant_use::plant_id)
-        .distinct()
-        .load::<String>(&mut catalog)
-        .unwrap()
-        .len();
-    let uses: i64 = plant_use::table.count().get_result(&mut catalog).unwrap();
-    let references: i64 = reference::table.count().get_result(&mut catalog).unwrap();
-    let common: i64 = plant_name::table
-        .filter(plant_name::kind.eq("common"))
-        .count()
-        .get_result(&mut catalog)
-        .unwrap();
     let scientific: i64 = plant_name::table
         .filter(plant_name::kind.eq("scientific"))
         .count()
         .get_result(&mut catalog)
         .unwrap();
-    let families: i64 = plant::table
-        .filter(plant::family.is_not_null())
+    let references: i64 = reference::table.count().get_result(&mut catalog).unwrap();
+    println!(
+        "plantas={plants} cientificos={scientific} referencias={references} semilla={}",
+        seed.plants.len()
+    );
+    assert_eq!(plants as usize, seed.plants.len());
+    assert!(
+        scientific >= plants,
+        "cada planta tiene su nombre científico"
+    );
+    assert!(references > 0);
+
+    // Toda planta de la semilla está en la base con su id.
+    let mut ids: Vec<String> = plant::table.select(plant::id).load(&mut catalog).unwrap();
+    ids.sort();
+    let mut expected: Vec<String> = seed.plants.iter().map(|p| p.id.clone()).collect();
+    expected.sort();
+    assert_eq!(ids, expected);
+
+    // La lavanda existe, con usos y partes (sin fijar cuántos).
+    let lavender = "lavandula-angustifolia";
+    let uses: i64 = plant_use::table
+        .filter(plant_use::plant_id.eq(lavender))
         .count()
         .get_result(&mut catalog)
         .unwrap();
-    let parts: i64 = plant_part::table.count().get_result(&mut catalog).unwrap();
-
-    let mut raw = open_read_only(&build_dir().join("raw.db"));
-    let (_records, stats) = derive_with_stats(&mut raw).unwrap();
-
-    println!(
-        "plantas={plants} con_usos={with_uses} usos={uses} filas_elegibles={} referencias={references} comunes={common} cientificos={scientific} familias={families} partes={parts}",
-        stats.eligible_use_rows
-    );
-    assert_eq!(plants, 2_376);
-    assert_eq!(with_uses, 1_180);
-    assert_eq!(uses, 18_931);
-    assert_eq!(stats.eligible_use_rows, 19_446);
-    assert_eq!(references, 32);
-    assert_eq!(common, 2_920);
-    assert_eq!(scientific, 2_376);
-    assert_eq!(families, 2_342);
+    let parts: i64 = plant_part::table
+        .filter(plant_part::plant_id.eq(lavender))
+        .count()
+        .get_result(&mut catalog)
+        .unwrap();
+    assert!(uses > 0, "la lavanda debe tener usos");
+    assert!(parts > 0, "la lavanda debe tener partes");
 }

@@ -7,11 +7,7 @@ use std::path::Path;
 use std::process::{Child, Command, Stdio};
 use std::time::{Duration, Instant};
 
-use catalog_ingest::adapter::SourceAdapter;
-use catalog_ingest::build::rederive;
-use catalog_ingest::raw::import_raw;
-use catalog_ingest::sources::{AdapterRegistry, SourceEntry, SourcesConfig};
-use catalog_ingest::test_support::{FixtureAdapter, FixtureCsv, build_zip};
+use catalog_ingest::seed_build::build_from_dir;
 
 const DEADLINE: Duration = Duration::from_secs(20);
 // Valores ficticios de prueba; no son secretos. Los dos llevan una marca única para buscarla en los logs.
@@ -19,23 +15,15 @@ const VALID_TOKEN: &str = "test-token-not-a-secret-VALIDMARK0000000000";
 const SECOND_TOKEN: &str = "test-token-not-a-secret-SECONDMARK000000000";
 const INVALID_TOKEN: &str = "test-token-not-a-secret-INVALIDMARK00000000";
 
+/// Semilla de fixture del crate de ingesta (3 plantas), construida sin red.
+fn fixture_seed() -> std::path::PathBuf {
+    Path::new(env!("CARGO_MANIFEST_DIR")).join("../catalog-ingest/tests/fixtures/seed")
+}
+
+/// Construye con `build_from_dir` una base de catálogo desde la semilla de fixture y devuelve su ruta.
 fn build_fixture_db(dir: &Path) -> std::path::PathBuf {
-    let raw_db = dir.join("build").join("raw.db");
     let out = dir.join("build").join("catalog.db");
-    let zip_dir = tempfile::tempdir().unwrap();
-    let zip = build_zip(&zip_dir, &FixtureCsv::alpha().entries());
-    import_raw(&FixtureAdapter::new("alpha").raw_import(&zip), &raw_db).unwrap();
-    let mut registry = AdapterRegistry::new();
-    registry
-        .register(Box::new(FixtureAdapter::new("alpha")))
-        .unwrap();
-    let config = SourcesConfig {
-        sources: vec![SourceEntry {
-            id: "alpha".to_string(),
-            priority: 1,
-        }],
-    };
-    rederive(&registry, &config, &raw_db, &out).unwrap();
+    build_from_dir(&fixture_seed(), &out).unwrap();
     out
 }
 

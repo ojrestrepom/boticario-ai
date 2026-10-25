@@ -1,6 +1,6 @@
 # Prompt de consolidación (variante A)
 
-prompt-version: 4
+prompt-version: 5
 
 Este archivo es el prompt versionado del consolidador del catálogo de Boticario AI. La línea `prompt-version: <n>` de arriba es la versión que el registro guarda en `promptVersion`; cámbiala cada vez que cambie una regla de este prompt, porque `plan` vuelve a poner en cola todas las plantas cuando la versión cambia.
 
@@ -68,8 +68,8 @@ Cada grupo trae sus claves cortas de REFERENCE tal como vienen de USDA en `citat
 
 1. Elige entre las candidatas de esa clave la que corresponda y cita su ref. El campo `citations` del grupo lleva un objeto `{key, ref, text}` por clave: `key` es la clave tal como viene, `ref` el ref `usda_reference:*` de la candidata y `text` sigue un formato único. Si la candidata es una obra general y la clave aporta volumen o página (`Woi.<n>`, `Eb<vol>: <pág>`), `text` es el título de la obra tomado de la candidata más el volumen o la página de la clave, y nada más (sin la clave entre paréntesis ni la cita completa). Ejemplos: `Woi.10` con la candidata `WOI` da «The Wealth of India, vol. 10»; `Eb24: 441` con la candidata `EB` da «Economic Botany 24: 441». Si la clave coincide de forma exacta o normalizada con su candidata, `text` es la cita completa de la candidata, literal; por ejemplo `Burkill,1966` con la candidata `Burkill, 1966` da «Burkill, 1966».
 2. Nunca construyas una cita que no esté en las candidatas ni cites un ref que no sea una candidata.
-3. Si ninguna candidata corresponde a la clave (por ejemplo una obra poco clara como `Woi.Syria`, o una clave sin página real como `Eb33: 000`, donde `000` es un marcador de USDA y no una página; la regla es dejarla sin resolver y no citarla literal, para no presentar una página inexistente como cita), deja la clave sin resolver: `{key: "<clave>", ref: null, text: "<clave> (sin resolver)"}`. Ese grupo lleva `pendingReview: true` y el registro lleva un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo afectado, donde `<índice>` es la posición del grupo en `traditionalUses` (empieza en 0).
-4. Un grupo sin ninguna cita sin resolver lleva `pendingReview: false`.
+3. Si ninguna candidata corresponde a la clave (por ejemplo una obra poco clara como `Woi.Syria`, o una clave sin página real como `Eb33: 000`, donde `000` es un marcador de USDA y no una página; la regla es dejarla sin resolver y no citarla literal, para no presentar una página inexistente como cita), deja la clave sin resolver: `{key: "<clave>", ref: null, text: "<clave> (sin resolver)"}`. El registro lleva un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo afectado, donde `<índice>` es la posición del grupo en `traditionalUses` (empieza en 0), aunque el grupo se muestre: el flag se conserva para la revisión humana futura.
+4. `pendingReview` es verdadero solo si el grupo no tiene ninguna cita resuelta (todas sus claves quedaron sin resolver); el grupo con al menos una cita resuelta lleva `pendingReview: false` aunque conserve otras claves «(sin resolver)», y esas claves siguen en `citations` como `{key, ref: null, text: "<clave> (sin resolver)"}`. Un grupo pendiente lleva su `reviewFlag` `cita-sin-resolver`, igual que todo grupo con alguna clave sin resolver.
 
 ## Objetivos
 
@@ -85,7 +85,7 @@ Los `goals` salen únicamente de `sections.regulatory` (la EMA) y de `goals-map.
 
 ## Seguridad
 
-`safety` es un solo objeto `{level, text, refs}` o `null`. Cada entrada de `sections.safety` trae el nivel que le fija el mapa de seguridad (`level`: `bajo`, `medio`, `alto` o `null`) y su motivo (`levelReason`); no lo recalcules ni lo cambies. El nivel de `safety` es el más alto entre los `level` de las entradas, y un `level` nulo no cuenta.
+`safety` es un solo objeto `{level, text, refs}` o `null`; `level` puede ser `null` (véase abajo). Cada entrada de `sections.safety` trae el nivel que le fija el mapa de seguridad (`level`: `bajo`, `medio`, `alto` o `null`) y su motivo (`levelReason`); no lo recalcules ni lo cambies. El nivel de `safety` es el más alto entre los `level` de las entradas, y un `level` nulo no cuenta.
 
 - `tppt`: `level` sale de las categorías de `humanToxicity` (`categories`): «strong toxic» y «very strong toxic» dan `alto`; «toxic», «liver toxic», «cytotoxic», «estrogenic», «carcinogenic» y «phototoxic» dan `medio`; «weak toxic», «skin-irritating» y «allergenic» dan `bajo`; «nontoxic», «unknown», «infested plants only» y «stimulating» no fijan nivel y no hacen segura a la planta. La toxicidad en animales no fija nivel.
 - `ema_pdf`: la entrada de la sección 4.5 trae `interactionClass` y `severeInteractions`; una interacción grave da `alto`. La entrada `CONCLUSIONS` de una declaración pública con datos de seguridad da `medio`. Las secciones 4.3 (contraindicaciones), 4.4 (advertencias) y 4.5 (interacciones) traen su texto para citarlas, sin nivel propio.
@@ -93,7 +93,7 @@ Los `goals` salen únicamente de `sections.regulatory` (la EMA) y de `goals-map.
 
 `text` dice qué parte y qué riesgo registra la fuente (por ejemplo la parte tóxica y la toxina principal de TPPT, la sección de la EMA o las sustancias de EFSA), sin dosis ni consejos, y sus `refs` apuntan a las entradas que lo respaldan.
 
-Si ninguna entrada fija nivel, `safety` es `null` y el registro lleva un `reviewFlag` `sin-datos-de-seguridad` con `target` `safety` (que explica si no hay fuentes o si las fuentes no fijan nivel): nunca presentes la planta como segura. Una entrada `ema_pdf` con `status` `extraccion-fallida` significa que la extracción de los PDF de la EMA falló: registra `extraccion-seguridad-fallida`.
+Hay tres casos. (a) Alguna entrada fija nivel: `level` es el más alto, como arriba. (b) Ninguna entrada fija nivel pero el paquete trae información de seguridad que mostrar: `safety` es `{level: null, text, refs}`. Esa información es: las secciones 4.3, 4.4 o 4.5 de la EMA con contenido (que no sea solo «ninguna reportada» o «sin estudios»), categorías de TPPT sin nivel que valga la pena decir y sustancias de evidencia de EFSA. `text` describe lo que registran las fuentes, sin dosis ni consejos, y `refs` apunta a las entradas que lo respaldan; no se marca la planta como «Precaución» ni se la presenta como segura. (c) Ninguna información de seguridad en el paquete: `safety` es `null` y el registro lleva un `reviewFlag` `sin-datos-de-seguridad` con `target` `safety`. En ningún caso presentes la planta como segura; `sin-datos-de-seguridad` solo se registra en el caso (c). Una entrada `ema_pdf` con `status` `extraccion-fallida` significa que la extracción de los PDF de la EMA falló: registra `extraccion-seguridad-fallida`.
 
 ## Imagen
 
@@ -120,9 +120,9 @@ Si ninguna entrada fija nivel, `safety` es `null` y el registro lleva un `review
 | `wikidata-sin-item` | paquete | `wikidata` | Ningún ítem de Wikidata pasa el filtro de homónimos. |
 | `wikidata-no-consultada` | paquete | `wikidata` | La planta no tiene aceptado, así que no se consultó Wikidata. |
 | `extraccion-seguridad-fallida` | paquete | `safety` | La extracción de los PDF de la EMA falló (entrada `ema_pdf` con `status` `extraccion-fallida`). |
-| `cita-sin-resolver` | registro | `traditionalUses[<índice>]` | Un grupo tiene una clave de cita sin candidata; un flag por grupo afectado. |
+| `cita-sin-resolver` | registro | `traditionalUses[<índice>]` | Un grupo tiene una clave de cita sin candidata; un flag por grupo afectado, aunque el grupo se muestre. |
 | `interacciones-graves-estres` | registro | `goals.relajacion-estres` | Interacciones graves de la EMA y área de estrés y ánimo; objetivo pendiente. |
-| `sin-datos-de-seguridad` | registro | `safety` | Ninguna entrada fija nivel; la planta no se presenta como segura. |
+| `sin-datos-de-seguridad` | registro | `safety` | El paquete no trae ninguna información de seguridad (`safety` es `null`); la planta no se presenta como segura. |
 | `objetivos-omitidos-por-toxicidad` | registro | `goals` | TPPT marca la planta como «strong toxic» o «very strong toxic» y se omiten los objetivos que la EMA le asigna. |
 | `sin-nombre-comun-es` | registro | `displayName` | El paquete no trae ningún nombre común en español; el `displayName` es el nombre científico. |
 | `idioma-de-nombre-dudoso` | registro | `commonNames` | No es seguro que un nombre del paquete sea español. |
@@ -137,5 +137,5 @@ Comprueba que:
 - `id` y `bundleHash` coinciden con los del paquete y `promptVersion` con este prompt.
 - Todo ref citado existe en `refs` del paquete y está en `refs` del registro.
 - Todo texto visible está en español y no contiene dosis, posologías ni lenguaje de eficacia.
-- Cada grupo con `pendingReview` y cada objetivo con `pendingReview` tienen su `reviewFlag`, y cada cita sin resolver está en un grupo pendiente.
+- Cada grupo con `pendingReview` y cada objetivo con `pendingReview` tienen su `reviewFlag`; cada grupo con una clave sin resolver tiene su `reviewFlag` `cita-sin-resolver`, y un grupo es pendiente solo si no tiene ninguna cita resuelta.
 - El registro cumple `record.schema.json`, sin campos adicionales.

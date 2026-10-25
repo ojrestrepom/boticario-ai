@@ -138,6 +138,15 @@ class RecordSchemaTests(unittest.TestCase):
         del record["traditionalUses"][0]["pendingReview"]
         self.assertTrue(any("'pendingReview'" in e for e in self.errors(record)))
 
+    def test_safety_level_accepts_null_but_text_is_required(self):
+        record = fx.record("hiperico")
+        record["safety"]["level"] = None
+        self.assertEqual(self.errors(record), [])
+        record["safety"]["text"] = ""
+        self.assertTrue(any("safety.text" in e for e in self.errors(record)))
+        del record["safety"]["text"]
+        self.assertTrue(any("'text'" in e for e in self.errors(record)))
+
     def test_safety_level_and_oil_type_are_closed(self):
         record = fx.record("hiperico")
         record["safety"]["level"] = "critico"

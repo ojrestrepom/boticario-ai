@@ -251,6 +251,7 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None)
         candidates = (source_group or {}).get("candidates") or {}
         all_candidates = {c.get("ref") for options in candidates.values() for c in options}
         unresolved = False
+        resolved = False
         for c_index, citation in enumerate(group["citations"]):
             c_label = "%s.citations[%d]" % (label, c_index)
             marked = UNRESOLVED_MARK in citation["text"]
@@ -259,6 +260,7 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None)
                 if not marked:
                     errors.append("%s: cita sin ref y sin la marca '%s'" % (c_label, UNRESOLVED_MARK))
                 continue
+            resolved = True
             if marked:
                 errors.append("%s: cita con ref '%s' y con la marca '%s'" % (c_label, citation["ref"], UNRESOLVED_MARK))
             if not citation["ref"].startswith("usda_reference:"):
@@ -269,12 +271,29 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None)
                 allowed = {c.get("ref") for c in candidates.get(citation["key"], [])} or all_candidates
                 if citation["ref"] not in allowed:
                     errors.append("%s: el ref '%s' no es una candidata del paquete para la clave '%s'" % (c_label, citation["ref"], citation["key"]))
-        if unresolved and not group["pendingReview"]:
-            errors.append("%s: tiene una cita '%s' y pendingReview falso" % (label, UNRESOLVED_MARK))
+        if unresolved and not resolved and not group["pendingReview"]:
+            errors.append("%s: ninguna cita está resuelta (todas '%s') y pendingReview falso" % (label, UNRESOLVED_MARK))
+        if resolved and group["pendingReview"]:
+            errors.append("%s: tiene al menos una cita resuelta y pendingReview verdadero (el grupo se muestra)" % label)
         if group["pendingReview"] and "%s[%d]" % ("traditionalUses", index) not in targets:
             errors.append("%s: pendingReview sin un reviewFlag cuyo target sea '%s'" % (label, label))
         if unresolved and not any(f["code"] == "cita-sin-resolver" and f["target"] == label for f in record["reviewFlags"]):
             errors.append("%s: falta el reviewFlag 'cita-sin-resolver' con target '%s'" % (label, label))
+
+    # Seguridad: el nivel nulo con texto es válido cuando ninguna entrada fija nivel; sin información, safety es nulo con su flag.
+    safety = record["safety"]
+    bundle_levels = [entry.get("level") for entry in bundle.get("sections", {}).get("safety", []) if entry.get("level")]
+    has_no_data_flag = any(f["code"] == "sin-datos-de-seguridad" for f in record["reviewFlags"])
+    if safety is None:
+        if bundle_levels:
+            errors.append("safety: es nulo pero el paquete fija nivel de seguridad (%s)" % ", ".join(sorted(set(bundle_levels))))
+        if not has_no_data_flag:
+            errors.append("safety: es nulo y falta el reviewFlag 'sin-datos-de-seguridad'")
+    else:
+        if safety["level"] is None and bundle_levels:
+            errors.append("safety.level: es nulo pero el paquete fija nivel de seguridad (%s)" % ", ".join(sorted(set(bundle_levels))))
+        if has_no_data_flag:
+            errors.append("safety: tiene contenido y el registro lleva el reviewFlag 'sin-datos-de-seguridad'")
 
     # Imagen.
     image = record["image"]

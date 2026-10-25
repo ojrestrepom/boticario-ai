@@ -194,7 +194,7 @@ La entrada del LLM SHALL ser un paquete por planta con `bundleVersion`, `plantKe
 - **THEN** su paquete incluye las contraindicaciones, advertencias e interacciones extraídas del PDF, cada una con su ref, o declara que la extracción falló
 
 ### Requirement: Registro consolidado v1 con citas
-Cada planta SHALL tener un registro con identificación (`id`, `recordVersion`, `bundleHash`, versión de prompt y modelo), taxonomía (`scientificName` con nombre, autores y refs; `synonyms` hasta 10; `family`), nombres (`displayName`, `commonNames` por idioma), descripción (`origin`, `description` de hasta 400 caracteres neutra, `partsUsed` hasta 5, `oil`), usos y objetivos (`traditionalUses` hasta 20 grupos con `activity` traducida, `activitySource` original, `n`, `countries`, `refs` y `pendingReview`; `goals` con `goal`, `subarea` (nulo salvo en `otros-objetivos`), `area`, `evidence`, `pendingReview` y refs), `safety` (nivel alto, medio o bajo, texto y refs), `image` (URL, página, autor, licencia, URL de licencia, atribución requerida y refs), `sources`, el subconjunto del diccionario `refs` que usa y `reviewFlags`, cada uno con la forma `{code, target, message}`. Todo texto visible SHALL estar en español, en particular `goals[].area` (traducción del área desde el mapa), `goals[].evidence` y los países de `traditionalUses[].countries`, que se traducen sin conservar el original.
+Cada planta SHALL tener un registro con identificación (`id`, `recordVersion`, `bundleHash`, versión de prompt y modelo), taxonomía (`scientificName` con nombre, autores y refs; `synonyms` hasta 10; `family`), nombres (`displayName`, `commonNames` por idioma), descripción (`origin`, `description` de hasta 400 caracteres neutra, `partsUsed` hasta 5, `oil`), usos y objetivos (`traditionalUses` hasta 20 grupos con `activity` traducida, `activitySource` original, `n`, `countries`, `refs` y `pendingReview`; `goals` con `goal`, `subarea` (nulo salvo en `otros-objetivos`), `area`, `evidence`, `pendingReview` y refs), `safety` (nivel alto, medio, bajo o nulo, texto y refs), `image` (URL, página, autor, licencia, URL de licencia, atribución requerida y refs), `sources`, el subconjunto del diccionario `refs` que usa y `reviewFlags`, cada uno con la forma `{code, target, message}`. Todo texto visible SHALL estar en español, en particular `goals[].area` (traducción del área desde el mapa), `goals[].evidence` y los países de `traditionalUses[].countries`, que se traducen sin conservar el original.
 
 #### Scenario: Registro completo
 - **WHEN** se valida el registro de una planta con todas las fuentes
@@ -217,7 +217,7 @@ Cada planta SHALL tener un registro con identificación (`id`, `recordVersion`, 
 - **THEN** `oil` es `{type: "Esencial"}`, y un aceite fijo, como el de ricino, no lo activa
 
 ### Requirement: Resolución de citas abreviadas por el LLM
-El LLM SHALL emparejar cada clave corta de REFERENCE de un grupo de uso con su cita completa eligiendo entre las candidatas del paquete, y SHALL citar el ref `usda_reference:*` de la candidata elegida; por ejemplo `Woi.10` con «The Wealth of India, vol. 10» y `Eb24: 441` con «Economic Botany 24: 441». Si ninguna candidata corresponde, la cita SHALL conservar su clave con la marca «(sin resolver)», el grupo SHALL llevar `pendingReview: true` y el registro SHALL llevar un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo afectado. El LLM SHALL NOT construir una cita que no esté en las candidatas.
+El LLM SHALL emparejar cada clave corta de REFERENCE de un grupo de uso con su cita completa eligiendo entre las candidatas del paquete, y SHALL citar el ref `usda_reference:*` de la candidata elegida; por ejemplo `Woi.10` con «The Wealth of India, vol. 10» y `Eb24: 441` con «Economic Botany 24: 441». Si ninguna candidata corresponde, la cita SHALL conservar su clave con la marca «(sin resolver)» (`{key, ref: null, text: "<clave> (sin resolver)"}`) y el registro SHALL llevar un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo con al menos una clave sin resolver, aunque el grupo se muestre. El grupo SHALL llevar `pendingReview: true` solo si ninguna de sus citas está resuelta; un grupo con al menos una cita resuelta SHALL llevar `pendingReview: false`. El LLM SHALL NOT construir una cita que no esté en las candidatas.
 
 #### Scenario: Clave emparejada
 - **WHEN** un grupo cita `Woi.10` y el paquete trae la candidata `WOI` con «The Wealth of India»
@@ -229,7 +229,15 @@ El LLM SHALL emparejar cada clave corta de REFERENCE de un grupo de uso con su c
 
 #### Scenario: Sin candidata correspondiente
 - **WHEN** ninguna candidata corresponde a la clave, por ejemplo una obra poco clara como `Woi.Syria`
-- **THEN** la cita conserva la clave con la marca «(sin resolver)», el grupo tiene `pendingReview` verdadero y el registro tiene un `reviewFlag` `cita-sin-resolver` con `target` en ese grupo
+- **THEN** la cita conserva la clave con la marca «(sin resolver)» y el registro tiene un `reviewFlag` `cita-sin-resolver` con `target` en ese grupo
+
+#### Scenario: Grupo con una cita resuelta y otra sin resolver
+- **WHEN** un grupo tiene una clave emparejada con una candidata y otra, como `Woi.Syria`, sin candidata
+- **THEN** el grupo tiene `pendingReview` falso y se muestra, la clave sin candidata queda como «<clave> (sin resolver)» y el registro conserva el `reviewFlag` `cita-sin-resolver` con `target` en ese grupo
+
+#### Scenario: Grupo sin ninguna cita resuelta
+- **WHEN** ninguna de las claves de un grupo tiene candidata correspondiente
+- **THEN** el grupo tiene `pendingReview` verdadero, queda oculto y tiene su `reviewFlag` `cita-sin-resolver`
 
 ### Requirement: Política de consolidación sin conocimiento propio
 El LLM SHALL elegir, traducir y resumir únicamente lo que está en el paquete y SHALL citar la fuente de cada campo con refs del paquete. SHALL NOT incorporar conocimiento propio ni inventar nombres comunes. SHALL NOT escribir dosis, posologías, indicaciones de tratamiento ni promesas de eficacia. Una planta separada por colisión SHALL usar su propio nombre científico.
@@ -266,7 +274,7 @@ Los `goals` SHALL salir únicamente de las áreas terapéuticas de la EMA y solo
 - **THEN** el objetivo `relajacion-estres` se registra con `pendingReview` verdadero y un `reviewFlag` con `target` en ese objetivo, y los consumidores lo omiten hasta que se revise
 
 ### Requirement: Niveles de seguridad
-El nivel `safety.level` SHALL derivarse de las fuentes con categorías definidas y versionadas en el repo (`safety-map.json`). TPPT: «strong toxic» y «very strong toxic» a alto; «toxic», «toxic (unknown strength)», «liver toxic», «cytotoxic», «estrogenic», «carcinogenic» y «phototoxic» a medio; «weak toxic», «skin-irritating» y «allergenic» a bajo; «nontoxic», «unknown», «infested plants only» y «stimulating» sin nivel; la toxicidad en animales no fija nivel. EMA: las interacciones graves a alto y las declaraciones públicas con datos de seguridad a medio. EFSA: una planta SHALL fijar medio solo si tiene al menos una fila, distinta de «Non Detected Value (<LOD)», cuya sustancia figura en una lista versionada de sustancias de alta preocupación (genotóxicas o carcinógenas; tuyona, pulegona, mentofurano y cumarina; furocumarinas fototóxicas; y venenos potentes), con los nombres exactos de las sustancias del compendio; las demás sustancias SHALL ser evidencia para el texto de seguridad y SHALL NOT fijar nivel. El nivel final SHALL ser el más alto entre las fuentes. Una planta sin datos de seguridad SHALL llevar `safety` nulo y un `reviewFlag`, y SHALL NOT presentarse como segura.
+El nivel `safety.level` SHALL derivarse de las fuentes con categorías definidas y versionadas en el repo (`safety-map.json`). TPPT: «strong toxic» y «very strong toxic» a alto; «toxic», «toxic (unknown strength)», «liver toxic», «cytotoxic», «estrogenic», «carcinogenic» y «phototoxic» a medio; «weak toxic», «skin-irritating» y «allergenic» a bajo; «nontoxic», «unknown», «infested plants only» y «stimulating» sin nivel; la toxicidad en animales no fija nivel. EMA: las interacciones graves a alto y las declaraciones públicas con datos de seguridad a medio. EFSA: una planta SHALL fijar medio solo si tiene al menos una fila, distinta de «Non Detected Value (<LOD)», cuya sustancia figura en una lista versionada de sustancias de alta preocupación (genotóxicas o carcinógenas; tuyona, pulegona, mentofurano y cumarina; furocumarinas fototóxicas; y venenos potentes), con los nombres exactos de las sustancias del compendio; las demás sustancias SHALL ser evidencia para el texto de seguridad y SHALL NOT fijar nivel. El nivel final SHALL ser el más alto entre las fuentes. Si ninguna entrada fija nivel pero el paquete trae información de seguridad que mostrar (las secciones 4.3, 4.4 o 4.5 de la EMA con contenido que no sea solo «ninguna reportada» o «sin estudios», categorías de TPPT sin nivel que valga la pena decir o sustancias de evidencia de EFSA), `safety` SHALL ser `{level: null, text, refs}`, con un texto que describa lo que registran las fuentes sin dosis ni consejos, y la planta SHALL NOT marcarse como «Precaución». Una planta sin ninguna información de seguridad SHALL llevar `safety` nulo y un `reviewFlag` `sin-datos-de-seguridad`. Ninguna planta SHALL presentarse como segura.
 
 #### Scenario: Planta tóxica
 - **WHEN** TPPT clasifica una planta como «strong toxic» para humanos
@@ -292,6 +300,10 @@ El nivel `safety.level` SHALL derivarse de las fuentes con categorías definidas
 - **WHEN** TPPT clasifica una planta como «toxic» o «weak toxic» para humanos y no hay datos de mayor gravedad
 - **THEN** su nivel es `medio` o `bajo` respectivamente, y «nontoxic» no fija nivel ni hace segura a la planta
 
+#### Scenario: Advertencias sin nivel
+- **WHEN** la EMA registra para una planta (por ejemplo el eucalipto) contraindicaciones o advertencias, como su uso en niños, y ninguna entrada de seguridad fija nivel
+- **THEN** `safety` es `{level: null, text, refs}` con esa información y refs de la EMA, la planta no se marca como «Precaución» y el registro no lleva el flag `sin-datos-de-seguridad`
+
 #### Scenario: Sin datos
 - **WHEN** ninguna fuente de seguridad menciona la planta
 - **THEN** `safety` es nulo con un `reviewFlag` de ausencia de datos, y el registro no afirma que sea segura
@@ -308,7 +320,7 @@ La imagen de un registro SHALL provenir de Wikimedia Commons a través de Wikida
 - **THEN** `image` queda nulo y el validador no admite una imagen con esa licencia
 
 ### Requirement: Validador automático
-El validador SHALL comprobar el esquema, que todo ref existe en el paquete de la planta, que todo objetivo tiene respaldo en la EMA, que una planta tóxica no tiene objetivos, que la imagen tiene licencia aceptada, que todo objetivo con `pendingReview` tiene un `reviewFlag` asociado, que todo grupo con `pendingReview` tiene un `reviewFlag` y todo grupo con una cita sin resolver tiene `pendingReview`, que toda cita de `traditionalUses` apunta a un ref `usda_reference:*` del paquete o está marcada «(sin resolver)», que `activitySource` es una actividad literal del paquete y que ningún texto contiene palabras de dosis o eficacia, esto último como advertencia. Un error SHALL impedir que el registro entre en la semilla.
+El validador SHALL comprobar el esquema, que todo ref existe en el paquete de la planta, que todo objetivo tiene respaldo en la EMA, que una planta tóxica no tiene objetivos, que la imagen tiene licencia aceptada, que todo objetivo con `pendingReview` tiene un `reviewFlag` asociado, que todo grupo con `pendingReview` tiene un `reviewFlag`, que `pendingReview` de un grupo es verdadero solo si ninguna de sus citas está resuelta y todo grupo con una cita sin resolver tiene el `reviewFlag` `cita-sin-resolver`, que `safety` es coherente con el paquete (nulo solo con el flag `sin-datos-de-seguridad` y sin nivel en el paquete; `level` nulo solo si ninguna entrada fija nivel, con `text` no vacío), que toda cita de `traditionalUses` apunta a un ref `usda_reference:*` del paquete o está marcada «(sin resolver)», que `activitySource` es una actividad literal del paquete y que ningún texto contiene palabras de dosis o eficacia, esto último como advertencia. Un error SHALL impedir que el registro entre en la semilla.
 
 #### Scenario: Ref inexistente
 - **WHEN** un registro cita un ref que no está en el diccionario del paquete
@@ -330,8 +342,16 @@ El validador SHALL comprobar el esquema, que todo ref existe en el paquete de la
 - **WHEN** un grupo de uso tiene `pendingReview` verdadero y el registro no tiene un `reviewFlag` cuyo `target` lo señale
 - **THEN** el validador devuelve un error
 
-#### Scenario: Cita sin resolver sin grupo pendiente
-- **WHEN** un grupo de uso tiene una cita «(sin resolver)» y `pendingReview` falso
+#### Scenario: Grupo sin ninguna cita resuelta que no está pendiente
+- **WHEN** ninguna cita de un grupo de uso está resuelta y `pendingReview` es falso
+- **THEN** el validador devuelve un error
+
+#### Scenario: Grupo con cita sin resolver visible sin flag
+- **WHEN** un grupo de uso con al menos una cita resuelta tiene otra «(sin resolver)» y el registro no tiene el `reviewFlag` `cita-sin-resolver` con `target` en ese grupo
+- **THEN** el validador devuelve un error
+
+#### Scenario: Seguridad con nivel nulo sin texto
+- **WHEN** `safety` tiene `level` nulo y no tiene `text`
 - **THEN** el validador devuelve un error
 
 #### Scenario: Cita inventada

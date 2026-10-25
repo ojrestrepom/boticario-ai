@@ -150,6 +150,56 @@ class ScenarioTests(ValidatorCase):
         record["traditionalUses"][1]["pendingReview"] = False
         self.assertError(record, "pendingReview falso")
 
+    def test_grupo_con_una_cita_resuelta_y_otra_sin_resolver_se_muestra_con_su_flag(self):
+        record = fx.record()
+        group = record["traditionalUses"][0]
+        group["citations"].append({"key": "Woi.Syria", "ref": None, "text": "Woi.Syria (sin resolver)"})
+        record["reviewFlags"].append({"code": "cita-sin-resolver", "target": "traditionalUses[0]",
+                                      "message": "La clave Woi.Syria no tiene una candidata correspondiente en el paquete."})
+        self.assertFalse(group["pendingReview"])
+        self.assertNoErrors(record)
+        # Sin su flag, el grupo visible con una clave sin resolver no es válido.
+        record["reviewFlags"].pop()
+        self.assertError(record, "falta el reviewFlag 'cita-sin-resolver' con target 'traditionalUses[0]'")
+
+    def test_grupo_con_una_cita_resuelta_no_puede_estar_pendiente(self):
+        record = fx.record()
+        record["traditionalUses"][0]["pendingReview"] = True
+        record["reviewFlags"].append({"code": "cita-sin-resolver", "target": "traditionalUses[0]", "message": "x"})
+        self.assertError(record, "al menos una cita resuelta y pendingReview verdadero")
+
+    def test_grupo_sin_ninguna_cita_resuelta_queda_pendiente(self):
+        record = fx.record()
+        group = record["traditionalUses"][1]
+        self.assertTrue(group["pendingReview"])
+        self.assertTrue(all(c["ref"] is None for c in group["citations"]))
+        self.assertNoErrors(record)
+        group["pendingReview"] = False
+        self.assertError(record, "ninguna cita está resuelta")
+
+    def test_safety_con_nivel_nulo_y_texto_es_valido(self):
+        record = fx.record()
+        record["safety"] = {"level": None, "text": "La EMA registra contraindicaciones y advertencias en niños.",
+                            "refs": ["ema_herbal:matricariae-flos"]}
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"]
+        self.assertNoErrors(record)
+
+    def test_safety_con_nivel_nulo_y_sin_texto_es_invalido(self):
+        record = fx.record()
+        record["safety"] = {"level": None, "text": "", "refs": ["ema_herbal:matricariae-flos"]}
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"]
+        self.assertError(record, "safety.text")
+        del record["safety"]["text"]
+        self.assertError(record, "'text'")
+
+    def test_safety_nula_exige_el_flag_y_el_nivel_nulo_no_contradice_al_paquete(self):
+        record = fx.record()
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"]
+        self.assertError(record, "falta el reviewFlag 'sin-datos-de-seguridad'")
+        record = fx.record("hiperico")
+        record["safety"]["level"] = None
+        self.assertError(record, "safety.level: es nulo pero el paquete fija nivel", fx.bundle("hiperico"))
+
     def test_cita_sin_resolver_exige_flag_cita_sin_resolver(self):
         record = fx.record()
         record["reviewFlags"][0]["code"] = "otro-motivo"

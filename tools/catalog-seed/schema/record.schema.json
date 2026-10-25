@@ -332,11 +332,15 @@
       ],
       "properties": {
         "level": {
-          "type": "string",
+          "type": [
+            "string",
+            "null"
+          ],
           "enum": [
             "alto",
             "medio",
-            "bajo"
+            "bajo",
+            null
           ]
         },
         "text": {

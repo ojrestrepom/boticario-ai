@@ -16,7 +16,7 @@ use crate::raw::quote_ident;
 /// Tablas del esquema neutral, en el orden fijo en que se vuelcan.
 ///
 /// Un test comprueba que coincide con las tablas que crea `apply_schema`.
-pub const NEUTRAL_TABLES: [&str; 24] = [
+pub const NEUTRAL_TABLES: [&str; 25] = [
     "metadata",
     "source",
     "plant",
@@ -30,6 +30,7 @@ pub const NEUTRAL_TABLES: [&str; 24] = [
     "plant_use_source",
     "reference_source",
     "plant_profile",
+    "plant_profile_ref",
     "plant_use_group",
     "plant_use_group_ref",
     "goal",

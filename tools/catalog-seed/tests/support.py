@@ -15,6 +15,8 @@ PAYLOAD = b"contenido de prueba del insumo\n"
 def make_source(payload=PAYLOAD, **overrides):
     data = {
         "id": "usda",
+        "name": "Fixture",
+        "pageUrl": "https://example.invalid/",
         "version": "test",
         "url": "https://example.invalid/insumo.zip",
         "filename": "insumo.zip",
@@ -32,6 +34,8 @@ def make_service_source(source_id="wikipedia_es", **overrides):
     """Fuente de un servicio en línea (Wikidata, Wikipedia, Commons): sin archivo ni checksum."""
     data = {
         "id": source_id,
+        "name": "Fixture",
+        "pageUrl": "https://example.invalid/",
         "version": "test",
         "url": "https://example.invalid/servicio",
         "license": "CC BY-SA 4.0",

@@ -473,6 +473,54 @@ fn extra_fields_are_kept_in_the_new_tables() {
         ),
         0
     );
+    // La atribución de los campos del perfil: la descripción sale de Wikipedia.
+    assert_eq!(
+        strings(
+            &conn,
+            "SELECT p.field || '|' || r.dataset FROM plant_profile_ref p JOIN reference r ON r.id = p.reference_id \
+             WHERE p.plant_id = 'lavandula-angustifolia' AND p.field IN ('description', 'family', 'partsUsed', 'oil') ORDER BY p.field, r.dataset"
+        ),
+        [
+            "description|wikipedia_es",
+            "family|wcvp",
+            "oil|ema_json",
+            "oil|usda",
+            "partsUsed|ema_json"
+        ]
+    );
+    // Cada campo presente tiene al menos una referencia.
+    for p in &seed.plants {
+        let fields = count(
+            &conn,
+            &format!(
+                "SELECT COUNT(DISTINCT field) FROM plant_profile_ref WHERE plant_id = '{}'",
+                p.id
+            ),
+        );
+        let expected = 1
+            + i64::from(p.family.is_some())
+            + i64::from(p.display_name.is_some())
+            + i64::from(p.origin.is_some())
+            + i64::from(p.description.is_some())
+            + i64::from(p.oil.is_some())
+            + i64::from(!p.parts_used.is_empty());
+        assert_eq!(fields, expected, "{}", p.id);
+    }
+    // Nombre y página legibles de cada fuente, tal como los trae el manifiesto.
+    assert_eq!(
+        strings(
+            &conn,
+            "SELECT name || '|' || url FROM source WHERE id = 'wikipedia_es'"
+        ),
+        ["Wikipedia en español|https://es.wikipedia.org"]
+    );
+    assert_eq!(
+        count(
+            &conn,
+            "SELECT COUNT(*) FROM source WHERE name = id OR url = ''"
+        ),
+        0
+    );
     // Fuentes del manifiesto y su trazabilidad.
     assert_eq!(
         count(&conn, "SELECT COUNT(*) FROM source"),

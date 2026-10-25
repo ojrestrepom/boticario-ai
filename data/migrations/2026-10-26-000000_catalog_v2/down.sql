@@ -10,6 +10,7 @@ DROP TABLE goal_subarea;
 DROP TABLE goal;
 DROP TABLE plant_use_group_ref;
 DROP TABLE plant_use_group;
+DROP TABLE plant_profile_ref;
 DROP TABLE plant_profile;
 ALTER TABLE reference DROP COLUMN url;
 ALTER TABLE reference DROP COLUMN license;

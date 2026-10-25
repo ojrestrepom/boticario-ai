@@ -125,7 +125,7 @@ Un objeto con la lista `sources`. Cada fuente tiene estos campos comunes, todos 
 - `attribution`: atribución exigida por la licencia.
 - `enabled`: `true` o `false`; una fuente desactivada no se descarga y permite retirarla por configuración.
 
-Los archivos se declaran de una de dos formas, excluyentes. Fuente de un solo archivo: los campos `url`, `filename` (nombre en la caché, sin rutas), `size` (bytes) y `checksum` (objeto con `algorithm`, `md5` o `sha256`, y `value` en hexadecimal) van en la propia fuente. Fuente con varios archivos: una lista `files` donde cada elemento tiene esos mismos cuatro campos, con `filename` distinto. Los archivos se guardan en `data/.cache/<id>/<filename>` y se verifican todos; basta que uno falle para que falle la fuente.
+Todas las fuentes llevan además `name` (nombre legible) y `pageUrl` (página del dataset, `http` o `https`; no es la `url` de descarga): el manifiesto los entrega como `name` y `url` para los créditos de la API. Los archivos se declaran de una de dos formas, excluyentes. Fuente de un solo archivo: los campos `url`, `filename` (nombre en la caché, sin rutas), `size` (bytes) y `checksum` (objeto con `algorithm`, `md5` o `sha256`, y `value` en hexadecimal) van en la propia fuente. Fuente con varios archivos: una lista `files` donde cada elemento tiene esos mismos cuatro campos, con `filename` distinto. Los archivos se guardan en `data/.cache/<id>/<filename>` y se verifican todos; basta que uno falle para que falle la fuente.
 
 Tercera forma, para los servicios en línea (`wikidata`, `wikipedia_es` y `commons`): no hay archivo que verificar, porque la respuesta depende de la consulta. Se declaran con los campos comunes más `url` (el servicio que se consulta) y sin `filename`, `size`, `checksum` ni `files`; el validador rechaza esos campos en un servicio. Cada respuesta se guarda en `data/.cache/<id>/` con la fecha de la consulta, y `download` y `pin` los omiten (los descarga `wiki-fetch`). `enabled: false` apaga el servicio: ni se descarga ni se extrae. Wikipedia y Commons se descargan a partir de los ítems de Wikidata, así que sin `wikidata` activa también se omiten.
 
@@ -804,7 +804,7 @@ Importación de registros: `seal --seed data/seed --from data/work/control/v7/lo
 Campos del manifiesto:
 
 - `formatVersion`: versión del formato del manifiesto (1).
-- `sources`: las fuentes con `enabled: true` de `sources.json`, con `id`, `version`, `license`, `attribution` y `files` (`filename`, `size`, `checksum`). Una fuente activa sin snapshot fijado hace fallar el sellado; una desactivada no se lista.
+- `sources`: las fuentes con `enabled: true` de `sources.json`, con `id`, `name`, `url` (la página del dataset, tomada de `pageUrl` de `sources.json`), `version`, `license`, `attribution` y `files` (`filename`, `size`, `checksum`). Una fuente activa sin snapshot fijado hace fallar el sellado; una desactivada no se lista.
 - `promptVersion` y `recordVersion`: las del prompt y el esquema vigentes.
 - `models`: los modelos distintos de los registros, ordenados (puede haber más de uno si se regeneró por tandas).
 - `plantCount`: número de plantas.

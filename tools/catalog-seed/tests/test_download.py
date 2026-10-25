@@ -118,7 +118,7 @@ class DownloadTests(unittest.TestCase):
                 "url": "https://example.invalid/" + name, "filename": name,
                 "size": len(payload) if pinned else None,
                 "checksum": {"algorithm": "md5", "value": hashlib.md5(payload).hexdigest()} if pinned else None})
-        data = {"id": "efsa", "version": "v", "license": "CC BY 4.0", "attribution": "x", "enabled": True, "files": files}
+        data = {"id": "efsa", "name": "Fixture", "pageUrl": "https://example.invalid/", "version": "v", "license": "CC BY 4.0", "attribution": "x", "enabled": True, "files": files}
         return validate_source(data), {"a.xls": b"aaaa", "b.xls": b"bbbbbb"}
 
     def test_multi_file_download_and_cache(self):

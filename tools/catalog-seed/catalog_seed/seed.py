@@ -112,6 +112,8 @@ def manifest_sources(sources):
             raise SourceError("la fuente '%s' está activa pero su snapshot no está fijado (size y checksum null)" % source.id)
         entries.append({
             "id": source.id,
+            "name": source.name,
+            "url": source.page_url,
             "version": source.version,
             "license": source.license,
             "attribution": source.attribution,

@@ -58,7 +58,7 @@ class ResolveCommandTests(support.TempDirTestCase):
 
     def write_sources(self, wcvp_value=None):
         def source(source_id, path, name, algorithm="sha256", value=None):
-            return {"id": source_id, "version": "v", "license": "l", "attribution": "a", "enabled": True,
+            return {"id": source_id, "name": "Fixture", "pageUrl": "https://example.invalid/", "version": "v", "license": "l", "attribution": "a", "enabled": True,
                     "url": "https://example.invalid/" + name, "filename": name, "size": os.path.getsize(path),
                     "checksum": {"algorithm": algorithm, "value": value or digest(path)}}
         with open(self.sources, "w") as handle:

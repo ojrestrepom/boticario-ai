@@ -102,11 +102,34 @@ class SourceListTests(unittest.TestCase):
         self.assertFalse(validate_source(data).pinned)
 
 
+class ReadableFieldsTests(unittest.TestCase):
+    """`name` y `pageUrl` son obligatorios en todas las fuentes: la semilla los entrega para los créditos."""
+
+    def test_name_and_page_url_are_required(self):
+        for field in ("name", "pageUrl"):
+            data = dict(make_source().data)
+            del data[field]
+            with self.assertRaises(SourceError, msg=field):
+                validate_source(data)
+            data[field] = "  "
+            with self.assertRaises(SourceError, msg=field):
+                validate_source(data)
+
+    def test_page_url_must_be_http(self):
+        with self.assertRaises(SourceError):
+            validate_source(dict(make_source().data, pageUrl="www.example.org"))
+
+    def test_shipped_sources_have_a_name_and_a_page_url(self):
+        for source in load_sources(DEFAULT_SOURCES_FILE):
+            self.assertTrue(source.name.strip(), source.id)
+            self.assertTrue(source.page_url.startswith("https://"), source.id)
+
+
 class ServiceSourceTests(unittest.TestCase):
     """Wikidata, Wikipedia en español y Commons son servicios en línea: sin archivo, tamaño ni checksum."""
 
     def data(self, source_id="wikidata", **overrides):
-        data = {"id": source_id, "version": "consulta dirigida", "url": "https://query.example/sparql", "license": "CC0 1.0",
+        data = {"id": source_id, "name": "Fixture", "pageUrl": "https://example.invalid/", "version": "consulta dirigida", "url": "https://query.example/sparql", "license": "CC0 1.0",
                 "attribution": "Colaboradores de Wikidata", "enabled": True}
         data.update(overrides)
         return data

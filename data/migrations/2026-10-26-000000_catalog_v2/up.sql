@@ -25,6 +25,17 @@ CREATE TABLE plant_profile (
     prompt_version INTEGER NOT NULL
 );
 
+-- Referencias que respaldan cada campo de valor único del perfil (y la familia, el nombre científico y las partes): así se sabe de qué dataset sale, por ejemplo, la descripción.
+-- `field` es una lista cerrada, con los nombres de los campos del registro de la semilla.
+-- Los nombres comunes, los usos, los objetivos, la seguridad y la imagen no están aquí: tienen su propia atribución.
+CREATE TABLE plant_profile_ref (
+    plant_id     TEXT NOT NULL REFERENCES plant (id),
+    field        TEXT NOT NULL CHECK (field IN ('scientificName', 'family', 'displayName', 'origin', 'description', 'oil', 'partsUsed')),
+    reference_id TEXT NOT NULL REFERENCES reference (id),
+    PRIMARY KEY (plant_id, field, reference_id)
+);
+CREATE INDEX idx_plant_profile_ref_reference ON plant_profile_ref (reference_id);
+
 -- Grupos de uso tradicional: una actividad (en español) con su etiqueta original, el número de registros y los países.
 -- `countries` es un arreglo JSON de textos ya en español: solo se lee completo, nunca se filtra por país.
 -- `pending_review` es verdadero solo si ninguna cita del grupo está resuelta; esos grupos no generan filas en `plant_use`.

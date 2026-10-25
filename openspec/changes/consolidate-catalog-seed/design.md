@@ -80,6 +80,10 @@ Nombres y columnas fijados en la tarea 7.1 (migración `data/migrations/2026-10-
 
 `plant_profile (plant_id PK, display_name, authors, origin, description, oil_type, record_version, bundle_hash, prompt_version)`: una fila por planta; `display_name`, `authors`, `origin`, `description` y `oil_type` son nulables porque el registro admite `null` en esos campos. `authors` son los del nombre científico canónico y `oil_type` guarda `oil.type` (hoy solo `Esencial`).
 
+`plant_profile_ref (plant_id, field, reference_id)` con clave primaria `(plant_id, field, reference_id)` guarda las referencias de los campos del perfil, para saber de qué dataset sale cada uno (por ejemplo, que la descripción sale de Wikipedia). `field` es una lista cerrada con los nombres del registro: `scientificName`, `family`, `displayName`, `origin`, `description`, `oil` y `partsUsed` (las referencias de todas las partes). Los demás datos ya tienen su atribución: nombres en `plant_name_source`, usos en `plant_use_source` y `plant_use_group_ref`, objetivos en `plant_goal_ref`, seguridad en `plant_safety_ref`, y la imagen lleva su licencia en `plant_image`.
+
+Las fuentes del manifiesto llevan `name` (nombre legible) y `url` (página del dataset), que la construcción copia a `source.name` y `source.url`; salen de los campos `name` y `pageUrl` de `tools/catalog-seed/sources.json`.
+
 `plant_use_group (id, plant_id, position, activity, activity_source, n, countries, pending_review)`: `countries` es un arreglo JSON de textos en español, porque solo se lee completo y nunca se filtra por país; `pending_review` es verdadero solo si el grupo no tiene ninguna cita resuelta, y esos grupos no generan filas en `plant_use`.
 
 `plant_use_group_ref (use_group_id, key, position, text, resolved, reference_id)` con clave primaria `(use_group_id, key)`: guarda también las citas sin resolver (`reference_id` nulo, `text` = «<clave> (sin resolver)»), y un `CHECK` exige que `resolved` sea verdadero si y solo si hay `reference_id`.

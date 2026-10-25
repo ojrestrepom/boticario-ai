@@ -12,8 +12,8 @@ use diesel::prelude::*;
 
 use crate::schema::{
     goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
-    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_review_flag,
-    plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
+    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
+    plant_review_flag, plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
     plant_use_group_ref, plant_use_source, reference, reference_source, source,
 };
 
@@ -441,6 +441,18 @@ pub struct PlantAliasRow {
     pub alias: String,
     /// Planta a la que resuelve (ID público).
     pub plant_id: String,
+}
+
+/// Fila de `plant_profile_ref`: referencia que respalda un campo del perfil (`field` es de una lista cerrada).
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = plant_profile_ref)]
+pub struct PlantProfileRefRow {
+    /// Planta.
+    pub plant_id: String,
+    /// Campo del registro: `scientificName`, `family`, `displayName`, `origin`, `description`, `oil` o `partsUsed`.
+    pub field: String,
+    /// Referencia que lo respalda.
+    pub reference_id: String,
 }
 
 /// Fila de `plant_review_flag`, tal como se lee.

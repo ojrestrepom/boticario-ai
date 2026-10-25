@@ -16,7 +16,8 @@ DISCARDED_SOURCES = (
     "oms", "who", "nhpid", "inaturalist", "drugbank",
 )
 CHECKSUM_ALGORITHMS = ("md5", "sha256")
-BASE_FIELDS = ("id", "version", "license", "attribution", "enabled")
+# `name` y `pageUrl` (página del dataset, distinta de `url`, que es lo que se descarga) son los datos legibles que la semilla entrega para los créditos.
+BASE_FIELDS = ("id", "name", "pageUrl", "version", "license", "attribution", "enabled")
 FILE_FIELDS = ("url", "filename", "size", "checksum")
 # Fuentes cuya lista de archivos se genera al descargar (la EMA: los PDF salen de las páginas de cada ficha): 'files' puede estar vacía.
 GENERATED_FILE_LISTS = ("ema_pdf",)
@@ -56,6 +57,8 @@ class Source:
     def __init__(self, data):
         self.data = data
         self.id = data["id"]
+        self.name = data["name"]
+        self.page_url = data["pageUrl"]
         self.version = data["version"]
         self.license = data["license"]
         self.attribution = data["attribution"]
@@ -142,9 +145,11 @@ def validate_source(data):
     for field in BASE_FIELDS:
         if field not in data:
             raise SourceError("fuente '%s': falta el campo '%s'" % (data["id"], field))
-    for field in ("version", "license", "attribution"):
+    for field in ("name", "pageUrl", "version", "license", "attribution"):
         if not isinstance(data[field], str) or not data[field].strip():
             raise SourceError("fuente '%s': '%s' debe ser texto no vacío" % (data["id"], field))
+    if not data["pageUrl"].strip().startswith(("http://", "https://")):
+        raise SourceError("fuente '%s': 'pageUrl' debe ser una URL http o https" % data["id"])
     if not isinstance(data["enabled"], bool):
         raise SourceError("fuente '%s': 'enabled' debe ser booleano" % data["id"])
     if data["id"] in SERVICE_SOURCES:

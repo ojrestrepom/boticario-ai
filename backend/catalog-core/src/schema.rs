@@ -121,6 +121,14 @@ diesel::table! {
 }
 
 diesel::table! {
+    plant_profile_ref (plant_id, field, reference_id) {
+        plant_id -> Text,
+        field -> Text,
+        reference_id -> Text,
+    }
+}
+
+diesel::table! {
     plant_review_flag (id) {
         id -> Integer,
         plant_id -> Text,
@@ -238,6 +246,8 @@ diesel::joinable!(plant_part -> plant (plant_id));
 diesel::joinable!(plant_part_source -> plant_part (plant_part_id));
 diesel::joinable!(plant_part_source -> source (source_id));
 diesel::joinable!(plant_profile -> plant (plant_id));
+diesel::joinable!(plant_profile_ref -> plant (plant_id));
+diesel::joinable!(plant_profile_ref -> reference (reference_id));
 diesel::joinable!(plant_review_flag -> plant (plant_id));
 diesel::joinable!(plant_safety -> plant (plant_id));
 diesel::joinable!(plant_safety_ref -> plant_safety (plant_id));
@@ -268,6 +278,7 @@ diesel::allow_tables_to_appear_in_same_query!(
     plant_part,
     plant_part_source,
     plant_profile,
+    plant_profile_ref,
     plant_review_flag,
     plant_safety,
     plant_safety_ref,

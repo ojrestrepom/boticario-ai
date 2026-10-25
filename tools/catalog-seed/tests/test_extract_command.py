@@ -28,7 +28,7 @@ class ExtractCommandTests(support.TempDirTestCase):
         support.make_tppt_zip(tppt, statements())
 
         def source(source_id, path, name):
-            return {"id": source_id, "version": "v", "license": "l", "attribution": "a", "enabled": True, "url": "https://example.invalid/" + name,
+            return {"id": source_id, "name": "Fixture", "pageUrl": "https://example.invalid/", "version": "v", "license": "l", "attribution": "a", "enabled": True, "url": "https://example.invalid/" + name,
                     "filename": name, "size": os.path.getsize(path), "checksum": {"algorithm": "sha256", "value": digest(path)}}
         self.sources = os.path.join(self.tmp, "sources.json")
         with open(self.sources, "w") as handle:

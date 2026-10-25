@@ -145,6 +145,8 @@ class SealTests(SeedCase):
         self.assertEqual(source["id"], "usda")
         self.assertEqual(source["files"][0]["checksum"]["algorithm"], "md5")
         self.assertTrue(source["version"] and source["license"] and source["attribution"])
+        self.assertEqual(source["name"], "Fixture")
+        self.assertEqual(source["url"], "https://example.invalid/")
 
     def test_determinista_y_sin_cambios(self):
         self.seal()

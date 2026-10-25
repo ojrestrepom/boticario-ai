@@ -187,7 +187,7 @@ class StepTests(support.TempDirTestCase):
     def test_pin_registers_checksums_and_detects_alterations(self):
         self.step().run(self.records)
         sources = os.path.join(self.tmp, "sources.json")
-        write_json(sources, {"sources": [{"id": "ema_pdf", "version": "x", "license": "l", "attribution": "a", "enabled": True, "files": []}]})
+        write_json(sources, {"sources": [{"id": "ema_pdf", "name": "Fixture", "pageUrl": "https://example.invalid/", "version": "x", "license": "l", "attribution": "a", "enabled": True, "files": []}]})
         added, total = pin_ema_pdfs(sources, self.records, self.tmp, version="fijado")
         self.assertEqual((added, total), (2, 2))
         entry = read_json(sources)["sources"][0]

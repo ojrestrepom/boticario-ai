@@ -166,7 +166,7 @@ class ExtractTests(unittest.TestCase):
         self.db = os.path.join(self.tmp.name, "work", "sources.db")
 
     def sources(self, **enabled):
-        base = {"version": "v", "license": "l", "attribution": "a", "url": "https://example.invalid/"}
+        base = {"name": "Fixture", "pageUrl": "https://example.invalid/", "version": "v", "license": "l", "attribution": "a", "url": "https://example.invalid/"}
         path = os.path.join(self.tmp.name, "sources.json")
         with open(path, "w", encoding="utf-8") as handle:
             json.dump({"sources": [dict(base, id=i, enabled=enabled.get(i, True)) for i in ("wikidata", "wikipedia_es", "commons")]},

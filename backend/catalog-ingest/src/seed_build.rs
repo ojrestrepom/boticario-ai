@@ -13,14 +13,14 @@ use catalog_core::normalize::normalize_name;
 use catalog_core::rows::{
     GoalRow, GoalSubareaRow, MetadataRow, NewPlantGoal, NewPlantName, NewPlantPart,
     NewPlantReviewFlag, NewPlantUse, NewPlantUseGroup, PlantAliasRow, PlantGoalRefRow,
-    PlantImageRow, PlantNameSourceRow, PlantPartSourceRow, PlantProfileRow, PlantRow,
-    PlantSafetyRefRow, PlantSafetyRow, PlantSourceIdRow, PlantUseGroupRefRow, PlantUseSourceRow,
-    ReferenceProvenanceRow, ReferenceSourceRow, SourceRow,
+    PlantImageRow, PlantNameSourceRow, PlantPartSourceRow, PlantProfileRefRow, PlantProfileRow,
+    PlantRow, PlantSafetyRefRow, PlantSafetyRow, PlantSourceIdRow, PlantUseGroupRefRow,
+    PlantUseSourceRow, ReferenceProvenanceRow, ReferenceSourceRow, SourceRow,
 };
 use catalog_core::schema::{
     goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
-    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_review_flag,
-    plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
+    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
+    plant_review_flag, plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
     plant_use_group_ref, plant_use_source, reference, reference_source, source,
 };
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY, apply_schema};
@@ -467,12 +467,11 @@ fn insert_all(
         diesel::insert_into(source::table)
             .values(SourceRow {
                 id: s.id.clone(),
-                // El manifiesto no trae nombre ni URL de la fuente: el nombre es el identificador y la URL, la primera de la atribución.
-                name: s.id.clone(),
+                name: s.name.clone(),
                 version: s.version.clone(),
                 license: s.license.clone(),
                 citation: s.attribution.clone(),
-                url: first_url(&s.attribution),
+                url: s.url.clone(),
                 checksum: source_checksum(&s.files),
             })
             .execute(conn)?;
@@ -508,14 +507,6 @@ fn insert_all(
 
 fn to_i32(n: usize) -> i32 {
     i32::try_from(n).unwrap_or(i32::MAX)
-}
-
-/// Primera URL (`http…`) de un texto, sin la puntuación final; vacío si no hay.
-fn first_url(text: &str) -> String {
-    text.split_whitespace()
-        .find(|w| w.starts_with("http://") || w.starts_with("https://"))
-        .map(|w| w.trim_end_matches(['.', ',', ';', ')']).to_string())
-        .unwrap_or_default()
 }
 
 /// Checksum de una fuente: vacío sin archivos, `<algoritmo>:<valor>` con uno, y un sha256 de la lista ordenada con varios.
@@ -740,6 +731,49 @@ fn insert_plant(conn: &mut SqliteConnection, rec: &PlantRecord) -> Result<(), Bu
             prompt_version: to_i32(rec.prompt_version as usize),
         })
         .execute(conn)?;
+
+    // Referencias de cada campo del perfil (lista cerrada de `field`).
+    let mut profile_refs: Vec<(&str, Vec<String>)> = vec![(
+        "scientificName",
+        refs.unique("scientificName", &rec.scientific_name.refs)?,
+    )];
+    if let Some(v) = &rec.family {
+        profile_refs.push(("family", refs.unique("family", &v.refs)?));
+    }
+    if let Some(v) = &rec.display_name {
+        profile_refs.push(("displayName", refs.unique("displayName", &v.refs)?));
+    }
+    if let Some(v) = &rec.origin {
+        profile_refs.push(("origin", refs.unique("origin", &v.refs)?));
+    }
+    if let Some(v) = &rec.description {
+        profile_refs.push(("description", refs.unique("description", &v.refs)?));
+    }
+    if let Some(v) = &rec.oil {
+        profile_refs.push(("oil", refs.unique("oil", &v.refs)?));
+    }
+    if !rec.parts_used.is_empty() {
+        let mut all: Vec<String> = Vec::new();
+        for (i, part) in rec.parts_used.iter().enumerate() {
+            for r in refs.unique(&format!("partsUsed[{i}]"), &part.refs)? {
+                if !all.contains(&r) {
+                    all.push(r);
+                }
+            }
+        }
+        profile_refs.push(("partsUsed", all));
+    }
+    for (field, list) in profile_refs {
+        for reference_id in list {
+            diesel::insert_into(plant_profile_ref::table)
+                .values(PlantProfileRefRow {
+                    plant_id: id.to_string(),
+                    field: field.to_string(),
+                    reference_id,
+                })
+                .execute(conn)?;
+        }
+    }
 
     // Nombres: científico y sinónimos en `la`, nombre para mostrar y nombres comunes.
     let mut names: Vec<PendingName> = Vec::new();

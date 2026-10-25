@@ -167,6 +167,10 @@ pub struct ManifestSource {
     pub id: String,
     /// Licencia.
     pub license: String,
+    /// Nombre legible de la fuente.
+    pub name: String,
+    /// Página del dataset.
+    pub url: String,
     /// Versión de la fuente.
     pub version: String,
 }

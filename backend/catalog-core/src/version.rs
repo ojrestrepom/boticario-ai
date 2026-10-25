@@ -123,6 +123,7 @@ mod tests {
             "plant_use_source",
             "reference_source",
             "plant_profile",
+            "plant_profile_ref",
             "plant_use_group",
             "plant_use_group_ref",
             "goal",
@@ -158,6 +159,7 @@ mod tests {
              INSERT INTO plant_use_group_ref VALUES (1, 'k', 1, 'k (sin resolver)', 0, NULL);
              INSERT INTO plant_use_group_ref VALUES (1, 'j', 2, 'cita', 1, 'd:1');
              INSERT INTO plant_goal VALUES (1, 'p', 'g', NULL, 1, 'area', 'ev', 0);
+             INSERT INTO plant_profile_ref VALUES ('p', 'description', 'd:1');
              INSERT INTO plant_safety VALUES ('p', NULL, 'precaución');
              INSERT INTO plant_image VALUES ('p', 'u', 'pu', NULL, 'CC0', NULL, 0);",
         )
@@ -171,6 +173,10 @@ mod tests {
             "INSERT INTO plant_goal VALUES (2, 'p', 'g', 's', 2, 'area', 'ev', 0)",
             // Objetivo repetido para la misma planta, subárea y área.
             "INSERT INTO plant_goal VALUES (2, 'p', 'g', NULL, 2, 'area', 'ev', 0)",
+            // Campo del perfil fuera de la lista cerrada.
+            "INSERT INTO plant_profile_ref VALUES ('p', 'otro', 'd:1')",
+            // Referencia del perfil que no existe.
+            "INSERT INTO plant_profile_ref VALUES ('p', 'origin', 'd:2')",
             // Nivel de seguridad fuera de la lista.
             "INSERT INTO plant_safety VALUES ('q', 'extremo', 't')",
         ] {

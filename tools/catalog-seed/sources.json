@@ -2,6 +2,8 @@
   "sources": [
     {
       "id": "usda",
+      "name": "USDA Dr. Duke's Phytochemical and Ethnobotanical Databases",
+      "pageUrl": "https://doi.org/10.15482/USDA.ADC/1239279",
       "version": "Ag Data Commons 24660351, v1 (Duke-Source-CSV.zip, file ID 43363335)",
       "url": "https://ndownloader.figshare.com/files/43363335",
       "filename": "Duke-Source-CSV.zip",
@@ -13,6 +15,8 @@
     },
     {
       "id": "wcvp",
+      "name": "World Checklist of Vascular Plants (WCVP)",
+      "pageUrl": "https://powo.science.kew.org/",
       "version": "WCVP v16 (wcvp.zip, Kew SFTP; coincide con el piloto)",
       "url": "https://sftp.kew.org/pub/data-repositories/WCVP/wcvp.zip",
       "filename": "wcvp.zip",
@@ -24,6 +28,8 @@
     },
     {
       "id": "wfo",
+      "name": "World Flora Online (WFO)",
+      "pageUrl": "https://zenodo.org/records/20782718",
       "version": "World Flora Online Plant List 2026-06 (Zenodo 20782718, _DwC_backbone_R.zip)",
       "url": "https://zenodo.org/api/records/20782718/files/_DwC_backbone_R.zip/content",
       "filename": "_DwC_backbone_R.zip",
@@ -35,6 +41,8 @@
     },
     {
       "id": "ema_json",
+      "name": "EMA: Herbal medicines for human use (listado)",
+      "pageUrl": "https://www.ema.europa.eu/",
       "version": "Snapshot fijado el 2026-10-20, meta.timestamp 2026-10-20T18:00:54Z",
       "url": "https://www.ema.europa.eu/en/documents/report/medicines-output-herbal_medicines-report-output-json_en.json",
       "filename": "herbal_medicines.json",
@@ -46,6 +54,8 @@
     },
     {
       "id": "ema_pdf",
+      "name": "EMA: monografías y declaraciones públicas del HMPC",
+      "pageUrl": "https://www.ema.europa.eu/",
       "version": "PDF de las páginas de las fichas del snapshot de ema_json (meta.timestamp 2026-10-20T18:00:54Z); monografía final de la UE o borrador y declaración pública final, registrados por el comando ema-pdf",
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "attribution": "European Medicines Agency (EMA). Herbal medicines for human use: monografías y declaraciones públicas del HMPC. https://www.ema.europa.eu/",
@@ -1285,6 +1295,8 @@
     },
     {
       "id": "tppt",
+      "name": "TPPT, Toxic Plants and Phytotoxins database (Agroscope)",
+      "pageUrl": "https://www.agroscope.admin.ch/",
       "version": "Snapshot fijado el 2026-10-20: tppt-db.zip (SQLite, base tppt-db.db fechada 2026-05-11 en el ZIP)",
       "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)",
       "attribution": "Agroscope (Swiss Confederation). TPPT, Toxic Plants and Phytotoxins database. https://www.agroscope.admin.ch/",
@@ -1300,6 +1312,8 @@
     },
     {
       "id": "efsa",
+      "name": "EFSA Compendium of Botanicals",
+      "pageUrl": "https://doi.org/10.5281/zenodo.996024",
       "version": "EFSA Compendium of Botanicals 2016 (Zenodo 996024, publicado 2016-07-05)",
       "license": "CC BY 4.0",
       "attribution": "EFSA (2016). EFSA's compendium of botanicals. Zenodo. https://doi.org/10.5281/zenodo.996024",
@@ -1321,6 +1335,8 @@
     },
     {
       "id": "wikidata",
+      "name": "Wikidata",
+      "pageUrl": "https://www.wikidata.org",
       "version": "Wikidata Query Service, consulta dirigida por nombre científico (P225); cada respuesta se guarda en la caché con su fecha",
       "url": "https://query.wikidata.org/sparql",
       "license": "CC0 1.0",
@@ -1329,6 +1345,8 @@
     },
     {
       "id": "wikipedia_es",
+      "name": "Wikipedia en español",
+      "pageUrl": "https://es.wikipedia.org",
       "version": "API REST de es.wikipedia.org (page/summary) de los artículos enlazados desde Wikidata; cada respuesta se guarda en la caché con su revisión y fecha",
       "url": "https://es.wikipedia.org/api/rest_v1/page/summary/",
       "license": "CC BY-SA 4.0",
@@ -1337,6 +1355,8 @@
     },
     {
       "id": "commons",
+      "name": "Wikimedia Commons",
+      "pageUrl": "https://commons.wikimedia.org",
       "version": "API de Wikimedia Commons (imageinfo con extmetadata) de las imágenes P18 de Wikidata; cada respuesta se guarda en la caché con su fecha",
       "url": "https://commons.wikimedia.org/w/api.php",
       "license": "por archivo: CC0, dominio público, CC BY o CC BY-SA",

@@ -837,6 +837,8 @@ La semilla provisional de la tarea 6.2 (`data/seed/plants/` y `manifest.json`, c
 
 ## Generación completa (grupo 11)
 
+La guía para repetir la generación con agentes de Claude Code, con el script del workflow, está en [`generation/README.md`](generation/README.md).
+
 Decisión del usuario para la tarea 11.1 (2026-10-25): modo A, agentes de Claude Code con un workflow. Sus palabras: «El workflow me parece aceptable». Sobre las fases: «Dos fases me parece bien». Sobre el tope: «Lo que nos alcance con las ventanas de 5 horas que tenemos, no importa si nos gastamos todos mis tokens disponibles».
 
 Preparación (tarea 11.2), sin red: se reconstruyeron los paquetes de todo el universo con `bundles` (2.355), porque los de las plantas fuera del control se habían armado antes de la limpieza de `utm_*` en las URL de imágenes. Los 20 paquetes de control conservan el `bundleHash` que guardan sus registros de `data/seed/plants/`. Después `plan --bundles data/work/bundles --seed data/seed --json` dio 2.335 plantas, todas con motivo `sin-registro`: el universo menos las 20 de control. El plan queda en `data/work/generation/plan.json`.

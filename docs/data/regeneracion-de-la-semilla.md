@@ -67,6 +67,8 @@ Qué hace cada cambio:
 
 El mismo plan y el mismo validador sirven para cualquier modo de ejecución del LLM. Un lote se reintenta solo si el validador reporta errores.
 
+La guía para generar con agentes de Claude Code, con el script del workflow, está en [`tools/catalog-seed/generation/README.md`](../../tools/catalog-seed/generation/README.md).
+
 ## Versionado del prompt y del modelo
 
 - `prompt/consolidate.md` es el prompt autocontenido de la variante A: el LLM solo elige, traduce y resume lo que está en el paquete, y cada campo cita refs del paquete. Su línea `prompt-version: <n>` es la que cada registro guarda en `promptVersion`.

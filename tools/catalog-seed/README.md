@@ -54,6 +54,7 @@ python3 -I tools/catalog-seed/cli.py bundle-sizes --top 10
 python3 -I tools/catalog-seed/cli.py validate --records data/seed/plants --bundles data/work/bundles
 python3 -I tools/catalog-seed/cli.py plan --bundles data/work/bundles --seed data/seed
 python3 -I tools/catalog-seed/cli.py seal --seed data/seed
+python3 -I tools/catalog-seed/cli.py seal --seed data/seed --from data/work/control/v7/lote-1 --from data/work/control/v7/lote-2
 ```
 
 - `download` descarga cada fuente con `enabled: true` a `data/.cache/<id>/<filename>`, comprueba tamaño y checksum y la deja en la caché solo si coinciden. Una fuente con `enabled: false` no se descarga ni se verifica.
@@ -65,11 +66,54 @@ python3 -I tools/catalog-seed/cli.py seal --seed data/seed
 - `ema-pdf` descarga las páginas y los PDF de la EMA (véase «PDF de la EMA»); `extract [--source <id>]` escribe las filas normalizadas de USDA, la EMA, TPPT y EFSA en `data/work/sources.db` (véase «Extracción y formato intermedio»); `safety-report` muestra la clasificación del mapa de seguridad sobre esas filas (véase «Mapa de seguridad»).
 - `resolve` resuelve los nombres de USDA y la EMA y escribe el universo en `data/work/universe/`; lee las decisiones de colisión y no abre la red (véase «Resolvedor taxonómico y universo»). `collisions-decide` es el único paso con red de la regla de colisiones: consulta Wikipedia solo para los grupos sin decisión y agrega las decisiones a `collision-decisions.json` (véase «Regla de colisiones»).
 - `bundles` arma sin red los paquetes por planta en `data/work/bundles/` y `bundle-sizes` mide los de un directorio (véase «Paquetes por planta»).
-- `validate`, `plan` y `seal` trabajan con la semilla y los paquetes (véanse «Validador», «Plan de regeneración» y «Sellado y manifiesto»).
+- `validate`, `plan` y `seal` trabajan con la semilla y los paquetes (véanse «Validador», «Plan de regeneración» y «Sellado y manifiesto»); `seal --from <dir>` importa registros de un directorio de trabajo. El orden de todos los comandos está en «Tubería completa, en orden».
 - `--source <id>` limita el comando a una fuente y se puede repetir.
 - `--sources <ruta>` y `--cache-dir <ruta>` cambian el archivo de fuentes y la caché (útil en pruebas).
 
 El código de los pasos posteriores debe obtener los insumos con `catalog_seed.download.require_verified`, que nunca usa datos sin verificar.
+
+## Tubería completa, en orden
+
+Todos los comandos se ejecutan desde la raíz del repositorio. «Red» indica si el comando abre conexiones. Las rutas por defecto son las de cada comando.
+
+| Paso | Comando | Lee | Escribe | Red |
+| --- | --- | --- | --- | --- |
+| 1 | `python3 -I tools/catalog-seed/cli.py download` | `sources.json` | `data/.cache/<fuente>/` (con `--offline` solo verifica) | Sí (no con `--offline`) |
+| 2 | `python3 -I tools/catalog-seed/cli.py ema-pdf --wait 7200` | caché de `ema_json` | `data/.cache/ema_pdf/` y los PDF registrados en `sources.json` | Sí (no con `--status`) |
+| 3 | `tools/catalog-seed/.venv/bin/python3 -I tools/catalog-seed/cli.py extract` | caché | `data/work/sources.db` | No |
+| 4 | `python3 -I tools/catalog-seed/cli.py resolve` | `data/work/sources.db`, WCVP y WFO de la caché, `collision-decisions.json` y `collision-exceptions.json` | `data/work/taxonomy.db` y `data/work/universe/` | No |
+| 5 | `python3 -I tools/catalog-seed/cli.py collisions-decide` | `data/work/sources.db`, `taxonomy.db` y los dos archivos de colisiones | agrega decisiones a `collision-decisions.json` (después se repite `resolve`) | Sí, solo para grupos sin decisión |
+| 6 | `python3 -I tools/catalog-seed/cli.py wiki-fetch --wait 7200` | `universe.json` y `taxonomy.db` | caché de Wikidata, Wikipedia y Commons, y `data/work/wiki/` (`--plan` solo estima) | Sí (no con `--plan`) |
+| 7 | `python3 -I tools/catalog-seed/cli.py wiki-assign` | caché de Wikidata, `universe.json` y `taxonomy.db` | `data/work/wiki/` | No |
+| 8 | `python3 -I tools/catalog-seed/cli.py bundles` | `sources.db`, `taxonomy.db`, `universe/`, `wiki/` y la caché | `data/work/bundles/` | No |
+| 9 | `python3 -I tools/catalog-seed/cli.py plan --bundles data/work/bundles --seed data/seed` | paquetes, `data/seed/plants/`, el prompt y el esquema | solo imprime las plantas a regenerar | No |
+| 10 | consolidación (agentes de Claude Code o un script con la API, según la tarea 11.1) | un paquete, `prompt/consolidate.md`, `schema/record.schema.json` y los mapas | un registro por planta en un directorio de trabajo, por ejemplo `data/work/control/v7/lote-1/` | Sí, la del modelo; las herramientas no la abren |
+| 11 | `python3 -I tools/catalog-seed/cli.py validate --records data/work/control/v7/lote-1 --bundles data/work/bundles` | registros y paquetes | solo imprime (y el informe con `--out`) | No |
+| 12 | `python3 -I tools/catalog-seed/cli.py seal --seed data/seed --from data/work/control/v7/lote-1 --from data/work/control/v7/lote-2` | registros de trabajo, paquetes, `data/seed/goals.json`, `sources.json`, prompt y esquema | `data/seed/plants/<id>.json` y `data/seed/manifest.json` | No |
+
+Notas del orden:
+
+- `extract` de EFSA y de los PDF de la EMA necesita el entorno virtual (véase «Entorno»); el resto usa el `python3` del sistema.
+- `wiki-fetch` y `wiki-assign` pueden ir antes o después de `collisions-decide`, pero ambos necesitan el universo de `resolve`. Si `collisions-decide` agrega decisiones, hay que repetir `resolve`, `wiki-assign` y `bundles`.
+- `bundles` desactiva las fuentes con `enabled: false` (véase «Fuentes desactivadas»); cambiar `sources.json` cambia el `bundleHash` solo de las plantas afectadas.
+- Después de sellar, `plan` debe dar «0 plantas a regenerar» y `validate --records data/seed/plants` cero errores.
+- Recorrido ejecutable sin red sobre los fixtures de `tests/fixtures/validate/` (un directorio temporal `$T`, con un prompt de versión 1 porque los registros de los fixtures son de esa versión):
+
+```sh
+T=$(mktemp -d)
+mkdir -p $T/bundles $T/work
+cp tools/catalog-seed/tests/fixtures/validate/bundle_matricaria.json $T/bundles/matricaria-recutita.json
+cp tools/catalog-seed/tests/fixtures/validate/bundle_hiperico.json $T/bundles/hypericum-perforatum.json
+cp tools/catalog-seed/tests/fixtures/validate/record_matricaria.json $T/work/matricaria-chamomilla.json
+cp tools/catalog-seed/tests/fixtures/validate/record_hiperico.json $T/work/hypericum-perforatum.json
+printf '# Prompt\n\nprompt-version: 1\n' > $T/prompt.md
+python3 -I tools/catalog-seed/cli.py plan --bundles $T/bundles --seed $T/seed --prompt $T/prompt.md
+python3 -I tools/catalog-seed/cli.py seal --seed $T/seed --from $T/work --bundles $T/bundles --prompt $T/prompt.md
+python3 -I tools/catalog-seed/cli.py plan --bundles $T/bundles --seed $T/seed --prompt $T/prompt.md
+python3 -I tools/catalog-seed/cli.py validate --records $T/seed/plants --bundles $T/bundles
+```
+
+Salida esperada: «2 plantas a regenerar» (`sin-registro`), «manifest.json actualizado: 2 plantas, seedHash sha256:...», «0 plantas a regenerar» y «2 registros, 0 con errores, 0 errores, 0 advertencias».
 
 ## Formato de `sources.json`
 
@@ -512,7 +556,7 @@ Comprobaciones con los paquetes reales (la sección de pruebas `RealBundlesTests
 
 ## Revisión de la corrida de control (tarea 5.3)
 
-Revisión de los 20 registros de la corrida 5.2 (prompt v2, `data/work/control/lote-1/` y `lote-2/`). Las correcciones salen en el prompt v3, en el validador y en el armado de paquetes. Las repeticiones con el prompt v3 (`data/work/control/v3/`) y con el prompt v4 (`data/work/control/v4/`) siguen en las subsecciones finales; la 5.3 sigue abierta a la espera de la decisión del usuario sobre las observaciones de la última subsección.
+Revisión de los 20 registros de la corrida 5.2 (prompt v2, `data/work/control/lote-1/` y `lote-2/`). Las correcciones salen en el prompt v3, en el validador y en el armado de paquetes. Las repeticiones con el prompt v3 (`data/work/control/v3/`), el v4 (`data/work/control/v4/`) y el v7 (`data/work/control/v7/`) siguen en las subsecciones finales. La revisión quedó cerrada con la v7 y la aprobación del usuario (véase «Aprobación del usuario (tarea 5.5)»).
 
 ### Lista de comprobación planta por planta
 
@@ -625,15 +669,69 @@ Totales: 277 grupos, 69 pendientes y 70 citas sin resolver (la caléndula tiene 
 
 La v4 cuesta unos 1.800 tokens menos por planta que la v3. Ambas siguen por encima de los 12.000 a 15.500 tokens por planta del piloto.
 
+### Resultados con el prompt v7
+
+Los 20 registros de `data/work/control/v7/lote-1/` y `lote-2/` se armaron con los mismos paquetes de `data/work/bundles/` (no cambiaron desde la v4) y Wikipedia activa. El validador (`lote-1-validate.json` y `lote-2-validate.json`) da 0 errores y 0 advertencias en los 20. Las cifras salen de los registros. «Grupos con cita sin resolver» cuenta grupos de `traditionalUses` con al menos una cita marcada «(sin resolver)»; los grupos se muestran y llevan el flag.
+
+| Planta | `displayName` | Objetivos | Seguridad | Grupos | Grupos pendientes | Citas sin resolver | Flags |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Lavanda | Lavanda | `mejorar-el-sueno`, `relajacion-estres` | medio | 11 | 0 | 0 | - |
+| Eucalipto | Eucalipto común | `alivio-respiratorio`, `otros-objetivos` (dolor e inflamación) | `null` con texto | 20 | 0 | 3 (3 grupos) | `cita-sin-resolver` (3) |
+| Romero | Romero | `otros-objetivos` (circulación, digestión) | medio | 20 | 0 | 17 (17 grupos) | `cita-sin-resolver` (17) |
+| Manzanilla | Manzanilla | `cuidado-de-la-piel`, `alivio-respiratorio`, `otros-objetivos` (boca y garganta, digestión) | bajo | 20 | 0 | 15 (15 grupos) | `cita-sin-resolver` (15) |
+| Menta | Menta piperita | `alivio-respiratorio`, `cuidado-de-la-piel`, `otros-objetivos` (dolor e inflamación, digestión) | medio | 20 | 0 | 4 (4 grupos) | `cita-sin-resolver` (4) |
+| Cicuta | Conium maculatum (`la`) | - | alto | 19 | 0 | 1 (1 grupo) | `aceite-por-compuesto-eo`, `cita-sin-resolver`, `sin-nombre-comun-es` |
+| Ricino | Ricino | - (omitidos por toxicidad) | alto | 20 | 0 | 10 (10 grupos) | `cita-sin-resolver` (10), `idioma-de-nombre-dudoso`, `objetivos-omitidos-por-toxicidad` |
+| Valeriana | Valeriana común | `mejorar-el-sueno`, `relajacion-estres` | medio | 20 | 0 | 1 (1 grupo) | `cita-sin-resolver`, `idioma-de-nombre-dudoso` |
+| Pasiflora | Pasiflora | `mejorar-el-sueno`, `relajacion-estres` | `null` con texto | 19 | 0 | 0 | `idioma-de-nombre-dudoso` |
+| Melisa | Toronjil | `mejorar-el-sueno`, `relajacion-estres`, `otros-objetivos` (digestión) | `null` con texto | 20 | 0 | 0 | - |
+| Tomillo | Tomillo | `alivio-respiratorio` | bajo | 20 | 0 | 5 (5 grupos) | `cita-sin-resolver` (5) |
+| Caléndula | Caléndula | `cuidado-de-la-piel`, `otros-objetivos` (boca y garganta) | `null` con texto | 20 | 0 | 6 (5 grupos) | `aceite-por-compuesto-eo`, `cita-sin-resolver` (5) |
+| Hipérico | Hierba de San Juan | `cuidado-de-la-piel`, `relajacion-estres` (pendiente), `otros-objetivos` (digestión) | alto | 20 | 0 | 4 (4 grupos) | `aceite-por-compuesto-eo`, `cita-sin-resolver` (4), `interacciones-graves-estres` |
+| Consuelda | Consuelda | `otros-objetivos` (dolor e inflamación) | medio | 20 | 0 | 0 | - |
+| Árbol del té | Árbol del té | `otros-objetivos` (boca y garganta), `cuidado-de-la-piel` | medio | 1 | 0 | 0 | - |
+| Lavandín | Lavandula × intermedia (`la`) | - | `null` | 0 | 0 | 0 | `aceite-por-compuesto-eo`, `sin-datos-de-seguridad`, `sin-nombre-comun-es` |
+| *Pelargonium sidoides* | Geranio africano | `alivio-respiratorio` | medio | 0 | 0 | 0 | - |
+| Rodiola | Rodiola | `cansancio-y-fatiga`, `relajacion-estres` | `null` con texto | 4 | 0 | 0 | - |
+| Bergamota | Bergamota | - | `null` | 0 | 0 | 0 | `grupo-partido`, `sin-datos-de-seguridad` |
+| Almendro | Almendro | - | bajo | 1 | 0 | 0 | `aceite-por-compuesto-eo` |
+
+Totales: 275 grupos, 0 pendientes y 66 citas sin resolver en 65 grupos. En la v4 había 69 grupos pendientes de 277. De las 66 citas sin resolver, 64 son `Woi.Syria`, una es `Uph` y una `Eb33: 000` (la página `000` no existe). Los emparejamientos de claves de los registros v7 repiten los de la revisión manual: `Woi.<n>` va a `WOI`, `Eb<vol>: <pág>` a `EB`, `Burkill,1966` a `Burkill, 1966` y `Nas` a `NAS2`.
+
+Comprobaciones de la tarea 5.3 sobre los registros v7:
+
+- Objetivos presentes en menta, árbol del té y caléndula.
+- La bergamota es *Citrus × bergamia* (`citrus-x-bergamia`) y el almendro es `prunus-amygdalus`, sin datos del cerezo.
+- Ningún dato de *L. latifolia* en la lavanda ni de *P. edulis* en la pasiflora (el texto de los registros no los contiene).
+- El aceite esencial sale según `EO`: donde el único apoyo es el compuesto `EO` (caléndula, hipérico, lavandín, almendro y cicuta) el registro lleva `aceite-por-compuesto-eo`.
+- El hipérico conserva `relajacion-estres` con `pendingReview` y el flag `interacciones-graves-estres`.
+- Nombres visibles: Caléndula, Árbol del té, Hierba de San Juan, Eucalipto común y Toronjil; *Conium maculatum* queda con `sin-nombre-comun-es`.
+- Las enfermedades graves llevan «Uso tradicional, sin eficacia demostrada: …» y las señales de riesgo van a `safety`: el veneno y los casos mortales de la cicuta y el ricino, lo abortivo del romero y el hipérico, la fototoxicidad del hipérico y lo cianogenético del ricino y la pasiflora.
+- `safety` con nivel nulo y texto: eucalipto, caléndula, rodiola, pasiflora y melisa.
+
+Costo y tiempo del prompt v7 (corrida del 2026-10-25, UTC):
+
+| Lote | Plantas | Inicio y fin | Duración | Tokens del agente |
+| --- | --- | --- | --- | --- |
+| 1 | 10 | 02:03:21Z a 02:10:24Z | 7 min 3 s | 203.415 |
+| 2 | 10 | 02:03:21Z a 02:08:23Z | 5 min 2 s | 166.665 |
+
+El total es de 370.080 tokens, unos 18.500 por planta, con los lotes en paralelo y agentes del modelo balanceado. Es parecido a la v4 (unos 18.000) y sigue por encima de los 12.000 a 15.500 del piloto.
+
+### Aprobación del usuario (tarea 5.5)
+
+Se mostraron al usuario los 20 registros de la corrida de control con el informe de costo y de flags. Tras ver los registros y decidir, el 2026-10-24 el usuario respondió «3. Si hazlo» (aplicar sus decisiones, repetir una corrida de verificación y seguir) y «Continuemos con el plan original entonces». Con esa respuesta se aprobaron los 20 registros v7 y se pasó al grupo 6.
+
 ### Observaciones abiertas para el usuario
 
-Son hallazgos de la repetición con el prompt v4. No se resolvieron: esperan la decisión del usuario antes de marcar la 5.3.
+Son hallazgos de la repetición con el prompt v4. Todos quedaron resueltos con las decisiones del usuario (prompts v5, v6 y v7), salvo la nota del desdoblamiento de nombres que cierra la lista.
 
 1. **Grupos pendientes (resuelto en el prompt v5, tarea 4.9).** 69 de los 277 grupos quedan pendientes y 68 de ellos tienen al menos una cita resuelta: casi siempre se suma `Woi.Syria`, que no tiene candidata, a las claves que sí se resuelven.
 2. **Actividades sensibles (resuelto en el prompt v6, tarea 4.10).** Entre los usos aparecen actividades como Cancer, Tumor, Abortifacient, Fatality, Poison, Aphrodisiac y Diabetes. Desde la v6 las enfermedades graves llevan la fórmula «Uso tradicional, sin eficacia demostrada: <enfermedad>» y las señales de riesgo van a `safety` como advertencia (véase «Actividades sensibles»).
 3. **`safety` nulo (resuelto en el prompt v5, tarea 4.9).** `safety` es `null` cuando ninguna entrada fija nivel, aunque la EMA traiga contraindicaciones; es el caso del eucalipto.
 4. **`displayName` de la caléndula (resuelto en el prompt v7).** Salía «Botón de oro»; desde la v7 el criterio principal es el nombre más usado y genérico del paquete, así que debe salir «Caléndula».
 5. **Falsos positivos de `EO` (resuelto en el prompt v7).** El compuesto `EO` de USDA activaba `oil` en el almendro y la cicuta, que podrían no ser aceites esenciales; desde la v7 un `oil` apoyado solo en `hasEo` lleva el `reviewFlag` `aceite-por-compuesto-eo`.
+6. **Desdoblamiento de nombres de una enumeración de Wikipedia (pendiente, sin cambio de prompt).** En la corrida v7 un agente separó los nombres de una enumeración del resumen de Wikipedia y de ahí sacó uno que el texto no da como tal: de «manzanilla alemana, dulce o cimarrona» salió «manzanilla dulce». Es una observación menor, que no rompe ninguna regla del validador. No se cambia el prompt; queda anotada para la revisión de los `commonNames` de la generación completa (tarea 11.4).
 
 ### Prueba con Wikipedia desactivada (tarea 5.4)
 
@@ -699,7 +797,11 @@ Un `code` de `reviewFlags` que no esté en `flag-codes.json` (el catálogo cerra
 
 ## Sellado y manifiesto
 
-`seal` lee `<seed>/plants/*.json` y `<seed>/goals.json`, comprueba que cada registro cumple el esquema, que su archivo se llama como su `id` y que su `promptVersion` es la del prompt vigente (si no, hay que regenerar antes de sellar), y escribe `<seed>/manifest.json` con claves ordenadas, sangría de 2 espacios y salto de línea final, sin marcas de tiempo. Campos:
+`seal` escribe la semilla y su manifiesto. En orden: (1) si falta `<seed>/goals.json`, lo copia del catálogo versionado (`data/seed/goals.json`); un `goals.json` existente no se reescribe, porque el catálogo se edita a mano y el `seedHash` usa su JSON canónico; (2) con `--from <dir>` (repetible) importa los registros de esos directorios de trabajo; (3) lee `<seed>/plants/*.json` y `<seed>/goals.json`, comprueba que cada registro cumple el esquema, que su archivo se llama como su `id` y que su `promptVersion` es la del prompt vigente (si no, hay que regenerar antes de sellar); (4) reescribe cada registro con el formato estable y (5) escribe `<seed>/manifest.json`. Si algo falla en (1) a (3), no se reescribe nada de la semilla salvo lo ya importado y válido (la importación es todo o nada). Los archivos tienen claves ordenadas, sangría de 2 espacios y salto de línea final, sin marcas de tiempo, así que dos ejecuciones dan archivos idénticos byte a byte.
+
+Importación de registros: `seal --seed data/seed --from data/work/control/v7/lote-1 --from data/work/control/v7/lote-2` toma los `*.json` de cada directorio (un archivo por planta, nombrado como su `id`) y los valida contra su paquete de `--bundles` (por defecto `data/work/bundles`) con las mismas reglas de `validate` y el esquema de `--schema` y el mapa de `--goals-map`. Un registro con errores, con un nombre de archivo distinto de su `id` o con un `id` repetido entre directorios detiene la importación y no entra ninguno. Las advertencias no la detienen. Un registro importado sustituye al que hubiera en `<seed>/plants/` con el mismo `id`. Los informes `*-validate.json` quedan fuera de los directorios de registros.
+
+Campos del manifiesto:
 
 - `formatVersion`: versión del formato del manifiesto (1).
 - `sources`: las fuentes con `enabled: true` de `sources.json`, con `id`, `version`, `license`, `attribution` y `files` (`filename`, `size`, `checksum`). Una fuente activa sin snapshot fijado hace fallar el sellado; una desactivada no se lista.
@@ -709,7 +811,28 @@ Un `code` de `reviewFlags` que no esté en `flag-codes.json` (el catálogo cerra
 - `reviewFlags`: para cada `code`, cuántas plantas lo tienen.
 - `seedHash`: `sha256:` más el sha256 de la concatenación UTF-8 de `plant\n<id>\n<JSON canónico del registro>\n` para cada registro ordenado por `id`, seguida de `goals\n<JSON canónico de goals.json>\n`. El JSON canónico tiene las claves ordenadas, separadores `,` y `:` sin espacios y caracteres sin escapar, así que no depende de la sangría de los archivos.
 
-`seal` no reescribe los registros ni escribe la semilla real (tarea 6.1); las pruebas lo ejercitan sobre un directorio de semilla de fixtures.
+Ejemplo resumido (semilla provisional de la tarea 6.2):
+
+```json
+{
+  "formatVersion": 1,
+  "models": ["claude-sonnet-5-5"],
+  "plantCount": 20,
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "reviewFlags": {"aceite-por-compuesto-eo": 5, "cita-sin-resolver": 10, "sin-nombre-comun-es": 2},
+  "seedHash": "sha256:2dabef0b...",
+  "sources": [
+    {"id": "usda", "version": "Ag Data Commons 24660351, v1 (...)", "license": "CC0", "attribution": "...",
+     "files": [{"filename": "Duke-Source-CSV.zip", "size": 6033990, "checksum": {"algorithm": "md5", "value": "45ae44a0..."}}]},
+    {"id": "wikidata", "version": "Wikidata Query Service, consulta dirigida por nombre científico (P225); ...", "license": "CC0 1.0", "attribution": "...", "files": []}
+  ]
+}
+```
+
+Las fuentes de servicio en línea (`wikidata`, `wikipedia_es` y `commons`) van con su descripción de versión (la consulta y que cada respuesta se guarda con su fecha en la caché) y `files` vacío, sin checksum. En el manifiesto real `reviewFlags` lista los ocho códigos presentes y `sources` las diez fuentes activas.
+
+La semilla provisional de la tarea 6.2 (`data/seed/plants/` y `manifest.json`, con los 20 registros v7 de la corrida de control) no se publica: el `push` a `main` despliega.
 
 ## Extracción de seguridad de los PDF de la EMA (spike 3.1)
 

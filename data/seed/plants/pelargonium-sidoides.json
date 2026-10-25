@@ -1,0 +1,211 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:70f65c88cc32b8328c756a6ba1a6019c1581646d8384f0c0d3cf8c97f1bc6c82",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pelargonium sidoides"
+      ],
+      "text": "geranio africano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pelargonium sidoides"
+      ],
+      "text": "geranio de Sudáfrica"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pelargonium sidoides"
+    ],
+    "value": "Planta nativa de Sudáfrica, Esuatini y Lesoto."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Pelargonium sidoides"
+    ],
+    "value": "Geranio africano"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2534767"
+    ],
+    "value": "Geraniaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:pelargonii-radix"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "pelargonium-sidoides",
+  "image": {
+    "attributionRequired": true,
+    "author": "Photo by and (c)2006 Derek Ramsey ( Ram-Man ). Location credit to the Chanticleer Garden.",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pelargonium_sidoides_Leaves_3264px.jpg",
+    "refs": [
+      "commons:File:Pelargonium sidoides Leaves 3264px.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Pelargonium_sidoides_Leaves_3264px.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2534767"
+    ],
+    "value": "África meridional"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:pelargonii-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pelargonium sidoides Leaves 3264px.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pelargonium sidoides Leaves 3264px.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pelargonium_sidoides_Leaves_3264px.jpg"
+    },
+    "efsa_botanic:1863": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1864": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: elemicin",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:pelargonii-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Pelargonii radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/pelargonii-radix"
+    },
+    "ema_pdf:pelargonii-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de pelargonii-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-pelargonium-sidoides-dc-pelargonium-reniforme-curt-radix-revision-2_en.pdf"
+    },
+    "ema_pdf:pelargonii-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de pelargonii-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-pelargonium-sidoides-dc-pelargonium-reniforme-curt-radix-revision-2_en.pdf"
+    },
+    "wcvp:2534767": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pelargonium sidoides DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2738388": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cortusina sidifolia (Thunb.) Eckl. & Zeyh.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2822736": {
+      "dataset": "wcvp",
+      "label": "WCVP: Geraniospermum sidifolium (Thunb.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2824061": {
+      "dataset": "wcvp",
+      "label": "WCVP: Geranium sidifolium Thunb.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pelargonium sidoides": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pelargonium sidoides",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pelargonium_sidoides"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1863",
+      "efsa_botanic:1864",
+      "ema_pdf:pelargonii-radix:4.3",
+      "ema_pdf:pelargonii-radix:4.4"
+    ],
+    "text": "EFSA registra metileugenol (grupo genotóxico y carcinógeno) en las hojas y elemicina como sustancia de evidencia. La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, que no se recomienda el uso oral en menores de 3 años, y que se han notificado casos de hepatotoxicidad y hepatitis asociados al medicamento."
+  },
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Pelargonium sidoides",
+    "refs": [
+      "wcvp:2534767"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Thunb.) Eckl. & Zeyh.",
+      "name": "Cortusina sidifolia",
+      "refs": [
+        "wcvp:2738388"
+      ]
+    },
+    {
+      "authors": "(Thunb.) Kuntze",
+      "name": "Geraniospermum sidifolium",
+      "refs": [
+        "wcvp:2822736"
+      ]
+    },
+    {
+      "authors": "Thunb.",
+      "name": "Geranium sidifolium",
+      "refs": [
+        "wcvp:2824061"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

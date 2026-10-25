@@ -237,6 +237,116 @@ class SealTests(SeedCase):
             self.assertEqual(main(["--sources", self.sources, "seal", "--seed", self.seed_dir, "--prompt", self.prompt]), 1)
         self.assertIn("promptVersion", err.getvalue())
 
+    def work_dir(self, name="work", **records):
+        directory = os.path.join(self.root, name)
+        os.makedirs(directory, exist_ok=True)
+        for plant_id, record in records.items():
+            dump(os.path.join(directory, "%s.json" % plant_id), record)
+        return directory
+
+    def seal_from(self, *dirs):
+        return seed.seal(self.seed_dir, self.sources, prompt_path=self.prompt, from_dirs=dirs, bundles_dir=self.bundles)
+
+    def plant_bytes(self, plant_id):
+        with open(os.path.join(self.seed_dir, "plants", "%s.json" % plant_id), "rb") as handle:
+            return handle.read()
+
+    def test_seal_escribe_registros_con_formato_estable(self):
+        path = os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json")
+        with open(path, encoding="utf-8") as handle:
+            data = json.load(handle)
+        with open(path, "w", encoding="utf-8") as handle:
+            json.dump(data, handle)  # compacto y sin orden
+        self.seal()
+        raw = self.plant_bytes("hypericum-perforatum")
+        self.assertEqual(raw, (json.dumps(data, indent=2, sort_keys=True, ensure_ascii=False) + "\n").encode("utf-8"))
+        self.assertTrue(raw.endswith(b"}\n"))
+
+    def test_dos_ejecuciones_dan_archivos_identicos(self):
+        work = self.work_dir(**{"matricaria-chamomilla": fx.record(), "hypericum-perforatum": fx.record("hiperico")})
+        os.remove(os.path.join(self.seed_dir, "plants", "matricaria-chamomilla.json"))
+        os.remove(os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json"))
+        self.seal_from(work)
+        names = ["manifest.json", "goals.json", "plants/matricaria-chamomilla.json", "plants/hypericum-perforatum.json"]
+
+        def snapshot():
+            out = {}
+            for name in names:
+                with open(os.path.join(self.seed_dir, name), "rb") as handle:
+                    out[name] = handle.read()
+            return out
+
+        first = snapshot()
+        _, changed = self.seal_from(work)
+        self.assertFalse(changed)
+        self.assertEqual(snapshot(), first)
+
+    def test_importa_solo_registros_validos(self):
+        os.remove(os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json"))
+        work = self.work_dir(**{"hypericum-perforatum": fx.record("hiperico")})
+        self.seal_from(work)
+        self.assertEqual(self.read_manifest()["plantCount"], 2)
+        self.assertEqual(json.loads(self.plant_bytes("hypericum-perforatum"))["id"], "hypericum-perforatum")
+
+    def test_registro_que_no_valida_no_entra(self):
+        bad = fx.record("hiperico")
+        bad["bundleHash"] = "sha256:" + "ee" * 32
+        work = self.work_dir(**{"hypericum-perforatum": bad})
+        before = self.plant_bytes("hypericum-perforatum")
+        with self.assertRaises(SourceError) as caught:
+            self.seal_from(work)
+        self.assertIn("hypericum-perforatum", str(caught.exception))
+        self.assertEqual(self.plant_bytes("hypericum-perforatum"), before)
+        self.assertFalse(os.path.exists(os.path.join(self.seed_dir, "manifest.json")))
+
+    def test_importar_es_todo_o_nada(self):
+        bad = fx.record("hiperico")
+        bad["bundleHash"] = "sha256:" + "ee" * 32
+        record = fx.record()
+        record["origin"] = {"value": "Europa", "refs": ["wcvp:2"]}
+        work = self.work_dir(**{"hypericum-perforatum": bad, "matricaria-chamomilla": record})
+        before = self.plant_bytes("matricaria-chamomilla")
+        with self.assertRaises(SourceError):
+            self.seal_from(work)
+        self.assertEqual(self.plant_bytes("matricaria-chamomilla"), before)
+
+    def test_registro_importado_con_nombre_distinto_falla(self):
+        work = self.work_dir(**{"otro": fx.record("hiperico")})
+        with self.assertRaises(SourceError) as caught:
+            self.seal_from(work)
+        self.assertIn("otro.json", str(caught.exception))
+        self.assertFalse(os.path.exists(os.path.join(self.seed_dir, "plants", "otro.json")))
+
+    def test_id_repetido_entre_directorios_falla(self):
+        one = self.work_dir("uno", **{"hypericum-perforatum": fx.record("hiperico")})
+        two = self.work_dir("dos", **{"hypericum-perforatum": fx.record("hiperico")})
+        with self.assertRaises(SourceError) as caught:
+            self.seal_from(one, two)
+        self.assertIn("repetido", str(caught.exception))
+
+    def test_goals_falta_se_copia_del_catalogo_y_existente_no_se_toca(self):
+        goals_path = os.path.join(self.seed_dir, "goals.json")
+        os.remove(goals_path)
+        self.seal()
+        self.assertEqual(goals.load_goals_catalog(goals_path), goals.load_goals_catalog(goals.DEFAULT_GOALS_CATALOG))
+        catalog = goals.load_goals_catalog(goals_path)
+        with open(goals_path, "w", encoding="utf-8") as handle:
+            handle.write(json.dumps(catalog))  # formato propio
+        with open(goals_path, "rb") as handle:
+            custom = handle.read()
+        self.seal()
+        with open(goals_path, "rb") as handle:
+            self.assertEqual(handle.read(), custom)
+
+    def test_cli_seal_from(self):
+        work = self.work_dir(**{"hypericum-perforatum": fx.record("hiperico")})
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            code = main(["--sources", self.sources, "seal", "--seed", self.seed_dir, "--prompt", self.prompt,
+                         "--from", work, "--bundles", self.bundles])
+        self.assertEqual(code, 0)
+        self.assertIn("2 plantas", out.getvalue())
+
     def test_schema_version_is_declared(self):
         self.assertEqual(seed.schema_version(load_schema(DEFAULT_RECORD_SCHEMA)), 1)
 

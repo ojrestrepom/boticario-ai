@@ -1,0 +1,241 @@
+{
+  "aliases": [
+    "prunus-dulcis"
+  ],
+  "bundleHash": "sha256:d89fa41fdf08355efa50fb1adc3d9a051c5a24f250bc4fe65e0d677e44edcf2f",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q39918",
+        "wikipedia_es:Prunus dulcis"
+      ],
+      "text": "almendro"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P195"
+      ],
+      "text": "Almond tree"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:790-1"
+      ],
+      "text": "Almond"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P195"
+      ],
+      "text": "Mandelbaum"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Prunus dulcis"
+    ],
+    "value": "Árbol de la familia de las rosáceas. Se distinguen dos variedades: una cultivada desde hace milenios por sus semillas, las almendras, y el almendro amargo, cuyas semillas contienen amigdalina, una sustancia tóxica."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q39918",
+      "wikipedia_es:Prunus dulcis"
+    ],
+    "value": "Almendro"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2917141"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "prunus-amygdalus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Almonds_-_in_shell,_shell_cracked_open,_shelled,_blanched.jpg",
+    "refs": [
+      "commons:File:Almonds - in shell, shell cracked open, shelled, blanched.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Almonds_-_in_shell%2C_shell_cracked_open%2C_shelled%2C_blanched.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:790-SD"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2917141"
+    ],
+    "value": "Cáucaso (Transcaucasia)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Almonds - in shell, shell cracked open, shelled, blanched.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Almonds - in shell, shell cracked open, shelled, blanched.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Almonds_-_in_shell,_shell_cracked_open,_shelled,_blanched.jpg"
+    },
+    "efsa_botanic:499": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: prunasin",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P195": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Prunus dulcis (Mill.) D. A. Webb",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:790-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Almond»",
+      "license": "CC0"
+    },
+    "usda_part:790-SD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Seed»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:43386": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43386",
+      "license": "CC0"
+    },
+    "wcvp:2917141": {
+      "dataset": "wcvp",
+      "label": "WCVP: Prunus amygdalus Batsch",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2917142": {
+      "dataset": "wcvp",
+      "label": "WCVP: Amygdalus communis L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2947988": {
+      "dataset": "wcvp",
+      "label": "WCVP: Druparia amygdalus (Batsch) Clairv.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q39918": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q39918",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q39918"
+    },
+    "wikipedia_es:Prunus dulcis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Prunus dulcis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Prunus_dulcis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte «Seed»), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P195",
+      "efsa_botanic:499"
+    ],
+    "text": "TPPT clasifica la toxicidad humana como débil (fruto, hoja y semilla) y anota que los glucósidos cianogénicos prunasina (hojas) y amigdalina (semillas) son tóxicos. EFSA registra prunasina en la semilla como sustancia de evidencia."
+  },
+  "scientificName": {
+    "authors": "Batsch",
+    "name": "Prunus amygdalus",
+    "refs": [
+      "wcvp:2917141"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Amygdalus communis",
+      "refs": [
+        "wcvp:2917142"
+      ]
+    },
+    {
+      "authors": "(Batsch) Clairv.",
+      "name": "Druparia amygdalus",
+      "refs": [
+        "wcvp:2947988"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Champú",
+      "activitySource": "Shampoo",
+      "citations": [
+        {
+          "key": "Eb20: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 22"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43386",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

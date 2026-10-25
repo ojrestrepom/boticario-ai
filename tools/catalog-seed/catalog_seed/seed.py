@@ -7,6 +7,7 @@ from pathlib import Path
 from . import goals as goals_lib
 from .schema import load_schema, validate as validate_schema
 from .sources import REPO_ROOT, TOOL_DIR, SourceError, load_sources
+from .validate import BundleIndex, validate_record
 
 DEFAULT_PROMPT = TOOL_DIR / "prompt" / "consolidate.md"
 DEFAULT_BUNDLES_DIR = REPO_ROOT / "data" / "work" / "bundles"
@@ -151,13 +152,80 @@ def build_manifest(seed_dir, sources_path, schema, prompt_path, catalog=None):
     }
 
 
-def seal(seed_dir, sources_path, schema_path=None, prompt_path=DEFAULT_PROMPT):
-    """Escribe o actualiza <seed_dir>/manifest.json. Devuelve (manifest, cambió)."""
-    schema = load_schema(schema_path) if schema_path else load_schema()
-    manifest = build_manifest(seed_dir, sources_path, schema, prompt_path)
-    text = json.dumps(manifest, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
-    path = Path(seed_dir) / "manifest.json"
+def format_json(value):
+    """Formato estable de los archivos de la semilla: claves ordenadas, sangría de 2 espacios y salto de línea final."""
+    return json.dumps(value, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
+
+
+def _write_if_changed(path, text):
+    path = Path(path)
     previous = path.read_text(encoding="utf-8") if path.is_file() else None
     if previous != text:
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
-    return manifest, previous != text
+    return previous != text
+
+
+def read_import_records(from_dirs):
+    """Lee los registros de los directorios de trabajo. Devuelve {id: (registro, ruta)}; falla si el nombre no es el id o el id se repite."""
+    found = {}
+    for directory in from_dirs:
+        paths = sorted(Path(directory).glob("*.json"))
+        if not paths:
+            raise SourceError("no hay registros .json en %s" % directory)
+        for path in paths:
+            record = _read_json(path)
+            plant_id = record.get("id") if isinstance(record, dict) else None
+            if plant_id != path.stem:
+                raise SourceError("el archivo %s no se llama como el id de su registro (%s)" % (path, plant_id))
+            if plant_id in found:
+                raise SourceError("el id '%s' está repetido: %s y %s" % (plant_id, found[plant_id][1], path))
+            found[plant_id] = (record, path)
+    return found
+
+
+def import_records(from_dirs, seed_dir, bundles_dir, schema, goals_map, catalog):
+    """Valida los registros de los directorios de trabajo contra sus paquetes y los escribe en <seed>/plants/<id>.json.
+
+    Todo o nada: si algún registro tiene errores, no se escribe ninguno. Devuelve los ids escritos o actualizados.
+    """
+    found = read_import_records(from_dirs)
+    index = BundleIndex(bundles_dir)
+    problems = list(index.errors)
+    for plant_id, (record, path) in sorted(found.items()):
+        errors, _ = validate_record(record, index.by_id.get(plant_id), schema, goals_map, catalog)
+        problems.extend("%s: %s" % (plant_id, message) for message in errors)
+    if problems:
+        raise SourceError("no se importan los registros:\n  " + "\n  ".join(problems[:20])
+                          + ("\n  ... (%d más)" % (len(problems) - 20) if len(problems) > 20 else ""))
+    written = []
+    for plant_id, (record, _) in sorted(found.items()):
+        if _write_if_changed(Path(seed_dir) / "plants" / ("%s.json" % plant_id), format_json(record)):
+            written.append(plant_id)
+    return written
+
+
+def normalize_plants(seed_dir):
+    """Reescribe cada registro de <seed>/plants con el formato estable. Devuelve los ids cuyo archivo cambió."""
+    changed = []
+    for record in read_records(seed_dir):
+        if _write_if_changed(Path(seed_dir) / "plants" / ("%s.json" % record["id"]), format_json(record)):
+            changed.append(record["id"])
+    return changed
+
+
+def seal(seed_dir, sources_path, schema_path=None, prompt_path=DEFAULT_PROMPT, from_dirs=(), bundles_dir=DEFAULT_BUNDLES_DIR,
+         goals_map_path=None, goals_source=goals_lib.DEFAULT_GOALS_CATALOG):
+    """Escribe la semilla: importa los registros de from_dirs (si hay), normaliza los de <seed>/plants, deja goals.json
+    (lo copia de goals_source si falta) y escribe manifest.json. Devuelve (manifest, cambió)."""
+    schema = load_schema(schema_path) if schema_path else load_schema()
+    seed_dir = Path(seed_dir)
+    goals_path = seed_dir / "goals.json"
+    if not goals_path.is_file():
+        _write_if_changed(goals_path, format_json(goals_lib.load_goals_catalog(goals_source)))
+    if from_dirs:
+        goals_map = goals_lib.load_goals_map(goals_map_path) if goals_map_path else goals_lib.load_goals_map()
+        import_records(from_dirs, seed_dir, bundles_dir, schema, goals_map, goals_lib.load_goals_catalog(goals_path))
+    manifest = build_manifest(seed_dir, sources_path, schema, prompt_path)
+    normalize_plants(seed_dir)
+    return manifest, _write_if_changed(seed_dir / "manifest.json", format_json(manifest))

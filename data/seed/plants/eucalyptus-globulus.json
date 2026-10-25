@@ -1,0 +1,1048 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5c3c09855ef96db7d6b7eef2d1977a92fe4caaedaf12902e39a14762432393db",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus globulus",
+        "wikidata:Q159528"
+      ],
+      "text": "Eucalipto blanco"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus globulus"
+      ],
+      "text": "eucalipto común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus globulus"
+      ],
+      "text": "eucalipto azul"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q159528"
+      ],
+      "text": "Eucalipto criollo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:401-1"
+      ],
+      "text": "Blue Gum"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:401-2"
+      ],
+      "text": "Eucalypt"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:401-3"
+      ],
+      "text": "Tasmanian Bluegum"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus globulus"
+    ],
+    "value": "Especie arbórea de la familia de las mirtáceas, originaria del sureste de Australia y Tasmania."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eucalyptus globulus"
+    ],
+    "value": "Eucalipto común"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73008"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía de la hoja y otra del aceite esencial en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:eucalypti-aetheroleum",
+        "ema_herbal:eucalypti-folium"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía del aceite esencial en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:eucalypti-aetheroleum"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    }
+  ],
+  "id": "eucalyptus-globulus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Murray Fagg",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_globulus_globulus_buds.jpg",
+    "refs": [
+      "commons:File:Eucalyptus globulus globulus buds.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Eucalyptus_globulus_globulus_buds.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:eucalypti-aetheroleum"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73008"
+    ],
+    "value": "Australia (Tasmania y Victoria)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:eucalypti-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus globulus globulus buds.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus globulus globulus buds.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_globulus_globulus_buds.jpg"
+    },
+    "efsa_botanic:2989": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:eucalypti-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Eucalypti aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/eucalypti-aetheroleum"
+    },
+    "ema_herbal:eucalypti-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Eucalypti folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/eucalypti-folium"
+    },
+    "ema_pdf:eucalypti-aetheroleum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-aetheroleum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:eucalypti-aetheroleum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-aetheroleum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:eucalypti-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-eucalyptus-globulus-labill-folium_en.pdf"
+    },
+    "ema_pdf:eucalypti-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-eucalyptus-globulus-labill-folium_en.pdf"
+    },
+    "usda_common_name:401-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Blue Gum»",
+      "license": "CC0"
+    },
+    "usda_common_name:401-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Eucalypt»",
+      "license": "CC0"
+    },
+    "usda_common_name:401-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tasmanian Bluegum»",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10931": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10931",
+      "license": "CC0"
+    },
+    "usda_use:10932": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10932",
+      "license": "CC0"
+    },
+    "usda_use:13870": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13870",
+      "license": "CC0"
+    },
+    "usda_use:15289": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15289",
+      "license": "CC0"
+    },
+    "usda_use:16018": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16018",
+      "license": "CC0"
+    },
+    "usda_use:16019": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16019",
+      "license": "CC0"
+    },
+    "usda_use:24506": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24506",
+      "license": "CC0"
+    },
+    "usda_use:2488": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2488",
+      "license": "CC0"
+    },
+    "usda_use:29968": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29968",
+      "license": "CC0"
+    },
+    "usda_use:32906": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32906",
+      "license": "CC0"
+    },
+    "usda_use:32907": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32907",
+      "license": "CC0"
+    },
+    "usda_use:3430": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3430",
+      "license": "CC0"
+    },
+    "usda_use:3621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3621",
+      "license": "CC0"
+    },
+    "usda_use:3622": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3622",
+      "license": "CC0"
+    },
+    "usda_use:3623": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3623",
+      "license": "CC0"
+    },
+    "usda_use:4831": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4831",
+      "license": "CC0"
+    },
+    "usda_use:51766": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51766",
+      "license": "CC0"
+    },
+    "usda_use:5687": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5687",
+      "license": "CC0"
+    },
+    "usda_use:58087": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58087",
+      "license": "CC0"
+    },
+    "usda_use:58089": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58089",
+      "license": "CC0"
+    },
+    "usda_use:64252": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64252",
+      "license": "CC0"
+    },
+    "usda_use:64576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64576",
+      "license": "CC0"
+    },
+    "usda_use:64577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64577",
+      "license": "CC0"
+    },
+    "usda_use:65673": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65673",
+      "license": "CC0"
+    },
+    "usda_use:65919": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65919",
+      "license": "CC0"
+    },
+    "usda_use:66213": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66213",
+      "license": "CC0"
+    },
+    "usda_use:66214": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66214",
+      "license": "CC0"
+    },
+    "usda_use:67171": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67171",
+      "license": "CC0"
+    },
+    "usda_use:70908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70908",
+      "license": "CC0"
+    },
+    "usda_use:75878": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75878",
+      "license": "CC0"
+    },
+    "usda_use:7673": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7673",
+      "license": "CC0"
+    },
+    "usda_use:79314": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79314",
+      "license": "CC0"
+    },
+    "usda_use:8101": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8101",
+      "license": "CC0"
+    },
+    "usda_use:8291": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8291",
+      "license": "CC0"
+    },
+    "usda_use:8541": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8541",
+      "license": "CC0"
+    },
+    "usda_use:9054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9054",
+      "license": "CC0"
+    },
+    "usda_use:9055": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9055",
+      "license": "CC0"
+    },
+    "wcvp:73008": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus globulus Labill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73325": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus maidenii subsp. globulus (Labill.) J.B.Kirkp.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q159528": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q159528",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q159528"
+    },
+    "wikipedia_es:Eucalyptus globulus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus globulus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_globulus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Antiseptic» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Bronchitis» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Repellant(Insect)» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "target": "traditionalUses[8]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:eucalypti-aetheroleum:4.3",
+      "ema_pdf:eucalypti-folium:4.3",
+      "ema_pdf:eucalypti-aetheroleum:4.4",
+      "ema_pdf:eucalypti-folium:4.4",
+      "efsa_botanic:2989"
+    ],
+    "text": "La EMA registra como contraindicaciones del aceite esencial la hipersensibilidad al aceite de eucalipto o al 1,8-cineol, los niños con antecedentes de convulsiones, los menores de 24 meses por riesgo de laringoespasmo y los baños calientes completos en caso de lesiones cutáneas extensas, heridas abiertas, enfermedades agudas de la piel, fiebre alta, infecciones graves, trastornos circulatorios graves e insuficiencia cardíaca. Para la hoja registra como contraindicaciones los menores de 30 meses por riesgo de laringoespasmo y la hipersensibilidad a la sustancia activa. En advertencias, la EMA anota que no se ha establecido el uso en menores de edad según la vía (oral, inhalación, cutánea), precaución con el aceite por vía oral en afecciones inflamadas y ulceradas del tracto gastrointestinal, riesgo de quemaduras en inhalaciones con agua caliente e irritación por contacto de las manos con los ojos. EFSA registra el 1,8-cineol de las hojas como sustancia de evidencia."
+  },
+  "scientificName": {
+    "authors": "Labill.",
+    "name": "Eucalyptus globulus",
+    "refs": [
+      "wcvp:73008"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Labill.) J.B.Kirkp.",
+      "name": "Eucalyptus maidenii subsp. globulus",
+      "refs": [
+        "wcvp:73325"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Haití",
+        "Turquía"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3621",
+        "usda_use:3622",
+        "usda_use:3623",
+        "usda_use:64576",
+        "usda_use:64577",
+        "usda_reference:Brutus",
+        "usda_reference:Leung",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití",
+        "México"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8101",
+        "usda_use:8291",
+        "usda_use:58087",
+        "usda_use:65919",
+        "usda_reference:Brutus",
+        "usda_reference:Krochmal",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "Australia (aborigen)",
+        "China",
+        "España",
+        "Estados Unidos (California)"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9054",
+        "usda_use:9055",
+        "usda_use:66213",
+        "usda_use:66214",
+        "usda_reference:Hartwell",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "China",
+        "Venezuela"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2488",
+        "usda_use:64252",
+        "usda_reference:Leung",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10931",
+        "usda_use:10932",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16018",
+        "usda_use:16019",
+        "usda_reference:Brutus",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24506",
+        "usda_use:70908",
+        "usda_reference:Leung",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "España",
+        "Venezuela"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32906",
+        "usda_use:32907",
+        "usda_reference:FontQuer",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Repelente de insectos",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Venezuela"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29968",
+        "usda_use:75878",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tuberculosis",
+      "activitySource": "Tuberculosis",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51766",
+        "usda_use:79314",
+        "usda_reference:Krochmal",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Antipalúdico",
+      "activitySource": "Antimalaria",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3430",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antiperiódico",
+      "activitySource": "Antiperiodic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58089",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4831",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5687",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Principio amargo",
+      "activitySource": "Bitter-Principle",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65673",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7673",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8541",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67171",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13870",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Desodorante",
+      "activitySource": "Deodorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15289",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

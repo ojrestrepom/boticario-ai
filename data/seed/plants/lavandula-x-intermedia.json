@@ -1,0 +1,132 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:33d9383fe81aa8a26869f58c295496d666f415e8bf8412c8e4d35cee4b832815",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:546-1"
+      ],
+      "text": "Dutch Lavender"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:546-2"
+      ],
+      "text": "Lavandin"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:109030"
+    ],
+    "value": "Lavandula × intermedia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:109030"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lavandula-x-intermedia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Victor M. Vicente Selvas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lavand%C3%AD_2012.JPG",
+    "refs": [
+      "commons:File:Lavandí 2012.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Lavand%C3%AD_2012.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:546-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:109030"
+    ],
+    "value": "Suroeste de Europa"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lavandí 2012.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lavandí 2012.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lavand%C3%AD_2012.JPG"
+    },
+    "usda_common_name:546-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dutch Lavender»",
+      "license": "CC0"
+    },
+    "usda_common_name:546-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lavandin»",
+      "license": "CC0"
+    },
+    "usda_part:546-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:109030": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lavandula × intermedia Emeric ex Loisel.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (la etiqueta de Wikidata «Lavandula intermedia» es un nombre científico); el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte «Plant»), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad (sin fichas de la EMA, TPPT, EFSA ni señales de riesgo de USDA); la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Emeric ex Loisel.",
+    "name": "Lavandula × intermedia",
+    "refs": [
+      "wcvp:109030"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

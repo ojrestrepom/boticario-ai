@@ -1,0 +1,1060 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:44cb42b551aaa01b9e33b71b0adb4e9626362b317c6be14babb3b146dc5eb0b4",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Thymus vulgaris",
+        "wikidata:Q148668"
+      ],
+      "text": "Tomillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Thymus vulgaris",
+        "wikidata:Q148668"
+      ],
+      "text": "Tomillo Común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Thymus vulgaris"
+      ],
+      "text": "tomillo vulgar"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q148668"
+      ],
+      "text": "Tomillo limonero"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1016-1"
+      ],
+      "text": "Common Thyme"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1016-2",
+        "tppt_plant:P552"
+      ],
+      "text": "Garden Thyme"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1016-3"
+      ],
+      "text": "Thyme"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P552"
+      ],
+      "text": "Gartenthymian"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Thymus vulgaris"
+    ],
+    "value": "Arbusto de la familia de las labiadas que se caracteriza por sus aceites esenciales, que producen un olor aromático intenso con el que atrae a polinizadores como dípteros e himenópteros."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Thymus vulgaris",
+      "wikidata:Q148668"
+    ],
+    "value": "Tomillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:205645"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:thymi-aetheroleum",
+        "ema_herbal:thymi-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "thymus-vulgaris",
+  "image": {
+    "attributionRequired": true,
+    "author": "Isidre blanc",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:THYMUS_VULGARIS_-_AGUDA_-_IB-910_(Tim%C3%B3).JPG",
+    "refs": [
+      "commons:File:THYMUS VULGARIS - AGUDA - IB-910 (Timó).JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/THYMUS_VULGARIS_-_AGUDA_-_IB-910_%28Tim%C3%B3%29.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:thymi-aetheroleum"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:205645"
+    ],
+    "value": "Sur de Europa"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:thymi-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:THYMUS VULGARIS - AGUDA - IB-910 (Timó).JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:THYMUS VULGARIS - AGUDA - IB-910 (Timó).JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:THYMUS_VULGARIS_-_AGUDA_-_IB-910_(Tim%C3%B3).JPG"
+    },
+    "efsa_botanic:3317": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: carvacrol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3318": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Camphor",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:thymi-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Thymi aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/thymi-aetheroleum"
+    },
+    "ema_herbal:thymi-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Thymi herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/thymi-herba"
+    },
+    "ema_pdf:thymi-aetheroleum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-aetheroleum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-thymus-vulgaris-l-thymus-zygis-l-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:thymi-aetheroleum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-aetheroleum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-thymus-vulgaris-l-thymus-zygis-l-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:thymi-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba_en.pdf"
+    },
+    "ema_pdf:thymi-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba_en.pdf"
+    },
+    "tppt_plant:P552": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Thymus vulgaris L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:1016-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Common Thyme»",
+      "license": "CC0"
+    },
+    "usda_common_name:1016-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Garden Thyme»",
+      "license": "CC0"
+    },
+    "usda_common_name:1016-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Thyme»",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10771",
+      "license": "CC0"
+    },
+    "usda_use:10818": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10818",
+      "license": "CC0"
+    },
+    "usda_use:12765": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12765",
+      "license": "CC0"
+    },
+    "usda_use:15085": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15085",
+      "license": "CC0"
+    },
+    "usda_use:16348": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16348",
+      "license": "CC0"
+    },
+    "usda_use:23336": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23336",
+      "license": "CC0"
+    },
+    "usda_use:31034": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31034",
+      "license": "CC0"
+    },
+    "usda_use:32697": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32697",
+      "license": "CC0"
+    },
+    "usda_use:32698": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32698",
+      "license": "CC0"
+    },
+    "usda_use:36563": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36563",
+      "license": "CC0"
+    },
+    "usda_use:36564": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36564",
+      "license": "CC0"
+    },
+    "usda_use:36565": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36565",
+      "license": "CC0"
+    },
+    "usda_use:3814": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3814",
+      "license": "CC0"
+    },
+    "usda_use:3815": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3815",
+      "license": "CC0"
+    },
+    "usda_use:3995": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3995",
+      "license": "CC0"
+    },
+    "usda_use:45906": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45906",
+      "license": "CC0"
+    },
+    "usda_use:45907": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45907",
+      "license": "CC0"
+    },
+    "usda_use:45949": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45949",
+      "license": "CC0"
+    },
+    "usda_use:62151": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62151",
+      "license": "CC0"
+    },
+    "usda_use:62153": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62153",
+      "license": "CC0"
+    },
+    "usda_use:62155": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62155",
+      "license": "CC0"
+    },
+    "usda_use:62159": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62159",
+      "license": "CC0"
+    },
+    "usda_use:64355": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64355",
+      "license": "CC0"
+    },
+    "usda_use:65971": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65971",
+      "license": "CC0"
+    },
+    "usda_use:66710": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66710",
+      "license": "CC0"
+    },
+    "usda_use:67812": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67812",
+      "license": "CC0"
+    },
+    "usda_use:69182": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69182",
+      "license": "CC0"
+    },
+    "usda_use:74597": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74597",
+      "license": "CC0"
+    },
+    "usda_use:77489": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77489",
+      "license": "CC0"
+    },
+    "usda_use:77816": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77816",
+      "license": "CC0"
+    },
+    "usda_use:82467": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82467",
+      "license": "CC0"
+    },
+    "usda_use:82468": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82468",
+      "license": "CC0"
+    },
+    "usda_use:8266": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8266",
+      "license": "CC0"
+    },
+    "usda_use:8267": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8267",
+      "license": "CC0"
+    },
+    "usda_use:9504": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9504",
+      "license": "CC0"
+    },
+    "wcvp:143938": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum thymus Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:205645": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus vulgaris L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q148668": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q148668",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q148668"
+    },
+    "wikipedia_es:Thymus vulgaris": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Thymus vulgaris",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Thymus_vulgaris"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Pertussis» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Spasm» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Antiseptic» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Bronchitis» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Carminative» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[4]"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P552",
+      "ema_pdf:thymi-aetheroleum:4.3",
+      "ema_pdf:thymi-aetheroleum:4.4",
+      "ema_pdf:thymi-herba:4.3",
+      "ema_pdf:thymi-herba:4.4",
+      "efsa_botanic:3318",
+      "efsa_botanic:3317"
+    ],
+    "text": "TPPT clasifica la toxicidad humana como débil (parte aérea) y anota que el aceite esencial contiene monoterpenoides. La EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa o a otras plantas de la familia Lamiaceae y, para el aceite como aditivo de baño, los baños calientes completos en caso de lesiones cutáneas extensas, heridas abiertas, enfermedades agudas de la piel, fiebre alta, infecciones graves, alteraciones circulatorias graves e insuficiencia cardíaca. Entre las advertencias, la EMA registra que no se recomienda el aceite en menores de 18 años por falta de datos, que no debe aplicarse en la cara de bebés y niños menores de 2 años por riesgo de laringoespasmo y que el uso de la hierba en niños pequeños no está establecido. EFSA lista alcanfor y carvacrol como sustancias de evidencia en la parte aérea."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Thymus vulgaris",
+    "refs": [
+      "wcvp:205645"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Kuntze",
+      "name": "Origanum thymus",
+      "refs": [
+        "wcvp:143938"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tos ferina",
+      "activitySource": "Pertussis",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Haití",
+        "España"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36563",
+        "usda_use:36564",
+        "usda_use:36565",
+        "usda_use:74597",
+        "usda_reference:FontQuer",
+        "usda_reference:Leung",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Haití",
+        "Región mediterránea"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45906",
+        "usda_use:45907",
+        "usda_use:45949",
+        "usda_use:77489",
+        "usda_reference:Leung",
+        "usda_reference:Liogier",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Región mediterránea",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3814",
+        "usda_use:3815",
+        "usda_use:62151",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8266",
+        "usda_use:8267",
+        "usda_use:65971",
+        "usda_reference:Leung",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Región mediterránea"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10771",
+        "usda_use:10818",
+        "usda_use:66710",
+        "usda_reference:Leung",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23336",
+        "usda_use:62155",
+        "usda_reference:Leung",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Pulmón",
+      "activitySource": "Lung",
+      "citations": [
+        {
+          "key": "Eb28: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 323"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Reino Unido"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32697",
+        "usda_use:32698",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Región mediterránea",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62159",
+        "usda_use:77816",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64355",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antitusivo",
+      "activitySource": "Antitussive",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3995",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82467",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9504",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12765",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb28: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 323"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67812",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15085",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62153",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16348",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82468",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69182",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Trabajo de parto",
+      "activitySource": "Labor",
+      "citations": [
+        {
+          "key": "Eb29: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 323"
+        }
+      ],
+      "countries": [
+        "Bahamas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31034",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

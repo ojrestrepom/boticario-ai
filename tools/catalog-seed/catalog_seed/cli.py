@@ -105,6 +105,10 @@ def build_parser():
     sealer.add_argument("--seed", default=str(DEFAULT_SEED_DIR), help="directorio de la semilla (con plants/ y goals.json)")
     sealer.add_argument("--prompt", default=str(DEFAULT_PROMPT), help="prompt de consolidación")
     sealer.add_argument("--schema", default=str(DEFAULT_RECORD_SCHEMA), help="esquema del registro")
+    sealer.add_argument("--from", dest="from_dirs", action="append", default=[], metavar="DIR",
+                        help="directorio de trabajo con registros que importar a <seed>/plants (repetible); solo entran si validan contra su paquete")
+    sealer.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes con que se validan los registros importados")
+    sealer.add_argument("--goals-map", default=str(DEFAULT_GOALS_MAP), help="mapa de objetivos (para validar los registros importados)")
     return parser
 
 
@@ -184,7 +188,8 @@ def run_plan(args):
 
 
 def run_seal(args):
-    manifest, changed = seal(args.seed, args.sources, schema_path=args.schema, prompt_path=args.prompt)
+    manifest, changed = seal(args.seed, args.sources, schema_path=args.schema, prompt_path=args.prompt,
+                             from_dirs=args.from_dirs, bundles_dir=args.bundles, goals_map_path=args.goals_map)
     print("manifest.json %s: %d plantas, seedHash %s" % ("actualizado" if changed else "sin cambios", manifest["plantCount"], manifest["seedHash"]))
     return 0
 

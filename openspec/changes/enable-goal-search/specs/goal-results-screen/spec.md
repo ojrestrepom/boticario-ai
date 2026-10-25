@@ -63,20 +63,24 @@ Cuando la planta trae `image` y esta se carga, la tarjeta SHALL mostrarla como m
 - **WHEN** una tecnología de asistencia recorre una tarjeta con imagen
 - **THEN** la atribución se lee una vez como parte de la tarjeta y la imagen no duplica la lectura del nombre
 
-### Requirement: Marca de seguridad en la tarjeta
-La tarjeta SHALL mostrar una marca con texto según el `safetyLevel` de la API: `Precaución` si es `alto` o `medio`, `Sin datos de seguridad (esto no significa que sea segura)` si es `null` y ninguna marca si es `bajo`. La marca SHALL ser texto, no solo color, y formar parte del nombre accesible de la tarjeta. La tarjeta SHALL NOT mostrar el texto de seguridad ni declarar segura a ninguna planta; el detalle y las citas SHALL permanecer en el pasaporte.
+### Requirement: Marca de precaución en la tarjeta
+La tarjeta SHALL mostrar una marca con texto según el `safetyLevel` y el `hasSafety` de la API: `Precaución` solo si `safetyLevel` es `alto` o `medio`; `Sin datos de precauciones (esto no significa que sea segura)` si `hasSafety` es falso; y ninguna marca si `safetyLevel` es `bajo`, o si es `null` con `hasSafety` verdadero (precauciones sin nivel). La marca SHALL ser texto, no solo color, y formar parte del nombre accesible de la tarjeta. La tarjeta SHALL NOT mostrar el texto de precauciones ni declarar segura a ninguna planta; el detalle y las citas SHALL permanecer en el pasaporte.
 
-#### Scenario: Seguridad alta o media
+#### Scenario: Nivel alto o medio
 - **WHEN** una planta trae `safetyLevel` `alto` o `medio`
 - **THEN** su tarjeta muestra `Precaución`
 
 #### Scenario: Sin datos
-- **WHEN** una planta trae `safetyLevel` `null`
-- **THEN** su tarjeta muestra `Sin datos de seguridad (esto no significa que sea segura)` y ningún texto que la presente como segura
+- **WHEN** una planta trae `safetyLevel` `null` y `hasSafety` falso
+- **THEN** su tarjeta muestra `Sin datos de precauciones (esto no significa que sea segura)` y ningún texto que la presente como segura
 
-#### Scenario: Seguridad baja
+#### Scenario: Nivel bajo
 - **WHEN** una planta trae `safetyLevel` `bajo`
-- **THEN** su tarjeta no muestra marca de seguridad
+- **THEN** su tarjeta no muestra marca de precaución
+
+#### Scenario: Precauciones sin nivel
+- **WHEN** una planta trae `safetyLevel` `null` y `hasSafety` verdadero (por ejemplo el eucalipto con contraindicaciones de la EMA sin nivel)
+- **THEN** su tarjeta no muestra `Precaución` ni `Sin datos de precauciones`, y su pasaporte muestra el texto en `Precauciones` sin etiqueta de nivel
 
 #### Scenario: Lectura accesible
 - **WHEN** una tecnología de asistencia recorre una tarjeta con marca

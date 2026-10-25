@@ -30,11 +30,11 @@
 - **THEN** la API responde 401 con `application/problem+json`
 
 ### Requirement: Plantas por objetivo
-`GET /v1/goals/{goalId}/plants` SHALL devolver una página con `goal` (`id`, `name`), `subarea` (`id`, `name`, o `null`), `items`, `total`, `limit` y `offset`. Cada elemento SHALL incluir `id`, `displayName`, `scientificName`, `commonNames` con idioma y `family` (o `null`) como el listado, `areas` (nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea), `safetyLevel` (`alto`, `medio`, `bajo` o `null`) e `image`, el mismo objeto del detalle (`url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`) o `null`. Un objetivo desconocido SHALL responder 404. El parámetro opcional `subarea` SHALL filtrar por una subárea del objetivo; un valor que no pertenece al objetivo, o enviado a un objetivo sin subáreas, SHALL responder 400 con `param` igual a `subarea`. Sin `subarea` en un objetivo con subáreas, SHALL devolverse la unión sin repetir plantas.
+`GET /v1/goals/{goalId}/plants` SHALL devolver una página con `goal` (`id`, `name`), `subarea` (`id`, `name`, o `null`), `items`, `total`, `limit` y `offset`. Cada elemento SHALL incluir `id`, `displayName`, `scientificName`, `commonNames` con idioma y `family` (o `null`) como el listado, `areas` (nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea), `safetyLevel` (`alto`, `medio`, `bajo` o `null`; es `null` también cuando la planta tiene precauciones sin nivel) y `hasSafety` (booleano, verdadero cuando la planta tiene datos de precauciones aunque no tengan nivel) e `image`, el mismo objeto del detalle (`url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`) o `null`. Un objetivo desconocido SHALL responder 404. El parámetro opcional `subarea` SHALL filtrar por una subárea del objetivo; un valor que no pertenece al objetivo, o enviado a un objetivo sin subáreas, SHALL responder 400 con `param` igual a `subarea`. Sin `subarea` en un objetivo con subáreas, SHALL devolverse la unión sin repetir plantas.
 
 #### Scenario: Plantas de un objetivo
 - **WHEN** un cliente pide `GET /v1/goals/mejorar-el-sueno/plants`
-- **THEN** la respuesta incluye `goal` con ese objetivo, `subarea` igual a `null`, las plantas de la primera página con su `displayName`, `areas`, `safetyLevel` e `image`, y el total
+- **THEN** la respuesta incluye `goal` con ese objetivo, `subarea` igual a `null`, las plantas de la primera página con su `displayName`, `areas`, `safetyLevel`, `hasSafety` e `image`, y el total
 
 #### Scenario: Subárea
 - **WHEN** un cliente pide `GET /v1/goals/otros-objetivos/plants?subarea=digestion`
@@ -58,7 +58,11 @@
 
 #### Scenario: Datos ausentes
 - **WHEN** una planta no tiene imagen ni datos de seguridad
-- **THEN** su `image` y su `safetyLevel` son `null`, y la API no consulta la red ni sirve bytes de imágenes
+- **THEN** su `image` y su `safetyLevel` son `null`, su `hasSafety` es falso, y la API no consulta la red ni sirve bytes de imágenes
+
+#### Scenario: Precauciones sin nivel
+- **WHEN** una planta tiene `safety` con `level` nulo, texto y referencias (por ejemplo el eucalipto con las contraindicaciones de la EMA)
+- **THEN** su `safetyLevel` es `null` y su `hasSafety` es verdadero
 
 #### Scenario: Token y método
 - **WHEN** un cliente pide la ruta sin token, o envía un método que no es de lectura con token

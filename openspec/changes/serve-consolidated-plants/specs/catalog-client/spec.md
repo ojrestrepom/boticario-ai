@@ -50,7 +50,15 @@ La app SHALL validar las respuestas según el contrato OpenAPI de la API: campos
 
 #### Scenario: Detalle válido
 - **WHEN** la API responde un detalle con nombres (con `kind` e idioma), partes, usos (con actividad, idioma y referencia con cita) y los campos consolidados
-- **THEN** se obtiene la planta completa con esos datos, incluidos los grupos de uso con países y citas, los objetivos con su área, la seguridad con su nivel, la imagen con su atribución y los créditos
+- **THEN** se obtiene la planta completa con esos datos, incluidos los grupos de uso con países y citas, los objetivos con su área, las precauciones con su nivel (o sin él), la imagen con su atribución y los créditos
+
+#### Scenario: Precauciones sin nivel
+- **WHEN** `safety` llega con `level` igual a `null`, un `text` y referencias
+- **THEN** se obtiene la seguridad sin nivel con su texto y sus citas, sin tratarla como error ni como ausencia de datos
+
+#### Scenario: Cita sin resolver
+- **WHEN** una referencia de un grupo de uso llega con `id` nulo, `resolved` falso y la cita «<clave> (sin resolver)»
+- **THEN** la referencia se acepta y conserva su marca de no resuelta para que la interfaz pueda atenuarla
 
 #### Scenario: Familia nula
 - **WHEN** el campo `family` es `null`
@@ -69,7 +77,7 @@ La app SHALL validar las respuestas según el contrato OpenAPI de la API: campos
 - **THEN** la planta se acepta con esos datos vacíos o `null`, su nombre para mostrar sale de la regla de respaldo y sus usos se derivan de `uses`, uno por actividad, con la referencia de cada uno
 
 #### Scenario: Campo nuevo con tipo erróneo
-- **WHEN** `goals` llega como un texto, o el `level` de `safety` no es `alto`, `medio` ni `bajo`
+- **WHEN** `goals` llega como un texto, o el `level` de `safety` no es `alto`, `medio`, `bajo` ni `null`, o una referencia de un grupo de uso trae `resolved` con un tipo distinto de booleano
 - **THEN** se produce un error de cliente legible y no se muestran datos parciales
 
 #### Scenario: JSON inválido

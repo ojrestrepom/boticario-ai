@@ -48,16 +48,16 @@ La pestaña `General` SHALL mostrar solo campos entregados por la API: `Nombre c
 - **WHEN** la planta no tiene partes, sinónimos o nombres comunes registrados
 - **THEN** `General` indica explícitamente que no hay datos registrados en lugar de omitir el campo en silencio
 
-#### Scenario: Aviso de seguridad alta
-- **WHEN** el nivel de seguridad de la planta es `alto`
+#### Scenario: Aviso de nivel alto
+- **WHEN** el nivel de precauciones de la planta es `alto`
 - **THEN** `General` muestra un aviso con el texto del nivel (no solo un color) y la indicación de ver `Propiedades`
 
 #### Scenario: Sin aviso para otros niveles
-- **WHEN** el nivel de seguridad es `medio`, `bajo` o la planta no tiene datos de seguridad
+- **WHEN** el nivel de precauciones es `medio`, `bajo` o `null`, o la planta no tiene datos de precauciones
 - **THEN** `General` no muestra el aviso
 
 ### Requirement: Propiedades sin inferencia de eficacia
-La pestaña `Propiedades` SHALL mostrar dos secciones: `Objetivos registrados por la EMA` y `Seguridad`. Cada objetivo SHALL mostrar su nombre, su subárea si existe, el área y el tipo de documento de la EMA y la cita de su referencia, con una aclaración fija de que es una clasificación de la Agencia Europea de Medicamentos, no una indicación de uso ni una promesa de eficacia. La pestaña SHALL NOT inferir eficacia ni propiedades medicinales a partir de fitoquímica ni añadir textos propios que describan efectos. Sin objetivos, SHALL decir `No hay objetivos registrados por la EMA para esta planta`.
+La pestaña `Propiedades` SHALL mostrar dos secciones: `Objetivos registrados por la EMA` y `Precauciones`. Cada objetivo SHALL mostrar su nombre, su subárea si existe, el área y el tipo de documento de la EMA y la cita de su referencia, con una aclaración fija de que es una clasificación de la Agencia Europea de Medicamentos, no una indicación de uso ni una promesa de eficacia. La pestaña SHALL NOT inferir eficacia ni propiedades medicinales a partir de fitoquímica ni añadir textos propios que describan efectos. Sin objetivos, SHALL decir `No hay objetivos registrados por la EMA para esta planta`.
 
 #### Scenario: Planta con objetivos de la EMA
 - **WHEN** la planta tiene el objetivo `cuidado-de-la-piel` con un área y una monografía de la EMA
@@ -76,11 +76,23 @@ La pestaña `Propiedades` SHALL mostrar dos secciones: `Objetivos registrados po
 - **THEN** ninguno contiene verbos de efecto ni promesas de eficacia como «calma», «cura» o «ayuda a»
 
 ### Requirement: Usos como registros tradicionales trazables
-La pestaña `Usos` SHALL mostrar los grupos de uso que entrega la API, cada uno con su actividad, la etiqueta `Registro tradicional`, el número de registros, los países si los hay, la aclaración de que es un registro y no un consejo, y la cita de cada una de sus referencias. Los grupos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia. Las listas largas SHALL permanecer desplazables y sin truncar.
+La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos registrados en fuentes etnobotánicas históricas. No son recomendaciones ni están comprobados clínicamente. Algunas citas no se pudieron identificar y se muestran como «sin resolver».», texto provisional que el usuario ajustará en la app), también cuando la planta no tiene usos. Después SHALL mostrar los grupos de uso que entrega la API, cada uno con su actividad, la etiqueta `Registro tradicional`, el número de registros, los países si los hay, la aclaración de que es un registro y no un consejo, y la cita de cada una de sus referencias; una referencia sin obra identificada (`resolved` falso) SHALL mostrarse como «(sin resolver)» en un estilo atenuado. Los grupos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia, y SHALL NOT añadir lógica propia sobre actividades sensibles: muestra el texto de la actividad tal como llega. Las listas largas SHALL permanecer desplazables y sin truncar.
 
 #### Scenario: Registro tradicional elegible
 - **WHEN** la planta tiene un grupo de uso con 12 registros de tres países y dos referencias
 - **THEN** el grupo se muestra con su actividad, `12 registros`, los tres países, sus dos citas y la etiqueta de registro tradicional, no consejo
+
+#### Scenario: Aviso fijo de usos tradicionales
+- **WHEN** se abre la pestaña `Usos` de cualquier planta, con o sin grupos de uso
+- **THEN** el aviso fijo se muestra al inicio, antes del primer grupo o del vacío explícito, y no contiene lenguaje de eficacia
+
+#### Scenario: Cita sin resolver visible
+- **WHEN** un grupo de uso trae una referencia resuelta y otra con `resolved` falso y la cita «Woi.Syria (sin resolver)»
+- **THEN** el grupo se muestra con ambas citas, la segunda como «(sin resolver)» en un estilo atenuado, y no se oculta el grupo
+
+#### Scenario: Actividades sensibles tal como llegan
+- **WHEN** un grupo trae la actividad «Uso tradicional, sin eficacia demostrada: cáncer» y la planta tiene `safety` con una advertencia de riesgo grave (por ejemplo, toxicidad o uso abortivo) en su texto
+- **THEN** `Usos` muestra la actividad con ese texto exacto y `Precauciones` muestra la advertencia tal como llega, sin que la app añada, quite ni reformule ninguno
 
 #### Scenario: Grupo sin países
 - **WHEN** un grupo de uso no trae países
@@ -95,7 +107,7 @@ La pestaña `Usos` SHALL mostrar los grupos de uso que entrega la API, cada uno 
 - **THEN** todos son alcanzables con desplazamiento, sin truncar ni perder la etiqueta y las citas de cada uno
 
 ### Requirement: Accesibilidad del pasaporte
-El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%. Los controles SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de seguridad SHALL expresarse con texto y no solo con color.
+El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%. Los controles SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de precauciones SHALL expresarse con texto y no solo con color.
 
 #### Scenario: Ficha accesible con texto aumentado
 - **WHEN** se recorre el pasaporte mediante tecnología de asistencia a 100% o 200% en 360x640 dp
@@ -105,8 +117,8 @@ El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, de
 - **WHEN** la planta tiene imagen
 - **THEN** la tecnología de asistencia anuncia una descripción que incluye el nombre de la planta
 
-#### Scenario: Nivel de seguridad sin depender del color
-- **WHEN** se muestra el nivel de seguridad `alto`, `medio` o `bajo`
+#### Scenario: Nivel de precauciones sin depender del color
+- **WHEN** se muestra el nivel de precauciones `alto`, `medio` o `bajo`
 - **THEN** el nivel se presenta como texto, además de cualquier color
 
 ## ADDED Requirements
@@ -134,19 +146,23 @@ Cuando el detalle trae `image`, el pasaporte SHALL mostrar esa imagen en la cabe
 - **WHEN** el usuario activa el enlace de la página del archivo
 - **THEN** se abre en el navegador del sistema y la app no descarga ni muestra esa página
 
-### Requirement: Seguridad con nivel y citas
-La sección `Seguridad` de `Propiedades` SHALL mostrar, cuando la planta tiene `safety`, el nivel (`Alto`, `Medio` o `Bajo`) como texto, el texto de advertencia de la API y la cita de cada referencia. Cuando `safety` es `null`, SHALL decir que no hay datos de seguridad en las fuentes consultadas y que eso no significa que la planta sea segura. SHALL NOT calificar de segura a una planta ni inferir seguridad de la ausencia de datos.
+### Requirement: Precauciones con nivel opcional y citas
+La sección `Precauciones` de `Propiedades` SHALL mostrar, cuando la planta tiene `safety`, el nivel (`Alto`, `Medio` o `Bajo`) como texto si existe, el texto de advertencia de la API y la cita de cada referencia. Cuando `safety.level` es `null`, SHALL mostrar el texto y las citas sin etiqueta de nivel. Cuando `safety` es `null`, SHALL decir que no hay precauciones registradas en las fuentes consultadas y que eso no significa que la planta sea segura. SHALL NOT calificar de segura a una planta ni inferir seguridad de la ausencia de datos.
 
-#### Scenario: Seguridad alta
+#### Scenario: Precauciones de nivel alto
 - **WHEN** la planta tiene `safety` de nivel `alto` con texto y dos referencias
 - **THEN** la sección muestra `Alto` como texto, el texto de advertencia y las dos citas
 
-#### Scenario: Seguridad sin datos
+#### Scenario: Precauciones sin nivel
+- **WHEN** la planta tiene `safety` con `level` igual a `null`, un texto con las contraindicaciones de la EMA y sus referencias
+- **THEN** la sección muestra el texto y las citas sin etiqueta de nivel, `General` no muestra aviso y la sección no dice que no hay datos
+
+#### Scenario: Precauciones sin datos
 - **WHEN** `safety` es `null`
-- **THEN** la sección dice que no hay datos de seguridad en las fuentes consultadas y que esto no significa que la planta sea segura
+- **THEN** la sección dice que no hay precauciones registradas en las fuentes consultadas y que esto no significa que la planta sea segura
 
 #### Scenario: Ninguna planta se presenta como segura
-- **WHEN** se revisan todos los textos de la sección para los niveles `alto`, `medio`, `bajo` y sin datos
+- **WHEN** se revisan todos los textos de la sección para los niveles `alto`, `medio`, `bajo`, sin nivel y sin datos
 - **THEN** ninguno afirma que la planta es segura o inocua
 
 ### Requirement: Sección Fuentes con licencias y atribución

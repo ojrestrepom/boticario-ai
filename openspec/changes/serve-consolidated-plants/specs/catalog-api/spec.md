@@ -109,7 +109,7 @@ La API SHALL entregar `displayName` en el listado y en el detalle: el nombre par
 - **THEN** `displayName` es el nombre científico y en el detalle no hay nombres de tipo común
 
 ### Requirement: Contenido consolidado del detalle
-El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando la planta no tiene el dato: `synonyms` (sinónimos científicos, sin repetir el nombre aceptado), `description` (texto o `null`), `origin` (texto o `null`), `oil` (objeto con `type` o `null`), `useGroups` (grupos de uso tradicional, cada uno con `activity`, `activitySource`, `count`, `countries` y `references` con su cita), `goals` (cada objetivo con `id`, `name`, `subarea` o `null`, `area`, `evidence` y `references`) y `safety` (objeto con `level` igual a `alto`, `medio` o `bajo`, `text` y `references`, o `null`). Los grupos SHALL ordenarse por `count` descendente y luego por actividad; los objetivos por nombre. Los textos visibles SHALL estar en español y no contener dosis ni promesas de eficacia, porque la semilla los valida.
+El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando la planta no tiene el dato: `synonyms` (sinónimos científicos, sin repetir el nombre aceptado), `description` (texto o `null`), `origin` (texto o `null`), `oil` (objeto con `type` o `null`), `useGroups` (grupos de uso tradicional, cada uno con `activity`, `activitySource`, `count`, `countries` y `references`, cada una con `id`, `citation` y `resolved`; una cita sin obra identificada lleva `id` nulo, `resolved` falso y la cita «<clave> (sin resolver)»), `goals` (cada objetivo con `id`, `name`, `subarea` o `null`, `area`, `evidence` y `references`) y `safety` (objeto con `level` igual a `alto`, `medio`, `bajo` o `null`, `text` y `references`, o `null` solo cuando no hay ningún dato de precauciones). Los grupos SHALL ordenarse por `count` descendente y luego por actividad; los objetivos por nombre. Los textos visibles SHALL estar en español y no contener dosis ni promesas de eficacia, porque la semilla los valida.
 
 #### Scenario: Planta con todos los campos
 - **WHEN** se pide el detalle de una planta con descripción, origen, aceite esencial, usos agrupados, un objetivo y nivel de seguridad
@@ -126,6 +126,14 @@ El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando 
 #### Scenario: Seguridad sin datos
 - **WHEN** ninguna fuente de seguridad menciona la planta
 - **THEN** `safety` es `null`, y la API no lo sustituye por un nivel
+
+#### Scenario: Seguridad sin nivel
+- **WHEN** las fuentes traen advertencias para la planta (por ejemplo las contraindicaciones de la EMA para el eucalipto) pero ninguna fija un nivel
+- **THEN** `safety` es un objeto con `level` igual a `null`, el `text` y las `references`, y la API no inventa un nivel ni lo sustituye por `null` en todo el objeto
+
+#### Scenario: Grupo de uso con una cita sin resolver
+- **WHEN** un grupo de uso tiene una cita resuelta y otra sin obra identificada
+- **THEN** `useGroups` incluye el grupo con ambas referencias, la resuelta con `resolved` verdadero y su cita, y la otra con `id` nulo, `resolved` falso y la cita «<clave> (sin resolver)»
 
 #### Scenario: Objetivo de la EMA
 - **WHEN** la planta tiene el objetivo `cuidado-de-la-piel` respaldado por una monografía de la EMA
@@ -193,11 +201,19 @@ El detalle SHALL incluir `credits`, una lista de los datasets que respaldan los 
 - **THEN** ningún elemento tiene como identificador un alias que no sea el identificador canónico de una planta
 
 ### Requirement: Contenido pendiente de revisión no se sirve
-La API SHALL omitir de `goals` un objetivo marcado como pendiente de revisión (`plant_goal.pending_review`) antes de publicarse, como el objetivo `relajacion-estres` de una planta con interacciones graves en el área de estrés y ánimo. La API SHALL NOT exponer los `reviewFlags` ni indicar que un contenido se omitió. El resto del detalle de la planta SHALL servirse con normalidad.
+La API SHALL omitir de `goals` un objetivo marcado como pendiente de revisión (`plant_goal.pending_review`) antes de publicarse, como el objetivo `relajacion-estres` de una planta con interacciones graves en el área de estrés y ánimo. La API SHALL NOT exponer los `reviewFlags` ni indicar que un contenido se omitió. SHALL omitir de `useGroups` los grupos marcados como pendientes de revisión (`plant_use_group.pending_review`), es decir, los que no tienen ninguna cita resuelta; un grupo con al menos una cita resuelta SHALL servirse con todas sus citas, aunque otra esté sin resolver. El resto del detalle de la planta SHALL servirse con normalidad.
 
 #### Scenario: Objetivo condicionado
 - **WHEN** una planta tiene el objetivo `relajacion-estres` marcado como pendiente de revisión por interacciones graves en estrés y ánimo
 - **THEN** su detalle no incluye ese objetivo en `goals`, y el resto de sus objetivos y campos se sirve igual
+
+#### Scenario: Grupo sin ninguna cita resuelta
+- **WHEN** un grupo de uso tiene `pending_review` verdadero porque ninguna de sus citas está resuelta
+- **THEN** su detalle no incluye ese grupo en `useGroups` ni genera filas en `uses`, y el resto de la planta se sirve igual
+
+#### Scenario: Grupo con una cita resuelta y otra sin resolver
+- **WHEN** un grupo tiene `pending_review` falso con una cita sin resolver y el registro conserva el flag `cita-sin-resolver`
+- **THEN** el grupo se sirve completo, con la cita sin resolver marcada, y el detalle no expone el flag
 
 #### Scenario: Planta con otros flags
 - **WHEN** una planta tiene un `reviewFlag` de identidad ambigua o de grupo partido

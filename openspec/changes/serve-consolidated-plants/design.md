@@ -51,13 +51,15 @@ El detalle suma estos campos, siempre presentes (valor, `null` o lista vacía):
 | `description` | texto o `null` | Descripción neutra de hasta 400 caracteres |
 | `origin` | texto o `null` | Origen |
 | `oil` | `{type}` o `null` | Tipo de aceite (por ahora `Esencial`) |
-| `useGroups` | lista | `activity`, `activitySource`, `count`, `countries`, `references[{id, citation}]` |
+| `useGroups` | lista | `activity`, `activitySource`, `count`, `countries`, `references[{id, citation, resolved}]` (`id` nulo y `resolved` falso en una cita sin resolver) |
 | `goals` | lista | `id`, `name`, `subarea`, `area`, `evidence`, `references` |
-| `safety` | objeto o `null` | `level` (`alto`, `medio`, `bajo`), `text`, `references` |
+| `safety` | objeto o `null` | `level` (`alto`, `medio`, `bajo` o `null`), `text`, `references` |
 | `image` | objeto o `null` | `url`, `pageUrl`, `author`, `license`, `licenseUrl`, `attributionRequired` |
 | `credits` | lista | `name`, `license`, `licenseUrl`, `attribution`, `url` |
 
 `parts` (que ya contiene `partsUsed`), `names` y `uses` no cambian de forma. `uses` se conserva porque quitarlo sería incompatible dentro de `/v1`; la app nueva lee `useGroups`, y `uses` queda para clientes anteriores y como respaldo del cliente (D11). El mapeo `traditionalUses` a `uses` ya lo escribe el cambio 1 (un uso por cada referencia resuelta), de modo que ambos son coherentes.
+
+Dos decisiones del usuario durante el cambio 1 fijan el contrato. Primero, `safety.level` es `null` cuando las fuentes traen advertencias (por ejemplo las contraindicaciones de la EMA para el eucalipto) pero ninguna fija un nivel: la API sirve el objeto con `level` nulo, el `text` y las `references`; `safety` es `null` solo cuando no hay ningún dato de precauciones. Segundo, un grupo de uso con al menos una cita resuelta se sirve con todas sus citas: las que no tienen obra identificada llevan `resolved` falso, `id` nulo y la cita «<clave> (sin resolver)»; los grupos sin ninguna cita resuelta (`plant_use_group.pending_review`) no se sirven. `uses` sigue teniendo una fila por referencia resuelta de los grupos servidos.
 
 Alternativas:
 
@@ -86,8 +88,9 @@ Alternativas:
 
 El mockup no define ninguna de las dos. Propuesta:
 
-- `Propiedades`: dos secciones. `Objetivos registrados por la EMA`, con cada objetivo con nombre, subárea, área y tipo de documento de la EMA (monografía o entrada de lista), la cita y una aclaración fija («clasificación de la EMA, no una indicación de uso ni una promesa de eficacia»). `Seguridad`, con el nivel y el texto por nivel (D4).
-- `Usos`: los grupos de uso tradicional traducidos, con actividad, número de registros, países y todas las citas, con la etiqueta `Registro tradicional` y la aclaración de que es un registro y no un consejo.
+- `Propiedades`: dos secciones. `Objetivos registrados por la EMA`, con cada objetivo con nombre, subárea, área y tipo de documento de la EMA (monografía o entrada de lista), la cita y una aclaración fija («clasificación de la EMA, no una indicación de uso ni una promesa de eficacia»). `Precauciones`, con el texto, las citas y el nivel si lo hay (D4). El nombre es «Precauciones» y no «Seguridad», una traducción demasiado literal de *safety*.
+- `Usos`: siempre al inicio, un aviso fijo (texto provisional que el usuario ajustará en la app): «Usos registrados en fuentes etnobotánicas históricas. No son recomendaciones ni están comprobados clínicamente. Algunas citas no se pudieron identificar y se muestran como «sin resolver».» Después, los grupos de uso tradicional traducidos, con actividad, número de registros, países y todas las citas, con la etiqueta `Registro tradicional` y la aclaración de que es un registro y no un consejo. Las citas sin obra identificada se muestran como «(sin resolver)» en un estilo atenuado.
+- Actividades sensibles: no hay lógica nueva en la app. Las enfermedades graves llegan de la semilla ya formuladas en el texto de la actividad («Uso tradicional, sin eficacia demostrada: cáncer») y las señales de riesgo (veneno, casos mortales, abortiva) llegan dentro del texto de `Precauciones` como advertencias, no como usos; la app muestra ambos tal como vienen.
 
 Por qué: son los dos conjuntos que la semilla puede respaldar con cita. Los objetivos salen solo de la EMA, así que `Propiedades` es la pestaña donde una afirmación tiene una fuente regulatoria nombrada; los usos son registros etnobotánicos con citas, justo lo que `Usos` ya muestra.
 
@@ -95,15 +98,15 @@ Alternativas:
 
 - `Propiedades` con la fitoquímica de USDA (compuestos y partes). Es dato disponible, pero la spec vigente prohíbe inferir eficacia desde la fitoquímica y una lista de compuestos invita a esa lectura. Se descarta.
 - Los objetivos dentro de `Usos`. Mezcla una clasificación regulatoria con registros tradicionales; se pierde la distinción que el pasaporte hace entre «dato de fuente» y «registro tradicional».
-- Una pestaña `Seguridad` nueva. Aleja el mockup (tres pestañas); se descarta, y el nivel alto se avisa en `General` (D4).
+- Una pestaña `Precauciones` nueva. Aleja el mockup (tres pestañas); se descarta, y el nivel alto se avisa en `General` (D4).
 - `Usos` plano (una fila por uso, como hoy). Repite la actividad por cada cita y no muestra países; se descarta porque la semilla ya entrega el agrupado.
 - Mostrar solo la actividad y las citas bajo un «ver más». Oculta contenido que debe ser alcanzable; la spec exige listas desplazables sin truncar.
 
 Nombre de los objetivos: la API sirve `goals[].name` y `goals[].subarea` en español, leídos de las tablas `goal (id, label, position)` y `goal_subarea (id, goal_id, label, position)` que deja el cambio 1 y que el cambio 3 usa para `GET /v1/goals`; `plant_goal` referencia la subárea con `subarea_id`. Los ids de objetivo son `relajacion-estres`, `mejorar-el-sueno`, `cuidado-de-la-piel`, `alivio-respiratorio`, `cansancio-y-fatiga` y `otros-objetivos`, y los de subárea `digestion`, `vias-urinarias-y-genitales`, `dolor-e-inflamacion`, `boca-y-garganta`, `circulacion` y `molestias-oculares`. `goals[].area`, `goals[].evidence` y los países de los grupos de uso llegan en español desde la semilla.
 
-### D4. Seguridad: nivel con texto, citas, aviso en `General` solo si es alto
+### D4. Precauciones: texto con nivel opcional, citas, aviso en `General` solo si el nivel es alto
 
-Los tres niveles se muestran como texto (`Alto`, `Medio`, `Bajo`) con el texto de advertencia y las citas, en `Propiedades`. Si el nivel es `alto`, `General` muestra además un aviso con el nivel que remite a `Propiedades`. `safety` nulo se muestra como «No hay datos de seguridad en las fuentes consultadas. Esto no significa que la planta sea segura.»
+La sección se llama `Precauciones`. Los tres niveles se muestran como texto (`Alto`, `Medio`, `Bajo`) con el texto de advertencia y las citas, en `Propiedades`. Si `safety.level` es `null` (el texto y las citas existen, pero ninguna fuente fija un nivel), se muestra el texto y las citas sin etiqueta de nivel. Si el nivel es `alto`, `General` muestra además un aviso con el nivel que remite a `Propiedades`; sin nivel, o con `medio` o `bajo`, no hay aviso. `safety` nulo se muestra como «No hay precauciones registradas en las fuentes consultadas. Esto no significa que la planta sea segura.»
 
 Por qué: una planta con nivel alto (tóxica) no debe quedar escondida en la tercera pestaña de una ficha cuya primera pestaña es una descripción amable. El aviso se limita al nivel alto para no cubrir de avisos las fichas; los niveles medio y bajo siguen en `Propiedades`. No se muestra nada que sugiera «segura»: el nivel `bajo` es un nivel de alerta (alergénica), no un sello.
 
@@ -119,7 +122,7 @@ Alternativas: `image` completo en el resumen (pesa el listado y obliga a atribuc
 
 La API no expone los `reviewFlags` (estructurados como `{code, target, message}` en la semilla) ni ningún resumen de ellos. Sí aplica una regla: omite de `goals` todo objetivo con `plant_goal.pending_review = true` (hoy, `relajacion-estres` del hipérico). El resto del detalle se sirve completo.
 
-Por qué: el cambio 1 dice que los flags no bloquean la presencia de la planta, y que ese objetivo «queda condicionado… antes de publicarse». Omitir el objetivo es la forma de cumplir ese «antes de publicarse» sin una capa humana. Los demás flags (identidad ambigua, solo género, grupo partido, respaldo de WFO, extracción de seguridad fallida, sin datos de seguridad) describen la procedencia de la identidad o ausencias que la app ya muestra como «sin datos»; exponerlos fijaría un vocabulario interno en el contrato antes de que exista la capa humana que lo gobierne.
+Por qué: el cambio 1 dice que los flags no bloquean la presencia de la planta, y que ese objetivo «queda condicionado… antes de publicarse». Omitir el objetivo es la forma de cumplir ese «antes de publicarse» sin una capa humana. Los grupos de uso siguen la misma lógica: la API omite los grupos con `plant_use_group.pending_review = true` (ninguna cita resuelta) y sirve los demás, aunque el registro conserve el flag `cita-sin-resolver` de una cita suelta; la app no recibe ese flag y muestra la cita como «(sin resolver)». Los demás flags (identidad ambigua, solo género, grupo partido, respaldo de WFO, extracción de seguridad fallida, sin datos de seguridad) describen la procedencia de la identidad o ausencias que la app ya muestra como «sin datos»; exponerlos fijaría un vocabulario interno en el contrato antes de que exista la capa humana que lo gobierne.
 
 Alternativas:
 
@@ -186,11 +189,11 @@ Wikimedia pide un `User-Agent` identificable en sus peticiones y puede limitar l
 | Sinónimos | `No hay sinónimos registrados` |
 | Nombres comunes (otros) | `No hay nombres comunes registrados` |
 | Objetivos | `No hay objetivos registrados por la EMA para esta planta` |
-| Seguridad | `No hay datos de seguridad en las fuentes consultadas. Esto no significa que la planta sea segura.` |
-| Usos | `No hay usos tradicionales con referencia verificable disponibles` (texto vigente) |
+| Precauciones | `No hay precauciones registradas en las fuentes consultadas. Esto no significa que la planta sea segura.` |
+| Usos | `No hay usos tradicionales con referencia verificable disponibles` (texto vigente); el aviso fijo se muestra igualmente al inicio |
 | Fuentes | `No hay fuentes registradas para esta planta` |
 
-Alternativas: ocultar las secciones sin datos (la spec vigente exige decirlo explícitamente en `General`, y ocultar «seguridad» en una planta sin datos lo haría pasar por segura); un único mensaje «sin datos» por pestaña (pierde la distinción entre una planta sin usos y una sin seguridad).
+Alternativas: ocultar las secciones sin datos (la spec vigente exige decirlo explícitamente en `General`, y ocultar «precauciones» en una planta sin datos lo haría pasar por segura); un único mensaje «sin datos» por pestaña (pierde la distinción entre una planta sin usos y una sin seguridad).
 
 Se descarta `Tipo de aceite: No aplicable: ficha de planta`: ahora el tipo de aceite sale de la semilla (`Esencial` según el compuesto `EO`) y la ausencia es «sin dato», no «no aplicable».
 
@@ -208,13 +211,14 @@ Alternativa: una sola consulta con uniones. Menos viajes, pero cartesianos entre
 
 ### D13. Estrategia de QA
 
-- API: Postman sobre los endpoints que cambian (listado, detalle con y sin alias, plantas con distintos niveles de seguridad, imagen y créditos), con el token como variable de entorno secreta. En QA anteriores el CLI de Postman estaba instalado pero sin sesión; si sigue así, se usa el equivalente con `curl` o un script de Python, y se anota.
+- API: Postman sobre los endpoints que cambian (listado, detalle con y sin alias, plantas con distintos niveles de precauciones, una con `level` nulo como el eucalipto, un grupo con una cita sin resolver, imagen y créditos), con el token como variable de entorno secreta. En QA anteriores el CLI de Postman estaba instalado pero sin sesión; si sigue así, se usa el equivalente con `curl` o un script de Python, y se anota.
 - Interfaz: la app es nativa Android y no tiene destino web, así que Playwright no aplica (la QA archivada de `add-goal-search-screen` lo anotó). Se usan el emulador con `integration_test`, `adb` y `uiautomator`, como en `connect-app-to-backend` y `add-api-token-auth`. Si el emulador no está disponible, se reporta como no ejecutado.
 
 ## Risks / Trade-offs
 
 - **[El cambio 1 no deja lo que este cambio lee]** `display_name`, `goal`, `goal_subarea`, `plant_goal.subarea_id` y `pending_review`, y la atribución con texto. → La tarea 1.1 comprueba la migración real antes de escribir consultas y detiene la implementación si falta algo, para ajustar el cambio 1 y no duplicarlo aquí.
 - **[Imágenes pesadas o limitadas por Wikimedia]** El `url` puede ser el original de varios MB, y Wikimedia limita a clientes anónimos con un agente genérico. → Medir tamaños y respuestas con la base real (tarea 6.4), pedir un ancho acotado si la URL lo admite y fijar un `User-Agent`; sin imagen la ficha sigue completa.
+- **[El aviso fijo de `Usos` es provisional]** El texto lo ajustará el usuario en la app. → Vive en un solo lugar del código de la app, con una prueba que verifica que se muestra siempre al inicio y no contiene lenguaje de eficacia.
 - **[La planta tóxica no avisa suficiente]** El aviso de `General` solo aparece con nivel alto. → Los niveles se definen en la semilla desde TPPT y la EMA; la QA revisa tóxicas conocidas y una planta sin datos.
 - **[«Objetivos de la EMA» se lee como indicación]** → Aclaración fija junto a cada objetivo, nombres sin verbos de efecto, prueba que los textos fijos no contienen palabras de efecto, y el origen (EMA) nombrado.
 - **[Licencias CC BY-SA y términos no verificados de la EMA y TPPT]** La atribución visible mejora el cumplimiento pero no lo certifica. → El cambio 1 sigue exigiendo verificar los términos antes de publicar; la sección `Fuentes` muestra lo que la semilla guarda.

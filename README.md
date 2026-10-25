@@ -10,11 +10,11 @@ Implementado:
 
 - Pantallas Inicio, Explorar plantas, Pasaporte de planta y Buscar por objetivo, con las rutas `/`, `/explore`, `/explore/:plantId` y `/goals`.
 - Buscar por objetivo es solo visual: muestra las categorías de objetivo, pero no selecciona ni devuelve resultados.
-- Explorar y el Pasaporte consumen por HTTP el catálogo del backend: 2.376 plantas del dataset USDA Dr. Duke's Phytochemical and Ethnobotanical Databases (CC0). Explorar pagina con scroll infinito de 50 en 50. El nombre principal es el primer nombre común que entrega la API (hoy en inglés o `und`; ninguna planta tiene todavía nombre en español) y el secundario es el científico; si no hay nombre común se muestra solo el científico. Sin backend o sin conectividad, Explorar y el Pasaporte muestran un error con «Reintentar»; Inicio y Buscar por objetivo siguen funcionando. La fuente y sus límites están en la [guía de la fuente USDA](docs/data/usda-catalog.md).
+- Explorar y el Pasaporte consumen por HTTP el catálogo del backend: la semilla consolidada de `data/seed/` (hoy provisional, con 20 plantas, y unas 2.355 cuando se genere completa), con textos en español. Explorar pagina con scroll infinito de 50 en 50. El nombre principal es el primer nombre común que entrega la API (en español cuando la semilla lo tiene) y el secundario es el científico; si no hay nombre común se muestra solo el científico. Sin backend o sin conectividad, Explorar y el Pasaporte muestran un error con «Reintentar»; Inicio y Buscar por objetivo siguen funcionando. Las fuentes y sus límites están en la [guía de fuentes](docs/data/usda-catalog.md).
 - La búsqueda por nombre la resuelve la API (`q`), que normaliza mayúsculas y acentos.
 - El Pasaporte muestra la familia (o «No disponible en fuente»), los nombres comunes con su idioma, y las partes y los usos con su referencia bibliográfica.
 - Los usos del Pasaporte son registros tradicionales con referencia, no consejo ni evidencia clínica; no hay dosis ni recomendaciones.
-- Existe un backend de catálogo en `backend/`: una ingesta en Rust que construye una base neutral desde USDA Dr. Duke y una API HTTP de solo lectura.
+- Existe un backend de catálogo en `backend/`: una ingesta en Rust que construye una base neutral desde la semilla consolidada de `data/seed/` y una API HTTP de solo lectura.
 
 No implementado:
 
@@ -39,9 +39,9 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 ## Estructura del repositorio
 
 - `app/`: aplicación Flutter.
-- `backend/`: workspace de Cargo con tres crates, con su guía de desarrollo en [`backend/README.md`](backend/README.md). `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` descarga los insumos, importa la capa cruda, consolida las fuentes y escribe la base. `catalog-api` sirve esa base por HTTP.
-- `data/`: la migración del esquema neutral (`data/migrations/`), la configuración de fuentes (`data/sources.toml`) y las salidas generadas e ignoradas por git `data/.cache/` y `data/build/`.
-- `tools/catalog-seed/`: herramientas en Python, solo para el desarrollador, que preparan la semilla del catálogo (fuentes, esquema del registro, validador, plan de regeneración y sellado); véase [`tools/catalog-seed/README.md`](tools/catalog-seed/README.md).
+- `backend/`: workspace de Cargo con tres crates, con su guía de desarrollo en [`backend/README.md`](backend/README.md). `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` lee la semilla, verifica sus hashes y escribe la base, sin red. `catalog-api` sirve esa base por HTTP.
+- `data/`: la migración del esquema neutral (`data/migrations/`), la semilla del catálogo (`data/seed/`, un JSON por planta más un manifiesto) y las salidas generadas e ignoradas por git `data/build/` y `data/work/`.
+- `tools/catalog-seed/`: herramientas en Python, solo para el desarrollador, que generan la semilla de `data/seed/` (fuentes, esquema del registro, validador, plan de regeneración y sellado); véase [`tools/catalog-seed/README.md`](tools/catalog-seed/README.md).
 - `docs/`: canvas, mockups y documentación de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
 - `.github/workflows/`: integración continua y despliegue.
@@ -149,7 +149,7 @@ flutter test test/
 
 ## Backend: catálogo y API
 
-El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](docs/data/modelo-de-datos.md). La app lo consume desde el emulador Android en `http://10.0.2.2:8080`. `/v1` solo admite cambios aditivos, porque la app ya es su primer consumidor. Para ejecutarlo solo hace falta Docker.
+El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir una fuente nueva a las herramientas están en la [guía del modelo de datos](docs/data/modelo-de-datos.md#9-cómo-añadir-una-fuente-nueva-a-las-herramientas). La app lo consume desde el emulador Android en `http://10.0.2.2:8080`. `/v1` solo admite cambios aditivos, porque la app ya es su primer consumidor. Para ejecutarlo solo hace falta Docker.
 
 ### Prerrequisito
 
@@ -169,7 +169,7 @@ Sin `API_TOKENS` (ni en el entorno ni en `.env`), `docker compose up` falla ante
 docker compose up --build
 ```
 
-La primera construcción compila el backend, descarga el dataset de USDA y construye el catálogo dentro de la imagen. Tarda varios minutos la primera vez y segundos las siguientes, gracias a las cachés de construcción. La imagen resultante contiene la API y el catálogo ya construido, así que el contenedor sirve sin red.
+La primera construcción compila el backend y construye el catálogo dentro de la imagen a partir de la semilla de `data/seed/`, sin descargar datos. Tarda varios minutos la primera vez y segundos las siguientes: un cambio en la semilla reconstruye el catálogo sin recompilar la API. La imagen resultante contiene la API y el catálogo ya construido, así que el contenedor sirve sin red.
 
 ### Endpoints
 
@@ -239,7 +239,7 @@ Las cachés de construcción viven en el almacenamiento de Docker, no en el repo
 
 ### Despliegue en Cloud Run
 
-El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) verifica el backend (`fmt`, `clippy` y pruebas, con el workflow reutilizable `backend-ci.yml`) y, solo si pasa, construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow), o a mano con `workflow_dispatch`. Si la verificación falla, no se publica ninguna imagen ni se crea ninguna revisión. El servicio responde en https://boticario-api-d3xv5q3iaa-pv.a.run.app.
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) verifica el backend (`fmt`, `clippy` y pruebas, con el workflow reutilizable `backend-ci.yml`) y, solo si pasa, construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend (`backend/`, `data/migrations/`, `data/seed/`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow), o a mano con `workflow_dispatch`. Si la verificación falla, no se publica ninguna imagen ni se crea ninguna revisión. El servicio responde en https://boticario-api-d3xv5q3iaa-pv.a.run.app.
 
 La imagen local se construye para la arquitectura del anfitrión (arm64 en un Mac con Apple Silicon); `docker build --platform linux/amd64 .` queda como prueba local de la imagen que despliega el workflow.
 
@@ -261,11 +261,11 @@ El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-ba
 
 ## Documentación
 
-Orden de lectura sugerido: Canvas, mockups, guía de la fuente USDA y guía del modelo de datos.
+Orden de lectura sugerido: Canvas, mockups, guía de fuentes y guía del modelo de datos.
 
 - Canvas y negocio: [índice](docs/canvas/README.md) y [modelo de negocio](docs/canvas/modelo-de-negocio.md).
 - Mockups: [índice](docs/mockups/README.md), [pantallas](docs/mockups/pantallas.md) y [navegación](docs/mockups/navegacion.md).
-- Datos: [guía de la fuente USDA](docs/data/usda-catalog.md) y [guía del modelo de datos](docs/data/modelo-de-datos.md).
+- Datos: [guía de fuentes](docs/data/usda-catalog.md), [guía del modelo de datos](docs/data/modelo-de-datos.md) y [regeneración de la semilla](docs/data/regeneracion-de-la-semilla.md).
 - Desarrollo del backend: [`backend/README.md`](backend/README.md), con el flujo nativo con mise y cargo.
 - Despliegue: [guía de Cloud Run](docs/deploy/cloud-run.md).
 
@@ -277,7 +277,7 @@ Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus i
 docs/
   canvas/              índice y modelo de negocio
   mockups/             índice, pantallas y navegación
-  data/               fuente USDA (procedencia y criterio) y modelo de datos del backend
+  data/               fuentes, modelo de datos y regeneración de la semilla
   Canvas.png           canvas original
   mockups.png          lámina original de mockups
 ```

@@ -85,7 +85,7 @@ El deployer no necesita acceso al valor del secreto: para referenciarlo en `--se
 - Seguridad: la API exige `Authorization: Bearer <token>` en `/v1`. El servicio sigue desplegándose con `--allow-unauthenticated` (sin autenticación de Cloud Run, para que la app alcance la URL), pero `/v1` responde 401 sin un token de `API_TOKENS`; `/health` y `/openapi.json` quedan abiertos.
 - Seguridad: `API_TOKENS` llega desde Secret Manager con la versión fijada (`--set-secrets=API_TOKENS=boticario-api-tokens:1`), nunca `latest`, así que rotar es cambiar ese número en un commit; el valor no queda en la configuración de las revisiones, solo la referencia.
 - Seguridad: el workflow pasa `API_VERIFY_TOKEN` por `env` y la cabecera a `curl` por stdin (`-H @-`), sin `set -x` ni `echo` del valor; GitHub además enmascara el secreto en el log.
-- Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`; los permisos del workflow son solo `contents: read`, y el permiso `id-token: write` lo tiene únicamente el job `deploy`, no `verify`.
+- Seguridad: el workflow se dispara con `push` a `main` (solo si cambian `backend/`, `data/migrations/`, `data/seed/**`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow) o a mano con `workflow_dispatch`; los permisos del workflow son solo `contents: read`, y el permiso `id-token: write` lo tiene únicamente el job `deploy`, no `verify`.
 - Seguridad: los despliegues se serializan con `concurrency` y no se cancelan a medias.
 - Seguridad: las acciones de terceros están fijadas por SHA con un comentario de versión.
 - Fiabilidad: el despliegue usa la etiqueta del SHA, no `latest`, y un paso con `curl` falla el job si `/health` o el detalle de una planta con el token de CI no responden 200, o si el mismo detalle sin token no responde 401 (un 200 significaría que el servicio quedó abierto); sin `API_VERIFY_TOKEN` el paso falla antes de consultar; no hay rollback automático, Cloud Run conserva la revisión anterior.
@@ -613,7 +613,7 @@ La URL pública del servicio es `https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
 
 ### Despliegue automático
 
-El workflow `deploy-backend.yml` se dispara con un `push` a `main` que toque `backend/**`, `data/migrations/**`, `data/sources.toml`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow; un cambio solo en `app/` o en `docs/` no despliega.
+El workflow `deploy-backend.yml` se dispara con un `push` a `main` que toque `backend/**`, `data/migrations/**`, `data/seed/**`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow; un cambio solo en `app/` o en `docs/` no despliega.
 
 Primero corre el job `verify`, que reutiliza `backend-ci.yml` (`cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace); solo si pasa, el job `deploy` construye la imagen `linux/amd64`, la publica en Artifact Registry con las etiquetas `<sha>` y `latest`, despliega la imagen del `<sha>` como una revisión nueva y verifica con `curl` que `/health` responda 200, que `/v1/plants/lavandula-angustifolia` responda 200 con el token de CI (`API_VERIFY_TOKEN`) y que la misma ruta responda 401 sin token; si responde 200 sin token, el job falla porque el servicio estaría abierto.
 

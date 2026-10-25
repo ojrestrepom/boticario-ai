@@ -2,7 +2,7 @@
 
 Esta guía es para quien quiera modificar el código Rust del backend o ejecutarlo sin Docker. Para solo ejecutar el backend basta el [README de la raíz](../README.md#backend-catálogo-y-api), que usa Docker y no necesita nada de lo que se describe aquí.
 
-El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir un dataset están en la [guía del modelo de datos](../docs/data/modelo-de-datos.md).
+El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir una fuente nueva a las herramientas están en la [guía del modelo de datos](../docs/data/modelo-de-datos.md#9-cómo-añadir-una-fuente-nueva-a-las-herramientas).
 
 Los comandos de las secciones 2 a 4 se ejecutan desde la raíz del repositorio (usan `--manifest-path backend/Cargo.toml`). Los de la sección 5 y los de la sección 6 se ejecutan desde `backend/`. Cada bloque de código indica su directorio.
 
@@ -21,19 +21,14 @@ mise install
 
 ## 2. Construir el catálogo
 
-La descarga es el único paso que usa la red. `build` y `rederive` nunca la tocan. Desde la raíz del repositorio:
+La semilla del catálogo vive en [`data/seed/`](../data/seed/) (un JSON por planta, `goals.json` y `manifest.json`) y se genera con las herramientas de [`tools/catalog-seed/`](../tools/catalog-seed/README.md), que son solo para el desarrollador (véase la [regeneración de la semilla](../docs/data/regeneracion-de-la-semilla.md)). `catalog-ingest` solo tiene el subcomando `build`, que no usa la red. Desde la raíz del repositorio:
 
 ```bash
-mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- download
 mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- build
-mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- rederive
 ```
 
-- `download` baja y verifica el ZIP de USDA en `data/.cache/Duke-Source-CSV.zip`; si ya está verificado, no lo vuelve a descargar.
-- `build` verifica el ZIP, importa la capa cruda a `data/build/raw.db` y escribe la base neutral `data/build/catalog.db`. Imprime el número de fuentes y de plantas y el hash del contenido.
-- `rederive` rehace `data/build/catalog.db` desde `data/build/raw.db`, sin el ZIP y sin red. Sirve para probar un cambio en la derivación o en las reglas de consolidación.
-
-Las fuentes activas y su prioridad se leen de [`data/sources.toml`](../data/sources.toml). Con `--data-dir <ruta>` se usa otro directorio de datos.
+- `build` lee la semilla, verifica su formato, los objetivos, el número de plantas y el `seedHash` del manifiesto, y escribe la base neutral `data/build/catalog.db`. Imprime el número de plantas y el hash del contenido. Si un registro no coincide con el manifiesto, falla y no escribe la base.
+- Con `--seed <ruta>` se lee otra carpeta de semilla, con `--out <ruta>` se escribe otro archivo y con `--data-dir <ruta>` se usa otro directorio de datos (por defecto, `<data-dir>/seed` y `<data-dir>/build/catalog.db`).
 
 ## 3. Ejecutar la API
 
@@ -123,6 +118,6 @@ mise exec -- cargo fmt --check && mise exec -- cargo clippy --workspace --all-ta
 1. Editar la migración de [`data/migrations/`](../data/migrations/).
 2. Subir `SCHEMA_VERSION` en [`catalog-core/src/version.rs`](catalog-core/src/version.rs).
 3. Regenerar [`catalog-core/src/schema.rs`](catalog-core/src/schema.rs) con Diesel, desde `backend/`, sobre una base temporal; [`diesel.toml`](diesel.toml) fija la carpeta de migraciones y la ruta del archivo generado: `DATABASE_URL=/tmp/esquema.db mise exec -- diesel migration run`.
-4. Reconstruir el catálogo con `rederive` o `build` (sección 2).
+4. Reconstruir el catálogo con `build` (sección 2).
 
 La base no se migra: se regenera entera en cada construcción.

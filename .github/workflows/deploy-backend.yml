@@ -10,7 +10,7 @@ on:
     paths:
       - 'backend/**'
       - 'data/migrations/**'
-      - 'data/sources.toml'
+      - 'data/seed/**'
       - 'Dockerfile'
       - 'mise.toml'
       - '.dockerignore'
@@ -77,7 +77,7 @@ jobs:
       # provenance y sbom en false: por defecto buildx publica un indice OCI con atestaciones
       # (manifiestos extra con arquitectura "unknown"). Se publica un manifiesto simple linux/amd64,
       # que Cloud Run acepta sin ambiguedad y que Artifact Registry lista como una sola imagen.
-      # La cache de capas va en GitHub Actions; las monturas de cache del Dockerfile no persisten.
+      # La cache de capas va en GitHub Actions; las monturas de cache de cargo del Dockerfile no persisten.
       - name: Construir y publicar la imagen
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:

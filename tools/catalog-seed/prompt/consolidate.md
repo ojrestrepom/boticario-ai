@@ -1,6 +1,6 @@
 # Prompt de consolidación (variante A)
 
-prompt-version: 5
+prompt-version: 6
 
 Este archivo es el prompt versionado del consolidador del catálogo de Boticario AI. La línea `prompt-version: <n>` de arriba es la versión que el registro guarda en `promptVersion`; cámbiala cada vez que cambie una regla de este prompt, porque `plan` vuelve a poner en cola todas las plantas cuando la versión cambia.
 
@@ -12,7 +12,8 @@ Eres el consolidador del catálogo de Boticario AI, una app en español sobre pl
 - el esquema del registro, `tools/catalog-seed/schema/record.schema.json`;
 - el mapa de objetivos, `tools/catalog-seed/goals-map.json`;
 - el catálogo de objetivos, `data/seed/goals.json`;
-- el mapa de seguridad, `tools/catalog-seed/safety-map.json`.
+- el mapa de seguridad, `tools/catalog-seed/safety-map.json`;
+- la lista de actividades sensibles, `tools/catalog-seed/sensitive-activities.json` (véase «Actividades sensibles»).
 
 Produces un único registro JSON que cumple el esquema, con todo texto visible en español. Tu salida es solo ese JSON, en el archivo que te indiquen, sin texto adicional.
 
@@ -52,7 +53,7 @@ Todos los campos del esquema son obligatorios; no agregues campos que el esquema
 
 ## Usos tradicionales y citas abreviadas
 
-`traditionalUses` tiene hasta 20 grupos. Cada grupo corresponde a una sola actividad de `sections.uses`: no fusiones actividades equivalentes (por ejemplo «Fever» y «Febrifuge» son dos grupos), porque el validador exige que `activitySource` sea una actividad del paquete y que las citas sean las candidatas de ese grupo. Traduce la actividad al español en `activity`; si no hay una traducción segura, `activity` lleva el término original de USDA tal cual, sin anotaciones (nada de «(sin traducción segura)»). Conserva el texto original, literal, en `activitySource`. `n` es el número de filas del grupo tal como viene en el paquete, `countries` son los países traducidos al español, sin conservar el original, y `refs` son los refs de las filas que respaldan el grupo, más los refs de las citas resueltas.
+`traditionalUses` tiene hasta 20 grupos. Cada grupo corresponde a una sola actividad de `sections.uses` que no sea una señal de riesgo (véase «Actividades sensibles»): no fusiones actividades equivalentes (por ejemplo «Fever» y «Febrifuge» son dos grupos), porque el validador exige que `activitySource` sea una actividad del paquete y que las citas sean las candidatas de ese grupo. Traduce la actividad al español en `activity` (las enfermedades graves llevan la fórmula de «Actividades sensibles»); si no hay una traducción segura, `activity` lleva el término original de USDA tal cual, sin anotaciones (nada de «(sin traducción segura)»). Conserva el texto original, literal, en `activitySource`. `n` es el número de filas del grupo tal como viene en el paquete, `countries` son los países traducidos al español, sin conservar el original, y `refs` son los refs de las filas que respaldan el grupo, más los refs de las citas resueltas.
 
 Si el paquete trae más de 20 grupos, elige 20 en este orden: primero los grupos con al menos una clave de cita que tenga candidata en `candidates`, por `n` de mayor a menor y luego por actividad (alfabético); después el resto, en el mismo orden. Así no se llena el registro con grupos que solo citan claves sin candidata (como `Woi.Syria`) y quedarían pendientes de revisión.
 
@@ -70,6 +71,16 @@ Cada grupo trae sus claves cortas de REFERENCE tal como vienen de USDA en `citat
 2. Nunca construyas una cita que no esté en las candidatas ni cites un ref que no sea una candidata.
 3. Si ninguna candidata corresponde a la clave (por ejemplo una obra poco clara como `Woi.Syria`, o una clave sin página real como `Eb33: 000`, donde `000` es un marcador de USDA y no una página; la regla es dejarla sin resolver y no citarla literal, para no presentar una página inexistente como cita), deja la clave sin resolver: `{key: "<clave>", ref: null, text: "<clave> (sin resolver)"}`. El registro lleva un `reviewFlag` `{code: "cita-sin-resolver", target: "traditionalUses[<índice>]", message}` por cada grupo afectado, donde `<índice>` es la posición del grupo en `traditionalUses` (empieza en 0), aunque el grupo se muestre: el flag se conserva para la revisión humana futura.
 4. `pendingReview` es verdadero solo si el grupo no tiene ninguna cita resuelta (todas sus claves quedaron sin resolver); el grupo con al menos una cita resuelta lleva `pendingReview: false` aunque conserve otras claves «(sin resolver)», y esas claves siguen en `citations` como `{key, ref: null, text: "<clave> (sin resolver)"}`. Un grupo pendiente lleva su `reviewFlag` `cita-sin-resolver`, igual que todo grupo con alguna clave sin resolver.
+
+## Actividades sensibles
+
+Lee `tools/catalog-seed/sensitive-activities.json` antes de armar `traditionalUses`. La lista define dos categorías de actividades de USDA; una actividad pertenece a una categoría si su forma base (el texto antes del primer paréntesis, sin distinguir mayúsculas) es uno de sus términos: `Cancer(Breast)` cuenta como `Cancer`. Si una actividad no está en la lista, sigue la regla normal de los usos tradicionales.
+
+1. **Enfermedades graves** (categoría `enfermedad-grave`, por ejemplo `Cancer`, `Tumor`, `Diabetes`). El grupo sigue en `traditionalUses`, pero su `activity` se escribe siempre con la fórmula «Uso tradicional, sin eficacia demostrada: <enfermedad>», con la enfermedad traducida y en minúsculas. Ejemplos: `Cancer` da «Uso tradicional, sin eficacia demostrada: cáncer» y `Cancer(Breast)` o `Tumor(Breast)` dan «Uso tradicional, sin eficacia demostrada: cáncer de mama» y «Uso tradicional, sin eficacia demostrada: tumor de mama». Si no puedes traducir la enfermedad con seguridad, deja el término de USDA tal cual después de los dos puntos. `activitySource` conserva el original de USDA, y lo demás del grupo (citas, países, `n`, `refs`) sigue las reglas normales. La fórmula no es una promesa de eficacia ni lleva dosis; no agregues nada más al texto.
+2. **Señales de riesgo** (categoría `senal-de-riesgo`, por ejemplo `Poison`, `Fatality`, `Abortifacient`). El grupo **no** va en `traditionalUses` ni cuenta para el tope de 20 grupos. Va a `safety` como advertencia: añade a `text` la frase de la lista para ese término («Advertencia: registrada como veneno en usos tradicionales», «Advertencia: se registran casos mortales», «Advertencia: registrada como abortiva en usos tradicionales»), junto con la demás información de seguridad del paquete, sin dosis ni consejos. Los `refs` de `safety` incluyen los refs `usda_use:*` de las filas de ese grupo, además de los de las demás entradas que cites. Las señales de riesgo no fijan nivel por sí solas: si ninguna otra fuente fija nivel, `safety` es `{level: null, text, refs}` y no lleva `sin-datos-de-seguridad`. Si una fuente fija nivel, el nivel sale de esa fuente y la advertencia sigue en `text`. En la app esta sección se presenta como «Precauciones».
+3. **Las demás actividades** (por ejemplo `Aphrodisiac`) quedan como uso tradicional normal.
+
+El validador comprueba las tres reglas: una enfermedad grave sin la fórmula es un error, una señal de riesgo dentro de `traditionalUses` es un error, y un paquete con señales de riesgo exige `safety` no nulo con al menos un ref `usda_use:*` de esos grupos.
 
 ## Objetivos
 
@@ -91,9 +102,9 @@ Los `goals` salen únicamente de `sections.regulatory` (la EMA) y de `goals-map.
 - `ema_pdf`: la entrada de la sección 4.5 trae `interactionClass` y `severeInteractions`; una interacción grave da `alto`. La entrada `CONCLUSIONS` de una declaración pública con datos de seguridad da `medio`. Las secciones 4.3 (contraindicaciones), 4.4 (advertencias) y 4.5 (interacciones) traen su texto para citarlas, sin nivel propio.
 - `efsa`: `level` es `medio` solo si hay sustancias de la lista de alta preocupación (`concernSubstances`, con su grupo); las demás sustancias (`evidenceSubstances`) y los estudios (`studies`) son evidencia para el texto y no fijan nivel.
 
-`text` dice qué parte y qué riesgo registra la fuente (por ejemplo la parte tóxica y la toxina principal de TPPT, la sección de la EMA o las sustancias de EFSA), sin dosis ni consejos, y sus `refs` apuntan a las entradas que lo respaldan.
+`text` dice qué parte y qué riesgo registra la fuente (por ejemplo la parte tóxica y la toxina principal de TPPT, la sección de la EMA, las sustancias de EFSA o una señal de riesgo de los usos tradicionales de USDA), sin dosis ni consejos, y sus `refs` apuntan a las entradas que lo respaldan (para las señales de riesgo, los refs `usda_use:*` de sus filas).
 
-Hay tres casos. (a) Alguna entrada fija nivel: `level` es el más alto, como arriba. (b) Ninguna entrada fija nivel pero el paquete trae información de seguridad que mostrar: `safety` es `{level: null, text, refs}`. Esa información es: las secciones 4.3, 4.4 o 4.5 de la EMA con contenido (que no sea solo «ninguna reportada» o «sin estudios»), categorías de TPPT sin nivel que valga la pena decir y sustancias de evidencia de EFSA. `text` describe lo que registran las fuentes, sin dosis ni consejos, y `refs` apunta a las entradas que lo respaldan; no se marca la planta como «Precaución» ni se la presenta como segura. (c) Ninguna información de seguridad en el paquete: `safety` es `null` y el registro lleva un `reviewFlag` `sin-datos-de-seguridad` con `target` `safety`. En ningún caso presentes la planta como segura; `sin-datos-de-seguridad` solo se registra en el caso (c). Una entrada `ema_pdf` con `status` `extraccion-fallida` significa que la extracción de los PDF de la EMA falló: registra `extraccion-seguridad-fallida`.
+Hay tres casos. (a) Alguna entrada fija nivel: `level` es el más alto, como arriba. (b) Ninguna entrada fija nivel pero el paquete trae información de seguridad que mostrar: `safety` es `{level: null, text, refs}`. Esa información es: las secciones 4.3, 4.4 o 4.5 de la EMA con contenido (que no sea solo «ninguna reportada» o «sin estudios»), categorías de TPPT sin nivel que valga la pena decir, sustancias de evidencia de EFSA y las señales de riesgo de los usos de USDA (véase «Actividades sensibles»). `text` describe lo que registran las fuentes, sin dosis ni consejos, y `refs` apunta a las entradas que lo respaldan; no se marca la planta como «Precaución» ni se la presenta como segura. (c) Ninguna información de seguridad en el paquete (las señales de riesgo de los usos de USDA cuentan como información de seguridad): `safety` es `null` y el registro lleva un `reviewFlag` `sin-datos-de-seguridad` con `target` `safety`. En ningún caso presentes la planta como segura; `sin-datos-de-seguridad` solo se registra en el caso (c). Una entrada `ema_pdf` con `status` `extraccion-fallida` significa que la extracción de los PDF de la EMA falló: registra `extraccion-seguridad-fallida`.
 
 ## Imagen
 
@@ -137,5 +148,6 @@ Comprueba que:
 - `id` y `bundleHash` coinciden con los del paquete y `promptVersion` con este prompt.
 - Todo ref citado existe en `refs` del paquete y está en `refs` del registro.
 - Todo texto visible está en español y no contiene dosis, posologías ni lenguaje de eficacia.
+- Ninguna actividad de la lista de sensibles queda mal: toda enfermedad grave lleva la fórmula «Uso tradicional, sin eficacia demostrada: …» y toda señal de riesgo está en `safety` (con sus refs `usda_use:*`) y no en `traditionalUses`.
 - Cada grupo con `pendingReview` y cada objetivo con `pendingReview` tienen su `reviewFlag`; cada grupo con una clave sin resolver tiene su `reviewFlag` `cita-sin-resolver`, y un grupo es pendiente solo si no tiene ninguna cita resuelta.
 - El registro cumple `record.schema.json`, sin campos adicionales.

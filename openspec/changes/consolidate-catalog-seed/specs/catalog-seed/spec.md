@@ -254,6 +254,21 @@ El LLM SHALL elegir, traducir y resumir únicamente lo que está en el paquete y
 - **WHEN** el registro corresponde a la bergamota separada del limón por tener artículo propio en Wikipedia en español
 - **THEN** su `scientificName` es el de su propio nombre (por ejemplo *Citrus × bergamia*) y no el del aceptado
 
+### Requirement: Actividades sensibles de los usos tradicionales
+El consolidador SHALL leer una lista versionada de actividades sensibles (`tools/catalog-seed/sensitive-activities.json`) con dos categorías, comparando la forma base de la actividad de USDA (sin el calificador entre paréntesis y sin distinguir mayúsculas). Una actividad de la categoría de enfermedades graves (por ejemplo `Cancer`, `Tumor`, `Diabetes`) SHALL quedar en `traditionalUses` con una `activity` que empiece por «Uso tradicional, sin eficacia demostrada: » seguida de la enfermedad, y `activitySource` SHALL conservar el original. Una actividad de la categoría de señales de riesgo (por ejemplo `Poison`, `Fatality`, `Abortifacient`) SHALL NOT estar en `traditionalUses`: SHALL registrarse en `safety` como advertencia, con los refs `usda_use:*` de sus filas, y por sí sola SHALL NOT fijar el nivel. Las demás actividades SHALL tratarse como uso tradicional normal. La sección `safety` se presenta en la app como «Precauciones».
+
+#### Scenario: Enfermedad grave
+- **WHEN** el paquete trae la actividad `Cancer(Breast)`
+- **THEN** el grupo sigue en `traditionalUses` con `activity` «Uso tradicional, sin eficacia demostrada: cáncer de mama» y `activitySource` `Cancer(Breast)`
+
+#### Scenario: Señal de riesgo
+- **WHEN** el paquete trae la actividad `Poison` y ninguna otra fuente fija nivel
+- **THEN** no hay grupo `Poison` en `traditionalUses`, y `safety` es `{level: null, text, refs}` con la advertencia «Advertencia: registrada como veneno en usos tradicionales» y los refs `usda_use:*` de esas filas
+
+#### Scenario: Actividad sin categoría
+- **WHEN** el paquete trae la actividad `Aphrodisiac`, que no está en la lista
+- **THEN** el grupo queda en `traditionalUses` como uso tradicional normal, sin fórmula ni advertencia
+
 ### Requirement: Objetivos derivados solo de la EMA
 Los `goals` SHALL salir únicamente de las áreas terapéuticas de la EMA y solo cuando el resultado sea una monografía o una entrada de lista; el resultado combinado (`European Union herbal monograph;European Union list entry`) SHALL separarse por `;`. Una declaración pública SHALL NOT asignar objetivos ni los productos combinados de la EMA. Las áreas SHALL mapearse así: «Mental stress and mood disorders» a `relajacion-estres`, «Sleep disorders and temporary insomnia» a `mejorar-el-sueno`, «Skin disorders and minor wounds» a `cuidado-de-la-piel`, «Cough and cold» a `alivio-respiratorio`, «Fatigue and weakness» a `cansancio-y-fatiga` y todas las demás a `otros-objetivos` con su subárea. Una planta que TPPT marque como «strong toxic» o «very strong toxic» SHALL NOT recibir objetivos. Una planta con interacciones graves en el área de estrés y ánimo SHALL llevar ese objetivo con `pendingReview: true` y un `reviewFlag` que lo señale. Los objetivos SHALL referirse a ids del catálogo de objetivos de la semilla y las subáreas solo a las de `otros-objetivos`.
 
@@ -320,7 +335,7 @@ La imagen de un registro SHALL provenir de Wikimedia Commons a través de Wikida
 - **THEN** `image` queda nulo y el validador no admite una imagen con esa licencia
 
 ### Requirement: Validador automático
-El validador SHALL comprobar el esquema, que todo ref existe en el paquete de la planta, que todo objetivo tiene respaldo en la EMA, que una planta tóxica no tiene objetivos, que la imagen tiene licencia aceptada, que todo objetivo con `pendingReview` tiene un `reviewFlag` asociado, que todo grupo con `pendingReview` tiene un `reviewFlag`, que `pendingReview` de un grupo es verdadero solo si ninguna de sus citas está resuelta y todo grupo con una cita sin resolver tiene el `reviewFlag` `cita-sin-resolver`, que `safety` es coherente con el paquete (nulo solo con el flag `sin-datos-de-seguridad` y sin nivel en el paquete; `level` nulo solo si ninguna entrada fija nivel, con `text` no vacío), que toda cita de `traditionalUses` apunta a un ref `usda_reference:*` del paquete o está marcada «(sin resolver)», que `activitySource` es una actividad literal del paquete y que ningún texto contiene palabras de dosis o eficacia, esto último como advertencia. Un error SHALL impedir que el registro entre en la semilla.
+El validador SHALL comprobar el esquema, que todo ref existe en el paquete de la planta, que todo objetivo tiene respaldo en la EMA, que una planta tóxica no tiene objetivos, que la imagen tiene licencia aceptada, que todo objetivo con `pendingReview` tiene un `reviewFlag` asociado, que todo grupo con `pendingReview` tiene un `reviewFlag`, que `pendingReview` de un grupo es verdadero solo si ninguna de sus citas está resuelta y todo grupo con una cita sin resolver tiene el `reviewFlag` `cita-sin-resolver`, que `safety` es coherente con el paquete (nulo solo con el flag `sin-datos-de-seguridad` y sin nivel en el paquete; `level` nulo solo si ninguna entrada fija nivel, con `text` no vacío), que toda cita de `traditionalUses` apunta a un ref `usda_reference:*` del paquete o está marcada «(sin resolver)», que `activitySource` es una actividad literal del paquete, que una enfermedad grave de la lista de actividades sensibles lleva la fórmula «Uso tradicional, sin eficacia demostrada: » en `activity`, que una señal de riesgo no está en `traditionalUses` y que, si el paquete trae señales de riesgo, `safety` no es nulo y sus `refs` incluyen un `usda_use:*` de esos grupos, y que ningún texto contiene palabras de dosis o eficacia, esto último como advertencia. Un error SHALL impedir que el registro entre en la semilla.
 
 #### Scenario: Ref inexistente
 - **WHEN** un registro cita un ref que no está en el diccionario del paquete
@@ -360,6 +375,18 @@ El validador SHALL comprobar el esquema, que todo ref existe en el paquete de la
 
 #### Scenario: Actividad alterada
 - **WHEN** `activitySource` no coincide con ninguna actividad del paquete
+- **THEN** el validador devuelve un error
+
+#### Scenario: Enfermedad grave sin la fórmula
+- **WHEN** un grupo de `traditionalUses` tiene como `activitySource` una enfermedad grave de la lista y su `activity` no empieza por «Uso tradicional, sin eficacia demostrada: »
+- **THEN** el validador devuelve un error
+
+#### Scenario: Señal de riesgo en usos tradicionales
+- **WHEN** un grupo de `traditionalUses` tiene como `activitySource` una señal de riesgo de la lista
+- **THEN** el validador devuelve un error
+
+#### Scenario: Señal de riesgo sin advertencia en seguridad
+- **WHEN** el paquete trae un grupo de señal de riesgo y `safety` es nulo o sus `refs` no incluyen ningún `usda_use:*` de esos grupos
 - **THEN** el validador devuelve un error
 
 ### Requirement: Semilla versionada con manifiesto

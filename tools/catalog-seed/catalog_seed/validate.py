@@ -14,6 +14,9 @@ from .schema import load_schema, validate as validate_schema
 from .sources import TOOL_DIR, SourceError
 
 FLAG_CODES_PATH = TOOL_DIR / "flag-codes.json"
+SENSITIVE_ACTIVITIES_PATH = TOOL_DIR / "sensitive-activities.json"
+SERIOUS_DISEASE = "enfermedad-grave"
+RISK_SIGNAL = "senal-de-riesgo"
 
 
 def load_flag_codes(path=FLAG_CODES_PATH):
@@ -23,6 +26,30 @@ def load_flag_codes(path=FLAG_CODES_PATH):
             return set(json.load(handle)["codes"])
     except (OSError, ValueError, KeyError, TypeError) as error:
         raise SourceError("catálogo de códigos de flag ilegible %s: %s" % (path, error))
+
+
+def load_sensitive_activities(path=SENSITIVE_ACTIVITIES_PATH):
+    """Lista versionada de actividades sensibles (sensitive-activities.json).
+
+    Devuelve {"prefix": fórmula de las enfermedades graves, "terms": {forma base en minúsculas: categoría}}.
+    """
+    try:
+        with open(path, encoding="utf-8") as handle:
+            categories = json.load(handle)["categories"]
+        terms = {}
+        for term in categories[SERIOUS_DISEASE]["terms"]:
+            terms[term.strip().lower()] = SERIOUS_DISEASE
+        for term in categories[RISK_SIGNAL]["terms"]:
+            terms[term.strip().lower()] = RISK_SIGNAL
+        return {"prefix": categories[SERIOUS_DISEASE]["formulaPrefix"], "terms": terms}
+    except (OSError, ValueError, KeyError, TypeError, AttributeError) as error:
+        raise SourceError("lista de actividades sensibles ilegible %s: %s" % (path, error))
+
+
+def activity_category(activity, sensitive):
+    """Categoría sensible de una actividad de USDA o None. Compara la forma base: sin el calificador entre paréntesis y sin distinguir mayúsculas."""
+    base = str(activity or "").split("(")[0].strip().lower()
+    return sensitive["terms"].get(base)
 
 
 UNRESOLVED_MARK = "(sin resolver)"
@@ -132,7 +159,7 @@ def _collect_refs(record):
     return found
 
 
-def _visible_texts(record):
+def _visible_texts(record, formula_prefix=""):
     texts = []
 
     def add(path, value):
@@ -147,7 +174,10 @@ def _visible_texts(record):
     for index, item in enumerate(record["partsUsed"]):
         add("partsUsed[%d].value" % index, item["value"])
     for index, group in enumerate(record["traditionalUses"]):
-        add("traditionalUses[%d].activity" % index, group["activity"])
+        activity = group["activity"]
+        if formula_prefix and activity.startswith(formula_prefix):
+            activity = activity[len(formula_prefix):]  # la fórmula «sin eficacia demostrada» no es una promesa
+        add("traditionalUses[%d].activity" % index, activity)
         for country in group["countries"]:
             add("traditionalUses[%d].countries" % index, country)
     for index, goal in enumerate(record["goals"]):
@@ -169,9 +199,10 @@ def _goal_targets(goal, index):
     return targets
 
 
-def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None):
+def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None, sensitive=None):
     """Valida un registro contra su paquete. Devuelve (errores, advertencias)."""
     errors, warnings = [], []
+    sensitive = sensitive if sensitive is not None else load_sensitive_activities()
     plant = record.get("id", "?") if isinstance(record, dict) else "?"
 
     schema_errors = validate_schema(record, schema)
@@ -246,6 +277,11 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None)
     for index, group in enumerate(record["traditionalUses"]):
         label = "traditionalUses[%d]" % index
         source_group = activities.get(group["activitySource"])
+        category = activity_category(group["activitySource"], sensitive)
+        if category == SERIOUS_DISEASE and not group["activity"].startswith(sensitive["prefix"]):
+            errors.append("%s: la actividad '%s' es una enfermedad grave y 'activity' debe empezar por «%s»" % (label, group["activitySource"], sensitive["prefix"]))
+        if category == RISK_SIGNAL:
+            errors.append("%s: la actividad '%s' es una señal de riesgo y va en safety como advertencia, no en traditionalUses" % (label, group["activitySource"]))
         if source_group is None:
             errors.append("%s: activitySource '%s' no es una actividad del paquete" % (label, group["activitySource"]))
         candidates = (source_group or {}).get("candidates") or {}
@@ -295,6 +331,15 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None)
         if has_no_data_flag:
             errors.append("safety: tiene contenido y el registro lleva el reviewFlag 'sin-datos-de-seguridad'")
 
+    # Señales de riesgo del paquete: van a safety con los refs usda_use:* de sus filas.
+    risk_refs = {ref for use in bundle.get("sections", {}).get("uses", []) if activity_category(use.get("activity"), sensitive) == RISK_SIGNAL
+                 for ref in use.get("refs", []) if str(ref).startswith("usda_use:")}
+    if risk_refs:
+        if safety is None:
+            errors.append("safety: es nulo pero el paquete trae señales de riesgo en sus usos (%s) y deben ir como advertencia" % ", ".join(sorted(risk_refs)[:3]))
+        elif not risk_refs & set(safety["refs"]):
+            errors.append("safety.refs: ningún ref usda_use:* de las señales de riesgo del paquete (p. ej. %s)" % ", ".join(sorted(risk_refs)[:3]))
+
     # Imagen.
     image = record["image"]
     if image is not None:
@@ -314,7 +359,7 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None)
             warnings.append("reviewFlags[%d]: el código '%s' no está en el catálogo de flag-codes.json" % (index, flag["code"]))
 
     # Palabras de dosis o eficacia: advertencia.
-    for path, text in _visible_texts(record):
+    for path, text in _visible_texts(record, sensitive["prefix"]):
         for found in dict.fromkeys(match.group(0) for match in DOSE_RE.finditer(text)):
             warnings.append("%s: expresión de dosis o eficacia '%s'" % (path, found))
     return errors, warnings

@@ -13,7 +13,7 @@ import support  # noqa: F401
 from catalog_seed import goals
 from catalog_seed.cli import main
 from catalog_seed.schema import load_schema
-from catalog_seed.validate import image_license_kind, load_flag_codes, toxic_categories, validate_directory, validate_record
+from catalog_seed.validate import activity_category, image_license_kind, load_flag_codes, load_sensitive_activities, toxic_categories, validate_directory, validate_record
 
 
 class ValidatorCase(unittest.TestCase):
@@ -324,6 +324,108 @@ class ScenarioTests(ValidatorCase):
         record = fx.record()
         record["goals"][0]["subarea"] = None
         self.assertError(record, "exige subárea")
+
+
+PREFIX = "Uso tradicional, sin eficacia demostrada: "
+
+
+class SensitiveActivityTests(ValidatorCase):
+    """Actividades sensibles: enfermedades graves reformuladas y señales de riesgo en safety."""
+
+    @staticmethod
+    def with_activity(activity, ref="usda_use:1001"):
+        bundle = fx.bundle()
+        bundle["sections"]["uses"][0]["activity"] = activity
+        bundle["sections"]["uses"][0]["refs"] = [ref]
+        record = fx.record()
+        record["traditionalUses"][0]["activitySource"] = activity
+        return record, bundle
+
+    def test_la_lista_se_carga_del_json_y_compara_la_forma_base(self):
+        sensitive = load_sensitive_activities()
+        self.assertTrue(sensitive["prefix"].startswith("Uso tradicional, sin eficacia demostrada"))
+        self.assertEqual(activity_category("Cancer(Breast)", sensitive), "enfermedad-grave")
+        self.assertEqual(activity_category("TUMOR (Abdomen)", sensitive), "enfermedad-grave")
+        self.assertEqual(activity_category("Diabetes Mellitis", sensitive), "enfermedad-grave")
+        self.assertEqual(activity_category("Poison(Arrow)", sensitive), "senal-de-riesgo")
+        self.assertEqual(activity_category("Fatality(Veterinary)", sensitive), "senal-de-riesgo")
+        self.assertIsNone(activity_category("Aphrodisiac", sensitive))
+        self.assertIsNone(activity_category("Antidote(Poison)", sensitive))
+        self.assertIsNone(activity_category("Preventitive(Cancer)", sensitive))
+
+    def test_la_lista_no_repite_terminos_entre_categorias(self):
+        with open(Path(__file__).resolve().parent.parent / "sensitive-activities.json", encoding="utf-8") as handle:
+            categories = json.load(handle)["categories"]
+        disease = {t.lower() for t in categories["enfermedad-grave"]["terms"]}
+        risk = {t.lower() for t in categories["senal-de-riesgo"]["terms"]}
+        self.assertEqual(disease & risk, set())
+        for term in ("cancer", "tumor", "diabetes", "aids", "hiv", "carcinoma", "sarcoma", "leukemia", "lymphoma"):
+            self.assertIn(term, disease)
+        for term in ("poison", "fatality", "abortifacient"):
+            self.assertIn(term, risk)
+
+    def test_el_prompt_remite_a_la_lista_y_a_la_formula(self):
+        prompt = (Path(__file__).resolve().parent.parent / "prompt" / "consolidate.md").read_text(encoding="utf-8")
+        self.assertIn("sensitive-activities.json", prompt)
+        self.assertIn("«" + load_sensitive_activities()["prefix"], prompt)
+
+    def test_enfermedad_grave_con_la_formula_es_valida(self):
+        record, bundle = self.with_activity("Cancer(Breast)")
+        record["traditionalUses"][0]["activity"] = PREFIX + "cáncer de mama"
+        errors, warnings = self.run_validator(record, bundle)
+        self.assertEqual(errors, [])
+        self.assertEqual([w for w in warnings if "eficacia" in w], [])
+
+    def test_enfermedad_grave_sin_la_formula_es_error(self):
+        record, bundle = self.with_activity("Cancer")
+        record["traditionalUses"][0]["activity"] = "Cáncer"
+        self.assertError(record, "es una enfermedad grave y 'activity' debe empezar por", bundle)
+
+    def test_enfermedad_grave_con_otra_formula_es_error(self):
+        record, bundle = self.with_activity("Diabetes")
+        record["traditionalUses"][0]["activity"] = "Uso tradicional: diabetes"
+        self.assertError(record, "enfermedad grave", bundle)
+
+    def test_el_resto_de_la_actividad_con_eficacia_sigue_advirtiendo(self):
+        record, bundle = self.with_activity("Cancer")
+        record["traditionalUses"][0]["activity"] = PREFIX + "cura del cáncer"
+        _, warnings = self.run_validator(record, bundle)
+        self.assertTrue(any("'cura'" in w for w in warnings), warnings)
+
+    def test_senal_de_riesgo_en_usos_tradicionales_es_error(self):
+        record, bundle = self.with_activity("Poison")
+        record["traditionalUses"][0]["activity"] = "Veneno"
+        self.assertError(record, "es una señal de riesgo y va en safety", bundle)
+
+    def test_senal_de_riesgo_en_safety_con_su_ref_es_valida(self):
+        record, bundle = self.with_activity("Poison")
+        record["traditionalUses"] = []
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"
+                                 and not f["target"].startswith("traditionalUses")]
+        record["safety"] = {"level": None, "text": "Advertencia: registrada como veneno en usos tradicionales (USDA).",
+                            "refs": ["usda_use:1001"]}
+        record["refs"]["usda_use:1001"] = bundle["refs"]["usda_use:1001"]
+        self.assertNoErrors(record, bundle)
+
+    def test_senal_de_riesgo_con_safety_nulo_es_error(self):
+        record, bundle = self.with_activity("Abortifacient")
+        record["traditionalUses"] = []
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if not f["target"].startswith("traditionalUses")]
+        self.assertIsNone(record["safety"])
+        self.assertError(record, "es nulo pero el paquete trae señales de riesgo", bundle)
+
+    def test_senal_de_riesgo_con_safety_sin_el_ref_usda_use_es_error(self):
+        record, bundle = self.with_activity("Fatality")
+        record["traditionalUses"] = []
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if not f["target"].startswith("traditionalUses")
+                                 and f["code"] != "sin-datos-de-seguridad"]
+        record["safety"] = {"level": None, "text": "La EMA registra advertencias.", "refs": ["ema_herbal:matricariae-flos"]}
+        self.assertError(record, "ningún ref usda_use:*", bundle)
+
+    def test_actividad_sin_categoria_no_cambia(self):
+        record, bundle = self.with_activity("Aphrodisiac")
+        record["traditionalUses"][0]["activity"] = "Afrodisíaco"
+        self.assertNoErrors(record, bundle)
 
 
 class DirectoryTests(ValidatorCase):

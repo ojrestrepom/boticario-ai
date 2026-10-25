@@ -12,6 +12,7 @@ pub mod error;
 pub mod hash;
 pub mod input;
 pub mod raw;
+pub mod seed;
 pub mod sources;
 pub mod usda;
 pub mod write;

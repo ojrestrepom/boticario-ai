@@ -1,0 +1,562 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d4e8befe60a3d94791280a56bb3b2cba3fcf6847aa998e1457d4130efb9cdfbc",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lavandula angustifolia"
+      ],
+      "text": "lavanda"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P553"
+      ],
+      "text": "True lavender"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:544-1"
+      ],
+      "text": "English Lavender"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P553"
+      ],
+      "text": "Echter Lavendel"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lavandula angustifolia"
+    ],
+    "value": "Especie de planta sufruticosa perenne del género Lavandula, de la familia Lamiaceae."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Lavandula angustifolia"
+    ],
+    "value": "Lavanda"
+  },
+  "family": {
+    "refs": [
+      "wcvp:108971"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos del sueño e insomnio pasajero",
+      "evidence": "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.",
+      "goal": "mejorar-el-sueno",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:lavandulae-flos",
+        "ema_herbal:lavandulae-aetheroleum"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:lavandulae-flos",
+        "ema_herbal:lavandulae-aetheroleum"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "lavandula-angustifolia",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg",
+    "refs": [
+      "commons:File:Lavandula angustifolia - Köhler–s Medizinal-Pflanzen-087.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:lavandulae-aetheroleum",
+      "usda_part:544-FL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:108971"
+    ],
+    "value": "Sureste y suroeste de Europa."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:lavandulae-flos"
+      ],
+      "value": "Flor"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lavandula angustifolia - Köhler–s Medizinal-Pflanzen-087.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lavandula angustifolia - Köhler–s Medizinal-Pflanzen-087.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg"
+    },
+    "efsa_botanic:3224": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: alpha-thujone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3287": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: beta-thujone",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:lavandulae-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Lavandulae aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/lavandulae-aetheroleum"
+    },
+    "ema_herbal:lavandulae-flos": {
+      "dataset": "ema_json",
+      "label": "EMA: Lavandulae flos",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/lavandulae-flos"
+    },
+    "ema_pdf:lavandulae-aetheroleum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lavandulae-aetheroleum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-miller-aetheroleum_en.pdf"
+    },
+    "ema_pdf:lavandulae-aetheroleum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lavandulae-aetheroleum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-miller-aetheroleum_en.pdf"
+    },
+    "ema_pdf:lavandulae-flos:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lavandulae-flos, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-p-mill-flos_en.pdf"
+    },
+    "ema_pdf:lavandulae-flos:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lavandulae-flos, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-p-mill-flos_en.pdf"
+    },
+    "tppt_plant:P553": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Lavandula angustifolia Mill.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:544-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «English Lavender»",
+      "license": "CC0"
+    },
+    "usda_part:544-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10546": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10546",
+      "license": "CC0"
+    },
+    "usda_use:10814": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10814",
+      "license": "CC0"
+    },
+    "usda_use:11621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11621",
+      "license": "CC0"
+    },
+    "usda_use:18234": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18234",
+      "license": "CC0"
+    },
+    "usda_use:34820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34820",
+      "license": "CC0"
+    },
+    "usda_use:40687": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40687",
+      "license": "CC0"
+    },
+    "usda_use:45738": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45738",
+      "license": "CC0"
+    },
+    "usda_use:46748": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46748",
+      "license": "CC0"
+    },
+    "usda_use:48479": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48479",
+      "license": "CC0"
+    },
+    "usda_use:54394": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54394",
+      "license": "CC0"
+    },
+    "usda_use:59052": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59052",
+      "license": "CC0"
+    },
+    "usda_use:74563": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74563",
+      "license": "CC0"
+    },
+    "usda_use:77833": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77833",
+      "license": "CC0"
+    },
+    "wcvp:108971": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lavandula angustifolia Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lavandula angustifolia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lavandula angustifolia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lavandula_angustifolia"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:3224",
+      "efsa_botanic:3287",
+      "tppt_plant:P553",
+      "ema_pdf:lavandulae-flos:4.3",
+      "ema_pdf:lavandulae-aetheroleum:4.3",
+      "ema_pdf:lavandulae-flos:4.4",
+      "ema_pdf:lavandulae-aetheroleum:4.4"
+    ],
+    "text": "EFSA incluye la alfa-tuyona y la beta-tuyona de la parte aérea entre las sustancias de alta preocupación, con límites de ingesta. TPPT la califica de débilmente tóxica (parte aérea; toxina principal: linalool). La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, para el aceite esencial, los baños completos en caso de heridas abiertas, lesiones cutáneas extensas, enfermedades agudas de la piel, fiebre alta, infecciones graves, trastornos circulatorios graves e insuficiencia cardíaca. En advertencias, la EMA anota que no se ha establecido el uso en menores de 12 años por falta de datos."
+  },
+  "scientificName": {
+    "authors": "Mill.",
+    "name": "Lavandula angustifolia",
+    "refs": [
+      "wcvp:108971"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10546",
+        "usda_use:10814",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46748",
+        "usda_use:77833",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11621",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18234",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34820",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Perfume",
+      "activitySource": "Perfume",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74563",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Repelente de insectos",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40687",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45738",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59052",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48479",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54394",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

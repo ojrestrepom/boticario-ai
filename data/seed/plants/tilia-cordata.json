@@ -1,0 +1,663 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:63418453982bccdaa69a99cba1066f33814a1026374b38f92dd619d972ce2246",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tilia cordata"
+      ],
+      "text": "tilo silvestre"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tilia cordata",
+        "wikidata:Q158746"
+      ],
+      "text": "Tilo norteño"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tilia cordata"
+      ],
+      "text": "tilo de hoja pequeña"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Tilia cordata"
+    ],
+    "value": "Especie arbórea originaria de Europa, de la familia de las Malvaceae, que vive desde España hasta los Montes Urales y las montañas de Líbano, Siria y Turquía."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Tilia cordata"
+    ],
+    "value": "Tilo silvestre"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2518181"
+    ],
+    "value": "Malvaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía de la flor en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:tiliae-flos"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía de la flor en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:tiliae-flos"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "tilia-cordata",
+  "image": {
+    "attributionRequired": true,
+    "author": "ImreKiss",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Tilia_cordata,_Lipa2009.jpg",
+    "refs": [
+      "commons:File:Tilia cordata, Lipa2009.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Tilia_cordata%2C_Lipa2009.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2518181"
+    ],
+    "value": "Europa, el Cáucaso, Asia central y occidental y Siberia"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:tiliae-flos"
+      ],
+      "value": "Flor"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Tilia cordata, Lipa2009.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Tilia cordata, Lipa2009.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Tilia_cordata,_Lipa2009.jpg"
+    },
+    "ema_herbal:tiliae-flos": {
+      "dataset": "ema_json",
+      "label": "EMA: Tiliae flos",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/tiliae-flos"
+    },
+    "ema_pdf:tiliae-flos:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de tiliae-flos, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-tilia-cordata-miller-tilia-platyphyllos-scop-tilia-x-vulgaris-heyne-or-their-mixtures-flos-first-version_en.pdf"
+    },
+    "ema_pdf:tiliae-flos:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de tiliae-flos, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-tilia-cordata-miller-tilia-platyphyllos-scop-tilia-x-vulgaris-heyne-or-their-mixtures-flos-first-version_en.pdf"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:15086": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15086",
+      "license": "CC0"
+    },
+    "usda_use:16349": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16349",
+      "license": "CC0"
+    },
+    "usda_use:16350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16350",
+      "license": "CC0"
+    },
+    "usda_use:18837": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18837",
+      "license": "CC0"
+    },
+    "usda_use:23337": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23337",
+      "license": "CC0"
+    },
+    "usda_use:26527": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26527",
+      "license": "CC0"
+    },
+    "usda_use:2827": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2827",
+      "license": "CC0"
+    },
+    "usda_use:34872": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34872",
+      "license": "CC0"
+    },
+    "usda_use:45908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45908",
+      "license": "CC0"
+    },
+    "usda_use:47000": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47000",
+      "license": "CC0"
+    },
+    "usda_use:47975": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47975",
+      "license": "CC0"
+    },
+    "usda_use:48631": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48631",
+      "license": "CC0"
+    },
+    "usda_use:49640": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49640",
+      "license": "CC0"
+    },
+    "usda_use:49641": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49641",
+      "license": "CC0"
+    },
+    "usda_use:51097": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51097",
+      "license": "CC0"
+    },
+    "usda_use:53002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53002",
+      "license": "CC0"
+    },
+    "usda_use:71491": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71491",
+      "license": "CC0"
+    },
+    "usda_use:73879": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73879",
+      "license": "CC0"
+    },
+    "usda_use:77490": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77490",
+      "license": "CC0"
+    },
+    "usda_use:78109": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78109",
+      "license": "CC0"
+    },
+    "wcvp:2518181": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tilia cordata Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q158746": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q158746",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q158746"
+    },
+    "wikipedia_es:Tilia cordata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Tilia cordata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Tilia_cordata"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:tiliae-flos:4.3",
+      "ema_pdf:tiliae-flos:4.4"
+    ],
+    "text": "La EMA registra como contraindicación la hipersensibilidad a la sustancia activa. En las advertencias señala que no se ha establecido el uso en menores de 4 años (indicación respiratoria) ni en menores de 12 años (indicación de estrés y ánimo) por falta de datos."
+  },
+  "scientificName": {
+    "authors": "Mill.",
+    "name": "Tilia cordata",
+    "refs": [
+      "wcvp:2518181"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Eurasia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16349",
+        "usda_use:16350",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Eurasia",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45908",
+        "usda_use:77490",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Eurasia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47975",
+        "usda_use:78109",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Eurasia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49640",
+        "usda_use:49641",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2827",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15086",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18837",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23337",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fumitory",
+      "activitySource": "Fumitory",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Eurasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71491",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Gárgaras",
+      "activitySource": "Gargle",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Eurasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26527",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Enjuague bucal",
+      "activitySource": "Mouthwash",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Eurasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73879",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34872",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47000",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48631",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51097",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de los pies",
+      "activitySource": "Tumor(Feet)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Bélgica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53002",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

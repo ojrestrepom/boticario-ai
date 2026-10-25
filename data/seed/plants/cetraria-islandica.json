@@ -1,0 +1,205 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6fcaddbfff166854e93995e344c1d981ea455ed0ce311b711d9a1f6fcb08f8cc",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "ema_herbal:lichen-islandicus"
+    ],
+    "value": "Cetraria islandica"
+  },
+  "family": null,
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía en esta área",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:lichen-islandicus"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Pérdida de apetito",
+      "evidence": "La EMA tiene una monografía en esta área",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:lichen-islandicus"
+      ],
+      "subarea": "digestion"
+    },
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía en esta área",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:lichen-islandicus"
+      ],
+      "subarea": "boca-y-garganta"
+    }
+  ],
+  "id": "cetraria-islandica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:2786": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Protolichesterinic Acid",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:339": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: usnic acid",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:420": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Icelandic moss",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:lichen-islandicus": {
+      "dataset": "ema_json",
+      "label": "EMA: Lichen islandicus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/lichen-islandicus"
+    },
+    "ema_pdf:lichen-islandicus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lichen-islandicus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cetraria-islandica-l-acharius-sl-thallus-first-version_en.pdf"
+    },
+    "ema_pdf:lichen-islandicus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lichen-islandicus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cetraria-islandica-l-acharius-sl-thallus-first-version_en.pdf"
+    },
+    "ema_pdf:lichen-islandicus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de lichen-islandicus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cetraria-islandica-l-acharius-sl-thallus-first-version_en.pdf"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:31386": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31386",
+      "license": "CC0"
+    },
+    "usda_use:68027": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68027",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:lichen-islandicus:4.3",
+      "ema_pdf:lichen-islandicus:4.4",
+      "ema_pdf:lichen-islandicus:4.5",
+      "efsa_botanic:2786",
+      "efsa_botanic:339",
+      "efsa_endpoint:420"
+    ],
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa, señala que no se ha establecido su uso en niños y que la absorción de otros medicamentos tomados a la vez puede retrasarse, y no registra interacciones. EFSA lista el ácido protoliquesterínico y el ácido úsnico como sustancias de evidencia y un estudio que indica que el liquen islandés concentra metales pesados."
+  },
+  "scientificName": {
+    "authors": "(L.) Acharius",
+    "name": "Cetraria islandica",
+    "refs": [
+      "ema_herbal:lichen-islandicus"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68027"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31386"
+      ]
+    }
+  ]
+}

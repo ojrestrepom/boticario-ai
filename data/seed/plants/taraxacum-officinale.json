@@ -1,0 +1,1120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:55dae5a481f5942c05c611b33413435c3394873bba926b4a7023c70c43d481e8",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:995-1"
+      ],
+      "text": "Dandelion"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "ema_herbal:taraxaci-folium"
+    ],
+    "value": "Taraxacum officinale"
+  },
+  "family": null,
+  "goals": [
+    {
+      "area": "Pérdida de apetito; Trastornos gastrointestinales",
+      "evidence": "La EMA tiene monografías de la raíz y de la raíz con parte aérea en estas áreas.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:taraxaci-officinalis-radix",
+        "ema_herbal:taraxaci-officinalis-radix-0",
+        "ema_herbal:taraxaci-radix-cum-herba"
+      ],
+      "subarea": "digestion"
+    },
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene monografías de la hoja, de la raíz y de la raíz con parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:taraxaci-folium",
+        "ema_herbal:taraxaci-officinalis-radix",
+        "ema_herbal:taraxaci-officinalis-radix-0",
+        "ema_herbal:taraxaci-radix-cum-herba"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "taraxacum-officinale",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:995-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:taraxaci-folium"
+      ],
+      "value": "Hoja"
+    },
+    {
+      "refs": [
+        "ema_herbal:taraxaci-officinalis-radix",
+        "ema_herbal:taraxaci-officinalis-radix-0",
+        "ema_herbal:taraxaci-radix-cum-herba"
+      ],
+      "value": "Raíz"
+    },
+    {
+      "refs": [
+        "ema_herbal:taraxaci-radix-cum-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:taraxaci-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Taraxaci folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/taraxaci-folium"
+    },
+    "ema_herbal:taraxaci-officinalis-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Taraxaci officinalis radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/taraxaci-officinalis-radix"
+    },
+    "ema_herbal:taraxaci-officinalis-radix-0": {
+      "dataset": "ema_json",
+      "label": "EMA: Taraxaci officinalis radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/taraxaci-officinalis-radix-0"
+    },
+    "ema_herbal:taraxaci-radix-cum-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Taraxaci radix cum herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/taraxaci-radix-cum-herba"
+    },
+    "ema_pdf:taraxaci-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de taraxaci-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-folium_en.pdf"
+    },
+    "ema_pdf:taraxaci-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de taraxaci-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-folium_en.pdf"
+    },
+    "ema_pdf:taraxaci-officinalis-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de taraxaci-officinalis-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-taraxacum-officinale-fh-wigg-radix_en.pdf"
+    },
+    "ema_pdf:taraxaci-officinalis-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de taraxaci-officinalis-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-taraxacum-officinale-fh-wigg-radix_en.pdf"
+    },
+    "ema_pdf:taraxaci-radix-cum-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de taraxaci-radix-cum-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-radix-cum-herba_en.pdf"
+    },
+    "ema_pdf:taraxaci-radix-cum-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de taraxaci-radix-cum-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-radix-cum-herba_en.pdf"
+    },
+    "usda_common_name:995-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dandelion»",
+      "license": "CC0"
+    },
+    "usda_part:995-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11640": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11640",
+      "license": "CC0"
+    },
+    "usda_use:12043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12043",
+      "license": "CC0"
+    },
+    "usda_use:15730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15730",
+      "license": "CC0"
+    },
+    "usda_use:15731": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15731",
+      "license": "CC0"
+    },
+    "usda_use:1873": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1873",
+      "license": "CC0"
+    },
+    "usda_use:18800": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18800",
+      "license": "CC0"
+    },
+    "usda_use:18801": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18801",
+      "license": "CC0"
+    },
+    "usda_use:18802": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18802",
+      "license": "CC0"
+    },
+    "usda_use:20543": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20543",
+      "license": "CC0"
+    },
+    "usda_use:20544": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20544",
+      "license": "CC0"
+    },
+    "usda_use:28589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28589",
+      "license": "CC0"
+    },
+    "usda_use:28590": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28590",
+      "license": "CC0"
+    },
+    "usda_use:30379": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30379",
+      "license": "CC0"
+    },
+    "usda_use:30380": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30380",
+      "license": "CC0"
+    },
+    "usda_use:30966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30966",
+      "license": "CC0"
+    },
+    "usda_use:30967": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30967",
+      "license": "CC0"
+    },
+    "usda_use:31747": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31747",
+      "license": "CC0"
+    },
+    "usda_use:31748": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31748",
+      "license": "CC0"
+    },
+    "usda_use:32441": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32441",
+      "license": "CC0"
+    },
+    "usda_use:32442": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32442",
+      "license": "CC0"
+    },
+    "usda_use:4177": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4177",
+      "license": "CC0"
+    },
+    "usda_use:4178": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4178",
+      "license": "CC0"
+    },
+    "usda_use:4339": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4339",
+      "license": "CC0"
+    },
+    "usda_use:47966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47966",
+      "license": "CC0"
+    },
+    "usda_use:51066": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51066",
+      "license": "CC0"
+    },
+    "usda_use:51067": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51067",
+      "license": "CC0"
+    },
+    "usda_use:51068": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51068",
+      "license": "CC0"
+    },
+    "usda_use:51069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51069",
+      "license": "CC0"
+    },
+    "usda_use:55537": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55537",
+      "license": "CC0"
+    },
+    "usda_use:55538": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55538",
+      "license": "CC0"
+    },
+    "usda_use:61992": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61992",
+      "license": "CC0"
+    },
+    "usda_use:61993": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61993",
+      "license": "CC0"
+    },
+    "usda_use:61995": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61995",
+      "license": "CC0"
+    },
+    "usda_use:61997": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61997",
+      "license": "CC0"
+    },
+    "usda_use:64060": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64060",
+      "license": "CC0"
+    },
+    "usda_use:66984": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66984",
+      "license": "CC0"
+    },
+    "usda_use:67105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67105",
+      "license": "CC0"
+    },
+    "usda_use:68256": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68256",
+      "license": "CC0"
+    },
+    "usda_use:69166": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69166",
+      "license": "CC0"
+    },
+    "usda_use:72723": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72723",
+      "license": "CC0"
+    },
+    "usda_use:7279": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7279",
+      "license": "CC0"
+    },
+    "usda_use:73368": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73368",
+      "license": "CC0"
+    },
+    "usda_use:78105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78105",
+      "license": "CC0"
+    },
+    "usda_use:79073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79073",
+      "license": "CC0"
+    },
+    "usda_use:82421": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82421",
+      "license": "CC0"
+    },
+    "usda_use:82422": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82422",
+      "license": "CC0"
+    },
+    "usda_use:82425": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82425",
+      "license": "CC0"
+    },
+    "usda_use:9646": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9646",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceptado-superior-a-especie",
+      "message": "El aceptado del nombre es de rango superior a especie; la planta conserva el nombre de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no resuelve a un aceptado en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
+      "target": "traditionalUses[4]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:taraxaci-folium:4.3",
+      "ema_pdf:taraxaci-folium:4.4",
+      "ema_pdf:taraxaci-radix-cum-herba:4.3",
+      "ema_pdf:taraxaci-radix-cum-herba:4.4",
+      "ema_pdf:taraxaci-officinalis-radix:4.3",
+      "ema_pdf:taraxaci-officinalis-radix:4.4"
+    ],
+    "text": "La EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa o a plantas de la familia Asteraceae (Compositae) y, para la hoja y la raíz con parte aérea, las obstrucciones de las vías biliares, la colangitis, las enfermedades hepáticas, los cálculos biliares y la úlcera péptica activa. En las advertencias señala posibles riesgos de hiperpotasemia en pacientes con insuficiencia renal, diabetes o insuficiencia cardíaca, la falta de datos en menores de 12 años y, para la raíz, que no la recomienda en enfermedades biliares ni cuando se aconseja reducir la ingesta de líquidos."
+  },
+  "scientificName": {
+    "authors": "WEBER EX F. H. WIGG.",
+    "name": "Taraxacum officinale",
+    "refs": [
+      "ema_herbal:taraxaci-folium"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb33: 192",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 192"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Nepal",
+        "Estados Unidos"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51066",
+        "usda_use:51067",
+        "usda_use:51068",
+        "usda_use:51069",
+        "usda_use:79073",
+        "usda_use:82425",
+        "usda_reference:Bliss",
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_reference:Singh",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Eb33: 192",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 192"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Nepal",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18800",
+        "usda_use:18801",
+        "usda_use:18802",
+        "usda_use:61997",
+        "usda_use:69166",
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_reference:Singh",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "México",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11640",
+        "usda_use:66984",
+        "usda_use:82422",
+        "usda_reference:Keys",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "España",
+        "Turquía",
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15730",
+        "usda_use:15731",
+        "usda_use:68256",
+        "usda_reference:FontQuer",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Intoxicante",
+      "activitySource": "Intoxicant",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30379",
+        "usda_use:30380",
+        "usda_use:72723",
+        "usda_reference:Krochmal",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Hígado",
+      "activitySource": "Liver",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos",
+        "Estados Unidos (colonial)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32441",
+        "usda_use:32442",
+        "usda_use:73368",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1873",
+        "usda_use:64060",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Aperient",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Eb24: 383",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 383"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Francia",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4177",
+        "usda_use:4178",
+        "usda_reference:EB",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7279",
+        "usda_use:82421",
+        "usda_reference:Bliss",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
+      "activitySource": "Cancer(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Australia",
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9646",
+        "usda_use:61995",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12043",
+        "usda_use:67105",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "China",
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20543",
+        "usda_use:20544",
+        "usda_reference:Keys",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatitis",
+      "activitySource": "Hepatitis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "China",
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28589",
+        "usda_use:28590",
+        "usda_reference:Keys",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "Eb33: 192",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 192"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        }
+      ],
+      "countries": [
+        "Nepal"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30966",
+        "usda_use:30967",
+        "usda_reference:EB",
+        "usda_reference:Singh"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31747",
+        "usda_use:31748",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47966",
+        "usda_use:78105",
+        "usda_reference:Keys",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia",
+        "Reino Unido"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55537",
+        "usda_use:55538",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Absceso",
+      "activitySource": "Abscess",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61992",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4339",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Bilious",
+      "activitySource": "Bilious",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61993",
+        "usda_reference:Martinez"
+      ]
+    }
+  ]
+}

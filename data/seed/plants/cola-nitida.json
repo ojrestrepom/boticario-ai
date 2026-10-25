@@ -1,0 +1,645 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5692f4458242ea456144873245ccdc0c8c3f6e956024690c2f9ce036a165e6d4",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2730669"
+    ],
+    "value": "Cola nitida"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2730669"
+    ],
+    "value": "Malvaceae"
+  },
+  "goals": [
+    {
+      "area": "Fatiga y debilidad",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "cansancio-y-fatiga",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:colae-semen"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "cola-nitida",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cola_acuminata_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-190.jpg",
+    "refs": [
+      "commons:File:Cola acuminata - Köhler–s Medizinal-Pflanzen-190.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Cola_acuminata_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-190.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2730669"
+    ],
+    "value": "África tropical del oeste y del centro-oeste."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:colae-semen"
+      ],
+      "value": "Semilla"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cola acuminata - Köhler–s Medizinal-Pflanzen-190.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cola acuminata - Köhler–s Medizinal-Pflanzen-190.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Cola_acuminata_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-190.jpg"
+    },
+    "efsa_botanic:2980": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: caffeine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2982": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Theobromine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2983": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: theophylline",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:colae-semen": {
+      "dataset": "ema_json",
+      "label": "EMA: Colae semen",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/colae-semen"
+    },
+    "ema_pdf:colae-semen:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de colae-semen, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-cola-nitida-vent-schott-et-endl-and-its-varieties-and-cola-acuminata-p-beauv-schott-et-endl-semen_en.pdf"
+    },
+    "ema_pdf:colae-semen:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de colae-semen, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-cola-nitida-vent-schott-et-endl-and-its-varieties-and-cola-acuminata-p-beauv-schott-et-endl-semen_en.pdf"
+    },
+    "ema_pdf:colae-semen:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de colae-semen, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-cola-nitida-vent-schott-et-endl-and-its-varieties-and-cola-acuminata-p-beauv-schott-et-endl-semen_en.pdf"
+    },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:17176": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17176",
+      "license": "CC0"
+    },
+    "usda_use:19467": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19467",
+      "license": "CC0"
+    },
+    "usda_use:22865": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22865",
+      "license": "CC0"
+    },
+    "usda_use:28871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28871",
+      "license": "CC0"
+    },
+    "usda_use:32866": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32866",
+      "license": "CC0"
+    },
+    "usda_use:34455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34455",
+      "license": "CC0"
+    },
+    "usda_use:34784": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34784",
+      "license": "CC0"
+    },
+    "usda_use:38621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38621",
+      "license": "CC0"
+    },
+    "usda_use:40835": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40835",
+      "license": "CC0"
+    },
+    "usda_use:42990": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42990",
+      "license": "CC0"
+    },
+    "usda_use:46590": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46590",
+      "license": "CC0"
+    },
+    "usda_use:46591": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46591",
+      "license": "CC0"
+    },
+    "usda_use:50320": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50320",
+      "license": "CC0"
+    },
+    "usda_use:50321": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50321",
+      "license": "CC0"
+    },
+    "usda_use:51346": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51346",
+      "license": "CC0"
+    },
+    "usda_use:5594": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5594",
+      "license": "CC0"
+    },
+    "usda_use:5595": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5595",
+      "license": "CC0"
+    },
+    "usda_use:57489": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57489",
+      "license": "CC0"
+    },
+    "usda_use:77990": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77990",
+      "license": "CC0"
+    },
+    "usda_use:78836": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78836",
+      "license": "CC0"
+    },
+    "wcvp:2580137": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sterculia nitida Vent.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2675739": {
+      "dataset": "wcvp",
+      "label": "WCVP: Bichea nitida (Vent.) Farw.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2682996": {
+      "dataset": "wcvp",
+      "label": "WCVP: Braxipis nitida (Vent.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2730669": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cola nitida (Vent.) Schott & Endl.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:38621",
+      "ema_pdf:colae-semen:4.3",
+      "ema_pdf:colae-semen:4.4",
+      "ema_pdf:colae-semen:4.5",
+      "efsa_botanic:2982",
+      "efsa_botanic:2980",
+      "efsa_botanic:2983"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. La monografía de la EMA para la semilla registra como contraindicaciones la hipersensibilidad a las sustancias activas, las úlceras gástricas y duodenales, los trastornos cardiovasculares como hipertensión y arritmia, y el hipertiroidismo. Advierte que no se ha establecido su uso en menores de 18 años por falta de datos y que no se recomienda antes de acostarse porque puede causar alteraciones del sueño. Registra interacciones: precaución con inhibidores de la MAO, reducción de la acción de fármacos sedantes y aumento de los efectos secundarios de simpaticomiméticos. EFSA registra teobromina, cafeína y teofilina en la semilla."
+  },
+  "scientificName": {
+    "authors": "(Vent.) Schott & Endl.",
+    "name": "Cola nitida",
+    "refs": [
+      "wcvp:2730669"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Vent.) Farw.",
+      "name": "Bichea nitida",
+      "refs": [
+        "wcvp:2675739"
+      ]
+    },
+    {
+      "authors": "(Vent.) Raf.",
+      "name": "Braxipis nitida",
+      "refs": [
+        "wcvp:2682996"
+      ]
+    },
+    {
+      "authors": "Vent.",
+      "name": "Sterculia nitida",
+      "refs": [
+        "wcvp:2580137"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "ANON. 1948-1976. The Wealth of India raw materials. Publications and Information Directorate, CSIR, New Delhi. 11 volumes."
+        }
+      ],
+      "countries": [
+        "África",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50320",
+        "usda_use:50321",
+        "usda_use:78836",
+        "usda_reference:Ayensu",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5594",
+        "usda_use:5595",
+        "usda_reference:Ayensu",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34784",
+        "usda_use:57489",
+        "usda_reference:Ayensu",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46590",
+        "usda_use:46591",
+        "usda_reference:Ayensu",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dolor de dientes",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Eb24: 215",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 215"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51346",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Digestión",
+      "activitySource": "Digestion",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Nigeria"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17176",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19467",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Agotamiento",
+      "activitySource": "Exhaustion",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22865",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Hambre",
+      "activitySource": "Hunger",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Nigeria"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28871",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32866",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34455",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Reconstituyente",
+      "activitySource": "Restorative",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40835",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Eb24: 215",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 215"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42990",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77990",
+        "usda_reference:Ayensu"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f38829c3fa65a1e88bf5e9c27eb1fe80d0bb628fb6d70d7bdac9213051ca7029",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Uncaria tomentosa",
+        "wikidata:Q1123391"
+      ],
+      "text": "Uña de gato"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1972-2"
+      ],
+      "text": "Garabato Amarillo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1972-1"
+      ],
+      "text": "Cat's Claw"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Uncaria tomentosa"
+    ],
+    "value": "Planta trepadora de la familia Rubiáceas, llamada popularmente uña de gato."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Uncaria tomentosa"
+    ],
+    "value": "Uña de gato"
+  },
+  "family": {
+    "refs": [
+      "wcvp:209879"
+    ],
+    "value": "Rubiaceae"
+  },
+  "goals": [],
+  "id": "uncaria-tomentosa",
+  "image": {
+    "attributionRequired": false,
+    "author": "Duemmler, Ferdinand.; Karsten, Hermann; Schmidt, Carl Friedrich Wilhelm",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Florae_Columbiae_(Plate_CLXXX)_(8205993854).jpg",
+    "refs": [
+      "commons:File:Florae Columbiae (Plate CLXXX) (8205993854).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Florae_Columbiae_%28Plate_CLXXX%29_%288205993854%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:209879"
+    ],
+    "value": "Nativa de Brasil, el Caribe, Centroamérica y el norte y el oeste de Sudamérica."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:uncariae-tomentosae-cortex"
+      ],
+      "value": "Corteza"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Florae Columbiae (Plate CLXXX) (8205993854).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Florae Columbiae (Plate CLXXX) (8205993854).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Florae_Columbiae_(Plate_CLXXX)_(8205993854).jpg"
+    },
+    "ema_herbal:uncariae-tomentosae-cortex": {
+      "dataset": "ema_json",
+      "label": "EMA: Uncariae tomentosae cortex",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/uncariae-tomentosae-cortex"
+    },
+    "usda_common_name:1972-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cat's Claw»",
+      "license": "CC0"
+    },
+    "usda_common_name:1972-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Garabato Amarillo»",
+      "license": "CC0"
+    },
+    "wcvp:133323": {
+      "dataset": "wcvp",
+      "label": "WCVP: Nauclea tomentosa Willd. ex Schult.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:144853": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ourouparia tomentosa (Willd. ex Schult.) K.Schum.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:209879": {
+      "dataset": "wcvp",
+      "label": "WCVP: Uncaria tomentosa (Willd. ex Schult.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q1123391": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1123391",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1123391"
+    },
+    "wikipedia_es:Uncaria tomentosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Uncaria tomentosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Uncaria_tomentosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad: la declaración pública de la EMA no incluye datos de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Garabato Amarillo» con idioma inglés, pero parece un nombre en español.",
+      "target": "commonNames"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Willd. ex Schult.) DC.",
+    "name": "Uncaria tomentosa",
+    "refs": [
+      "wcvp:209879"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Willd. ex Schult.",
+      "name": "Nauclea tomentosa",
+      "refs": [
+        "wcvp:133323"
+      ]
+    },
+    {
+      "authors": "(Willd. ex Schult.) K.Schum.",
+      "name": "Ourouparia tomentosa",
+      "refs": [
+        "wcvp:144853"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

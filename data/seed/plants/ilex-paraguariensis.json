@@ -1,0 +1,604 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:291400e10ba47db1011016e2d3cac5db8cad6ab9f8d5d6ba0ac98dee0645af5b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ilex paraguariensis",
+        "wikidata:Q117068"
+      ],
+      "text": "Yerba mate"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q117068"
+      ],
+      "text": "Yerba"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ilex paraguariensis",
+        "wikidata:Q117068"
+      ],
+      "text": "Yerba de los jesuitas"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ilex paraguariensis",
+        "wikidata:Q117068"
+      ],
+      "text": "Yerba del Paraguay"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q117068"
+      ],
+      "text": "Kaá"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:496-1"
+      ],
+      "text": "Mate"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:496-2"
+      ],
+      "text": "Paraguay Tea"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:496-3"
+      ],
+      "text": "South American Holly"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ilex paraguariensis"
+    ],
+    "value": "Especie arbórea neotropical originaria de América del Sur, presente en la región de la Mata Atlántica de Paraguay, Argentina y Brasil."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Ilex paraguariensis",
+      "wikidata:Q117068"
+    ],
+    "value": "Yerba mate"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2861242"
+    ],
+    "value": "Aquifoliaceae"
+  },
+  "goals": [
+    {
+      "area": "Fatiga y debilidad",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "cansancio-y-fatiga",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:mate-folium"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:mate-folium"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "ilex-paraguariensis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ilex_paraguariensis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-074.jpg",
+    "refs": [
+      "commons:File:Ilex paraguariensis - Köhler–s Medizinal-Pflanzen-074.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Ilex_paraguariensis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-074.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:496-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2861242"
+    ],
+    "value": "Nativa del noreste de Argentina, Brasil, Paraguay y Uruguay."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:mate-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ilex paraguariensis - Köhler–s Medizinal-Pflanzen-074.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ilex paraguariensis - Köhler–s Medizinal-Pflanzen-074.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Ilex_paraguariensis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-074.jpg"
+    },
+    "efsa_botanic:750": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: caffeine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:751": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Theobromine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:752": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: theophylline",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:mate-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Mate folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/mate-folium"
+    },
+    "ema_pdf:mate-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de mate-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-ilex-paraguariensis-st-hil-folium-first-version_en.pdf"
+    },
+    "ema_pdf:mate-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de mate-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-ilex-paraguariensis-st-hil-folium-first-version_en.pdf"
+    },
+    "ema_pdf:mate-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de mate-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-ilex-paraguariensis-st-hil-folium-first-version_en.pdf"
+    },
+    "usda_common_name:496-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mate»",
+      "license": "CC0"
+    },
+    "usda_common_name:496-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Paraguay Tea»",
+      "license": "CC0"
+    },
+    "usda_common_name:496-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «South American Holly»",
+      "license": "CC0"
+    },
+    "usda_part:496-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:12019": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12019",
+      "license": "CC0"
+    },
+    "usda_use:18153": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18153",
+      "license": "CC0"
+    },
+    "usda_use:4115": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4115",
+      "license": "CC0"
+    },
+    "usda_use:41286": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41286",
+      "license": "CC0"
+    },
+    "usda_use:42787": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42787",
+      "license": "CC0"
+    },
+    "usda_use:46722": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46722",
+      "license": "CC0"
+    },
+    "usda_use:48471": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48471",
+      "license": "CC0"
+    },
+    "usda_use:49530": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49530",
+      "license": "CC0"
+    },
+    "usda_use:58728": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58728",
+      "license": "CC0"
+    },
+    "usda_use:65220": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65220",
+      "license": "CC0"
+    },
+    "usda_use:67093": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67093",
+      "license": "CC0"
+    },
+    "usda_use:75273": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75273",
+      "license": "CC0"
+    },
+    "usda_use:78576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78576",
+      "license": "CC0"
+    },
+    "usda_use:81430": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81430",
+      "license": "CC0"
+    },
+    "wcvp:2861242": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ilex paraguariensis A.St.-Hil.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q117068": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q117068",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q117068"
+    },
+    "wikipedia_es:Ilex paraguariensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ilex paraguariensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ilex_paraguariensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:75273",
+      "efsa_botanic:750",
+      "efsa_botanic:751",
+      "efsa_botanic:752",
+      "ema_pdf:mate-folium:4.3",
+      "ema_pdf:mate-folium:4.4",
+      "ema_pdf:mate-folium:4.5"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. EFSA registra teobromina, cafeína y teofilina en las hojas. La monografía de la EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa, las úlceras gástricas y duodenales, los trastornos cardiovasculares como hipertensión y arritmia, el hipertiroidismo y las condiciones en que se recomienda reducir la ingesta de líquidos (por ejemplo, obstrucción de las vías urinarias). Entre sus advertencias indica que no se recomienda en menores de 18 años ni antes de dormir porque puede causar alteraciones del sueño. Como interacciones, registra que las personas que toman inhibidores de la MAO deben usarla con precaución y que los preparados con cafeína reducen la acción sedante y aumentan los efectos secundarios de los simpaticomiméticos."
+  },
+  "scientificName": {
+    "authors": "A.St.-Hil.",
+    "name": "Ilex paraguariensis",
+    "refs": [
+      "wcvp:2861242"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "México",
+        "Sudamérica"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12019",
+        "usda_use:67093",
+        "usda_reference:Standley",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Eb22: 313",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 313"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46722",
+        "usda_use:58728",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Eb22: 311",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 311"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Paraguay",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49530",
+        "usda_use:78576",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Aperient",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Sudamérica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4115",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Sudamérica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65220",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18153",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81430",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Sudamérica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41286",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42787",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48471",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

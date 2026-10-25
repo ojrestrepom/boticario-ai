@@ -1,0 +1,199 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c76d6c64973f98e8b7dab7e9c50c9bf99e935e442d7771014ffb098181684d54",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2160-1"
+      ],
+      "text": "Bitter Almond"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2160-2"
+      ],
+      "text": "Red Stinkwood"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Prunus africana"
+    ],
+    "value": "Árbol de la familia de las rosáceas que se encuentra en África."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2921970"
+    ],
+    "value": "Prunus africana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2921970"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "prunus-africana",
+  "image": {
+    "attributionRequired": true,
+    "author": "SAplants",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Prunus_africana_1DS-II_0042.jpg",
+    "refs": [
+      "commons:File:Prunus africana 1DS-II 0042.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Prunus_africana_1DS-II_0042.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2921970"
+    ],
+    "value": "Nativa de África tropical (oriental, noreste, meridional, occidental y centro-occidental), el sur de África y el oeste del océano Índico."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:pruni-africanae-cortex"
+      ],
+      "value": "Corteza"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Prunus africana 1DS-II 0042.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Prunus africana 1DS-II 0042.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Prunus_africana_1DS-II_0042.jpg"
+    },
+    "ema_herbal:pruni-africanae-cortex": {
+      "dataset": "ema_json",
+      "label": "EMA: Pruni africanae cortex",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/pruni-africanae-cortex"
+    },
+    "ema_pdf:pruni-africanae-cortex:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de pruni-africanae-cortex, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-africana-hook-f-kalkm-cortex_en.pdf"
+    },
+    "ema_pdf:pruni-africanae-cortex:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de pruni-africanae-cortex, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-africana-hook-f-kalkm-cortex_en.pdf"
+    },
+    "ema_pdf:pruni-africanae-cortex:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de pruni-africanae-cortex, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-africana-hook-f-kalkm-cortex_en.pdf"
+    },
+    "usda_common_name:2160-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bitter Almond»",
+      "license": "CC0"
+    },
+    "usda_common_name:2160-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Red Stinkwood»",
+      "license": "CC0"
+    },
+    "wcvp:2921970": {
+      "dataset": "wcvp",
+      "label": "WCVP: Prunus africana (Hook.f.) Kalkman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2921971": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pygeum africanum Hook.f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2950204": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lauro-cerasus africana (Hook.f.) Browicz",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Prunus africana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Prunus africana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Prunus_africana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:pruni-africanae-cortex:4.3",
+      "ema_pdf:pruni-africanae-cortex:4.4",
+      "ema_pdf:pruni-africanae-cortex:4.5"
+    ],
+    "text": "La monografía de la EMA para la corteza registra como contraindicación la hipersensibilidad a la sustancia activa. Entre las advertencias, se indica consultar a un médico si las molestias empeoran o si aparecen fiebre, espasmos, sangre en la orina, dolor al orinar o retención urinaria. En interacciones, la EMA no registra ninguna."
+  },
+  "scientificName": {
+    "authors": "(Hook.f.) Kalkman",
+    "name": "Prunus africana",
+    "refs": [
+      "wcvp:2921970"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Hook.f.) Browicz",
+      "name": "Lauro-cerasus africana",
+      "refs": [
+        "wcvp:2950204"
+      ]
+    },
+    {
+      "authors": "Hook.f.",
+      "name": "Pygeum africanum",
+      "refs": [
+        "wcvp:2921971"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

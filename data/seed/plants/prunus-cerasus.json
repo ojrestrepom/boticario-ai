@@ -1,0 +1,744 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:24abe9a81901753580ae61f74a622eb8d465395049e5670fcbd7fac482534c67",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Prunus cerasus"
+      ],
+      "text": "Guindo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Prunus cerasus"
+      ],
+      "text": "Cerezo ácido"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Prunus cerasus"
+      ],
+      "text": "Cerezo de Morello"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:788-1"
+      ],
+      "text": "Sour Cherry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Prunus cerasus"
+    ],
+    "value": "Especie de Prunus conocida como guindo, cerezo ácido o cerezo de Morello, nativa de Europa y el sudoeste de Asia. Su fruta es más ácida que la del cerezo dulce y se utiliza sobre todo en preparaciones culinarias."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Prunus cerasus"
+    ],
+    "value": "Guindo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2959193"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía para el pedúnculo en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:prunus-avium-peduncle"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "prunus-cerasus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Prunus_cerasus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-113.jpg",
+    "refs": [
+      "commons:File:Prunus cerasus - Köhler–s Medizinal-Pflanzen-113.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Prunus_cerasus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-113.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:788-SD"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2959193"
+    ],
+    "value": "Nativa del Cáucaso."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:prunus-avium-peduncle"
+      ],
+      "value": "Pedúnculo"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Prunus cerasus - Köhler–s Medizinal-Pflanzen-113.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Prunus cerasus - Köhler–s Medizinal-Pflanzen-113.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Prunus_cerasus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-113.jpg"
+    },
+    "ema_herbal:prunus-avium-peduncle": {
+      "dataset": "ema_json",
+      "label": "EMA: Prunus avium peduncle",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/prunus-avium-peduncle"
+    },
+    "ema_pdf:prunus-avium-peduncle:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de prunus-avium-peduncle, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-avium-l-prunus-cerasus-l-peduncle_en.pdf"
+    },
+    "ema_pdf:prunus-avium-peduncle:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de prunus-avium-peduncle, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-avium-l-prunus-cerasus-l-peduncle_en.pdf"
+    },
+    "usda_common_name:788-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sour Cherry»",
+      "license": "CC0"
+    },
+    "usda_part:788-SD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Seed»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:14143": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14143",
+      "license": "CC0"
+    },
+    "usda_use:14527": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14527",
+      "license": "CC0"
+    },
+    "usda_use:16958": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16958",
+      "license": "CC0"
+    },
+    "usda_use:18570": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18570",
+      "license": "CC0"
+    },
+    "usda_use:18571": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18571",
+      "license": "CC0"
+    },
+    "usda_use:25195": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25195",
+      "license": "CC0"
+    },
+    "usda_use:25196": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25196",
+      "license": "CC0"
+    },
+    "usda_use:34855": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34855",
+      "license": "CC0"
+    },
+    "usda_use:36272": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36272",
+      "license": "CC0"
+    },
+    "usda_use:40611": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40611",
+      "license": "CC0"
+    },
+    "usda_use:43178": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43178",
+      "license": "CC0"
+    },
+    "usda_use:43179": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43179",
+      "license": "CC0"
+    },
+    "usda_use:49589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49589",
+      "license": "CC0"
+    },
+    "usda_use:50866": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50866",
+      "license": "CC0"
+    },
+    "usda_use:50867": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50867",
+      "license": "CC0"
+    },
+    "usda_use:52548": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52548",
+      "license": "CC0"
+    },
+    "usda_use:60723": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60723",
+      "license": "CC0"
+    },
+    "usda_use:65283": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65283",
+      "license": "CC0"
+    },
+    "usda_use:73305": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73305",
+      "license": "CC0"
+    },
+    "usda_use:74517": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74517",
+      "license": "CC0"
+    },
+    "usda_use:8728": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8728",
+      "license": "CC0"
+    },
+    "usda_use:9747": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9747",
+      "license": "CC0"
+    },
+    "wcvp:2943313": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cerasus vulgaris subsp. eucerasus (Asch. & Graebn.) Buia",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2947990": {
+      "dataset": "wcvp",
+      "label": "WCVP: Druparia cerasus (L.) Clairv.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2958897": {
+      "dataset": "wcvp",
+      "label": "WCVP: Prunus avium subsp. cerasus (L.) Rouy & E.G.Camus",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2959193": {
+      "dataset": "wcvp",
+      "label": "WCVP: Prunus cerasus L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Prunus cerasus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Prunus cerasus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Prunus_cerasus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Diuretic»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Pectoral»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Tonic»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Cough»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[8]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Nervine»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[11]"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la semilla, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:prunus-avium-peduncle:4.3",
+      "ema_pdf:prunus-avium-peduncle:4.4",
+      "usda_use:14527"
+    ],
+    "text": "La monografía de la EMA para el pedúnculo registra como contraindicación la hipersensibilidad a la sustancia activa, y como advertencia que el uso en menores de 18 años no está establecido por falta de datos. Advertencia: registrada como cianogénica."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Prunus cerasus",
+    "refs": [
+      "wcvp:2959193"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Asch. & Graebn.) Buia",
+      "name": "Cerasus vulgaris subsp. eucerasus",
+      "refs": [
+        "wcvp:2943313"
+      ]
+    },
+    {
+      "authors": "(L.) Clairv.",
+      "name": "Druparia cerasus",
+      "refs": [
+        "wcvp:2947990"
+      ]
+    },
+    {
+      "authors": "(L.) Rouy & E.G.Camus",
+      "name": "Prunus avium subsp. cerasus",
+      "refs": [
+        "wcvp:2958897"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18570",
+        "usda_use:18571",
+        "usda_use:60723",
+        "usda_reference:Liogier",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25195",
+        "usda_use:25196",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Kurdistán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36272",
+        "usda_use:74517",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Eb25: 18",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 18"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43178",
+        "usda_use:43179",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50866",
+        "usda_use:50867",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65283",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Cálculos",
+      "activitySource": "Calculus",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8728",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de nariz",
+      "activitySource": "Cancer(Nose)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9747",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:14143"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16958",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Licor",
+      "activitySource": "Liqueur",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73305",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:34855"
+      ]
+    },
+    {
+      "activity": "Renitis",
+      "activitySource": "Renitis",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40611",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49589",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52548",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

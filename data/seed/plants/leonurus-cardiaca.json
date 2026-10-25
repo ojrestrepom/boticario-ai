@@ -1,0 +1,926 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:cf9f800ab5638af55d38e335ce383be394cd75688d45cba98128eac92041b6da",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161130"
+      ],
+      "text": "Agripalma"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161130"
+      ],
+      "text": "Cardíaca"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161130"
+      ],
+      "text": "Cola de leon"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:553-1"
+      ],
+      "text": "Motherwort"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q161130"
+    ],
+    "value": "Agripalma"
+  },
+  "family": {
+    "refs": [
+      "wcvp:109505"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:leonuri-cardiacae-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos circulatorios",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:leonuri-cardiacae-herba"
+      ],
+      "subarea": "circulacion"
+    }
+  ],
+  "id": "leonurus-cardiaca",
+  "image": {
+    "attributionRequired": true,
+    "author": "No machine-readable author provided. Valérie75 assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Leonurus_cardiaca_001.jpg",
+    "refs": [
+      "commons:File:Leonurus cardiaca 001.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Leonurus_cardiaca_001.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:553-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:109505"
+    ],
+    "value": "Europa, el Cáucaso, Siberia y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:leonuri-cardiacae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Leonurus cardiaca 001.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Leonurus cardiaca 001.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Leonurus_cardiaca_001.jpg"
+    },
+    "efsa_botanic:3425": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: stachydrine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3426": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: leosibiricin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3427": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: cycloleonurinin",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:leonuri-cardiacae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Leonuri cardiacae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/leonuri-cardiacae-herba"
+    },
+    "ema_pdf:leonuri-cardiacae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de leonuri-cardiacae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-leonurus-cardiaca-l-herba_en.pdf"
+    },
+    "ema_pdf:leonuri-cardiacae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de leonuri-cardiacae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-leonurus-cardiaca-l-herba_en.pdf"
+    },
+    "ema_pdf:leonuri-cardiacae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de leonuri-cardiacae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-leonurus-cardiaca-l-herba_en.pdf"
+    },
+    "usda_common_name:553-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Motherwort»",
+      "license": "CC0"
+    },
+    "usda_part:553-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:14752": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14752",
+      "license": "CC0"
+    },
+    "usda_use:18241": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18241",
+      "license": "CC0"
+    },
+    "usda_use:1977": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1977",
+      "license": "CC0"
+    },
+    "usda_use:2076": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2076",
+      "license": "CC0"
+    },
+    "usda_use:21735": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21735",
+      "license": "CC0"
+    },
+    "usda_use:21736": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21736",
+      "license": "CC0"
+    },
+    "usda_use:23122": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23122",
+      "license": "CC0"
+    },
+    "usda_use:26431": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26431",
+      "license": "CC0"
+    },
+    "usda_use:29190": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29190",
+      "license": "CC0"
+    },
+    "usda_use:29191": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29191",
+      "license": "CC0"
+    },
+    "usda_use:34822": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34822",
+      "license": "CC0"
+    },
+    "usda_use:35567": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35567",
+      "license": "CC0"
+    },
+    "usda_use:35568": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35568",
+      "license": "CC0"
+    },
+    "usda_use:3908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3908",
+      "license": "CC0"
+    },
+    "usda_use:45741": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45741",
+      "license": "CC0"
+    },
+    "usda_use:45742": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45742",
+      "license": "CC0"
+    },
+    "usda_use:50623": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50623",
+      "license": "CC0"
+    },
+    "usda_use:50624": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50624",
+      "license": "CC0"
+    },
+    "usda_use:50625": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50625",
+      "license": "CC0"
+    },
+    "usda_use:59069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59069",
+      "license": "CC0"
+    },
+    "usda_use:59070": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59070",
+      "license": "CC0"
+    },
+    "usda_use:59071": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59071",
+      "license": "CC0"
+    },
+    "usda_use:63345": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63345",
+      "license": "CC0"
+    },
+    "usda_use:64130": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64130",
+      "license": "CC0"
+    },
+    "usda_use:65042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65042",
+      "license": "CC0"
+    },
+    "usda_use:69003": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69003",
+      "license": "CC0"
+    },
+    "usda_use:70058": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70058",
+      "license": "CC0"
+    },
+    "usda_use:75711": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75711",
+      "license": "CC0"
+    },
+    "usda_use:81535": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81535",
+      "license": "CC0"
+    },
+    "usda_use:81537": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81537",
+      "license": "CC0"
+    },
+    "usda_use:81538": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81538",
+      "license": "CC0"
+    },
+    "usda_use:82821": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82821",
+      "license": "CC0"
+    },
+    "wcvp:107413": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lamium cardiaca (L.) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:109505": {
+      "dataset": "wcvp",
+      "label": "WCVP: Leonurus cardiaca L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q161130": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q161130",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q161130"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA para la planta, sin ficha de aceite esencial de la EMA; puede ser un falso positivo.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:leonuri-cardiacae-herba:4.3",
+      "ema_pdf:leonuri-cardiacae-herba:4.4",
+      "ema_pdf:leonuri-cardiacae-herba:4.5",
+      "efsa_botanic:3427",
+      "efsa_botanic:3426",
+      "efsa_botanic:3425"
+    ],
+    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad al principio activo y el embarazo, indica que no se ha establecido el uso en menores de 18 años y no registra interacciones. EFSA registra cicloleonurinina, leosibiricina y estaquidrina en la parte aérea como sustancias de evidencia."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Leonurus cardiaca",
+    "refs": [
+      "wcvp:109505"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Baill.",
+      "name": "Lamium cardiaca",
+      "refs": [
+        "wcvp:107413"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50623",
+        "usda_use:50624",
+        "usda_use:50625",
+        "usda_use:81538",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18241",
+        "usda_use:59070",
+        "usda_use:69003",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21735",
+        "usda_use:21736",
+        "usda_use:70058",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Analgésico",
+      "activitySource": "Analgesic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2076",
+        "usda_use:64130",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29190",
+        "usda_use:29191",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34822",
+        "usda_use:81537",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Palpitación",
+      "activitySource": "Palpitation",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "España"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35567",
+        "usda_use:35568",
+        "usda_reference:FontQuer",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45741",
+        "usda_use:45742",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81535",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Amenorrea",
+      "activitySource": "Amenorrhea",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1977",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3908",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65042",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59069",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14752",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23122",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Vesícula biliar",
+      "activitySource": "Gall Bladder",
+      "citations": [
+        {
+          "key": "Woi.",
+          "ref": "usda_reference:WOI",
+          "text": "ANON. 1948-1976. The Wealth of India raw materials. Publications and Information Directorate, CSIR, New Delhi. 11 volumes."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26431",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Órganos reproductores",
+      "activitySource": "Generative Organs",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63345",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Corazón",
+      "activitySource": "Heart",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59071",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82821",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: rabia",
+      "activitySource": "Rabies",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "URSS"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75711",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

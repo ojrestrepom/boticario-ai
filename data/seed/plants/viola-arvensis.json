@@ -1,0 +1,171 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a901f0d8dd94ef4846e8e55514d8942e9602aed8b3bfaad0311de331ffbc7b72",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Viola arvensis"
+      ],
+      "text": "Pensamiento silvestre"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Viola arvensis"
+    ],
+    "value": "Viola arvensis, conocida como pensamiento silvestre, es una especie del género Viola."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Viola arvensis"
+    ],
+    "value": "Pensamiento silvestre"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2464083"
+    ],
+    "value": "Violaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía de la parte aérea con flor en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:violae-herba-cum-flore"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "viola-arvensis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Viola_arvensis_-_White_flower.jpg",
+    "refs": [
+      "commons:File:(MHNT) Viola arvensis - White flower.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/%28MHNT%29_Viola_arvensis_-_White_flower.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2464083"
+    ],
+    "value": "Nativa del Cáucaso, Asia central y occidental, Mongolia, Siberia, Europa y el norte de África, además de Macaronesia."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:violae-herba-cum-flore"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(MHNT) Viola arvensis - White flower.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(MHNT) Viola arvensis - White flower.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Viola_arvensis_-_White_flower.jpg"
+    },
+    "ema_herbal:violae-herba-cum-flore": {
+      "dataset": "ema_json",
+      "label": "EMA: Violae herba cum flore",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/violae-herba-cum-flore"
+    },
+    "ema_pdf:violae-herba-cum-flore:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de violae-herba-cum-flore, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-viola-tricolor-l_en.pdf"
+    },
+    "ema_pdf:violae-herba-cum-flore:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de violae-herba-cum-flore, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-viola-tricolor-l_en.pdf"
+    },
+    "ema_pdf:violae-herba-cum-flore:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de violae-herba-cum-flore, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-viola-tricolor-l_en.pdf"
+    },
+    "wcvp:2464083": {
+      "dataset": "wcvp",
+      "label": "WCVP: Viola arvensis Murray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2507986": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mnemion arvense (Murray) Nieuwl.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Viola arvensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Viola arvensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Viola_arvensis"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:violae-herba-cum-flore:4.3",
+      "ema_pdf:violae-herba-cum-flore:4.4",
+      "ema_pdf:violae-herba-cum-flore:4.5"
+    ],
+    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad al principio activo o a los salicilatos y, en uso cutáneo, las heridas abiertas y las áreas extensas de piel dañada. Como advertencias, señala que el uso oral en menores de 18 años y el uso cutáneo en menores de 12 años no están establecidos por falta de datos, y que los baños calientes no deben usarse en enfermedades febriles o infecciosas, en insuficiencia cardíaca ni en hipertensión. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "Murray",
+    "name": "Viola arvensis",
+    "refs": [
+      "wcvp:2464083"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Murray) Nieuwl.",
+      "name": "Mnemion arvense",
+      "refs": [
+        "wcvp:2507986"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

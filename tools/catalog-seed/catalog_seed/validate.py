@@ -57,7 +57,7 @@ TOXIC_LEVELS = ("strong toxic", "very strong toxic")
 STRESS_GOAL = "relajacion-estres"
 
 DOSE_PATTERNS = [
-    r"\bdosis\b", r"\bposolog\w*", r"\bmg\b", r"\bml\b", r"\bgotas?\b", r"\bcucharad\w*",
+    r"\bdosis\b", r"\bposolog\w*", r"\bmg\b", r"\bml\b", r"\b(?:\d+|un|una|unas|unos|dos|tres|cuatro|cinco|seis|diez|varias|algunas|pocas)\s+gotas?\b", r"\bgotas\s+de\b", r"\bcucharad\w*",
     r"\bcura(?:r|n|tiv\w*)?\b", r"\btrata(?:n|r)?\b", r"\btratamientos?\b", r"\bprevien\w*", r"\bprevenir\b",
     r"\belimina\w*", r"\balivia\w*", r"\baliviar\b", r"\beficaz\w*", r"\beficacia\b", r"\befectiv\w*",
 ]

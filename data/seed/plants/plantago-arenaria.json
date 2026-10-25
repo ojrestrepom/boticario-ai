@@ -1,0 +1,561 @@
+{
+  "aliases": [
+    "plantago-indica",
+    "plantago-psyllium"
+  ],
+  "bundleHash": "sha256:cd5ac8769ad9ed6b4b48718cee3ebd31f3d0239a0cc073f05acebe18fbae89a3",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Plantago arenaria",
+        "wikidata:Q165095"
+      ],
+      "text": "Llantén de arena"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:763-1"
+      ],
+      "text": "Psyllium"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Plantago arenaria"
+    ],
+    "value": "Especie herbácea natural de Europa central y meridional, donde crece en terrenos incultos y arenosos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Plantago arenaria",
+      "wikidata:Q165095"
+    ],
+    "value": "Llantén de arena"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2571422"
+    ],
+    "value": "Plantaginaceae"
+  },
+  "goals": [
+    {
+      "area": "Estreñimiento",
+      "evidence": "La EMA tiene una monografía para la semilla en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:psyllii-semen"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "plantago-arenaria",
+  "image": {
+    "attributionRequired": true,
+    "author": "Le.Loup.Gris",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Plantago_arenaria_(habitus).jpg",
+    "refs": [
+      "commons:File:Plantago arenaria (habitus).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Plantago_arenaria_%28habitus%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2571422"
+    ],
+    "value": "Nativa del Cáucaso, Asia central y occidental, Siberia, el norte de África y Europa (central, oriental, suroccidental y suroriental)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:psyllii-semen"
+      ],
+      "value": "Semilla"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Plantago arenaria (habitus).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Plantago arenaria (habitus).jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Plantago_arenaria_(habitus).jpg"
+    },
+    "ema_herbal:psyllii-semen": {
+      "dataset": "ema_json",
+      "label": "EMA: Psyllii semen",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/psyllii-semen"
+    },
+    "ema_pdf:psyllii-semen:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de psyllii-semen, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-afra-l-et-plantago-indica-l-semen_en.pdf"
+    },
+    "ema_pdf:psyllii-semen:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de psyllii-semen, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-afra-l-et-plantago-indica-l-semen_en.pdf"
+    },
+    "ema_pdf:psyllii-semen:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de psyllii-semen, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-afra-l-et-plantago-indica-l-semen_en.pdf"
+    },
+    "usda_common_name:763-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Psyllium»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:23249": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23249",
+      "license": "CC0"
+    },
+    "usda_use:31637": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31637",
+      "license": "CC0"
+    },
+    "usda_use:31638": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31638",
+      "license": "CC0"
+    },
+    "usda_use:31793": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31793",
+      "license": "CC0"
+    },
+    "usda_use:3979": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3979",
+      "license": "CC0"
+    },
+    "usda_use:60402": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60402",
+      "license": "CC0"
+    },
+    "usda_use:60409": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60409",
+      "license": "CC0"
+    },
+    "usda_use:60413": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60413",
+      "license": "CC0"
+    },
+    "usda_use:64408": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64408",
+      "license": "CC0"
+    },
+    "usda_use:72476": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72476",
+      "license": "CC0"
+    },
+    "usda_use:73110": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73110",
+      "license": "CC0"
+    },
+    "usda_use:76112": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76112",
+      "license": "CC0"
+    },
+    "usda_use:81940": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81940",
+      "license": "CC0"
+    },
+    "usda_use:9892": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9892",
+      "license": "CC0"
+    },
+    "wcvp:2570351": {
+      "dataset": "wcvp",
+      "label": "WCVP: Psyllium arenarium (Waldst. & Kit.) Mirb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2571422": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plantago arenaria Waldst. & Kit.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q165095": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q165095",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q165095"
+    },
+    "wikipedia_es:Plantago arenaria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Plantago arenaria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Plantago_arenaria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata; el grupo Laxante conserva las demás citas resueltas.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata; el grupo Demulcente queda pendiente de revisión.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata; el grupo Expectorante queda pendiente de revisión.",
+      "target": "traditionalUses[6]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata; el grupo Inflamación queda pendiente de revisión.",
+      "target": "traditionalUses[7]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata; el grupo Reumatismo queda pendiente de revisión.",
+      "target": "traditionalUses[9]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:psyllii-semen:4.3",
+      "ema_pdf:psyllii-semen:4.4",
+      "ema_pdf:psyllii-semen:4.5"
+    ],
+    "text": "La monografía de la EMA para la semilla registra contraindicaciones (hipersensibilidad, cambio persistente del hábito intestinal, sangrado rectal sin diagnosticar, estrechamientos u obstrucción intestinal, dificultad para tragar), advertencias (no se recomienda en menores de 6 años; con poco líquido puede obstruir la garganta y el esófago o el intestino; el polvo puede causar sensibilización alérgica por inhalación) e interacciones (puede retrasar la absorción de otros medicamentos; en personas con diabetes o con hormonas tiroideas se requiere supervisión médica)."
+  },
+  "scientificName": {
+    "authors": "Waldst. & Kit.",
+    "name": "Plantago arenaria",
+    "refs": [
+      "wcvp:2571422"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Waldst. & Kit.) Mirb.",
+      "name": "Psyllium arenarium",
+      "refs": [
+        "wcvp:2570351"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "Región mediterránea",
+        "España",
+        "Turquía"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31637",
+        "usda_use:31638",
+        "usda_use:31793",
+        "usda_use:60409",
+        "usda_use:73110",
+        "usda_reference:Al-Rawi",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antidiarreico",
+      "activitySource": "Antidiarrheic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64408",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Antitusivo",
+      "activitySource": "Antitussive",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3979",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de útero",
+      "activitySource": "Cancer(Uterus)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9892",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:81940"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60402",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:23249"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:72476"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60413",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:76112"
+      ]
+    }
+  ]
+}

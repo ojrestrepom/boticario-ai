@@ -1,0 +1,848 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:973128b24a3c6fc3a7bd3bb68de521ad2d9ba3cc46bbee414bb4384d71614be8",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Andrographis paniculata"
+      ],
+      "text": "chiretta verde"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:79-1"
+      ],
+      "text": "Creat"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Andrographis paniculata"
+    ],
+    "value": "Planta herbácea de la familia de las acantáceas que crece en la India y Sri Lanka y se cultiva ampliamente en el sur de Asia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Andrographis paniculata"
+    ],
+    "value": "Chiretta verde"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2637069"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "andrographis-paniculata",
+  "image": {
+    "attributionRequired": true,
+    "author": "J.M.Garg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Andrographis_paniculata_(Kalpa)_in_Narshapur_forest,_AP_W2_IMG_0867.jpg",
+    "refs": [
+      "commons:File:Andrographis paniculata (Kalpa) in Narshapur forest, AP W2 IMG 0867.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Andrographis_paniculata_%28Kalpa%29_in_Narshapur_forest%2C_AP_W2_IMG_0867.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2637069"
+    ],
+    "value": "Subcontinente indio"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:andrographidis-paniculatae-folium",
+        "wikipedia_es:Andrographis paniculata"
+      ],
+      "value": "Hoja"
+    },
+    {
+      "refs": [
+        "wikipedia_es:Andrographis paniculata"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Andrographis paniculata (Kalpa) in Narshapur forest, AP W2 IMG 0867.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Andrographis paniculata (Kalpa) in Narshapur forest, AP W2 IMG 0867.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Andrographis_paniculata_(Kalpa)_in_Narshapur_forest,_AP_W2_IMG_0867.jpg"
+    },
+    "efsa_botanic:1144": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: andrographolide",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2313": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: dehydroandrographolide",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2315": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: neoandrographolide",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2317": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: deoxyandrographolide-19-beta D glucoside",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:331": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Andrographis paniculata (Burm.f.) Nees",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:332": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Andrographis paniculata (Burm.f.) Nees",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:423": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Andrographis paniculata (Burm.f.) Nees",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:andrographidis-paniculatae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Andrographidis paniculatae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/andrographidis-paniculatae-folium"
+    },
+    "usda_common_name:79-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Creat»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:NAS": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:1092": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1092",
+      "license": "CC0"
+    },
+    "usda_use:11663": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11663",
+      "license": "CC0"
+    },
+    "usda_use:12524": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12524",
+      "license": "CC0"
+    },
+    "usda_use:15954": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15954",
+      "license": "CC0"
+    },
+    "usda_use:15975": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15975",
+      "license": "CC0"
+    },
+    "usda_use:16425": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16425",
+      "license": "CC0"
+    },
+    "usda_use:16426": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16426",
+      "license": "CC0"
+    },
+    "usda_use:1666": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1666",
+      "license": "CC0"
+    },
+    "usda_use:1667": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1667",
+      "license": "CC0"
+    },
+    "usda_use:19339": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19339",
+      "license": "CC0"
+    },
+    "usda_use:19340": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19340",
+      "license": "CC0"
+    },
+    "usda_use:20082": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20082",
+      "license": "CC0"
+    },
+    "usda_use:2317": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2317",
+      "license": "CC0"
+    },
+    "usda_use:24024": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24024",
+      "license": "CC0"
+    },
+    "usda_use:2900": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2900",
+      "license": "CC0"
+    },
+    "usda_use:333": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 333",
+      "license": "CC0"
+    },
+    "usda_use:47461": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47461",
+      "license": "CC0"
+    },
+    "usda_use:5440": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5440",
+      "license": "CC0"
+    },
+    "usda_use:63955": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63955",
+      "license": "CC0"
+    },
+    "usda_use:64202": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64202",
+      "license": "CC0"
+    },
+    "usda_use:64641": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64641",
+      "license": "CC0"
+    },
+    "usda_use:65406": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65406",
+      "license": "CC0"
+    },
+    "usda_use:6881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6881",
+      "license": "CC0"
+    },
+    "usda_use:6963": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6963",
+      "license": "CC0"
+    },
+    "usda_use:70753": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70753",
+      "license": "CC0"
+    },
+    "usda_use:76903": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76903",
+      "license": "CC0"
+    },
+    "usda_use:77954": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77954",
+      "license": "CC0"
+    },
+    "usda_use:80774": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80774",
+      "license": "CC0"
+    },
+    "usda_use:8474": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8474",
+      "license": "CC0"
+    },
+    "wcvp:2329041": {
+      "dataset": "wcvp",
+      "label": "WCVP: Justicia paniculata Burm.f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2637069": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andrographis paniculata (Burm.f.) Wall. ex Nees",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Andrographis paniculata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Andrographis paniculata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Andrographis_paniculata"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:1144",
+      "efsa_botanic:2313",
+      "efsa_botanic:2317",
+      "efsa_botanic:2315",
+      "efsa_endpoint:331",
+      "efsa_endpoint:332",
+      "efsa_endpoint:423"
+    ],
+    "text": "EFSA anota la andrografólida, la deshidroandrografólida, la neoandrografólida y el glucósido de la desoxiandrografólida-19 (parte aérea) como sustancias de evidencia, y recoge estudios sobre un efecto abortivo en ratón y en conejo y sobre efectos en el testículo y los espermatozoides del epidídimo en rata."
+  },
+  "scientificName": {
+    "authors": "(Burm.f.) Wall. ex Nees",
+    "name": "Andrographis paniculata",
+    "refs": [
+      "wcvp:2637069"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Burm.f.",
+      "name": "Justicia paniculata",
+      "refs": [
+        "wcvp:2329041"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China",
+        "India",
+        "Malaya"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19339",
+        "usda_use:19340",
+        "usda_use:20082",
+        "usda_use:80774",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Hunan",
+        "usda_reference:NAS",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1666",
+        "usda_use:1667",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Malasia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2317",
+        "usda_use:64202",
+        "usda_reference:Hunan",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6963",
+        "usda_use:76903",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Eb24: 244",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 244"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "India",
+        "India (santal)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16425",
+        "usda_use:16426",
+        "usda_reference:EB",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24024",
+        "usda_use:70753",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Malasia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47461",
+        "usda_use:77954",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Absceso",
+      "activitySource": "Abscess",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:333",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Eb24: 244",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 244"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1092",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Alexifármaco",
+      "activitySource": "Alexipharmic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63955",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antihelmíntico",
+      "activitySource": "Anthelminthic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2900",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64641",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5440",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Eb30: 318",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 318"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65406",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Mordedura de perro",
+      "activitySource": "Bite(Dog)",
+      "citations": [
+        {
+          "key": "Eb24: 244",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 244"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6881",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Picadura de insecto",
+      "activitySource": "Bugbite",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8474",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cólera",
+      "activitySource": "Cholera",
+      "citations": [
+        {
+          "key": "Eb24: 244",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 244"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11663",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Eb24: 244",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 244"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12524",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Desintoxicante",
+      "activitySource": "Detoxicant",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15954",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15975",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

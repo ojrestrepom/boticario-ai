@@ -1,0 +1,467 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:aa21b6141aea1a08db1ac38f759c90c28ff00f68f9230c675940498ebc394a8d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2127-2"
+      ],
+      "text": "Eastern Purple-Coneflower"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2127-1"
+      ],
+      "text": "Echinacea"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2127-3"
+      ],
+      "text": "Purple-Coneflower"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Echinacea purpurea"
+    ],
+    "value": "Fanerógama de la familia Asteraceae, usada como planta medicinal y ornamental. Es nativa de Norteamérica."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2910452"
+    ],
+    "value": "Echinacea purpurea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2910452"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene monografías en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:echinaceae-purpureae-herba",
+        "ema_herbal:echinaceae-purpureae-radix"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene monografías en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:echinaceae-purpureae-herba",
+        "ema_herbal:echinaceae-purpureae-radix"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "echinacea-purpurea",
+  "image": {
+    "attributionRequired": true,
+    "author": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:.00_1682_Purpur-Sonnenhut_(Echinacea_purpurea).jpg",
+    "refs": [
+      "commons:File:.00 1682 Purpur-Sonnenhut (Echinacea purpurea).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/.00_1682_Purpur-Sonnenhut_%28Echinacea_purpurea%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2127-FL",
+      "usda_part:2127-RT",
+      "usda_part:2127-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2910452"
+    ],
+    "value": "Nativa del centro-norte, noreste, noroeste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:echinaceae-purpureae-herba"
+      ],
+      "value": "Parte aérea"
+    },
+    {
+      "refs": [
+        "ema_herbal:echinaceae-purpureae-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:.00 1682 Purpur-Sonnenhut (Echinacea purpurea).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:.00 1682 Purpur-Sonnenhut (Echinacea purpurea).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:.00_1682_Purpur-Sonnenhut_(Echinacea_purpurea).jpg"
+    },
+    "ema_herbal:echinaceae-purpureae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Echinaceae purpureae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/echinaceae-purpureae-herba"
+    },
+    "ema_herbal:echinaceae-purpureae-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Echinaceae purpureae radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/echinaceae-purpureae-radix"
+    },
+    "ema_pdf:echinaceae-purpureae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-purpureae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-purpurea-l-moench-herba-recens_en.pdf"
+    },
+    "ema_pdf:echinaceae-purpureae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-purpureae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-purpurea-l-moench-herba-recens_en.pdf"
+    },
+    "ema_pdf:echinaceae-purpureae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-purpureae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-purpurea-l-moench-herba-recens_en.pdf"
+    },
+    "ema_pdf:echinaceae-purpureae-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-purpureae-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-onechinacea-purpurea-l-moench-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:echinaceae-purpureae-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-purpureae-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-onechinacea-purpurea-l-moench-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:echinaceae-purpureae-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-purpureae-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-onechinacea-purpurea-l-moench-radix-revision-1_en.pdf"
+    },
+    "usda_common_name:2127-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Echinacea»",
+      "license": "CC0"
+    },
+    "usda_common_name:2127-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Eastern Purple-Coneflower»",
+      "license": "CC0"
+    },
+    "usda_common_name:2127-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Purple-Coneflower»",
+      "license": "CC0"
+    },
+    "usda_part:2127-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:2127-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_part:2127-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_use:15485": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15485",
+      "license": "CC0"
+    },
+    "usda_use:33543": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33543",
+      "license": "CC0"
+    },
+    "usda_use:40150": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40150",
+      "license": "CC0"
+    },
+    "usda_use:43642": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43642",
+      "license": "CC0"
+    },
+    "usda_use:49227": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49227",
+      "license": "CC0"
+    },
+    "usda_use:7080": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7080",
+      "license": "CC0"
+    },
+    "wcvp:2910452": {
+      "dataset": "wcvp",
+      "label": "WCVP: Echinacea purpurea (L.) Moench",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2910453": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rudbeckia purpurea L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2910454": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brauneria purpurea (L.) Britton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3124610": {
+      "dataset": "wcvp",
+      "label": "WCVP: Helichroa purpurea (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Echinacea purpurea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Echinacea purpurea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Echinacea_purpurea"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en flor, raíz y brote, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:echinaceae-purpureae-herba:4.3",
+      "ema_pdf:echinaceae-purpureae-herba:4.4",
+      "ema_pdf:echinaceae-purpureae-herba:4.5",
+      "ema_pdf:echinaceae-purpureae-radix:4.3",
+      "ema_pdf:echinaceae-purpureae-radix:4.4",
+      "ema_pdf:echinaceae-purpureae-radix:4.5"
+    ],
+    "text": "Las monografías de la EMA para la parte aérea y la raíz registran como contraindicación la hipersensibilidad a la sustancia activa y a otras plantas de la familia Asteraceae (Compositae). Entre sus advertencias, no recomiendan el uso en trastornos sistémicos progresivos, enfermedades autoinmunes, inmunodeficiencias, inmunosupresión y enfermedades del sistema de glóbulos blancos; señalan un posible riesgo de reacciones alérgicas en personas sensibles y de reacciones de hipersensibilidad graves o anafilácticas en pacientes atópicos, y que no se recomienda el uso en menores de 12 años por falta de datos. No registran interacciones."
+  },
+  "scientificName": {
+    "authors": "(L.) Moench",
+    "name": "Echinacea purpurea",
+    "refs": [
+      "wcvp:2910452"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Britton",
+      "name": "Brauneria purpurea",
+      "refs": [
+        "wcvp:2910454"
+      ]
+    },
+    {
+      "authors": "(L.) Raf.",
+      "name": "Helichroa purpurea",
+      "refs": [
+        "wcvp:3124610"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Rudbeckia purpurea",
+      "refs": [
+        "wcvp:2910453"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7080",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15485",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33543",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: rabia",
+      "activitySource": "Rabies",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40150",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43642",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Sífilis",
+      "activitySource": "Syphilis",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49227",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

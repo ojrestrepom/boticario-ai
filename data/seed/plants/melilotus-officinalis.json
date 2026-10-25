@@ -1,0 +1,989 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9ddd4e88b6fe2b50bbaee804c9e377e316dc8f0810e2b6e72685f558226235b6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Melilotus officinalis"
+      ],
+      "text": "trébol dulce"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Melilotus officinalis"
+      ],
+      "text": "trébol de olor amarillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Melilotus officinalis"
+      ],
+      "text": "meliloto amarillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Melilotus officinalis"
+      ],
+      "text": "coronilla real"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161160"
+      ],
+      "text": "trébol de color amarillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161160"
+      ],
+      "text": "Meliloto oficinal"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P264",
+        "usda_common_name:611-1"
+      ],
+      "text": "Yellow sweetclover"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P264"
+      ],
+      "text": "Echter Honigklee"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Melilotus officinalis"
+    ],
+    "value": "Especie herbácea de la familia de las leguminosas que se cultiva como planta forrajera. Su olor dulce característico se intensifica al secarse y se debe a su alto contenido en cumarina."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Melilotus officinalis"
+    ],
+    "value": "Trébol dulce"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2367217"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:meliloti-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos circulatorios",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:meliloti-herba"
+      ],
+      "subarea": "circulacion"
+    }
+  ],
+  "id": "melilotus-officinalis",
+  "image": {
+    "attributionRequired": false,
+    "author": "AnRo0002",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:20140613Melilotus_officinalis.jpg",
+    "refs": [
+      "commons:File:20140613Melilotus officinalis.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/20140613Melilotus_officinalis.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:611-FL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2367217"
+    ],
+    "value": "Europa, Siberia y Asia occidental y central, incluidos la península arábiga y el subcontinente indio."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:meliloti-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:20140613Melilotus officinalis.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:20140613Melilotus officinalis.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:20140613Melilotus_officinalis.jpg"
+    },
+    "efsa_botanic:307": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Coumarin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:308": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: coumarins",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:310": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: dicumarol",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:meliloti-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Meliloti herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/meliloti-herba"
+    },
+    "ema_pdf:meliloti-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de meliloti-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-melilotus-officinalis-l-lam-herba_en.pdf"
+    },
+    "ema_pdf:meliloti-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de meliloti-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-melilotus-officinalis-l-lam-herba_en.pdf"
+    },
+    "ema_pdf:meliloti-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de meliloti-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-melilotus-officinalis-l-lam-herba_en.pdf"
+    },
+    "tppt_plant:P264": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Melilotus officinalis Lam.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:611-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yellow Sweetclover»",
+      "license": "CC0"
+    },
+    "usda_part:611-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:10584": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10584",
+      "license": "CC0"
+    },
+    "usda_use:10585": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10585",
+      "license": "CC0"
+    },
+    "usda_use:10586": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10586",
+      "license": "CC0"
+    },
+    "usda_use:13411": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13411",
+      "license": "CC0"
+    },
+    "usda_use:15295": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15295",
+      "license": "CC0"
+    },
+    "usda_use:18320": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18320",
+      "license": "CC0"
+    },
+    "usda_use:21002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21002",
+      "license": "CC0"
+    },
+    "usda_use:22065": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22065",
+      "license": "CC0"
+    },
+    "usda_use:22066": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22066",
+      "license": "CC0"
+    },
+    "usda_use:25858": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25858",
+      "license": "CC0"
+    },
+    "usda_use:2623": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2623",
+      "license": "CC0"
+    },
+    "usda_use:2624": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2624",
+      "license": "CC0"
+    },
+    "usda_use:31576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31576",
+      "license": "CC0"
+    },
+    "usda_use:34832": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34832",
+      "license": "CC0"
+    },
+    "usda_use:36785": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36785",
+      "license": "CC0"
+    },
+    "usda_use:38693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38693",
+      "license": "CC0"
+    },
+    "usda_use:4032": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4032",
+      "license": "CC0"
+    },
+    "usda_use:50681": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50681",
+      "license": "CC0"
+    },
+    "usda_use:51442": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51442",
+      "license": "CC0"
+    },
+    "usda_use:52371": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52371",
+      "license": "CC0"
+    },
+    "usda_use:5871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5871",
+      "license": "CC0"
+    },
+    "usda_use:59460": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59460",
+      "license": "CC0"
+    },
+    "usda_use:64037": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64037",
+      "license": "CC0"
+    },
+    "usda_use:64288": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64288",
+      "license": "CC0"
+    },
+    "usda_use:65244": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65244",
+      "license": "CC0"
+    },
+    "usda_use:67591": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67591",
+      "license": "CC0"
+    },
+    "usda_use:75087": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75087",
+      "license": "CC0"
+    },
+    "usda_use:78960": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78960",
+      "license": "CC0"
+    },
+    "usda_use:79474": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79474",
+      "license": "CC0"
+    },
+    "usda_use:81652": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81652",
+      "license": "CC0"
+    },
+    "wcvp:2367217": {
+      "dataset": "wcvp",
+      "label": "WCVP: Melilotus officinalis (L.) Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2368382": {
+      "dataset": "wcvp",
+      "label": "WCVP: Medicago officinalis (L.) E.H.L.Krause",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2439192": {
+      "dataset": "wcvp",
+      "label": "WCVP: Trifolium officinale L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2591127": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sertula officinalis (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2681267": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brachylobus officinalis (L.) Dulac",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2998901": {
+      "dataset": "wcvp",
+      "label": "WCVP: Trigonella officinalis (L.) Coulot & Rabaute",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q161160": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q161160",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q161160"
+    },
+    "wikipedia_es:Melilotus officinalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Melilotus officinalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Melilotus_officinalis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de aceite esencial de la EMA; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P264",
+      "efsa_botanic:307",
+      "efsa_botanic:308",
+      "efsa_botanic:310",
+      "ema_pdf:meliloti-herba:4.3",
+      "ema_pdf:meliloti-herba:4.4",
+      "ema_pdf:meliloti-herba:4.5",
+      "usda_use:38693",
+      "usda_use:75087"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. TPPT registra la parte aérea como débilmente tóxica: la cumarina y sus glucósidos son tóxicos, el dicumarol puede formarse por hongos y podrían estar presentes alcaloides piridínicos. EFSA registra la cumarina, sustancia con límite de ingesta en la UE, y el dicumarol en la parte aérea. La EMA registra como contraindicación la hipersensibilidad al principio activo, indica que no se ha establecido el uso en menores de 18 años y no registra interacciones."
+  },
+  "scientificName": {
+    "authors": "(L.) Lam.",
+    "name": "Melilotus officinalis",
+    "refs": [
+      "wcvp:2367217"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Dulac",
+      "name": "Brachylobus officinalis",
+      "refs": [
+        "wcvp:2681267"
+      ]
+    },
+    {
+      "authors": "(L.) E.H.L.Krause",
+      "name": "Medicago officinalis",
+      "refs": [
+        "wcvp:2368382"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Sertula officinalis",
+      "refs": [
+        "wcvp:2591127"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Trifolium officinale",
+      "refs": [
+        "wcvp:2439192"
+      ]
+    },
+    {
+      "authors": "(L.) Coulot & Rabaute",
+      "name": "Trigonella officinalis",
+      "refs": [
+        "wcvp:2998901"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2623",
+        "usda_use:2624",
+        "usda_use:64288",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10584",
+        "usda_use:10585",
+        "usda_use:10586",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5871",
+        "usda_use:65244",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22065",
+        "usda_use:22066",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50681",
+        "usda_use:78960",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Bélgica"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52371",
+        "usda_use:79474",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Dolor de muelas",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51442",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64037",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Ano",
+      "activitySource": "Anus",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4032",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59460",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Cordial",
+      "activitySource": "Cordial",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13411",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Cosmético",
+      "activitySource": "Cosmetic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67591",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Desodorante",
+      "activitySource": "Deodorant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15295",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18320",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Embolia",
+      "activitySource": "Embolism",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21002",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25858",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31576",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Mialgia",
+      "activitySource": "Myalgia",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81652",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34832",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Piles",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36785",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

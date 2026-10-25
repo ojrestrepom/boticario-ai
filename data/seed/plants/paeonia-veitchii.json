@@ -1,0 +1,118 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:09a46acdc44182cf18144070548de5ce1eb678a9df51ba5c8be954f7ce233e55",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:519366"
+    ],
+    "value": "Paeonia veitchii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:519366"
+    ],
+    "value": "Paeoniaceae"
+  },
+  "goals": [],
+  "id": "paeonia-veitchii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Michael Wolf ( Webseite )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Paeonia_anomala_subsp._veitchii_BG_Meise_38327.JPG",
+    "refs": [
+      "commons:File:Paeonia anomala subsp. veitchii BG Meise 38327.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Paeonia_anomala_subsp._veitchii_BG_Meise_38327.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:519366"
+    ],
+    "value": "Nativa de China."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:paeoniae-radix-rubra"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Paeonia anomala subsp. veitchii BG Meise 38327.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Paeonia anomala subsp. veitchii BG Meise 38327.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Paeonia_anomala_subsp._veitchii_BG_Meise_38327.JPG"
+    },
+    "ema_herbal:paeoniae-radix-rubra": {
+      "dataset": "ema_json",
+      "label": "EMA: Paeoniae radix rubra",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/paeoniae-radix-rubra"
+    },
+    "wcvp:518977": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paeonia anomala subsp. veitchii (Lynch) D.Y.Hong & K.Y.Pan",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:519366": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paeonia veitchii Lynch",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "La declaración pública de la EMA no trae datos de seguridad y el paquete no tiene otra información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lynch",
+    "name": "Paeonia veitchii",
+    "refs": [
+      "wcvp:519366"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lynch) D.Y.Hong & K.Y.Pan",
+      "name": "Paeonia anomala subsp. veitchii",
+      "refs": [
+        "wcvp:518977"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

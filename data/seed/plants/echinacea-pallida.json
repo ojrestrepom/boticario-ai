@@ -1,0 +1,348 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:db7be0b704d2face60218d53c27c00acb96923d7d1e05098de3ef6f84037eaa3",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Echinacea pallida",
+        "wikidata:Q1813728"
+      ],
+      "text": "Equinácea pálida"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2126-1"
+      ],
+      "text": "Echinacea"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2126-3"
+      ],
+      "text": "Pale Purple-Coneflower"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2126-2"
+      ],
+      "text": "Pale-Flower Echinacea"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Echinacea pallida"
+    ],
+    "value": "Planta herbácea de la familia Asteraceae que crece en Norteamérica, similar a Echinacea angustifolia pero de mayor crecimiento."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Echinacea pallida"
+    ],
+    "value": "Equinácea pálida"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2910448"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:echinaceae-pallidae-radix"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "echinacea-pallida",
+  "image": {
+    "attributionRequired": true,
+    "author": "SEWilco",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Echinacea_pallida_butterfly_MN_2007.JPG",
+    "refs": [
+      "commons:File:Echinacea pallida butterfly MN 2007.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Echinacea_pallida_butterfly_MN_2007.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2126-FL",
+      "usda_part:2126-RT",
+      "usda_part:2126-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2910448"
+    ],
+    "value": "Nativa del este de Canadá y de regiones del centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:echinaceae-pallidae-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Echinacea pallida butterfly MN 2007.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Echinacea pallida butterfly MN 2007.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Echinacea_pallida_butterfly_MN_2007.JPG"
+    },
+    "ema_herbal:echinaceae-pallidae-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Echinaceae pallidae radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/echinaceae-pallidae-radix"
+    },
+    "ema_pdf:echinaceae-pallidae-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-pallidae-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-pallida-nutt-nutt-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:echinaceae-pallidae-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-pallidae-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-pallida-nutt-nutt-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:echinaceae-pallidae-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de echinaceae-pallidae-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-pallida-nutt-nutt-radix-revision-1_en.pdf"
+    },
+    "usda_common_name:2126-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Echinacea»",
+      "license": "CC0"
+    },
+    "usda_common_name:2126-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pale-Flower Echinacea»",
+      "license": "CC0"
+    },
+    "usda_common_name:2126-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pale Purple-Coneflower»",
+      "license": "CC0"
+    },
+    "usda_part:2126-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:2126-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_part:2126-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:16210": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16210",
+      "license": "CC0"
+    },
+    "usda_use:1738": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1738",
+      "license": "CC0"
+    },
+    "usda_use:9604": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9604",
+      "license": "CC0"
+    },
+    "wcvp:2910448": {
+      "dataset": "wcvp",
+      "label": "WCVP: Echinacea pallida (Nutt.) Nutt.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2910449": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rudbeckia pallida Nutt.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2910455": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brauneria pallida (Nutt.) Britton",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q1813728": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1813728",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1813728"
+    },
+    "wikipedia_es:Echinacea pallida": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Echinacea pallida",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Echinacea_pallida"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en flor, raíz y brote, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:echinaceae-pallidae-radix:4.3",
+      "ema_pdf:echinaceae-pallidae-radix:4.4",
+      "ema_pdf:echinaceae-pallidae-radix:4.5"
+    ],
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y a otras plantas de la familia Asteraceae (Compositae). Entre sus advertencias, no recomienda el uso en trastornos sistémicos progresivos, enfermedades autoinmunes, inmunodeficiencias, inmunosupresión y enfermedades del sistema de glóbulos blancos, señala un posible riesgo de reacciones alérgicas en personas sensibles y de reacciones anafilácticas en pacientes atópicos, y que no se ha establecido el uso en menores de 12 años. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "(Nutt.) Nutt.",
+    "name": "Echinacea pallida",
+    "refs": [
+      "wcvp:2910448"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Nutt.) Britton",
+      "name": "Brauneria pallida",
+      "refs": [
+        "wcvp:2910455"
+      ]
+    },
+    {
+      "authors": "Nutt.",
+      "name": "Rudbeckia pallida",
+      "refs": [
+        "wcvp:2910449"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1738",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
+      "activitySource": "Cancer(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9604",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16210",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

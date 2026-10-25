@@ -1,0 +1,993 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0cb1b8478576579a7bf834b1d9fdd02625348fc54793c0dc5a908358fd54edf1",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hamamelis virginiana",
+        "wikidata:Q913129"
+      ],
+      "text": "Avellano de bruja"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hamamelis virginiana"
+      ],
+      "text": "escoba de bruja"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hamamelis virginiana"
+      ],
+      "text": "avellana que se rompe"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:457-1"
+      ],
+      "text": "Witch Hazel"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Hamamelis virginiana"
+    ],
+    "value": "Arbusto de la familia Hamamelidaceae, natural de Estados Unidos, donde crece en bosques húmedos o empantanados de zonas templadas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Hamamelis virginiana"
+    ],
+    "value": "Avellano de bruja"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2838988"
+    ],
+    "value": "Hamamelidaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene monografías para la corteza, la hoja y el destilado de ramitas en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:hamamelidis-cortex",
+        "ema_herbal:hamamelidis-folium",
+        "ema_herbal:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos circulatorios",
+      "evidence": "La EMA tiene monografías para la corteza y la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:hamamelidis-cortex",
+        "ema_herbal:hamamelidis-folium"
+      ],
+      "subarea": "circulacion"
+    },
+    {
+      "area": "Molestias oculares",
+      "evidence": "La EMA tiene una monografía para el destilado de ramitas en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum"
+      ],
+      "subarea": "molestias-oculares"
+    }
+  ],
+  "id": "hamamelis-virginiana",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg",
+    "refs": [
+      "commons:File:Hamamelis virginiana - Köhler–s Medizinal-Pflanzen-070.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:457-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2838988"
+    ],
+    "value": "Este de Canadá, centro y este de Estados Unidos y México"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:hamamelidis-cortex"
+      ],
+      "value": "Corteza"
+    },
+    {
+      "refs": [
+        "ema_herbal:hamamelidis-folium"
+      ],
+      "value": "Hoja"
+    },
+    {
+      "refs": [
+        "ema_herbal:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum"
+      ],
+      "value": "Ramita (destilado)"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hamamelis virginiana - Köhler–s Medizinal-Pflanzen-070.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hamamelis virginiana - Köhler–s Medizinal-Pflanzen-070.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg"
+    },
+    "ema_herbal:hamamelidis-cortex": {
+      "dataset": "ema_json",
+      "label": "EMA: Hamamelidis cortex",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/hamamelidis-cortex"
+    },
+    "ema_herbal:hamamelidis-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Hamamelidis folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/hamamelidis-folium"
+    },
+    "ema_herbal:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum": {
+      "dataset": "ema_json",
+      "label": "EMA: Hamamelidis folium et cortex aut ramunculus destillatum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/hamamelidis-folium-et-cortex-aut-ramunculus-destillatum"
+    },
+    "ema_pdf:hamamelidis-cortex:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hamamelidis-cortex, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-cortex_en.pdf"
+    },
+    "ema_pdf:hamamelidis-cortex:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hamamelidis-cortex, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-cortex_en.pdf"
+    },
+    "ema_pdf:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hamamelidis-folium-et-cortex-aut-ramunculus-destillatum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-folium-cortex-aut-ramunculus-destillatum_en.pdf"
+    },
+    "ema_pdf:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hamamelidis-folium-et-cortex-aut-ramunculus-destillatum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-folium-cortex-aut-ramunculus-destillatum_en.pdf"
+    },
+    "ema_pdf:hamamelidis-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hamamelidis-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-folium_en.pdf"
+    },
+    "ema_pdf:hamamelidis-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hamamelidis-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-folium_en.pdf"
+    },
+    "usda_common_name:457-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Witch Hazel»",
+      "license": "CC0"
+    },
+    "usda_part:457-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11496": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11496",
+      "license": "CC0"
+    },
+    "usda_use:13550": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13550",
+      "license": "CC0"
+    },
+    "usda_use:1762": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1762",
+      "license": "CC0"
+    },
+    "usda_use:23503": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23503",
+      "license": "CC0"
+    },
+    "usda_use:28241": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28241",
+      "license": "CC0"
+    },
+    "usda_use:28334": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28334",
+      "license": "CC0"
+    },
+    "usda_use:29498": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29498",
+      "license": "CC0"
+    },
+    "usda_use:2998": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2998",
+      "license": "CC0"
+    },
+    "usda_use:3643": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3643",
+      "license": "CC0"
+    },
+    "usda_use:36894": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36894",
+      "license": "CC0"
+    },
+    "usda_use:43050": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43050",
+      "license": "CC0"
+    },
+    "usda_use:43679": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43679",
+      "license": "CC0"
+    },
+    "usda_use:50540": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50540",
+      "license": "CC0"
+    },
+    "usda_use:50541": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50541",
+      "license": "CC0"
+    },
+    "usda_use:52253": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52253",
+      "license": "CC0"
+    },
+    "usda_use:52254": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52254",
+      "license": "CC0"
+    },
+    "usda_use:533": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 533",
+      "license": "CC0"
+    },
+    "usda_use:5760": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5760",
+      "license": "CC0"
+    },
+    "usda_use:5761": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5761",
+      "license": "CC0"
+    },
+    "usda_use:5762": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5762",
+      "license": "CC0"
+    },
+    "usda_use:64263": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64263",
+      "license": "CC0"
+    },
+    "usda_use:65207": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65207",
+      "license": "CC0"
+    },
+    "usda_use:65208": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65208",
+      "license": "CC0"
+    },
+    "usda_use:66002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66002",
+      "license": "CC0"
+    },
+    "usda_use:70587": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70587",
+      "license": "CC0"
+    },
+    "usda_use:72058": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72058",
+      "license": "CC0"
+    },
+    "usda_use:72457": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72457",
+      "license": "CC0"
+    },
+    "usda_use:74661": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74661",
+      "license": "CC0"
+    },
+    "usda_use:76566": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76566",
+      "license": "CC0"
+    },
+    "usda_use:76764": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76764",
+      "license": "CC0"
+    },
+    "usda_use:79434": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79434",
+      "license": "CC0"
+    },
+    "usda_use:8365": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8365",
+      "license": "CC0"
+    },
+    "usda_use:8366": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8366",
+      "license": "CC0"
+    },
+    "usda_use:9127": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9127",
+      "license": "CC0"
+    },
+    "wcvp:2443084": {
+      "dataset": "wcvp",
+      "label": "WCVP: Trilopus virginiana (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2838988": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hamamelis virginiana L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q913129": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q913129",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q913129"
+    },
+    "wikipedia_es:Hamamelis virginiana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Hamamelis virginiana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Hamamelis_virginiana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:hamamelidis-cortex:4.3",
+      "ema_pdf:hamamelidis-cortex:4.4",
+      "ema_pdf:hamamelidis-folium:4.3",
+      "ema_pdf:hamamelidis-folium:4.4",
+      "ema_pdf:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum:4.3",
+      "ema_pdf:hamamelidis-folium-et-cortex-aut-ramunculus-destillatum:4.4"
+    ],
+    "text": "La EMA registra para la corteza, la hoja y el destilado de ramitas una contraindicación por hipersensibilidad a la sustancia activa, uso en niños y adolescentes sin establecer según la indicación, advertencias sobre sangrado rectal y, para el destilado, sobre dolor ocular, cambios en la visión, enrojecimiento continuado o irritación del ojo."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Hamamelis virginiana",
+    "refs": [
+      "wcvp:2838988"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Raf.",
+      "name": "Trilopus virginiana",
+      "refs": [
+        "wcvp:2443084"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Eb20: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 22"
+        },
+        {
+          "key": "Eb21: 207",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 207"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5760",
+        "usda_use:5761",
+        "usda_use:5762",
+        "usda_use:65207",
+        "usda_use:65208",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Eb28: 322",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 322"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos",
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8365",
+        "usda_use:8366",
+        "usda_use:66002",
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Eb28: 322",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 322"
+        },
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52253",
+        "usda_use:52254",
+        "usda_use:79434",
+        "usda_reference:EB",
+        "usda_reference:Hartwell",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Ojo",
+      "activitySource": "Eye",
+      "citations": [
+        {
+          "key": "Eb28: 322",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 322"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23503",
+        "usda_use:70587",
+        "usda_reference:EB",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Eb28: 322",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 322"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29498",
+        "usda_use:72457",
+        "usda_reference:EB",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Piles",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36894",
+        "usda_use:74661",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Eb21: 207",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 207"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43050",
+        "usda_use:76566",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43679",
+        "usda_use:76764",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Eb21: 207",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 207"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50540",
+        "usda_use:50541",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dolor de espalda",
+      "activitySource": "Ache(Back)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:533",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1762",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64263",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antidiarreico",
+      "activitySource": "Antidiarrheic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2998",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3643",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Alemania"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9127",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Chewstick",
+      "activitySource": "Chewstick",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11496",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Cosmético",
+      "activitySource": "Cosmetic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13550",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hemorragia",
+      "activitySource": "Hemorrhage",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72058",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Hemorrhoids",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28241",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28334",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

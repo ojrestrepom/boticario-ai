@@ -1,0 +1,164 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:155994b874520c9dca61a7fb03927d5f22be12e8e7bbec1bc3c4ac8435a44520",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2839702"
+    ],
+    "value": "Harpagophytum zeyheri"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2839702"
+    ],
+    "value": "Pedaliaceae"
+  },
+  "goals": [
+    {
+      "area": "Pérdida de apetito; Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la raíz en estas áreas.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:harpagophyti-radix"
+      ],
+      "subarea": "digestion"
+    },
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:harpagophyti-radix"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    }
+  ],
+  "id": "harpagophytum-zeyheri",
+  "image": {
+    "attributionRequired": true,
+    "author": "Dr. Alexey Yakovlev",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Harpagophytum_zeyheri_(Pedaliaceae)_(47254222741).jpg",
+    "refs": [
+      "commons:File:Harpagophytum zeyheri (Pedaliaceae) (47254222741).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Harpagophytum_zeyheri_%28Pedaliaceae%29_%2847254222741%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2839702"
+    ],
+    "value": "Nativa del África tropical austral y del sur de África."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:harpagophyti-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Harpagophytum zeyheri (Pedaliaceae) (47254222741).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Harpagophytum zeyheri (Pedaliaceae) (47254222741).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Harpagophytum_zeyheri_(Pedaliaceae)_(47254222741).jpg"
+    },
+    "ema_herbal:harpagophyti-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Harpagophyti radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/harpagophyti-radix"
+    },
+    "ema_pdf:harpagophyti-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de harpagophyti-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf"
+    },
+    "ema_pdf:harpagophyti-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de harpagophyti-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf"
+    },
+    "ema_pdf:harpagophyti-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de harpagophyti-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf"
+    },
+    "wcvp:2450286": {
+      "dataset": "wcvp",
+      "label": "WCVP: Uncaria zeyheri (Decne.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2839702": {
+      "dataset": "wcvp",
+      "label": "WCVP: Harpagophytum zeyheri Decne.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:harpagophyti-radix:4.3",
+      "ema_pdf:harpagophyti-radix:4.4",
+      "ema_pdf:harpagophyti-radix:4.5"
+    ],
+    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa y la úlcera gástrica o duodenal activa. Entre sus advertencias indica que no se ha establecido el uso en menores de 18 años, que el dolor articular con hinchazón, enrojecimiento o fiebre debe ser examinado por un médico, y que quienes tienen cálculos biliares deben consultar a un médico. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "Decne.",
+    "name": "Harpagophytum zeyheri",
+    "refs": [
+      "wcvp:2839702"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Decne.) Kuntze",
+      "name": "Uncaria zeyheri",
+      "refs": [
+        "wcvp:2450286"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

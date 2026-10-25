@@ -1,0 +1,921 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:79c989db83a952746919934537fa09ed35376a6d9cb6da0963369755bc28227b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:946-1"
+      ],
+      "text": "European Goldenrod"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:946-2"
+      ],
+      "text": "Woundwort"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Solidago virgaurea"
+    ],
+    "value": "Hierba perenne de la familia Asteraceae que florece profusamente a fines del verano y se cultiva como flor de jardín, con muchos cultivares."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2911230"
+    ],
+    "value": "Solidago virgaurea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2911230"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía de la parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:solidaginis-virgaureae-herba"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "solidago-virgaurea",
+  "image": {
+    "attributionRequired": true,
+    "author": "Victor M. Vicente Selvas",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:S._virgaurea2015-10-10.jpg",
+    "refs": [
+      "commons:File:S. virgaurea2015-10-10.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/S._virgaurea2015-10-10.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2911230"
+    ],
+    "value": "Europa, Asia y norte de África"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:solidaginis-virgaureae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:S. virgaurea2015-10-10.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:S. virgaurea2015-10-10.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:S._virgaurea2015-10-10.jpg"
+    },
+    "ema_herbal:solidaginis-virgaureae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Solidaginis virgaureae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/solidaginis-virgaureae-herba"
+    },
+    "ema_pdf:solidaginis-virgaureae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de solidaginis-virgaureae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-solidago-virgaurea-l-herba_en.pdf"
+    },
+    "ema_pdf:solidaginis-virgaureae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de solidaginis-virgaureae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-solidago-virgaurea-l-herba_en.pdf"
+    },
+    "usda_common_name:946-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «European Goldenrod»",
+      "license": "CC0"
+    },
+    "usda_common_name:946-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Woundwort»",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:1012": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1012",
+      "license": "CC0"
+    },
+    "usda_use:10745": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10745",
+      "license": "CC0"
+    },
+    "usda_use:10746": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10746",
+      "license": "CC0"
+    },
+    "usda_use:10748": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10748",
+      "license": "CC0"
+    },
+    "usda_use:10749": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10749",
+      "license": "CC0"
+    },
+    "usda_use:17327": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17327",
+      "license": "CC0"
+    },
+    "usda_use:18748": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18748",
+      "license": "CC0"
+    },
+    "usda_use:18749": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18749",
+      "license": "CC0"
+    },
+    "usda_use:18750": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18750",
+      "license": "CC0"
+    },
+    "usda_use:19234": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19234",
+      "license": "CC0"
+    },
+    "usda_use:23318": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23318",
+      "license": "CC0"
+    },
+    "usda_use:25407": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25407",
+      "license": "CC0"
+    },
+    "usda_use:25904": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25904",
+      "license": "CC0"
+    },
+    "usda_use:28439": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28439",
+      "license": "CC0"
+    },
+    "usda_use:33095": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33095",
+      "license": "CC0"
+    },
+    "usda_use:34547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34547",
+      "license": "CC0"
+    },
+    "usda_use:34626": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34626",
+      "license": "CC0"
+    },
+    "usda_use:34627": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34627",
+      "license": "CC0"
+    },
+    "usda_use:46975": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46975",
+      "license": "CC0"
+    },
+    "usda_use:46976": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46976",
+      "license": "CC0"
+    },
+    "usda_use:48614": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48614",
+      "license": "CC0"
+    },
+    "usda_use:55189": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55189",
+      "license": "CC0"
+    },
+    "usda_use:55190": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55190",
+      "license": "CC0"
+    },
+    "usda_use:55191": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55191",
+      "license": "CC0"
+    },
+    "usda_use:56280": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56280",
+      "license": "CC0"
+    },
+    "usda_use:56281": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56281",
+      "license": "CC0"
+    },
+    "usda_use:6164": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6164",
+      "license": "CC0"
+    },
+    "usda_use:6165": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6165",
+      "license": "CC0"
+    },
+    "usda_use:61690": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61690",
+      "license": "CC0"
+    },
+    "usda_use:61693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61693",
+      "license": "CC0"
+    },
+    "usda_use:61694": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61694",
+      "license": "CC0"
+    },
+    "usda_use:61695": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61695",
+      "license": "CC0"
+    },
+    "usda_use:61697": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61697",
+      "license": "CC0"
+    },
+    "usda_use:71594": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71594",
+      "license": "CC0"
+    },
+    "usda_use:78297": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78297",
+      "license": "CC0"
+    },
+    "wcvp:2911230": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solidago virgaurea L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Solidago virgaurea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Solidago virgaurea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Solidago_virgaurea"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Steinmetz sí se resolvió.",
+      "target": "traditionalUses[5]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Hunan sí se resolvió.",
+      "target": "traditionalUses[6]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Steinmetz sí se resolvió.",
+      "target": "traditionalUses[7]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Steinmetz sí se resolvió.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Uphof sí se resolvió.",
+      "target": "traditionalUses[10]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:solidaginis-virgaureae-herba:4.3",
+      "ema_pdf:solidaginis-virgaureae-herba:4.4"
+    ],
+    "text": "La EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa o a plantas de la familia Asteraceae (Compositae) y las situaciones en que se recomienda reducir la ingesta de líquidos, como las enfermedades cardíacas o renales graves. En las advertencias señala la falta de experiencia en menores de 12 años y que no recomienda el uso junto con diuréticos sintéticos."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Solidago virgaurea",
+    "refs": [
+      "wcvp:2911230"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Europa",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10745",
+        "usda_use:10746",
+        "usda_use:10748",
+        "usda_use:10749",
+        "usda_reference:Hunan",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18748",
+        "usda_use:18749",
+        "usda_use:18750",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55189",
+        "usda_use:55190",
+        "usda_use:55191",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6164",
+        "usda_use:6165",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17327",
+        "usda_use:61693",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19234",
+        "usda_use:61694",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25407",
+        "usda_use:61695",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Nefritis",
+      "activitySource": "Nephritis",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34626",
+        "usda_use:34627",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46975",
+        "usda_use:46976",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48614",
+        "usda_use:78297",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56280",
+        "usda_use:56281",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1012",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Alexitérico",
+      "activitySource": "Alexiteric",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61690",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23318",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25904",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Gastritis",
+      "activitySource": "Gastritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71594",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28439",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33095",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Sarampión",
+      "activitySource": "Measles",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61697",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34547",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

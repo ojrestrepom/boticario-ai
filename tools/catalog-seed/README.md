@@ -859,6 +859,10 @@ Costo estimado: unos 18.500 tokens por planta según la corrida de control, es d
 
 Reanudación: `plan` solo pone en cola las plantas sin registro (o con otro `bundleHash`, `promptVersion` o `recordVersion`), así que, si la ejecución se corta, se vuelve a correr `plan` y se retoman las pendientes. El workflow escribe los registros en `data/work/generation/phase<N>/records/`, un archivo por planta, y esos directorios se importan al final con `seal --from`.
 
+Resultados de la fase 1: se generaron las 189 plantas con el prompt v7 en 19 lotes, en unos 14 minutos y con 3.255.434 tokens (unos 17.200 por planta, por debajo de los 18.500 estimados). El validador no dio errores en ningún lote. Los registros se importaron con `seal --from` por cada `data/work/generation/phase1/records/lot-NN`: la semilla quedó con 209 plantas (20 de control y 189 nuevas), `plan` ya no las lista (quedan las 2.146 de la fase 2) y `validate` sobre `data/seed/plants` da 0 errores y 0 advertencias. La base se construyó con `catalog-ingest build` y las pruebas de Rust, también las ignoradas, pasan. La medición está en `data/work/generation/phase1/report.md`. La tarea 11.3 sigue abierta hasta terminar la fase 2.
+
+Corrección del validador tras la fase 1: la palabra «gota» ya no es una expresión de dosis por sí sola, porque «Gout» se traduce como «Gota» y el validador marcaba la enfermedad. Ahora solo advierte con una cantidad delante («3 gotas», «unas gotas», «una gota») o en «gotas de». El prompt no cambió (sigue en la versión 7), así que los registros ya generados no se ponen en cola.
+
 ## Extracción de seguridad de los PDF de la EMA (spike 3.1)
 
 El spike de la tarea 3.1 (detalle en [`tools/catalog-seed/spikes/ema-pdf/README.md`](tools/catalog-seed/spikes/ema-pdf/README.md)) comprobó si se pueden extraer de los PDF de la EMA las secciones 4.3 (contraindicaciones), 4.4 (advertencias y precauciones) y 4.5 (interacciones), con su numeración y sin mezclar columnas.

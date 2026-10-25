@@ -1,0 +1,183 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e2778a3a922bbfcf8b7dc02908e26c111ee9ee4f8fbe265e06ae08c07b9bc1d3",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus polybractea"
+      ],
+      "text": "Mallee azul"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus polybractea"
+      ],
+      "text": "Mallee de hojas azules"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus polybractea"
+    ],
+    "value": "Especie de eucalipto perteneciente a la familia de las mirtáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eucalyptus polybractea"
+    ],
+    "value": "Mallee azul"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73676"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía del aceite esencial en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:eucalypti-aetheroleum"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía del aceite esencial en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:eucalypti-aetheroleum"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "eucalyptus-polybractea",
+  "image": {
+    "attributionRequired": true,
+    "author": "HelloMojo at English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_polybractea.jpg",
+    "refs": [
+      "commons:File:Eucalyptus polybractea.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Eucalyptus_polybractea.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:eucalypti-aetheroleum"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73676"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus polybractea.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus polybractea.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_polybractea.jpg"
+    },
+    "efsa_botanic:228": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:eucalypti-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Eucalypti aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/eucalypti-aetheroleum"
+    },
+    "ema_pdf:eucalypti-aetheroleum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-aetheroleum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:eucalypti-aetheroleum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-aetheroleum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:eucalypti-aetheroleum:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de eucalypti-aetheroleum, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf"
+    },
+    "wcvp:73676": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus polybractea R.T.Baker",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus polybractea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus polybractea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_polybractea"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:eucalypti-aetheroleum:4.3",
+      "ema_pdf:eucalypti-aetheroleum:4.4",
+      "ema_pdf:eucalypti-aetheroleum:4.5",
+      "efsa_botanic:228"
+    ],
+    "text": "La monografía de la EMA del aceite esencial registra contraindicaciones: hipersensibilidad al aceite de eucalipto o al 1,8-cineol, antecedentes de convulsiones en niños, edad menor de 24 meses por riesgo de laringoespasmo, y baños calientes completos con lesiones cutáneas extensas, heridas abiertas, enfermedades agudas de la piel, fiebre alta, infecciones graves, alteraciones circulatorias graves o insuficiencia cardíaca. Entre las advertencias figuran la falta de datos en niños pequeños, la precaución en afecciones inflamadas o ulceradas del tubo digestivo, el riesgo de quemaduras en inhalaciones con agua caliente, la irritación por contacto con los ojos y que no se aplique sobre piel dañada o irritada. No registra interacciones. EFSA lista el 1,8-cineol como sustancia de evidencia."
+  },
+  "scientificName": {
+    "authors": "R.T.Baker",
+    "name": "Eucalyptus polybractea",
+    "refs": [
+      "wcvp:73676"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,875 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:84d13ae904881fb9386b88cb91ff8303c1c9ab59d62344584b0c3f35fd9f2a58",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Glycyrrhiza uralensis"
+      ],
+      "text": "Regaliz"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:451-1"
+      ],
+      "text": "Chinese Licorice"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:451-2"
+      ],
+      "text": "Gan-Cao"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:451-3"
+      ],
+      "text": "Kan-Tsao"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Glycyrrhiza uralensis"
+    ],
+    "value": "Especie de planta angiosperma de la familia Fabaceae, nativa de Asia. Es una de las 50 hierbas fundamentales usadas en la medicina tradicional china."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Glycyrrhiza uralensis"
+    ],
+    "value": "Regaliz"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2827776"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:liquiritiae-radix"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:liquiritiae-radix"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "glycyrrhiza-uralensis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Stickpen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Glycyrrhizauralensis.jpg",
+    "refs": [
+      "commons:File:Glycyrrhizauralensis.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Glycyrrhizauralensis.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:451-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2827776"
+    ],
+    "value": "Asia central y occidental, China, Mongolia, Siberia y Europa oriental"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:liquiritiae-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Glycyrrhizauralensis.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Glycyrrhizauralensis.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Glycyrrhizauralensis.jpg"
+    },
+    "efsa_botanic:1012": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: glycyrrhizin",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:liquiritiae-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Liquiritiae radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/liquiritiae-radix"
+    },
+    "ema_pdf:liquiritiae-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de liquiritiae-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:liquiritiae-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de liquiritiae-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:liquiritiae-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de liquiritiae-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf"
+    },
+    "usda_common_name:451-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Licorice»",
+      "license": "CC0"
+    },
+    "usda_common_name:451-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Gan-Cao»",
+      "license": "CC0"
+    },
+    "usda_common_name:451-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kan-Tsao»",
+      "license": "CC0"
+    },
+    "usda_part:451-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Li": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Li",
+      "license": "CC0"
+    },
+    "usda_reference:NAS": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:1361": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1361",
+      "license": "CC0"
+    },
+    "usda_use:1398": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1398",
+      "license": "CC0"
+    },
+    "usda_use:14743": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14743",
+      "license": "CC0"
+    },
+    "usda_use:14970": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14970",
+      "license": "CC0"
+    },
+    "usda_use:14971": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14971",
+      "license": "CC0"
+    },
+    "usda_use:19280": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19280",
+      "license": "CC0"
+    },
+    "usda_use:22004": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22004",
+      "license": "CC0"
+    },
+    "usda_use:22005": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22005",
+      "license": "CC0"
+    },
+    "usda_use:23069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23069",
+      "license": "CC0"
+    },
+    "usda_use:23070": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23070",
+      "license": "CC0"
+    },
+    "usda_use:28166": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28166",
+      "license": "CC0"
+    },
+    "usda_use:2890": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2890",
+      "license": "CC0"
+    },
+    "usda_use:30113": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30113",
+      "license": "CC0"
+    },
+    "usda_use:30127": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30127",
+      "license": "CC0"
+    },
+    "usda_use:3094": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3094",
+      "license": "CC0"
+    },
+    "usda_use:3095": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3095",
+      "license": "CC0"
+    },
+    "usda_use:31261": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31261",
+      "license": "CC0"
+    },
+    "usda_use:31490": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31490",
+      "license": "CC0"
+    },
+    "usda_use:35565": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35565",
+      "license": "CC0"
+    },
+    "usda_use:36581": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36581",
+      "license": "CC0"
+    },
+    "usda_use:36582": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36582",
+      "license": "CC0"
+    },
+    "usda_use:389": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 389",
+      "license": "CC0"
+    },
+    "usda_use:3899": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3899",
+      "license": "CC0"
+    },
+    "usda_use:3954": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3954",
+      "license": "CC0"
+    },
+    "usda_use:66845": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66845",
+      "license": "CC0"
+    },
+    "usda_use:67698": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67698",
+      "license": "CC0"
+    },
+    "usda_use:81321": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81321",
+      "license": "CC0"
+    },
+    "wcvp:2827705": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycyrrhiza asperrima var. uralensis (Fisch. ex DC.) Regel & Herder",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2827776": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycyrrhiza uralensis Fisch. ex DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3304762": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycyrrhiza glabra var. uralensis (Fisch. ex DC.) L.Duan",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Glycyrrhiza uralensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Glycyrrhiza uralensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Glycyrrhiza_uralensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:liquiritiae-radix:4.3",
+      "ema_pdf:liquiritiae-radix:4.4",
+      "ema_pdf:liquiritiae-radix:4.5",
+      "efsa_botanic:1012"
+    ],
+    "text": "La EMA registra para la raíz una contraindicación por hipersensibilidad a la sustancia activa, uso en menores de 18 años sin establecer, efectos adversos graves posibles con productos que contienen regaliz (retención de líquidos, hipopotasemia, hipertensión y alteraciones del ritmo cardíaco), no recomendación en personas con hipertensión, enfermedades renales, hepáticas o cardiovasculares o hipopotasemia, e interacciones graves: puede contrarrestar medicamentos antihipertensivos, no se usa junto con diuréticos, glucósidos cardíacos, corticoides, laxantes estimulantes u otros medicamentos que agraven el desequilibrio electrolítico, y puede afectar la actividad de CYP3A4. EFSA lista la glicirricina en la raíz como sustancia de evidencia."
+  },
+  "scientificName": {
+    "authors": "Fisch. ex DC.",
+    "name": "Glycyrrhiza uralensis",
+    "refs": [
+      "wcvp:2827776"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Fisch. ex DC.) Regel & Herder",
+      "name": "Glycyrrhiza asperrima var. uralensis",
+      "refs": [
+        "wcvp:2827705"
+      ]
+    },
+    {
+      "authors": "(Fisch. ex DC.) L.Duan",
+      "name": "Glycyrrhiza glabra var. uralensis",
+      "refs": [
+        "wcvp:3304762"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3094",
+        "usda_use:3095",
+        "usda_reference:Leung",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67698",
+        "usda_use:81321",
+        "usda_reference:Keys",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14970",
+        "usda_use:14971",
+        "usda_reference:Keys",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22004",
+        "usda_use:22005",
+        "usda_reference:Keys",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23069",
+        "usda_use:23070",
+        "usda_reference:Keys",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Internulcer",
+      "activitySource": "Internulcer",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30113",
+        "usda_use:30127",
+        "usda_reference:Keys",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Faringitis",
+      "activitySource": "Pharyngitis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36581",
+        "usda_use:36582",
+        "usda_reference:Keys",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Absceso",
+      "activitySource": "Abscess",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:389",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: enfermedad de Addison",
+      "activitySource": "Addison's-Disease",
+      "citations": [
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1361",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Adrenocortical",
+      "activitySource": "Adrenocortical",
+      "citations": [
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1398",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Anorexia",
+      "activitySource": "Anorexia",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2890",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3899",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Antitusivo",
+      "activitySource": "Antitussive",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3954",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de esófago",
+      "activitySource": "Cancer(Esophagus)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66845",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14743",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Duodeno",
+      "activitySource": "Duodenum",
+      "citations": [
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19280",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Hemorragia",
+      "activitySource": "Hemorrhage",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28166",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Laringitis",
+      "activitySource": "Laryngitis",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31261",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31490",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Palpitación",
+      "activitySource": "Palpitation",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35565",
+        "usda_reference:NAS"
+      ]
+    }
+  ]
+}

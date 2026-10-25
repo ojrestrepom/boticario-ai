@@ -1,0 +1,926 @@
+{
+  "aliases": [
+    "commiphora-molmol"
+  ],
+  "bundleHash": "sha256:648390365306205c4ac2225fd8d969e48cb639ef84895d895bf9de6a8a13d52e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:298-6"
+      ],
+      "text": "Mirra"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:298-2"
+      ],
+      "text": "African Myrrh"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:298-3"
+      ],
+      "text": "Herabol Myrrh"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:298-1"
+      ],
+      "text": "Myrrh"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:298-4"
+      ],
+      "text": "Somali Myrrh"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Commiphora myrrha"
+    ],
+    "value": "Especie de la familia Burseraceae, natural de Somalia y otras regiones de África. De su resina se obtiene la mirra."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:298-6"
+    ],
+    "value": "Mirra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2733595"
+    ],
+    "value": "Burseraceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:myrrha"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:myrrha"
+      ],
+      "subarea": "boca-y-garganta"
+    }
+  ],
+  "id": "commiphora-myrrha",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Commiphora_myrrha_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-019.jpg",
+    "refs": [
+      "commons:File:Commiphora myrrha - Köhler–s Medizinal-Pflanzen-019.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Commiphora_myrrha_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-019.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:298-RE"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2733595"
+    ],
+    "value": "Península arábiga y África tropical oriental y nororiental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:myrrha"
+      ],
+      "value": "Resina"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Commiphora myrrha - Köhler–s Medizinal-Pflanzen-019.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Commiphora myrrha - Köhler–s Medizinal-Pflanzen-019.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Commiphora_myrrha_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-019.jpg"
+    },
+    "efsa_botanic:1030": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: curzerenone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1031": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 2-Methoxyfuranodiene",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1032": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: furanoelemene",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1033": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: furan derivatives",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:715": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Commiphora myrrha (Nees) Engl.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:716": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Commiphora myrrha (Nees) Engl.",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:myrrha": {
+      "dataset": "ema_json",
+      "label": "EMA: Myrrha",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/myrrha"
+    },
+    "ema_pdf:myrrha:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrrha, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-commiphora-molmol-engler-gummi-resina_en.pdf"
+    },
+    "ema_pdf:myrrha:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrrha, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-commiphora-molmol-engler-gummi-resina_en.pdf"
+    },
+    "ema_pdf:myrrha:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrrha, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-commiphora-molmol-engler-gummi-resina_en.pdf"
+    },
+    "usda_common_name:298-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Myrrh»",
+      "license": "CC0"
+    },
+    "usda_common_name:298-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «African Myrrh»",
+      "license": "CC0"
+    },
+    "usda_common_name:298-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Herabol Myrrh»",
+      "license": "CC0"
+    },
+    "usda_common_name:298-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Somali Myrrh»",
+      "license": "CC0"
+    },
+    "usda_common_name:298-6": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mirra (Sp. It.)»",
+      "license": "CC0"
+    },
+    "usda_part:298-RE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Resin, Exudate, Sap»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:1687": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1687",
+      "license": "CC0"
+    },
+    "usda_use:21001": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21001",
+      "license": "CC0"
+    },
+    "usda_use:21548": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21548",
+      "license": "CC0"
+    },
+    "usda_use:28299": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28299",
+      "license": "CC0"
+    },
+    "usda_use:32454": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32454",
+      "license": "CC0"
+    },
+    "usda_use:33190": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33190",
+      "license": "CC0"
+    },
+    "usda_use:33883": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33883",
+      "license": "CC0"
+    },
+    "usda_use:3562": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3562",
+      "license": "CC0"
+    },
+    "usda_use:44470": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44470",
+      "license": "CC0"
+    },
+    "usda_use:44471": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44471",
+      "license": "CC0"
+    },
+    "usda_use:44589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44589",
+      "license": "CC0"
+    },
+    "usda_use:45617": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45617",
+      "license": "CC0"
+    },
+    "usda_use:45659": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45659",
+      "license": "CC0"
+    },
+    "usda_use:47502": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47502",
+      "license": "CC0"
+    },
+    "usda_use:4811": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4811",
+      "license": "CC0"
+    },
+    "usda_use:51976": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51976",
+      "license": "CC0"
+    },
+    "usda_use:5471": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5471",
+      "license": "CC0"
+    },
+    "usda_use:55786": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55786",
+      "license": "CC0"
+    },
+    "usda_use:57517": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57517",
+      "license": "CC0"
+    },
+    "usda_use:57520": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57520",
+      "license": "CC0"
+    },
+    "usda_use:63190": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63190",
+      "license": "CC0"
+    },
+    "usda_use:63191": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63191",
+      "license": "CC0"
+    },
+    "usda_use:64233": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64233",
+      "license": "CC0"
+    },
+    "usda_use:66196": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66196",
+      "license": "CC0"
+    },
+    "usda_use:77992": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77992",
+      "license": "CC0"
+    },
+    "usda_use:79386": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79386",
+      "license": "CC0"
+    },
+    "wcvp:2668250": {
+      "dataset": "wcvp",
+      "label": "WCVP: Balsamea myrrha (T.Nees) Oken",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2668345": {
+      "dataset": "wcvp",
+      "label": "WCVP: Balsamodendrum myrrha T.Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2733582": {
+      "dataset": "wcvp",
+      "label": "WCVP: Commiphora molmol (Engl.) Engl. ex Tschirch",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2733595": {
+      "dataset": "wcvp",
+      "label": "WCVP: Commiphora myrrha (T.Nees) Engl.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Commiphora myrrha": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Commiphora myrrha",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Commiphora_myrrha"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Commiphora molmol) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la resina, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:myrrha:4.3",
+      "ema_pdf:myrrha:4.4",
+      "ema_pdf:myrrha:4.5",
+      "efsa_botanic:1031",
+      "efsa_botanic:1030",
+      "efsa_botanic:1033",
+      "efsa_botanic:1032",
+      "efsa_endpoint:715",
+      "efsa_endpoint:716"
+    ],
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y señala que no se recomienda su uso en menores de 12 años por falta de datos. Menciona además el empeoramiento de los síntomas, la fiebre o los signos de infección cutánea, los forúnculos faciales y el contacto de la tintura con los ojos. No registra interacciones con otros medicamentos. EFSA lista como sustancias de evidencia en el tronco la 2-metoxifuranodieno, la curzerenona, los derivados del furano y el furanoelemeno, y un estudio crónico en ratas con extracto describe hepato-nefropatía."
+  },
+  "scientificName": {
+    "authors": "(T.Nees) Engl.",
+    "name": "Commiphora myrrha",
+    "refs": [
+      "wcvp:2733595"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Engl.) Engl. ex Tschirch",
+      "name": "Commiphora molmol",
+      "refs": [
+        "wcvp:2733582"
+      ]
+    },
+    {
+      "authors": "(T.Nees) Oken",
+      "name": "Balsamea myrrha",
+      "refs": [
+        "wcvp:2668250"
+      ]
+    },
+    {
+      "authors": "T.Nees",
+      "name": "Balsamodendrum myrrha",
+      "refs": [
+        "wcvp:2668345"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China",
+        "Indochina"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44470",
+        "usda_use:44471",
+        "usda_use:44589",
+        "usda_reference:Bliss",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45617",
+        "usda_use:45659",
+        "usda_reference:Keys",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47502",
+        "usda_use:77992",
+        "usda_reference:Keys",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51976",
+        "usda_use:79386",
+        "usda_reference:Hartwell",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55786",
+        "usda_use:57520",
+        "usda_reference:Bliss",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1687",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64233",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3562",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4811",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5471",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66196",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Embalsamamiento",
+      "activitySource": "Embalming",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21001",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21548",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63190",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28299",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63191",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Loquios",
+      "activitySource": "Lochia",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32454",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Manía",
+      "activitySource": "Mania",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33190",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Menoxenia",
+      "activitySource": "Menoxenia",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33883",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Piles",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57517",
+        "usda_reference:Leung"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:89a9c81a3966108fe53498018aa924aa1027dcad950b712c9e49fff1d9df9c07",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "ema_herbal:saccharomyces-cerevisiae-cbs-5926"
+    ],
+    "value": "Saccharomyces cerevisiae"
+  },
+  "family": null,
+  "goals": [],
+  "id": "saccharomyces-cerevisiae",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:saccharomyces-cerevisiae-cbs-5926": {
+      "dataset": "ema_json",
+      "label": "EMA: Saccharomyces cerevisiae CBS 5926",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/saccharomyces-cerevisiae-cbs-5926"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete solo trae una declaración pública de la EMA sin datos de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "CBS 5926",
+    "name": "Saccharomyces cerevisiae",
+    "refs": [
+      "ema_herbal:saccharomyces-cerevisiae-cbs-5926"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

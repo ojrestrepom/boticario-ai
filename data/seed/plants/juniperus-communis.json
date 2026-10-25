@@ -1,0 +1,1162 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9952ae81bca4129d891a8681557055faa5fc03e19f6abb9ee71ed4113e01db8f",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26325"
+      ],
+      "text": "enebro común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26325"
+      ],
+      "text": "Enebro"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26325"
+      ],
+      "text": "ginebro"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26325"
+      ],
+      "text": "nebro"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26325"
+      ],
+      "text": "enebro enano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26325"
+      ],
+      "text": "enebro rastrero"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:516-1"
+      ],
+      "text": "Common Juniper"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:516-2"
+      ],
+      "text": "Juniper"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Juniperus communis"
+    ],
+    "value": "Especie leñosa de la familia Cupressaceae con amplia distribución en el hemisferio norte, desde regiones frías hasta zonas montañosas. Produce gálbulos redondos de color azul, agrupados en racimo, que no son bayas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q26325"
+    ],
+    "value": "Enebro"
+  },
+  "family": {
+    "refs": [
+      "wcvp:377427"
+    ],
+    "value": "Cupressaceae"
+  },
+  "goals": [
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía para el aceite esencial en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:juniperi-aetheroleum"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene monografías para el aceite esencial y el gálbulo en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:juniperi-aetheroleum",
+        "ema_herbal:juniperi-galbulus-pseudo-fructus"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    },
+    {
+      "area": "Trastornos gastrointestinales; Trastornos digestivos",
+      "evidence": "La EMA tiene monografías para el aceite esencial y el gálbulo en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:juniperi-aetheroleum",
+        "ema_herbal:juniperi-galbulus-pseudo-fructus"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "juniperus-communis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_fruits_-_Keila.jpg",
+    "refs": [
+      "commons:File:Juniperus communis fruits - Keila.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Juniperus_communis_fruits_-_Keila.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:juniperi-aetheroleum"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:377427"
+    ],
+    "value": "Zonas frías y montañosas del hemisferio norte: Europa, Asia, norte de África y América del Norte."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:juniperi-galbulus-pseudo-fructus"
+      ],
+      "value": "Gálbulo (pseudofruto)"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Juniperus communis fruits - Keila.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Juniperus communis fruits - Keila.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_fruits_-_Keila.jpg"
+    },
+    "efsa_botanic:1173": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: beta-thujone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1326": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: alpha-thujone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:540": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Juniper, berry",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:541": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Juniper, berry",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:juniperi-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Juniperi aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/juniperi-aetheroleum"
+    },
+    "ema_herbal:juniperi-galbulus-pseudo-fructus": {
+      "dataset": "ema_json",
+      "label": "EMA: Juniperi galbulus (pseudo-fructus)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/juniperi-galbulus-pseudo-fructus"
+    },
+    "ema_pdf:juniperi-aetheroleum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de juniperi-aetheroleum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-juniperus-communis-l-aetheroleum_en.pdf"
+    },
+    "ema_pdf:juniperi-aetheroleum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de juniperi-aetheroleum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-juniperus-communis-l-aetheroleum_en.pdf"
+    },
+    "ema_pdf:juniperi-aetheroleum:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de juniperi-aetheroleum, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-juniperus-communis-l-aetheroleum_en.pdf"
+    },
+    "ema_pdf:juniperi-galbulus-pseudo-fructus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de juniperi-galbulus-pseudo-fructus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf"
+    },
+    "ema_pdf:juniperi-galbulus-pseudo-fructus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de juniperi-galbulus-pseudo-fructus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf"
+    },
+    "ema_pdf:juniperi-galbulus-pseudo-fructus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de juniperi-galbulus-pseudo-fructus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf"
+    },
+    "usda_common_name:516-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Common Juniper»",
+      "license": "CC0"
+    },
+    "usda_common_name:516-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Juniper»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10535": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10535",
+      "license": "CC0"
+    },
+    "usda_use:10536": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10536",
+      "license": "CC0"
+    },
+    "usda_use:11230": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11230",
+      "license": "CC0"
+    },
+    "usda_use:12649": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12649",
+      "license": "CC0"
+    },
+    "usda_use:15557": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15557",
+      "license": "CC0"
+    },
+    "usda_use:15558": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15558",
+      "license": "CC0"
+    },
+    "usda_use:16245": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16245",
+      "license": "CC0"
+    },
+    "usda_use:17261": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17261",
+      "license": "CC0"
+    },
+    "usda_use:18199": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18199",
+      "license": "CC0"
+    },
+    "usda_use:18200": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18200",
+      "license": "CC0"
+    },
+    "usda_use:18201": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18201",
+      "license": "CC0"
+    },
+    "usda_use:18202": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18202",
+      "license": "CC0"
+    },
+    "usda_use:19154": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19154",
+      "license": "CC0"
+    },
+    "usda_use:21719": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21719",
+      "license": "CC0"
+    },
+    "usda_use:21720": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21720",
+      "license": "CC0"
+    },
+    "usda_use:27085": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27085",
+      "license": "CC0"
+    },
+    "usda_use:27086": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27086",
+      "license": "CC0"
+    },
+    "usda_use:30893": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30893",
+      "license": "CC0"
+    },
+    "usda_use:32170": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32170",
+      "license": "CC0"
+    },
+    "usda_use:41303": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41303",
+      "license": "CC0"
+    },
+    "usda_use:46735": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46735",
+      "license": "CC0"
+    },
+    "usda_use:4756": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4756",
+      "license": "CC0"
+    },
+    "usda_use:48476": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48476",
+      "license": "CC0"
+    },
+    "usda_use:48477": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48477",
+      "license": "CC0"
+    },
+    "usda_use:53483": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53483",
+      "license": "CC0"
+    },
+    "usda_use:58907": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58907",
+      "license": "CC0"
+    },
+    "usda_use:58909": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58909",
+      "license": "CC0"
+    },
+    "usda_use:58910": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58910",
+      "license": "CC0"
+    },
+    "usda_use:58911": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58911",
+      "license": "CC0"
+    },
+    "usda_use:58916": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58916",
+      "license": "CC0"
+    },
+    "usda_use:58920": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58920",
+      "license": "CC0"
+    },
+    "usda_use:58925": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58925",
+      "license": "CC0"
+    },
+    "usda_use:65936": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65936",
+      "license": "CC0"
+    },
+    "usda_use:66639": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66639",
+      "license": "CC0"
+    },
+    "usda_use:68120": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68120",
+      "license": "CC0"
+    },
+    "usda_use:69281": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69281",
+      "license": "CC0"
+    },
+    "usda_use:7129": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7129",
+      "license": "CC0"
+    },
+    "usda_use:71731": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71731",
+      "license": "CC0"
+    },
+    "usda_use:72885": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72885",
+      "license": "CC0"
+    },
+    "usda_use:73279": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73279",
+      "license": "CC0"
+    },
+    "usda_use:77736": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77736",
+      "license": "CC0"
+    },
+    "usda_use:78261": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78261",
+      "license": "CC0"
+    },
+    "usda_use:79791": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79791",
+      "license": "CC0"
+    },
+    "usda_use:8138": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8138",
+      "license": "CC0"
+    },
+    "wcvp:377427": {
+      "dataset": "wcvp",
+      "label": "WCVP: Juniperus communis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q26325": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q26325",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q26325"
+    },
+    "wikipedia_es:Juniperus communis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Juniperus communis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Juniperus_communis"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1326",
+      "efsa_botanic:1173",
+      "efsa_endpoint:540",
+      "efsa_endpoint:541",
+      "ema_pdf:juniperi-aetheroleum:4.3",
+      "ema_pdf:juniperi-aetheroleum:4.4",
+      "ema_pdf:juniperi-aetheroleum:4.5",
+      "ema_pdf:juniperi-galbulus-pseudo-fructus:4.3",
+      "ema_pdf:juniperi-galbulus-pseudo-fructus:4.4",
+      "ema_pdf:juniperi-galbulus-pseudo-fructus:4.5"
+    ],
+    "text": "EFSA registra alfa-tuyona y beta-tuyona en las hojas, sustancias con límite de ingesta en la UE, y estudios sobre efecto abortivo en ganado alimentado con hojas. Las monografías de la EMA registran como contraindicación la hipersensibilidad al principio activo y, para el aceite esencial, la enfermedad renal grave y las condiciones con ingesta de líquidos reducida; indican que no se ha establecido el uso en menores de 18 años y que el gálbulo no se recomienda con enfermedad renal grave. No registran interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Juniperus communis",
+    "refs": [
+      "wcvp:377427"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18199",
+        "usda_use:18200",
+        "usda_use:18201",
+        "usda_use:18202",
+        "usda_use:58910",
+        "usda_use:58911",
+        "usda_reference:FontQuer",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10535",
+        "usda_use:10536",
+        "usda_use:58907",
+        "usda_use:66639",
+        "usda_reference:FontQuer",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Gota",
+      "activitySource": "Gout",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Kurdistán",
+        "España",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27085",
+        "usda_use:27086",
+        "usda_use:58916",
+        "usda_use:71731",
+        "usda_reference:Al-Rawi",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15557",
+        "usda_use:15558",
+        "usda_use:58909",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48476",
+        "usda_use:48477",
+        "usda_use:78261",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Urogenital",
+      "activitySource": "Urogenital",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53483",
+        "usda_use:58925",
+        "usda_use:79791",
+        "usda_reference:Krochmal",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Kurdistán",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8138",
+        "usda_use:65936",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19154",
+        "usda_use:69281",
+        "usda_reference:FontQuer",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "España",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21719",
+        "usda_use:21720",
+        "usda_reference:FontQuer",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "España",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30893",
+        "usda_use:72885",
+        "usda_reference:FontQuer",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Linimento",
+      "activitySource": "Liniment",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32170",
+        "usda_use:73279",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Malaya"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41303",
+        "usda_use:58920",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46735",
+        "usda_use:77736",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Arteriosclerosis",
+      "activitySource": "Arteriosclerosis",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4756",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7129",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Cefálico",
+      "activitySource": "Cephalic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11230",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12649",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Desobstruyente",
+      "activitySource": "Deobstruent",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68120",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16245",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17261",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b5362e81fa032e780f583ab1468a7d2f7da7c0e1a43dcd64f89433224524e010",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Harpagophytum procumbens"
+      ],
+      "text": "Garra del diablo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Harpagophytum procumbens",
+        "wikidata:Q386675"
+      ],
+      "text": "Harpagófito"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q386675"
+      ],
+      "text": "Harpagofito"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:459-1"
+      ],
+      "text": "Devil's Claw"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:459-2"
+      ],
+      "text": "Grapple Plant"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Harpagophytum procumbens"
+    ],
+    "value": "Planta herbácea de la familia de las pedaliáceas, natural del sur de África. Sus frutos son cápsulas leñosas recubiertas de espinas ganchudas y aceradas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Harpagophytum procumbens"
+    ],
+    "value": "Garra del diablo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2839701"
+    ],
+    "value": "Pedaliaceae"
+  },
+  "goals": [
+    {
+      "area": "Pérdida de apetito; Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la raíz en estas áreas.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:harpagophyti-radix"
+      ],
+      "subarea": "digestion"
+    },
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:harpagophyti-radix"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    }
+  ],
+  "id": "harpagophytum-procumbens",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2839701"
+    ],
+    "value": "Nativa del África tropical austral y del sur de África."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:harpagophyti-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:harpagophyti-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Harpagophyti radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/harpagophyti-radix"
+    },
+    "ema_pdf:harpagophyti-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de harpagophyti-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf"
+    },
+    "ema_pdf:harpagophyti-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de harpagophyti-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf"
+    },
+    "ema_pdf:harpagophyti-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de harpagophyti-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf"
+    },
+    "usda_common_name:459-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Devil's Claw»",
+      "license": "CC0"
+    },
+    "usda_common_name:459-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Grapple Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:53321": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53321",
+      "license": "CC0"
+    },
+    "usda_use:58495": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58495",
+      "license": "CC0"
+    },
+    "usda_use:65787": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65787",
+      "license": "CC0"
+    },
+    "usda_use:70959": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70959",
+      "license": "CC0"
+    },
+    "usda_use:77112": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77112",
+      "license": "CC0"
+    },
+    "usda_use:9130": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9130",
+      "license": "CC0"
+    },
+    "wcvp:2450285": {
+      "dataset": "wcvp",
+      "label": "WCVP: Uncaria procumbens Burch.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2839701": {
+      "dataset": "wcvp",
+      "label": "WCVP: Harpagophytum procumbens (Burch.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q386675": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q386675",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q386675"
+    },
+    "wikipedia_es:Harpagophytum procumbens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Harpagophytum procumbens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Harpagophytum_procumbens"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:harpagophyti-radix:4.3",
+      "ema_pdf:harpagophyti-radix:4.4",
+      "ema_pdf:harpagophyti-radix:4.5"
+    ],
+    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa y la úlcera gástrica o duodenal activa. Entre sus advertencias indica que no se ha establecido el uso en menores de 18 años, que el dolor articular con hinchazón, enrojecimiento o fiebre debe ser examinado por un médico, y que quienes tienen cálculos biliares deben consultar a un médico. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "(Burch.) DC.",
+    "name": "Harpagophytum procumbens",
+    "refs": [
+      "wcvp:2839701"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Burch.",
+      "name": "Uncaria procumbens",
+      "refs": [
+        "wcvp:2450285"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Sudáfrica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9130",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65787",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70959",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58495",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77112",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Úlcera",
+      "activitySource": "Ulcer",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53321",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

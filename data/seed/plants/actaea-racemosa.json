@@ -1,0 +1,894 @@
+{
+  "aliases": [
+    "cimicifuga-racemosa"
+  ],
+  "bundleHash": "sha256:3de37f5b0e185179096fb884f4b5b64031a1137aaff29b165e901be058ac4305",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2260-1",
+        "usda_common_name:263-1"
+      ],
+      "text": "Black Cohosh"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2260-2",
+        "usda_common_name:263-2"
+      ],
+      "text": "Black Snakeroot"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Actaea racemosa"
+    ],
+    "value": "Especie de planta medicinal de la familia Ranunculaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2620567"
+    ],
+    "value": "Actaea racemosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2620567"
+    ],
+    "value": "Ranunculaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía del rizoma en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:cimicifugae-rhizoma"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "actaea-racemosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Leonora (Ellie) Enking from East Preston, United Kingdom",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cimicifuga_racemosa_(28770565276).jpg",
+    "refs": [
+      "commons:File:Cimicifuga racemosa (28770565276).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Cimicifuga_racemosa_%2828770565276%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2260-PL",
+      "usda_part:263-PL",
+      "usda_part:263-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2620567"
+    ],
+    "value": "Este de Canadá y este de Estados Unidos"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:cimicifugae-rhizoma"
+      ],
+      "value": "Rizoma"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cimicifuga racemosa (28770565276).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cimicifuga racemosa (28770565276).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Cimicifuga_racemosa_(28770565276).jpg"
+    },
+    "ema_herbal:cimicifugae-rhizoma": {
+      "dataset": "ema_json",
+      "label": "EMA: Cimicifugae rhizoma",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/cimicifugae-rhizoma"
+    },
+    "ema_pdf:cimicifugae-rhizoma:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de cimicifugae-rhizoma, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cimicifuga-racemosa-l-nutt-rhizome-revision-1_en.pdf"
+    },
+    "ema_pdf:cimicifugae-rhizoma:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de cimicifugae-rhizoma, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cimicifuga-racemosa-l-nutt-rhizome-revision-1_en.pdf"
+    },
+    "ema_pdf:hyperici-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: borrador de la monografía de hyperici-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-european-union-herbal-monograph-hypericum-perforatum-l-herba-cimicifuga-racemosa-l-nutt-rhizoma_en.pdf"
+    },
+    "ema_pdf:hyperici-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: borrador de la monografía de hyperici-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-european-union-herbal-monograph-hypericum-perforatum-l-herba-cimicifuga-racemosa-l-nutt-rhizoma_en.pdf"
+    },
+    "usda_common_name:2260-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Black Cohosh»",
+      "license": "CC0"
+    },
+    "usda_common_name:2260-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Black Snakeroot»",
+      "license": "CC0"
+    },
+    "usda_common_name:263-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Black Cohosh»",
+      "license": "CC0"
+    },
+    "usda_common_name:263-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Black Snakeroot»",
+      "license": "CC0"
+    },
+    "usda_part:2260-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_part:263-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_part:263-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11815": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11815",
+      "license": "CC0"
+    },
+    "usda_use:1658": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1658",
+      "license": "CC0"
+    },
+    "usda_use:1717": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1717",
+      "license": "CC0"
+    },
+    "usda_use:17426": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17426",
+      "license": "CC0"
+    },
+    "usda_use:20134": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20134",
+      "license": "CC0"
+    },
+    "usda_use:21486": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21486",
+      "license": "CC0"
+    },
+    "usda_use:21617": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21617",
+      "license": "CC0"
+    },
+    "usda_use:22880": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22880",
+      "license": "CC0"
+    },
+    "usda_use:23871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23871",
+      "license": "CC0"
+    },
+    "usda_use:32772": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32772",
+      "license": "CC0"
+    },
+    "usda_use:41068": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41068",
+      "license": "CC0"
+    },
+    "usda_use:41069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41069",
+      "license": "CC0"
+    },
+    "usda_use:42910": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42910",
+      "license": "CC0"
+    },
+    "usda_use:42980": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42980",
+      "license": "CC0"
+    },
+    "usda_use:4363": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4363",
+      "license": "CC0"
+    },
+    "usda_use:47425": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47425",
+      "license": "CC0"
+    },
+    "usda_use:48309": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48309",
+      "license": "CC0"
+    },
+    "usda_use:48394": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48394",
+      "license": "CC0"
+    },
+    "usda_use:53660": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53660",
+      "license": "CC0"
+    },
+    "usda_use:5399": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5399",
+      "license": "CC0"
+    },
+    "usda_use:57343": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57343",
+      "license": "CC0"
+    },
+    "usda_use:65590": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65590",
+      "license": "CC0"
+    },
+    "usda_use:7033": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7033",
+      "license": "CC0"
+    },
+    "usda_use:72746": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72746",
+      "license": "CC0"
+    },
+    "usda_use:77980": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77980",
+      "license": "CC0"
+    },
+    "usda_use:79844": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79844",
+      "license": "CC0"
+    },
+    "usda_use:8062": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8062",
+      "license": "CC0"
+    },
+    "usda_use:9861": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9861",
+      "license": "CC0"
+    },
+    "wcvp:2509058": {
+      "dataset": "wcvp",
+      "label": "WCVP: Macrotrys racemosa (L.) Sweet",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2521964": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thalictrodes racemosa (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2620567": {
+      "dataset": "wcvp",
+      "label": "WCVP: Actaea racemosa L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2720998": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cimicifuga racemosa (L.) Nutt.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Actaea racemosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Actaea racemosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Actaea_racemosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (el resumen de Wikipedia solo la presenta por su nombre científico); el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Plant y Root), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:cimicifugae-rhizoma:4.3",
+      "ema_pdf:cimicifugae-rhizoma:4.4",
+      "ema_pdf:hyperici-herba:4.3",
+      "ema_pdf:hyperici-herba:4.5"
+    ],
+    "text": "La monografía de la EMA para el rizoma registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, los antecedentes de trastorno hepático y los signos de lesión hepática, el uso junto con estrógenos y el cáncer de mama u otros tumores hormonodependientes, actuales o previos. La ficha de la EMA de un producto combinado con Hyperici herba registra interacciones graves con otros medicamentos: el uso simultáneo con anticoagulantes de tipo cumarínico, ciclosporina, inhibidores de la proteasa y otros citostáticos figura como contraindicado."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Actaea racemosa",
+    "refs": [
+      "wcvp:2620567"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Nutt.",
+      "name": "Cimicifuga racemosa",
+      "refs": [
+        "wcvp:2720998"
+      ]
+    },
+    {
+      "authors": "(L.) Sweet",
+      "name": "Macrotrys racemosa",
+      "refs": [
+        "wcvp:2509058"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Thalictrodes racemosa",
+      "refs": [
+        "wcvp:2521964"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1658",
+        "usda_use:1717",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Eb28: 329",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 329"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos",
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7033",
+        "usda_use:65590",
+        "usda_reference:EB",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21486",
+        "usda_use:21617",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Eb21: 206",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 206"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)",
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41068",
+        "usda_use:41069",
+        "usda_reference:EB",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42910",
+        "usda_use:42980",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47425",
+        "usda_use:77980",
+        "usda_reference:Keys",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48309",
+        "usda_use:48394",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Útero",
+      "activitySource": "Uterus",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53660",
+        "usda_use:79844",
+        "usda_reference:Keys",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4363",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5399",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8062",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de lengua",
+      "activitySource": "Cancer(Tongue)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Canadá"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9861",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Corea",
+      "activitySource": "Chorea",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11815",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17426",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Eb21: 206",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 206"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20134",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22880",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Femenino",
+      "activitySource": "Female",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23871",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Picazón",
+      "activitySource": "Itch",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72746",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57343",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Malestar",
+      "activitySource": "Malaise",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32772",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

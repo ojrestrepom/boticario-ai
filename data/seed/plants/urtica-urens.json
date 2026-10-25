@@ -1,0 +1,471 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:649132b2ddc0a89dc30d74fe1e50e98bcf9b7c00b1e1fc8f056cda52b3bd053c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Ortiga"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Urtica urens",
+        "wikidata:Q157175"
+      ],
+      "text": "Ortiga menor"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Forniquilla"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Ortiga moheña"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Pica manos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Picamoscas"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Picasarna"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157175"
+      ],
+      "text": "Ronchona"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P186"
+      ],
+      "text": "Annual nettle"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P186"
+      ],
+      "text": "Kleine Brennessel"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Urtica urens"
+    ],
+    "value": "Especie de planta herbácea de la familia Urticaceae, cosmopolita y conocida como ortiga menor. Tiene fama de picar más que la ortiga mayor."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q157175"
+    ],
+    "value": "Ortiga"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2449000"
+    ],
+    "value": "Urticaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene monografías en esta área para la hoja, la parte aérea y la raíz.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:urticae-folium",
+        "ema_herbal:urticae-herba",
+        "ema_herbal:urticae-radix"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    },
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía en esta área para la parte aérea.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:urticae-herba"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía en esta área para la parte aérea.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:urticae-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "urtica-urens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Urtica_urens_-_leaves.jpg",
+    "refs": [
+      "commons:File:(MHNT) Urtica urens - leaves.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/%28MHNT%29_Urtica_urens_-_leaves.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2449000"
+    ],
+    "value": "Nativa de Europa, Asia y África."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:urticae-folium"
+      ],
+      "value": "Hoja"
+    },
+    {
+      "refs": [
+        "ema_herbal:urticae-herba"
+      ],
+      "value": "Parte aérea"
+    },
+    {
+      "refs": [
+        "ema_herbal:urticae-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(MHNT) Urtica urens - leaves.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(MHNT) Urtica urens - leaves.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Urtica_urens_-_leaves.jpg"
+    },
+    "ema_herbal:urticae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Urticae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/urticae-folium"
+    },
+    "ema_herbal:urticae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Urticae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/urticae-herba"
+    },
+    "ema_herbal:urticae-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Urticae radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/urticae-radix"
+    },
+    "ema_pdf:urticae-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-urtica-dioica-l-urtica-urens-l-folium_en.pdf"
+    },
+    "ema_pdf:urticae-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-urtica-dioica-l-urtica-urens-l-folium_en.pdf"
+    },
+    "ema_pdf:urticae-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-urtica-dioica-l-urtica-urens-l-folium_en.pdf"
+    },
+    "ema_pdf:urticae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-herba-revision-1_en.pdf"
+    },
+    "ema_pdf:urticae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-herba-revision-1_en.pdf"
+    },
+    "ema_pdf:urticae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-herba-revision-1_en.pdf"
+    },
+    "ema_pdf:urticae-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:urticae-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:urticae-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de urticae-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-radix-revision-1_en.pdf"
+    },
+    "tppt_plant:P186": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Urtica urens L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:31194": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31194",
+      "license": "CC0"
+    },
+    "usda_use:52764": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52764",
+      "license": "CC0"
+    },
+    "usda_use:52765": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52765",
+      "license": "CC0"
+    },
+    "usda_use:62425": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62425",
+      "license": "CC0"
+    },
+    "usda_use:69194": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69194",
+      "license": "CC0"
+    },
+    "usda_use:79587": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79587",
+      "license": "CC0"
+    },
+    "usda_use:9532": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9532",
+      "license": "CC0"
+    },
+    "wcvp:2449000": {
+      "dataset": "wcvp",
+      "label": "WCVP: Urtica urens L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q157175": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q157175",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q157175"
+    },
+    "wikipedia_es:Urtica urens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Urtica urens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Urtica_urens"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P186",
+      "ema_pdf:urticae-folium:4.3",
+      "ema_pdf:urticae-folium:4.4",
+      "ema_pdf:urticae-folium:4.5",
+      "ema_pdf:urticae-herba:4.3",
+      "ema_pdf:urticae-herba:4.4",
+      "ema_pdf:urticae-herba:4.5",
+      "ema_pdf:urticae-radix:4.3",
+      "ema_pdf:urticae-radix:4.4",
+      "ema_pdf:urticae-radix:4.5"
+    ],
+    "text": "TPPT registra la hoja como alergénica, con riesgo de alergia en personas sensibles, y una mezcla irritante de aminas, oxalatos y péptidos. La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, en las advertencias, que no se ha establecido el uso en niños por falta de datos y que la hoja y la parte aérea no se recomiendan en afecciones donde se aconseja reducir la ingesta de líquidos; no registra interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Urtica urens",
+    "refs": [
+      "wcvp:2449000"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "África",
+        "Brasil",
+        "Checoslovaquia",
+        "Perú"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52764",
+        "usda_use:52765",
+        "usda_use:62425",
+        "usda_use:79587",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9532",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69194",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Galactagogo",
+      "activitySource": "Lactogogue",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31194",
+        "usda_reference:FontQuer"
+      ]
+    }
+  ]
+}

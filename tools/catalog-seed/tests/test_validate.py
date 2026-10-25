@@ -121,6 +121,20 @@ class ScenarioTests(ValidatorCase):
         for word in ("Cura", "dosis", "mg"):
             self.assertIn("'%s'" % word, found)
 
+    def test_gota_como_dosis_es_advertencia(self):
+        for text in ("Se usan 3 gotas en agua.", "Aplicar unas gotas de aceite.", "Una gota de esencia."):
+            record = fx.record()
+            record["goals"][0]["evidence"] = text
+            _, warnings = self.run_validator(record)
+            self.assertIn("expresión de dosis", " | ".join(warnings), text)
+
+    def test_gota_como_enfermedad_no_es_advertencia(self):
+        for text in ("Tradicionalmente se usa en la gota.", "Gota y artritis.", "Apoyo en la Gota."):
+            record = fx.record()
+            record["goals"][0]["evidence"] = text
+            _, warnings = self.run_validator(record)
+            self.assertNotIn("gota", " | ".join(warnings).lower(), text)
+
     def test_texto_sin_dosis_no_da_advertencias(self):
         _, warnings = self.run_validator(fx.record())
         self.assertEqual(warnings, [])

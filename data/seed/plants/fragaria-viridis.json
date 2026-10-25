@@ -1,0 +1,191 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f9aaf0203df9d8e222d3cc7486a37899601333a63bd6d2d43cf60f73b5600347",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Fragaria viridis"
+    ],
+    "value": "Especie de fresa nativa de Europa y el centro de Asia."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2949095"
+    ],
+    "value": "Fragaria viridis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2949095"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:fragariae-folium"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:fragariae-folium"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "fragaria-viridis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ivar Leidus",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Fragaria_viridis_fruit_-_Keila.jpg",
+    "refs": [
+      "commons:File:Fragaria viridis fruit - Keila.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Fragaria_viridis_fruit_-_Keila.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2949095"
+    ],
+    "value": "Nativa de Europa, Asia occidental y central, Siberia y China."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:fragariae-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Fragaria viridis fruit - Keila.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Fragaria viridis fruit - Keila.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Fragaria_viridis_fruit_-_Keila.jpg"
+    },
+    "ema_herbal:fragariae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Fragariae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/fragariae-folium"
+    },
+    "ema_pdf:fragariae-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de fragariae-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:fragariae-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de fragariae-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:fragariae-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de fragariae-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf"
+    },
+    "wcvp:2949061": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fragaria vesca var. viridis (Weston) Fiori",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2949095": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fragaria viridis Weston",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2958305": {
+      "dataset": "wcvp",
+      "label": "WCVP: Potentilla viridis (Weston) Prantl",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Fragaria viridis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Fragaria viridis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Fragaria_viridis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:fragariae-folium:4.3",
+      "ema_pdf:fragariae-folium:4.4",
+      "ema_pdf:fragariae-folium:4.5"
+    ],
+    "text": "La monografía de la EMA para la hoja registra como contraindicación la hipersensibilidad a la sustancia activa. En advertencias indica consultar a un médico o profesional sanitario cualificado si aparecen fiebre, disuria, espasmos o sangre en la orina, o si la diarrea reaparece o hay heces con sangre; señala que no se recomienda en personas con una ingesta reducida de líquidos y que no se ha establecido su uso en menores de 12 años. En interacciones, no se han realizado estudios."
+  },
+  "scientificName": {
+    "authors": "Weston",
+    "name": "Fragaria viridis",
+    "refs": [
+      "wcvp:2949095"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Weston) Fiori",
+      "name": "Fragaria vesca var. viridis",
+      "refs": [
+        "wcvp:2949061"
+      ]
+    },
+    {
+      "authors": "(Weston) Prantl",
+      "name": "Potentilla viridis",
+      "refs": [
+        "wcvp:2958305"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

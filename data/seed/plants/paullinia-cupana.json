@@ -1,0 +1,465 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1b09c6d98daa3b8e262a66a4bdf2915bbb9014d39c787234a5c32d04cf9be6da",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q209089"
+      ],
+      "text": "guaraná"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q209089"
+      ],
+      "text": "planta de guaraná"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:703-1"
+      ],
+      "text": "Guarana"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Paullinia cupana"
+    ],
+    "value": "Arbusto trepador de la familia Sapindaceae, originario de la Amazonia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q209089"
+    ],
+    "value": "Guaraná"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2543056"
+    ],
+    "value": "Sapindaceae"
+  },
+  "goals": [
+    {
+      "area": "Fatiga y debilidad",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "cansancio-y-fatiga",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:paulliniae-semen"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "paullinia-cupana",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2543056"
+    ],
+    "value": "Nativa de Brasil y del norte y el oeste de Sudamérica."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:paulliniae-semen"
+      ],
+      "value": "Semilla"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:3084": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3085": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: anethole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:785": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: caffeine",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:paulliniae-semen": {
+      "dataset": "ema_json",
+      "label": "EMA: Paulliniae semen",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/paulliniae-semen"
+    },
+    "ema_pdf:paulliniae-semen:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de paulliniae-semen, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-paullinia-cupana-kunth-ex-hbk-var-sorbilis-mart-ducke-semen-first-version_en.pdf"
+    },
+    "ema_pdf:paulliniae-semen:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de paulliniae-semen, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-paullinia-cupana-kunth-ex-hbk-var-sorbilis-mart-ducke-semen-first-version_en.pdf"
+    },
+    "ema_pdf:paulliniae-semen:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de paulliniae-semen, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-paullinia-cupana-kunth-ex-hbk-var-sorbilis-mart-ducke-semen-first-version_en.pdf"
+    },
+    "usda_common_name:703-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Guarana»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:12027": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12027",
+      "license": "CC0"
+    },
+    "usda_use:16889": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16889",
+      "license": "CC0"
+    },
+    "usda_use:16890": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16890",
+      "license": "CC0"
+    },
+    "usda_use:30332": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30332",
+      "license": "CC0"
+    },
+    "usda_use:34848": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34848",
+      "license": "CC0"
+    },
+    "usda_use:34969": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34969",
+      "license": "CC0"
+    },
+    "usda_use:46838": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46838",
+      "license": "CC0"
+    },
+    "usda_use:46839": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46839",
+      "license": "CC0"
+    },
+    "usda_use:50780": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50780",
+      "license": "CC0"
+    },
+    "usda_use:5937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5937",
+      "license": "CC0"
+    },
+    "usda_use:67097": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67097",
+      "license": "CC0"
+    },
+    "usda_use:73854": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73854",
+      "license": "CC0"
+    },
+    "wcvp:2543056": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paullinia cupana Kunth",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q209089": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q209089",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q209089"
+    },
+    "wikipedia_es:Paullinia cupana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Paullinia cupana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Paullinia_cupana"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:3084",
+      "efsa_botanic:3085",
+      "efsa_botanic:785",
+      "ema_pdf:paulliniae-semen:4.3",
+      "ema_pdf:paulliniae-semen:4.4",
+      "ema_pdf:paulliniae-semen:4.5"
+    ],
+    "text": "EFSA registra en la semilla el estragol, una sustancia de preocupación genotóxica o carcinógena, y como sustancias de evidencia el anetol y la cafeína. La monografía de la EMA registra contraindicaciones (hipersensibilidad, úlceras gástricas y duodenales, trastornos cardiovasculares como hipertensión y arritmias, e hipertiroidismo), advertencias (uso en menores de 18 años no establecido por falta de datos; puede causar trastornos del sueño) e interacciones (precaución con inhibidores de la MAO; los preparados con cafeína reducen la acción sedante y aumentan los efectos secundarios de fármacos simpaticomiméticos)."
+  },
+  "scientificName": {
+    "authors": "Kunth",
+    "name": "Paullinia cupana",
+    "refs": [
+      "wcvp:2543056"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Eb33: 259",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 259"
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12027",
+        "usda_use:67097",
+        "usda_reference:EB",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16889",
+        "usda_use:16890",
+        "usda_reference:Standley",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46838",
+        "usda_use:46839",
+        "usda_reference:Standley",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5937",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Embriagante",
+      "activitySource": "Intoxicant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Sudamérica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30332",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Migraña",
+      "activitySource": "Migraine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73854",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34848",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Neuralgia",
+      "activitySource": "Neuralgia",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34969",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50780",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

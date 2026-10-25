@@ -1,0 +1,114 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a2016d3f07b5ef57b7c4438765c55eadc6967851be3f14bdc9058cb9e097d3d0",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2926855"
+    ],
+    "value": "Grindelia humilis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2926855"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:grindeliae-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "grindelia-humilis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:grindeliae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:grindeliae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Grindeliae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/grindeliae-herba"
+    },
+    "ema_pdf:grindeliae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de grindeliae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-grindelia-robusta-nutt-grindelia-squarrosa-pursh-dunal-grindelia-humilis-hook-et-arn-grindelia-camporum-greene-herba_en.pdf"
+    },
+    "ema_pdf:grindeliae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de grindeliae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-grindelia-robusta-nutt-grindelia-squarrosa-pursh-dunal-grindelia-humilis-hook-et-arn-grindelia-camporum-greene-herba_en.pdf"
+    },
+    "wcvp:2926855": {
+      "dataset": "wcvp",
+      "label": "WCVP: Grindelia humilis Hook. & Arn.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:grindeliae-herba:4.3",
+      "ema_pdf:grindeliae-herba:4.4"
+    ],
+    "text": "La EMA registra para la parte aérea una contraindicación por hipersensibilidad a la sustancia activa y a otras plantas de la familia Asteraceae (Compositae), y uso en menores de 18 años sin establecer."
+  },
+  "scientificName": {
+    "authors": "Hook. & Arn.",
+    "name": "Grindelia humilis",
+    "refs": [
+      "wcvp:2926855"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

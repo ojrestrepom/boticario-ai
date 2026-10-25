@@ -1,0 +1,284 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:831c51bfd307ab92b52dd9ba4d5861c3212615efbbac7ad6b6fb615e3835e550",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Quercus humilis",
+        "wikidata:Q161415"
+      ],
+      "text": "Roble pubescente"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161415"
+      ],
+      "text": "Quejiguera"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161415"
+      ],
+      "text": "Roble enano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161415"
+      ],
+      "text": "Robledilla"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P176"
+      ],
+      "text": "Northern red oak"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P176"
+      ],
+      "text": "Flaum-Eiche"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Quercus humilis"
+    ],
+    "value": "Árbol de fronda de tamaño medio, que puede llegar a los 25 m y pertenece a la familia de las fagáceas. Se distribuye por el centro y sur de Europa, Turquía y Crimea, y tiende a hibridarse con otros robles."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Quercus humilis",
+      "wikidata:Q161415"
+    ],
+    "value": "Roble pubescente"
+  },
+  "family": {
+    "refs": [
+      "wcvp:174591"
+    ],
+    "value": "Fagaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos circulatorios",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "subarea": "circulacion"
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "quercus-pubescens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Gianni Careddu",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flora_della_Sardegna_003_(18).jpg",
+    "refs": [
+      "commons:File:Flora della Sardegna 003 (18).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Flora_della_Sardegna_003_%2818%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:174591"
+    ],
+    "value": "Nativa de Europa, el Cáucaso y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "value": "Corteza"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flora della Sardegna 003 (18).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flora della Sardegna 003 (18).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Flora_della_Sardegna_003_(18).jpg"
+    },
+    "ema_herbal:quercus-cortex": {
+      "dataset": "ema_json",
+      "label": "EMA: Quercus cortex",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/quercus-cortex"
+    },
+    "ema_pdf:quercus-cortex:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de quercus-cortex, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf"
+    },
+    "ema_pdf:quercus-cortex:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de quercus-cortex, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf"
+    },
+    "ema_pdf:quercus-cortex:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de quercus-cortex, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf"
+    },
+    "tppt_plant:P176": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Quercus pubescens Willd.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "wcvp:171510": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus alba var. pubescens (Willd.) Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171871": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus brevipedunculata var. pubescens (Willd.) St.-Lag.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:174591": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus pubescens Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:174843": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus robur var. pubescens (Willd.) Bonnier",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:175094": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus sessiliflora var. pubescens (Willd.) Loudon",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q161415": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q161415",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q161415"
+    },
+    "wikipedia_es:Quercus humilis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Quercus humilis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Quercus_humilis"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P176",
+      "ema_pdf:quercus-cortex:4.3",
+      "ema_pdf:quercus-cortex:4.4",
+      "ema_pdf:quercus-cortex:4.5"
+    ],
+    "text": "TPPT la califica de débilmente tóxica y registra como partes la corteza, el fruto y la hoja, con taninos y catequinas; anota que las especies de Quercus no son tóxicas para las personas, pero sí pueden serlo para animales. La monografía de la EMA para la corteza registra como contraindicaciones la hipersensibilidad a la sustancia activa y, en el uso como aditivo de baño, las heridas abiertas, las lesiones extensas de piel y mucosas y las infecciones de piel y mucosas. Como advertencias registra que el uso en menores de 18 años no se recomienda por falta de datos y que los baños calientes no deben usarse en enfermedades febriles o infecciosas, insuficiencia cardíaca e hipertensión. Como interacción registra que la absorción interna de otros medicamentos tomados a la vez puede retrasarse."
+  },
+  "scientificName": {
+    "authors": "Willd.",
+    "name": "Quercus pubescens",
+    "refs": [
+      "wcvp:174591"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Willd.) Willd.",
+      "name": "Quercus alba var. pubescens",
+      "refs": [
+        "wcvp:171510"
+      ]
+    },
+    {
+      "authors": "(Willd.) St.-Lag.",
+      "name": "Quercus brevipedunculata var. pubescens",
+      "refs": [
+        "wcvp:171871"
+      ]
+    },
+    {
+      "authors": "(Willd.) Bonnier",
+      "name": "Quercus robur var. pubescens",
+      "refs": [
+        "wcvp:174843"
+      ]
+    },
+    {
+      "authors": "(Willd.) Loudon",
+      "name": "Quercus sessiliflora var. pubescens",
+      "refs": [
+        "wcvp:175094"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

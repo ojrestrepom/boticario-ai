@@ -1,0 +1,684 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:69cd431a8112becec8ee5ca276930b41b9cf11dd64af3f42654180522269737c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q5413585"
+      ],
+      "text": "Arándano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vaccinium myrtillus"
+      ],
+      "text": "Arándano silvestre europeo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vaccinium myrtillus"
+      ],
+      "text": "Mirtilo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1040-1",
+        "tppt_plant:P446"
+      ],
+      "text": "Bilberry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1040-3"
+      ],
+      "text": "Dwarf Bilberry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1040-2"
+      ],
+      "text": "Whortleberry"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P446"
+      ],
+      "text": "Heidelbeere"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Vaccinium myrtillus"
+    ],
+    "value": "Planta de la familia de las Ericáceas, llamada comúnmente arándano silvestre europeo o mirtilo, que da pequeñas bayas comestibles."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q5413585"
+    ],
+    "value": "Arándano"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2457648"
+    ],
+    "value": "Ericaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos circulatorios",
+      "evidence": "La EMA tiene una monografía en esta área para el fruto fresco.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:myrtilli-fructus-recens"
+      ],
+      "subarea": "circulacion"
+    },
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía en esta área para el fruto seco.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:myrtilli-fructus-siccus"
+      ],
+      "subarea": "boca-y-garganta"
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía en esta área para el fruto seco.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:myrtilli-fructus-siccus"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "vaccinium-myrtillus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Amédée Masclef",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:203_Vaccinum_myrtillus_L.jpg",
+    "refs": [
+      "commons:File:203 Vaccinum myrtillus L.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/203_Vaccinum_myrtillus_L.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2457648"
+    ],
+    "value": "Nativa de Europa, Asia y zonas de Norteamérica."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:myrtilli-fructus-recens"
+      ],
+      "value": "Fruto fresco"
+    },
+    {
+      "refs": [
+        "ema_herbal:myrtilli-fructus-siccus"
+      ],
+      "value": "Fruto seco"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:203 Vaccinum myrtillus L.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:203 Vaccinum myrtillus L.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:203_Vaccinum_myrtillus_L.jpg"
+    },
+    "ema_herbal:myrtilli-fructus-recens": {
+      "dataset": "ema_json",
+      "label": "EMA: Myrtilli fructus recens",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/myrtilli-fructus-recens"
+    },
+    "ema_herbal:myrtilli-fructus-siccus": {
+      "dataset": "ema_json",
+      "label": "EMA: Myrtilli fructus siccus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/myrtilli-fructus-siccus"
+    },
+    "ema_pdf:myrtilli-fructus-recens:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrtilli-fructus-recens, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-recens_en.pdf"
+    },
+    "ema_pdf:myrtilli-fructus-recens:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrtilli-fructus-recens, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-recens_en.pdf"
+    },
+    "ema_pdf:myrtilli-fructus-recens:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrtilli-fructus-recens, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-recens_en.pdf"
+    },
+    "ema_pdf:myrtilli-fructus-siccus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrtilli-fructus-siccus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-siccus_en.pdf"
+    },
+    "ema_pdf:myrtilli-fructus-siccus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrtilli-fructus-siccus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-siccus_en.pdf"
+    },
+    "ema_pdf:myrtilli-fructus-siccus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de myrtilli-fructus-siccus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-siccus_en.pdf"
+    },
+    "tppt_plant:P446": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Vaccinium myrtillus L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:1040-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bilberry»",
+      "license": "CC0"
+    },
+    "usda_common_name:1040-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Whortleberry»",
+      "license": "CC0"
+    },
+    "usda_common_name:1040-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dwarf Bilberry»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:18888": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18888",
+      "license": "CC0"
+    },
+    "usda_use:29652": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29652",
+      "license": "CC0"
+    },
+    "usda_use:30244": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30244",
+      "license": "CC0"
+    },
+    "usda_use:3184": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3184",
+      "license": "CC0"
+    },
+    "usda_use:3820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3820",
+      "license": "CC0"
+    },
+    "usda_use:40557": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40557",
+      "license": "CC0"
+    },
+    "usda_use:51133": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51133",
+      "license": "CC0"
+    },
+    "usda_use:62443": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62443",
+      "license": "CC0"
+    },
+    "usda_use:6256": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6256",
+      "license": "CC0"
+    },
+    "usda_use:64636": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64636",
+      "license": "CC0"
+    },
+    "usda_use:66799": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66799",
+      "license": "CC0"
+    },
+    "usda_use:69550": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69550",
+      "license": "CC0"
+    },
+    "usda_use:72142": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72142",
+      "license": "CC0"
+    },
+    "usda_use:76519": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76519",
+      "license": "CC0"
+    },
+    "usda_use:79729": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79729",
+      "license": "CC0"
+    },
+    "wcvp:2457648": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vaccinium myrtillus L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2462541": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vitis-idaea myrtillus (L.) Moench",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q5413585": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q5413585",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q5413585"
+    },
+    "wikipedia_es:Vaccinium myrtillus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Vaccinium myrtillus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Vaccinium_myrtillus"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:myrtilli-fructus-recens:4.3",
+      "ema_pdf:myrtilli-fructus-recens:4.4",
+      "ema_pdf:myrtilli-fructus-recens:4.5",
+      "ema_pdf:myrtilli-fructus-siccus:4.3",
+      "ema_pdf:myrtilli-fructus-siccus:4.4",
+      "ema_pdf:myrtilli-fructus-siccus:4.5"
+    ],
+    "text": "La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, en las advertencias, que no se ha establecido el uso en niños por falta de datos; para el fruto fresco menciona además la inflamación de la piel, la tromboflebitis, las úlceras y la insuficiencia cardíaca o renal. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Vaccinium myrtillus",
+    "refs": [
+      "wcvp:2457648"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Moench",
+      "name": "Vitis-idaea myrtillus",
+      "refs": [
+        "wcvp:2462541"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "España",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3820",
+        "usda_use:64636",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3184",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6256",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66799",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62443",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18888",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69550",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72142",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29652",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Intestine",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30244",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Refrescante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40557",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76519",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51133",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: fiebre tifoidea",
+      "activitySource": "Typhoid",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79729",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

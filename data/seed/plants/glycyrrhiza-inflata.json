@@ -1,0 +1,159 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1e29809de5dde97b97d070fea93fe2ff0cd9d4a27759faf495689fe68eb35289",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Glycyrrhiza inflata"
+    ],
+    "value": "Especie de planta fanerógama perteneciente al género Glycyrrhiza, originaria de China."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2827747"
+    ],
+    "value": "Glycyrrhiza inflata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2827747"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:liquiritiae-radix"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:liquiritiae-radix"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "glycyrrhiza-inflata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2827747"
+    ],
+    "value": "China y Mongolia"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:liquiritiae-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:liquiritiae-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Liquiritiae radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/liquiritiae-radix"
+    },
+    "ema_pdf:liquiritiae-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de liquiritiae-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:liquiritiae-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de liquiritiae-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:liquiritiae-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de liquiritiae-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf"
+    },
+    "wcvp:2827747": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycyrrhiza inflata Batalin",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3304713": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycyrrhiza glabra var. inflata (Batalin) L.Duan",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Glycyrrhiza inflata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Glycyrrhiza inflata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Glycyrrhiza_inflata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:liquiritiae-radix:4.3",
+      "ema_pdf:liquiritiae-radix:4.4",
+      "ema_pdf:liquiritiae-radix:4.5"
+    ],
+    "text": "La EMA registra para la raíz una contraindicación por hipersensibilidad a la sustancia activa, uso en menores de 18 años sin establecer, efectos adversos graves posibles con productos que contienen regaliz (retención de líquidos, hipopotasemia, hipertensión y alteraciones del ritmo cardíaco), no recomendación en personas con hipertensión, enfermedades renales, hepáticas o cardiovasculares o hipopotasemia, e interacciones graves: puede contrarrestar medicamentos antihipertensivos, no se usa junto con diuréticos, glucósidos cardíacos, corticoides, laxantes estimulantes u otros medicamentos que agraven el desequilibrio electrolítico, y puede afectar la actividad de CYP3A4."
+  },
+  "scientificName": {
+    "authors": "Batalin",
+    "name": "Glycyrrhiza inflata",
+    "refs": [
+      "wcvp:2827747"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Batalin) L.Duan",
+      "name": "Glycyrrhiza glabra var. inflata",
+      "refs": [
+        "wcvp:3304713"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

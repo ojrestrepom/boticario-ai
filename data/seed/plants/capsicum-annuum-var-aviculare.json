@@ -1,0 +1,165 @@
+{
+  "aliases": [
+    "capsicum-annuum-var-minimum"
+  ],
+  "bundleHash": "sha256:5caac85e348f1a909bc96f61c9220d477feb998591d77928856ad440ba8667b4",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2698419"
+    ],
+    "value": "Capsicum annuum var. aviculare"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2698419"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía en esta área",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:capsici-fructus"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    }
+  ],
+  "id": "capsicum-annuum-var-aviculare",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2698419"
+    ],
+    "value": "Nativa de Brasil, el Caribe, América Central, México, el norte y el oeste de Sudamérica y el sur de Estados Unidos."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:capsici-fructus"
+      ],
+      "value": "Fruto"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:capsici-fructus": {
+      "dataset": "ema_json",
+      "label": "EMA: Capsici fructus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/capsici-fructus"
+    },
+    "ema_pdf:capsici-fructus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de capsici-fructus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-capsicum-annuum-l-var-minimum-miller-heiser-and-small-fruited-varieties-capsicum-frutescens-l-fructus_en.pdf"
+    },
+    "ema_pdf:capsici-fructus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de capsici-fructus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-capsicum-annuum-l-var-minimum-miller-heiser-and-small-fruited-varieties-capsicum-frutescens-l-fructus_en.pdf"
+    },
+    "ema_pdf:capsici-fructus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de capsici-fructus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-capsicum-annuum-l-var-minimum-miller-heiser-and-small-fruited-varieties-capsicum-frutescens-l-fructus_en.pdf"
+    },
+    "wcvp:2698419": {
+      "dataset": "wcvp",
+      "label": "WCVP: Capsicum annuum var. aviculare (Dierb.) D'Arcy & Eschbaugh",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2698552": {
+      "dataset": "wcvp",
+      "label": "WCVP: Capsicum indicum var. aviculare Dierb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2698586": {
+      "dataset": "wcvp",
+      "label": "WCVP: Capsicum minimum Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2906270": {
+      "dataset": "wcvp",
+      "label": "WCVP: Capsicum annuum var. minimum (Mill.) Heiser",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:capsici-fructus:4.3",
+      "ema_pdf:capsici-fructus:4.4",
+      "ema_pdf:capsici-fructus:4.5"
+    ],
+    "text": "La monografía de la EMA para el fruto registra como contraindicaciones la hipersensibilidad a los capsaicinoides, la piel lesionada, las heridas y el eccema. Entre sus advertencias figuran que no se ha establecido su uso en menores de 18 años, la aplicación cerca de los ojos o de las mucosas y el efecto del calor adicional. No se han realizado estudios de interacción, y la EMA señala posibles interacciones con otros productos aplicados en la misma zona."
+  },
+  "scientificName": {
+    "authors": "(Dierb.) D'Arcy & Eschbaugh",
+    "name": "Capsicum annuum var. aviculare",
+    "refs": [
+      "wcvp:2698419"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Mill.) Heiser",
+      "name": "Capsicum annuum var. minimum",
+      "refs": [
+        "wcvp:2906270"
+      ]
+    },
+    {
+      "authors": "Dierb.",
+      "name": "Capsicum indicum var. aviculare",
+      "refs": [
+        "wcvp:2698552"
+      ]
+    },
+    {
+      "authors": "Mill.",
+      "name": "Capsicum minimum",
+      "refs": [
+        "wcvp:2698586"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

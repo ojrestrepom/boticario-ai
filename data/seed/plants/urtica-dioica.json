@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:034d199886d0ce5fff888018f3a65d836e121d1e4f9cae1b1bf7e6612c10135e",
+  "bundleHash": "sha256:12f9667fe71328a3efa48380b7e888b4084644dfd1f649cce8cdef293d69bd65",
   "commonNames": [
     {
       "language": "es",
@@ -12,8 +12,8 @@
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Urtica dioica",
-        "wikidata:Q155909"
+        "wikidata:Q155909",
+        "wikipedia_es:Urtica dioica"
       ],
       "text": "Ortiga mayor"
     },
@@ -48,6 +48,13 @@
     {
       "language": "en",
       "refs": [
+        "tppt_plant:P185"
+      ],
+      "text": "Common nettle"
+    },
+    {
+      "language": "en",
+      "refs": [
         "usda_common_name:1037-1"
       ],
       "text": "European Nettle"
@@ -58,13 +65,6 @@
         "usda_common_name:1037-2"
       ],
       "text": "Stinging Nettle"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "tppt_plant:P185"
-      ],
-      "text": "Common nettle"
     },
     {
       "language": "de",
@@ -78,7 +78,7 @@
     "refs": [
       "wikipedia_es:Urtica dioica"
     ],
-    "value": "Hierba cosmopolita de la familia Urticaceae, originaria de Europa y conocida como ortiga mayor. Se caracteriza por pelos urticantes cuyo líquido ácido produce irritación con picor intenso en la piel al tocarla o rozarla."
+    "value": "La ortiga mayor es una hierba cosmopolita de la familia Urticaceae, originaria de Europa. Se caracteriza por sus pelos urticantes, cuyo líquido ácido produce una irritación con picor intenso en la piel al tocarla o rozarla."
   },
   "displayName": {
     "language": "es",
@@ -95,20 +95,8 @@
   },
   "goals": [
     {
-      "area": "Trastornos urinarios y genitales",
-      "evidence": "La EMA tiene monografías en esta área para la hoja, la parte aérea y la raíz.",
-      "goal": "otros-objetivos",
-      "pendingReview": false,
-      "refs": [
-        "ema_herbal:urticae-folium",
-        "ema_herbal:urticae-herba",
-        "ema_herbal:urticae-radix"
-      ],
-      "subarea": "vias-urinarias-y-genitales"
-    },
-    {
       "area": "Dolor e inflamación",
-      "evidence": "La EMA tiene una monografía en esta área para la parte aérea.",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
       "goal": "otros-objetivos",
       "pendingReview": false,
       "refs": [
@@ -118,13 +106,25 @@
     },
     {
       "area": "Trastornos de la piel y heridas leves",
-      "evidence": "La EMA tiene una monografía en esta área para la parte aérea.",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
       "goal": "cuidado-de-la-piel",
       "pendingReview": false,
       "refs": [
         "ema_herbal:urticae-herba"
       ],
       "subarea": null
+    },
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene monografías para la hoja, la parte aérea y la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:urticae-folium",
+        "ema_herbal:urticae-herba",
+        "ema_herbal:urticae-radix"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
     }
   ],
   "id": "urtica-dioica",
@@ -145,7 +145,7 @@
     "refs": [
       "wcvp:2448560"
     ],
-    "value": "Nativa de Europa, Asia y el norte de África."
+    "value": "Europa, norte de África y gran parte de Asia (Cáucaso, Asia occidental, central y oriental, subcontinente indio, Mongolia y Siberia)."
   },
   "partsUsed": [
     {
@@ -516,7 +516,7 @@
       "ema_pdf:urticae-radix:4.4",
       "ema_pdf:urticae-radix:4.5"
     ],
-    "text": "TPPT registra la hoja como alergénica e irritante de la piel, con riesgo de alergia en personas sensibles y una mezcla irritante de aminas, oxalatos y péptidos. La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, en las advertencias, que no se ha establecido el uso en niños por falta de datos y que la hoja y la parte aérea no se recomiendan en afecciones donde se aconseja reducir la ingesta de líquidos; no registra interacciones."
+    "text": "TPPT registra la planta como alergénica y irritante de la piel; la parte señalada es la hoja y las sustancias de la mezcla irritante incluyen histamina, serotonina, acetilcolina y oxalatos. Las monografías de la EMA registran como contraindicación la hipersensibilidad a la sustancia activa, y entre sus advertencias señalan que no se ha establecido el uso en niños, que la parte aérea no se recomienda en afecciones con ingesta reducida de líquidos y que, si los síntomas empeoran o aparecen fiebre, disuria, espasmos o sangre en la orina, debe consultarse a un profesional de la salud. La EMA no registra interacciones con otros medicamentos."
   },
   "scientificName": {
     "authors": "L.",
@@ -782,7 +782,7 @@
       ]
     },
     {
-      "activity": "Artritis úrica",
+      "activity": "Gota",
       "activitySource": "Gout",
       "citations": [
         {
@@ -886,7 +886,7 @@
       ]
     },
     {
-      "activity": "Dolor de espalda",
+      "activity": "Dolor (espalda)",
       "activitySource": "Ache(Back)",
       "citations": [
         {
@@ -946,7 +946,7 @@
       ]
     },
     {
-      "activity": "Ataxia locomotora",
+      "activity": "Ataxia (locomotora)",
       "activitySource": "Ataxia(Locomotor)",
       "citations": [
         {

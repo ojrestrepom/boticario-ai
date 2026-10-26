@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:a5045fa85f20f2dafb10ce7dce1f2b933fcee2f4a35ba228eef82d12fb4fd422",
+  "bundleHash": "sha256:d3abd3b3a36346d38a15aac5356c1f9b02cbb7038d51e8f22c2c0317605fa604",
   "commonNames": [
     {
       "language": "es",
@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Eucalyptus punctata"
     ],
-    "value": "Especie de eucalipto perteneciente a la familia de las mirtáceas."
+    "value": "Especie de eucalipto de la familia de las mirtáceas."
   },
   "displayName": {
     "language": "es",
@@ -31,17 +31,7 @@
   },
   "goals": [],
   "id": "eucalyptus-punctata",
-  "image": {
-    "attributionRequired": true,
-    "author": "https://www.flickr.com/photos/tony_rodd/",
-    "license": "CC BY-SA 2.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_punctatatrunk.jpg",
-    "refs": [
-      "commons:File:Eucalyptus punctatatrunk.jpg"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Eucalyptus_punctatatrunk.jpg"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
@@ -53,18 +43,12 @@
     "refs": [
       "wcvp:73725"
     ],
-    "value": "Australia (Nueva Gales del Sur y Queensland)"
+    "value": "Nativa de Australia."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Eucalyptus punctatatrunk.jpg": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:Eucalyptus punctatatrunk.jpg",
-      "license": "CC BY-SA 2.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_punctatatrunk.jpg"
-    },
     "usda_part:2148-SH": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: química de la parte «Shoot»",
@@ -85,12 +69,12 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -103,10 +87,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY-SA 2.0"
-    },
     {
       "dataset": "usda",
       "license": "CC0"

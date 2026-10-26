@@ -3,7 +3,7 @@
     "agropyron-repens",
     "elytrigia-repens"
   ],
-  "bundleHash": "sha256:336c7876990021a6a2ca3623d3a987b9295904fccdc49ce4f40029df99fd3c5d",
+  "bundleHash": "sha256:b9d267ef0be7f550141c53d69db9b179f12fb79c3526c19eef95cfbec7580352",
   "commonNames": [
     {
       "language": "es",
@@ -52,7 +52,7 @@
     "refs": [
       "wikipedia_es:Elymus repens"
     ],
-    "value": "Especie muy común de hierba nativa de Europa."
+    "value": "Especie muy común de hierba, nativa de Europa."
   },
   "displayName": {
     "language": "es",
@@ -70,7 +70,7 @@
   "goals": [
     {
       "area": "Trastornos urinarios y genitales",
-      "evidence": "La EMA tiene una monografía en esta área.",
+      "evidence": "La EMA tiene una monografía en esta área para el rizoma.",
       "goal": "otros-objetivos",
       "pendingReview": false,
       "refs": [
@@ -102,7 +102,7 @@
     "refs": [
       "wcvp:411505"
     ],
-    "value": "Nativa de Europa, el norte de África y gran parte de Asia, incluidos el Cáucaso, Siberia, China y el subcontinente indio."
+    "value": "Europa, norte de África y gran parte de Asia (Cáucaso, Asia occidental y central, Siberia, China, Mongolia y subcontinente indio)."
   },
   "partsUsed": [
     {
@@ -389,19 +389,19 @@
   },
   "reviewFlags": [
     {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria no tiene ninguna candidata; queda sin resolver aunque el grupo tiene otras citas resueltas.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria no tiene ninguna candidata; queda sin resolver aunque el grupo tiene otras citas resueltas.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[1]"
-    },
-    {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el rizoma, sin ficha aetheroleum de la EMA; queda para revisión futura.",
-      "target": "oil"
     }
   ],
   "safety": {
@@ -411,7 +411,7 @@
       "ema_pdf:agropyri-repentis-rhizoma:4.4",
       "ema_pdf:agropyri-repentis-rhizoma:4.5"
     ],
-    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa. Entre sus advertencias, que no se ha establecido el uso en menores de 12 años (según la indicación, de 18 años), que síntomas como fiebre, disuria, espasmos o sangre en la orina requieren consulta a un profesional sanitario, y que las preparaciones del rizoma no se recomiendan en pacientes con condiciones en que un médico aconseja reducir la ingesta de líquidos, ya que se requiere una ingesta adecuada de líquidos durante el uso. No registra interacciones."
+    "text": "La EMA registra en la monografía del rizoma (uso tradicional) la hipersensibilidad a la sustancia activa como contraindicación. Entre las advertencias, indica que no se ha establecido el uso en menores de 12 años (preparados a) ni de 18 años (b y c), que ante fiebre, disuria, espasmos o sangre en la orina se debe consultar a un médico o profesional sanitario, que los extractos con etanol deben llevar el etiquetado correspondiente y que no se recomienda en personas a quienes un médico indica reducir la ingesta de líquidos. No registra interacciones."
   },
   "scientificName": {
     "authors": "(L.) Gould",
@@ -720,7 +720,7 @@
       ]
     },
     {
-      "activity": "Laxante suave",
+      "activity": "Aperient",
       "activitySource": "Aperient",
       "citations": [
         {

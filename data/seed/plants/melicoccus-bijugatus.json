@@ -2,12 +2,13 @@
   "aliases": [
     "melicoccus-bijugatas"
   ],
-  "bundleHash": "sha256:163ee6185ebd912a3634969c04a315c0c5b33494da3fbbbbbf66b15382b17418",
+  "bundleHash": "sha256:9537f55e856dd5ca000bbba4ecbe8c0c333d6f3651e0537f635b0fba3ef014c6",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Melicoccus bijugatus",
+        "wikidata:Q279728",
         "usda_common_name:1238-3"
       ],
       "text": "Mamoncillo"
@@ -25,7 +26,7 @@
         "wikipedia_es:Melicoccus bijugatus",
         "wikidata:Q279728"
       ],
-      "text": "Mamón"
+      "text": "mamón"
     },
     {
       "language": "es",
@@ -47,7 +48,7 @@
         "wikipedia_es:Melicoccus bijugatus",
         "wikidata:Q279728"
       ],
-      "text": "Guaya"
+      "text": "guaya"
     },
     {
       "language": "es",
@@ -71,7 +72,7 @@
       "text": "Honey berry"
     },
     {
-      "language": "en",
+      "language": "und",
       "refs": [
         "usda_common_name:1238-4"
       ],
@@ -82,12 +83,13 @@
     "refs": [
       "wikipedia_es:Melicoccus bijugatus"
     ],
-    "value": "Árbol frutal de la familia de las sapindáceas, nativo de la zona intertropical de América. Es apreciado por sus frutos (drupa) comestibles."
+    "value": "Árbol frutal de la familia de las sapindáceas, nativo de la zona intertropical de América, apreciado por sus frutos comestibles (drupas)."
   },
   "displayName": {
     "language": "es",
     "refs": [
       "wikipedia_es:Melicoccus bijugatus",
+      "wikidata:Q279728",
       "usda_common_name:1238-3"
     ],
     "value": "Mamoncillo"
@@ -102,7 +104,7 @@
   "id": "melicoccus-bijugatus",
   "image": {
     "attributionRequired": false,
-    "author": "No machine-readable author provided. Hans B.~commonswiki assumed (based on copyright claims).",
+    "author": "Hans B.",
     "license": "Public domain",
     "licenseUrl": null,
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Melicoccus_bijugatus.jpg",
@@ -117,7 +119,7 @@
     "refs": [
       "wcvp:2509977"
     ],
-    "value": "Norte y oeste de Sudamérica (Colombia y Venezuela)."
+    "value": "Norte y oeste de Sudamérica."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -189,8 +191,13 @@
       "target": "scientificName"
     },
     {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "No es seguro que «Pitomba» sea un nombre en español; se registra con idioma indeterminado.",
+      "target": "commonNames"
+    },
+    {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -204,24 +211,24 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "Public domain"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
     }
   ],
   "synonyms": [

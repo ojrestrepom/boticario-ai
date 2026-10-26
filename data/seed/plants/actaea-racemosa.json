@@ -2,7 +2,7 @@
   "aliases": [
     "cimicifuga-racemosa"
   ],
-  "bundleHash": "sha256:3de37f5b0e185179096fb884f4b5b64031a1137aaff29b165e901be058ac4305",
+  "bundleHash": "sha256:816a9ab21472149087eeddfd83818c347c2990bb6d54d1327a51154fdbe1e42e",
   "commonNames": [
     {
       "language": "en",
@@ -25,7 +25,7 @@
     "refs": [
       "wikipedia_es:Actaea racemosa"
     ],
-    "value": "Especie de planta medicinal de la familia Ranunculaceae."
+    "value": "Especie de planta de la familia Ranunculaceae."
   },
   "displayName": {
     "language": "la",
@@ -43,7 +43,7 @@
   "goals": [
     {
       "area": "Trastornos urinarios y genitales",
-      "evidence": "La EMA tiene una monografía del rizoma en esta área.",
+      "evidence": "La EMA tiene una monografía para el rizoma en el área de trastornos urinarios y genitales.",
       "goal": "otros-objetivos",
       "pendingReview": false,
       "refs": [
@@ -77,7 +77,7 @@
     "refs": [
       "wcvp:2620567"
     ],
-    "value": "Este de Canadá y este de Estados Unidos"
+    "value": "Canadá oriental y Estados Unidos (centro-norte, noreste y sureste)"
   },
   "partsUsed": [
     {
@@ -114,9 +114,21 @@
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cimicifuga-racemosa-l-nutt-rhizome-revision-1_en.pdf"
     },
+    "ema_pdf:cimicifugae-rhizoma:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de cimicifugae-rhizoma, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cimicifuga-racemosa-l-nutt-rhizome-revision-1_en.pdf"
+    },
     "ema_pdf:hyperici-herba:4.3": {
       "dataset": "ema_pdf",
       "label": "EMA: borrador de la monografía de hyperici-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-european-union-herbal-monograph-hypericum-perforatum-l-herba-cimicifuga-racemosa-l-nutt-rhizoma_en.pdf"
+    },
+    "ema_pdf:hyperici-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: borrador de la monografía de hyperici-herba, sección 4.4 (Special warnings and precautions for use)",
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-european-union-herbal-monograph-hypericum-perforatum-l-herba-cimicifuga-racemosa-l-nutt-rhizoma_en.pdf"
     },
@@ -361,12 +373,12 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español (el resumen de Wikipedia solo la presenta por su nombre científico); el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Plant y Root), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
     }
   ],
@@ -375,10 +387,12 @@
     "refs": [
       "ema_pdf:cimicifugae-rhizoma:4.3",
       "ema_pdf:cimicifugae-rhizoma:4.4",
+      "ema_pdf:cimicifugae-rhizoma:4.5",
       "ema_pdf:hyperici-herba:4.3",
+      "ema_pdf:hyperici-herba:4.4",
       "ema_pdf:hyperici-herba:4.5"
     ],
-    "text": "La monografía de la EMA para el rizoma registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, los antecedentes de trastorno hepático y los signos de lesión hepática, el uso junto con estrógenos y el cáncer de mama u otros tumores hormonodependientes, actuales o previos. La ficha de la EMA de un producto combinado con Hyperici herba registra interacciones graves con otros medicamentos: el uso simultáneo con anticoagulantes de tipo cumarínico, ciclosporina, inhibidores de la proteasa y otros citostáticos figura como contraindicado."
+    "text": "La monografía de la EMA para el rizoma registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, los antecedentes de trastornos hepáticos, los signos de daño hepático, el sangrado vaginal, el uso junto con estrógenos y el cáncer de mama u otros tumores hormonodependientes; no registra interacciones. La monografía del producto combinado con hipérico (borrador) registra en la sección 4.5 interacciones graves con medicamentos (anticoagulantes de tipo cumarínico, ciclosporina, inhibidores de proteasa, citostáticos y antidepresivos serotoninérgicos, con riesgo de síndrome serotoninérgico)."
   },
   "scientificName": {
     "authors": "L.",
@@ -465,7 +479,7 @@
       ]
     },
     {
-      "activity": "Mordedura de serpiente",
+      "activity": "Mordedura (serpiente)",
       "activitySource": "Bite(Snake)",
       "citations": [
         {

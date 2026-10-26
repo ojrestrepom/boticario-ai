@@ -1,9 +1,9 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:a32d9489b4ca98d7428b06e6480f14eaf2021759b0bdee9fac74547542d196f9",
+  "bundleHash": "sha256:40c53c21189175491b4fbdfb21c4c7b19fde128ef58600e618797ce6cf03872d",
   "commonNames": [
     {
-      "language": "und",
+      "language": "en",
       "refs": [
         "usda_common_name:1200-1"
       ],
@@ -26,17 +26,7 @@
   },
   "goals": [],
   "id": "guatteria-discolor",
-  "image": {
-    "attributionRequired": true,
-    "author": "Museu Paraense Emílio Goeldi (MPEG)",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:ANNONACEAE_Guatteria_discolor_R.E.Fr.,_MPEG_(MG034295).pdf",
-    "refs": [
-      "commons:File:ANNONACEAE Guatteria discolor R.E.Fr., MPEG (MG034295).pdf"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/ANNONACEAE_Guatteria_discolor_R.E.Fr.%2C_MPEG_%28MG034295%29.pdf"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": {
@@ -49,12 +39,6 @@
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:ANNONACEAE Guatteria discolor R.E.Fr., MPEG (MG034295).pdf": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:ANNONACEAE Guatteria discolor R.E.Fr., MPEG (MG034295).pdf",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:ANNONACEAE_Guatteria_discolor_R.E.Fr.,_MPEG_(MG034295).pdf"
-    },
     "usda_common_name:1200-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Envira Preta»",
@@ -68,18 +52,18 @@
   },
   "reviewFlags": [
     {
-      "code": "idioma-de-nombre-dudoso",
-      "message": "USDA etiqueta «Envira Preta» como inglés, pero parece un nombre en portugués; se registra con idioma indeterminado.",
-      "target": "commonNames"
-    },
-    {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El nombre «Envira Preta» viene de USDA con idioma inglés, pero parece portugués.",
+      "target": "commonNames"
+    },
+    {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -92,10 +76,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
-    },
     {
       "dataset": "usda",
       "license": "CC0"

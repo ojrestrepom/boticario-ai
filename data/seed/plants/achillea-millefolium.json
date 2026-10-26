@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:ef4030e48a3afbcbdb5218d4370ee637f904212b1e17bda7790d1f9668333fa5",
+  "bundleHash": "sha256:fff8e67179bc4f2e0caa4fcdcb2420196ec5edcdfbe7fadb4a83a1f2a90cc3de",
   "commonNames": [
     {
       "language": "es",
@@ -27,6 +27,7 @@
     {
       "language": "en",
       "refs": [
+        "tppt_plant:P736",
         "usda_common_name:18-1"
       ],
       "text": "Yarrow"
@@ -50,7 +51,7 @@
     "refs": [
       "wikipedia_es:Achillea millefolium"
     ],
-    "value": "Especie herbácea de la familia de las compuestas (Asteraceae), de pequeñas flores blancas. De origen euroasiático, se ha naturalizado en todos los continentes."
+    "value": "Especie herbácea de la familia de las compuestas (Asteraceae), de pequeñas flores blancas. De origen euroasiático, hoy se encuentra en todos los continentes porque se propaga con facilidad y se ha naturalizado en muchos sitios."
   },
   "displayName": {
     "language": "es",
@@ -104,14 +105,14 @@
   "id": "achillea-millefolium",
   "image": {
     "attributionRequired": true,
-    "author": "Epgrande",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif",
+    "author": "O. Pichard",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg",
     "refs": [
-      "commons:File:Achillea millefolium - Museo Tazzetti Herbarium 159-2024.tif"
+      "commons:File:Achillea millefolium vallee-de-grace-amiens 80 22062007 1.jpg"
     ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg"
   },
   "model": "claude-sonnet-5-5",
   "oil": {
@@ -126,7 +127,7 @@
     "refs": [
       "wcvp:2908230"
     ],
-    "value": "Europa, Asia y zonas subárticas de América"
+    "value": "Europa, Asia occidental y central, Siberia, el subcontinente indio y la América subártica"
   },
   "partsUsed": [
     {
@@ -145,11 +146,11 @@
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Achillea millefolium - Museo Tazzetti Herbarium 159-2024.tif": {
+    "commons:File:Achillea millefolium vallee-de-grace-amiens 80 22062007 1.jpg": {
       "dataset": "commons",
-      "label": "Wikimedia Commons: File:Achillea millefolium - Museo Tazzetti Herbarium 159-2024.tif",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_-_Museo_Tazzetti_Herbarium_159-2024.tif"
+      "label": "Wikimedia Commons: File:Achillea millefolium vallee-de-grace-amiens 80 22062007 1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg"
     },
     "efsa_botanic:2948": {
       "dataset": "efsa",
@@ -683,7 +684,7 @@
   "sources": [
     {
       "dataset": "commons",
-      "license": "CC BY 4.0"
+      "license": "CC BY-SA 3.0"
     },
     {
       "dataset": "efsa",
@@ -884,7 +885,7 @@
         "China",
         "México",
         "Estados Unidos",
-        "Estados Unidos (flathead)"
+        "Estados Unidos (Flathead)"
       ],
       "n": 5,
       "pendingReview": false,
@@ -929,7 +930,7 @@
       "countries": [
         "China",
         "México",
-        "Estados Unidos (flathead)"
+        "Estados Unidos (Flathead)"
       ],
       "n": 4,
       "pendingReview": false,
@@ -970,10 +971,10 @@
         }
       ],
       "countries": [
-        "Canadá (kwakiutl)",
-        "Canadá (salish)",
+        "Canadá (Kwakiutl)",
+        "Canadá (Salish)",
         "Estados Unidos",
-        "Estados Unidos (blackfoot)"
+        "Estados Unidos (Blackfoot)"
       ],
       "n": 4,
       "pendingReview": false,
@@ -1006,9 +1007,9 @@
         }
       ],
       "countries": [
-        "Canadá (salish)",
+        "Canadá (Salish)",
         "Estados Unidos",
-        "Estados Unidos (blackfoot)"
+        "Estados Unidos (Blackfoot)"
       ],
       "n": 3,
       "pendingReview": false,
@@ -1042,8 +1043,8 @@
       ],
       "countries": [
         "Otros lugares",
-        "Estados Unidos (amerindio)",
-        "Estados Unidos (flathead)"
+        "Estados Unidos (Amerindios)",
+        "Estados Unidos (Flathead)"
       ],
       "n": 3,
       "pendingReview": false,
@@ -1135,9 +1136,9 @@
         }
       ],
       "countries": [
-        "Canadá (kwakiutl)",
-        "Canadá (salish)",
-        "Estados Unidos (flathead)"
+        "Canadá (Kwakiutl)",
+        "Canadá (Salish)",
+        "Estados Unidos (Flathead)"
       ],
       "n": 3,
       "pendingReview": false,
@@ -1206,7 +1207,7 @@
       ],
       "countries": [
         "China",
-        "Estados Unidos (amerindio)"
+        "Estados Unidos (Amerindios)"
       ],
       "n": 3,
       "pendingReview": false,
@@ -1344,8 +1345,8 @@
         }
       ],
       "countries": [
-        "Canadá (kwakiutl)",
-        "Estados Unidos (blackfoot)"
+        "Canadá (Kwakiutl)",
+        "Estados Unidos (Blackfoot)"
       ],
       "n": 2,
       "pendingReview": false,
@@ -1398,8 +1399,8 @@
         }
       ],
       "countries": [
-        "Canadá (kwakiutl)",
-        "Estados Unidos (amerindio)"
+        "Canadá (Kwakiutl)",
+        "Estados Unidos (Amerindios)"
       ],
       "n": 2,
       "pendingReview": false,
@@ -1426,7 +1427,7 @@
       ],
       "countries": [
         "Estados Unidos",
-        "Estados Unidos (blackfoot)"
+        "Estados Unidos (Blackfoot)"
       ],
       "n": 2,
       "pendingReview": false,

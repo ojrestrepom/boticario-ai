@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:2f65b3e37544e65508e745b4f72e9bd1d452451332760263a6894fc1026dc1d9",
+  "bundleHash": "sha256:293b37c7f5a8c48673f87768dcacb1ee2a5b941ce23fcf8f3154b63286595916",
   "commonNames": [],
   "description": null,
   "displayName": {
@@ -18,35 +18,19 @@
   },
   "goals": [],
   "id": "erythroxylum-pelleterianum",
-  "image": {
-    "attributionRequired": true,
-    "author": "Instituto Nacional da Mata Atlântica - INMA",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:ERYTHROXYLACEAE_Erythroxylum_pelleterianum_A.St.-Hil,_INMA_(MBML013935).pdf",
-    "refs": [
-      "commons:File:ERYTHROXYLACEAE Erythroxylum pelleterianum A.St.-Hil, INMA (MBML013935).pdf"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/ERYTHROXYLACEAE_Erythroxylum_pelleterianum_A.St.-Hil%2C_INMA_%28MBML013935%29.pdf"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": {
     "refs": [
       "wcvp:2801605"
     ],
-    "value": "Brasil, sur y oeste de Sudamérica"
+    "value": "Brasil y el sur y oeste de Sudamérica."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:ERYTHROXYLACEAE Erythroxylum pelleterianum A.St.-Hil, INMA (MBML013935).pdf": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:ERYTHROXYLACEAE Erythroxylum pelleterianum A.St.-Hil, INMA (MBML013935).pdf",
-      "license": "CC BY-SA 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:ERYTHROXYLACEAE_Erythroxylum_pelleterianum_A.St.-Hil,_INMA_(MBML013935).pdf"
-    },
     "wcvp:2801605": {
       "dataset": "wcvp",
       "label": "WCVP: Erythroxylum pelleterianum A.St.-Hil.",
@@ -56,7 +40,7 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español para Erythroxylum pelleterianum; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
@@ -74,10 +58,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY-SA 4.0"
-    },
     {
       "dataset": "wcvp",
       "license": "CC BY 3.0"

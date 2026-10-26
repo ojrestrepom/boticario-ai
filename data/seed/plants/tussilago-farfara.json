@@ -1,33 +1,47 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:be920427b2617c43475352b5dc33de4dfe286bac32287f5989e1227ce1d1637e",
+  "bundleHash": "sha256:2edc3a7981ad08ac792da076dc66b3810d99ca800810ad6adbcda02e0e8349a3",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Tussilago"
       ],
-      "text": "tusílago"
+      "text": "Tusílago"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q26302"
       ],
-      "text": "uña de asno"
+      "text": "Farfara"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q26302"
       ],
-      "text": "paso de asno"
+      "text": "Uña de asno"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26302"
+      ],
+      "text": "Espatas"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26302"
+      ],
+      "text": "Paso de asno"
     },
     {
       "language": "en",
       "refs": [
-        "tppt_plant:P698",
-        "usda_common_name:1030-1"
+        "usda_common_name:1030-1",
+        "tppt_plant:P698"
       ],
       "text": "Coltsfoot"
     },
@@ -43,7 +57,7 @@
     "refs": [
       "wikipedia_es:Tussilago"
     ],
-    "value": "Única especie del género Tussilago, de plantas con flores de la familia Asteraceae."
+    "value": "Única especie del género Tussilago, de plantas con flores de la familia de las asteráceas."
   },
   "displayName": {
     "language": "es",
@@ -77,7 +91,7 @@
     "refs": [
       "wcvp:2901763"
     ],
-    "value": "Europa, norte de África y Asia (incluidos Siberia, el Cáucaso, Asia central, China y el subcontinente indio)"
+    "value": "Nativa de Europa, el norte de África, Asia occidental y central, Siberia, China y el subcontinente indio."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -395,59 +409,64 @@
   "reviewFlags": [
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Expectorant» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Expectorant» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Demulcent» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Demulcent» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Cough» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Cough» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Asthma» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Asthma» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[4]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Cold» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Cold» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[6]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Diuretic» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Diuretic» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[7]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Fumitory» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Fumitory» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[8]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Sudorific» tiene claves de cita sin candidata en el paquete (Woi.Syria).",
+      "message": "La clave de cita «Woi.Syria» del grupo «Sudorific» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[10]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Antihistamine» tiene claves de cita sin candidata en el paquete (Woi.Syria). Ningún cita del grupo se pudo resolver.",
-      "target": "traditionalUses[19]"
+      "message": "La clave de cita «Woi.Syria» del grupo «Antihistamine» no tiene candidata que corresponda; queda sin resolver.",
+      "target": "traditionalUses[11]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Nas» del grupo «Bactericide» no tiene candidata que corresponda; queda sin resolver.",
+      "target": "traditionalUses[13]"
     }
   ],
   "safety": {
     "level": "medio",
     "refs": [
-      "tppt_plant:P698",
       "efsa_botanic:75",
       "efsa_botanic:76",
-      "efsa_botanic:77"
+      "efsa_botanic:77",
+      "tppt_plant:P698"
     ],
-    "text": "TPPT registra toxicidad humana (categoría «toxic»); parte registrada: planta entera. Indica que los alcaloides pirrolizidínicos (senecionina, senkirquina y tusilagina) son tóxicos. EFSA incluye la senkirquina (plantas vivas) entre las sustancias de alta preocupación por ser genotóxica o carcinógena, y registra además tusilagina e isotusilagina como evidencia."
+    "text": "EFSA incluye la senkirquina, un alcaloide pirrolizidínico, entre las sustancias de alta preocupación por genotoxicidad o carcinogenicidad en la planta viva, y registra tusilagina e isotusilagina como sustancias de evidencia. TPPT la registra como tóxica en toda la planta, por alcaloides pirrolizidínicos (senecionina, senkirquina y tusilagina)."
   },
   "scientificName": {
     "authors": "L.",
@@ -880,6 +899,25 @@
       ]
     },
     {
+      "activity": "Antihistamínico",
+      "activitySource": "Antihistamine",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:3416"
+      ]
+    },
+    {
       "activity": "Uso tradicional, sin eficacia demostrada: apoplejía",
       "activitySource": "Apoplexy",
       "citations": [
@@ -905,18 +943,15 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
-      "countries": [
-        "Otros lugares"
-      ],
+      "countries": [],
       "n": 1,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
-        "usda_use:62338",
-        "usda_reference:NAS2"
+        "usda_use:62338"
       ]
     },
     {
@@ -1037,25 +1072,6 @@
       "refs": [
         "usda_use:52750",
         "usda_reference:Hartwell"
-      ]
-    },
-    {
-      "activity": "Antihistamínico",
-      "activitySource": "Antihistamine",
-      "citations": [
-        {
-          "key": "Woi.Syria",
-          "ref": null,
-          "text": "Woi.Syria (sin resolver)"
-        }
-      ],
-      "countries": [
-        "Otros lugares"
-      ],
-      "n": 1,
-      "pendingReview": true,
-      "refs": [
-        "usda_use:3416"
       ]
     }
   ]

@@ -1,12 +1,11 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:c1683a682261cc8839fa6661755caa46f6244b14ebb8dc2f66474c34a12617b2",
+  "bundleHash": "sha256:6478adadecab3bfd9a461ad04c6ae72da784098f83acc279aa4f2ba3cd3f9c48",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikidata:Q795158",
-        "wikipedia_es:Lepidium meyenii"
+        "wikidata:Q795158"
       ],
       "text": "maca"
     },
@@ -23,6 +22,20 @@
         "wikipedia_es:Lepidium meyenii"
       ],
       "text": "maino"
+    },
+    {
+      "language": "und",
+      "refs": [
+        "wikipedia_es:Lepidium meyenii"
+      ],
+      "text": "ayak chichira"
+    },
+    {
+      "language": "und",
+      "refs": [
+        "wikipedia_es:Lepidium meyenii"
+      ],
+      "text": "ayak willku"
     },
     {
       "language": "en",
@@ -43,13 +56,13 @@
     "refs": [
       "wikipedia_es:Lepidium meyenii"
     ],
-    "value": "Planta herbácea anual o bienal nativa de Bolivia, Jujuy y Perú, donde se cultiva por su hipocótilo comestible carnoso, fusionado con una raíz primaria."
+    "value": "Planta herbácea anual o bienal nativa de Bolivia, Jujuy y Perú, que se cultiva por su hipocótilo comestible y carnoso, fusionado con una raíz primaria."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikidata:Q795158",
-      "wikipedia_es:Lepidium meyenii"
+      "wikipedia_es:Lepidium meyenii",
+      "wikidata:Q795158"
     ],
     "value": "Maca"
   },
@@ -63,7 +76,7 @@
   "id": "lepidium-meyenii",
   "image": {
     "attributionRequired": false,
-    "author": "No machine-readable author provided. Gust4vo~commonswiki assumed (based on copyright claims).",
+    "author": "Gust4vo",
     "license": "Public domain",
     "licenseUrl": null,
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Maca.gif",
@@ -78,7 +91,7 @@
     "refs": [
       "wcvp:2337886"
     ],
-    "value": "Sudamérica meridional y occidental (noroeste de Argentina, Bolivia, norte de Chile y Perú)."
+    "value": "Sudamérica occidental y meridional."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -128,14 +141,20 @@
       "url": "https://es.wikipedia.org/wiki/Lepidium_meyenii"
     }
   },
-  "reviewFlags": [],
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "No es seguro que «ayak chichira» y «ayak willku» sean nombres en español; se registran con idioma indeterminado.",
+      "target": "commonNames"
+    }
+  ],
   "safety": {
     "level": null,
     "refs": [
       "efsa_botanic:1831",
       "efsa_botanic:1833"
     ],
-    "text": "EFSA registra como sustancias de evidencia la lepidilina A y la lepidilina B, presentes en raíces y otras partes subterráneas; este dato no hace segura a la planta."
+    "text": "EFSA registra la lepidilina A y la lepidilina B como sustancias de evidencia en las raíces y otras partes subterráneas."
   },
   "scientificName": {
     "authors": "Walp.",
@@ -146,28 +165,28 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "Public domain"
-    },
-    {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
     }
   ],
   "synonyms": [],

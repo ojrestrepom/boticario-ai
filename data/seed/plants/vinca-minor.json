@@ -1,20 +1,20 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:375570dd4c46095fb155b1e48ea772aa2377af0f070f04fde85c6eff82b26407",
+  "bundleHash": "sha256:d68b3ace0aa5b3c8e3d71006fb4151ea8e5228ed78456c8289c0d0f5fb66e09d",
   "commonNames": [
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q161777"
-      ],
-      "text": "Vinca menor"
-    },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Vinca minor"
       ],
       "text": "Brusela"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161777"
+      ],
+      "text": "Vinca menor"
     },
     {
       "language": "es",
@@ -29,6 +29,13 @@
         "wikidata:Q161777"
       ],
       "text": "Clemátida"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161777"
+      ],
+      "text": "Clematida"
     },
     {
       "language": "es",
@@ -84,7 +91,7 @@
     "refs": [
       "wikipedia_es:Vinca minor"
     ],
-    "value": "Especie de planta con flor, nativa del centro y sur de Europa, desde Portugal y Francia hasta el este del Cáucaso, y también del sudoeste de Asia (Turquía)."
+    "value": "Vinca minor, conocida como brusela, es una especie de planta con flor nativa del centro y sur de Europa, desde Portugal, Francia, el norte de Holanda y los países bálticos hasta el este del Cáucaso, y también del sudoeste de Asia, en Turquía."
   },
   "displayName": {
     "language": "es",
@@ -118,7 +125,7 @@
     "refs": [
       "wcvp:213172"
     ],
-    "value": "Centro, este y sur de Europa y el Cáucaso"
+    "value": "Cáucaso y Europa (oriental, central, sudoriental y sudoccidental)."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -398,22 +405,22 @@
     "level": "medio",
     "refs": [
       "tppt_plant:P472",
-      "efsa_botanic:3336",
-      "efsa_botanic:3333",
-      "efsa_botanic:3329",
-      "efsa_botanic:3335",
-      "efsa_botanic:3328",
-      "efsa_botanic:3331",
-      "efsa_botanic:3332",
-      "efsa_botanic:3334",
-      "efsa_botanic:3330",
       "efsa_botanic:3326",
       "efsa_botanic:3327",
+      "efsa_botanic:3328",
+      "efsa_botanic:3329",
+      "efsa_botanic:3330",
+      "efsa_botanic:3331",
+      "efsa_botanic:3332",
+      "efsa_botanic:3333",
+      "efsa_botanic:3334",
+      "efsa_botanic:3335",
+      "efsa_botanic:3336",
       "efsa_endpoint:150",
       "efsa_endpoint:230",
       "efsa_endpoint:958"
     ],
-    "text": "TPPT la califica de tóxica (parte tóxica: hierba y raíz, o la planta entera; toxina principal: vincamina, un alcaloide indólico monoterpenoide). EFSA anota como sustancias de evidencia la vincamina, la reserpina y otros alcaloides, y recoge tres estudios que reportan toxicidad para la reproducción de la vincamina."
+    "text": "TPPT registra la planta como tóxica; la parte tóxica es la hierba y la raíz (o la planta entera) y la toxina principal es la (+)-vincamina, un alcaloide indólico monoterpenoide, con otros alcaloides menores. EFSA lista como sustancias de evidencia la vincamina, la vincina, la epivincamina, la eburnamonina, la reserpina y otras, y registra estudios que mencionan toxicidad reproductiva atribuida a la vincamina."
   },
   "scientificName": {
     "authors": "L.",
@@ -423,6 +430,22 @@
     ]
   },
   "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
     {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
@@ -434,22 +457,6 @@
     {
       "dataset": "wikipedia_es",
       "license": "CC BY-SA 4.0"
-    },
-    {
-      "dataset": "tppt",
-      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
-    },
-    {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "commons",
-      "license": "CC0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
     }
   ],
   "synonyms": [],
@@ -833,7 +840,7 @@
       ]
     },
     {
-      "activity": "Lactógogo",
+      "activity": "Galactagogo",
       "activitySource": "Lactogogue",
       "citations": [
         {

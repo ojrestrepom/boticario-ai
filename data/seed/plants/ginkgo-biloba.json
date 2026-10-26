@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:0b58c60dded1442fdd02561fbe3ce9659cf96bb48ddb304163294a399ce1b78b",
+  "bundleHash": "sha256:2fa9fd9f67a628974c99d3b6d73e89d217d5fe095eb9d57b87132ea1fc92063d",
   "commonNames": [
     {
       "language": "es",
@@ -12,37 +12,18 @@
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Ginkgo biloba"
+        "wikipedia_es:Ginkgo biloba",
+        "wikidata:Q43284"
       ],
       "text": "Gingko"
     },
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Ginkgo biloba"
-      ],
-      "text": "árbol de los cuarenta escudos"
-    },
-    {
-      "language": "es",
-      "refs": [
+        "wikipedia_es:Ginkgo biloba",
         "wikidata:Q43284"
       ],
-      "text": "albaricoque de plata"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q43284"
-      ],
-      "text": "albaricoque plateado"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q43284"
-      ],
-      "text": "árbol de doncella"
+      "text": "Árbol de los cuarenta escudos"
     },
     {
       "language": "en",
@@ -70,7 +51,7 @@
     "refs": [
       "wikipedia_es:Ginkgo biloba"
     ],
-    "value": "Especie de árbol del género Ginkgo, la única no extinta de su clase, considerada un fósil viviente por su presencia en el registro fósil desde hace 290 millones de años. Su aspecto se asemeja al de las plantas con flor, aunque es una gimnosperma."
+    "value": "El ginkgo es un árbol del género Ginkgo, la única especie no extinta de su clase, considerado un fósil viviente. Aunque su aspecto se asemeja al de las plantas con flor, pertenece a las gimnospermas."
   },
   "displayName": {
     "language": "es",
@@ -88,7 +69,7 @@
   "goals": [
     {
       "area": "Trastornos circulatorios",
-      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "evidence": "La EMA tiene una monografía de la hoja en esta área",
       "goal": "otros-objetivos",
       "pendingReview": false,
       "refs": [
@@ -110,12 +91,17 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/GINKGOBAUM-2.jpg"
   },
   "model": "claude-sonnet-5-5",
-  "oil": null,
+  "oil": {
+    "refs": [
+      "usda_part:442-WD"
+    ],
+    "type": "Esencial"
+  },
   "origin": {
     "refs": [
       "wcvp:334053"
     ],
-    "value": "China"
+    "value": "Sureste de China"
   },
   "partsUsed": [
     {
@@ -213,6 +199,11 @@
       "label": "USDA Dr. Duke: nombre común «Maidenhair Tree»",
       "license": "CC0"
     },
+    "usda_part:442-WD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Wood»",
+      "license": "CC0"
+    },
     "usda_reference:Bliss": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Bliss",
@@ -238,9 +229,9 @@
       "label": "USDA Dr. Duke: referencia Krochmal",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Takeda": {
@@ -441,7 +432,13 @@
       "url": "https://es.wikipedia.org/wiki/Ginkgo_biloba"
     }
   },
-  "reviewFlags": [],
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la madera, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
   "safety": {
     "level": "alto",
     "refs": [
@@ -458,7 +455,7 @@
       "efsa_endpoint:635",
       "efsa_endpoint:636"
     ],
-    "text": "La EMA registra para la hoja contraindicaciones (hipersensibilidad a la sustancia activa y, en el uso bien establecido, el embarazo), advertencias sobre mayor tendencia al sangrado, uso simultáneo con anticoagulantes o antiagregantes, convulsiones en personas con epilepsia y uso en menores de 18 años sin establecer, e interacciones graves con anticoagulantes, antiagregantes plaquetarios, dabigatrán, nifedipino y efavirenz. TPPT registra la hoja y la cubierta de la semilla como alergénicas. EFSA lista las sustancias bilabol, cardanol, cardol y ginkgotoxina en las hojas, y estudios en humanos con la semilla que registran intoxicación con desenlaces mortales en Japón, convulsiones, vómitos y pérdida de conciencia."
+    "text": "La monografía de la EMA registra interacciones graves: el efecto de los anticoagulantes y los antiagregantes plaquetarios puede verse influido, puede inhibir la glucoproteína P intestinal (con mayor exposición a fármacos como el dabigatrán etexilato), puede aumentar la concentración máxima de la nifedipina y no se recomienda su uso con efavirenz. Como contraindicaciones registra la hipersensibilidad a la sustancia activa y el embarazo (uso bien establecido). Entre las advertencias registra una posible mayor tendencia al sangrado, la imposibilidad de excluir nuevas crisis en personas con epilepsia y que no se ha establecido su uso en menores de 18 años. TPPT la registra como alergénica (parte tóxica: hoja y cubierta de la semilla; los alquilfenoles son alérgenos fuertes por contacto). EFSA registra como sustancias de evidencia en las hojas bilabol, cardanol, cardol y ginkgotoxina, y estudios en humanos con la semilla: intoxicación en Japón con algunos desenlaces mortales, convulsiones, vómitos y pérdida del conocimiento."
   },
   "scientificName": {
     "authors": "L.",
@@ -536,8 +533,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -553,7 +550,7 @@
         "usda_reference:Bliss",
         "usda_reference:Hunan",
         "usda_reference:Keys",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -572,8 +569,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -587,7 +584,7 @@
         "usda_use:67693",
         "usda_reference:Bliss",
         "usda_reference:Hunan",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -718,8 +715,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -731,7 +728,7 @@
         "usda_use:32048",
         "usda_use:81305",
         "usda_reference:Hunan",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -745,8 +742,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -758,7 +755,7 @@
         "usda_use:51773",
         "usda_use:51774",
         "usda_reference:Hunan",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -835,8 +832,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -846,7 +843,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:6440",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -870,7 +867,7 @@
       ]
     },
     {
-      "activity": "Blenorrea",
+      "activity": "Blenorragia",
       "activitySource": "Blennorrhea",
       "citations": [
         {

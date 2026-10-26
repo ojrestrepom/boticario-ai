@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:33213c7b904e5eadc4e4a75c954c47117ab79f9afda91154f1af75cf2b2b5812",
+  "bundleHash": "sha256:0ce7b1ddc971eb9949b43420973a1ee06d269e60ccc9da72f476a464192ce71d",
   "commonNames": [
     {
       "language": "es",
@@ -8,6 +8,13 @@
         "wikidata:Q27264"
       ],
       "text": "Mostaza salvaje"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q27264"
+      ],
+      "text": "Cucliyo"
     },
     {
       "language": "en",
@@ -21,7 +28,7 @@
     "refs": [
       "wikipedia_es:Capsella bursa-pastoris"
     ],
-    "value": "Hierba anual de origen en el este de Europa y Asia Menor, naturalizada en muchas partes del mundo, sobre todo en regiones de clima frío, y considerada una hierba común."
+    "value": "Hierba anual oriunda del este de Europa y Asia Menor, naturalizada en muchas partes del mundo, en especial en regiones de clima frío, y considerada una hierba común."
   },
   "displayName": {
     "language": "es",
@@ -39,7 +46,7 @@
   "goals": [
     {
       "area": "Trastornos urinarios y genitales",
-      "evidence": "La EMA tiene una monografía en esta área",
+      "evidence": "La EMA tiene una monografía en esta área para la parte aérea.",
       "goal": "otros-objetivos",
       "pendingReview": false,
       "refs": [
@@ -66,7 +73,7 @@
     "refs": [
       "wcvp:2697999"
     ],
-    "value": "Nativa de Europa, el norte de África, Asia occidental, central y oriental, Siberia, el Lejano Oriente ruso, Mongolia, China, Indochina, el subcontinente indio, la península arábiga y el Cáucaso."
+    "value": "Europa, norte de África y gran parte de Asia (Cáucaso, Asia central y oriental, Siberia, China, Mongolia, subcontinente indio y península arábiga)."
   },
   "partsUsed": [
     {
@@ -417,17 +424,63 @@
       "url": "https://es.wikipedia.org/wiki/Capsella_bursa-pastoris"
     }
   },
-  "reviewFlags": [],
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "No es seguro que «Cucliyo» (alias de Wikidata) sea un nombre en español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Nas.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[5]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[11]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Nas.",
+      "target": "traditionalUses[12]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Nas.",
+      "target": "traditionalUses[13]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Nas.",
+      "target": "traditionalUses[14]"
+    }
+  ],
   "safety": {
     "level": null,
     "refs": [
+      "efsa_botanic:328",
+      "efsa_botanic:327",
       "ema_pdf:bursae-pastoris-herba:4.3",
       "ema_pdf:bursae-pastoris-herba:4.4",
-      "ema_pdf:bursae-pastoris-herba:4.5",
-      "efsa_botanic:328",
-      "efsa_botanic:327"
+      "ema_pdf:bursae-pastoris-herba:4.5"
     ],
-    "text": "La monografía de la EMA para la parte aérea registra como contraindicación la hipersensibilidad a la sustancia activa, indica que su uso en menores de 18 años no se recomienda por motivos que requieren consejo médico, y no registra interacciones. EFSA lista los oxalatos y la tiramina de la parte aérea como sustancias de evidencia."
+    "text": "EFSA registra oxalatos y tiramina como sustancias de evidencia en la parte aérea de la planta. La monografía de la EMA (uso tradicional) registra la hipersensibilidad a la sustancia activa como contraindicación; indica que no se recomienda su uso en menores de 18 años y que, si los síntomas empeoran, se debe consultar a un médico o profesional sanitario, y que los extractos con etanol deben llevar el etiquetado correspondiente. No registra interacciones."
   },
   "scientificName": {
     "authors": "(L.) Medik.",
@@ -529,6 +582,11 @@
           "key": "Uphof",
           "ref": "usda_reference:Uphof",
           "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
         }
       ],
       "countries": [
@@ -564,8 +622,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
       "countries": [
@@ -579,8 +637,7 @@
         "usda_use:8918",
         "usda_use:8919",
         "usda_use:9903",
-        "usda_reference:Hartwell",
-        "usda_reference:NAS2"
+        "usda_reference:Hartwell"
       ]
     },
     {
@@ -630,6 +687,11 @@
           "key": "Nas",
           "ref": "usda_reference:NAS2",
           "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
         }
       ],
       "countries": [
@@ -691,6 +753,11 @@
           "key": "Steinmetz",
           "ref": "usda_reference:Steinmetz",
           "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
         }
       ],
       "countries": [
@@ -850,6 +917,11 @@
           "key": "Steinmetz",
           "ref": "usda_reference:Steinmetz",
           "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
         }
       ],
       "countries": [
@@ -870,18 +942,17 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
       "countries": [
         "Otros lugares"
       ],
       "n": 1,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
-        "usda_use:3837",
-        "usda_reference:NAS2"
+        "usda_use:3837"
       ]
     },
     {
@@ -890,18 +961,17 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
       "countries": [
         "Otros lugares"
       ],
       "n": 1,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
-        "usda_use:10259",
-        "usda_reference:NAS2"
+        "usda_use:10259"
       ]
     },
     {
@@ -910,18 +980,17 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
       "countries": [
         "Otros lugares"
       ],
       "n": 1,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
-        "usda_use:13271",
-        "usda_reference:NAS2"
+        "usda_use:13271"
       ]
     },
     {

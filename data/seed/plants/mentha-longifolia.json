@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:aef221bb1939db392cc5b7f3838780bbc01c6d8a6ff42415859fe564e49fe465",
+  "bundleHash": "sha256:4431657dfff3f079f3280887d2241aded713363f2fe05d63f38f564a01ba6769",
   "commonNames": [
     {
       "language": "es",
@@ -82,14 +82,14 @@
   "id": "mentha-longifolia",
   "image": {
     "attributionRequired": true,
-    "author": "Epgrande",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mentha_longifolia_-_Museo_Tazzetti_Herbarium_241-2024.tif",
+    "author": "Michael Becker",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mentha_longifolia_2005.08.02_09.53.56.jpg",
     "refs": [
-      "commons:File:Mentha longifolia - Museo Tazzetti Herbarium 241-2024.tif"
+      "commons:File:Mentha longifolia 2005.08.02 09.53.56.jpg"
     ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Mentha_longifolia_-_Museo_Tazzetti_Herbarium_241-2024.tif"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Mentha_longifolia_2005.08.02_09.53.56.jpg"
   },
   "model": "claude-sonnet-5-5",
   "oil": {
@@ -102,17 +102,17 @@
     "refs": [
       "wcvp:124916"
     ],
-    "value": "Europa, el norte, el este y el sur de África, el Cáucaso, Asia occidental y central, el subcontinente indio, China, Siberia, la península arábiga y Macaronesia"
+    "value": "Europa, África, Asia occidental y central, Siberia, China, el subcontinente indio, la península arábiga y Macaronesia."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Mentha longifolia - Museo Tazzetti Herbarium 241-2024.tif": {
+    "commons:File:Mentha longifolia 2005.08.02 09.53.56.jpg": {
       "dataset": "commons",
-      "label": "Wikimedia Commons: File:Mentha longifolia - Museo Tazzetti Herbarium 241-2024.tif",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Mentha_longifolia_-_Museo_Tazzetti_Herbarium_241-2024.tif"
+      "label": "Wikimedia Commons: File:Mentha longifolia 2005.08.02 09.53.56.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mentha_longifolia_2005.08.02_09.53.56.jpg"
     },
     "tppt_plant:P537": {
       "dataset": "tppt",
@@ -295,27 +295,27 @@
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata y queda sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata y queda sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata y queda sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La única clave, Woi.Syria, no tiene candidata; el grupo queda pendiente de revisión.",
+      "message": "La única clave del grupo, Woi.Syria, no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La única clave, Woi.Syria, no tiene candidata; el grupo queda pendiente de revisión.",
+      "message": "La única clave del grupo, Woi.Syria, no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[8]"
     }
   ],
@@ -324,7 +324,7 @@
     "refs": [
       "tppt_plant:P537"
     ],
-    "text": "TPPT la califica de débilmente tóxica (parte aérea) y anota un aceite esencial tóxico que contiene, entre otras sustancias, pulegona, mentofurano y mentona; las toxinas principales registradas son la mentona y la pulegona."
+    "text": "TPPT la califica de débilmente tóxica para las personas; la parte registrada es la parte aérea y anota un aceite esencial tóxico que contiene, entre otros, pulegona, mentofurano y mentona."
   },
   "scientificName": {
     "authors": "(L.) L.",
@@ -335,8 +335,16 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
     },
     {
       "dataset": "tppt",
@@ -347,16 +355,8 @@
       "license": "CC0"
     },
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
-    },
-    {
-      "dataset": "wikidata",
-      "license": "CC0 1.0"
-    },
-    {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
     }
   ],
   "synonyms": [
@@ -506,7 +506,7 @@
       ]
     },
     {
-      "activity": "Dolor (cabeza)",
+      "activity": "Dolor de cabeza",
       "activitySource": "Ache(Head)",
       "citations": [
         {

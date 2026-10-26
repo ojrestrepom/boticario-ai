@@ -1,13 +1,13 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:01764b8c1aabe84c23a28ffe7c48dd5162876427b2e25b30451197ea235d9c85",
+  "bundleHash": "sha256:282c70f7e8e57589c0c77857360b4abf894aebf5b413589aa04ad8e0e138095b",
   "commonNames": [
     {
-      "language": "de",
+      "language": "en",
       "refs": [
-        "tppt_plant:P393"
+        "usda_common_name:730-1"
       ],
-      "text": "Amerikanische Kermsbeere"
+      "text": "Pokeweed"
     },
     {
       "language": "en",
@@ -17,18 +17,18 @@
       "text": "Virginian poke"
     },
     {
-      "language": "en",
+      "language": "de",
       "refs": [
-        "usda_common_name:730-1"
+        "tppt_plant:P393"
       ],
-      "text": "Pokeweed"
+      "text": "Amerikanische Kermsbeere"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Phytolacca americana"
     ],
-    "value": "Especie de la familia Phytolaccaceae. Algunas de sus partes son altamente tóxicas para el ganado y los seres humanos, y se considera una plaga importante para los agricultores."
+    "value": "Especie de la familia Phytolaccaceae. Algunas partes de la planta son altamente tóxicas para el ganado y los seres humanos, y se la considera una plaga importante para los agricultores."
   },
   "displayName": {
     "language": "la",
@@ -46,15 +46,15 @@
   "goals": [],
   "id": "phytolacca-americana",
   "image": {
-    "attributionRequired": true,
-    "author": "Epgrande",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Phytolacca_americana_-_Museo_Tazzetti_Herbarium_229-2024.tif",
+    "attributionRequired": false,
+    "author": "Huw Williams ( Huwmanbeing )",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pokeberries.png",
     "refs": [
-      "commons:File:Phytolacca americana - Museo Tazzetti Herbarium 229-2024.tif"
+      "commons:File:Pokeberries.png"
     ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Phytolacca_americana_-_Museo_Tazzetti_Herbarium_229-2024.tif"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pokeberries.png"
   },
   "model": "claude-sonnet-5-5",
   "oil": null,
@@ -62,17 +62,17 @@
     "refs": [
       "wcvp:2562777"
     ],
-    "value": "Nativa del este de Canadá, México y distintas regiones de Estados Unidos."
+    "value": "Este de Canadá, Estados Unidos y México."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Phytolacca americana - Museo Tazzetti Herbarium 229-2024.tif": {
+    "commons:File:Pokeberries.png": {
       "dataset": "commons",
-      "label": "Wikimedia Commons: File:Phytolacca americana - Museo Tazzetti Herbarium 229-2024.tif",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Phytolacca_americana_-_Museo_Tazzetti_Herbarium_229-2024.tif"
+      "label": "Wikimedia Commons: File:Pokeberries.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Pokeberries.png"
     },
     "efsa_botanic:353": {
       "dataset": "efsa",
@@ -114,9 +114,9 @@
       "label": "USDA Dr. Duke: referencia Lewis",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Steinmetz": {
@@ -344,7 +344,7 @@
       "usda_use:75115",
       "usda_use:70654"
     ],
-    "text": "TPPT registra la planta entera como tóxica para las personas, con las mayores concentraciones en la raíz y la semilla, y señala saponinas triterpénicas como toxinas. EFSA registra la sustancia phytolaccatoxin en plantas vivas como sustancia de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "TPPT la califica de tóxica; registra como parte tóxica la planta entera, con mayores concentraciones en la raíz y la semilla, y saponinas triterpénicas como toxinas. EFSA registra la fitolacatoxina como sustancia de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "L.",
@@ -356,7 +356,7 @@
   "sources": [
     {
       "dataset": "commons",
-      "license": "CC BY 4.0"
+      "license": "Public domain"
     },
     {
       "dataset": "efsa",
@@ -433,8 +433,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Steinmetz",
@@ -457,7 +457,7 @@
         "usda_use:60231",
         "usda_use:69944",
         "usda_reference:EB",
-        "usda_reference:NAS",
+        "usda_reference:NAS2",
         "usda_reference:Steinmetz"
       ]
     },
@@ -510,8 +510,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Takeda",
@@ -528,7 +528,7 @@
       "refs": [
         "usda_use:18478",
         "usda_use:60228",
-        "usda_reference:NAS",
+        "usda_reference:NAS2",
         "usda_reference:Takeda"
       ]
     },
@@ -593,26 +593,6 @@
       ]
     },
     {
-      "activity": "Estimulante del sistema nervioso central",
-      "activitySource": "CNS stimulant",
-      "citations": [
-        {
-          "key": "Steinmetz",
-          "ref": "usda_reference:Steinmetz",
-          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
-        }
-      ],
-      "countries": [
-        "Turquía"
-      ],
-      "n": 1,
-      "pendingReview": false,
-      "refs": [
-        "usda_use:60227",
-        "usda_reference:Steinmetz"
-      ]
-    },
-    {
       "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
       "activitySource": "Cancer(Breast)",
       "citations": [
@@ -630,6 +610,26 @@
       "refs": [
         "usda_use:9632",
         "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Estimulante del sistema nervioso central",
+      "activitySource": "CNS stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60227",
+        "usda_reference:Steinmetz"
       ]
     },
     {

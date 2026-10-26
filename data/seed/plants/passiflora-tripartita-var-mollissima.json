@@ -2,30 +2,30 @@
   "aliases": [
     "passiflora-mollissima"
   ],
-  "bundleHash": "sha256:6434052ac04e4b85d5448c6ac2accc46674000895393d0bb498fa026c88a8af3",
+  "bundleHash": "sha256:2a808b18ea3427b16cb7a1126264234f19898dcf3923536fa2d8a878e3d9a922",
   "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1246-2"
+      ],
+      "text": "Granadilla De Guineo"
+    },
     {
       "language": "en",
       "refs": [
         "usda_common_name:1246-1"
       ],
       "text": "Banana Passionfruit"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "usda_common_name:1246-2"
-      ],
-      "text": "Granadilla De Guineo"
     }
   ],
   "description": null,
   "displayName": {
-    "language": "la",
+    "language": "es",
     "refs": [
-      "wcvp:2562949"
+      "usda_common_name:1246-2"
     ],
-    "value": "Passiflora tripartita var. mollissima"
+    "value": "Granadilla De Guineo"
   },
   "family": {
     "refs": [
@@ -37,7 +37,7 @@
   "id": "passiflora-tripartita-var-mollissima",
   "image": {
     "attributionRequired": true,
-    "author": "No machine-readable author provided. Fibonacci assumed (based on copyright claims).",
+    "author": "Fibonacci",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Curuba.jpg",
@@ -52,7 +52,7 @@
     "refs": [
       "wcvp:2562949"
     ],
-    "value": "América Central, norte y oeste de Sudamérica."
+    "value": "América Central y norte y oeste de Sudamérica."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -102,13 +102,8 @@
   },
   "reviewFlags": [
     {
-      "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
-      "target": "displayName"
-    },
-    {
       "code": "idioma-de-nombre-dudoso",
-      "message": "USDA registra «Granadilla De Guineo» como inglés, pero parece español; se conserva con el idioma de la fuente.",
+      "message": "USDA marca «Granadilla De Guineo» como inglés, pero es claramente español; se registra como español.",
       "target": "commonNames"
     },
     {
@@ -127,16 +122,16 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY-SA 3.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     },
     {
       "dataset": "usda",
       "license": "CC0"
     },
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
     }
   ],
   "synonyms": [

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:cd55a658da0ee300cd21c1ecef5f49ce8bc1ca63dfe49c1868c295f566b794f8",
+  "bundleHash": "sha256:81fa525091327f8d9452a11f66b38aa3ec3deb3bd9ba6459c0159b76da0f3bb1",
   "commonNames": [
     {
       "language": "es",
@@ -15,7 +15,63 @@
       "refs": [
         "wikipedia_es:Chenopodium album"
       ],
-      "text": "quinhuilla"
+      "text": "Quinhuilla"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "Cinublo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "ciñublo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "cisno"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "desajo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "engordagochos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "fariñento"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "fenifo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158610"
+      ],
+      "text": "fenijo"
     },
     {
       "language": "en",
@@ -43,7 +99,7 @@
     "refs": [
       "wikipedia_es:Chenopodium album"
     ],
-    "value": "Especie de hierbas de la familia de las quenopodiáceas, conocida con diversos nombres comunes."
+    "value": "Especie de hierba conocida como cenizo o quinhuilla."
   },
   "displayName": {
     "language": "es",
@@ -63,14 +119,14 @@
   "id": "chenopodium-album",
   "image": {
     "attributionRequired": true,
-    "author": "Epgrande",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Chenopodium_album_-_Museo_Tazzetti_Herbarium_312-2024.tif",
+    "author": "Hugo.arg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:ChenopodiumAlbum001.JPG",
     "refs": [
-      "commons:File:Chenopodium album - Museo Tazzetti Herbarium 312-2024.tif"
+      "commons:File:ChenopodiumAlbum001.JPG"
     ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Chenopodium_album_-_Museo_Tazzetti_Herbarium_312-2024.tif"
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/ChenopodiumAlbum001.JPG"
   },
   "model": "claude-sonnet-5-5",
   "oil": null,
@@ -78,17 +134,17 @@
     "refs": [
       "wcvp:2716945"
     ],
-    "value": "Europa, Asia, norte de África y centro y este de Estados Unidos"
+    "value": "Europa, Asia, el norte y el noreste de África, Macaronesia y regiones de Estados Unidos."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Chenopodium album - Museo Tazzetti Herbarium 312-2024.tif": {
+    "commons:File:ChenopodiumAlbum001.JPG": {
       "dataset": "commons",
-      "label": "Wikimedia Commons: File:Chenopodium album - Museo Tazzetti Herbarium 312-2024.tif",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Chenopodium_album_-_Museo_Tazzetti_Herbarium_312-2024.tif"
+      "label": "Wikimedia Commons: File:ChenopodiumAlbum001.JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:ChenopodiumAlbum001.JPG"
     },
     "efsa_botanic:252": {
       "dataset": "efsa",
@@ -293,7 +349,13 @@
       "url": "https://es.wikipedia.org/wiki/Chenopodium_album"
     }
   },
-  "reviewFlags": [],
+  "reviewFlags": [
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "WCVP ubica la planta en Amaranthaceae y WFO en Chenopodiaceae; se usó la familia de WCVP.",
+      "target": "family"
+    }
+  ],
   "safety": {
     "level": "medio",
     "refs": [
@@ -301,7 +363,7 @@
       "efsa_botanic:252",
       "usda_use:80981"
     ],
-    "text": "TPPT la califica de tóxica (hoja de la hierba en flor y semilla; toxina principal: ascaridol, con otros monoterpenoides y oxalatos). EFSA anota el ascaridol en las hojas como sustancia de evidencia. Advertencia: registrada como cianogénica en usos tradicionales."
+    "text": "TPPT la clasifica como tóxica: la parte tóxica es la hoja (hierba en flor) y la semilla, la toxina principal es el ascaridol, y registra además oxalato de calcio y ácido oxálico. EFSA registra el ascaridol en las hojas. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -312,31 +374,31 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "tppt",
-      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "commons",
       "license": "CC BY-SA 4.0"
     }
   ],
@@ -446,9 +508,7 @@
           "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
         }
       ],
-      "countries": [
-        "Estados Unidos (amerindios)"
-      ],
+      "countries": [],
       "n": 1,
       "pendingReview": false,
       "refs": [
@@ -477,7 +537,7 @@
       ]
     },
     {
-      "activity": "Aperitivo laxante",
+      "activity": "Aperiente",
       "activitySource": "Aperient",
       "citations": [
         {
@@ -495,7 +555,7 @@
       ]
     },
     {
-      "activity": "Picadura de insectos",
+      "activity": "Picadura de insecto",
       "activitySource": "Bite(Bug)",
       "citations": [
         {
@@ -611,7 +671,7 @@
       ]
     },
     {
-      "activity": "Hortaliza cocida",
+      "activity": "Verdura cocida",
       "activitySource": "Potherb",
       "citations": [
         {
@@ -676,7 +736,9 @@
           "text": "Economic Botany 25: 247"
         }
       ],
-      "countries": [],
+      "countries": [
+        "Hawái"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [

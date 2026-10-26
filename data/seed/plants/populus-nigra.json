@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:0c9b1bcc0590149b69077e90703c5861199b22eb331354f1c5cbb5a0343bee5b",
+  "bundleHash": "sha256:85d406e68464edc7d223422bc5c2145234bb8fd6a3f6696cdc2c2aec47868223",
   "commonNames": [
     {
       "language": "es",
@@ -15,7 +15,7 @@
       "refs": [
         "wikipedia_es:Populus nigra"
       ],
-      "text": "chopo negro"
+      "text": "Chopo negro"
     },
     {
       "language": "en",
@@ -69,7 +69,7 @@
     "refs": [
       "wcvp:2917497"
     ],
-    "value": "Nativa del Cáucaso, Asia central y occidental, China, Europa (oriental, central, septentrional, sudoriental y sudoccidental) y el norte de África."
+    "value": "Nativa del Cáucaso, Asia central y occidental, China, Europa y el norte de África."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -251,6 +251,11 @@
   },
   "reviewFlags": [
     {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (usda_part:781-BU), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
       "code": "cita-sin-resolver",
       "message": "La clave de cita «Woi.Syria» del grupo «Piles» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[0]"
@@ -264,11 +269,6 @@
       "code": "cita-sin-resolver",
       "message": "La clave de cita «Woi.Syria» del grupo «Depurative» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[6]"
-    },
-    {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (usda_part:781-BU), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
     }
   ],
   "safety": {

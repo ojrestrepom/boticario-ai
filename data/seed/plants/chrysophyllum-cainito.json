@@ -1,20 +1,21 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:ca65f82d156d00f988b8b7412a5ba408782fb2afeb744660b149d9e94d14bab0",
+  "bundleHash": "sha256:a7dcc6e7fae576fe5c085533e69f6e303188a5bf3c3afd179c29fcddbdd4866d",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Chrysophyllum cainito"
+        "wikipedia_es:Chrysophyllum cainito",
+        "usda_common_name:1221-1"
       ],
       "text": "Caimito"
     },
     {
-      "language": "en",
+      "language": "es",
       "refs": [
-        "usda_common_name:1221-1"
+        "wikidata:Q1612679"
       ],
-      "text": "Caimito"
+      "text": "Cauje"
     },
     {
       "language": "en",
@@ -33,7 +34,8 @@
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Chrysophyllum cainito"
+      "wikipedia_es:Chrysophyllum cainito",
+      "usda_common_name:1221-1"
     ],
     "value": "Caimito"
   },
@@ -47,7 +49,7 @@
   "id": "chrysophyllum-cainito",
   "image": {
     "attributionRequired": false,
-    "author": "No machine-readable author provided. Hans B.~commonswiki assumed (based on copyright claims).",
+    "author": "Hans B.",
     "license": "Public domain",
     "licenseUrl": null,
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Chrusophyllum_cainito.jpg",
@@ -62,7 +64,7 @@
     "refs": [
       "wcvp:40005"
     ],
-    "value": "Panamá, en Centroamérica"
+    "value": "América Central."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -184,6 +186,12 @@
       "label": "WCVP: Chrysophyllum cainito L.",
       "license": "CC BY 3.0"
     },
+    "wikidata:Q1612679": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1612679",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1612679"
+    },
     "wikipedia_es:Chrysophyllum cainito": {
       "dataset": "wikipedia_es",
       "label": "Wikipedia en español: Chrysophyllum cainito",
@@ -208,20 +216,24 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "Public domain"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
     },
     {
       "dataset": "wikipedia_es",
       "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
     }
   ],
   "synonyms": [],

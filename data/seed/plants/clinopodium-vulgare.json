@@ -2,21 +2,21 @@
   "aliases": [
     "satureja-vulgaris"
   ],
-  "bundleHash": "sha256:2a217468efa1c6b647ba929923fd65bff7fd7e326d10c1a1ee9a388d1078950f",
+  "bundleHash": "sha256:8d55f235cc0852500264b6bf71a85ef340c1fdbe67928eb24f421ffd0a634a81",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikidata:Q163952"
       ],
-      "text": "Albahaca de monte"
+      "text": "Albahaca silvestre"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q163952"
       ],
-      "text": "Albahaca silvestre"
+      "text": "Albahaca de monte"
     },
     {
       "language": "es",
@@ -89,17 +89,7 @@
   },
   "goals": [],
   "id": "clinopodium-vulgare",
-  "image": {
-    "attributionRequired": true,
-    "author": "Epgrande",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinopodium_vulgare_-_Museo_Tazzetti_Herbarium_233-2024.tif",
-    "refs": [
-      "commons:File:Clinopodium vulgare - Museo Tazzetti Herbarium 233-2024.tif"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Clinopodium_vulgare_-_Museo_Tazzetti_Herbarium_233-2024.tif"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
@@ -111,18 +101,12 @@
     "refs": [
       "wcvp:43704"
     ],
-    "value": "Europa, norte de África, Macaronesia y Asia (Cáucaso, Asia occidental y central, Siberia y el subcontinente indio)."
+    "value": "Cáucaso, Asia central, Europa oriental, subcontinente indio, Macaronesia, Europa central, norte de África, norte de Europa, Siberia, sureste y suroeste de Europa y Asia occidental."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Clinopodium vulgare - Museo Tazzetti Herbarium 233-2024.tif": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:Clinopodium vulgare - Museo Tazzetti Herbarium 233-2024.tif",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Clinopodium_vulgare_-_Museo_Tazzetti_Herbarium_233-2024.tif"
-    },
     "usda_common_name:905-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Common Savory»",
@@ -239,32 +223,32 @@
   "reviewFlags": [
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria de «Astringent» no tiene candidata y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria de «Cardiac» no tiene candidata y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria de «Carminative» no tiene candidata y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria de «Tonic» no tiene candidata y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[7]"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -278,24 +262,20 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "usda",
+      "license": "CC0"
     }
   ],
   "synonyms": [

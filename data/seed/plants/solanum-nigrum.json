@@ -1,12 +1,12 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:865087ee96cd73865c0129d47f7b31de9809d7bd945becea4c9b9d9d5182e287",
+  "bundleHash": "sha256:ed463c5c9430fae11931be2963e0d43eeeb4d4cbbe70d2d43ab61dac86feb823",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikidata:Q146400",
-        "wikipedia_es:Solanum nigrum"
+        "wikipedia_es:Solanum nigrum",
+        "wikidata:Q146400"
       ],
       "text": "Hierba mora"
     },
@@ -18,38 +18,32 @@
       "text": "Tomatillo del diablo"
     },
     {
+      "language": "en",
+      "refs": [
+        "usda_common_name:943-1",
+        "tppt_plant:P509"
+      ],
+      "text": "Black Nightshade"
+    },
+    {
       "language": "de",
       "refs": [
         "tppt_plant:P509"
       ],
       "text": "Schwarzer Nachtschatten"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "tppt_plant:P509"
-      ],
-      "text": "Black nightshade"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "usda_common_name:943-1"
-      ],
-      "text": "Black Nightshade"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Solanum nigrum"
     ],
-    "value": "Planta herbácea de la familia de las solanáceas que crece silvestre en casi todo el mundo. La validez del taxón se discute, y algunos autores la consideran un mero sinónimo de Solanum americanum."
+    "value": "Planta herbácea de la familia de las solanáceas que crece silvestre en casi todo el mundo. Su validez como taxón está discutida y algunos autores la consideran un sinónimo de Solanum americanum."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikidata:Q146400",
-      "wikipedia_es:Solanum nigrum"
+      "wikipedia_es:Solanum nigrum",
+      "wikidata:Q146400"
     ],
     "value": "Hierba mora"
   },
@@ -78,7 +72,7 @@
     "refs": [
       "wcvp:2915955"
     ],
-    "value": "Europa, norte de África, Asia occidental, central y oriental, subcontinente indio, Indochina y Macaronesia"
+    "value": "Nativa de Europa, el norte de África, Macaronesia, Asia occidental, central y oriental, el subcontinente indio, Indochina y la península arábiga."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -165,9 +159,9 @@
       "label": "USDA Dr. Duke: referencia Martinez",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Standley": {
@@ -596,52 +590,67 @@
   "reviewFlags": [
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Diuretic» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Diuretic» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Narcotic» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Narcotic» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[4]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Sore» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Sore» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Dropsy» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Dropsy» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[8]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Hepatitis» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Hepatitis» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[9]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Spasm» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Nas» del grupo «Spasm» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[11]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Antidote» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Spasm» no tiene candidata que corresponda; queda sin resolver.",
+      "target": "traditionalUses[11]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Nas» del grupo «Antidote» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[12]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Bactericide» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Antidote» no tiene candidata que corresponda; queda sin resolver.",
+      "target": "traditionalUses[12]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Nas» del grupo «Bactericide» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[14]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Cathartic» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Bactericide» no tiene candidata que corresponda; queda sin resolver.",
+      "target": "traditionalUses[14]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» del grupo «Cathartic» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[16]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Dyscrasia» no tiene candidata y queda sin resolver; el grupo conserva sus demás citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Dyscrasia» no tiene candidata que corresponda; queda sin resolver.",
       "target": "traditionalUses[18]"
     }
   ],
@@ -660,7 +669,7 @@
       "usda_use:82324",
       "usda_use:14560"
     ],
-    "text": "TPPT registra toxicidad humana fuerte para la planta entera, con solamargina y solasonina como toxinas principales (alcaloides esteroidales). EFSA registra la solanina como sustancia de evidencia en el fruto y las hojas. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica."
+    "text": "TPPT la registra como fuertemente tóxica en toda la planta, con los alcaloides esteroidales solamargina y solasonina como toxinas principales; EFSA registra la solanina como sustancia de evidencia en frutos y hojas. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -1013,6 +1022,7 @@
         "usda_use:7842",
         "usda_use:65836",
         "usda_reference:EB",
+        "usda_reference:EB",
         "usda_reference:Wong"
       ]
     },
@@ -1127,8 +1137,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Eb28: 332",
@@ -1146,7 +1156,7 @@
         "usda_use:29618",
         "usda_use:29619",
         "usda_use:29682",
-        "usda_reference:NAS",
+        "usda_reference:NAS2",
         "usda_reference:EB"
       ]
     },
@@ -1161,8 +1171,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         },
         {
           "key": "Woi.Syria",
@@ -1180,8 +1190,7 @@
         "usda_use:45888",
         "usda_use:45889",
         "usda_use:45947",
-        "usda_reference:Liogier",
-        "usda_reference:NAS"
+        "usda_reference:Liogier"
       ]
     },
     {
@@ -1190,8 +1199,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         },
         {
           "key": "Woi.Syria",
@@ -1203,11 +1212,10 @@
         "Otros lugares"
       ],
       "n": 2,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
         "usda_use:61635",
-        "usda_use:64458",
-        "usda_reference:NAS"
+        "usda_use:64458"
       ]
     },
     {
@@ -1243,8 +1251,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         },
         {
           "key": "Woi.Syria",
@@ -1256,11 +1264,10 @@
         "Otros lugares"
       ],
       "n": 2,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
         "usda_use:6512",
-        "usda_use:63470",
-        "usda_reference:NAS"
+        "usda_use:63470"
       ]
     },
     {
@@ -1382,8 +1389,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -1395,7 +1402,7 @@
         "usda_use:20237",
         "usda_use:20238",
         "usda_reference:Bliss",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     }
   ]

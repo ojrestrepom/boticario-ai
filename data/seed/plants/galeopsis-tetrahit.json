@@ -1,48 +1,48 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:d3df2833c538a3b2b691750b1cd10312fe0ee22c6c7cb6b6b0d8fc7e345d3bb2",
+  "bundleHash": "sha256:f3ea28ce046ac3a299cf9e677ac43509bbfa4df4e02cf59b5831ab4dac062791",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikidata:Q157684"
       ],
-      "text": "cáñamo bastardo"
+      "text": "Cáñamo bastardo"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q157684"
       ],
-      "text": "galeópside"
+      "text": "Galeópside"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q157684"
       ],
-      "text": "hierba benjamina"
+      "text": "Hierba benjamina"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q157684"
       ],
-      "text": "menta de agua"
+      "text": "Menta de agua"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q157684"
       ],
-      "text": "ortiga blanca"
+      "text": "Ortiga blanca"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q157684"
       ],
-      "text": "ortigón"
+      "text": "Ortigón"
     },
     {
       "language": "en",
@@ -73,17 +73,7 @@
   },
   "goals": [],
   "id": "galeopsis-tetrahit",
-  "image": {
-    "attributionRequired": true,
-    "author": "Epgrande",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Galeopsis_tetrahit_-_Museo_Tazzetti_Herbarium_239-2024.tif",
-    "refs": [
-      "commons:File:Galeopsis tetrahit - Museo Tazzetti Herbarium 239-2024.tif"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Galeopsis_tetrahit_-_Museo_Tazzetti_Herbarium_239-2024.tif"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
@@ -95,18 +85,12 @@
     "refs": [
       "wcvp:85443"
     ],
-    "value": "Nativa de Europa oriental, central, septentrional, sudoriental y sudoccidental, y de Siberia."
+    "value": "Nativa de Europa y Siberia."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:Galeopsis tetrahit - Museo Tazzetti Herbarium 239-2024.tif": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:Galeopsis tetrahit - Museo Tazzetti Herbarium 239-2024.tif",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:Galeopsis_tetrahit_-_Museo_Tazzetti_Herbarium_239-2024.tif"
-    },
     "usda_common_name:427-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Hemp Nettle»",
@@ -228,12 +212,12 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -246,10 +230,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
-    },
     {
       "dataset": "usda",
       "license": "CC0"

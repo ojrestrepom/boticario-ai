@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:ab9df0e042d03a93dc8f6f67757a692f171a79531d9db746f74063981e926e39",
+  "bundleHash": "sha256:21e2289dda4393c0621b348897b6d3f621ea6d1802bc3cc0cad2c1c0adcc7b82",
   "commonNames": [],
   "description": null,
   "displayName": {
@@ -18,35 +18,19 @@
   },
   "goals": [],
   "id": "centrosema-sagittatum",
-  "image": {
-    "attributionRequired": true,
-    "author": "Instituto Nacional da Mata Atlântica - INMA",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:FABACEAE_Centrosema_sagittatum_(Humb._%26_Bonpl._ex_Willd.)_Brandegee,_INMA_(MBML026440).pdf",
-    "refs": [
-      "commons:File:FABACEAE Centrosema sagittatum (Humb. & Bonpl. ex Willd.) Brandegee, INMA (MBML026440).pdf"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/FABACEAE_Centrosema_sagittatum_%28Humb._%26_Bonpl._ex_Willd.%29_Brandegee%2C_INMA_%28MBML026440%29.pdf"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": {
     "refs": [
       "wcvp:2709140"
     ],
-    "value": "Brasil, Caribe, América Central, México, sudeste de Estados Unidos y Sudamérica (norte, sur y oeste)."
+    "value": "Brasil, el Caribe, América Central, México, el norte, el oeste y el sur de Sudamérica y el sureste de Estados Unidos."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:FABACEAE Centrosema sagittatum (Humb. & Bonpl. ex Willd.) Brandegee, INMA (MBML026440).pdf": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:FABACEAE Centrosema sagittatum (Humb. & Bonpl. ex Willd.) Brandegee, INMA (MBML026440).pdf",
-      "license": "CC BY-SA 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:FABACEAE_Centrosema_sagittatum_(Humb._%26_Bonpl._ex_Willd.)_Brandegee,_INMA_(MBML026440).pdf"
-    },
     "wcvp:2681815": {
       "dataset": "wcvp",
       "label": "WCVP: Bradburya sagittata (Humb. & Bonpl. ex Willd.) Rose",
@@ -66,7 +50,7 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
@@ -84,10 +68,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY-SA 4.0"
-    },
     {
       "dataset": "wcvp",
       "license": "CC BY 3.0"

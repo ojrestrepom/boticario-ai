@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:fdf5fbcc15c31d4cc5b9b7049456d62a65d28d6eb12e0295c6f706e1c0df8bb7",
+  "bundleHash": "sha256:4cf757b78a9405c1dadef6cad982c7e993ace9183d7b0787b387427311a26bd2",
   "commonNames": [
     {
       "language": "en",
@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Chondrodendron tomentosum"
     ],
-    "value": "Gran liana tropical nativa de Centro y Sudamérica. Se distribuye por Brasil, Bolivia, Perú, Guyana, Ecuador, Panamá y Colombia."
+    "value": "Gran liana tropical de la familia Menispermaceae, nativa de Centro y Sudamérica."
   },
   "displayName": {
     "language": "la",
@@ -33,7 +33,7 @@
   "id": "chondrodendron-tomentosum",
   "image": {
     "attributionRequired": true,
-    "author": "https://wellcomeimages.org/indexplus/obf_images/4a/bf/d9bcdeaab4999bc7b56a954b354e.jpg Gallery: https://wellcomeimages.org/indexplus/image/L0019166.html Wellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/px2pthe6 CC-BY-4.0",
+    "author": "https://wellcomeimages.org/indexplus/obf_images/4a/bf/d9bcdeaab4999bc7b56a954b354e.jpg Gallery: https://wellcomeimages.org/indexplus/image/L0019166.html Wellcome Collection gallery (2018-04-01): https://wellcomecollection.org/works/px2pthe6",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:R._Bentley_%26_H._Trimen,_Medicinal_Plants_Wellcome_L0019166.jpg",
@@ -44,7 +44,12 @@
   },
   "model": "claude-sonnet-5-5",
   "oil": null,
-  "origin": null,
+  "origin": {
+    "refs": [
+      "wcvp:2719336"
+    ],
+    "value": "Brasil, América Central y el oeste de Sudamérica."
+  },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
@@ -175,26 +180,26 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     }
   ],
   "safety": {
     "level": null,
     "refs": [
-      "usda_use:38478",
-      "usda_use:38479",
-      "usda_use:63217",
-      "usda_use:63218",
-      "usda_use:82790",
       "efsa_botanic:254",
       "efsa_botanic:256",
       "efsa_botanic:257",
       "efsa_botanic:258",
       "efsa_botanic:259",
-      "efsa_botanic:260"
+      "efsa_botanic:260",
+      "usda_use:38478",
+      "usda_use:38479",
+      "usda_use:63217",
+      "usda_use:63218",
+      "usda_use:82790"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales (también como veneno de flechas, en Brasil, Perú y Venezuela). EFSA registra en la planta las sustancias D-tubocurarine, D-isochondodendrine, D-bebeerin, chondrocurine, norcycleanin y cycleanine."
+    "text": "EFSA registra en plantas vivas las sustancias D-bebeerina, D-isocondodendrina, D-tubocurarina, condrocurina, cicleanina y norcicleanina. Advertencia: registrada como veneno en usos tradicionales, incluido como veneno de flechas."
   },
   "scientificName": {
     "authors": "Ruiz & Pav.",
@@ -205,24 +210,24 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
     },
     {
       "dataset": "wikipedia_es",
       "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
     }
   ],
   "synonyms": [],
@@ -300,7 +305,7 @@
       ]
     },
     {
-      "activity": "Laxante suave",
+      "activity": "Aperiente",
       "activitySource": "Aperient",
       "citations": [
         {

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:0566af7554b03ae2b216463d450e99b6dca3845a21f6542f53743f91a15fec4b",
+  "bundleHash": "sha256:b814a2df45dc25af443379807bd3e7779e04c04dc5f390acd1e5883a59de4cb0",
   "commonNames": [
     {
       "language": "es",
@@ -38,12 +38,19 @@
       "text": "Vinca de Madagascar"
     },
     {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P476"
+      ],
+      "text": "Madagaskar-Immergruen"
+    },
+    {
       "language": "en",
       "refs": [
-        "tppt_plant:P476",
-        "usda_common_name:225-1"
+        "usda_common_name:225-1",
+        "tppt_plant:P476"
       ],
-      "text": "Madagascar periwinkle"
+      "text": "Madagascar Periwinkle"
     },
     {
       "language": "en",
@@ -51,20 +58,13 @@
         "usda_common_name:225-2"
       ],
       "text": "Rosy Periwinkle"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P476"
-      ],
-      "text": "Madagaskar-Immergruen"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Catharanthus roseus"
     ],
-    "value": "Especie del género Catharanthus, nativa y endémica de Madagascar."
+    "value": "Especie nativa y endémica de Madagascar, conocida en gran parte del mundo como vinca."
   },
   "displayName": {
     "language": "es",
@@ -98,7 +98,7 @@
     "refs": [
       "wcvp:35719"
     ],
-    "value": "Madagascar"
+    "value": "Madagascar."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -468,13 +468,7 @@
       "url": "https://es.wikipedia.org/wiki/Catharanthus_roseus"
     }
   },
-  "reviewFlags": [
-    {
-      "code": "objetivos-omitidos-por-toxicidad",
-      "message": "TPPT marca la planta como «strong toxic»; no se asignan objetivos.",
-      "target": "goals"
-    }
-  ],
+  "reviewFlags": [],
   "safety": {
     "level": "alto",
     "refs": [
@@ -486,7 +480,7 @@
       "usda_use:57214",
       "usda_use:63477"
     ],
-    "text": "TPPT registra toxicidad humana fuerte: la parte tóxica es la planta entera, con mayor concentración en la raíz, y los alcaloides indólicos son tóxicos (toxina principal: vindolina). EFSA registra como evidencia las sustancias leurosidina, vinblastina y vincristina en plantas vivas. Advertencia: registrada como veneno en usos tradicionales."
+    "text": "TPPT califica la planta de fuertemente tóxica para las personas; la parte tóxica es la planta entera, con mayor concentración en la raíz, y registra que los alcaloides indólicos (monoterpenoides) son tóxicos. EFSA registra vincristina, vinblastina y leurosidina como sustancias de evidencia en la planta viva. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "(L.) G.Don",
@@ -593,6 +587,7 @@
       ],
       "countries": [
         "Otros lugares",
+        "Malaya",
         "Filipinas",
         "Sudáfrica (Natal)",
         "Sudáfrica",
@@ -940,7 +935,7 @@
       ]
     },
     {
-      "activity": "Leucopénico",
+      "activity": "Leukopenic",
       "activitySource": "Leukopenic",
       "citations": [
         {

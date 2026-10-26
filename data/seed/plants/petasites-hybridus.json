@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:709b29bfded18fd4848102665a505857b7077dc949ef08a38192f81d2c445298",
+  "bundleHash": "sha256:803586ba954bf29a8430bf56b8cb8849648c4b0b4382dd65254bed7b8b996099",
   "commonNames": [
     {
       "language": "en",
@@ -67,7 +67,7 @@
     "refs": [
       "wcvp:2912815"
     ],
-    "value": "Nativa de Europa y Asia occidental."
+    "value": "Nativa de Europa y Asia occidental, incluido el Cáucaso."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -139,22 +139,22 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (hoja), sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (hoja), sin ficha de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
   "safety": {
     "level": "medio",
     "refs": [
-      "efsa_botanic:112",
-      "tppt_plant:P699"
+      "tppt_plant:P699",
+      "efsa_botanic:112"
     ],
-    "text": "EFSA incluye la senecionina, un alcaloide pirrolizidínico del grupo genotóxico y carcinógeno, entre las sustancias de alta preocupación de la planta viva. TPPT registra la planta como tóxica para las personas: la parte tóxica es la hoja y la raíz (o la planta entera), por alcaloides pirrolizidínicos como la senecionina, la petasitenina y la senkirkina."
+    "text": "TPPT clasifica la planta como tóxica (hoja y raíz, o planta entera) y registra como tóxicos los alcaloides pirrolizidínicos, entre ellos senecionina, senkirkina y petasitenina. EFSA incluye la senecionina en planta viva entre las sustancias genotóxicas o carcinógenas de preocupación."
   },
   "scientificName": {
     "authors": "(L.) G.Gaertn., B.Mey. & Scherb.",

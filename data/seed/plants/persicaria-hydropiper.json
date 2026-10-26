@@ -2,7 +2,7 @@
   "aliases": [
     "polygonum-hydropiper"
   ],
-  "bundleHash": "sha256:48610fb5d94cc25c0ba202fe12fb6600ff895681e486679bc8271ecd5a6cb58e",
+  "bundleHash": "sha256:09830b9b57da62d24386a8e1f2433f8105eb5b5bbf6fde1d5f818c20d106ddfd",
   "commonNames": [
     {
       "language": "es",
@@ -10,42 +10,42 @@
         "wikipedia_es:Polygonum hydropiper",
         "wikidata:Q160113"
       ],
-      "text": "pimienta del agua"
+      "text": "Pimienta del agua"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q160113"
       ],
-      "text": "persicaria acre"
+      "text": "Pimienta acuática"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q160113"
       ],
-      "text": "persicaria picante"
+      "text": "Persicaria picante"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q160113"
       ],
-      "text": "pimienta acuática"
+      "text": "Persicaria acre"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Polygonum hydropiper"
       ],
-      "text": "chilillo"
+      "text": "Chilillo"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Polygonum hydropiper"
       ],
-      "text": "hierba del sapo"
+      "text": "Hierba del sapo"
     },
     {
       "language": "en",
@@ -79,7 +79,7 @@
   "id": "persicaria-hydropiper",
   "image": {
     "attributionRequired": true,
-    "author": "No machine-readable author provided. Aroche assumed (based on copyright claims).",
+    "author": "Aroche",
     "license": "CC BY 2.5",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Polygonum_hydropiper1.jpg",
@@ -94,7 +94,7 @@
     "refs": [
       "wcvp:2572559"
     ],
-    "value": "Europa, Asia, norte de África, Macaronesia y Australia"
+    "value": "Europa, Asia, norte de África y Australia."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -357,33 +357,38 @@
   "reviewFlags": [
     {
       "code": "cita-sin-resolver",
-      "message": "Al menos una clave de cita de este grupo no tiene candidata que corresponda y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria del grupo Diuretic no tiene candidata en el paquete.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Al menos una clave de cita de este grupo no tiene candidata que corresponda y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria del grupo Ache(Tooth) no tiene candidata en el paquete.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Al menos una clave de cita de este grupo no tiene candidata que corresponda y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria del grupo Carminative no tiene candidata en el paquete.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Al menos una clave de cita de este grupo no tiene candidata que corresponda y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria del grupo Emmenagogue no tiene candidata en el paquete.",
       "target": "traditionalUses[4]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Al menos una clave de cita de este grupo no tiene candidata que corresponda y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria del grupo Skin no tiene candidata en el paquete.",
       "target": "traditionalUses[6]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Al menos una clave de cita de este grupo no tiene candidata que corresponda y queda sin resolver.",
+      "message": "La clave de cita Woi.Syria del grupo Stimulant no tiene candidata en el paquete.",
       "target": "traditionalUses[7]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Nas del grupo CNS stimulant tiene dos candidatas (NAS y NAS2) y el contexto del grupo (Otros lugares) no permite elegir; queda sin resolver.",
+      "target": "traditionalUses[11]"
     }
   ],
   "safety": {
@@ -510,7 +515,7 @@
         "España",
         "Turquía",
         "Estados Unidos",
-        "URSS"
+        "Unión Soviética"
       ],
       "n": 4,
       "pendingReview": false,
@@ -753,22 +758,21 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
       "countries": [
         "Otros lugares"
       ],
       "n": 1,
-      "pendingReview": false,
+      "pendingReview": true,
       "refs": [
-        "usda_use:11976",
-        "usda_reference:NAS2"
+        "usda_use:11976"
       ]
     },
     {
-      "activity": "Limpiador",
+      "activity": "Detersivo",
       "activitySource": "Detersive",
       "citations": [
         {
@@ -828,7 +832,7 @@
       ]
     },
     {
-      "activity": "Hemorragia intestinal",
+      "activity": "Enterorragia",
       "activitySource": "Enterorrhagia",
       "citations": [
         {

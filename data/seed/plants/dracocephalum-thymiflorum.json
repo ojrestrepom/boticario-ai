@@ -3,7 +3,7 @@
     "dracocephalum-thymiflora",
     "moldavica-thymiflora"
   ],
-  "bundleHash": "sha256:c57b5d0f17073631b11a463149b35c830df021bcdaf8ee3e9fecc33b6353a4ee",
+  "bundleHash": "sha256:06e5f072f3897ae2619361b02ccab6d35b161e65ef63716830dd2e9cc892a17c",
   "commonNames": [
     {
       "language": "en",
@@ -24,24 +24,13 @@
   },
   "family": {
     "refs": [
-      "wcvp:63928",
-      "wfo:wfo-0000945491"
+      "wcvp:63928"
     ],
     "value": "Lamiaceae"
   },
   "goals": [],
   "id": "dracocephalum-thymiflorum",
-  "image": {
-    "attributionRequired": true,
-    "author": "https://www.inaturalist.org/people/convallaria1128",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:20395598-Dracocephalum_thymiflorum.jpg",
-    "refs": [
-      "commons:File:20395598-Dracocephalum thymiflorum.jpg"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/20395598-Dracocephalum_thymiflorum.jpg"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
@@ -60,12 +49,6 @@
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:20395598-Dracocephalum thymiflorum.jpg": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:20395598-Dracocephalum thymiflorum.jpg",
-      "license": "CC BY-SA 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:20395598-Dracocephalum_thymiflorum.jpg"
-    },
     "usda_common_name:2018-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Thyme-Flowered Moldavica»",
@@ -100,11 +83,6 @@
       "dataset": "wcvp",
       "label": "WCVP: Dracocephalum thymiflorum L.",
       "license": "CC BY 3.0"
-    },
-    "wfo:wfo-0000945491": {
-      "dataset": "wfo",
-      "label": "WFO: Dracocephalum thymiflorum L.",
-      "license": "CC0"
     }
   },
   "reviewFlags": [
@@ -115,12 +93,12 @@
     },
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español para Dracocephalum thymiflorum; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     },
     {
@@ -139,20 +117,12 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY-SA 4.0"
-    },
-    {
       "dataset": "usda",
       "license": "CC0"
     },
     {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
-    },
-    {
-      "dataset": "wfo",
-      "license": "CC0"
     }
   ],
   "synonyms": [

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:51c68e01793d0493a1744f8cf5c9e86c69f8580916b0da9a14ebe774d87a2642",
+  "bundleHash": "sha256:a690b919fd35a280530f87ceb5aaef8dbecc06df723e835e871349082622c2d9",
   "commonNames": [
     {
       "language": "es",
@@ -60,6 +60,13 @@
       "text": "Higera del infierno"
     },
     {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P517"
+      ],
+      "text": "Stechapfel"
+    },
+    {
       "language": "en",
       "refs": [
         "tppt_plant:P517"
@@ -72,25 +79,19 @@
         "usda_common_name:356-1"
       ],
       "text": "Jimsonweed"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P517"
-      ],
-      "text": "Stechapfel"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Datura stramonium"
     ],
-    "value": "Especie de planta angiosperma del género Datura, de la familia de las solanáceas."
+    "value": "Especie de planta angiosperma del género Datura, de la familia Solanaceae."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Datura stramonium"
+      "wikipedia_es:Datura stramonium",
+      "wikidata:Q30959"
     ],
     "value": "Estramonio"
   },
@@ -124,7 +125,7 @@
     "refs": [
       "wcvp:2757848"
     ],
-    "value": "México"
+    "value": "México."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -777,37 +778,37 @@
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[8]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[9]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[11]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[12]"
     }
   ],
@@ -830,7 +831,7 @@
       "usda_use:28836",
       "usda_use:14435"
     ],
-    "text": "TPPT la clasifica como muy tóxica para las personas: la planta entera es tóxica, con mayor concentración en la raíz y la semilla, y sus toxinas principales son los alcaloides tropánicos hiosciamina y escopolamina. EFSA registra además atropina y escopolamina en la parte aérea y en las partes subterráneas. Advertencias: registrada como veneno en usos tradicionales, se registran casos mortales, registrada como veneno homicida en usos tradicionales y registrada como cianogénica."
+    "text": "TPPT califica la planta de muy fuertemente tóxica para las personas y para los animales; la parte tóxica es la planta entera, con mayor concentración en la raíz y la semilla, y registra que los alcaloides tropánicos son tóxicos, con hiosciamina y escopolamina como toxinas principales. EFSA registra atropina y escopolamina (parte aérea y partes subterráneas) como venenos potentes. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. Advertencia: registrada como veneno homicida en usos tradicionales. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -841,16 +842,12 @@
   },
   "sources": [
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
+      "dataset": "commons",
+      "license": "Public domain"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
-    },
-    {
-      "dataset": "wikidata",
-      "license": "CC0 1.0"
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
     },
     {
       "dataset": "tppt",
@@ -861,12 +858,16 @@
       "license": "CC0"
     },
     {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     },
     {
-      "dataset": "commons",
-      "license": "Public domain"
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     }
   ],
   "synonyms": [
@@ -937,7 +938,6 @@
         "Nepal",
         "Turquía",
         "Estados Unidos",
-        "Estados Unidos (pamunkey)",
         "Venezuela"
       ],
       "n": 12,
@@ -1079,8 +1079,7 @@
         "India",
         "Nepal",
         "Turquía",
-        "Estados Unidos",
-        "Estados Unidos (Huskenaw)"
+        "Estados Unidos"
       ],
       "n": 8,
       "pendingReview": false,
@@ -1145,7 +1144,6 @@
         "India",
         "México",
         "Estados Unidos",
-        "Estados Unidos (pamunkey)",
         "Venezuela"
       ],
       "n": 7,
@@ -1194,8 +1192,7 @@
       "countries": [
         "Otros lugares",
         "Haití",
-        "Turquía",
-        "Estados Unidos (Apalaches)"
+        "Turquía"
       ],
       "n": 6,
       "pendingReview": false,
@@ -1311,8 +1308,7 @@
       ],
       "countries": [
         "China",
-        "México",
-        "Estados Unidos (pueblos amerindios)"
+        "México"
       ],
       "n": 4,
       "pendingReview": false,
@@ -1355,8 +1351,7 @@
       "countries": [
         "Otros lugares",
         "Hawái",
-        "Estados Unidos",
-        "Estados Unidos (rappahannock)"
+        "Estados Unidos"
       ],
       "n": 4,
       "pendingReview": false,
@@ -1590,8 +1585,7 @@
         }
       ],
       "countries": [
-        "Etiopía",
-        "Estados Unidos (Huskenaw)"
+        "Etiopía"
       ],
       "n": 2,
       "pendingReview": false,
@@ -1633,10 +1627,7 @@
           "text": "Economic Botany 29: 179"
         }
       ],
-      "countries": [
-        "Estados Unidos (Huskenaw)",
-        "Estados Unidos (rappahannock)"
-      ],
+      "countries": [],
       "n": 2,
       "pendingReview": false,
       "refs": [

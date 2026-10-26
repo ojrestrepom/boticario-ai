@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:cf9f800ab5638af55d38e335ce383be394cd75688d45cba98128eac92041b6da",
+  "bundleHash": "sha256:b20f6971c2909b19e00835101edb4eca61a217478ebedaeedbbcff0eeda3ba82",
   "commonNames": [
     {
       "language": "es",
@@ -47,16 +47,6 @@
   },
   "goals": [
     {
-      "area": "Estrés mental y trastornos del ánimo",
-      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
-      "goal": "relajacion-estres",
-      "pendingReview": false,
-      "refs": [
-        "ema_herbal:leonuri-cardiacae-herba"
-      ],
-      "subarea": null
-    },
-    {
       "area": "Trastornos circulatorios",
       "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
       "goal": "otros-objetivos",
@@ -65,12 +55,22 @@
         "ema_herbal:leonuri-cardiacae-herba"
       ],
       "subarea": "circulacion"
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:leonuri-cardiacae-herba"
+      ],
+      "subarea": null
     }
   ],
   "id": "leonurus-cardiaca",
   "image": {
     "attributionRequired": true,
-    "author": "No machine-readable author provided. Valérie75 assumed (based on copyright claims).",
+    "author": "Valérie75",
     "license": "CC BY-SA 3.0",
     "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Leonurus_cardiaca_001.jpg",
@@ -90,7 +90,7 @@
     "refs": [
       "wcvp:109505"
     ],
-    "value": "Europa, el Cáucaso, Siberia y Asia occidental."
+    "value": "Nativa de Europa, el Cáucaso, Asia occidental y Siberia."
   },
   "partsUsed": [
     {
@@ -368,7 +368,7 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA para la planta, sin ficha de aceite esencial de la EMA; puede ser un falso positivo.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
     }
   ],
@@ -378,11 +378,11 @@
       "ema_pdf:leonuri-cardiacae-herba:4.3",
       "ema_pdf:leonuri-cardiacae-herba:4.4",
       "ema_pdf:leonuri-cardiacae-herba:4.5",
-      "efsa_botanic:3427",
+      "efsa_botanic:3425",
       "efsa_botanic:3426",
-      "efsa_botanic:3425"
+      "efsa_botanic:3427"
     ],
-    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad al principio activo y el embarazo, indica que no se ha establecido el uso en menores de 18 años y no registra interacciones. EFSA registra cicloleonurinina, leosibiricina y estaquidrina en la parte aérea como sustancias de evidencia."
+    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa y el embarazo, indica que no se ha establecido su uso en menores de 18 años por falta de datos y no registra interacciones. EFSA incluye cicloleonurinina, leosibiricina y estaquidrina como sustancias de evidencia."
   },
   "scientificName": {
     "authors": "L.",
@@ -845,7 +845,7 @@
       ]
     },
     {
-      "activity": "Órganos reproductores",
+      "activity": "Órganos generativos",
       "activitySource": "Generative Organs",
       "citations": [
         {
@@ -894,7 +894,9 @@
           "text": "Economic Botany 22: 333"
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [

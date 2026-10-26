@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:9f17f58e51051a5d6eb43cbb014b84b8c5ca9e80311b1e4d06b972266dfcd6e0",
+  "bundleHash": "sha256:364511a52498565e79f8856942f85b2566f389979bfc088700d9bf5a76ec6715",
   "commonNames": [
     {
       "language": "en",
@@ -8,6 +8,13 @@
         "usda_common_name:1069-1"
       ],
       "text": "Warburghia"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "wikipedia_es:Warburgia ugandensis"
+      ],
+      "text": "Ugandan greenheart tree"
     }
   ],
   "description": {
@@ -33,7 +40,7 @@
   "id": "warburgia-ugandensis",
   "image": {
     "attributionRequired": true,
-    "author": "(c) Jens-Christian Svenning, some rights reserved (CC BY)",
+    "author": "Jens-Christian Svenning",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Uganda_Greenheart_imported_from_iNaturalist_photo_153670805_on_24_June_2024.jpg",
@@ -48,7 +55,7 @@
     "refs": [
       "wcvp:378716"
     ],
-    "value": "África tropical oriental, nororiental, meridional y centro-occidental"
+    "value": "África tropical (este, noreste, sur y centro-oeste)"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -80,12 +87,12 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],

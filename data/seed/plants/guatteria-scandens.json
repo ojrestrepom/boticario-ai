@@ -2,10 +2,10 @@
   "aliases": [
     "guatteria-scadens"
   ],
-  "bundleHash": "sha256:b35b038d33d72984ff658ce7be20cb1c7b57d278da6565db21975cf4ac5c34c3",
+  "bundleHash": "sha256:24cc20821cca26c1a504042069c971d73849b4b59daa64ac4f7b4ac68cf6c00a",
   "commonNames": [
     {
-      "language": "und",
+      "language": "en",
       "refs": [
         "usda_common_name:1201-1"
       ],
@@ -28,17 +28,7 @@
   },
   "goals": [],
   "id": "guatteria-scandens",
-  "image": {
-    "attributionRequired": true,
-    "author": "Museu Paraense Emílio Goeldi (MPEG)",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:ANNONACEAE_Guatteria_scandens_Ducke,_MPEG_(MG007652).pdf",
-    "refs": [
-      "commons:File:ANNONACEAE Guatteria scandens Ducke, MPEG (MG007652).pdf"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/ANNONACEAE_Guatteria_scandens_Ducke%2C_MPEG_%28MG007652%29.pdf"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": {
@@ -51,12 +41,6 @@
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:ANNONACEAE Guatteria scandens Ducke, MPEG (MG007652).pdf": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:ANNONACEAE Guatteria scandens Ducke, MPEG (MG007652).pdf",
-      "license": "CC BY 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:ANNONACEAE_Guatteria_scandens_Ducke,_MPEG_(MG007652).pdf"
-    },
     "usda_common_name:1201-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Cipo-Ira»",
@@ -75,18 +59,18 @@
       "target": "scientificName"
     },
     {
-      "code": "idioma-de-nombre-dudoso",
-      "message": "USDA etiqueta «Cipo-Ira» como inglés, pero parece un nombre en portugués; se registra con idioma indeterminado.",
-      "target": "commonNames"
-    },
-    {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El nombre «Cipo-Ira» viene de USDA con idioma inglés, pero parece portugués.",
+      "target": "commonNames"
+    },
+    {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -99,10 +83,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY 4.0"
-    },
     {
       "dataset": "usda",
       "license": "CC0"

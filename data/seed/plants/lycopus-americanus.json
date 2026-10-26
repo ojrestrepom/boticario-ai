@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:b116821c11933a0a7812ab714013a7e51a66cf522e2f6a804205188d2b241344",
+  "bundleHash": "sha256:77bfca684dbc6de3ac9ecc76cb429a42df00d828c58a9f7a8aedc5c91c4eb173",
   "commonNames": [
     {
       "language": "en",
@@ -28,7 +28,7 @@
   "id": "lycopus-americanus",
   "image": {
     "attributionRequired": true,
-    "author": "Ayotte, Gilles, 1948-",
+    "author": "Ayotte, Gilles, 1948",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Lycopus_americanus_15-p.bot-lycop.amer-02.jpg",
@@ -94,18 +94,18 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
-      "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
-      "target": "safety"
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
     },
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
     }
   ],
   "safety": null,
@@ -118,16 +118,16 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY-SA 4.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     },
     {
       "dataset": "usda",
       "license": "CC0"
     },
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
     }
   ],
   "synonyms": [

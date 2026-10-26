@@ -2,7 +2,7 @@
   "aliases": [
     "andira-araroba"
   ],
-  "bundleHash": "sha256:aeb89d41e00f3779156b47f51cdebd27a92452250addc80130b6644e3517fcee",
+  "bundleHash": "sha256:a02bf490d86cd37052f9d02115d01f3788c1711ffd44b52faddc1def8b203340",
   "commonNames": [
     {
       "language": "en",
@@ -16,7 +16,7 @@
     "refs": [
       "wikipedia_es:Vataireopsis araroba"
     ],
-    "value": "Especie de la familia de las fabáceas. De ella se obtiene un polvo llamado Goa, por haberse distribuido desde el puerto de Malabar; la droga no se conoció desde Brasil hasta 1875."
+    "value": "Especie de planta perteneciente a la familia de las fabáceas, de la que se obtiene un polvo llamado Goa."
   },
   "displayName": {
     "language": "la",
@@ -33,17 +33,7 @@
   },
   "goals": [],
   "id": "vataireopsis-araroba",
-  "image": {
-    "attributionRequired": true,
-    "author": "Instituto Nacional da Mata Atlântica - INMA",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:FABACEAE_Vataireopsis_araroba_(Aguiar)_Ducke,_INMA_(MBML005645).pdf",
-    "refs": [
-      "commons:File:FABACEAE Vataireopsis araroba (Aguiar) Ducke, INMA (MBML005645).pdf"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/FABACEAE_Vataireopsis_araroba_%28Aguiar%29_Ducke%2C_INMA_%28MBML005645%29.pdf"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": {
@@ -56,12 +46,6 @@
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:FABACEAE Vataireopsis araroba (Aguiar) Ducke, INMA (MBML005645).pdf": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:FABACEAE Vataireopsis araroba (Aguiar) Ducke, INMA (MBML005645).pdf",
-      "license": "CC BY-SA 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:FABACEAE_Vataireopsis_araroba_(Aguiar)_Ducke,_INMA_(MBML005645).pdf"
-    },
     "efsa_botanic:198": {
       "dataset": "efsa",
       "label": "EFSA Compendium of Botanicals: chrysarobin",
@@ -157,20 +141,20 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     }
   ],
   "safety": {
     "level": null,
     "refs": [
+      "usda_use:37650",
       "efsa_botanic:198",
       "efsa_endpoint:116",
       "efsa_endpoint:117",
-      "efsa_endpoint:118",
-      "usda_use:37650"
+      "efsa_endpoint:118"
     ],
-    "text": "EFSA registra la sustancia chrysarobin en la madera y estudios en humanos que describen efectos potencialmente nefrotóxicos, diarrea y vómito. Advertencia: registrada como veneno en usos tradicionales."
+    "text": "Advertencia: registrada como veneno en usos tradicionales. EFSA registra la sustancia crisarobina en la madera y estudios en humanos con efectos de posible toxicidad renal, diarrea y vómito."
   },
   "scientificName": {
     "authors": "(Aguiar) Ducke",
@@ -180,10 +164,6 @@
     ]
   },
   "sources": [
-    {
-      "dataset": "commons",
-      "license": "CC BY-SA 4.0"
-    },
     {
       "dataset": "efsa",
       "license": "CC BY 4.0"

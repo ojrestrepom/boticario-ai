@@ -1,13 +1,13 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:7296f78fc3895c704a5e819ac2a9624b68d45a55a76b27ed9f7efdd0c545f76f",
+  "bundleHash": "sha256:4a8c059051b05cd5a483190373c06dd82722400cd4718ea3b4191ef98ccb138b",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Glechoma hederacea"
       ],
-      "text": "hiedra terrestre"
+      "text": "Hiedra terrestre"
     },
     {
       "language": "en",
@@ -35,7 +35,7 @@
     "refs": [
       "wikipedia_es:Glechoma hederacea"
     ],
-    "value": "Planta rastrera natural de las zonas templadas de Europa, Asia septentrional y Norteamérica. Crece formando extensas colonias en llanuras y montañas, en lugares umbríos y húmedos."
+    "value": "La hiedra terrestre es una planta rastrera de las zonas templadas de Europa, Asia septentrional y Norteamérica. Crece formando extensas colonias en llanuras y montañas, en lugares umbríos y húmedos."
   },
   "displayName": {
     "language": "es",
@@ -74,7 +74,7 @@
     "refs": [
       "wcvp:90109"
     ],
-    "value": "Europa, Cáucaso, Asia central y occidental, Siberia y China."
+    "value": "Europa, Cáucaso, Asia occidental y central, Siberia y China"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -341,21 +341,21 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
   "safety": {
     "level": "bajo",
     "refs": [
+      "usda_use:37940",
       "tppt_plant:P533",
       "efsa_botanic:2172",
       "efsa_botanic:1967",
       "efsa_botanic:1968",
-      "efsa_endpoint:84",
-      "usda_use:37940"
+      "efsa_endpoint:84"
     ],
-    "text": "TPPT califica la planta entera como débilmente tóxica y señala que se desconoce la molécula tóxica. EFSA registra 1,8-cineol y hederacina A y B en la parte aérea, y un caso de enfermedad y muerte en caballos por alimentación oral. Advertencia: registrada como veneno en usos tradicionales."
+    "text": "Advertencia: registrada como veneno en usos tradicionales. TPPT la registra como débilmente tóxica en humanos (parte tóxica: la planta entera; la molécula tóxica es desconocida) y como fuertemente tóxica en animales. EFSA registra como sustancias de evidencia en la parte aérea el 1,8-cineol y las hederacinas A y B, y un informe de caso de enfermedad y muerte en caballos."
   },
   "scientificName": {
     "authors": "L.",
@@ -575,7 +575,7 @@
       ]
     },
     {
-      "activity": "Dolor de espalda",
+      "activity": "Dolor (espalda)",
       "activitySource": "Ache(Back)",
       "citations": [
         {
@@ -595,7 +595,7 @@
       ]
     },
     {
-      "activity": "Dolor de oído",
+      "activity": "Dolor (oído)",
       "activitySource": "Ache(Ear)",
       "citations": [
         {
@@ -615,7 +615,7 @@
       ]
     },
     {
-      "activity": "Dolor de cabeza",
+      "activity": "Dolor (cabeza)",
       "activitySource": "Ache(Head)",
       "citations": [
         {
@@ -635,7 +635,7 @@
       ]
     },
     {
-      "activity": "Dolor de muelas",
+      "activity": "Dolor (dental)",
       "activitySource": "Ache(Tooth)",
       "citations": [
         {

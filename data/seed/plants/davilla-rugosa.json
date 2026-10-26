@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:9c00cc5d87ab301140c03dc8a67037634b94bf77c241c79419e4f9476422aff4",
+  "bundleHash": "sha256:9293c21376c752c186253edddf6492415bbbfc8be9368adf37c7b67c3848cc9b",
   "commonNames": [
     {
       "language": "en",
@@ -33,35 +33,19 @@
   },
   "goals": [],
   "id": "davilla-rugosa",
-  "image": {
-    "attributionRequired": true,
-    "author": "Instituto Nacional da Mata Atlântica - INMA",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:DILLENIACEAE_Davilla_rugosa_Poir,_INMA_(MBML002422).pdf",
-    "refs": [
-      "commons:File:DILLENIACEAE Davilla rugosa Poir, INMA (MBML002422).pdf"
-    ],
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/DILLENIACEAE_Davilla_rugosa_Poir%2C_INMA_%28MBML002422%29.pdf"
-  },
+  "image": null,
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": {
     "refs": [
       "wcvp:2758447"
     ],
-    "value": "Centroamérica y Sudamérica"
+    "value": "Brasil, América Central y el norte, oeste y sur de Sudamérica."
   },
   "partsUsed": [],
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
-    "commons:File:DILLENIACEAE Davilla rugosa Poir, INMA (MBML002422).pdf": {
-      "dataset": "commons",
-      "label": "Wikimedia Commons: File:DILLENIACEAE Davilla rugosa Poir, INMA (MBML002422).pdf",
-      "license": "CC BY-SA 4.0",
-      "url": "https://commons.wikimedia.org/wiki/File:DILLENIACEAE_Davilla_rugosa_Poir,_INMA_(MBML002422).pdf"
-    },
     "usda_common_name:1358-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Cipo caboclo»",
@@ -106,7 +90,7 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español para Davilla rugosa; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
@@ -125,16 +109,12 @@
   },
   "sources": [
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
-    },
-    {
       "dataset": "usda",
       "license": "CC0"
     },
     {
-      "dataset": "commons",
-      "license": "CC BY-SA 4.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     }
   ],
   "synonyms": [],

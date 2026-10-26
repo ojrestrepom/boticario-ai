@@ -40,7 +40,6 @@
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
-      "usda_part:121-EO",
       "usda_part:121-PL"
     ],
     "type": "Esencial"
@@ -49,7 +48,7 @@
     "refs": [
       "wcvp:2901455"
     ],
-    "value": "China, Asia oriental, subcontinente indio, Mongolia, extremo oriente ruso y Siberia."
+    "value": "China, Asia oriental, el subcontinente indio, Mongolia, el Lejano Oriente ruso y Siberia."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -64,11 +63,6 @@
     "usda_common_name:121-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Capillary Wormwood»",
-      "license": "CC0"
-    },
-    "usda_part:121-EO": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: química de la parte «Essential Oil»",
       "license": "CC0"
     },
     "usda_part:121-PL": {
@@ -96,9 +90,9 @@
       "label": "USDA Dr. Duke: referencia Kimura",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Takeda": {
@@ -279,14 +273,14 @@
   },
   "reviewFlags": [
     {
-      "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico Artemisia capillaris.",
-      "target": "displayName"
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta entera, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
     },
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
@@ -396,8 +390,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -413,7 +407,7 @@
         "usda_reference:Bliss",
         "usda_reference:Hunan",
         "usda_reference:Keys",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -437,8 +431,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -455,7 +449,7 @@
         "usda_reference:Bliss",
         "usda_reference:Hunan",
         "usda_reference:Kimura",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -506,7 +500,7 @@
       ]
     },
     {
-      "activity": "Fiebre intermitente",
+      "activity": "Ague",
       "activitySource": "Ague",
       "citations": [
         {
@@ -569,8 +563,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -580,7 +574,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:6411",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -629,8 +623,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -640,7 +634,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:13085",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -684,7 +678,7 @@
       ]
     },
     {
-      "activity": "Ictericia",
+      "activity": "Icterus",
       "activitySource": "Icterus",
       "citations": [
         {
@@ -729,8 +723,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -740,7 +734,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:74219",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {

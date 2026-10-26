@@ -28,7 +28,7 @@
       "refs": [
         "wikidata:Q193798"
       ],
-      "text": "Cardinchas"
+      "text": "Bedegar"
     },
     {
       "language": "es",
@@ -42,7 +42,7 @@
       "refs": [
         "wikidata:Q193798"
       ],
-      "text": "Bedegar"
+      "text": "Cardinchas"
     },
     {
       "language": "en",
@@ -63,7 +63,7 @@
     "refs": [
       "wikipedia_es:Silybum marianum"
     ],
-    "value": "Especie del género Silybum perteneciente a la familia Asteraceae."
+    "value": "Planta asterácea, especie del género Silybum, de la familia Asteraceae."
   },
   "displayName": {
     "language": "es",
@@ -113,7 +113,7 @@
     "refs": [
       "wcvp:2901907"
     ],
-    "value": "Nativa del sudoeste y sudeste de Europa, el norte y noreste tropical de África, Macaronesia, el Cáucaso, Asia occidental y central, la península arábiga y el subcontinente indio."
+    "value": "Nativa de la península arábiga, el Cáucaso, Asia central y occidental, el subcontinente indio, la Macaronesia, el norte y el nordeste de África y el sur de Europa."
   },
   "partsUsed": [
     {
@@ -186,9 +186,9 @@
       "label": "USDA Dr. Duke: referencia Hartwell",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Steinmetz": {
@@ -386,39 +386,39 @@
   },
   "reviewFlags": [
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la semilla, sin ficha aetheroleum de la EMA.",
-      "target": "oil"
-    },
-    {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Jaundice» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Ictericia» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Coffee» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Café» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Hepatitis» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Uso tradicional, sin eficacia demostrada: hepatitis» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Calculus» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Cálculo» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[17]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Diabetes» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Uso tradicional, sin eficacia demostrada: diabetes» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
       "target": "traditionalUses[18]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La actividad «Galactogogue» tiene claves de cita sin candidata en el paquete: Woi.S.",
+      "message": "El grupo «Galactagogo» tiene claves de cita sin candidata en el paquete: Woi.S.",
       "target": "traditionalUses[19]"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la semilla, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
     }
   ],
   "safety": {
@@ -430,7 +430,7 @@
       "usda_use:38320",
       "usda_use:38321"
     ],
-    "text": "La monografía de la EMA para el fruto registra como contraindicación la hipersensibilidad al principio activo y a las plantas de la familia de las asteráceas (compuestas), y señala que no se ha establecido su uso en menores de 18 años por falta de datos y que la aparición de ictericia o un cambio de color de la orina o de las heces es una señal a tener en cuenta. No reporta interacciones. Advertencia: registrada como veneno en usos tradicionales."
+    "text": "La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y a las plantas de la familia Asteraceae. Entre sus advertencias señala que no se ha establecido el uso en menores de 18 años y que se consulte a un profesional si los síntomas empeoran o aparecen ictericia o cambios de color en la orina o las heces. No registra interacciones. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "(L.) Gaertn.",
@@ -639,8 +639,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Woi.Syria",
@@ -657,7 +657,7 @@
       "refs": [
         "usda_use:28583",
         "usda_use:28601",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -888,7 +888,7 @@
       ]
     },
     {
-      "activity": "Cálculos",
+      "activity": "Cálculo",
       "activitySource": "Calculus",
       "citations": [
         {

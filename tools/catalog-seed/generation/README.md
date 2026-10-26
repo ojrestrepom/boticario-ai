@@ -68,6 +68,17 @@ La fase 1 dio 0 errores del validador y 0 rechazados. La estimación con 17.200 
 
 La fase 2 dio 0 errores y 0 advertencias del validador en los 215 lotes y 1 rechazo, `malachra-alaceaefolia`, porque su paquete no trae ningún ref y el esquema exige al menos uno en `scientificName` y `displayName`. Una pausa por el límite de uso cortó la corrida tras 115 lotes y se reanudó con `resumeFromRunId` y los mismos argumentos; los 215 lotes quedaron completos. Los tokens de la tabla son los de la corrida reanudada.
 
+## Aclaraciones recomendadas en el envoltorio por lote
+
+En la regeneración `fix2` los agentes recibieron estas aclaraciones de la QA en el envoltorio de cada lote. Son precisiones de reglas del prompt v7, no reglas nuevas, y se recomiendan para futuras corridas:
+
+- Selección de grupos: se aplica exactamente el orden del prompt y no se omiten grupos; `traditionalUses` debe tener al menos min(20, N) grupos, donde N es el número de actividades del paquete que no son señales de riesgo (el validador lo comprueba).
+- Fórmula de enfermedades graves exacta: «Uso tradicional, sin eficacia demostrada: <enfermedad>», con un solo espacio tras los dos puntos, sin espacios dobles ni comillas.
+- Sin cantidades: los textos, y en especial `safety.text`, no llevan cifras con unidades (por ejemplo valores guía en µg/kg o mg); se describe el riesgo sin la cifra.
+- Clave de cita `Nas` (candidatas NAS «Lost Crops of the Incas» y NAS2 «Herbal pharmacology in the People's Republic of China»): se elige por los países del grupo, NAS2 para usos de China o Asia y NAS para usos de los Andes; si los países no permiten decidir, queda sin resolver.
+- Nombres de USDA con anotación de idioma entre paréntesis («(Sp.)», «(Ger.)», «(Fr.)», «(Jap.)», etc.): se quita la anotación del texto del nombre y se usa solo para fijar `language`.
+- Origen: «Malesia» es la región biogeográfica de WCVP, no el país Malasia, y se escribe «Malesia».
+
 ## Cómo se hizo la corrida de control
 
 Dos lotes de 10 plantas con dos agentes en paralelo y el mismo envoltorio descrito arriba, con la salida en `data/work/control/v<N>/` (por ejemplo, `lote-1` y `lote-2`), donde `<N>` es la versión del prompt. Se validaron con `validate`, se revisaron planta por planta (tarea 5.3) y se sellaron con `seal --from` de los dos directorios. Su detalle está en «Corrida de control (tarea 5.1)» y «Revisión de la corrida de control (tarea 5.3)» del README de las herramientas.

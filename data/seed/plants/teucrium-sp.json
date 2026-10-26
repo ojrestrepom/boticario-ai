@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:47c5afe5250d95e74b55eff4819f05b43aae34170025de17fd2cbebc2095df04",
+  "bundleHash": "sha256:3fdc225ffd842109a96fe0c0481f94a97d9c623990453a60121676292cb82377",
   "commonNames": [
     {
       "language": "es",
@@ -21,7 +21,7 @@
     "refs": [
       "wikipedia_es:Teucrium"
     ],
-    "value": "Género de plantas de la familia Lamiaceae, de porte arbustivo o herbáceo, común en hábitats soleados tipo tomillar o en el sotobosque. Tiene unos 415 taxones aceptados."
+    "value": "Género de plantas de la familia Lamiaceae, de porte arbustivo o herbáceo, común en hábitats soleados tipo tomillar o en el sotobosque. Incluye unos 415 taxones aceptados."
   },
   "displayName": {
     "language": "es",
@@ -62,6 +62,21 @@
       "label": "USDA Dr. Duke: nombre común «Germander»",
       "license": "CC0"
     },
+    "usda_part:2067-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_use:25495": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25495",
+      "license": "CC0"
+    },
     "wikidata:Q157714": {
       "dataset": "wikidata",
       "label": "Wikidata Q157714",
@@ -92,7 +107,7 @@
     "authors": null,
     "name": "Teucrium sp",
     "refs": [
-      "wikidata:Q157714"
+      "usda_part:2067-PL"
     ]
   },
   "sources": [
@@ -114,5 +129,26 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25495",
+        "usda_reference:Altschul"
+      ]
+    }
+  ]
 }

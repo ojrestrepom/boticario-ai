@@ -2,7 +2,7 @@
   "aliases": [
     "zanthoxylum-alatum"
   ],
-  "bundleHash": "sha256:a4e72c67f0fff4968082d536d334f2ee4c2649e54240836e6fc6f1d5b102445f",
+  "bundleHash": "sha256:fc77bc40d48f8e14a3bf41029c9b71c41bf8c876b8d952b1d7931d9d41824608",
   "commonNames": [
     {
       "language": "en",
@@ -48,7 +48,7 @@
     "refs": [
       "wcvp:3259101"
     ],
-    "value": "China, Asia oriental, subcontinente indio, Indochina y Malesia"
+    "value": "China, Asia oriental, Subcontinente indio, Indochina y Malesia"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -104,6 +104,11 @@
       "label": "USDA Dr. Duke: química de la parte «Leaf»",
       "license": "CC0"
     },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
     "usda_reference:Hunan": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Hunan",
@@ -112,6 +117,11 @@
     "usda_reference:Steinmetz": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
       "license": "CC0"
     },
     "usda_use:1333": {
@@ -137,6 +147,11 @@
     "usda_use:36305": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: uso etnobotánico 36305",
+      "license": "CC0"
+    },
+    "usda_use:47996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47996",
       "license": "CC0"
     },
     "usda_use:484": {
@@ -169,14 +184,24 @@
       "label": "USDA Dr. Duke: uso etnobotánico 51699",
       "license": "CC0"
     },
-    "usda_use:54744": {
+    "usda_use:62835": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: uso etnobotánico 54744",
+      "label": "USDA Dr. Duke: uso etnobotánico 62835",
+      "license": "CC0"
+    },
+    "usda_use:62837": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62837",
       "license": "CC0"
     },
     "usda_use:64963": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: uso etnobotánico 64963",
+      "license": "CC0"
+    },
+    "usda_use:68108": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68108",
       "license": "CC0"
     },
     "usda_use:7309": {
@@ -213,12 +238,12 @@
     },
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (fruto y hoja), sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en fruto y hoja, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
@@ -232,7 +257,7 @@
       "efsa_endpoint:507",
       "efsa_endpoint:508"
     ],
-    "text": "EFSA registra el bergapteno, una furocumarina fototóxica, en la corteza y la semilla, con reacciones de la piel con la luz, y la queleritrina como sustancia de evidencia; también cita estudios sobre psoralenos con hepatotoxicidad y toxicidad reproductiva."
+    "text": "La EFSA registra la furocumarina fototóxica bergapteno (corteza y semilla) como sustancia de alta preocupación, por reacciones de la piel con la luz. Como sustancia de evidencia registra la queleritrina (corteza y semilla), y entre los estudios figuran hepatotoxicidad de psoralenos y toxicidad reproductiva de psoralenos."
   },
   "scientificName": {
     "authors": null,
@@ -278,7 +303,7 @@
       ]
     },
     {
-      "activity": "Dolor de estómago",
+      "activity": "Dolor (estómago)",
       "activitySource": "Ache(Stomach)",
       "citations": [
         {
@@ -356,7 +381,7 @@
       ]
     },
     {
-      "activity": "Mordedura de serpiente",
+      "activity": "Mordedura (serpiente)",
       "activitySource": "Bite(Snake)",
       "citations": [
         {
@@ -393,6 +418,26 @@
       "refs": [
         "usda_use:8460",
         "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dentífrico",
+      "activitySource": "Dentifrice",
+      "citations": [
+        {
+          "key": "Eb25: 422",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 422"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68108",
+        "usda_reference:EB"
       ]
     },
     {
@@ -436,6 +481,26 @@
       ]
     },
     {
+      "activity": "Odontitis",
+      "activitySource": "Odontitis",
+      "citations": [
+        {
+          "key": "Eb25: 422",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 422"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62835",
+        "usda_reference:EB"
+      ]
+    },
+    {
       "activity": "Pectoral",
       "activitySource": "Pectoral",
       "citations": [
@@ -451,6 +516,26 @@
       "refs": [
         "usda_use:36305",
         "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Eb24: 135",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 135"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62837",
+        "usda_reference:EB"
       ]
     },
     {
@@ -491,6 +576,26 @@
       "refs": [
         "usda_use:77820",
         "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47996",
+        "usda_reference:Uphof"
       ]
     },
     {
@@ -566,26 +671,6 @@
       "pendingReview": false,
       "refs": [
         "usda_use:51699",
-        "usda_reference:Hunan"
-      ]
-    },
-    {
-      "activity": "Vermífugo",
-      "activitySource": "Vermifuge",
-      "citations": [
-        {
-          "key": "Hunan",
-          "ref": "usda_reference:Hunan",
-          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
-        }
-      ],
-      "countries": [
-        "China"
-      ],
-      "n": 1,
-      "pendingReview": false,
-      "refs": [
-        "usda_use:54744",
         "usda_reference:Hunan"
       ]
     }

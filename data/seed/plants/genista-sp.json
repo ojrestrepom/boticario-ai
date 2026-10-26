@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:168177eed0bbd67e3817ead52bce76affbf417547a7e77df383e66f19e1029e6",
+  "bundleHash": "sha256:0631c4169fda006254ea0c90167e13aec18b7487ebe1900c4d68a6e234bc2b4d",
   "commonNames": [],
   "description": {
     "refs": [
@@ -41,6 +41,16 @@
       "label": "Wikimedia Commons: File:Genista tinctoria 2 RF.jpg",
       "license": "CC BY 4.0",
       "url": "https://commons.wikimedia.org/wiki/File:Genista_tinctoria_2_RF.jpg"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:55406": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55406",
+      "license": "CC0"
     },
     "wikidata:Q156696": {
       "dataset": "wikidata",
@@ -86,6 +96,10 @@
       "license": "CC BY 4.0"
     },
     {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
@@ -95,5 +109,26 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55406",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
 }

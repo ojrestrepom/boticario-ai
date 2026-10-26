@@ -16,14 +16,21 @@
       "refs": [
         "wikidata:Q43511"
       ],
-      "text": "Cenojo"
+      "text": "Caniguera"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q43511"
       ],
-      "text": "Cinojo"
+      "text": "Cañiguera"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q43511"
+      ],
+      "text": "Cenojo"
     },
     {
       "language": "es",
@@ -37,14 +44,21 @@
       "refs": [
         "wikidata:Q43511"
       ],
-      "text": "Cinoyo"
+      "text": "Cinoho"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q43511"
       ],
-      "text": "Cinoho"
+      "text": "Cinojo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q43511"
+      ],
+      "text": "Cinoyo"
     },
     {
       "language": "es",
@@ -54,11 +68,11 @@
       "text": "Enoyo"
     },
     {
-      "language": "es",
+      "language": "de",
       "refs": [
-        "wikidata:Q43511"
+        "tppt_plant:P600"
       ],
-      "text": "Cañiguera"
+      "text": "Fenchel"
     },
     {
       "language": "en",
@@ -67,20 +81,13 @@
         "usda_common_name:420-1"
       ],
       "text": "Fennel"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P600"
-      ],
-      "text": "Fenchel"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Foeniculum vulgare"
     ],
-    "value": "Planta herbácea perenne de la familia Apiaceae, sumamente aromática, distribuida por las zonas templadas de todo el mundo y cultivada en gastronomía y en la industria farmacéutica y cosmética."
+    "value": "Hierba perenne y sumamente aromática de la familia Apiaceae, distribuida por las zonas templadas del mundo y nativa del sur de Europa, en especial de la costa mediterránea. Se cultiva para la gastronomía y para la industria farmacéutica y cosmética."
   },
   "displayName": {
     "language": "es",
@@ -97,24 +104,24 @@
   },
   "goals": [
     {
-      "area": "Trastornos urinarios y genitales",
-      "evidence": "La EMA tiene una monografía para el fruto en esta área.",
-      "goal": "otros-objetivos",
-      "pendingReview": false,
-      "refs": [
-        "ema_herbal:foeniculi-amari-fructus"
-      ],
-      "subarea": "vias-urinarias-y-genitales"
-    },
-    {
       "area": "Tos y resfriado",
-      "evidence": "La EMA tiene una monografía para el fruto en esta área.",
+      "evidence": "La EMA tiene una monografía en esta área.",
       "goal": "alivio-respiratorio",
       "pendingReview": false,
       "refs": [
         "ema_herbal:foeniculi-amari-fructus"
       ],
       "subarea": null
+    },
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:foeniculi-amari-fructus"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
     }
   ],
   "id": "foeniculum-vulgare",
@@ -132,8 +139,7 @@
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
-      "ema_herbal:foeniculi-amari-fructus-aetheroleum",
-      "usda_part:420-SD"
+      "ema_herbal:foeniculi-amari-fructus-aetheroleum"
     ],
     "type": "Esencial"
   },
@@ -141,12 +147,13 @@
     "refs": [
       "wcvp:2813604"
     ],
-    "value": "Nativa del sur de Europa, el norte de África y Asia occidental y central."
+    "value": "Nativa de la península arábiga, el Cáucaso, Asia central, el subcontinente indio, el noreste de África tropical, el norte de África, el sureste y el suroeste de Europa y Asia occidental."
   },
   "partsUsed": [
     {
       "refs": [
-        "ema_herbal:foeniculi-amari-fructus"
+        "ema_herbal:foeniculi-amari-fructus",
+        "ema_herbal:foeniculi-amari-fructus-aetheroleum"
       ],
       "value": "Fruto"
     }
@@ -194,12 +201,6 @@
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-community-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-fructus_en.pdf"
     },
-    "ema_pdf:foeniculi-amari-fructus-aetheroleum:4.5": {
-      "dataset": "ema_pdf",
-      "label": "EMA: borrador de la monografía de foeniculi-amari-fructus-aetheroleum, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
-      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
-      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-community-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-fructus_en.pdf"
-    },
     "ema_pdf:foeniculi-amari-fructus:4.3": {
       "dataset": "ema_pdf",
       "label": "EMA: monografía de foeniculi-amari-fructus, sección 4.3 (Contraindications)",
@@ -226,11 +227,6 @@
     "usda_common_name:420-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Fennel»",
-      "license": "CC0"
-    },
-    "usda_part:420-SD": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: química de la parte «Seed»",
       "license": "CC0"
     },
     "usda_reference:Al-Rawi": {
@@ -679,12 +675,12 @@
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete; el grupo conserva sus citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Carminativo» no tiene candidata en el paquete.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete; el grupo conserva sus citas resueltas.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Estimulante» no tiene candidata en el paquete.",
       "target": "traditionalUses[2]"
     }
   ],
@@ -694,15 +690,14 @@
       "efsa_botanic:3051",
       "efsa_botanic:3050",
       "tppt_plant:P600",
-      "usda_use:205",
       "ema_pdf:foeniculi-amari-fructus:4.3",
       "ema_pdf:foeniculi-amari-fructus:4.4",
       "ema_pdf:foeniculi-amari-fructus:4.5",
       "ema_pdf:foeniculi-amari-fructus-aetheroleum:4.3",
       "ema_pdf:foeniculi-amari-fructus-aetheroleum:4.4",
-      "ema_pdf:foeniculi-amari-fructus-aetheroleum:4.5"
+      "usda_use:205"
     ],
-    "text": "EFSA registra en la parte aérea y la semilla el estragol, una sustancia de alta preocupación por ser genotóxica o carcinógena, y el anetol como sustancia de evidencia. TPPT la califica de débilmente tóxica: los fenilpropanoides de la parte aérea (o la planta entera) muestran toxicidad débil y actividad carcinógena. Advertencia: registrada como abortiva en usos tradicionales. La monografía de la EMA para el fruto registra como contraindicaciones la hipersensibilidad a la sustancia activa, a las plantas de la familia Apiaceae (anís, alcaravea, apio, cilantro y eneldo) o al anetol, y la hipersensibilidad al polen de artemisa por reactividad cruzada. Entre sus advertencias figuran que no se recomienda en menores de 4 años por falta de datos, que en niños de 4 a 12 años no se recomienda si la ingesta diaria de estragol supera el valor guía de 1,0 µg/kg de peso corporal salvo evaluación de riesgo, y que en una de las indicaciones no se ha establecido su uso en menores de 12 años. El borrador de monografía del aceite esencial registra la hipersensibilidad a la sustancia activa, a las Apiaceae o al anetol, y advierte de reactividad cruzada en personas con hipersensibilidad a las Asteraceae. No se registran interacciones."
+    "text": "EFSA registra el estragol, sustancia de preocupación genotóxica y carcinógena, en la parte aérea y la semilla, y el anetol como sustancia de evidencia en la parte aérea. TPPT la califica de débilmente tóxica, con la parte aérea (o la planta entera) como parte tóxica y anetol, estragol y fenchol como toxinas principales. La EMA registra como contraindicación la hipersensibilidad a la sustancia activa, a las Apiaceae o al anetol, y la hipersensibilidad al polen de artemisa por reactividad cruzada. Como advertencia, la EMA registra la hipersensibilidad a las Asteraceae y que en niños pequeños el uso no está recomendado por falta de datos adecuados y por la ingesta de estragol. La EMA no registra interacciones. Advertencia: registrada como abortiva en usos tradicionales."
   },
   "scientificName": {
     "authors": "Mill.",
@@ -1242,7 +1237,7 @@
       ]
     },
     {
-      "activity": "Lactogogo",
+      "activity": "Galactagogo",
       "activitySource": "Lactogogue",
       "citations": [
         {

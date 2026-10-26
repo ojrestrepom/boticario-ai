@@ -1,19 +1,27 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:df058737e45d4706a92ce4b918d1f031ef03b07ab5e77c03cad143178bd6d62f",
-  "commonNames": [],
+  "bundleHash": "sha256:1f56a0fe2b23ba2692a99dcb5a663ea68468b4dde3fc2c2598196e337d62ca14",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lamium"
+      ],
+      "text": "ortiga muerta"
+    }
+  ],
   "description": {
     "refs": [
       "wikipedia_es:Lamium"
     ],
-    "value": "Género de una treintena de especies aceptadas de plantas herbáceas de la familia Lamiaceae, nativas de Europa, Asia y norte de África. Varias se han convertido en malezas de tierras de cultivo y están naturalizadas en regiones templadas del mundo."
+    "value": "Género de una treintena de especies aceptadas de plantas herbáceas de la familia Lamiaceae, nativas de Europa, Asia y el norte de África. Varias se han convertido en malezas de tierras de cultivo y están naturalizadas en regiones templadas del mundo."
   },
   "displayName": {
-    "language": "la",
+    "language": "es",
     "refs": [
-      "wikidata:Q146675"
+      "wikipedia_es:Lamium"
     ],
-    "value": "Lamium sp"
+    "value": "Ortiga muerta"
   },
   "family": null,
   "goals": [],
@@ -42,6 +50,16 @@
       "license": "CC BY-SA 3.0",
       "url": "https://commons.wikimedia.org/wiki/File:Lamium_8229.jpg"
     },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:4496": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4496",
+      "license": "CC0"
+    },
     "wikidata:Q146675": {
       "dataset": "wikidata",
       "label": "Wikidata Q146675",
@@ -60,11 +78,6 @@
       "code": "solo-genero",
       "message": "La entrada solo nombra el género.",
       "target": "scientificName"
-    },
-    {
-      "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español en las fuentes admitidas; el displayName es el nombre científico.",
-      "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
@@ -86,6 +99,10 @@
       "license": "CC BY-SA 3.0"
     },
     {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
@@ -95,5 +112,26 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Eb24: 83",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 83"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4496",
+        "usda_reference:EB"
+      ]
+    }
+  ]
 }

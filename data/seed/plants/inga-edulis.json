@@ -7,28 +7,28 @@
       "refs": [
         "wikidata:Q138183"
       ],
-      "text": "Guama"
+      "text": "guama"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q138183"
       ],
-      "text": "Paterna"
+      "text": "paterna"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q138183"
       ],
-      "text": "Aguatope"
+      "text": "aguatope"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q138183"
       ],
-      "text": "Cuajiniquil"
+      "text": "cuajiniquil"
     },
     {
       "language": "es",
@@ -49,7 +49,7 @@
     "refs": [
       "wikipedia_es:Inga edulis"
     ],
-    "value": "Árbol leguminoso de América que alcanza los 20 metros de altura y se distribuye desde la Amazonía hasta América Central y las islas del Caribe. Tiene grandes vainas dulces y da sombra en cultivos perennes como el café y el cacao."
+    "value": "Árbol leguminoso de América que alcanza unos 20 metros de altura. Se distribuye desde la Amazonía hasta América Central y el Caribe, y destaca por sus grandes vainas dulces, la fijación de nitrógeno y la sombra que da a cultivos perennes como el café y el cacao."
   },
   "displayName": {
     "language": "es",
@@ -83,7 +83,7 @@
     "refs": [
       "wcvp:2865225"
     ],
-    "value": "Brasil y el norte, sur y oeste de Sudamérica"
+    "value": "Brasil y las regiones norte, sur y oeste de Sudamérica"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -103,6 +103,21 @@
     "usda_common_name:1231-2": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Icecream Bean»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:81438": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81438",
+      "license": "CC0"
+    },
+    "usda_use:839": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 839",
       "license": "CC0"
     },
     "wcvp:2808942": {
@@ -131,7 +146,7 @@
   "reviewFlags": [
     {
       "code": "idioma-de-nombre-dudoso",
-      "message": "USDA registra «Guaba» como inglés, pero es una palabra española; se registró como español.",
+      "message": "USDA registra «Guaba» como inglés, pero parece un nombre en español; se registra como español.",
       "target": "commonNames"
     },
     {
@@ -179,5 +194,46 @@
       ]
     }
   ],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Dolor (cabeza)",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Eb29: 289",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 289"
+        }
+      ],
+      "countries": [
+        "Panamá (Cuna)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:839",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Eb29: 289",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 289"
+        }
+      ],
+      "countries": [
+        "Panamá (Cuna)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81438",
+        "usda_reference:EB"
+      ]
+    }
+  ]
 }

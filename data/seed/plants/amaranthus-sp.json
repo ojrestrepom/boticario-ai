@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:caa0144271ac1759310d8a795bab0944990f9b41745987cf3ca147883a40a23b",
+  "bundleHash": "sha256:658d8667ac08fa6babc9ebaffd68de95f91ca782424642dd681ff89d64311ed7",
   "commonNames": [
     {
       "language": "es",
@@ -17,13 +17,6 @@
       "text": "Amarantos"
     },
     {
-      "language": "es",
-      "refs": [
-        "wikidata:Q156344"
-      ],
-      "text": "amaranta"
-    },
-    {
       "language": "en",
       "refs": [
         "usda_common_name:63-1"
@@ -35,7 +28,7 @@
     "refs": [
       "wikipedia_es:Amaranthus"
     ],
-    "value": "Género de plantas herbáceas y anuales de la familia Amaranthaceae, presente en la mayor parte de las regiones de clima templado y cálido. Varias de sus especies se cultivan por sus semillas u hojas como alimento y otras como ornamentales."
+    "value": "Género de plantas herbáceas y anuales de la familia Amaranthaceae, distribuido por la mayor parte de las regiones de clima templado y cálido. Algunas especies se cultivan como alimento u ornamentales y otras son malas hierbas de los cultivos."
   },
   "displayName": {
     "language": "es",
@@ -76,6 +69,41 @@
       "label": "USDA Dr. Duke: nombre común «Pigweed»",
       "license": "CC0"
     },
+    "usda_part:63-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:22907": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22907",
+      "license": "CC0"
+    },
+    "usda_use:29698": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29698",
+      "license": "CC0"
+    },
+    "usda_use:51214": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51214",
+      "license": "CC0"
+    },
+    "usda_use:71404": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71404",
+      "license": "CC0"
+    },
+    "usda_use:8032": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8032",
+      "license": "CC0"
+    },
     "wikidata:Q156344": {
       "dataset": "wikidata",
       "label": "Wikidata Q156344",
@@ -97,8 +125,23 @@
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Hirschhorn,1983 no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Hirschhorn,1983 no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Hirschhorn,1983 no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[4]"
     }
   ],
   "safety": null,
@@ -106,7 +149,7 @@
     "authors": null,
     "name": "Amaranthus sp.",
     "refs": [
-      "wikidata:Q156344"
+      "usda_part:63-PL"
     ]
   },
   "sources": [
@@ -128,5 +171,103 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Fractura",
+      "activitySource": "Fracture",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71404",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Locura",
+      "activitySource": "Insanity",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29698",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Dolor de muelas",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Hirschhorn,1983",
+          "ref": null,
+          "text": "Hirschhorn,1983 (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:51214"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Hirschhorn,1983",
+          "ref": null,
+          "text": "Hirschhorn,1983 (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:8032"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Hirschhorn,1983",
+          "ref": null,
+          "text": "Hirschhorn,1983 (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:22907"
+      ]
+    }
+  ]
 }

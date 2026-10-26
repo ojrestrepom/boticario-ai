@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:a2300c8aacad4c3b8b791681b7c22bab304f2eea1b228a33bbcc6af8eb268379",
+  "bundleHash": "sha256:0f372643337c1e1b7da15ed227c3634cbc42de395d4977738d8c5795a26b8453",
   "commonNames": [
     {
       "language": "en",
@@ -38,6 +38,16 @@
       "dataset": "usda",
       "label": "USDA Dr. Duke: química de la parte «Plant»",
       "license": "CC0"
+    },
+    "usda_use:28849": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28849",
+      "license": "CC0"
+    },
+    "usda_use:38396": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38396",
+      "license": "CC0"
     }
   },
   "reviewFlags": [
@@ -55,14 +65,16 @@
       "code": "sin-nombre-comun-es",
       "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
-    },
-    {
-      "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
-      "target": "safety"
     }
   ],
-  "safety": null,
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:28849",
+      "usda_use:38396"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales."
+  },
   "scientificName": {
     "authors": null,
     "name": "Taxus sp",

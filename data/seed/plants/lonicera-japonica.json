@@ -12,10 +12,9 @@
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Lonicera japonica",
-        "wikidata:Q161083"
+        "wikipedia_es:Lonicera japonica"
       ],
-      "text": "Madreselva japonesa"
+      "text": "madreselva japonesa"
     },
     {
       "language": "es",
@@ -27,10 +26,10 @@
     {
       "language": "en",
       "refs": [
-        "tppt_plant:P648",
-        "usda_common_name:569-1"
+        "usda_common_name:569-1",
+        "tppt_plant:P648"
       ],
-      "text": "Japanese honeysuckle"
+      "text": "Japanese Honeysuckle"
     },
     {
       "language": "de",
@@ -44,7 +43,7 @@
     "refs": [
       "wikipedia_es:Lonicera japonica"
     ],
-    "value": "Especie botánica de la familia de las Caprifoliáceas, conocida como madreselva japonesa."
+    "value": "Especie botánica de la familia Caprifoliáceas, conocida como madreselva japonesa o Suikazura en japonés."
   },
   "displayName": {
     "language": "es",
@@ -78,7 +77,7 @@
     "refs": [
       "wcvp:2339716"
     ],
-    "value": "China y Asia oriental"
+    "value": "China y Asia oriental."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -135,9 +134,9 @@
       "label": "USDA Dr. Duke: referencia Li",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Takeda": {
@@ -365,7 +364,7 @@
       "tppt_plant:P648",
       "efsa_botanic:2615"
     ],
-    "text": "TPPT la registra como tóxica; la parte tóxica es el fruto y la semilla, y no está claro cuáles son las moléculas tóxicas (se mencionan monoterpenoides, alcaloides o saponinas triterpenoides). La EFSA registra, en el brote, los secoiridoides acoplados a alcaloides de piridinio como sustancia de evidencia."
+    "text": "TPPT la registra como tóxica para las personas, con el fruto y la semilla como partes tóxicas; no está claro cuáles son las moléculas tóxicas, y se mencionan como posibles monoterpenoides, alcaloides o saponinas triterpenoides. EFSA registra como sustancia de evidencia los secoiridoides acoplados a alcaloides de piridinio en el botón floral."
   },
   "scientificName": {
     "authors": "Thunb.",
@@ -435,8 +434,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -451,7 +450,11 @@
         "usda_use:52346",
         "usda_use:59232",
         "usda_use:79462",
-        "usda_use:79709"
+        "usda_use:79709",
+        "usda_reference:Hartwell",
+        "usda_reference:Bliss",
+        "usda_reference:Kimura",
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -483,7 +486,10 @@
       "refs": [
         "usda_use:18277",
         "usda_use:18278",
-        "usda_use:18279"
+        "usda_use:18279",
+        "usda_reference:Kimura",
+        "usda_reference:Takeda",
+        "usda_reference:WOI"
       ]
     },
     {
@@ -497,8 +503,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Woi.6",
@@ -514,7 +520,10 @@
       "refs": [
         "usda_use:24802",
         "usda_use:59228",
-        "usda_use:71017"
+        "usda_use:71017",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2",
+        "usda_reference:WOI"
       ]
     },
     {
@@ -540,7 +549,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:3124",
-        "usda_use:64438"
+        "usda_use:64438",
+        "usda_reference:Bliss",
+        "usda_reference:Takeda"
       ]
     },
     {
@@ -554,8 +565,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -566,7 +577,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:6367",
-        "usda_use:6456"
+        "usda_use:6456",
+        "usda_reference:Li",
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -580,8 +593,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -591,7 +604,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:16786",
-        "usda_use:59226"
+        "usda_use:59226",
+        "usda_reference:Keys",
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -616,7 +631,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:19711",
-        "usda_use:19712"
+        "usda_use:19712",
+        "usda_reference:Keys",
+        "usda_reference:WOI"
       ]
     },
     {
@@ -641,7 +658,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:43750",
-        "usda_use:59230"
+        "usda_use:59230",
+        "usda_reference:Hunan",
+        "usda_reference:Keys"
       ]
     },
     {
@@ -666,7 +685,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:44882",
-        "usda_use:44883"
+        "usda_use:44883",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan"
       ]
     },
     {
@@ -692,7 +713,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:47761",
-        "usda_use:59231"
+        "usda_use:59231",
+        "usda_reference:Kimura",
+        "usda_reference:WOI"
       ]
     },
     {
@@ -718,7 +741,9 @@
       "pendingReview": false,
       "refs": [
         "usda_use:49546",
-        "usda_use:78585"
+        "usda_use:78585",
+        "usda_reference:Kimura",
+        "usda_reference:Li"
       ]
     },
     {
@@ -727,8 +752,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -737,7 +762,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:59224"
+        "usda_use:59224",
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -746,8 +772,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -756,7 +782,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:4853"
+        "usda_use:4853",
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -775,11 +802,12 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:65234"
+        "usda_use:65234",
+        "usda_reference:Bliss"
       ]
     },
     {
-      "activity": "Forúnculo",
+      "activity": "Furúnculo",
       "activitySource": "Boil",
       "citations": [
         {
@@ -794,7 +822,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:7732"
+        "usda_use:7732",
+        "usda_reference:Hunan"
       ]
     },
     {
@@ -813,7 +842,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:66258"
+        "usda_use:66258",
+        "usda_reference:Bliss"
       ]
     },
     {
@@ -832,7 +862,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:9623"
+        "usda_use:9623",
+        "usda_reference:Hartwell"
       ]
     },
     {
@@ -851,7 +882,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:11210"
+        "usda_use:11210",
+        "usda_reference:Yeh"
       ]
     },
     {
@@ -870,7 +902,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:59227"
+        "usda_use:59227",
+        "usda_reference:Keys"
       ]
     },
     {
@@ -889,7 +922,8 @@
       "n": 1,
       "pendingReview": false,
       "refs": [
-        "usda_use:23825"
+        "usda_use:23825",
+        "usda_reference:Kimura"
       ]
     }
   ]

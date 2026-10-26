@@ -5,7 +5,8 @@
     {
       "language": "es",
       "refs": [
-        "wikidata:Q1639832"
+        "wikidata:Q1639832",
+        "usda_common_name:465-1"
       ],
       "text": "Sinicuichi"
     }
@@ -14,7 +15,8 @@
   "displayName": {
     "language": "es",
     "refs": [
-      "wikidata:Q1639832"
+      "wikidata:Q1639832",
+      "usda_common_name:465-1"
     ],
     "value": "Sinicuichi"
   },
@@ -54,6 +56,11 @@
       "label": "Wikimedia Commons: File:Sinicuiche (Heimia salicifolia) I.jpg",
       "license": "CC BY-SA 4.0",
       "url": "https://commons.wikimedia.org/wiki/File:Sinicuiche_(Heimia_salicifolia)_I.jpg"
+    },
+    "usda_common_name:465-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sinicuichi»",
+      "license": "CC0"
     },
     "usda_reference:EB": {
       "dataset": "usda",
@@ -230,6 +237,11 @@
       "label": "USDA Dr. Duke: uso etnobotánico 75598",
       "license": "CC0"
     },
+    "usda_use:77114": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77114",
+      "license": "CC0"
+    },
     "usda_use:80285": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: uso etnobotánico 80285",
@@ -255,7 +267,7 @@
   "reviewFlags": [
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -767,6 +779,26 @@
       "refs": [
         "usda_use:75598",
         "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Llagas",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77114",
+        "usda_reference:Martinez"
       ]
     }
   ]

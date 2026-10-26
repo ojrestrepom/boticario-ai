@@ -1,12 +1,12 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:7437e1222140aa1fb9d5709fdad2689b66eb58cfded72aceae2168881da8925d",
+  "bundleHash": "sha256:e8228ab733f4d9cef95195eca7a73a4eaf371fab7e7d9c5fdeb91fb14838a9fd",
   "commonNames": [],
   "description": {
     "refs": [
       "wikipedia_es:Murraya"
     ],
-    "value": "Género con 35 especies de plantas perteneciente a la familia Rutaceae."
+    "value": "Género de 35 especies de plantas de la familia Rutaceae."
   },
   "displayName": {
     "language": "la",
@@ -41,6 +41,16 @@
       "label": "Wikimedia Commons: File:Murraya paniculata 05.jpg",
       "license": "CC BY-SA 3.0",
       "url": "https://commons.wikimedia.org/wiki/File:Murraya_paniculata_05.jpg"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_use:81716": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81716",
+      "license": "CC0"
     },
     "wikidata:Q1641850": {
       "dataset": "wikidata",
@@ -86,6 +96,10 @@
       "license": "CC BY-SA 3.0"
     },
     {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
@@ -95,5 +109,26 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Dolor (dental)",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81716",
+        "usda_reference:Duke"
+      ]
+    }
+  ]
 }

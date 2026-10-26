@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Perilla frutescens"
     ],
-    "value": "Planta anual de la familia de las lamiáceas, de hojas parecidas a las de la ortiga, que contiene aceites esenciales que le dan su aroma."
+    "value": "Planta anual de la familia de las lamiáceas, con hojas que se asemejan a las de la ortiga y aceites esenciales que le dan su aroma."
   },
   "displayName": {
     "language": "la",
@@ -45,7 +45,6 @@
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
-      "wikipedia_es:Perilla frutescens",
       "usda_part:709-LF",
       "usda_part:709-PL",
       "usda_part:709-ST"
@@ -56,7 +55,7 @@
     "refs": [
       "wcvp:150299"
     ],
-    "value": "China, Asia oriental, subcontinente indio, Indochina, Malasia y Lejano Oriente ruso"
+    "value": "China, Asia oriental, subcontinente indio, Indochina, Malesia y Lejano Oriente ruso"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -288,8 +287,13 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español distinto del nombre del género (Perilla, etiquetado como inglés por USDA); el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
       "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
     }
   ],
   "safety": {
@@ -299,7 +303,7 @@
       "efsa_botanic:423",
       "efsa_endpoint:597"
     ],
-    "text": "EFSA registra como sustancias de evidencia la cetona de perilla (perilla ketone) y la miristicina, en hojas y semillas, y un estudio sobre una intoxicación de ganado con la planta que describe una neumonía intersticial atípica."
+    "text": "EFSA registra como sustancias de evidencia la perilla cetona y la miristicina (hojas y semillas), y un estudio en ganado bovino describe una neumonía intersticial atípica por intoxicación con la planta."
   },
   "scientificName": {
     "authors": "(L.) Britton",
@@ -659,7 +663,7 @@
       ]
     },
     {
-      "activity": "Cefalea",
+      "activity": "Cefalalgia",
       "activitySource": "Cephalgia",
       "citations": [
         {
@@ -739,7 +743,7 @@
       ]
     },
     {
-      "activity": "Emisión",
+      "activity": "Emission",
       "activitySource": "Emission",
       "citations": [
         {

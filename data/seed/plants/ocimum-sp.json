@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:1c0bcd387f47abcfd45504ac77b9d9d954ce61bf510febf1d37892e4f69d88d4",
+  "bundleHash": "sha256:f1621d28fc342dd14dd02fa2f5ff439160512b45631fd3007c1c050e1d5ee7b5",
   "commonNames": [
     {
       "language": "en",
@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Ocimum"
     ],
-    "value": "Género de labiadas con unas 35 especies de plantas herbáceas aromáticas, anuales y perennes, además de algunos arbustos, de las regiones tropicales y templadas del Viejo Mundo."
+    "value": "Género de labiadas con unas 35 especies de plantas herbáceas aromáticas, anuales y perennes, y algunos arbustos, de las regiones tropicales y templadas del Viejo Mundo."
   },
   "displayName": {
     "language": "la",
@@ -55,6 +55,41 @@
       "label": "USDA Dr. Duke: nombre común «Basil»",
       "license": "CC0"
     },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_use:16852": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16852",
+      "license": "CC0"
+    },
+    "usda_use:21268": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21268",
+      "license": "CC0"
+    },
+    "usda_use:34509": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34509",
+      "license": "CC0"
+    },
+    "usda_use:6739": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6739",
+      "license": "CC0"
+    },
+    "usda_use:75633": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75633",
+      "license": "CC0"
+    },
     "wikidata:Q148818": {
       "dataset": "wikidata",
       "label": "Wikidata Q148818",
@@ -76,7 +111,7 @@
     },
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español para el género; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
@@ -112,5 +147,106 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Biliosidad",
+      "activitySource": "Bilious",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Ghana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6739",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16852",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Camerún"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21268",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34509",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Camerún"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75633",
+        "usda_reference:Ayensu"
+      ]
+    }
+  ]
 }

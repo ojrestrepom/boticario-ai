@@ -2,7 +2,7 @@
   "aliases": [
     "satureja-vulgaris"
   ],
-  "bundleHash": "sha256:8d55f235cc0852500264b6bf71a85ef340c1fdbe67928eb24f421ffd0a634a81",
+  "bundleHash": "sha256:342998313f7dbd6f3666f3fff492f3219b56f2f550305e6a3731f9b103627cd1",
   "commonNames": [
     {
       "language": "es",
@@ -101,7 +101,7 @@
     "refs": [
       "wcvp:43704"
     ],
-    "value": "Cáucaso, Asia central, Europa oriental, subcontinente indio, Macaronesia, Europa central, norte de África, norte de Europa, Siberia, sureste y suroeste de Europa y Asia occidental."
+    "value": "Europa, norte de África, Macaronesia, Cáucaso, Asia occidental y central, Siberia y el subcontinente indio."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -117,6 +117,16 @@
       "label": "USDA Dr. Duke: química de la parte «Plant»",
       "license": "CC0"
     },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
     "usda_reference:Uphof": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Uphof",
@@ -125,6 +135,11 @@
     "usda_use:21569": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: uso etnobotánico 21569",
+      "license": "CC0"
+    },
+    "usda_use:21863": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21863",
       "license": "CC0"
     },
     "usda_use:22827": {
@@ -145,6 +160,11 @@
     "usda_use:5510": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: uso etnobotánico 5510",
+      "license": "CC0"
+    },
+    "usda_use:61310": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61310",
       "license": "CC0"
     },
     "usda_use:66502": {
@@ -222,19 +242,24 @@
   },
   "reviewFlags": [
     {
-      "code": "cita-sin-resolver",
-      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
-      "target": "traditionalUses[0]"
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
     },
     {
       "code": "cita-sin-resolver",
       "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
-      "target": "traditionalUses[1]"
+      "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
       "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
-      "target": "traditionalUses[2]"
+      "target": "traditionalUses[6]"
     },
     {
       "code": "cita-sin-resolver",
@@ -242,14 +267,9 @@
       "target": "traditionalUses[7]"
     },
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
-    },
-    {
-      "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
-      "target": "safety"
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[8]"
     }
   ],
   "safety": null,
@@ -262,20 +282,20 @@
   },
   "sources": [
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
+      "dataset": "usda",
+      "license": "CC0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "usda",
-      "license": "CC0"
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     }
   ],
   "synonyms": [
@@ -338,66 +358,14 @@
   ],
   "traditionalUses": [
     {
-      "activity": "Astringente",
-      "activitySource": "Astringent",
-      "citations": [
-        {
-          "key": "Woi.Syria",
-          "ref": null,
-          "text": "Woi.Syria (sin resolver)"
-        }
-      ],
-      "countries": [
-        "Otros lugares"
-      ],
-      "n": 1,
-      "pendingReview": true,
-      "refs": [
-        "usda_use:5510"
-      ]
-    },
-    {
-      "activity": "Cardíaco",
-      "activitySource": "Cardiac",
-      "citations": [
-        {
-          "key": "Woi.Syria",
-          "ref": null,
-          "text": "Woi.Syria (sin resolver)"
-        }
-      ],
-      "countries": [
-        "Otros lugares"
-      ],
-      "n": 1,
-      "pendingReview": true,
-      "refs": [
-        "usda_use:66502"
-      ]
-    },
-    {
-      "activity": "Carminativo",
-      "activitySource": "Carminative",
-      "citations": [
-        {
-          "key": "Woi.Syria",
-          "ref": null,
-          "text": "Woi.Syria (sin resolver)"
-        }
-      ],
-      "countries": [
-        "Otros lugares"
-      ],
-      "n": 1,
-      "pendingReview": true,
-      "refs": [
-        "usda_use:66596"
-      ]
-    },
-    {
       "activity": "Emenagogo",
       "activitySource": "Emmenagogue",
       "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
         {
           "key": "Uphof",
           "ref": "usda_reference:Uphof",
@@ -405,12 +373,15 @@
         }
       ],
       "countries": [
-        "Otros lugares"
+        "Otros lugares",
+        "España"
       ],
-      "n": 1,
+      "n": 2,
       "pendingReview": false,
       "refs": [
         "usda_use:21569",
+        "usda_use:21863",
+        "usda_reference:FontQuer",
         "usda_reference:Uphof"
       ]
     },
@@ -472,6 +443,83 @@
       "refs": [
         "usda_use:47515",
         "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61310",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:5510"
+      ]
+    },
+    {
+      "activity": "Cardíaco",
+      "activitySource": "Cardiac",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:66502"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:66596"
       ]
     },
     {

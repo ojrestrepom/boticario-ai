@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:ec4528e2bb62be59ba5da141513053671a2a5d6a4dfe6e7b9c4314867a38a76d",
+  "bundleHash": "sha256:51cfc1f21e607a056d06e591c03fd47ff29f6f84d0854bcda29e794f72277756",
   "commonNames": [
     {
       "language": "en",
@@ -32,6 +32,46 @@
     "usda_common_name:642-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Morinda»",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:12321": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12321",
+      "license": "CC0"
+    },
+    "usda_use:2636": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2636",
+      "license": "CC0"
+    },
+    "usda_use:33001": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33001",
+      "license": "CC0"
+    },
+    "usda_use:33002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33002",
+      "license": "CC0"
+    },
+    "usda_use:34958": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34958",
+      "license": "CC0"
+    },
+    "usda_use:902": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 902",
       "license": "CC0"
     }
   },
@@ -72,5 +112,114 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb29: 290",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 290"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Panamá (Cuna)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33001",
+        "usda_use:33002",
+        "usda_reference:Duke",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Dolor (cabeza)",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:902",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2636",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12321",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Neuralgia",
+      "activitySource": "Neuralgia",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34958",
+        "usda_reference:Duke"
+      ]
+    }
+  ]
 }

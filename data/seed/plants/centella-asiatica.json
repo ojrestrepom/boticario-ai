@@ -13,46 +13,16 @@
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Centella asiatica"
-      ],
-      "text": "Taquibsuso de Filipinas"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Centella asiatica"
-      ],
-      "text": "Gotu kola"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Centella asiatica",
         "wikidata:Q324714"
-      ],
-      "text": "Antanan"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Centella asiatica",
-        "wikidata:Q324714"
-      ],
-      "text": "Pegaga"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Centella asiatica"
-      ],
-      "text": "Brahmi"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "usda_common_name:235-1"
       ],
       "text": "Gotu Kola"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Centella asiatica"
+      ],
+      "text": "taquibsuso de Filipinas"
     },
     {
       "language": "en",
@@ -66,7 +36,7 @@
     "refs": [
       "wikipedia_es:Centella asiatica"
     ],
-    "value": "Pequeña planta herbácea anual de la familia Apiaceae, originaria de Asia."
+    "value": "Planta herbácea anual pequeña de la familia Apiaceae, originaria de Asia."
   },
   "displayName": {
     "language": "es",
@@ -85,7 +55,7 @@
   "goals": [
     {
       "area": "Trastornos de la piel y heridas leves",
-      "evidence": "La EMA tiene una monografía en esta área",
+      "evidence": "La EMA tiene una monografía en esta área.",
       "goal": "cuidado-de-la-piel",
       "pendingReview": false,
       "refs": [
@@ -109,6 +79,7 @@
   "model": "claude-sonnet-5-5",
   "oil": {
     "refs": [
+      "usda_part:235-EO",
       "usda_part:235-LF",
       "usda_part:235-PL"
     ],
@@ -118,7 +89,7 @@
     "refs": [
       "wcvp:2708815"
     ],
-    "value": "Nativa de África tropical y meridional, el occidente del océano Índico, la Macaronesia, Asia occidental, el Cáucaso, la península arábiga, el subcontinente indio, Indochina, China, Asia oriental, Malasia, Papuasia, Australia y el Pacífico."
+    "value": "Nativa de África tropical y austral, Asia occidental y oriental, el subcontinente indio, Indochina, Malesia, Australia, Papuasia, el Cáucaso, la península arábiga, Macaronesia y regiones del Pacífico y del océano Índico occidental."
   },
   "partsUsed": [
     {
@@ -161,14 +132,14 @@
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-centella-asiatica-l-urb-herba-revision-1_en.pdf"
     },
-    "usda_common_name:235-1": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: nombre común «Gotu Kola»",
-      "license": "CC0"
-    },
     "usda_common_name:235-2": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Pennywort»",
+      "license": "CC0"
+    },
+    "usda_part:235-EO": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Essential Oil»",
       "license": "CC0"
     },
     "usda_part:235-LF": {
@@ -476,8 +447,13 @@
   },
   "reviewFlags": [
     {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Fl.Mal. no tiene candidata en el paquete; la clave queda sin resolver.",
+      "target": "traditionalUses[2]"
+    },
+    {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo de los datos de USDA (compuesto EO y parte de aceite esencial), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
@@ -488,7 +464,7 @@
       "ema_pdf:centellae-asiaticae-herba:4.4",
       "ema_pdf:centellae-asiaticae-herba:4.5"
     ],
-    "text": "La monografía de la EMA para la parte aérea registra como contraindicación la hipersensibilidad a la sustancia activa y a otras plantas de la familia Apiaceae (Umbelliferae). Entre sus advertencias figura que no se ha establecido su uso en niños y adolescentes menores de 18 años, y no registra interacciones."
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y a otras plantas de la familia Apiaceae, y señala que el uso en menores de edad no está establecido por falta de datos. No registra interacciones."
   },
   "scientificName": {
     "authors": "(L.) Urb.",
@@ -542,6 +518,16 @@
       "activitySource": "Leprosy",
       "citations": [
         {
+          "key": "Eb32: 306",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 306"
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        },
+        {
           "key": "Burkill,1966",
           "ref": "usda_reference:Burkill, 1966",
           "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
@@ -552,25 +538,16 @@
           "text": "Economic Botany 28: 28"
         },
         {
-          "key": "Eb32: 306",
-          "ref": "usda_reference:EB",
-          "text": "Economic Botany 32: 306"
-        },
-        {
           "key": "Steinmetz",
           "ref": "usda_reference:Steinmetz",
           "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
-        },
-        {
-          "key": "Woi.2",
-          "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 2"
         }
       ],
       "countries": [
         "India",
-        "Samoa",
+        "Madagascar",
         "Malaya",
+        "Samoa",
         "Turquía"
       ],
       "n": 7,
@@ -583,16 +560,21 @@
         "usda_use:73186",
         "usda_use:73197",
         "usda_use:73229",
-        "usda_reference:Burkill, 1966",
         "usda_reference:EB",
-        "usda_reference:Steinmetz",
-        "usda_reference:WOI"
+        "usda_reference:WOI",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Steinmetz"
       ]
     },
     {
       "activity": "Tónico",
       "activitySource": "Tonic",
       "citations": [
+        {
+          "key": "Eb25: 446",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 446"
+        },
         {
           "key": "Duke,1972",
           "ref": "usda_reference:Duke",
@@ -602,11 +584,6 @@
           "key": "Eb25: 419",
           "ref": "usda_reference:EB",
           "text": "Economic Botany 25: 419"
-        },
-        {
-          "key": "Eb25: 446",
-          "ref": "usda_reference:EB",
-          "text": "Economic Botany 25: 446"
         },
         {
           "key": "Eb32: 306",
@@ -640,8 +617,8 @@
         "usda_use:50257",
         "usda_use:78816",
         "usda_use:78817",
-        "usda_reference:Duke",
         "usda_reference:EB",
+        "usda_reference:Duke",
         "usda_reference:Steinmetz",
         "usda_reference:WOI"
       ]
@@ -659,6 +636,11 @@
           "key": "Eb32: 306",
           "ref": "usda_reference:EB",
           "text": "Economic Botany 32: 306"
+        },
+        {
+          "key": "Fl.Mal.",
+          "ref": null,
+          "text": "Fl.Mal. (sin resolver)"
         },
         {
           "key": "Steinmetz",
@@ -990,7 +972,7 @@
         }
       ],
       "countries": [
-        "Fiji"
+        "Fiyi"
       ],
       "n": 1,
       "pendingReview": false,
@@ -1020,7 +1002,7 @@
       ]
     },
     {
-      "activity": "Anodino",
+      "activity": "Analgésico",
       "activitySource": "Anodyne",
       "citations": [
         {
@@ -1030,7 +1012,7 @@
         }
       ],
       "countries": [
-        "Fiji"
+        "Fiyi"
       ],
       "n": 1,
       "pendingReview": false,

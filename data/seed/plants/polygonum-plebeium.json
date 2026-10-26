@@ -35,7 +35,7 @@
     "refs": [
       "wcvp:2573805"
     ],
-    "value": "Nativa de Australia, Asia central y oriental, China, el subcontinente indio, Indochina, Malasia, el norte, el este, el oeste y el sur de África y el oeste del océano Índico."
+    "value": "Nativa de África, Asia central y oriental, el subcontinente indio, Indochina, Malesia, Australia y el océano Índico occidental."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -95,24 +95,24 @@
   },
   "reviewFlags": [
     {
-      "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Bowel» no tiene candidata que corresponda; queda sin resolver.",
-      "target": "traditionalUses[0]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Pneumonia» no tiene candidata que corresponda; queda sin resolver.",
-      "target": "traditionalUses[1]"
-    },
-    {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
       "target": "safety"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Bowel» tiene una clave de cita sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Pneumonia» tiene una clave de cita sin resolver.",
+      "target": "traditionalUses[1]"
     }
   ],
   "safety": null,

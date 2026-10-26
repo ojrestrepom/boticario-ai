@@ -53,7 +53,7 @@
     "refs": [
       "wcvp:2648094"
     ],
-    "value": "Nativa de China, Japón, Corea y Taiwán."
+    "value": "China y Asia oriental"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -80,9 +80,9 @@
       "label": "USDA Dr. Duke: referencia Hunan",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Yeh": {
@@ -180,17 +180,17 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -243,8 +243,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -254,7 +254,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:8290",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -438,7 +438,7 @@
       ]
     },
     {
-      "activity": "Trauma",
+      "activity": "Traumatismo",
       "activitySource": "Trauma",
       "citations": [
         {

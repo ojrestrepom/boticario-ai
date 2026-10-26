@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Datura metel"
     ],
-    "value": "Arbusto vivaz en zonas cálidas y anual en zonas con heladas, de grandes flores en forma de trompeta, blancas, amarillas o moradas, vistosas y perfumadas."
+    "value": "Arbusto vivaz en zonas cálidas y anual en zonas con heladas, que produce grandes flores en forma de trompeta de color blanco, amarillo o morado, vistosas y perfumadas. Se utiliza como planta ornamental en jardines y huertos en todo el mundo."
   },
   "displayName": {
     "language": "la",
@@ -48,7 +48,7 @@
     "refs": [
       "wcvp:2757816"
     ],
-    "value": "México"
+    "value": "México."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -110,9 +110,9 @@
       "label": "USDA Dr. Duke: referencia Keys",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Steinmetz": {
@@ -495,22 +495,27 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
+      "code": "conflicto-entre-fuentes",
+      "message": "El resumen de Wikipedia en español la da como natural del sur de China y de la India, pero WCVP la registra como nativa de México; se usó WCVP.",
+      "target": "origin"
+    },
+    {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Sumatra.",
+      "message": "La clave de cita «Sumatra» del grupo «Fumitory» no tiene una candidata que corresponda y queda sin resolver.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Spasm» no tiene una candidata que corresponda y queda sin resolver.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Sin candidata en el paquete para la clave de cita: Woi.Syria.",
+      "message": "La clave de cita «Woi.Syria» del grupo «Narcotic» no tiene una candidata que corresponda y queda sin resolver.",
       "target": "traditionalUses[7]"
     }
   ],
@@ -527,7 +532,7 @@
       "usda_use:81143",
       "usda_use:28834"
     ],
-    "text": "EFSA registra en su lista de sustancias de alta preocupación, dentro del grupo de venenos potentes, la atropina y la escopolamina en plantas vivas y alcaloides tropánicos en la flor. Advertencias: registrada como veneno en usos tradicionales y como veneno homicida en usos tradicionales."
+    "text": "EFSA registra atropina y escopolamina en la planta viva, y alcaloides tropánicos en la flor, dentro del grupo de venenos potentes. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -538,24 +543,24 @@
   },
   "sources": [
     {
-      "dataset": "wcvp",
+      "dataset": "commons",
       "license": "CC BY 3.0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "efsa",
       "license": "CC BY 4.0"
     },
     {
-      "dataset": "commons",
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     }
   ],
   "synonyms": [
@@ -579,7 +584,6 @@
         }
       ],
       "countries": [
-        "Indias Orientales",
         "Egipto",
         "Guinea",
         "India",
@@ -633,7 +637,6 @@
       "countries": [
         "China",
         "Otros lugares",
-        "India (santal)",
         "Malaya",
         "Turquía"
       ],
@@ -674,8 +677,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Woi.3",
@@ -700,7 +703,7 @@
         "usda_reference:Uphof",
         "usda_reference:Hunan",
         "usda_reference:Keys",
-        "usda_reference:NAS",
+        "usda_reference:NAS2",
         "usda_reference:WOI"
       ]
     },
@@ -730,9 +733,7 @@
         }
       ],
       "countries": [
-        "África (suajili)",
-        "Otros lugares",
-        "India (Guyarat)"
+        "Otros lugares"
       ],
       "n": 5,
       "pendingReview": false,
@@ -773,8 +774,7 @@
       ],
       "countries": [
         "China",
-        "India",
-        "India (Guyarat)"
+        "India"
       ],
       "n": 4,
       "pendingReview": false,
@@ -832,7 +832,7 @@
       ]
     },
     {
-      "activity": "Forúnculo",
+      "activity": "Furúnculo",
       "activitySource": "Boil",
       "citations": [
         {
@@ -924,7 +924,6 @@
       ],
       "countries": [
         "China",
-        "India (santal)",
         "Malaya"
       ],
       "n": 3,
@@ -949,8 +948,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -963,7 +962,7 @@
         "usda_use:8295",
         "usda_use:8296",
         "usda_reference:Keys",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -982,7 +981,6 @@
         }
       ],
       "countries": [
-        "Mozambique (tsonga)",
         "Transvaal"
       ],
       "n": 2,
@@ -1009,7 +1007,6 @@
         }
       ],
       "countries": [
-        "India (santal)",
         "Malaya"
       ],
       "n": 2,
@@ -1121,7 +1118,6 @@
         }
       ],
       "countries": [
-        "India (santal)",
         "Malaya"
       ],
       "n": 2,
@@ -1149,8 +1145,7 @@
         }
       ],
       "countries": [
-        "India",
-        "India (santal)"
+        "India"
       ],
       "n": 2,
       "pendingReview": false,
@@ -1177,7 +1172,6 @@
         }
       ],
       "countries": [
-        "India (santal)",
         "Malaya"
       ],
       "n": 2,
@@ -1219,9 +1213,7 @@
           "text": "Economic Botany 24: 251"
         }
       ],
-      "countries": [
-        "India (santal)"
-      ],
+      "countries": [],
       "n": 1,
       "pendingReview": false,
       "refs": [

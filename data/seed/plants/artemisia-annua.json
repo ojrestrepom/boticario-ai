@@ -14,7 +14,7 @@
       "refs": [
         "wikipedia_es:Artemisia annua"
       ],
-      "text": "ajenjo chino"
+      "text": "Ajenjo chino"
     },
     {
       "language": "en",
@@ -33,9 +33,24 @@
     {
       "language": "en",
       "refs": [
-        "tppt_plant:P692"
+        "usda_common_name:120-3"
+      ],
+      "text": "Annual Mugwort"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P692",
+        "usda_common_name:120-4"
       ],
       "text": "Annual wormwood"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:120-5"
+      ],
+      "text": "Sweet Wormwood"
     },
     {
       "language": "de",
@@ -49,7 +64,7 @@
     "refs": [
       "wikipedia_es:Artemisia annua"
     ],
-    "value": "Especie de la familia de las asteráceas, nativa del Asia templada y de amplia distribución, incluida Europa central y meridional. También se encuentra naturalizada en Canadá y Estados Unidos."
+    "value": "Especie de la familia Asteraceae llamada comúnmente ajenjo dulce o ajenjo chino, nativa del Asia templada y distribuida ampliamente por muchos países, entre ellos Europa central y meridional."
   },
   "displayName": {
     "language": "es",
@@ -88,7 +103,7 @@
     "refs": [
       "wcvp:2901442"
     ],
-    "value": "Cáucaso, Asia central, China, Asia oriental, Mongolia, Siberia, subcontinente indio, Indochina, Malasia, norte de África y parte de Europa oriental y sudoriental."
+    "value": "Nativa de Europa oriental y sudoriental, el norte de África, Asia (Cáucaso, Asia central, occidental y oriental, Mongolia, Siberia, el Lejano Oriente ruso, China, el subcontinente indio, Indochina) y Malesia."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -105,6 +120,11 @@
       "label": "EFSA Compendium of Botanicals: Camphor",
       "license": "CC BY 4.0"
     },
+    "efsa_endpoint:945": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Artemisia annua L.",
+      "license": "CC BY 4.0"
+    },
     "tppt_plant:P692": {
       "dataset": "tppt",
       "label": "TPPT (Agroscope): Artemisia annua L.",
@@ -118,6 +138,21 @@
     "usda_common_name:120-2": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Sweet Annie»",
+      "license": "CC0"
+    },
+    "usda_common_name:120-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Annual Mugwort (GRIN)»",
+      "license": "CC0"
+    },
+    "usda_common_name:120-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Annual Wormwood (GRIN)»",
+      "license": "CC0"
+    },
+    "usda_common_name:120-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sweet Wormwood (GRIN)»",
       "license": "CC0"
     },
     "usda_part:120-LF": {
@@ -245,7 +280,7 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA; queda para revisión futura.",
       "target": "oil"
     }
   ],
@@ -253,9 +288,10 @@
     "level": "alto",
     "refs": [
       "tppt_plant:P692",
-      "efsa_botanic:2865"
+      "efsa_botanic:2865",
+      "efsa_endpoint:945"
     ],
-    "text": "TPPT la califica como fuertemente tóxica para las personas; la parte tóxica es la parte aérea (o la planta entera) y las toxinas principales son el 1,8-cineol y el alcanfor. EFSA registra el alcanfor en las hojas como sustancia de evidencia."
+    "text": "TPPT clasifica la planta como de toxicidad humana fuerte. Indica como parte tóxica la parte aérea o la planta entera y como toxinas principales el 1,8-cineol y el alcanfor; señala que la tuyona suele reconocerse como la toxina principal y que hay otras clases de compuestos, como lactonas sesquiterpénicas. EFSA registra alcanfor en las hojas y un estudio en humanos sobre la posible inducción de resistencia de Plasmodium."
   },
   "scientificName": {
     "authors": "L.",
@@ -320,7 +356,7 @@
       ]
     },
     {
-      "activity": "Estomáquico",
+      "activity": "Estomacal",
       "activitySource": "Stomachic",
       "citations": [
         {
@@ -368,7 +404,7 @@
       ]
     },
     {
-      "activity": "Ambientador",
+      "activity": "Airwick",
       "activitySource": "Airwick",
       "citations": [
         {

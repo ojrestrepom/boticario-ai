@@ -5,31 +5,10 @@
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Zea mays",
-        "wikidata:Q11575"
+        "wikidata:Q11575",
+        "wikipedia_es:Zea mays"
       ],
       "text": "Maíz"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q11575"
-      ],
-      "text": "Elote o Choclo"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q11575"
-      ],
-      "text": "Coronta o Panocha"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q11575"
-      ],
-      "text": "Olote"
     },
     {
       "language": "en",
@@ -57,13 +36,13 @@
     "refs": [
       "wikipedia_es:Zea mays"
     ],
-    "value": "El maíz es una especie de planta gramínea originaria de Mesoamérica. Su infrutescencia femenina se llama mazorca, elote o choclo y en ella crecen granos comestibles. Actualmente es el cereal con el mayor volumen de producción a nivel mundial, seguido por el trigo y el arroz."
+    "value": "Planta gramínea originaria de Mesoamérica cuya infrutescencia femenina, llamada mazorca, elote o choclo, lleva granos comestibles. Es el cereal con mayor volumen de producción mundial."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Zea mays",
-      "wikidata:Q11575"
+      "wikidata:Q11575",
+      "wikipedia_es:Zea mays"
     ],
     "value": "Maíz"
   },
@@ -76,7 +55,7 @@
   "goals": [
     {
       "area": "Trastornos urinarios y genitales",
-      "evidence": "La EMA tiene un borrador de monografía de los estigmas en esta área.",
+      "evidence": "La EMA tiene un borrador de monografía para el estigma en esta área.",
       "goal": "otros-objetivos",
       "pendingReview": false,
       "refs": [
@@ -108,7 +87,7 @@
     "refs": [
       "wcvp:450362"
     ],
-    "value": "Nativa de México y América Central."
+    "value": "Nativa de América Central y México."
   },
   "partsUsed": [
     {
@@ -211,9 +190,9 @@
       "label": "USDA Dr. Duke: referencia Liogier",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Steinmetz": {
@@ -506,29 +485,28 @@
   },
   "reviewFlags": [
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Silk Stigma Style), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Diurético» tiene claves de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[0]"
     },
     {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Diuretic» tiene claves de cita sin candidata en el paquete (Woi.Syria). El grupo conserva citas resueltas y se muestra.",
-      "target": "traditionalUses[0]"
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la seda del maíz, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
     }
   ],
   "safety": {
     "level": null,
     "refs": [
-      "usda_use:14591",
-      "usda_use:14592",
       "ema_pdf:maydis-stigma:4.3",
       "ema_pdf:maydis-stigma:4.4",
       "ema_pdf:maydis-stigma:4.5",
       "efsa_botanic:1690",
       "efsa_botanic:1692",
-      "tppt_plant:P822"
+      "usda_use:14591",
+      "usda_use:14592"
     ],
-    "text": "Advertencia: registrada como cianogénica. La monografía de la EMA (en borrador) registra como contraindicación la hipersensibilidad al principio activo. Entre sus advertencias indica que el uso en menores de 12 años no está establecido por falta de datos, que ante molestias urinarias que empeoran o con fiebre, disuria, espasmo o sangre en la orina se debe consultar a un médico, y que no se recomienda a pacientes con condiciones en las que se aconseja reducir la ingesta de líquidos. No registra interacciones. EFSA anota el sitosterol y el estigmasterol (semilla y estigma) como sustancias de evidencia. TPPT registra que la planta es en general no tóxica."
+    "text": "La EMA registra como contraindicación la hipersensibilidad a la sustancia activa. Entre sus advertencias señala que no se ha establecido el uso en menores de 12 años, que se consulte a un profesional si los síntomas urinarios empeoran o aparecen fiebre, disuria, espasmo o sangre en la orina, y que no se recomienda a pacientes con indicación de reducir la ingesta de líquidos. No registra interacciones. EFSA registra sitosterol y estigmasterol en semilla y estigma como evidencia. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -621,8 +599,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         },
         {
           "key": "Steinmetz",
@@ -669,7 +647,7 @@
         "usda_reference:FontQuer",
         "usda_reference:Leung",
         "usda_reference:Liogier",
-        "usda_reference:NAS",
+        "usda_reference:NAS2",
         "usda_reference:Steinmetz",
         "usda_reference:Wong"
       ]
@@ -894,7 +872,7 @@
       ]
     },
     {
-      "activity": "Artritis gotosa",
+      "activity": "Gota",
       "activitySource": "Gout",
       "citations": [
         {
@@ -921,7 +899,7 @@
       ]
     },
     {
-      "activity": "Encías",
+      "activity": "Gum",
       "activitySource": "Gum",
       "citations": [
         {

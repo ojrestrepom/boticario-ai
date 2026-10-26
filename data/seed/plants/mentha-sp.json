@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:9cd52ebe9c4948d9519a1f7a73e30c5dc92df65a81aa6dd7bcb3360f635cdfab",
+  "bundleHash": "sha256:593606105c2a280c14f59a2274715214a28482727f5a5caef2d655e607f134df",
   "commonNames": [
     {
       "language": "en",
@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Mentha"
     ],
-    "value": "Género de plantas herbáceas vivaces de la familia Lamiaceae, con entre trece y dieciocho especies según las estimaciones. Algunas especies se hibridan de forma natural y existen numerosos cultivares."
+    "value": "Género de plantas herbáceas vivaces de la familia Lamiaceae, con trece a dieciocho especies según las estimaciones, que se hibridan de forma natural y tienen numerosos cultivares."
   },
   "displayName": {
     "language": "la",
@@ -55,6 +55,56 @@
       "label": "USDA Dr. Duke: nombre común «Mint»",
       "license": "CC0"
     },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_use:10971": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10971",
+      "license": "CC0"
+    },
+    "usda_use:12925": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12925",
+      "license": "CC0"
+    },
+    "usda_use:24873": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24873",
+      "license": "CC0"
+    },
+    "usda_use:43121": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43121",
+      "license": "CC0"
+    },
+    "usda_use:45780": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45780",
+      "license": "CC0"
+    },
+    "usda_use:52377": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52377",
+      "license": "CC0"
+    },
+    "usda_use:54441": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54441",
+      "license": "CC0"
+    },
     "wikidata:Q47859": {
       "dataset": "wikidata",
       "label": "Wikidata Q47859",
@@ -76,12 +126,12 @@
     },
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -112,5 +162,146 @@
     }
   ],
   "synonyms": [],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10971",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Concepción",
+      "activitySource": "Conception",
+      "citations": [
+        {
+          "key": "Eb28: 428",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 428"
+        }
+      ],
+      "countries": [
+        "México (Seri)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12925",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb24: 360",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 360"
+        }
+      ],
+      "countries": [
+        "Panamá (Choco)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24873",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Eb24: 360",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 360"
+        }
+      ],
+      "countries": [
+        "Panamá (Choco)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43121",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Eb24: 360",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 360"
+        }
+      ],
+      "countries": [
+        "Panamá (Choco)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45780",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52377",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Eb24: 360",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 360"
+        }
+      ],
+      "countries": [
+        "Panamá (Choco)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54441",
+        "usda_reference:EB"
+      ]
+    }
+  ]
 }

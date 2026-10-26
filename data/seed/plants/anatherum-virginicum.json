@@ -2,7 +2,7 @@
   "aliases": [
     "andropogon-virginicus"
   ],
-  "bundleHash": "sha256:73c43638eb95bf0b9c6011e3fcb50bacb7ceb6e62d4efead8c9c08c9d8c6017f",
+  "bundleHash": "sha256:8200a5c14f38915fc5f8f5dcb807b273cea2c99952554cf13ab761786adf2211",
   "commonNames": [
     {
       "language": "en",
@@ -16,7 +16,7 @@
     "refs": [
       "wikipedia_es:Andropogon virginicus"
     ],
-    "value": "Hierba gramínea originaria del sureste de los Estados Unidos y tan al norte como los Grandes Lagos. Está introducida en California y Hawái, donde es una maleza."
+    "value": "Especie de hierba gramínea originaria del sureste de los Estados Unidos y de zonas tan al norte como los Grandes Lagos. Se la conoce como especie introducida en California y Hawái, donde es una maleza."
   },
   "displayName": {
     "language": "la",
@@ -50,7 +50,7 @@
     "refs": [
       "wcvp:391869"
     ],
-    "value": "Nativa del este de Canadá, Estados Unidos, México, Centroamérica, el Caribe y el norte de Sudamérica."
+    "value": "Caribe, América Central, México, este de Canadá, norte de Sudamérica y varias regiones de Estados Unidos."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -65,6 +65,16 @@
     "usda_common_name:2207-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Broomsedge»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:70754": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70754",
       "license": "CC0"
     },
     "wcvp:391869": {
@@ -97,12 +107,12 @@
     },
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -148,5 +158,26 @@
       ]
     }
   ],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb29: 314",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 314"
+        }
+      ],
+      "countries": [
+        "Bahamas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70754",
+        "usda_reference:EB"
+      ]
+    }
+  ]
 }

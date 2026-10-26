@@ -59,18 +59,18 @@
       "text": "White Peony"
     },
     {
-      "language": "und",
+      "language": "zh",
       "refs": [
         "usda_common_name:687-5"
       ],
-      "text": "Bai Shao (Chinese)"
+      "text": "Bai Shao"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Paeonia lactiflora"
     ],
-    "value": "Especie herbácea perenne de la familia Paeoniaceae, conocida como peonía china, peonía híbrida, rosa de monte o rosa sin espinas."
+    "value": "Especie herbácea perenne fanerógama de la familia Paeoniaceae."
   },
   "displayName": {
     "language": "es",
@@ -109,7 +109,7 @@
     "refs": [
       "wcvp:519125"
     ],
-    "value": "Nativa de China, Mongolia, el Lejano Oriente ruso y Siberia."
+    "value": "China, Mongolia, Extremo Oriente ruso y Siberia"
   },
   "partsUsed": [
     {
@@ -206,9 +206,9 @@
       "label": "USDA Dr. Duke: referencia Li",
       "license": "CC0"
     },
-    "usda_reference:NAS": {
+    "usda_reference:NAS2": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS",
+      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Takeda": {
@@ -381,17 +381,12 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Root), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     },
     {
-      "code": "idioma-de-nombre-dudoso",
-      "message": "El nombre «Bai Shao (Chinese)» viene de USDA con idioma indeterminado y no es claramente español.",
-      "target": "commonNames"
-    },
-    {
       "code": "sin-datos-de-seguridad",
-      "message": "Las declaraciones públicas de la EMA no traen datos de seguridad y el paquete no tiene otra información de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad (las declaraciones públicas de la EMA no traen datos de seguridad); la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -550,8 +545,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -563,7 +558,7 @@
       "refs": [
         "usda_use:13397",
         "usda_use:67524",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -577,8 +572,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -591,7 +586,7 @@
         "usda_use:25012",
         "usda_use:59963",
         "usda_reference:Kimura",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -626,8 +621,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -639,7 +634,7 @@
         "usda_use:59966",
         "usda_use:80199",
         "usda_reference:Hunan",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -648,8 +643,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -659,7 +654,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:930",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -708,8 +703,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -719,7 +714,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:81805",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -844,8 +839,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -855,7 +850,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:16878",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     },
     {
@@ -864,8 +859,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS",
-          "text": "Lost Crops of the Incas."
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
         }
       ],
       "countries": [
@@ -875,7 +870,7 @@
       "pendingReview": false,
       "refs": [
         "usda_use:20185",
-        "usda_reference:NAS"
+        "usda_reference:NAS2"
       ]
     }
   ]

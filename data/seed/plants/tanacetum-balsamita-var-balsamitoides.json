@@ -2,7 +2,7 @@
   "aliases": [
     "chrysanthemum-balsamita"
   ],
-  "bundleHash": "sha256:47e7c93513eec0435b97e8b93ae04226f3e60c2f8147b78c2ad74667bad13de6",
+  "bundleHash": "sha256:d78a8bfd11b6c9ff37442b5468b6be340e814a0b4350eaaeebd3cb109239b476",
   "commonNames": [
     {
       "language": "en",
@@ -57,7 +57,7 @@
     "refs": [
       "wcvp:3111481"
     ],
-    "value": "Nativa del Cáucaso y de Asia occidental."
+    "value": "Cáucaso y Asia occidental."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -82,6 +82,71 @@
     "usda_part:254-PL": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_use:10407": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10407",
+      "license": "CC0"
+    },
+    "usda_use:17775": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17775",
+      "license": "CC0"
+    },
+    "usda_use:21611": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21611",
+      "license": "CC0"
+    },
+    "usda_use:22982": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22982",
+      "license": "CC0"
+    },
+    "usda_use:38807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38807",
+      "license": "CC0"
+    },
+    "usda_use:45647": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45647",
+      "license": "CC0"
+    },
+    "usda_use:54170": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54170",
+      "license": "CC0"
+    },
+    "usda_use:55070": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55070",
+      "license": "CC0"
+    },
+    "usda_use:57326": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57326",
+      "license": "CC0"
+    },
+    "usda_use:57329": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57329",
+      "license": "CC0"
+    },
+    "usda_use:77978": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77978",
       "license": "CC0"
     },
     "wcvp:3111078": {
@@ -133,7 +198,7 @@
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     },
     {
@@ -208,5 +273,206 @@
       ]
     }
   ],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10407",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57326",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17775",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21611",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22982",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57329",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Pólipo (nariz)",
+      "activitySource": "Polyp(Nose)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38807",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45647",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77978",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54170",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55070",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
 }

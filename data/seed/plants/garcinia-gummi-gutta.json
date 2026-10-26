@@ -2,14 +2,14 @@
   "aliases": [
     "garcinia-cambogia"
   ],
-  "bundleHash": "sha256:cc95e26829407659a19b7a89d9f93bae9bd8b92e6ed133deec3288a9d34a3b02",
+  "bundleHash": "sha256:e20501fc9ceb588bbafe7753636ba261afdfc8324c531809d178c9eb1a580abd",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Garcinia gummi-gutta"
       ],
-      "text": "Tamarindo malabar"
+      "text": "tamarindo malabar"
     },
     {
       "language": "en",
@@ -17,13 +17,6 @@
         "usda_common_name:2123-1"
       ],
       "text": "Brindleberry"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "usda_common_name:2123-3"
-      ],
-      "text": "Garcinia"
     },
     {
       "language": "en",
@@ -37,7 +30,7 @@
     "refs": [
       "wikipedia_es:Garcinia gummi-gutta"
     ],
-    "value": "Arbusto que crece sobre todo en el sur de la India, también conocido por su antiguo nombre científico, Garcinia cambogia."
+    "value": "Arbusto que crece sobre todo en el sur de la India, conocido como tamarindo malabar y por su antiguo nombre científico, Garcinia cambogia."
   },
   "displayName": {
     "language": "es",
@@ -71,7 +64,7 @@
     "refs": [
       "wcvp:2816879"
     ],
-    "value": "Subcontinente indio (India)"
+    "value": "Subcontinente indio"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -98,9 +91,34 @@
       "label": "USDA Dr. Duke: nombre común «Malabar Tamarind»",
       "license": "CC0"
     },
-    "usda_common_name:2123-3": {
+    "usda_reference:WOI": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: nombre común «Garcinia»",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:3869": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3869",
+      "license": "CC0"
+    },
+    "usda_use:39744": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39744",
+      "license": "CC0"
+    },
+    "usda_use:41217": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41217",
+      "license": "CC0"
+    },
+    "usda_use:48103": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48103",
+      "license": "CC0"
+    },
+    "usda_use:7926": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7926",
       "license": "CC0"
     },
     "wcvp:2694353": {
@@ -126,7 +144,7 @@
     "refs": [
       "efsa_botanic:2482"
     ],
-    "text": "El Compendio de Botánicos de la EFSA registra el ácido hidroxicítrico (HCA) en el fruto como sustancia de evidencia; no la incluye entre las sustancias de alta preocupación y no fija un nivel de precaución."
+    "text": "El Compendio de Botánicos de la EFSA registra el ácido hidroxicítrico (HCA) como sustancia de evidencia en el fruto; la fuente no fija un nivel de seguridad por sí sola."
   },
   "scientificName": {
     "authors": "(L.) N.Robson",
@@ -166,5 +184,106 @@
       ]
     }
   ],
-  "traditionalUses": []
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3869",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Bowel",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7926",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39744",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41217",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estomatitis (veterinaria)",
+      "activitySource": "Stomatitis(Veterinary)",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48103",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
 }

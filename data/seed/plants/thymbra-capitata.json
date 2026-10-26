@@ -3,7 +3,7 @@
     "coridothymus-capitatus",
     "thymus-capitatus"
   ],
-  "bundleHash": "sha256:1f0d1cce96b2810d33abfe523151b3a139eb542062eadf6846983f161483a9bb",
+  "bundleHash": "sha256:4dd2b94cd67ec9cf8f177e12bbd8e82c94fedffc7ccd6c7a8b7bffef99415537",
   "commonNames": [
     {
       "language": "es",
@@ -106,7 +106,7 @@
     "refs": [
       "wcvp:204339"
     ],
-    "value": "Norte de África, sureste y suroeste de Europa y Asia occidental."
+    "value": "Norte de África, sudeste y suroeste de Europa y Asia occidental"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -148,14 +148,34 @@
       "label": "USDA Dr. Duke: química de la parte «Shoot»",
       "license": "CC0"
     },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
     "usda_reference:Hartwell": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Hartwell",
       "license": "CC0"
     },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:36504": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36504",
+      "license": "CC0"
+    },
     "usda_use:55545": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: uso etnobotánico 55545",
+      "license": "CC0"
+    },
+    "usda_use:77532": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77532",
       "license": "CC0"
     },
     "wcvp:143767": {
@@ -193,7 +213,7 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     },
     {
@@ -212,11 +232,7 @@
   },
   "sources": [
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
-    },
-    {
-      "dataset": "wikipedia_es",
+      "dataset": "commons",
       "license": "CC BY-SA 4.0"
     },
     {
@@ -224,7 +240,11 @@
       "license": "CC0"
     },
     {
-      "dataset": "commons",
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
       "license": "CC BY-SA 4.0"
     }
   ],
@@ -259,6 +279,46 @@
     }
   ],
   "traditionalUses": [
+    {
+      "activity": "Tos ferina",
+      "activitySource": "Pertussis",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36504",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Especia",
+      "activitySource": "Spice",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Región mediterránea"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77532",
+        "usda_reference:Uphof"
+      ]
+    },
     {
       "activity": "Verruga",
       "activitySource": "Wart",

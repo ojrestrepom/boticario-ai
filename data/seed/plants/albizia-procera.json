@@ -1,0 +1,175 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7103d7b28a29702bfe8b809de1546a20e38c2e24aa1c6fbcb32f910d99501640",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Albizia procera"
+    ],
+    "value": "Especie de árbol leguminoso de la familia Fabaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2627494"
+    ],
+    "value": "Albizia procera"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2627494"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "albizia-procera",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Albizia_procera_Bra26.png",
+    "refs": [
+      "commons:File:Albizia procera Bra26.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Albizia_procera_Bra26.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2627494"
+    ],
+    "value": "Sur y este de Asia, Malasia, Papuasia y Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Albizia procera Bra26.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Albizia procera Bra26.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Albizia_procera_Bra26.png"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:74745": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74745",
+      "license": "CC0"
+    },
+    "wcvp:2373700": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mimosa procera Roxb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2613468": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acacia procera (Roxb.) Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2627494": {
+      "dataset": "wcvp",
+      "label": "WCVP: Albizia procera (Roxb.) Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2809125": {
+      "dataset": "wcvp",
+      "label": "WCVP: Feuilleea procera (Roxb.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Albizia procera": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Albizia procera",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Albizia_procera"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Roxb.) Benth.",
+    "name": "Albizia procera",
+    "refs": [
+      "wcvp:2627494"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Roxb.) Willd.",
+      "name": "Acacia procera",
+      "refs": [
+        "wcvp:2613468"
+      ]
+    },
+    {
+      "authors": "(Roxb.) Kuntze",
+      "name": "Feuilleea procera",
+      "refs": [
+        "wcvp:2809125"
+      ]
+    },
+    {
+      "authors": "Roxb.",
+      "name": "Mimosa procera",
+      "refs": [
+        "wcvp:2373700"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Eb24: 135",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 135"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74745",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

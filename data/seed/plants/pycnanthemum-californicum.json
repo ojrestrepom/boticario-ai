@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:71e414fdb4e5a9ad30a0fe893e7001c198e13ddaf65a14ca3c2a7ea5393c6702",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:810-1"
+      ],
+      "text": "California Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171038"
+    ],
+    "value": "Pycnanthemum californicum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171038"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-californicum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Trevor Van Loon",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_californicum_316298007.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum californicum 316298007.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Pycnanthemum_californicum_316298007.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:810-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171038"
+    ],
+    "value": "Suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum californicum 316298007.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum californicum 316298007.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_californicum_316298007.jpg"
+    },
+    "usda_common_name:810-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «California Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:810-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106173": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia californica (Torr. ex Durand) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171038": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum californicum Torr. ex Durand",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Torr. ex Durand",
+    "name": "Pycnanthemum californicum",
+    "refs": [
+      "wcvp:171038"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Torr. ex Durand) Kuntze",
+      "name": "Koellia californica",
+      "refs": [
+        "wcvp:106173"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

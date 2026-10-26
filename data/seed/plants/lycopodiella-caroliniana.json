@@ -1,0 +1,155 @@
+{
+  "aliases": [
+    "lycopodium-carolinianum"
+  ],
+  "bundleHash": "sha256:e4aab1c515c44a64b5d8dc103f80cd05e395648f7ab2e1675fe34cc13ac21bb7",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2236-1",
+        "usda_common_name:2237-1"
+      ],
+      "text": "Clubmoss"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3140868"
+    ],
+    "value": "Lycopodiella caroliniana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3140868"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "lycopodiella-caroliniana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Popovkin, Bahia, Brazil",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lycopodiella_caroliniana_(L.)_Pic.Serm._(7858711542).jpg",
+    "refs": [
+      "commons:File:Lycopodiella caroliniana (L.) Pic.Serm. (7858711542).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Lycopodiella_caroliniana_%28L.%29_Pic.Serm._%287858711542%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3140868"
+    ],
+    "value": "Caribe, Estados Unidos, norte de Sudamérica, Asia oriental y meridional, Malasia y Papuasia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lycopodiella caroliniana (L.) Pic.Serm. (7858711542).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lycopodiella caroliniana (L.) Pic.Serm. (7858711542).jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lycopodiella_caroliniana_(L.)_Pic.Serm._(7858711542).jpg"
+    },
+    "usda_common_name:2236-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "usda_common_name:2237-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "wcvp:3138409": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pseudolycopodiella caroliniana (L.) Holub",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3140867": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepidotis caroliniana (L.) P.Beauv.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3140868": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodiella caroliniana (L.) Pic.Serm.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3140869": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium carolinianum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Pic.Serm.",
+    "name": "Lycopodiella caroliniana",
+    "refs": [
+      "wcvp:3140868"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) P.Beauv.",
+      "name": "Lepidotis caroliniana",
+      "refs": [
+        "wcvp:3140867"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Lycopodium carolinianum",
+      "refs": [
+        "wcvp:3140869"
+      ]
+    },
+    {
+      "authors": "(L.) Holub",
+      "name": "Pseudolycopodiella caroliniana",
+      "refs": [
+        "wcvp:3138409"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

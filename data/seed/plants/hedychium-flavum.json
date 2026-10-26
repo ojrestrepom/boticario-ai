@@ -1,0 +1,167 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7ac3e507b27da83324051ef43f8916ce2c138221caf7b7c6b7af3589fab42086",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2230-1"
+      ],
+      "text": "Yellow Ginger Lily"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:248138"
+    ],
+    "value": "Hedychium flavum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:248138"
+    ],
+    "value": "Zingiberaceae"
+  },
+  "goals": [],
+  "id": "hedychium-flavum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Daderot",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hedychium_flavum_-_Kunming_Botanical_Garden_-_DSC03083.JPG",
+    "refs": [
+      "commons:File:Hedychium flavum - Kunming Botanical Garden - DSC03083.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Hedychium_flavum_-_Kunming_Botanical_Garden_-_DSC03083.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2230-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:248138"
+    ],
+    "value": "Nativa de China, el subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hedychium flavum - Kunming Botanical Garden - DSC03083.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hedychium flavum - Kunming Botanical Garden - DSC03083.JPG",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Hedychium_flavum_-_Kunming_Botanical_Garden_-_DSC03083.JPG"
+    },
+    "efsa_botanic:3056": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2230-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yellow Ginger Lily»",
+      "license": "CC0"
+    },
+    "usda_part:2230-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:246695": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gandasulium flavum (Roxb.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:248108": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedychium coccineum var. flavum (Roxb.) Baker",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:248138": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedychium flavum Roxb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:341891": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedychium coronarium var. flavum (Roxb.) Baker",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Shoot), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:3056"
+    ],
+    "text": "EFSA registra 1,8-cineol como sustancia de evidencia en las partes subterráneas (raíces y otras), sin fijar un nivel de preocupación."
+  },
+  "scientificName": {
+    "authors": "Roxb.",
+    "name": "Hedychium flavum",
+    "refs": [
+      "wcvp:248138"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Roxb.) Kuntze",
+      "name": "Gandasulium flavum",
+      "refs": [
+        "wcvp:246695"
+      ]
+    },
+    {
+      "authors": "(Roxb.) Baker",
+      "name": "Hedychium coccineum var. flavum",
+      "refs": [
+        "wcvp:248108"
+      ]
+    },
+    {
+      "authors": "(Roxb.) Baker",
+      "name": "Hedychium coronarium var. flavum",
+      "refs": [
+        "wcvp:341891"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

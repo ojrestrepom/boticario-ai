@@ -1,0 +1,93 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dcc2d7d911111c7b73e37edae4ae4b452a7aedfcd0764e16fca7f4e2c508edbe",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2853135"
+    ],
+    "value": "Hopea cordifolia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2853135"
+    ],
+    "value": "Dipterocarpaceae"
+  },
+  "goals": [],
+  "id": "hopea-cordifolia",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2853135"
+    ],
+    "value": "Subcontinente indio (Sri Lanka)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2459084": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vatica cordifolia Thwaites",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2853135": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hopea cordifolia (Thwaites) Trimen",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2867071": {
+      "dataset": "wcvp",
+      "label": "WCVP: Isauxis cordifolia (Thwaites) Hook.f.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Thwaites) Trimen",
+    "name": "Hopea cordifolia",
+    "refs": [
+      "wcvp:2853135"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Thwaites) Hook.f.",
+      "name": "Isauxis cordifolia",
+      "refs": [
+        "wcvp:2867071"
+      ]
+    },
+    {
+      "authors": "Thwaites",
+      "name": "Vatica cordifolia",
+      "refs": [
+        "wcvp:2459084"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

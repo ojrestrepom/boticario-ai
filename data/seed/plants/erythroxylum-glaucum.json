@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:440d1ae32c296e8229ff530ff639a435eb3331d069c0fa42b1ad0c468039b609",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum glaucum"
+    ],
+    "value": "Especie de planta fanerógama perteneciente a la familia Erythroxylaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801420"
+    ],
+    "value": "Erythroxylum glaucum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801420"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-glaucum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801420"
+    ],
+    "value": "Oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2801420": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum glaucum O.E.Schulz",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum glaucum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum glaucum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_glaucum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "O.E.Schulz",
+    "name": "Erythroxylum glaucum",
+    "refs": [
+      "wcvp:2801420"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

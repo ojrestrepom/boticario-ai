@@ -1,0 +1,174 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a499d12f70a068e94cbe56ac859e39ee0a17bc81e2965796372e3adaac8092fd",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:814-1"
+      ],
+      "text": "Hoary Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171047"
+    ],
+    "value": "Pycnanthemum incanum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171047"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-incanum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_incanum_523712518.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum incanum 523712518.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Pycnanthemum_incanum_523712518.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:814-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171047"
+    ],
+    "value": "Nativa del centro-norte, noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum incanum 523712518.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum incanum 523712518.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_incanum_523712518.jpg"
+    },
+    "usda_common_name:814-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hoary Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:814-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:22550": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22550",
+      "license": "CC0"
+    },
+    "wcvp:106183": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia incana (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171047": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum incanum (L.) Michx.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43559": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium incanum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Michx.",
+    "name": "Pycnanthemum incanum",
+    "refs": [
+      "wcvp:171047"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Clinopodium incanum",
+      "refs": [
+        "wcvp:43559"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Koellia incana",
+      "refs": [
+        "wcvp:106183"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Hemorragia nasal",
+      "activitySource": "Epistaxis",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22550",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

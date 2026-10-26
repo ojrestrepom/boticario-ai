@@ -1,0 +1,138 @@
+{
+  "aliases": [
+    "micromeria-thymifolia"
+  ],
+  "bundleHash": "sha256:308498cf6bf237f46511beb22836fcae4e0c0cf028e541c13b1151ac469d6ed7",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:477259"
+    ],
+    "value": "Clinopodium album"
+  },
+  "family": {
+    "refs": [
+      "wcvp:477259"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-album",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2015-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:477259"
+    ],
+    "value": "Europa central y sudoriental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2015-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:124051": {
+      "dataset": "wcvp",
+      "label": "WCVP: Melissa alba Waldst. & Kit.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:204394": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus albus (Waldst. & Kit.) Link",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:29033": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calamintha alba (Waldst. & Kit.) Rchb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:340538": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calamintha officinalis var. alba (Waldst. & Kit.) Nyman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:477259": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium album (Waldst. & Kit.) Bräuchler & Govaerts",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Waldst. & Kit.) Bräuchler & Govaerts",
+    "name": "Clinopodium album",
+    "refs": [
+      "wcvp:477259"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Waldst. & Kit.) Rchb.",
+      "name": "Calamintha alba",
+      "refs": [
+        "wcvp:29033"
+      ]
+    },
+    {
+      "authors": "(Waldst. & Kit.) Nyman",
+      "name": "Calamintha officinalis var. alba",
+      "refs": [
+        "wcvp:340538"
+      ]
+    },
+    {
+      "authors": "Waldst. & Kit.",
+      "name": "Melissa alba",
+      "refs": [
+        "wcvp:124051"
+      ]
+    },
+    {
+      "authors": "(Waldst. & Kit.) Link",
+      "name": "Thymus albus",
+      "refs": [
+        "wcvp:204394"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

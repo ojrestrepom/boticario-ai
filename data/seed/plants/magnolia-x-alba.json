@@ -1,0 +1,221 @@
+{
+  "aliases": [
+    "michelia-alba"
+  ],
+  "bundleHash": "sha256:db29783f9c664ac622d0bcfefcb7425234df5f0b5cb690ed9991272fa12c01d0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1405-1"
+      ],
+      "text": "White champac"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:252903"
+    ],
+    "value": "Magnolia × alba"
+  },
+  "family": {
+    "refs": [
+      "wcvp:252903"
+    ],
+    "value": "Magnoliaceae"
+  },
+  "goals": [],
+  "id": "magnolia-x-alba",
+  "image": {
+    "attributionRequired": true,
+    "author": "Loma at Thai Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Michelia_alba_(Campii).jpg",
+    "refs": [
+      "commons:File:Michelia alba (Campii).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Michelia_alba_%28Campii%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Michelia alba (Campii).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Michelia alba (Campii).jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Michelia_alba_(Campii).jpg"
+    },
+    "usda_common_name:1405-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «White champac»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:32988": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32988",
+      "license": "CC0"
+    },
+    "usda_use:34033": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34033",
+      "license": "CC0"
+    },
+    "usda_use:71043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71043",
+      "license": "CC0"
+    },
+    "usda_use:76323": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76323",
+      "license": "CC0"
+    },
+    "wcvp:126658": {
+      "dataset": "wcvp",
+      "label": "WCVP: Michelia × alba DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:252903": {
+      "dataset": "wcvp",
+      "label": "WCVP: Magnolia × alba (DC.) Figlar",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(DC.) Figlar",
+    "name": "Magnolia × alba",
+    "refs": [
+      "wcvp:252903"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "DC.",
+      "name": "Michelia × alba",
+      "refs": [
+        "wcvp:126658"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71043",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32988",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Aborto espontáneo",
+      "activitySource": "Miscarriage",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34033",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Sapremia",
+      "activitySource": "Sapraemia",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76323",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

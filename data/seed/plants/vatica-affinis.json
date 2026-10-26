@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:663a39fa03c8dd752380efbfa8e3f3a6fe7530ec0cd48e31bd8a115860338d72",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Vatica affinis"
+    ],
+    "value": "Especie de planta fanerógama de la familia Dipterocarpaceae, endémica de Sri Lanka."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2459059"
+    ],
+    "value": "Vatica affinis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2459059"
+    ],
+    "value": "Dipterocarpaceae"
+  },
+  "goals": [],
+  "id": "vatica-affinis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2459059"
+    ],
+    "value": "Subcontinente indio (Sri Lanka)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2459059": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vatica affinis Thwaites",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Vatica affinis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Vatica affinis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Vatica_affinis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Thwaites",
+    "name": "Vatica affinis",
+    "refs": [
+      "wcvp:2459059"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

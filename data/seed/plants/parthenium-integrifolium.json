@@ -1,0 +1,184 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:72dc3046264b1d6f7f3e21018515c2a45401070223b1c6642b82ac89a9989f09",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2200-2"
+      ],
+      "text": "American Feverfew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2200-1"
+      ],
+      "text": "Feverfew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2200-4"
+      ],
+      "text": "Missouri Snakeroot"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2200-5"
+      ],
+      "text": "Prairie-Dock"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2200-3"
+      ],
+      "text": "Wild Quinine"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2928880"
+    ],
+    "value": "Parthenium integrifolium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2928880"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "parthenium-integrifolium",
+  "image": {
+    "attributionRequired": true,
+    "author": "Adamantios",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Parthenium-integrifolium-wild-quinine-0a.jpg",
+    "refs": [
+      "commons:File:Parthenium-integrifolium-wild-quinine-0a.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Parthenium-integrifolium-wild-quinine-0a.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2928880"
+    ],
+    "value": "Estados Unidos (centro-norte, noreste, centro-sur y sureste)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Parthenium-integrifolium-wild-quinine-0a.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Parthenium-integrifolium-wild-quinine-0a.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Parthenium-integrifolium-wild-quinine-0a.jpg"
+    },
+    "usda_common_name:2200-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Feverfew»",
+      "license": "CC0"
+    },
+    "usda_common_name:2200-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «American Feverfew»",
+      "license": "CC0"
+    },
+    "usda_common_name:2200-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wild Quinine»",
+      "license": "CC0"
+    },
+    "usda_common_name:2200-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Missouri Snakeroot»",
+      "license": "CC0"
+    },
+    "usda_common_name:2200-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Prairie-Dock»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:8585": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8585",
+      "license": "CC0"
+    },
+    "wcvp:2928880": {
+      "dataset": "wcvp",
+      "label": "WCVP: Parthenium integrifolium L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Parthenium integrifolium",
+    "refs": [
+      "wcvp:2928880"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Catawba)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8585",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

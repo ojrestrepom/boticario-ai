@@ -1,0 +1,198 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8df8a568b9abd55c6c9d827da8f0e894f97ade8cda66860ec962a10f6d10a50c",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2443870"
+    ],
+    "value": "Thermopsis fabacea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2443870"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "thermopsis-fabacea",
+  "image": {
+    "attributionRequired": true,
+    "author": "Michael Wolf",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Thermopsis_fabacea_01.jpg",
+    "refs": [
+      "commons:File:Thermopsis fabacea 01.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Thermopsis_fabacea_01.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2443870"
+    ],
+    "value": "Asia central, China, Asia oriental y el Extremo Oriente ruso."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Thermopsis fabacea 01.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Thermopsis fabacea 01.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Thermopsis_fabacea_01.jpg"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_use:45523": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45523",
+      "license": "CC0"
+    },
+    "usda_use:48096": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48096",
+      "license": "CC0"
+    },
+    "usda_use:51567": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51567",
+      "license": "CC0"
+    },
+    "wcvp:2443855": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thermia fabacea (Pall.) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2443870": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thermopsis fabacea (Pall.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2597237": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sophora fabacea Pall.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Pall.) DC.",
+    "name": "Thermopsis fabacea",
+    "refs": [
+      "wcvp:2443870"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Pall.",
+      "name": "Sophora fabacea",
+      "refs": [
+        "wcvp:2597237"
+      ]
+    },
+    {
+      "authors": "(Pall.) Spreng.",
+      "name": "Thermia fabacea",
+      "refs": [
+        "wcvp:2443855"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Dolor de muelas",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51567",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Dolor de garganta",
+      "activitySource": "Sore(Throat)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45523",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Estomatitis",
+      "activitySource": "Stomatitis",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48096",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

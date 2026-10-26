@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:44bfcdeb3950a9bf71fd6c95d867b44968f6e21a6cf31c5daf84af61c39ea38d",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2797036"
+    ],
+    "value": "Eriosema glomeratum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2797036"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "eriosema-glomeratum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2797036"
+    ],
+    "value": "Nativa de África tropical oriental, nororiental, austral, occidental y centro-occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:80357": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80357",
+      "license": "CC0"
+    },
+    "wcvp:2428111": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhynchosia glomerata Guill. & Perr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2797036": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eriosema glomeratum (Guill. & Perr.) Hook.f.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Guill. & Perr.) Hook.f.",
+    "name": "Eriosema glomeratum",
+    "refs": [
+      "wcvp:2797036"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Guill. & Perr.",
+      "name": "Rhynchosia glomerata",
+      "refs": [
+        "wcvp:2428111"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Senegal (Ashanti)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80357",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

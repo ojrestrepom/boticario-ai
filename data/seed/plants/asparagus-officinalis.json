@@ -1,0 +1,949 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:45bf6b1f0be44f516353a7fc5c0e4ef643c9c3c252e2dce5d1c05269b22fd530",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Asparagus officinalis"
+      ],
+      "text": "espárrago común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Asparagus officinalis"
+      ],
+      "text": "esparraguera"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:137-1"
+      ],
+      "text": "Asparagus"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P783"
+      ],
+      "text": "Gemuese-Spargel"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Asparagus officinalis"
+    ],
+    "value": "Planta herbácea perenne de follaje muy ramificado y aspecto plumoso, con tallos aéreos ramificados y una parte subterránea de raíces y yemas. De sus brotes jóvenes se obtienen las verduras conocidas como espárragos. Las flores masculinas y femeninas se encuentran en plantas diferentes."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Asparagus officinalis"
+    ],
+    "value": "Espárrago común"
+  },
+  "family": {
+    "refs": [
+      "wcvp:275197"
+    ],
+    "value": "Asparagaceae"
+  },
+  "goals": [],
+  "id": "asparagus-officinalis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Evelyn Simak",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Asparagus_plants_-_geograph.org.uk_-_552470.jpg",
+    "refs": [
+      "commons:File:Asparagus plants - geograph.org.uk - 552470.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Asparagus_plants_-_geograph.org.uk_-_552470.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:275197"
+    ],
+    "value": "Europa (este, centro, sureste y suroeste) y Asia (Cáucaso, Asia central y occidental, Siberia, Mongolia, China y el subcontinente indio)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Asparagus plants - geograph.org.uk - 552470.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Asparagus plants - geograph.org.uk - 552470.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Asparagus_plants_-_geograph.org.uk_-_552470.jpg"
+    },
+    "tppt_plant:P783": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Asparagus officinalis L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:137-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Asparagus»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Tackholm": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Tackholm",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10094": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10094",
+      "license": "CC0"
+    },
+    "usda_use:10095": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10095",
+      "license": "CC0"
+    },
+    "usda_use:14697": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14697",
+      "license": "CC0"
+    },
+    "usda_use:14908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14908",
+      "license": "CC0"
+    },
+    "usda_use:15224": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15224",
+      "license": "CC0"
+    },
+    "usda_use:15389": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15389",
+      "license": "CC0"
+    },
+    "usda_use:17575": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17575",
+      "license": "CC0"
+    },
+    "usda_use:17576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17576",
+      "license": "CC0"
+    },
+    "usda_use:17577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17577",
+      "license": "CC0"
+    },
+    "usda_use:17578": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17578",
+      "license": "CC0"
+    },
+    "usda_use:17579": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17579",
+      "license": "CC0"
+    },
+    "usda_use:17580": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17580",
+      "license": "CC0"
+    },
+    "usda_use:17581": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17581",
+      "license": "CC0"
+    },
+    "usda_use:19042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19042",
+      "license": "CC0"
+    },
+    "usda_use:19043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19043",
+      "license": "CC0"
+    },
+    "usda_use:27057": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27057",
+      "license": "CC0"
+    },
+    "usda_use:27058": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27058",
+      "license": "CC0"
+    },
+    "usda_use:27718": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27718",
+      "license": "CC0"
+    },
+    "usda_use:28519": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28519",
+      "license": "CC0"
+    },
+    "usda_use:28909": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28909",
+      "license": "CC0"
+    },
+    "usda_use:28974": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28974",
+      "license": "CC0"
+    },
+    "usda_use:4061": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4061",
+      "license": "CC0"
+    },
+    "usda_use:42936": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42936",
+      "license": "CC0"
+    },
+    "usda_use:42937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42937",
+      "license": "CC0"
+    },
+    "usda_use:4381": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4381",
+      "license": "CC0"
+    },
+    "usda_use:4981": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4981",
+      "license": "CC0"
+    },
+    "usda_use:509": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 509",
+      "license": "CC0"
+    },
+    "usda_use:56817": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56817",
+      "license": "CC0"
+    },
+    "usda_use:56818": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56818",
+      "license": "CC0"
+    },
+    "usda_use:64800": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64800",
+      "license": "CC0"
+    },
+    "usda_use:65686": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65686",
+      "license": "CC0"
+    },
+    "usda_use:68803": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68803",
+      "license": "CC0"
+    },
+    "usda_use:68804": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68804",
+      "license": "CC0"
+    },
+    "usda_use:68805": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68805",
+      "license": "CC0"
+    },
+    "usda_use:68806": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68806",
+      "license": "CC0"
+    },
+    "usda_use:69241": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69241",
+      "license": "CC0"
+    },
+    "usda_use:70661": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70661",
+      "license": "CC0"
+    },
+    "usda_use:71717": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71717",
+      "license": "CC0"
+    },
+    "usda_use:79140": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79140",
+      "license": "CC0"
+    },
+    "wcvp:275197": {
+      "dataset": "wcvp",
+      "label": "WCVP: Asparagus officinalis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Asparagus officinalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Asparagus officinalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Asparagus_officinalis"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P783"
+    ],
+    "text": "TPPT registra la planta como alergénica; señala el fruto como parte implicada y una mezcla de saponinas esteroideas (asparagósidos y diosgenina, entre otras) como responsable de una toxicidad muy débil."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Asparagus officinalis",
+    "refs": [
+      "wcvp:275197"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Eb24: 383",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 383"
+        },
+        {
+          "key": "Eb24: 390",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 390"
+        },
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "China",
+        "República Dominicana",
+        "Egipto",
+        "Otros lugares",
+        "Francia",
+        "Haití",
+        "Irak",
+        "España",
+        "Turquía",
+        "Venezuela"
+      ],
+      "n": 13,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17575",
+        "usda_use:17576",
+        "usda_use:17577",
+        "usda_use:17578",
+        "usda_use:17579",
+        "usda_use:17580",
+        "usda_use:17581",
+        "usda_use:56817",
+        "usda_use:56818",
+        "usda_use:68803",
+        "usda_use:68804",
+        "usda_use:68805",
+        "usda_use:68806",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Brutus",
+        "usda_reference:EB",
+        "usda_reference:FontQuer",
+        "usda_reference:Leung",
+        "usda_reference:Liogier",
+        "usda_reference:Pittier",
+        "usda_reference:Steinmetz",
+        "usda_reference:Tackholm",
+        "usda_reference:Takeda",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19042",
+        "usda_use:19043",
+        "usda_use:69241",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Tackholm",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Gota",
+      "activitySource": "Gout",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití",
+        "Irak"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27057",
+        "usda_use:27058",
+        "usda_use:71717",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Brutus",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4381",
+        "usda_use:64800",
+        "usda_reference:Steinmetz",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Cardíaco",
+      "activitySource": "Cardiac",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10094",
+        "usda_use:10095",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42936",
+        "usda_use:42937",
+        "usda_reference:Brutus",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dolor de espalda",
+      "activitySource": "Ache(Back)",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:509",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Dolor de muela",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79140",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Aperiente",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4061",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astenia",
+      "activitySource": "Asthenia",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4981",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Vejiga",
+      "activitySource": "Bladder",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65686",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14697",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14908",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Desobstruyente",
+      "activitySource": "Deobstruent",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15224",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15389",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Engorde",
+      "activitySource": "Fattening",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70661",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Corazón",
+      "activitySource": "Heart",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27718",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatitis",
+      "activitySource": "Hepatitis",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28519",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Hydropsy",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28909",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Hipertensión",
+      "activitySource": "Hypertension",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28974",
+        "usda_reference:Leung"
+      ]
+    }
+  ]
+}

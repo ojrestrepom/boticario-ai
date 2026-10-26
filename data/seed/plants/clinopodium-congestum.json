@@ -1,0 +1,115 @@
+{
+  "aliases": [
+    "micromeria-congesta"
+  ],
+  "bundleHash": "sha256:f2615e1f93792fb1c9d4d4ab93f92ab5a98144007c3771cf14fef08810f42c1d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2010-1"
+      ],
+      "text": "Kaya Yarpuzu"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:43497"
+    ],
+    "value": "Clinopodium congestum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:43497"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-congestum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2010-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:43497"
+    ],
+    "value": "Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2010-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kaya Yarpuzu»",
+      "license": "CC0"
+    },
+    "usda_part:2010-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:127154": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria congesta Boiss. & Hausskn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43497": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium congestum (Boiss. & Hausskn.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Boiss. & Hausskn.) Kuntze",
+    "name": "Clinopodium congestum",
+    "refs": [
+      "wcvp:43497"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Boiss. & Hausskn.",
+      "name": "Micromeria congesta",
+      "refs": [
+        "wcvp:127154"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

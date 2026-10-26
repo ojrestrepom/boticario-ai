@@ -1,0 +1,88 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:66ca755a3258e48ae555721a3688d49b4fe495bb1f48bfd499371a532eead215",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wfo:wfo-0000980499"
+    ],
+    "value": "Hedyotis lawsoniae"
+  },
+  "family": {
+    "refs": [
+      "wfo:wfo-0000980499"
+    ],
+    "value": "Rubiaceae"
+  },
+  "goals": [],
+  "id": "hedyotis-lawsoniae",
+  "image": {
+    "attributionRequired": false,
+    "author": "art:Rungiah ; text:Robert Wight",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hedyotis_lawsoniae_Rungiah.jpg",
+    "refs": [
+      "commons:File:Hedyotis lawsoniae Rungiah.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Hedyotis_lawsoniae_Rungiah.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hedyotis lawsoniae Rungiah.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hedyotis lawsoniae Rungiah.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Hedyotis_lawsoniae_Rungiah.jpg"
+    },
+    "wfo:wfo-0000980499": {
+      "dataset": "wfo",
+      "label": "WFO: Hedyotis lawsoniae Wight & Arn.",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "respaldo-wfo",
+      "message": "El aceptado viene del respaldo de WFO, no de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Wight & Arn.",
+    "name": "Hedyotis lawsoniae",
+    "refs": [
+      "wfo:wfo-0000980499"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,199 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ddf9eb403d35bab255a2c0af02ae73c5872789ca0a9f2b8c2e748dd632edcc93",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:488-1"
+      ],
+      "text": "Peegee"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2855754"
+    ],
+    "value": "Hydrangea paniculata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2855754"
+    ],
+    "value": "Hydrangeaceae"
+  },
+  "goals": [],
+  "id": "hydrangea-paniculata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Hedwig Storch",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hydrangea_paniculata_IMG_6629.JPG",
+    "refs": [
+      "commons:File:Hydrangea paniculata IMG 6629.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Hydrangea_paniculata_IMG_6629.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2855754"
+    ],
+    "value": "Asia oriental (China, Japón, Taiwán y el Lejano Oriente ruso)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hydrangea paniculata IMG 6629.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hydrangea paniculata IMG 6629.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hydrangea_paniculata_IMG_6629.JPG"
+    },
+    "usda_common_name:488-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Peegee»",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_use:13929": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13929",
+      "license": "CC0"
+    },
+    "usda_use:58650": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58650",
+      "license": "CC0"
+    },
+    "usda_use:73528": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73528",
+      "license": "CC0"
+    },
+    "wcvp:2855754": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hydrangea paniculata Siebold",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3014921": {
+      "dataset": "wcvp",
+      "label": "WCVP: Heteromalla paniculata (Siebold) H.Ohba & S.Akiyama",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo «Peegee», en inglés); el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Siebold",
+    "name": "Hydrangea paniculata",
+    "refs": [
+      "wcvp:2855754"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Siebold) H.Ohba & S.Akiyama",
+      "name": "Heteromalla paniculata",
+      "refs": [
+        "wcvp:3014921"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13929",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58650",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73528",
+        "usda_reference:Leung"
+      ]
+    }
+  ]
+}

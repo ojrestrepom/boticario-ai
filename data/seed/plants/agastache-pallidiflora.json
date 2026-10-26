@@ -1,0 +1,126 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5594157e4c821e3ea3b8f8cb099d0bb7b9bba673806b218512f6ddf4260a0a67",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:4476"
+    ],
+    "value": "Agastache pallidiflora"
+  },
+  "family": {
+    "refs": [
+      "wcvp:4476"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "agastache-pallidiflora",
+  "image": {
+    "attributionRequired": false,
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Agastache_pallidiflora_var._pallidiflora_-_Flickr_-_aspidoscelis.jpg",
+    "refs": [
+      "commons:File:Agastache pallidiflora var. pallidiflora - Flickr - aspidoscelis.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Agastache_pallidiflora_var._pallidiflora_-_Flickr_-_aspidoscelis.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1977-FL",
+      "usda_part:1977-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:4476"
+    ],
+    "value": "Nativa de México y del noroeste, centro-sur y suroeste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Agastache pallidiflora var. pallidiflora - Flickr - aspidoscelis.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Agastache pallidiflora var. pallidiflora - Flickr - aspidoscelis.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Agastache_pallidiflora_var._pallidiflora_-_Flickr_-_aspidoscelis.jpg"
+    },
+    "usda_part:1977-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:1977-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:24729": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brittonastrum pallidiflorum A.Heller",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:4476": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agastache pallidiflora (A.Heller) Rydb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la flor y la hoja, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(A.Heller) Rydb.",
+    "name": "Agastache pallidiflora",
+    "refs": [
+      "wcvp:4476"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "A.Heller",
+      "name": "Brittonastrum pallidiflorum",
+      "refs": [
+        "wcvp:24729"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

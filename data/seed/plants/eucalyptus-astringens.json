@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c6cb5d04d47150a69caada05f6d368cc8553065b55df7c9497aa2d499b0f6554",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72481"
+    ],
+    "value": "Eucalyptus astringens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72481"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-astringens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ivan Holliday",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_astringens_habit.jpg",
+    "refs": [
+      "commons:File:Eucalyptus astringens habit.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Eucalyptus_astringens_habit.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1366-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72481"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus astringens habit.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus astringens habit.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_astringens_habit.jpg"
+    },
+    "usda_part:1366-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:72481": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus astringens (Maiden) Maiden",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73469": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus occidentalis var. astringens Maiden",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Maiden) Maiden",
+    "name": "Eucalyptus astringens",
+    "refs": [
+      "wcvp:72481"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Maiden",
+      "name": "Eucalyptus occidentalis var. astringens",
+      "refs": [
+        "wcvp:73469"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

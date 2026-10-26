@@ -1,0 +1,937 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ae6b69a86b94bba36859bd30462a73ae417ec53584ffd2b81696da8b413d8ea7",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q2719836"
+      ],
+      "text": "Chanca piedra"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Phyllanthus niruri"
+      ],
+      "text": "Chancapiedra"
+    },
+    {
+      "language": "und",
+      "refs": [
+        "wikidata:Q2719836"
+      ],
+      "text": "Quebra pedra"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:725-1"
+      ],
+      "text": "Seed On The Leaf"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Phyllanthus niruri"
+    ],
+    "value": "Planta herbácea pequeña de hasta 50 cm, anual y silvestre, de origen americano, que hoy se encuentra en muchas regiones del mundo."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q2719836"
+    ],
+    "value": "Chanca piedra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:154454"
+    ],
+    "value": "Phyllanthaceae"
+  },
+  "goals": [],
+  "id": "phyllanthus-niruri",
+  "image": {
+    "attributionRequired": true,
+    "author": "Pisofrix",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hojas_de_Chanca_Piedra_(Phyllanthus_niruri).jpg",
+    "refs": [
+      "commons:File:Hojas de Chanca Piedra (Phyllanthus niruri).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Hojas_de_Chanca_Piedra_%28Phyllanthus_niruri%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:154454"
+    ],
+    "value": "Sur de Estados Unidos, México, América Central, el Caribe y Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hojas de Chanca Piedra (Phyllanthus niruri).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hojas de Chanca Piedra (Phyllanthus niruri).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hojas_de_Chanca_Piedra_(Phyllanthus_niruri).jpg"
+    },
+    "efsa_endpoint:430": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Phyllanthus niruri L.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:725-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Seed On The Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10656": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10656",
+      "license": "CC0"
+    },
+    "usda_use:1255": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1255",
+      "license": "CC0"
+    },
+    "usda_use:12705": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12705",
+      "license": "CC0"
+    },
+    "usda_use:14083": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14083",
+      "license": "CC0"
+    },
+    "usda_use:15871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15871",
+      "license": "CC0"
+    },
+    "usda_use:16903": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16903",
+      "license": "CC0"
+    },
+    "usda_use:16904": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16904",
+      "license": "CC0"
+    },
+    "usda_use:17300": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17300",
+      "license": "CC0"
+    },
+    "usda_use:17301": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17301",
+      "license": "CC0"
+    },
+    "usda_use:18464": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18464",
+      "license": "CC0"
+    },
+    "usda_use:18465": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18465",
+      "license": "CC0"
+    },
+    "usda_use:18970": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18970",
+      "license": "CC0"
+    },
+    "usda_use:19197": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19197",
+      "license": "CC0"
+    },
+    "usda_use:19827": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19827",
+      "license": "CC0"
+    },
+    "usda_use:19828": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19828",
+      "license": "CC0"
+    },
+    "usda_use:20476": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20476",
+      "license": "CC0"
+    },
+    "usda_use:21819": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21819",
+      "license": "CC0"
+    },
+    "usda_use:25072": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25072",
+      "license": "CC0"
+    },
+    "usda_use:25073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25073",
+      "license": "CC0"
+    },
+    "usda_use:25074": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25074",
+      "license": "CC0"
+    },
+    "usda_use:25075": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25075",
+      "license": "CC0"
+    },
+    "usda_use:25881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25881",
+      "license": "CC0"
+    },
+    "usda_use:26946": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26946",
+      "license": "CC0"
+    },
+    "usda_use:26947": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26947",
+      "license": "CC0"
+    },
+    "usda_use:27047": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27047",
+      "license": "CC0"
+    },
+    "usda_use:30551": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30551",
+      "license": "CC0"
+    },
+    "usda_use:33029": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33029",
+      "license": "CC0"
+    },
+    "usda_use:33030": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33030",
+      "license": "CC0"
+    },
+    "usda_use:47383": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47383",
+      "license": "CC0"
+    },
+    "usda_use:60199": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60199",
+      "license": "CC0"
+    },
+    "usda_use:60202": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60202",
+      "license": "CC0"
+    },
+    "usda_use:60206": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60206",
+      "license": "CC0"
+    },
+    "usda_use:63886": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63886",
+      "license": "CC0"
+    },
+    "usda_use:64778": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64778",
+      "license": "CC0"
+    },
+    "usda_use:68353": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68353",
+      "license": "CC0"
+    },
+    "usda_use:69487": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69487",
+      "license": "CC0"
+    },
+    "usda_use:72774": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72774",
+      "license": "CC0"
+    },
+    "usda_use:73552": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73552",
+      "license": "CC0"
+    },
+    "wcvp:136178": {
+      "dataset": "wcvp",
+      "label": "WCVP: Nymphanthus niruri (L.) Lour.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:154454": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phyllanthus niruri L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:60952": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diasperus niruri (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q2719836": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q2719836",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q2719836"
+    },
+    "wikipedia_es:Phyllanthus niruri": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Phyllanthus niruri",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Phyllanthus_niruri"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "No es seguro que «Quebra pedra», alias de Wikidata, sea un nombre en español; se registra con idioma indeterminado.",
+      "target": "commonNames"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_endpoint:430"
+    ],
+    "text": "EFSA registra un estudio subcrónico en ratas, por vía oral, con un extracto acuoso de hojas, que informa cambios patológicos y de los niveles de hormonas sexuales, con efectos urogenitales en los testículos."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Phyllanthus niruri",
+    "refs": [
+      "wcvp:154454"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Diasperus niruri",
+      "refs": [
+        "wcvp:60952"
+      ]
+    },
+    {
+      "authors": "(L.) Lour.",
+      "name": "Nymphanthus niruri",
+      "refs": [
+        "wcvp:136178"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Eb29: 319",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 319"
+        }
+      ],
+      "countries": [
+        "Bahamas",
+        "Brasil",
+        "Haití",
+        "Filipinas",
+        "Puerto Rico"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25072",
+        "usda_use:25073",
+        "usda_use:25074",
+        "usda_use:25075",
+        "usda_use:60206",
+        "usda_reference:Uphof",
+        "usda_reference:Altschul",
+        "usda_reference:Brutus",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Eb28: 14",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 14"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "India",
+        "Malaya",
+        "Samoa"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18464",
+        "usda_use:18465",
+        "usda_use:18970",
+        "usda_use:60202",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Eb29: 319",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 319"
+        }
+      ],
+      "countries": [
+        "Bahamas",
+        "Haití",
+        "Java"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1255",
+        "usda_use:47383",
+        "usda_use:63886",
+        "usda_reference:Brutus",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "India",
+        "Islas Marianas"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19827",
+        "usda_use:19828",
+        "usda_use:69487",
+        "usda_reference:Altschul",
+        "usda_reference:Liogier",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Costa de Oro",
+        "India",
+        "Java"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26946",
+        "usda_use:26947",
+        "usda_use:27047",
+        "usda_reference:Uphof",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Haití"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33029",
+        "usda_use:33030",
+        "usda_use:73552",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Malaya",
+        "Reunión"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16903",
+        "usda_use:16904",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17300",
+        "usda_use:17301",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Picazón",
+      "activitySource": "Itch",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya",
+        "Islas Marianas"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30551",
+        "usda_use:72774",
+        "usda_reference:Altschul",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Eb29: 319",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 319"
+        }
+      ],
+      "countries": [
+        "Bahamas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64778",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Blenorragia",
+      "activitySource": "Blennorrhagia",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Reunión"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60199",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10656",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12705",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14083",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Dermatosis",
+      "activitySource": "Dermatosis",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15871",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68353",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Reunión"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19197",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20476",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Filipinas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21819",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Eb29: 319",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 319"
+        }
+      ],
+      "countries": [
+        "Bahamas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25881",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

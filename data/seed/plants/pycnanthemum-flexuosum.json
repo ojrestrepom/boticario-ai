@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:08a948ec4a60a71178df9060a0f426002e38c20652cf11c9d99ec3d6d27a1096",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:813-1"
+      ],
+      "text": "Flexuose Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171044"
+    ],
+    "value": "Pycnanthemum flexuosum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171044"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-flexuosum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_flexuosum_calyx_lobes.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum flexuosum calyx lobes.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Pycnanthemum_flexuosum_calyx_lobes.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:813-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171044"
+    ],
+    "value": "Nativa del sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum flexuosum calyx lobes.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum flexuosum calyx lobes.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_flexuosum_calyx_lobes.jpg"
+    },
+    "usda_common_name:813-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Flexuose Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:813-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106179": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia flexuosa (Walter) MacMill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:143799": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum flexuosum Walter",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171044": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum flexuosum (Walter) Britton, Sterns & Poggenb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Walter) Britton, Sterns & Poggenb.",
+    "name": "Pycnanthemum flexuosum",
+    "refs": [
+      "wcvp:171044"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Walter) MacMill.",
+      "name": "Koellia flexuosa",
+      "refs": [
+        "wcvp:106179"
+      ]
+    },
+    {
+      "authors": "Walter",
+      "name": "Origanum flexuosum",
+      "refs": [
+        "wcvp:143799"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

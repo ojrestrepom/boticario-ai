@@ -1,0 +1,216 @@
+{
+  "aliases": [
+    "anisochilus-carnosus"
+  ],
+  "bundleHash": "sha256:c2c1f3bee518ebb3a2582c97a11ea3a8d5d720fff43558a4d688a4bebd8b2f88",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1985-1"
+      ],
+      "text": "Panjiri-ka Pat"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:533221"
+    ],
+    "value": "Coleus strobilifer"
+  },
+  "family": {
+    "refs": [
+      "wcvp:533221"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "coleus-strobilifer",
+  "image": {
+    "attributionRequired": true,
+    "author": "J.M.Garg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Anisochilus_carnosus_(Kapurli)_in_Hyderabad,_AP_W_IMG_0269.jpg",
+    "refs": [
+      "commons:File:Anisochilus carnosus (Kapurli) in Hyderabad, AP W IMG 0269.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Anisochilus_carnosus_%28Kapurli%29_in_Hyderabad%2C_AP_W_IMG_0269.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1985-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:533221"
+    ],
+    "value": "Nativa del subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Anisochilus carnosus (Kapurli) in Hyderabad, AP W IMG 0269.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Anisochilus carnosus (Kapurli) in Hyderabad, AP W IMG 0269.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Anisochilus_carnosus_(Kapurli)_in_Hyderabad,_AP_W_IMG_0269.jpg"
+    },
+    "usda_common_name:1985-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Panjiri-ka Pat»",
+      "license": "CC0"
+    },
+    "usda_part:1985-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:13662": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13662",
+      "license": "CC0"
+    },
+    "usda_use:40292": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40292",
+      "license": "CC0"
+    },
+    "usda_use:67119": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67119",
+      "license": "CC0"
+    },
+    "wcvp:158523": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plectranthus strobilifer Roxb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:533221": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coleus strobilifer (Roxb.) A.J.Paton",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Roxb.) A.J.Paton",
+    "name": "Coleus strobilifer",
+    "refs": [
+      "wcvp:533221"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Roxb.",
+      "name": "Plectranthus strobilifer",
+      "refs": [
+        "wcvp:158523"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67119",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13662",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Refrigerante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40292",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

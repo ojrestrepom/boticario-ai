@@ -1,0 +1,231 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:420763d2f1cdc57ca9511675820e9f6a729b29683165d0b5e416ca85ff267fb1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:584-1"
+      ],
+      "text": "Magic Lily"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:584-2"
+      ],
+      "text": "Resurrection Lily"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lycoris squamigera"
+    ],
+    "value": "Especie herbácea, perenne y bulbosa, nativa de Asia y de la familia de las amarilidáceas. Se usa como ornamental por sus flores de color magenta y sus tépalos de márgenes ondulados."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:280535"
+    ],
+    "value": "Lycoris squamigera"
+  },
+  "family": {
+    "refs": [
+      "wcvp:280535"
+    ],
+    "value": "Amaryllidaceae"
+  },
+  "goals": [],
+  "id": "lycoris-squamigera",
+  "image": {
+    "attributionRequired": true,
+    "author": "Namazu-tron",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lycoris_squamigera.jpg",
+    "refs": [
+      "commons:File:Lycoris squamigera.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Lycoris_squamigera.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:280535"
+    ],
+    "value": "Asia oriental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lycoris squamigera.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lycoris squamigera.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lycoris_squamigera.jpg"
+    },
+    "usda_common_name:584-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Magic Lily»",
+      "license": "CC0"
+    },
+    "usda_common_name:584-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Resurrection Lily»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:59287": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59287",
+      "license": "CC0"
+    },
+    "usda_use:69922": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69922",
+      "license": "CC0"
+    },
+    "usda_use:70478": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70478",
+      "license": "CC0"
+    },
+    "wcvp:278293": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hippeastrum squamigerum (Maxim.) H.Lév.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:280535": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycoris squamigera Maxim.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lycoris squamigera": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lycoris squamigera",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lycoris_squamigera"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Maxim.",
+    "name": "Lycoris squamigera",
+    "refs": [
+      "wcvp:280535"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Maxim.) H.Lév.",
+      "name": "Hippeastrum squamigerum",
+      "refs": [
+        "wcvp:278293"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69922",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70478",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59287",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

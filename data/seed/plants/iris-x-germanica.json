@@ -1,0 +1,711 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:abfebc4d5ad5bc9755e1e7277d506b16cfe6593bcd16432fff0b42b023f5cc90",
+  "commonNames": [
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P802"
+      ],
+      "text": "Deutsche Schwertlilie"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P802"
+      ],
+      "text": "Bearded iris"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:504-1"
+      ],
+      "text": "Orris"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:321867"
+    ],
+    "value": "Iris × germanica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:321867"
+    ],
+    "value": "Iridaceae"
+  },
+  "goals": [],
+  "id": "iris-x-germanica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:504-RH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:321867"
+    ],
+    "value": "Sureste de Europa (noroeste de los Balcanes)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "tppt_plant:P802": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Iris germanica L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:504-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Orris»",
+      "license": "CC0"
+    },
+    "usda_part:504-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Tackholm": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Tackholm",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11131": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11131",
+      "license": "CC0"
+    },
+    "usda_use:11132": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11132",
+      "license": "CC0"
+    },
+    "usda_use:11574": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11574",
+      "license": "CC0"
+    },
+    "usda_use:12275": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12275",
+      "license": "CC0"
+    },
+    "usda_use:13552": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13552",
+      "license": "CC0"
+    },
+    "usda_use:18178": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18178",
+      "license": "CC0"
+    },
+    "usda_use:18179": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18179",
+      "license": "CC0"
+    },
+    "usda_use:18180": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18180",
+      "license": "CC0"
+    },
+    "usda_use:21198": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21198",
+      "license": "CC0"
+    },
+    "usda_use:23102": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23102",
+      "license": "CC0"
+    },
+    "usda_use:23744": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23744",
+      "license": "CC0"
+    },
+    "usda_use:3114": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3114",
+      "license": "CC0"
+    },
+    "usda_use:31523": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31523",
+      "license": "CC0"
+    },
+    "usda_use:39810": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39810",
+      "license": "CC0"
+    },
+    "usda_use:42431": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42431",
+      "license": "CC0"
+    },
+    "usda_use:46729": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46729",
+      "license": "CC0"
+    },
+    "usda_use:47718": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47718",
+      "license": "CC0"
+    },
+    "usda_use:58807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58807",
+      "license": "CC0"
+    },
+    "usda_use:58811": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58811",
+      "license": "CC0"
+    },
+    "usda_use:66824": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66824",
+      "license": "CC0"
+    },
+    "usda_use:66974": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66974",
+      "license": "CC0"
+    },
+    "usda_use:69916": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69916",
+      "license": "CC0"
+    },
+    "usda_use:76381": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76381",
+      "license": "CC0"
+    },
+    "usda_use:77559": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77559",
+      "license": "CC0"
+    },
+    "usda_use:8135": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8135",
+      "license": "CC0"
+    },
+    "wcvp:321867": {
+      "dataset": "wcvp",
+      "label": "WCVP: Iris × germanica L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el rizoma, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene ninguna candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene ninguna candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene ninguna candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[17]"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P802"
+    ],
+    "text": "TPPT la registra como tóxica para las personas y los animales; la parte tóxica es la hoja y el rizoma (o la planta entera) y las toxinas registradas incluyen iridal, iridina, irigenina, irisoquina e irisquinona. La fuente indica que no está claro cuáles de estas sustancias causan la toxicidad."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Iris × germanica",
+    "refs": [
+      "wcvp:321867"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11131",
+        "usda_use:11132",
+        "usda_use:66824",
+        "usda_reference:Tackholm",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18178",
+        "usda_use:18179",
+        "usda_use:18180",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11574",
+        "usda_use:66974",
+        "usda_reference:Steinmetz",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21198",
+        "usda_use:69916",
+        "usda_reference:Tackholm",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23102",
+        "usda_use:58811",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3114",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Balsámico",
+      "activitySource": "Balsamic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58807",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12275",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Cosmético",
+      "activitySource": "Cosmetic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13552",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Engorde",
+      "activitySource": "Fattening",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23744",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31523",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39810",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Ciática",
+      "activitySource": "Sciatica",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76381",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Esclerosis",
+      "activitySource": "Sclerosis",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Grecia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42431",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Esplenitis",
+      "activitySource": "Splenitis",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77559",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46729",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47718",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:8135"
+      ]
+    }
+  ]
+}

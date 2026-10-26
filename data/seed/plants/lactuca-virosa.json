@@ -1,0 +1,796 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:48aa67afb71345e11d9130fe8462d4b78ee16681fc12a22a91ea6defebc15100",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lactuca virosa"
+      ],
+      "text": "Lechuga silvestre"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P730",
+        "usda_common_name:536-1"
+      ],
+      "text": "Bitter lettuce"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P730"
+      ],
+      "text": "Gift-Lattich"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lactuca virosa"
+    ],
+    "value": "Planta silvestre emparentada con la lechuga, que no es comestible."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Lactuca virosa"
+    ],
+    "value": "Lechuga silvestre"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2912755"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "lactuca-virosa",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lactuca_virosa_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-213.jpg",
+    "refs": [
+      "commons:File:Lactuca virosa - Köhler–s Medizinal-Pflanzen-213.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Lactuca_virosa_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-213.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2912755"
+    ],
+    "value": "Europa, norte de África y Macaronesia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lactuca virosa - Köhler–s Medizinal-Pflanzen-213.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lactuca virosa - Köhler–s Medizinal-Pflanzen-213.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Lactuca_virosa_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-213.jpg"
+    },
+    "efsa_botanic:619": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: lactucin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:620": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: lactucopicrin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:452": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Lactuca virosa L.",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P730": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Lactuca virosa L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:536-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bitter Lettuce»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:13958": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13958",
+      "license": "CC0"
+    },
+    "usda_use:18222": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18222",
+      "license": "CC0"
+    },
+    "usda_use:23111": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23111",
+      "license": "CC0"
+    },
+    "usda_use:23112": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23112",
+      "license": "CC0"
+    },
+    "usda_use:2582": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2582",
+      "license": "CC0"
+    },
+    "usda_use:2583": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2583",
+      "license": "CC0"
+    },
+    "usda_use:29105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29105",
+      "license": "CC0"
+    },
+    "usda_use:29106": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29106",
+      "license": "CC0"
+    },
+    "usda_use:29107": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29107",
+      "license": "CC0"
+    },
+    "usda_use:30721": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30721",
+      "license": "CC0"
+    },
+    "usda_use:31538": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31538",
+      "license": "CC0"
+    },
+    "usda_use:34297": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34297",
+      "license": "CC0"
+    },
+    "usda_use:43076": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43076",
+      "license": "CC0"
+    },
+    "usda_use:43077": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43077",
+      "license": "CC0"
+    },
+    "usda_use:43078": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43078",
+      "license": "CC0"
+    },
+    "usda_use:58981": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58981",
+      "license": "CC0"
+    },
+    "usda_use:58982": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58982",
+      "license": "CC0"
+    },
+    "usda_use:58983": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58983",
+      "license": "CC0"
+    },
+    "usda_use:58984": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58984",
+      "license": "CC0"
+    },
+    "usda_use:58986": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58986",
+      "license": "CC0"
+    },
+    "usda_use:64678": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64678",
+      "license": "CC0"
+    },
+    "usda_use:67713": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67713",
+      "license": "CC0"
+    },
+    "usda_use:68994": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68994",
+      "license": "CC0"
+    },
+    "usda_use:69282": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69282",
+      "license": "CC0"
+    },
+    "usda_use:76993": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76993",
+      "license": "CC0"
+    },
+    "usda_use:78262": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78262",
+      "license": "CC0"
+    },
+    "usda_use:9186": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9186",
+      "license": "CC0"
+    },
+    "wcvp:2912755": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lactuca virosa L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2912760": {
+      "dataset": "wcvp",
+      "label": "WCVP: Wiestia virosa (L.) Sch.Bip.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3250929": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lactuca scariola proles virosa (L.) Rouy",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3255601": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lactuca scariola subsp. virosa (L.) Maire & Petitm.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lactuca virosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lactuca virosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lactuca_virosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Diurético» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Sedante» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Tos» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Asma» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[7]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Hidropesía» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Gota» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[10]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Ictericia» tiene claves de cita sin candidata que las resuelva.",
+      "target": "traditionalUses[11]"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P730",
+      "efsa_botanic:619",
+      "efsa_botanic:620",
+      "efsa_endpoint:452",
+      "usda_use:58986"
+    ],
+    "text": "TPPT la califica de débilmente tóxica; la parte tóxica es la planta entera, con las mayores concentraciones en el látex, y las toxinas principales son la lactucina y la lactucopicrina. EFSA registra la lactucina y la lactucopicrina como sustancias de evidencia y un informe de caso en humanos sobre la toxicidad del jugo lechoso. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Lactuca virosa",
+    "refs": [
+      "wcvp:2912755"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Rouy",
+      "name": "Lactuca scariola proles virosa",
+      "refs": [
+        "wcvp:3250929"
+      ]
+    },
+    {
+      "authors": "(L.) Maire & Petitm.",
+      "name": "Lactuca scariola subsp. virosa",
+      "refs": [
+        "wcvp:3255601"
+      ]
+    },
+    {
+      "authors": "(L.) Sch.Bip.",
+      "name": "Wiestia virosa",
+      "refs": [
+        "wcvp:2912760"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18222",
+        "usda_use:58982",
+        "usda_use:68994",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Hipnótico",
+      "activitySource": "Hypnotic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29105",
+        "usda_use:29106",
+        "usda_use:29107",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43076",
+        "usda_use:43077",
+        "usda_use:43078",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2582",
+        "usda_use:2583",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13958",
+        "usda_use:67713",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23111",
+        "usda_use:23112",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antitusivo",
+      "activitySource": "Antitussive",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64678",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:58981"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9186",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:69282"
+      ]
+    },
+    {
+      "activity": "Gota",
+      "activitySource": "Gout",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:58983"
+      ]
+    },
+    {
+      "activity": "Ictericia",
+      "activitySource": "Jaundice",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:30721"
+      ]
+    },
+    {
+      "activity": "Galactagogo",
+      "activitySource": "Lactogogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58984",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31538",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34297",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Soporífero",
+      "activitySource": "Soporific",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76993",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:78262",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

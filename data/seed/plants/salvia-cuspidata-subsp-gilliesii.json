@@ -1,0 +1,115 @@
+{
+  "aliases": [
+    "salvia-gilliesii"
+  ],
+  "bundleHash": "sha256:81cc0fcbbc2bbb4b8267c915b2dd458f042eb5575d60fc3b0cc0b2fe65012508",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2033-1"
+      ],
+      "text": "'Cordoba' Sage"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:348348"
+    ],
+    "value": "Salvia cuspidata subsp. gilliesii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:348348"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-cuspidata-subsp-gilliesii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2033-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:348348"
+    ],
+    "value": "Sudamérica meridional y occidental (noreste y noroeste de Argentina, Bolivia y norte de Chile)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2033-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «'Cordoba' Sage»",
+      "license": "CC0"
+    },
+    "usda_part:2033-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:182718": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia gilliesii Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:348348": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia cuspidata subsp. gilliesii (Benth.) J.R.I.Wood",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth.) J.R.I.Wood",
+    "name": "Salvia cuspidata subsp. gilliesii",
+    "refs": [
+      "wcvp:348348"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Benth.",
+      "name": "Salvia gilliesii",
+      "refs": [
+        "wcvp:182718"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

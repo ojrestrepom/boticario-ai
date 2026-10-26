@@ -1,0 +1,178 @@
+{
+  "aliases": [
+    "pelargonium-roseum"
+  ],
+  "bundleHash": "sha256:7318c5255b24290a62f095b3e0fd93db768b5a1b3d3afdb966d2e64ad2ce566f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2231-1"
+      ],
+      "text": "Scented Geranium"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2534795"
+    ],
+    "value": "Pelargonium radens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2534795"
+    ],
+    "value": "Geraniaceae"
+  },
+  "goals": [],
+  "id": "pelargonium-radens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Neva Micheva",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:PelargoniumRoseum.JPG",
+    "refs": [
+      "commons:File:PelargoniumRoseum.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/PelargoniumRoseum.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2231-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2534795"
+    ],
+    "value": "África austral."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:PelargoniumRoseum.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:PelargoniumRoseum.JPG",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:PelargoniumRoseum.JPG"
+    },
+    "usda_common_name:2231-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Scented Geranium»",
+      "license": "CC0"
+    },
+    "usda_part:2231-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:60083": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60083",
+      "license": "CC0"
+    },
+    "wcvp:2534795": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pelargonium radens H.E.Moore",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2822724": {
+      "dataset": "wcvp",
+      "label": "WCVP: Geraniospermum revolutum (Jacq.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2823958": {
+      "dataset": "wcvp",
+      "label": "WCVP: Geranium revolutum Jacq.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Shoot), sin ficha de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "H.E.Moore",
+    "name": "Pelargonium radens",
+    "refs": [
+      "wcvp:2534795"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Jacq.) Kuntze",
+      "name": "Geraniospermum revolutum",
+      "refs": [
+        "wcvp:2822724"
+      ]
+    },
+    {
+      "authors": "Jacq.",
+      "name": "Geranium revolutum",
+      "refs": [
+        "wcvp:2823958"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Perfume",
+      "activitySource": "Perfume",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Sudáfrica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60083",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,938 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:488eed70115ecba1cc894cf366fff00e02212e7c5d8fbb35c3a50f82b1de6723",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ocimum gratissimum"
+      ],
+      "text": "Albahaca de clavo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1287-1"
+      ],
+      "text": "Agbo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1287-2"
+      ],
+      "text": "Shrubby Basil"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ocimum gratissimum"
+    ],
+    "value": "Especie de la familia de las lamiáceas, originaria de las regiones tropicales y subtropicales del Viejo Mundo."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Ocimum gratissimum"
+    ],
+    "value": "Albahaca de clavo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:136923"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "ocimum-gratissimum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Forest & Kim Starr",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Starr_030202-0053_Ocimum_gratissimum.jpg",
+    "refs": [
+      "commons:File:Starr 030202-0053 Ocimum gratissimum.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Starr_030202-0053_Ocimum_gratissimum.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1287-FL",
+      "usda_part:1287-LF",
+      "usda_part:1287-PL",
+      "usda_part:1287-SD",
+      "usda_part:1287-SH",
+      "usda_part:1287-ST"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:136923"
+    ],
+    "value": "África tropical y austral, península arábiga y sur y este de Asia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Starr 030202-0053 Ocimum gratissimum.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Starr 030202-0053 Ocimum gratissimum.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Starr_030202-0053_Ocimum_gratissimum.jpg"
+    },
+    "efsa_botanic:3376": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:945": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:1287-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Agbo»",
+      "license": "CC0"
+    },
+    "usda_common_name:1287-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Shrubby Basil»",
+      "license": "CC0"
+    },
+    "usda_part:1287-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:1287-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:1287-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_part:1287-SD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Seed»",
+      "license": "CC0"
+    },
+    "usda_part:1287-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_part:1287-ST": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Stem»",
+      "license": "CC0"
+    },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:10984": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10984",
+      "license": "CC0"
+    },
+    "usda_use:10985": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10985",
+      "license": "CC0"
+    },
+    "usda_use:12334": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12334",
+      "license": "CC0"
+    },
+    "usda_use:1243": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1243",
+      "license": "CC0"
+    },
+    "usda_use:1244": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1244",
+      "license": "CC0"
+    },
+    "usda_use:1417": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1417",
+      "license": "CC0"
+    },
+    "usda_use:19792": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19792",
+      "license": "CC0"
+    },
+    "usda_use:19793": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19793",
+      "license": "CC0"
+    },
+    "usda_use:2242": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2242",
+      "license": "CC0"
+    },
+    "usda_use:24972": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24972",
+      "license": "CC0"
+    },
+    "usda_use:24973": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24973",
+      "license": "CC0"
+    },
+    "usda_use:24974": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24974",
+      "license": "CC0"
+    },
+    "usda_use:2650": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2650",
+      "license": "CC0"
+    },
+    "usda_use:3715": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3715",
+      "license": "CC0"
+    },
+    "usda_use:41412": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41412",
+      "license": "CC0"
+    },
+    "usda_use:41413": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41413",
+      "license": "CC0"
+    },
+    "usda_use:41414": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41414",
+      "license": "CC0"
+    },
+    "usda_use:51473": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51473",
+      "license": "CC0"
+    },
+    "usda_use:54771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54771",
+      "license": "CC0"
+    },
+    "usda_use:59824": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59824",
+      "license": "CC0"
+    },
+    "usda_use:59826": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59826",
+      "license": "CC0"
+    },
+    "usda_use:59847": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59847",
+      "license": "CC0"
+    },
+    "usda_use:63786": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63786",
+      "license": "CC0"
+    },
+    "usda_use:6468": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6468",
+      "license": "CC0"
+    },
+    "usda_use:6469": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6469",
+      "license": "CC0"
+    },
+    "usda_use:64940": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64940",
+      "license": "CC0"
+    },
+    "usda_use:65380": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65380",
+      "license": "CC0"
+    },
+    "usda_use:71067": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71067",
+      "license": "CC0"
+    },
+    "usda_use:71068": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71068",
+      "license": "CC0"
+    },
+    "usda_use:7182": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7182",
+      "license": "CC0"
+    },
+    "usda_use:7493": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7493",
+      "license": "CC0"
+    },
+    "usda_use:76088": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76088",
+      "license": "CC0"
+    },
+    "usda_use:81767": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81767",
+      "license": "CC0"
+    },
+    "usda_use:81768": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81768",
+      "license": "CC0"
+    },
+    "usda_use:81769": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81769",
+      "license": "CC0"
+    },
+    "usda_use:921": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 921",
+      "license": "CC0"
+    },
+    "usda_use:922": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 922",
+      "license": "CC0"
+    },
+    "usda_use:923": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 923",
+      "license": "CC0"
+    },
+    "wcvp:136923": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocimum gratissimum L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Ocimum gratissimum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ocimum gratissimum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ocimum_gratissimum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Flower, Leaf, Plant, Seed, Shoot y Stem), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:945",
+      "efsa_botanic:3376"
+    ],
+    "text": "EFSA incluye el estragol (yema) y el metileugenol (yema, flor y hojas) entre las sustancias de alta preocupación, del grupo de las genotóxicas o carcinógenas."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Ocimum gratissimum",
+    "refs": [
+      "wcvp:136923"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        }
+      ],
+      "countries": [
+        "Angola",
+        "Ghana",
+        "Sierra Leona",
+        "Trinidad",
+        "Alto Volta"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24972",
+        "usda_use:24973",
+        "usda_use:24974",
+        "usda_use:71067",
+        "usda_use:71068",
+        "usda_reference:Ayensu",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Dolor (cabeza)",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Otros lugares",
+        "Haití",
+        "Alto Volta"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:921",
+        "usda_use:922",
+        "usda_use:923",
+        "usda_use:63786",
+        "usda_reference:Ayensu",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Haití",
+        "India"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41412",
+        "usda_use:41413",
+        "usda_use:41414",
+        "usda_use:76088",
+        "usda_reference:Ayensu",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Nigeria"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10984",
+        "usda_use:10985",
+        "usda_use:81769",
+        "usda_reference:Ayensu",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Dolor (estómago)",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Ghana",
+        "Sierra Leona"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1243",
+        "usda_use:1244",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Anestésico",
+      "activitySource": "Anesthetic",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2242",
+        "usda_use:59824",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6468",
+        "usda_use:6469",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Costa de Marfil"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12334",
+        "usda_use:59826",
+        "usda_reference:Ayensu",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Ghana"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19792",
+        "usda_use:19793",
+        "usda_reference:Ayensu",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54771",
+        "usda_use:59847",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Dolor (oído)",
+      "activitySource": "Ache(Ear)",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81767",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dolor (muela)",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51473",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Aftosa",
+      "activitySource": "Aftosa",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1417",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2650",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3715",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64940",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Espalda",
+      "activitySource": "Back",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Zaire"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65380",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Mordedura (serpiente)",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Ghana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7182",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Blenorragia",
+      "activitySource": "Blennorrhagia",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "África central"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7493",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81768",
+        "usda_reference:Liogier"
+      ]
+    }
+  ]
+}

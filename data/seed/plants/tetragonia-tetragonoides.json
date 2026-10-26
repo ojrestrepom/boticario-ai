@@ -1,0 +1,368 @@
+{
+  "aliases": [
+    "tetragonia-tetragonioides"
+  ],
+  "bundleHash": "sha256:4134de33771e02ab3b0d6588b98fa9e3fcc8ba0bf60df18c7c360cb47381a625",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tetragonia tetragonoides"
+      ],
+      "text": "Espinaca de Nueva Zelanda"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1005-1"
+      ],
+      "text": "New Zealand Spinach"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Tetragonia tetragonoides"
+    ],
+    "value": "Especie de fanerógama de la familia de las aizoáceas, conocida como espinaca de Nueva Zelanda."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Tetragonia tetragonoides"
+    ],
+    "value": "Espinaca de Nueva Zelanda"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2445492"
+    ],
+    "value": "Aizoaceae"
+  },
+  "goals": [],
+  "id": "tetragonia-tetragonoides",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ixitixel",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Tetragonia_tetragonioides_(Flower).jpg",
+    "refs": [
+      "commons:File:Tetragonia tetragonioides (Flower).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Tetragonia_tetragonioides_%28Flower%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2445492"
+    ],
+    "value": "Australia, Nueva Zelanda, China, Asia oriental, Indochina y suroeste del Pacífico."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Tetragonia tetragonioides (Flower).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Tetragonia tetragonioides (Flower).jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Tetragonia_tetragonioides_(Flower).jpg"
+    },
+    "usda_common_name:1005-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «New Zealand Spinach»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:31246": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31246",
+      "license": "CC0"
+    },
+    "usda_use:32695": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32695",
+      "license": "CC0"
+    },
+    "usda_use:42877": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42877",
+      "license": "CC0"
+    },
+    "usda_use:47970": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47970",
+      "license": "CC0"
+    },
+    "usda_use:63392": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63392",
+      "license": "CC0"
+    },
+    "usda_use:72685": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72685",
+      "license": "CC0"
+    },
+    "usda_use:9497": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9497",
+      "license": "CC0"
+    },
+    "usda_use:9498": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9498",
+      "license": "CC0"
+    },
+    "usda_use:9839": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9839",
+      "license": "CC0"
+    },
+    "wcvp:2445492": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tetragonia tetragonoides (Pall.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2760627": {
+      "dataset": "wcvp",
+      "label": "WCVP: Demidovia tetragonoides Pall.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Tetragonia tetragonoides": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Tetragonia tetragonoides",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Tetragonia_tetragonoides"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Cáncer» tiene la clave Woi.Syria sin candidata; la clave Hartwell sí está resuelta.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Intestino» solo cita la clave Woi.Syria, que no tiene candidata.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Larvicida» solo cita la clave Woi.Syria, que no tiene candidata.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Pulmón» solo cita la clave Woi.Syria, que no tiene candidata.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Escorbuto» solo cita la clave Woi.Syria, que no tiene candidata.",
+      "target": "traditionalUses[5]"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Pall.) Kuntze",
+    "name": "Tetragonia tetragonoides",
+    "refs": [
+      "wcvp:2445492"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Pall.",
+      "name": "Demidovia tetragonoides",
+      "refs": [
+        "wcvp:2760627"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Japón"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9497",
+        "usda_use:9498",
+        "usda_use:63392",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9839",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Intestine",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:72685"
+      ]
+    },
+    {
+      "activity": "Larvicida",
+      "activitySource": "Larvicide",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:31246"
+      ]
+    },
+    {
+      "activity": "Pulmón",
+      "activitySource": "Lung",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:32695"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:42877"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47970",
+        "usda_reference:Takeda"
+      ]
+    }
+  ]
+}

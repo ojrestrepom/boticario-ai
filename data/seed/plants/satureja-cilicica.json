@@ -1,0 +1,100 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7c44890ea059eca70432d1e0446c9208edcf5121a540b6d3c4df845890b4fb20",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2036-1"
+      ],
+      "text": "Turkish Savory"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:185522"
+    ],
+    "value": "Satureja cilicica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:185522"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "satureja-cilicica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2036-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:185522"
+    ],
+    "value": "Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2036-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Turkish Savory»",
+      "license": "CC0"
+    },
+    "usda_part:2036-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:185522": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja cilicica P.H.Davis",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "P.H.Davis",
+    "name": "Satureja cilicica",
+    "refs": [
+      "wcvp:185522"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,138 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:52c4c183cf9f470fa8c72eedf620af96df6a65dd4ef68ed92308d05a826158ea",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1313-1"
+      ],
+      "text": "Mala madre"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Kalanchoe gastonis-bonnieri"
+    ],
+    "value": "Especie de planta suculenta de la familia Crassulaceae, originaria de Madagascar."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2335891"
+    ],
+    "value": "Kalanchoe gastonis-bonnieri"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2335891"
+    ],
+    "value": "Crassulaceae"
+  },
+  "goals": [],
+  "id": "kalanchoe-gastonis-bonnieri",
+  "image": {
+    "attributionRequired": true,
+    "author": "Mokkie",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Donkey_Ears_(Bryophyllum_gastonis-bonnieri)_3.jpg",
+    "refs": [
+      "commons:File:Donkey Ears (Bryophyllum gastonis-bonnieri) 3.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Donkey_Ears_%28Bryophyllum_gastonis-bonnieri%29_3.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2335891"
+    ],
+    "value": "Océano Índico occidental (Madagascar)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Donkey Ears (Bryophyllum gastonis-bonnieri) 3.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Donkey Ears (Bryophyllum gastonis-bonnieri) 3.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Donkey_Ears_(Bryophyllum_gastonis-bonnieri)_3.jpg"
+    },
+    "usda_common_name:1313-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mala madre»",
+      "license": "CC0"
+    },
+    "wcvp:2335891": {
+      "dataset": "wcvp",
+      "label": "WCVP: Kalanchoe gastonis-bonnieri Raym.-Hamet & H.Perrier",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2684564": {
+      "dataset": "wcvp",
+      "label": "WCVP: Bryophyllum gastonis-bonnieri (Raym.-Hamet & H.Perrier) Lauz.-March.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Kalanchoe gastonis-bonnieri": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Kalanchoe gastonis-bonnieri",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Kalanchoe_gastonis-bonnieri"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "«Mala madre» viene de USDA con idioma inglés, pero parece un nombre en español; conviene revisarlo y, si lo es, usarlo como nombre para mostrar.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Raym.-Hamet & H.Perrier",
+    "name": "Kalanchoe gastonis-bonnieri",
+    "refs": [
+      "wcvp:2335891"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Raym.-Hamet & H.Perrier) Lauz.-March.",
+      "name": "Bryophyllum gastonis-bonnieri",
+      "refs": [
+        "wcvp:2684564"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

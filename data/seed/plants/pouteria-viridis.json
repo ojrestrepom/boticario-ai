@@ -1,0 +1,142 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ac7357018c60706b4a5b89736ed0778102f5a186fa6bb636e402cff6209aef7c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1254-2"
+      ],
+      "text": "Sapote Verde"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1254-1"
+      ],
+      "text": "Green Sapote"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1254-2"
+    ],
+    "value": "Sapote Verde"
+  },
+  "family": {
+    "refs": [
+      "wcvp:164532"
+    ],
+    "value": "Sapotaceae"
+  },
+  "goals": [],
+  "id": "pouteria-viridis",
+  "image": {
+    "attributionRequired": true,
+    "author": "I Like Plants!",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pouteria_viridis_fruit.jpg",
+    "refs": [
+      "commons:File:Pouteria viridis fruit.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Pouteria_viridis_fruit.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:164532"
+    ],
+    "value": "América Central y México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pouteria viridis fruit.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pouteria viridis fruit.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pouteria_viridis_fruit.jpg"
+    },
+    "usda_common_name:1254-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Green Sapote»",
+      "license": "CC0"
+    },
+    "usda_common_name:1254-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sapote Verde»",
+      "license": "CC0"
+    },
+    "wcvp:164532": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pouteria viridis (Pittier) Cronquist",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:1688": {
+      "dataset": "wcvp",
+      "label": "WCVP: Achradelpha viridis (Pittier) O.F.Cook",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:31748": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calocarpum viride Pittier",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Sapote Verde» con idioma inglés, pero parece un nombre en español; se registró como español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Pittier) Cronquist",
+    "name": "Pouteria viridis",
+    "refs": [
+      "wcvp:164532"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pittier) O.F.Cook",
+      "name": "Achradelpha viridis",
+      "refs": [
+        "wcvp:1688"
+      ]
+    },
+    {
+      "authors": "Pittier",
+      "name": "Calocarpum viride",
+      "refs": [
+        "wcvp:31748"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

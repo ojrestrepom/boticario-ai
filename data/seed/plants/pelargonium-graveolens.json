@@ -1,0 +1,216 @@
+{
+  "aliases": [
+    "pelargonium-citrosum"
+  ],
+  "bundleHash": "sha256:cfea410b3db5449c25ff12c6ecb9dc23e5e9b32d110430980ab54ba0d51eb82a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pelargonium graveolens"
+      ],
+      "text": "geranio"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:707-1"
+      ],
+      "text": "Rose Geranium"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:707-2"
+      ],
+      "text": "Scented Geranium"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2135-1"
+      ],
+      "text": "Citrosa"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pelargonium graveolens"
+    ],
+    "value": "Especie rara del género Pelargonium, nativa de Sudáfrica, Zimbabue y Mozambique; las plantas cultivadas con este nombre son de origen híbrido. Su follaje se destila por su olor y tiene importancia en la industria del perfume."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Pelargonium graveolens"
+    ],
+    "value": "Geranio"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2532552"
+    ],
+    "value": "Geraniaceae"
+  },
+  "goals": [],
+  "id": "pelargonium-graveolens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Pelargonium_graveolens_flower_and_leaves.jpg",
+    "refs": [
+      "commons:File:(MHNT) Pelargonium graveolens flower and leaves.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/%28MHNT%29_Pelargonium_graveolens_flower_and_leaves.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:707-PL",
+      "usda_part:2135-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2532552"
+    ],
+    "value": "África austral y tropical meridional."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(MHNT) Pelargonium graveolens flower and leaves.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(MHNT) Pelargonium graveolens flower and leaves.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Pelargonium_graveolens_flower_and_leaves.jpg"
+    },
+    "usda_common_name:2135-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Citrosa»",
+      "license": "CC0"
+    },
+    "usda_common_name:707-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Rose Geranium»",
+      "license": "CC0"
+    },
+    "usda_common_name:707-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Scented Geranium»",
+      "license": "CC0"
+    },
+    "usda_part:2135-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_part:707-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:2532266": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pelargonium citrosum Voigt ex Breiter",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2532552": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pelargonium graveolens L'Hér.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2533785": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pelargonium terebinthinaceum Small",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2901040": {
+      "dataset": "wcvp",
+      "label": "WCVP: Geranium graveolens (L'Hér.) Thunb.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pelargonium graveolens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pelargonium graveolens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pelargonium_graveolens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Pelargonium citrosum) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Plant y Shoot), sin ficha de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L'Hér.",
+    "name": "Pelargonium graveolens",
+    "refs": [
+      "wcvp:2532552"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Voigt ex Breiter",
+      "name": "Pelargonium citrosum",
+      "refs": [
+        "wcvp:2532266"
+      ]
+    },
+    {
+      "authors": "(L'Hér.) Thunb.",
+      "name": "Geranium graveolens",
+      "refs": [
+        "wcvp:2901040"
+      ]
+    },
+    {
+      "authors": "Small",
+      "name": "Pelargonium terebinthinaceum",
+      "refs": [
+        "wcvp:2533785"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

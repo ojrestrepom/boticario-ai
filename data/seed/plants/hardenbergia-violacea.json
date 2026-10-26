@@ -1,0 +1,124 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3de4629d963196cf8f3da92ea5621b4dde28cd52919dddbb07e091b0f577c8a9",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hardenbergia violacea"
+      ],
+      "text": "waraburra"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Hardenbergia violacea"
+    ],
+    "value": "Trepadora vigorosa de hoja perenne originaria de Australia, que crece hasta 6 metros o más y a veces como subarbusto. Tiene flores parecidas a las del guisante, por lo general violetas, y hojas verde oscuro, duras y coriáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Hardenbergia violacea"
+    ],
+    "value": "Waraburra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2839534"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "hardenbergia-violacea",
+  "image": {
+    "attributionRequired": true,
+    "author": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hardenbergia_violacea2.jpg",
+    "refs": [
+      "commons:File:Hardenbergia violacea2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Hardenbergia_violacea2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2839534"
+    ],
+    "value": "Australia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hardenbergia violacea2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hardenbergia violacea2.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hardenbergia_violacea2.jpg"
+    },
+    "wcvp:2827509": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycine violacea Schneev.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2839534": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hardenbergia violacea (Schneev.) Stearn",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Hardenbergia violacea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Hardenbergia violacea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Hardenbergia_violacea"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El resumen de Wikipedia en español da «waraburra» como nombre usado en Australia; no es seguro que sea un nombre en español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Schneev.) Stearn",
+    "name": "Hardenbergia violacea",
+    "refs": [
+      "wcvp:2839534"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Schneev.",
+      "name": "Glycine violacea",
+      "refs": [
+        "wcvp:2827509"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

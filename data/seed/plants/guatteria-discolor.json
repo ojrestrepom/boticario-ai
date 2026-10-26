@@ -1,0 +1,110 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a32d9489b4ca98d7428b06e6480f14eaf2021759b0bdee9fac74547542d196f9",
+  "commonNames": [
+    {
+      "language": "und",
+      "refs": [
+        "usda_common_name:1200-1"
+      ],
+      "text": "Envira Preta"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2834338"
+    ],
+    "value": "Guatteria discolor"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2834338"
+    ],
+    "value": "Annonaceae"
+  },
+  "goals": [],
+  "id": "guatteria-discolor",
+  "image": {
+    "attributionRequired": true,
+    "author": "Museu Paraense Emílio Goeldi (MPEG)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:ANNONACEAE_Guatteria_discolor_R.E.Fr.,_MPEG_(MG034295).pdf",
+    "refs": [
+      "commons:File:ANNONACEAE Guatteria discolor R.E.Fr., MPEG (MG034295).pdf"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/ANNONACEAE_Guatteria_discolor_R.E.Fr.%2C_MPEG_%28MG034295%29.pdf"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2834338"
+    ],
+    "value": "Nativa de Brasil y del norte y el oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:ANNONACEAE Guatteria discolor R.E.Fr., MPEG (MG034295).pdf": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:ANNONACEAE Guatteria discolor R.E.Fr., MPEG (MG034295).pdf",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:ANNONACEAE_Guatteria_discolor_R.E.Fr.,_MPEG_(MG034295).pdf"
+    },
+    "usda_common_name:1200-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Envira Preta»",
+      "license": "CC0"
+    },
+    "wcvp:2834338": {
+      "dataset": "wcvp",
+      "label": "WCVP: Guatteria discolor R.E.Fr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA etiqueta «Envira Preta» como inglés, pero parece un nombre en portugués; se registra con idioma indeterminado.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.E.Fr.",
+    "name": "Guatteria discolor",
+    "refs": [
+      "wcvp:2834338"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

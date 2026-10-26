@@ -1,0 +1,466 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f32444b00e50cade0fea4959b3951c9ec109547e0e9b1559bcc62c55719031d5",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:44-1"
+      ],
+      "text": "Chocolate Vine"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Akebia quinata"
+    ],
+    "value": "Arbusto nativo de Japón, China y Corea, conocido popularmente como «chocolate vine»."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:517411"
+    ],
+    "value": "Akebia quinata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:517411"
+    ],
+    "value": "Lardizabalaceae"
+  },
+  "goals": [],
+  "id": "akebia-quinata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:517411"
+    ],
+    "value": "China, Japón y Corea (Asia oriental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:44-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chocolate Vine»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:11868": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11868",
+      "license": "CC0"
+    },
+    "usda_use:16122": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16122",
+      "license": "CC0"
+    },
+    "usda_use:17457": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17457",
+      "license": "CC0"
+    },
+    "usda_use:17458": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17458",
+      "license": "CC0"
+    },
+    "usda_use:21499": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21499",
+      "license": "CC0"
+    },
+    "usda_use:31304": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31304",
+      "license": "CC0"
+    },
+    "usda_use:47435": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47435",
+      "license": "CC0"
+    },
+    "usda_use:50069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50069",
+      "license": "CC0"
+    },
+    "usda_use:54986": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54986",
+      "license": "CC0"
+    },
+    "usda_use:55022": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55022",
+      "license": "CC0"
+    },
+    "usda_use:56520": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56520",
+      "license": "CC0"
+    },
+    "usda_use:56521": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56521",
+      "license": "CC0"
+    },
+    "usda_use:64523": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64523",
+      "license": "CC0"
+    },
+    "usda_use:8828": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8828",
+      "license": "CC0"
+    },
+    "usda_use:8829": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8829",
+      "license": "CC0"
+    },
+    "wcvp:260733": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rajania quinata Thunb. ex Houtt.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:517411": {
+      "dataset": "wcvp",
+      "label": "WCVP: Akebia quinata (Thunb. ex Houtt.) Decne.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Akebia quinata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Akebia quinata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Akebia_quinata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Thunb. ex Houtt.) Decne.",
+    "name": "Akebia quinata",
+    "refs": [
+      "wcvp:517411"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Thunb. ex Houtt.",
+      "name": "Rajania quinata",
+      "refs": [
+        "wcvp:260733"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17457",
+        "usda_use:17458",
+        "usda_use:56520",
+        "usda_reference:Bliss",
+        "usda_reference:Keys",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8828",
+        "usda_use:8829",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Antiflogístico",
+      "activitySource": "Antiphlogistic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64523",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Circulación",
+      "activitySource": "Circulation",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11868",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16122",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21499",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31304",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56521",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47435",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50069",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Vísceras",
+      "activitySource": "Viscera",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54986",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55022",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

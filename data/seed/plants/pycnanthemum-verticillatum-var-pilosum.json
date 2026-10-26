@@ -1,0 +1,165 @@
+{
+  "aliases": [
+    "pycnanthemum-pilosum"
+  ],
+  "bundleHash": "sha256:592e47bffe7a969bb78ab0cd5aa4777c14d9622ea0dbc691ba79a2efe990552f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:819-1"
+      ],
+      "text": "Pilose Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171082"
+    ],
+    "value": "Pycnanthemum verticillatum var. pilosum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171082"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-verticillatum-var-pilosum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Britton, N.L., and A. Brown. 1913. An illustrated flora of the northern United States, Canada and the British Possessions. 3 vols. Charles Scribner's Sons, New York. Vol. 3: 142. Courtesy of Kentucky Native Plant Society. Scanned by Omnitek Inc.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_verticillatum_var_pilosum_BB-1913.png",
+    "refs": [
+      "commons:File:Pycnanthemum verticillatum var pilosum BB-1913.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Pycnanthemum_verticillatum_var_pilosum_BB-1913.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:819-FL",
+      "usda_part:819-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171082"
+    ],
+    "value": "Nativa del este de Canadá y de regiones del centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum verticillatum var pilosum BB-1913.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum verticillatum var pilosum BB-1913.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_verticillatum_var_pilosum_BB-1913.png"
+    },
+    "usda_common_name:819-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pilose Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:819-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:819-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:106190": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia pilosa (Nutt.) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171063": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum muticum var. pilosum (Nutt.) Hook.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171066": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum pilosum Nutt.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171082": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum verticillatum var. pilosum (Nutt.) Cooperr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en flor y hoja, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Nutt.) Cooperr.",
+    "name": "Pycnanthemum verticillatum var. pilosum",
+    "refs": [
+      "wcvp:171082"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Nutt.) Baill.",
+      "name": "Koellia pilosa",
+      "refs": [
+        "wcvp:106190"
+      ]
+    },
+    {
+      "authors": "(Nutt.) Hook.",
+      "name": "Pycnanthemum muticum var. pilosum",
+      "refs": [
+        "wcvp:171063"
+      ]
+    },
+    {
+      "authors": "Nutt.",
+      "name": "Pycnanthemum pilosum",
+      "refs": [
+        "wcvp:171066"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

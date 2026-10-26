@@ -1,0 +1,107 @@
+{
+  "aliases": [
+    "lavandula-x-hybrida"
+  ],
+  "bundleHash": "sha256:980b7faf7cf3640982c2aed0be9bc9c73c759cf46ed9387838d79a38016d5288",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2006-1"
+      ],
+      "text": "Hybrid Lavender"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:109025"
+    ],
+    "value": "Lavandula × heterophylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:109025"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lavandula-x-heterophylla",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2006-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:109025"
+    ],
+    "value": "Suroeste de Europa"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2006-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hybrid Lavender»",
+      "license": "CC0"
+    },
+    "usda_part:2006-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:109025": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lavandula × heterophylla Viv.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Viv.",
+    "name": "Lavandula × heterophylla",
+    "refs": [
+      "wcvp:109025"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

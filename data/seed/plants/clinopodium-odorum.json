@@ -1,0 +1,151 @@
+{
+  "aliases": [
+    "satureja-odora"
+  ],
+  "bundleHash": "sha256:d5f8d8c15d7bf67cde09dccb10c99589570fb9061b002781be9245ffcd230afe",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2039-1"
+      ],
+      "text": "Scented Pampa Savory"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:43628"
+    ],
+    "value": "Clinopodium odorum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:43628"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-odorum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2039-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:43628"
+    ],
+    "value": "Sur y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2039-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Scented Pampa Savory»",
+      "license": "CC0"
+    },
+    "usda_part:2039-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:127331": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria odora (Griseb.) Hieron.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185839": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja odora (Griseb.) Epling",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:215325": {
+      "dataset": "wcvp",
+      "label": "WCVP: Xenopoma odorum Griseb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:36885": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ceratominthe odora (Griseb.) Hauman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43628": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium odorum (Griseb.) Harley",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Griseb.) Harley",
+    "name": "Clinopodium odorum",
+    "refs": [
+      "wcvp:43628"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Griseb.) Hauman",
+      "name": "Ceratominthe odora",
+      "refs": [
+        "wcvp:36885"
+      ]
+    },
+    {
+      "authors": "(Griseb.) Hieron.",
+      "name": "Micromeria odora",
+      "refs": [
+        "wcvp:127331"
+      ]
+    },
+    {
+      "authors": "(Griseb.) Epling",
+      "name": "Satureja odora",
+      "refs": [
+        "wcvp:185839"
+      ]
+    },
+    {
+      "authors": "Griseb.",
+      "name": "Xenopoma odorum",
+      "refs": [
+        "wcvp:215325"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

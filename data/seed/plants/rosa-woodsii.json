@@ -1,0 +1,151 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9dcf7873795d1ed87703099e03580c916f277622d8218ca19505b9de2a827d5a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2191-1"
+      ],
+      "text": "Woods' Rose"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rosa woodsii"
+    ],
+    "value": "Especie perteneciente a la familia Rosaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2976229"
+    ],
+    "value": "Rosa woodsii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2976229"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "rosa-woodsii",
+  "image": {
+    "attributionRequired": true,
+    "author": "dougwaylett",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rosawoodsii.jpg",
+    "refs": [
+      "commons:File:Rosawoodsii.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Rosawoodsii.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2976229"
+    ],
+    "value": "Norteamérica (Canadá, Estados Unidos y México) y sudeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rosawoodsii.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rosawoodsii.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rosawoodsii.jpg"
+    },
+    "usda_common_name:2191-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Woods' Rose»",
+      "license": "CC0"
+    },
+    "usda_reference:Hart": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hart",
+      "license": "CC0"
+    },
+    "usda_use:45337": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45337",
+      "license": "CC0"
+    },
+    "wcvp:2976229": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosa woodsii Lindl.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Rosa woodsii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rosa woodsii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rosa_woodsii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lindl.",
+    "name": "Rosa woodsii",
+    "refs": [
+      "wcvp:2976229"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Llaga (ojo)",
+      "activitySource": "Sore(Eye)",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45337",
+        "usda_reference:Hart"
+      ]
+    }
+  ]
+}

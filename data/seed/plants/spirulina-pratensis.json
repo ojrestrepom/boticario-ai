@@ -1,0 +1,81 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:28a436d59d3ee992afb7d3295fc2e9c83d7b4c16201cd2f9b919e01d259ead1f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:958-1"
+      ],
+      "text": "Spirulina"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:958-PL"
+    ],
+    "value": "Spirulina pratensis"
+  },
+  "family": null,
+  "goals": [],
+  "id": "spirulina-pratensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:958-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Spirulina»",
+      "license": "CC0"
+    },
+    "usda_part:958-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo «Spirulina», en inglés); el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Spirulina pratensis",
+    "refs": [
+      "usda_part:958-PL"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

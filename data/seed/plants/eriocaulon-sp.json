@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6de5734df7347da5ca86ff352ffc65477c15f6cf30b66ebd157e49bf3b099200",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:387-1"
+      ],
+      "text": "Oriental Pipewort"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eriocaulon"
+    ],
+    "value": "Eriocaulon es un género de plantas fanerógamas de la familia Eriocaulaceae. Comprende 904 especies descritas, de las cuales solo 477 están aceptadas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q3267004"
+    ],
+    "value": "Eriocaulon sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "eriocaulon-sp",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eriocaulon_decangulare_(1832).jpg",
+    "refs": [
+      "commons:File:Eriocaulon decangulare (1832).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Eriocaulon_decangulare_%281832%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eriocaulon decangulare (1832).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eriocaulon decangulare (1832).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Eriocaulon_decangulare_(1832).jpg"
+    },
+    "usda_common_name:387-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Oriental Pipewort»",
+      "license": "CC0"
+    },
+    "wikidata:Q3267004": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q3267004",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q3267004"
+    },
+    "wikipedia_es:Eriocaulon": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eriocaulon",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eriocaulon"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Eriocaulon sp",
+    "refs": [
+      "wikidata:Q3267004"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

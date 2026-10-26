@@ -1,0 +1,130 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:75e5c94e9e8e055abaaa1bf4be3d3d4a1e312f199f7e6e7d1bb90f85e289d50e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:224-1"
+      ],
+      "text": "Lanceleaf Periwinkle"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:35713"
+    ],
+    "value": "Catharanthus lanceus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:35713"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "catharanthus-lanceus",
+  "image": {
+    "attributionRequired": true,
+    "author": "No machine-readable author provided. Zimbres assumed (based on copyright claims).",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Boa_noite.jpg",
+    "refs": [
+      "commons:File:Boa noite.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Boa_noite.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:35713"
+    ],
+    "value": "Madagascar."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Boa noite.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Boa noite.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Boa_noite.jpg"
+    },
+    "usda_common_name:224-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lanceleaf Periwinkle»",
+      "license": "CC0"
+    },
+    "wcvp:115002": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lochnera lancea (Bojer ex A.DC.) K.Schum.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:213162": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vinca lancea Bojer ex A.DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:35713": {
+      "dataset": "wcvp",
+      "label": "WCVP: Catharanthus lanceus (Bojer ex A.DC.) Pichon",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Bojer ex A.DC.) Pichon",
+    "name": "Catharanthus lanceus",
+    "refs": [
+      "wcvp:35713"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Bojer ex A.DC.) K.Schum.",
+      "name": "Lochnera lancea",
+      "refs": [
+        "wcvp:115002"
+      ]
+    },
+    {
+      "authors": "Bojer ex A.DC.",
+      "name": "Vinca lancea",
+      "refs": [
+        "wcvp:213162"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

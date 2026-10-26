@@ -1,0 +1,225 @@
+{
+  "aliases": [
+    "cnidium-officinale"
+  ],
+  "bundleHash": "sha256:246a81b293817a934631496bded848f2724953ad58e04d72bc337b0a5157ad69",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:286-1"
+      ],
+      "text": "Jih-Chiung"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3303196"
+    ],
+    "value": "Conioselinum officinale"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3303196"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "conioselinum-officinale",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:286-RH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3303196"
+    ],
+    "value": "Nativa de Asia oriental (Japón)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:286-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Jih-Chiung»",
+      "license": "CC0"
+    },
+    "usda_part:286-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:2408": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2408",
+      "license": "CC0"
+    },
+    "usda_use:27875": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27875",
+      "license": "CC0"
+    },
+    "usda_use:50314": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50314",
+      "license": "CC0"
+    },
+    "usda_use:76551": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76551",
+      "license": "CC0"
+    },
+    "wcvp:2344285": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ligusticum officinale (Makino) Kitag.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2728977": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cnidium officinale Makino",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3303196": {
+      "dataset": "wcvp",
+      "label": "WCVP: Conioselinum officinale (Makino) K.Ohashi & H.Ohashi",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Makino) K.Ohashi & H.Ohashi",
+    "name": "Conioselinum officinale",
+    "refs": [
+      "wcvp:3303196"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Makino",
+      "name": "Cnidium officinale",
+      "refs": [
+        "wcvp:2728977"
+      ]
+    },
+    {
+      "authors": "(Makino) Kitag.",
+      "name": "Ligusticum officinale",
+      "refs": [
+        "wcvp:2344285"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2408",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Hematínico",
+      "activitySource": "Hematinic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27875",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76551",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50314",
+        "usda_reference:Takeda"
+      ]
+    }
+  ]
+}

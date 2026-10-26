@@ -1,0 +1,120 @@
+{
+  "aliases": [
+    "lepechinia-schiediana"
+  ],
+  "bundleHash": "sha256:20bdc3115dde5223c88cdea1b54ac6f6c38a7c940443736a21a43e8cb950c0f8",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:555-1"
+      ],
+      "text": "Schiede's Lepechinia"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:110800"
+    ],
+    "value": "Lepechinia schiedeana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:110800"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lepechinia-schiedeana",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:555-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:110800"
+    ],
+    "value": "México, América Central y norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:555-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Schiede's Lepechinia»",
+      "license": "CC0"
+    },
+    "usda_part:555-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:110800": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepechinia schiedeana (Schltdl.) Vatke",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:195607": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stachys schiedeana Schltdl.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Schltdl.) Vatke",
+    "name": "Lepechinia schiedeana",
+    "refs": [
+      "wcvp:110800"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Schltdl.",
+      "name": "Stachys schiedeana",
+      "refs": [
+        "wcvp:195607"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

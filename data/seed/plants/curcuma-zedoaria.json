@@ -1,0 +1,789 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2ad39f04172666d4f15f5e944497c6a783a94994c7a1854edc056564a2a10b8e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Curcuma zedoaria"
+      ],
+      "text": "Cedoaria"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Curcuma zedoaria"
+      ],
+      "text": "Tamoilán de Filipinas"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:333-2"
+      ],
+      "text": "Zedoary"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:333-1"
+      ],
+      "text": "Shoti"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Curcuma zedoaria"
+    ],
+    "value": "Planta herbácea de la familia de las zingiberáceas, originaria del sur y sudeste de Asia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Curcuma zedoaria"
+    ],
+    "value": "Cedoaria"
+  },
+  "family": {
+    "refs": [
+      "wcvp:235312"
+    ],
+    "value": "Zingiberaceae"
+  },
+  "goals": [],
+  "id": "curcuma-zedoaria",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Curcuma_zedoaria_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-048.jpg",
+    "refs": [
+      "commons:File:Curcuma zedoaria - Köhler–s Medizinal-Pflanzen-048.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Curcuma_zedoaria_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-048.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:333-RH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:235312"
+    ],
+    "value": "Subcontinente indio"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Curcuma zedoaria - Köhler–s Medizinal-Pflanzen-048.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Curcuma zedoaria - Köhler–s Medizinal-Pflanzen-048.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Curcuma_zedoaria_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-048.jpg"
+    },
+    "usda_common_name:333-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Shoti»",
+      "license": "CC0"
+    },
+    "usda_common_name:333-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Zedoary»",
+      "license": "CC0"
+    },
+    "usda_part:333-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Tackholm": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Tackholm",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:10455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10455",
+      "license": "CC0"
+    },
+    "usda_use:20358": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20358",
+      "license": "CC0"
+    },
+    "usda_use:28626": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28626",
+      "license": "CC0"
+    },
+    "usda_use:32231": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32231",
+      "license": "CC0"
+    },
+    "usda_use:32232": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32232",
+      "license": "CC0"
+    },
+    "usda_use:32714": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32714",
+      "license": "CC0"
+    },
+    "usda_use:34595": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34595",
+      "license": "CC0"
+    },
+    "usda_use:46174": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46174",
+      "license": "CC0"
+    },
+    "usda_use:47610": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47610",
+      "license": "CC0"
+    },
+    "usda_use:50372": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50372",
+      "license": "CC0"
+    },
+    "usda_use:50373": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50373",
+      "license": "CC0"
+    },
+    "usda_use:57697": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57697",
+      "license": "CC0"
+    },
+    "usda_use:57700": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57700",
+      "license": "CC0"
+    },
+    "usda_use:57707": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57707",
+      "license": "CC0"
+    },
+    "usda_use:57712": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57712",
+      "license": "CC0"
+    },
+    "usda_use:57714": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57714",
+      "license": "CC0"
+    },
+    "usda_use:64422": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64422",
+      "license": "CC0"
+    },
+    "usda_use:6571": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6571",
+      "license": "CC0"
+    },
+    "usda_use:66615": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66615",
+      "license": "CC0"
+    },
+    "usda_use:67158": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67158",
+      "license": "CC0"
+    },
+    "usda_use:67506": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67506",
+      "license": "CC0"
+    },
+    "usda_use:74417": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74417",
+      "license": "CC0"
+    },
+    "usda_use:77589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77589",
+      "license": "CC0"
+    },
+    "usda_use:77695": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77695",
+      "license": "CC0"
+    },
+    "usda_use:79399": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79399",
+      "license": "CC0"
+    },
+    "usda_use:8350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8350",
+      "license": "CC0"
+    },
+    "usda_use:9800": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9800",
+      "license": "CC0"
+    },
+    "wcvp:219558": {
+      "dataset": "wcvp",
+      "label": "WCVP: Amomum zedoaria Christm.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:235312": {
+      "dataset": "wcvp",
+      "label": "WCVP: Curcuma zedoaria (Christm.) Roscoe",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Curcuma zedoaria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Curcuma zedoaria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Curcuma_zedoaria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Christm.) Roscoe",
+    "name": "Curcuma zedoaria",
+    "refs": [
+      "wcvp:235312"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Christm.",
+      "name": "Amomum zedoaria",
+      "refs": [
+        "wcvp:219558"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10455",
+        "usda_use:57697",
+        "usda_use:66615",
+        "usda_reference:Tackholm",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Licor",
+      "activitySource": "Liqueur",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32231",
+        "usda_use:32232",
+        "usda_reference:Tackholm",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57707",
+        "usda_use:74417",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57712",
+        "usda_use:77695",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47610",
+        "usda_use:57714",
+        "usda_reference:Tackholm",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto",
+        "Malaya"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50372",
+        "usda_use:50373",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64422",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Balsámico",
+      "activitySource": "Balsamic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6571",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8350",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Vietnam"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9800",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67158",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57700",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Convalecencia",
+      "activitySource": "Convalescence",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67506",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20358",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Hepatomegalia",
+      "activitySource": "Hepatomegaly",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28626",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Linfadenitis",
+      "activitySource": "Lymphadenitis",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32714",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Neophasia",
+      "activitySource": "Neophasia",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34595",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Esplenomegalia",
+      "activitySource": "Splenomegaly",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46174",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Esguince",
+      "activitySource": "Sprain",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77589",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Irán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79399",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c01baba3da28115dedfb976731452f7224644df4bf895e7df693de0890a783e7",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:824-1"
+      ],
+      "text": "Whorled Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171081"
+    ],
+    "value": "Pycnanthemum verticillatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171081"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-verticillatum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:824-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171081"
+    ],
+    "value": "Nativa del este de Canadá y de regiones del centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:824-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Whorled Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:824-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106193": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia verticillata (Michx.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171081": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum verticillatum (Michx.) Pers.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171086": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum virginianum var. verticillatum (Michx.) B.Boivin",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:23934": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brachystemum verticillatum Michx.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la parte aérea, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Michx.) Pers.",
+    "name": "Pycnanthemum verticillatum",
+    "refs": [
+      "wcvp:171081"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Michx.",
+      "name": "Brachystemum verticillatum",
+      "refs": [
+        "wcvp:23934"
+      ]
+    },
+    {
+      "authors": "(Michx.) Kuntze",
+      "name": "Koellia verticillata",
+      "refs": [
+        "wcvp:106193"
+      ]
+    },
+    {
+      "authors": "(Michx.) B.Boivin",
+      "name": "Pycnanthemum virginianum var. verticillatum",
+      "refs": [
+        "wcvp:171086"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

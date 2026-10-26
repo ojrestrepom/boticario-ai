@@ -1,0 +1,174 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e880d88063d0a29f7862111069879cdcf24497045fa0fb316a2578358a5163aa",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2352-1"
+      ],
+      "text": "California Chia"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2352-2"
+      ],
+      "text": "Chia"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia columbariae"
+    ],
+    "value": "Planta anual de la familia de las lamiáceas, originaria de California, Nevada, Arizona, Nuevo México, Sonora y Baja California, que fue un alimento importante para los nativos americanos."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:182401"
+    ],
+    "value": "Salvia columbariae"
+  },
+  "family": {
+    "refs": [
+      "wcvp:182401"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-columbariae",
+  "image": {
+    "attributionRequired": false,
+    "author": "National Park Service, Joshua Tree National Park.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salvia_columbariae.jpg",
+    "refs": [
+      "commons:File:Salvia columbariae.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Salvia_columbariae.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:182401"
+    ],
+    "value": "Suroeste y centro-sur de Estados Unidos y noroeste de México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salvia columbariae.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salvia columbariae.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Salvia_columbariae.jpg"
+    },
+    "usda_common_name:2352-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «California Chia»",
+      "license": "CC0"
+    },
+    "usda_common_name:2352-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chia»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:49616": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49616",
+      "license": "CC0"
+    },
+    "wcvp:171150": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnosphace columbariae (Benth.) Rydb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:182401": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia columbariae Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Salvia columbariae": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia columbariae",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia_columbariae"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Benth.",
+    "name": "Salvia columbariae",
+    "refs": [
+      "wcvp:182401"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth.) Rydb.",
+      "name": "Pycnosphace columbariae",
+      "refs": [
+        "wcvp:171150"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49616",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

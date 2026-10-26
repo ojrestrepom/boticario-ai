@@ -1,0 +1,161 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:069713f2d58cdbdeccc82951305cc910ab6dbc408eaac3a59a15851924e625e0",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Betula alleghaniensis"
+      ],
+      "text": "abedul amarillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Betula alleghaniensis"
+      ],
+      "text": "abedul amarillo del Canadá"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Betula alleghaniensis"
+    ],
+    "value": "Especie de abedul de la familia de las betuláceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Betula alleghaniensis"
+    ],
+    "value": "Abedul amarillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:21135"
+    ],
+    "value": "Betulaceae"
+  },
+  "goals": [],
+  "id": "betula-alleghaniensis",
+  "image": {
+    "attributionRequired": false,
+    "author": "U.S. Fish and Wildlife Service",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Betula_alleghaniensis.jpg",
+    "refs": [
+      "commons:File:Betula alleghaniensis.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Betula_alleghaniensis.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:21135"
+    ],
+    "value": "Nativa del este de Canadá y del centronorte, noreste y sudeste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Betula alleghaniensis.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Betula alleghaniensis.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Betula_alleghaniensis.jpg"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:8328": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8328",
+      "license": "CC0"
+    },
+    "wcvp:21135": {
+      "dataset": "wcvp",
+      "label": "WCVP: Betula alleghaniensis Britton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:330297": {
+      "dataset": "wcvp",
+      "label": "WCVP: Betula lutea var. alleghaniensis (Britton) Rehder",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Betula alleghaniensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Betula alleghaniensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Betula_alleghaniensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Britton",
+    "name": "Betula alleghaniensis",
+    "refs": [
+      "wcvp:21135"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Britton) Rehder",
+      "name": "Betula lutea var. alleghaniensis",
+      "refs": [
+        "wcvp:330297"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Eb28: 314",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 314"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8328",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

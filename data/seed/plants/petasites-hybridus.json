@@ -1,0 +1,237 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:709b29bfded18fd4848102665a505857b7077dc949ef08a38192f81d2c445298",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P699"
+      ],
+      "text": "Common butterbur"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2203-1"
+      ],
+      "text": "European Butterbur"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P699"
+      ],
+      "text": "Rotes Pestwurz"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Petasites hybridus"
+    ],
+    "value": "Planta herbácea perenne de la familia de las asteráceas, nativa de Europa y del norte de Asia."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2912815"
+    ],
+    "value": "Petasites hybridus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2912815"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "petasites-hybridus",
+  "image": {
+    "attributionRequired": false,
+    "author": "AnRo0002",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:20170512Petasites_hybridus2.jpg",
+    "refs": [
+      "commons:File:20170512Petasites hybridus2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/20170512Petasites_hybridus2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2203-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2912815"
+    ],
+    "value": "Nativa de Europa y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:20170512Petasites hybridus2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:20170512Petasites hybridus2.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:20170512Petasites_hybridus2.jpg"
+    },
+    "efsa_botanic:112": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Senecionine",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P699": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Petasites hybridus (L.) P. Gaertn. & al.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:2203-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «European Butterbur»",
+      "license": "CC0"
+    },
+    "usda_part:2203-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:52468": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52468",
+      "license": "CC0"
+    },
+    "wcvp:2912815": {
+      "dataset": "wcvp",
+      "label": "WCVP: Petasites hybridus (L.) G.Gaertn., B.Mey. & Scherb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2912816": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tussilago hybrida L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2912844": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cineraria hybrida (L.) Bernh.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3234900": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tussilago petasites var. hybrida (L.) Boenn.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Petasites hybridus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Petasites hybridus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Petasites_hybridus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (hoja), sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:112",
+      "tppt_plant:P699"
+    ],
+    "text": "EFSA incluye la senecionina, un alcaloide pirrolizidínico del grupo genotóxico y carcinógeno, entre las sustancias de alta preocupación de la planta viva. TPPT registra la planta como tóxica para las personas: la parte tóxica es la hoja y la raíz (o la planta entera), por alcaloides pirrolizidínicos como la senecionina, la petasitenina y la senkirkina."
+  },
+  "scientificName": {
+    "authors": "(L.) G.Gaertn., B.Mey. & Scherb.",
+    "name": "Petasites hybridus",
+    "refs": [
+      "wcvp:2912815"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Bernh.",
+      "name": "Cineraria hybrida",
+      "refs": [
+        "wcvp:2912844"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Tussilago hybrida",
+      "refs": [
+        "wcvp:2912816"
+      ]
+    },
+    {
+      "authors": "(L.) Boenn.",
+      "name": "Tussilago petasites var. hybrida",
+      "refs": [
+        "wcvp:3234900"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Bélgica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52468",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

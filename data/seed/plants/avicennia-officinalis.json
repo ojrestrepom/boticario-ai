@@ -1,0 +1,247 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:28569a2295840ad45cc8f003980813ca033fbe43389635657969bf7001f1bf84",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Avicennia officinalis"
+    ],
+    "value": "Especie de manglar de la familia Acanthaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:18473"
+    ],
+    "value": "Avicennia officinalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:18473"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "avicennia-officinalis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Francisco Manuel Blanco (O.S.A.)",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Avicennia_officinalis_Blanco1.73-cropped.jpg",
+    "refs": [
+      "commons:File:Avicennia officinalis Blanco1.73-cropped.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Avicennia_officinalis_Blanco1.73-cropped.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:18473"
+    ],
+    "value": "Nativa de Australia, el subcontinente indio, Indochina, Malasia y Papuasia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Avicennia officinalis Blanco1.73-cropped.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Avicennia officinalis Blanco1.73-cropped.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Avicennia_officinalis_Blanco1.73-cropped.jpg"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:33764": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33764",
+      "license": "CC0"
+    },
+    "usda_use:51968": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51968",
+      "license": "CC0"
+    },
+    "usda_use:56845": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56845",
+      "license": "CC0"
+    },
+    "usda_use:7600": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7600",
+      "license": "CC0"
+    },
+    "usda_use:80833": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80833",
+      "license": "CC0"
+    },
+    "wcvp:18473": {
+      "dataset": "wcvp",
+      "label": "WCVP: Avicennia officinalis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Avicennia officinalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Avicennia officinalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Avicennia_officinalis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Avicennia officinalis",
+    "refs": [
+      "wcvp:18473"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Boil",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7600",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Medicinal",
+      "activitySource": "Medicinel",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:33764"
+      ]
+    },
+    {
+      "activity": "Cataplasma",
+      "activitySource": "Poultice",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56845",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Jabón",
+      "activitySource": "Soap",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80833",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51968",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

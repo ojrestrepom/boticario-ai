@@ -1,0 +1,105 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5f12a882c007937755df2720457a4c3481e54b7407671cb6b04ab7cdb2ed171e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1408-1"
+      ],
+      "text": "Fringed-heath myrtle"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:127475"
+    ],
+    "value": "Micromyrtus striata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:127475"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "micromyrtus-striata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Murray Fagg",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Micromyrtus_striata.jpg",
+    "refs": [
+      "commons:File:Micromyrtus striata.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Micromyrtus_striata.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:127475"
+    ],
+    "value": "Australia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Micromyrtus striata.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Micromyrtus striata.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Micromyrtus_striata.jpg"
+    },
+    "usda_common_name:1408-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Fringed-heath myrtle»",
+      "license": "CC0"
+    },
+    "wcvp:127475": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromyrtus striata J.W.Green",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "J.W.Green",
+    "name": "Micromyrtus striata",
+    "refs": [
+      "wcvp:127475"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

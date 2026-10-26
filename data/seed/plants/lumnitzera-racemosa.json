@@ -1,0 +1,148 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:59c7aaebeb9b324ca3bf23b2324ffb8675b2f2e69608a00df3e16579b9976828",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2338861"
+    ],
+    "value": "Lumnitzera racemosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2338861"
+    ],
+    "value": "Combretaceae"
+  },
+  "goals": [],
+  "id": "lumnitzera-racemosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Wibowo Djatmiko ( Wie146 )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lumnit_racem_110902-17260_Fl_bal.jpg",
+    "refs": [
+      "commons:File:Lumnit racem 110902-17260 Fl bal.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Lumnit_racem_110902-17260_Fl_bal.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2338861"
+    ],
+    "value": "Nativa de África oriental y austral, el occidente del océano Índico, el subcontinente indio, Asia oriental, China, Indochina, Malesia, Papuasia, Australia y el Pacífico suroccidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lumnit racem 110902-17260 Fl bal.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lumnit racem 110902-17260 Fl bal.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lumnit_racem_110902-17260_Fl_bal.jpg"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:30523": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30523",
+      "license": "CC0"
+    },
+    "usda_use:72216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72216",
+      "license": "CC0"
+    },
+    "wcvp:2338861": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lumnitzera racemosa Willd.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Willd.",
+    "name": "Lumnitzera racemosa",
+    "refs": [
+      "wcvp:2338861"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Herpes",
+      "activitySource": "Herpes",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72216",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Picazón",
+      "activitySource": "Itch",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30523",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:74920cda87c6418337d9d0fe691c9828b7932ac1155ca1a45397e7ca7fa2b5d0",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q15371643"
+    ],
+    "value": "Teucrium salviastrum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:203368"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-salviastrum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2065-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:203368"
+    ],
+    "value": "Nativa del suroeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2065-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:203368": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium salviastrum Schreb.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q15371643": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q15371643",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q15371643"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schreb.",
+    "name": "Teucrium salviastrum",
+    "refs": [
+      "wcvp:203368"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

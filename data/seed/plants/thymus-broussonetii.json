@@ -1,0 +1,120 @@
+{
+  "aliases": [
+    "thymus-broussonettii"
+  ],
+  "bundleHash": "sha256:da629a41b929f5c5febf98a2ce154419651d2489bda2edbeae58b26d7f4efe6e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2068-1"
+      ],
+      "text": "Moroccan Thyme"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:204533"
+    ],
+    "value": "Thymus broussonetii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:204533"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "thymus-broussonetii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2068-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:204533"
+    ],
+    "value": "Marruecos (norte de África)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2068-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Moroccan Thyme»",
+      "license": "CC0"
+    },
+    "usda_part:2068-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:143763": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum broussonetii (Boiss.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:204533": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus broussonetii Boiss.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boiss.",
+    "name": "Thymus broussonetii",
+    "refs": [
+      "wcvp:204533"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Boiss.) Kuntze",
+      "name": "Origanum broussonetii",
+      "refs": [
+        "wcvp:143763"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

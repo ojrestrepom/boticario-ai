@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:865b1b100df7e54622bf9d7bcc97434f0437c75867add00225fe004cb8ad7332",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2078-1"
+      ],
+      "text": "Catmint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:134920"
+    ],
+    "value": "Nepeta racemosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:134920"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "nepeta-racemosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kurt Stüber [1]",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Nepeta_mussinii4.jpg",
+    "refs": [
+      "commons:File:Nepeta mussinii4.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Nepeta_mussinii4.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2078-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:134920"
+    ],
+    "value": "Cáucaso y Asia occidental (Irán, Transcaucasia y Turquía)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Nepeta mussinii4.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Nepeta mussinii4.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Nepeta_mussinii4.jpg"
+    },
+    "usda_common_name:2078-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Catmint»",
+      "license": "CC0"
+    },
+    "usda_part:2078-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:134920": {
+      "dataset": "wcvp",
+      "label": "WCVP: Nepeta racemosa Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:537127": {
+      "dataset": "wcvp",
+      "label": "WCVP: Nepeta grandiflora var. racemosa (Lam.) Kusn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:90191": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glechoma racemosa (Lam.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lam.",
+    "name": "Nepeta racemosa",
+    "refs": [
+      "wcvp:134920"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lam.) Kuntze",
+      "name": "Glechoma racemosa",
+      "refs": [
+        "wcvp:90191"
+      ]
+    },
+    {
+      "authors": "(Lam.) Kusn.",
+      "name": "Nepeta grandiflora var. racemosa",
+      "refs": [
+        "wcvp:537127"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

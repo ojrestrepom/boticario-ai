@@ -1,0 +1,295 @@
+{
+  "aliases": [
+    "euodia-rutaecarpa"
+  ],
+  "bundleHash": "sha256:fd8f4d79adb2380d49c4f6d26447de917b1fafca5e935bb23fb683132354598e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:403-1"
+      ],
+      "text": "Wou Chou Yu"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2514718"
+    ],
+    "value": "Tetradium ruticarpum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2514718"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "tetradium-ruticarpum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Philipp Franz von Siebold and Joseph Gerhard Zuccarini",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rutaceae_sp_SZ21_clean.png",
+    "refs": [
+      "commons:File:Rutaceae sp SZ21 clean.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Rutaceae_sp_SZ21_clean.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:403-FR"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2514718"
+    ],
+    "value": "China, Asia oriental, subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rutaceae sp SZ21 clean.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rutaceae sp SZ21 clean.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Rutaceae_sp_SZ21_clean.png"
+    },
+    "efsa_botanic:2564": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: evodiamine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2565": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: rutaecarpine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:403-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wou Chou Yu»",
+      "license": "CC0"
+    },
+    "usda_part:403-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10497": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10497",
+      "license": "CC0"
+    },
+    "usda_use:2501": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2501",
+      "license": "CC0"
+    },
+    "usda_use:46679": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46679",
+      "license": "CC0"
+    },
+    "usda_use:47645": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47645",
+      "license": "CC0"
+    },
+    "usda_use:78012": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78012",
+      "license": "CC0"
+    },
+    "wcvp:2514718": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tetradium ruticarpum (A.Juss.) T.G.Hartley",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2634267": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ampacus ruticarpa (A.Juss.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2681074": {
+      "dataset": "wcvp",
+      "label": "WCVP: Boymia ruticarpa A.Juss.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2805891": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euodia ruticarpa (A.Juss.) Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el fruto, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2564",
+      "efsa_botanic:2565"
+    ],
+    "text": "EFSA registra para el fruto las sustancias evodiamina y rutaecarpina como sustancias de evidencia, sin fijar un nivel de precaución."
+  },
+  "scientificName": {
+    "authors": "(A.Juss.) T.G.Hartley",
+    "name": "Tetradium ruticarpum",
+    "refs": [
+      "wcvp:2514718"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(A.Juss.) Kuntze",
+      "name": "Ampacus ruticarpa",
+      "refs": [
+        "wcvp:2634267"
+      ]
+    },
+    {
+      "authors": "A.Juss.",
+      "name": "Boymia ruticarpa",
+      "refs": [
+        "wcvp:2681074"
+      ]
+    },
+    {
+      "authors": "(A.Juss.) Benth.",
+      "name": "Euodia ruticarpa",
+      "refs": [
+        "wcvp:2805891"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47645",
+        "usda_use:78012",
+        "usda_reference:Takeda",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2501",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10497",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46679",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

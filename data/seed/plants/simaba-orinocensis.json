@@ -1,0 +1,124 @@
+{
+  "aliases": [
+    "simaba-multiflora"
+  ],
+  "bundleHash": "sha256:5c7dac91682061fd94d3aa1c9d0f7df62f3c8c595da038c2511ba7d7da1ad9b6",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1091-1"
+      ],
+      "text": "Cajurana"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2580361"
+    ],
+    "value": "Simaba orinocensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2580361"
+    ],
+    "value": "Simaroubaceae"
+  },
+  "goals": [],
+  "id": "simaba-orinocensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2580361"
+    ],
+    "value": "Brasil, el Caribe y norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1091-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cajurana»",
+      "license": "CC0"
+    },
+    "wcvp:2469932": {
+      "dataset": "wcvp",
+      "label": "WCVP: Zwingera orinocensis (Kunth) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2580361": {
+      "dataset": "wcvp",
+      "label": "WCVP: Simaba orinocensis Kunth",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2654149": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aruba orinocensis (Kunth) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2868443": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quassia orinocensis (Kunth) D.Dietr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Kunth",
+    "name": "Simaba orinocensis",
+    "refs": [
+      "wcvp:2580361"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Kunth) Kuntze",
+      "name": "Aruba orinocensis",
+      "refs": [
+        "wcvp:2654149"
+      ]
+    },
+    {
+      "authors": "(Kunth) D.Dietr.",
+      "name": "Quassia orinocensis",
+      "refs": [
+        "wcvp:2868443"
+      ]
+    },
+    {
+      "authors": "(Kunth) Spreng.",
+      "name": "Zwingera orinocensis",
+      "refs": [
+        "wcvp:2469932"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

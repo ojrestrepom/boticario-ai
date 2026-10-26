@@ -1,0 +1,174 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4b606f3e396b07bddde6225c3323bc1f2130046c25319c373d904d26a7151b44",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P3"
+      ],
+      "text": "Stiff clubmoss"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2235-1"
+      ],
+      "text": "Clubmoss"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P3"
+      ],
+      "text": "Wald-Baerlapp"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lycopodium annotinum"
+    ],
+    "value": "Especie de Lycopodiophyta de porte herbáceo que crece desde el nivel del mar hasta los 1850 m en bosques cerrados de coníferas o bambúes, sobre suelos silíceos de zonas húmedas y frías del hemisferio norte."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3137941"
+    ],
+    "value": "Lycopodium annotinum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3137941"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "lycopodium-annotinum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Bernd Haynold",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lycopodium_annotinum_161102a.jpg",
+    "refs": [
+      "commons:File:Lycopodium annotinum 161102a.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Lycopodium_annotinum_161102a.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3137941"
+    ],
+    "value": "Regiones templadas y frías de Europa, Asia y Norteamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lycopodium annotinum 161102a.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lycopodium annotinum 161102a.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Lycopodium_annotinum_161102a.jpg"
+    },
+    "tppt_plant:P3": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Lycopodium annotinum L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:2235-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "wcvp:3137941": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium annotinum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139496": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepidotis annotina (L.) P.Beauv.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139504": {
+      "dataset": "wcvp",
+      "label": "WCVP: Spinulum annotinum (L.) A.Haines",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lycopodium annotinum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lycopodium annotinum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lycopodium_annotinum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P3"
+    ],
+    "text": "TPPT califica la planta entera como débilmente tóxica para las personas; registra como tóxicos los alcaloides de Lycopodium (alcaloides quinolizidínicos) y como toxinas menores los alcaloides piperidínicos."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Lycopodium annotinum",
+    "refs": [
+      "wcvp:3137941"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) P.Beauv.",
+      "name": "Lepidotis annotina",
+      "refs": [
+        "wcvp:3139496"
+      ]
+    },
+    {
+      "authors": "(L.) A.Haines",
+      "name": "Spinulum annotinum",
+      "refs": [
+        "wcvp:3139504"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

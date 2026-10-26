@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a8461eaa7aa1e7cfafdf1ec483fbb414faee9c0920ba385bbc0c96bb341720ba",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1130-1"
+      ],
+      "text": "Arco de pipa"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum pulchrum"
+    ],
+    "value": "Especie de planta de la familia Erythroxylaceae que se distribuye en Brasil. Contiene el alcaloide cocaína."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1130-1"
+    ],
+    "value": "Arco de pipa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801625"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-pulchrum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Instituto Nacional da Mata Atlântica - INMA",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:ERYTHROXYLACEAE_Erythroxylum_pulchrum_A.St.-Hil,_INMA_(MBML009659).pdf",
+    "refs": [
+      "commons:File:ERYTHROXYLACEAE Erythroxylum pulchrum A.St.-Hil, INMA (MBML009659).pdf"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/ERYTHROXYLACEAE_Erythroxylum_pulchrum_A.St.-Hil%2C_INMA_%28MBML009659%29.pdf"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801625"
+    ],
+    "value": "Brasil"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:ERYTHROXYLACEAE Erythroxylum pulchrum A.St.-Hil, INMA (MBML009659).pdf": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:ERYTHROXYLACEAE Erythroxylum pulchrum A.St.-Hil, INMA (MBML009659).pdf",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:ERYTHROXYLACEAE_Erythroxylum_pulchrum_A.St.-Hil,_INMA_(MBML009659).pdf"
+    },
+    "usda_common_name:1130-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Arco de pipa»",
+      "license": "CC0"
+    },
+    "wcvp:2801625": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum pulchrum A.St.-Hil.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum pulchrum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum pulchrum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_pulchrum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Arco de pipa» con idioma inglés; parece español y se acepta como tal, pero conviene confirmarlo.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "A.St.-Hil.",
+    "name": "Erythroxylum pulchrum",
+    "refs": [
+      "wcvp:2801625"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

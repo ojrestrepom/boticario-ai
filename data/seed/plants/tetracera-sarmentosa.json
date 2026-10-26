@@ -1,0 +1,141 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a5a68049038920d7e05833e79f5b491171fd21643fe2eabd4012796608d79131",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2433774"
+    ],
+    "value": "Tetracera sarmentosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2433774"
+    ],
+    "value": "Dilleniaceae"
+  },
+  "goals": [],
+  "id": "tetracera-sarmentosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2433774"
+    ],
+    "value": "China, subcontinente indio, Indochina, Malesia, Papuasia y suroeste del Pacífico."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:65845": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65845",
+      "license": "CC0"
+    },
+    "usda_use:69546": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69546",
+      "license": "CC0"
+    },
+    "wcvp:2433774": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tetracera sarmentosa (L.) Vahl",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2759117": {
+      "dataset": "wcvp",
+      "label": "WCVP: Delima sarmentosa L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Vahl",
+    "name": "Tetracera sarmentosa",
+    "refs": [
+      "wcvp:2433774"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Delima sarmentosa",
+      "refs": [
+        "wcvp:2759117"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Malasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65845",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Malasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69546",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

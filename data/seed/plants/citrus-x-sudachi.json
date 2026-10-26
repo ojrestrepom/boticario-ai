@@ -1,0 +1,125 @@
+{
+  "aliases": [
+    "citrus-sudachi"
+  ],
+  "bundleHash": "sha256:7c505cac8983afb238174db349f09004bcbeca5e92b8d746178a560979630d80",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Citrus sudachi",
+        "wikidata:Q3234251"
+      ],
+      "text": "Sudachi"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Citrus sudachi"
+    ],
+    "value": "Cítrico exclusivo de Japón, símbolo local, cultivado sobre todo en la prefectura de Tokushima. Su fruto, redondo y de unos 4 cm, tiene sabor y aroma parecidos al limón y la lima."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Citrus sudachi",
+      "wikidata:Q3234251"
+    ],
+    "value": "Sudachi"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2724373"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "citrus-x-sudachi",
+  "image": {
+    "attributionRequired": false,
+    "author": "User:Lexicon",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sudachi.png",
+    "refs": [
+      "commons:File:Sudachi.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Sudachi.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sudachi.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sudachi.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Sudachi.png"
+    },
+    "wcvp:2724373": {
+      "dataset": "wcvp",
+      "label": "WCVP: Citrus × sudachi Shirai",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q3234251": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q3234251",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q3234251"
+    },
+    "wikipedia_es:Citrus sudachi": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Citrus sudachi",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Citrus_sudachi"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Shirai",
+    "name": "Citrus × sudachi",
+    "refs": [
+      "wcvp:2724373"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

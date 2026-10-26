@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:637894f90d368858dc7722c81127085bc69a3fce2d5d393c888a288d8d198739",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:636-1"
+      ],
+      "text": "Lindheimer's Monarda"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:129212"
+    ],
+    "value": "Monarda lindheimeri"
+  },
+  "family": {
+    "refs": [
+      "wcvp:129212"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "monarda-lindheimeri",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jaime González",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Monarda_lindheimeri.jpg",
+    "refs": [
+      "commons:File:Monarda lindheimeri.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Monarda_lindheimeri.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:636-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:129212"
+    ],
+    "value": "Nativa del centro-sur y del sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Monarda lindheimeri.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Monarda lindheimeri.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Monarda_lindheimeri.jpg"
+    },
+    "usda_common_name:636-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lindheimer's Monarda»",
+      "license": "CC0"
+    },
+    "usda_part:636-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:129212": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda lindheimeri Engelm. & A.Gray",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Engelm. & A.Gray",
+    "name": "Monarda lindheimeri",
+    "refs": [
+      "wcvp:129212"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,76 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ec4528e2bb62be59ba5da141513053671a2a5d6a4dfe6e7b9c4314867a38a76d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:642-1"
+      ],
+      "text": "Morinda"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_common_name:642-1"
+    ],
+    "value": "Morinda sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "morinda-sp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:642-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Morinda»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Morinda sp",
+    "refs": [
+      "usda_common_name:642-1"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

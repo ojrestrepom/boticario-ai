@@ -1,0 +1,153 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c2b0dd2d8546a01254015bd4097064775da71b09d71bdceaafd4a5fc4dc59ba1",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Artemisia pallens"
+      ],
+      "text": "Davana"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:126-1"
+      ],
+      "text": "Davana"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Artemisia pallens"
+    ],
+    "value": "Hierba aromática pequeña, de naturaleza xerofílica. Sus flores forman panículas con numerosas cabezas florales amarillas pequeñas, y la cubierta sedosa blanca plateada de abajo da al follaje un aspecto gris o blanco."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Artemisia pallens"
+    ],
+    "value": "Davana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3290395"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "artemisia-pallens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Sahyadri",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Davana-Dried.jpg",
+    "refs": [
+      "commons:File:Davana-Dried.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Davana-Dried.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:126-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3290395"
+    ],
+    "value": "Subcontinente indio"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Davana-Dried.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Davana-Dried.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Davana-Dried.jpg"
+    },
+    "efsa_botanic:1640": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1641": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:126-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Davana»",
+      "license": "CC0"
+    },
+    "usda_part:126-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:3290395": {
+      "dataset": "wcvp",
+      "label": "WCVP: Artemisia pallens Wall. ex Besser",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Artemisia pallens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Artemisia pallens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Artemisia_pallens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1641",
+      "efsa_botanic:1640"
+    ],
+    "text": "EFSA registra metileugenol (grupo genotóxico o carcinógeno) en la parte aérea de la planta y, como sustancia de evidencia, 1,8-cineol."
+  },
+  "scientificName": {
+    "authors": "Wall. ex Besser",
+    "name": "Artemisia pallens",
+    "refs": [
+      "wcvp:3290395"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

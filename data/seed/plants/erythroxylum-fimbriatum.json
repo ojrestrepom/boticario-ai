@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4f7010b00d4174b2443e3cdf4374c86571bbbee905a5d50ee203c9f4db4b496c",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum fimbriatum"
+    ],
+    "value": "Especie de planta de la familia Erythroxylaceae que se distribuye en Brasil, Colombia, Costa Rica, Ecuador, Guyana Francesa, Nicaragua, Panamá, Perú y Venezuela. La especie contiene el alcaloide cocaína."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801404"
+    ],
+    "value": "Erythroxylum fimbriatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801404"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-fimbriatum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801404"
+    ],
+    "value": "Brasil, América Central, norte de Sudamérica y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2801404": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum fimbriatum Peyr.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum fimbriatum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum fimbriatum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_fimbriatum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Peyr.",
+    "name": "Erythroxylum fimbriatum",
+    "refs": [
+      "wcvp:2801404"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

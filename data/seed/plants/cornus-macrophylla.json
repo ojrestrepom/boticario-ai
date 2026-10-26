@@ -1,0 +1,198 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:69ea9a7b1670fb2b6f36dc10751541285710d919ee4b10b0375b01686a7b4f1f",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:47430"
+    ],
+    "value": "Cornus macrophylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:47430"
+    ],
+    "value": "Cornaceae"
+  },
+  "goals": [],
+  "id": "cornus-macrophylla",
+  "image": {
+    "attributionRequired": false,
+    "author": "Qwert1234",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Swida_macrophylla_1.JPG",
+    "refs": [
+      "commons:File:Swida macrophylla 1.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Swida_macrophylla_1.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:47430"
+    ],
+    "value": "China, Asia oriental, subcontinente indio, Indochina, Lejano Oriente ruso y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Swida macrophylla 1.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Swida macrophylla 1.JPG",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Swida_macrophylla_1.JPG"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_use:15451": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15451",
+      "license": "CC0"
+    },
+    "usda_use:19481": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19481",
+      "license": "CC0"
+    },
+    "usda_use:79846": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79846",
+      "license": "CC0"
+    },
+    "wcvp:198728": {
+      "dataset": "wcvp",
+      "label": "WCVP: Swida macrophylla (Wall.) Soják",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:203694": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thelycrania macrophylla (Wall.) Pojark.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:47430": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cornus macrophylla Wall.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Wall.",
+    "name": "Cornus macrophylla",
+    "refs": [
+      "wcvp:47430"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Wall.) Soják",
+      "name": "Swida macrophylla",
+      "refs": [
+        "wcvp:198728"
+      ]
+    },
+    {
+      "authors": "(Wall.) Pojark.",
+      "name": "Thelycrania macrophylla",
+      "refs": [
+        "wcvp:203694"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15451",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19481",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Útero",
+      "activitySource": "Uterus",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79846",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

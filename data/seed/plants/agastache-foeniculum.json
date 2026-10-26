@@ -1,0 +1,241 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:49c962473bd46bde5d64bc154f740a85f3656993c34c58a5cdbc3df85bd59705",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1975-1"
+      ],
+      "text": "Giant Hyssop"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:4454"
+    ],
+    "value": "Agastache foeniculum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:4454"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "agastache-foeniculum",
+  "image": {
+    "attributionRequired": false,
+    "author": "WayneRay",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Agastace_foeniculum_WPC.jpg",
+    "refs": [
+      "commons:File:Agastace foeniculum WPC.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Agastace_foeniculum_WPC.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1975-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:4454"
+    ],
+    "value": "Nativa de Canadá (este y oeste), el subártico de América y el centro-norte y noroeste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Agastace foeniculum WPC.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Agastace foeniculum WPC.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Agastace_foeniculum_WPC.jpg"
+    },
+    "efsa_botanic:1456": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1457": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:1975-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Giant Hyssop»",
+      "license": "CC0"
+    },
+    "usda_part:1975-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:33445": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33445",
+      "license": "CC0"
+    },
+    "usda_use:78561": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78561",
+      "license": "CC0"
+    },
+    "wcvp:102261": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hyssopus foeniculum (Pursh) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:195062": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stachys foeniculum Pursh",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:213931": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vleckia foeniculum (Pursh) MacMill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:4454": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agastache foeniculum (Pursh) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:458245": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lophanthus foeniculum (Pursh) E.Mey.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo «Giant Hyssop», en inglés); el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1456",
+      "efsa_botanic:1457"
+    ],
+    "text": "EFSA incluye en su lista de sustancias de alta preocupación, en plantas vivas, el estragol y el metileugenol (grupo de sustancias genotóxicas o carcinógenas)."
+  },
+  "scientificName": {
+    "authors": "(Pursh) Kuntze",
+    "name": "Agastache foeniculum",
+    "refs": [
+      "wcvp:4454"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pursh) Spreng.",
+      "name": "Hyssopus foeniculum",
+      "refs": [
+        "wcvp:102261"
+      ]
+    },
+    {
+      "authors": "(Pursh) E.Mey.",
+      "name": "Lophanthus foeniculum",
+      "refs": [
+        "wcvp:458245"
+      ]
+    },
+    {
+      "authors": "Pursh",
+      "name": "Stachys foeniculum",
+      "refs": [
+        "wcvp:195062"
+      ]
+    },
+    {
+      "authors": "(Pursh) MacMill.",
+      "name": "Vleckia foeniculum",
+      "refs": [
+        "wcvp:213931"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb24: 318",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 318"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (cree)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33445",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Eb24: 318",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 318"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:78561",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "aliases": [
+    "cinnamomum-glaucescens"
+  ],
+  "bundleHash": "sha256:793c86011538bd38e9671ff0d1bfc73ba2824f603da9e2f60faca3e6c1a9b2c2",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1344-1"
+      ],
+      "text": "Nepalese cinnamon"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1344-2"
+      ],
+      "text": "Sugandha kokila"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3313381"
+    ],
+    "value": "Camphora glaucescens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3313381"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "camphora-glaucescens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Krish Dulal",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cinnamomum_glaucescens.JPG",
+    "refs": [
+      "commons:File:Cinnamomum glaucescens.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Cinnamomum_glaucescens.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3313381"
+    ],
+    "value": "Subcontinente indio e Indochina"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cinnamomum glaucescens.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cinnamomum glaucescens.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Cinnamomum_glaucescens.JPG"
+    },
+    "usda_common_name:1344-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Nepalese cinnamon»",
+      "license": "CC0"
+    },
+    "usda_common_name:1344-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sugandha kokila»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:29769": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29769",
+      "license": "CC0"
+    },
+    "wcvp:2706962": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cecidodaphne glaucescens Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2721307": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cinnamomum glaucescens (Nees) Hand.-Mazz.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3313381": {
+      "dataset": "wcvp",
+      "label": "WCVP: Camphora glaucescens (Nees) Ormerod",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Nees) Ormerod",
+    "name": "Camphora glaucescens",
+    "refs": [
+      "wcvp:3313381"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Nees",
+      "name": "Cecidodaphne glaucescens",
+      "refs": [
+        "wcvp:2706962"
+      ]
+    },
+    {
+      "authors": "(Nees) Hand.-Mazz.",
+      "name": "Cinnamomum glaucescens",
+      "refs": [
+        "wcvp:2721307"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29769",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

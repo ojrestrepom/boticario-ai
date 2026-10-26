@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a674c385e183f4fb1f2dac2b9f1215384afc248e9f077d78df88336243bf3395",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:463-1"
+      ],
+      "text": "Reverchon's Pennyroyal"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:96534"
+    ],
+    "value": "Hedeoma reverchonii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:96534"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "hedeoma-reverchonii",
+  "image": {
+    "attributionRequired": false,
+    "author": "Mason Brock ( Masebrock )",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hedeoma_reverchonii.jpg",
+    "refs": [
+      "commons:File:Hedeoma reverchonii.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Hedeoma_reverchonii.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:463-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:96534"
+    ],
+    "value": "Nativa del centro-norte y centro-sur de Estados Unidos (Oklahoma y Texas)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hedeoma reverchonii.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hedeoma reverchonii.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Hedeoma_reverchonii.jpg"
+    },
+    "usda_common_name:463-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Reverchon's Pennyroyal»",
+      "license": "CC0"
+    },
+    "usda_part:463-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:96464": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedeoma drummondii var. reverchonii A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:96534": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedeoma reverchonii (A.Gray) A.Gray",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(A.Gray) A.Gray",
+    "name": "Hedeoma reverchonii",
+    "refs": [
+      "wcvp:96534"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "A.Gray",
+      "name": "Hedeoma drummondii var. reverchonii",
+      "refs": [
+        "wcvp:96464"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

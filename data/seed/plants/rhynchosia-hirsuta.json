@@ -1,0 +1,103 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4ea44b8ce7e98db5de85271d452f0cde5e4a3511c72c34f2431674d632ab061f",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2428151"
+    ],
+    "value": "Rhynchosia hirsuta"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2428151"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "rhynchosia-hirsuta",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2428151"
+    ],
+    "value": "África austral"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Guillarmod": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Guillarmod",
+      "license": "CC0"
+    },
+    "usda_use:73639": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73639",
+      "license": "CC0"
+    },
+    "wcvp:2428151": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhynchosia hirsuta Eckl. & Zeyh.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Eckl. & Zeyh.",
+    "name": "Rhynchosia hirsuta",
+    "refs": [
+      "wcvp:2428151"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Masticatorio",
+      "activitySource": "Masticatory",
+      "citations": [
+        {
+          "key": "Guillarmod",
+          "ref": "usda_reference:Guillarmod",
+          "text": "Guillarmod, A.J. 1971. Flora of Lesotho (Basutoland). Verlag von J. Cramer, 3301 Lehre, Germany."
+        }
+      ],
+      "countries": [
+        "Lesotho"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73639",
+        "usda_reference:Guillarmod"
+      ]
+    }
+  ]
+}

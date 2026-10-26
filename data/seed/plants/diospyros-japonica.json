@@ -1,0 +1,93 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e07f1b7c707388dc66a06ef6e8f9eed6482cb050a38c6911a0e8dac72c4e5a51",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:384232"
+    ],
+    "value": "Diospyros japonica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:384232"
+    ],
+    "value": "Ebenaceae"
+  },
+  "goals": [],
+  "id": "diospyros-japonica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:384232"
+    ],
+    "value": "China y Asia oriental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:384232": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros japonica Siebold & Zucc.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:384245": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros kaki var. glabra A.DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:498809": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros lotus var. glabra (A.DC.) Makino",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Siebold & Zucc.",
+    "name": "Diospyros japonica",
+    "refs": [
+      "wcvp:384232"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "A.DC.",
+      "name": "Diospyros kaki var. glabra",
+      "refs": [
+        "wcvp:384245"
+      ]
+    },
+    {
+      "authors": "(A.DC.) Makino",
+      "name": "Diospyros lotus var. glabra",
+      "refs": [
+        "wcvp:498809"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

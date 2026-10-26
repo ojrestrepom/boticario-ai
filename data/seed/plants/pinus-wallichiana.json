@@ -1,0 +1,221 @@
+{
+  "aliases": [
+    "pinus-walliciana"
+  ],
+  "bundleHash": "sha256:674824bef300fe3fc894f5ecbe28ca7ce9f1487d23cffdef3bd517d8edd0ca18",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q747652"
+      ],
+      "text": "Pino azul"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pinus wallichiana",
+        "wikidata:Q747652"
+      ],
+      "text": "Pino azul del Himalaya"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pinus wallichiana",
+        "wikidata:Q747652"
+      ],
+      "text": "Pino de Bután"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q747652"
+      ],
+      "text": "Pino de Bhutan"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1085-1"
+      ],
+      "text": "Bhutan Pine"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pinus wallichiana"
+    ],
+    "value": "Especie originaria del Himalaya, reconocible por sus acículas agrupadas de cinco en cinco y sus piñas cilíndricas colgantes. Se ha introducido de forma local en algunas partes de España, como la Sierra de Guadarrama."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q747652"
+    ],
+    "value": "Pino azul"
+  },
+  "family": {
+    "refs": [
+      "wcvp:380092"
+    ],
+    "value": "Pinaceae"
+  },
+  "goals": [],
+  "id": "pinus-wallichiana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Sudan Shrestha",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lakuri_bhanjang_(88).JPG",
+    "refs": [
+      "commons:File:Lakuri bhanjang (88).JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Lakuri_bhanjang_%2888%29.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1085-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:380092"
+    ],
+    "value": "Nativa de China, el subcontinente indio, Indochina y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lakuri bhanjang (88).JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lakuri bhanjang (88).JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lakuri_bhanjang_(88).JPG"
+    },
+    "usda_common_name:1085-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bhutan Pine»",
+      "license": "CC0"
+    },
+    "usda_part:1085-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:60275": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60275",
+      "license": "CC0"
+    },
+    "wcvp:379155": {
+      "dataset": "wcvp",
+      "label": "WCVP: Leucopitys excelsa Nieuwl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:380092": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus wallichiana A.B.Jacks.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q747652": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q747652",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q747652"
+    },
+    "wikipedia_es:Pinus wallichiana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pinus wallichiana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pinus_wallichiana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "A.B.Jacks.",
+    "name": "Pinus wallichiana",
+    "refs": [
+      "wcvp:380092"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Nieuwl.",
+      "name": "Leucopitys excelsa",
+      "refs": [
+        "wcvp:379155"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60275",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

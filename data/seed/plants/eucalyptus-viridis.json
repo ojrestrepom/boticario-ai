@@ -1,0 +1,122 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:fb0ef2190d56ef8b4b1b7aa41cf90c064ec82adb531370bc3dfdfbacc8fc43ee",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus viridis"
+    ],
+    "value": "Especie de eucalipto de la familia de las mirtáceas, árbol nativo de Australia que se distribuye por Queensland, Nueva Gales del Sur, Victoria y South Australia."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:74123"
+    ],
+    "value": "Eucalyptus viridis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:74123"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-viridis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Melburnian",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_viridis.JPG",
+    "refs": [
+      "commons:File:Eucalyptus viridis.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Eucalyptus_viridis.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2114-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:74123"
+    ],
+    "value": "Australia (Nueva Gales del Sur, Queensland y Victoria)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus viridis.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus viridis.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_viridis.JPG"
+    },
+    "usda_part:2114-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:74123": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus viridis R.T.Baker",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus viridis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus viridis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_viridis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.T.Baker",
+    "name": "Eucalyptus viridis",
+    "refs": [
+      "wcvp:74123"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

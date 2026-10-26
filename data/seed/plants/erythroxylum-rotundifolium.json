@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c450fccd1684f8d5315109417941336b1eec1e40f606e56af6519416b0113a10",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1133-1"
+      ],
+      "text": "Arabillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1133-2"
+      ],
+      "text": "Jiba"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1133-1"
+    ],
+    "value": "Arabillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801646"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-rotundifolium",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801646"
+    ],
+    "value": "Caribe, América Central y México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1133-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Arabillo»",
+      "license": "CC0"
+    },
+    "usda_common_name:1133-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Jiba»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:14734": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14734",
+      "license": "CC0"
+    },
+    "wcvp:2801646": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum rotundifolium Lunan",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Arabillo» y «Jiba» con idioma inglés; se aceptan como español, pero conviene confirmarlo (sobre todo «Jiba»).",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lunan",
+    "name": "Erythroxylum rotundifolium",
+    "refs": [
+      "wcvp:2801646"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Eb29: 317",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 317"
+        }
+      ],
+      "countries": [
+        "Bahamas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14734",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

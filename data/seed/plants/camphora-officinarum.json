@@ -1,0 +1,939 @@
+{
+  "aliases": [
+    "cinnamomum-camphora"
+  ],
+  "bundleHash": "sha256:b92bff4186cee6c2a2f03a7a8f48fc77e86d1ab84125633952712aefd6edbc2b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Cinnamomum camphora"
+      ],
+      "text": "Alcanforero"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158722"
+      ],
+      "text": "Árbol del alcanfor"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:267-1"
+      ],
+      "text": "Camphor"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:267-2"
+      ],
+      "text": "Ho Leaf"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cinnamomum camphora"
+    ],
+    "value": "Árbol de la familia de las lauráceas que puede alcanzar unos veinte metros."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Cinnamomum camphora"
+    ],
+    "value": "Alcanforero"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2695178"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "camphora-officinarum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:267-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2695178"
+    ],
+    "value": "Asia oriental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:3176": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Camphor",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3177": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3178": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Safrole",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:267-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Camphor»",
+      "license": "CC0"
+    },
+    "usda_common_name:267-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ho Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:267-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11880": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11880",
+      "license": "CC0"
+    },
+    "usda_use:11881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11881",
+      "license": "CC0"
+    },
+    "usda_use:2042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2042",
+      "license": "CC0"
+    },
+    "usda_use:2397": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2397",
+      "license": "CC0"
+    },
+    "usda_use:2910": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2910",
+      "license": "CC0"
+    },
+    "usda_use:2911": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2911",
+      "license": "CC0"
+    },
+    "usda_use:29233": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29233",
+      "license": "CC0"
+    },
+    "usda_use:3594": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3594",
+      "license": "CC0"
+    },
+    "usda_use:3595": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3595",
+      "license": "CC0"
+    },
+    "usda_use:36": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36",
+      "license": "CC0"
+    },
+    "usda_use:3838": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3838",
+      "license": "CC0"
+    },
+    "usda_use:41070": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41070",
+      "license": "CC0"
+    },
+    "usda_use:41071": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41071",
+      "license": "CC0"
+    },
+    "usda_use:46568": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46568",
+      "license": "CC0"
+    },
+    "usda_use:46569": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46569",
+      "license": "CC0"
+    },
+    "usda_use:46570": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46570",
+      "license": "CC0"
+    },
+    "usda_use:4798": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4798",
+      "license": "CC0"
+    },
+    "usda_use:51335": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51335",
+      "license": "CC0"
+    },
+    "usda_use:51336": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51336",
+      "license": "CC0"
+    },
+    "usda_use:54175": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54175",
+      "license": "CC0"
+    },
+    "usda_use:54176": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54176",
+      "license": "CC0"
+    },
+    "usda_use:63842": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63842",
+      "license": "CC0"
+    },
+    "usda_use:64656": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64656",
+      "license": "CC0"
+    },
+    "usda_use:66131": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66131",
+      "license": "CC0"
+    },
+    "usda_use:6622": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6622",
+      "license": "CC0"
+    },
+    "usda_use:66409": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66409",
+      "license": "CC0"
+    },
+    "usda_use:72360": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72360",
+      "license": "CC0"
+    },
+    "usda_use:75986": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75986",
+      "license": "CC0"
+    },
+    "usda_use:80996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80996",
+      "license": "CC0"
+    },
+    "usda_use:80997": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80997",
+      "license": "CC0"
+    },
+    "usda_use:81002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81002",
+      "license": "CC0"
+    },
+    "usda_use:8780": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8780",
+      "license": "CC0"
+    },
+    "usda_use:8782": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8782",
+      "license": "CC0"
+    },
+    "wcvp:2349307": {
+      "dataset": "wcvp",
+      "label": "WCVP: Laurus camphora L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2529950": {
+      "dataset": "wcvp",
+      "label": "WCVP: Persea camphora (L.) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2695178": {
+      "dataset": "wcvp",
+      "label": "WCVP: Camphora officinarum Boerh. ex Fabr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2695210": {
+      "dataset": "wcvp",
+      "label": "WCVP: Camphorina camphora (L.) Farw.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2721183": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cinnamomum camphora (L.) J.Presl",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q158722": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q158722",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q158722"
+    },
+    "wikipedia_es:Cinnamomum camphora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cinnamomum camphora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cinnamomum_camphora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Eb33:» no tiene candidata que corresponda; el grupo conserva la cita resuelta de Singh.",
+      "target": "traditionalUses[5]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Krochm» no tiene candidata; el grupo conserva la cita resuelta de Woi.2.",
+      "target": "traditionalUses[7]"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:3178",
+      "efsa_botanic:3177",
+      "efsa_botanic:3176"
+    ],
+    "text": "EFSA registra para la madera el safrol, una sustancia del grupo de las genotóxicas o carcinógenas de alta preocupación. También figuran como evidencia el 1,8-cineol y el alcanfor."
+  },
+  "scientificName": {
+    "authors": "Boerh. ex Fabr.",
+    "name": "Camphora officinarum",
+    "refs": [
+      "wcvp:2695178"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Farw.",
+      "name": "Camphorina camphora",
+      "refs": [
+        "wcvp:2695210"
+      ]
+    },
+    {
+      "authors": "(L.) J.Presl",
+      "name": "Cinnamomum camphora",
+      "refs": [
+        "wcvp:2721183"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Laurus camphora",
+      "refs": [
+        "wcvp:2349307"
+      ]
+    },
+    {
+      "authors": "(L.) Spreng.",
+      "name": "Persea camphora",
+      "refs": [
+        "wcvp:2529950"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Nepal",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46568",
+        "usda_use:46569",
+        "usda_use:46570",
+        "usda_use:81002",
+        "usda_reference:Krochmal",
+        "usda_reference:Singh",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3594",
+        "usda_use:3595",
+        "usda_use:3838",
+        "usda_reference:Krochmal",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41070",
+        "usda_use:41071",
+        "usda_use:75986",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dolor de muelas",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51335",
+        "usda_use:51336",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Analgésico",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2397",
+        "usda_use:80997",
+        "usda_reference:Hunan",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antihelmíntico",
+      "activitySource": "Anthelminthic",
+      "citations": [
+        {
+          "key": "Eb33:",
+          "ref": null,
+          "text": "Eb33: (sin resolver)"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        }
+      ],
+      "countries": [
+        "Nepal"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2910",
+        "usda_use:2911",
+        "usda_reference:Singh"
+      ]
+    },
+    {
+      "activity": "Circulación",
+      "activitySource": "Circulation",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11880",
+        "usda_use:11881",
+        "usda_reference:Hunan",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Krochm",
+          "ref": null,
+          "text": "Krochm (sin resolver)"
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29233",
+        "usda_use:72360",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54175",
+        "usda_use:54176",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Abdomen",
+      "activitySource": "Abdomen",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63842",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Analéptico",
+      "activitySource": "Analeptic",
+      "citations": [
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2042",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Antitranspirante",
+      "activitySource": "Antiperspirant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80996",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64656",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4798",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Beriberi",
+      "activitySource": "Beri-Beri",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6622",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Calmante",
+      "activitySource": "Calmative",
+      "citations": [
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8780",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Alcanfor",
+      "activitySource": "Camphor",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8782",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Ingrediente del alcanfor",
+      "activitySource": "Camphor Ingredient",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66131",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de nariz",
+      "activitySource": "Cancer(Nose)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Cuba"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66409",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

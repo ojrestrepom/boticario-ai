@@ -1,0 +1,789 @@
+{
+  "aliases": [
+    "cynanchum-atratum"
+  ],
+  "bundleHash": "sha256:4c91a45bae66bc03944e71c9f19df320a45477b13f8cf5de97f3090ee6b2f8c6",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:343-1"
+      ],
+      "text": "Bai-Wei"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:343-2"
+      ],
+      "text": "Pai-Wei"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:513423"
+    ],
+    "value": "Vincetoxicum atratum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:513423"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "vincetoxicum-atratum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Qwert1234",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E3%83%95%E3%83%8A%E3%83%90%E3%83%A9%E3%82%BD%E3%82%A602_Vincetoxicum_atratum.JPG",
+    "refs": [
+      "commons:File:フナバラソウ02 Vincetoxicum atratum.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/%E3%83%95%E3%83%8A%E3%83%90%E3%83%A9%E3%82%BD%E3%82%A602_Vincetoxicum_atratum.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:513423"
+    ],
+    "value": "Asia oriental y el Lejano Oriente ruso, incluida China"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:フナバラソウ02 Vincetoxicum atratum.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:フナバラソウ02 Vincetoxicum atratum.JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:%E3%83%95%E3%83%8A%E3%83%90%E3%83%A9%E3%82%BD%E3%82%A602_Vincetoxicum_atratum.JPG"
+    },
+    "efsa_botanic:1439": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: neolignans",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1440": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: atratoglaucoside A",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1441": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: atratoglaucoside B",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:343-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bai-Wei»",
+      "license": "CC0"
+    },
+    "usda_common_name:343-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pai-Wei»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:13286": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13286",
+      "license": "CC0"
+    },
+    "usda_use:13811": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13811",
+      "license": "CC0"
+    },
+    "usda_use:13813": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13813",
+      "license": "CC0"
+    },
+    "usda_use:17886": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17886",
+      "license": "CC0"
+    },
+    "usda_use:18909": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18909",
+      "license": "CC0"
+    },
+    "usda_use:20955": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20955",
+      "license": "CC0"
+    },
+    "usda_use:24413": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24413",
+      "license": "CC0"
+    },
+    "usda_use:24414": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24414",
+      "license": "CC0"
+    },
+    "usda_use:25588": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25588",
+      "license": "CC0"
+    },
+    "usda_use:27952": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27952",
+      "license": "CC0"
+    },
+    "usda_use:32038": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32038",
+      "license": "CC0"
+    },
+    "usda_use:34610": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34610",
+      "license": "CC0"
+    },
+    "usda_use:43458": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43458",
+      "license": "CC0"
+    },
+    "usda_use:53389": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53389",
+      "license": "CC0"
+    },
+    "usda_use:53572": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53572",
+      "license": "CC0"
+    },
+    "usda_use:55633": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55633",
+      "license": "CC0"
+    },
+    "usda_use:57751": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57751",
+      "license": "CC0"
+    },
+    "usda_use:57756": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57756",
+      "license": "CC0"
+    },
+    "usda_use:57758": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57758",
+      "license": "CC0"
+    },
+    "usda_use:62623": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62623",
+      "license": "CC0"
+    },
+    "usda_use:62624": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62624",
+      "license": "CC0"
+    },
+    "usda_use:68891": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68891",
+      "license": "CC0"
+    },
+    "usda_use:69805": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69805",
+      "license": "CC0"
+    },
+    "usda_use:70874": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70874",
+      "license": "CC0"
+    },
+    "usda_use:73583": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73583",
+      "license": "CC0"
+    },
+    "usda_use:79288": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79288",
+      "license": "CC0"
+    },
+    "usda_use:81119": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81119",
+      "license": "CC0"
+    },
+    "wcvp:218535": {
+      "dataset": "wcvp",
+      "label": "WCVP: Alexitoxicon atratum (Bunge) Pobed.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:220508": {
+      "dataset": "wcvp",
+      "label": "WCVP: Antitoxicum atratum (Bunge) Pobed.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:503402": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cynanchum atratum Bunge",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:513423": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vincetoxicum atratum (Bunge) C.Morren & Decne.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:1440",
+      "efsa_botanic:1441",
+      "efsa_botanic:1439"
+    ],
+    "text": "EFSA anota el atratoglaucósido A, el atratoglaucósido B y los neolignanos como sustancias de evidencia."
+  },
+  "scientificName": {
+    "authors": "(Bunge) C.Morren & Decne.",
+    "name": "Vincetoxicum atratum",
+    "refs": [
+      "wcvp:513423"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Bunge) Pobed.",
+      "name": "Alexitoxicon atratum",
+      "refs": [
+        "wcvp:218535"
+      ]
+    },
+    {
+      "authors": "(Bunge) Pobed.",
+      "name": "Antitoxicum atratum",
+      "refs": [
+        "wcvp:220508"
+      ]
+    },
+    {
+      "authors": "Bunge",
+      "name": "Cynanchum atratum",
+      "refs": [
+        "wcvp:503402"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24413",
+        "usda_use:24414",
+        "usda_use:25588",
+        "usda_use:70874",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan",
+        "usda_reference:Keys",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17886",
+        "usda_use:18909",
+        "usda_use:68891",
+        "usda_reference:Bliss",
+        "usda_reference:Keys",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13811",
+        "usda_use:13813",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Urogenital",
+      "activitySource": "Urogenital",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53572",
+        "usda_use:81119",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57751",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Convalecencia",
+      "activitySource": "Convalescence",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13286",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Delirio",
+      "activitySource": "Delirium",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62623",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Edema",
+      "activitySource": "Edema",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69805",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Eyaculación",
+      "activitySource": "Ejaculation",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20955",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Febrífugo",
+      "activitySource": "Febrifuge",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57756",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Hematuria",
+      "activitySource": "Hematuria",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27952",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Incontinencia",
+      "activitySource": "Incontinence",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62624",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Leucorrea",
+      "activitySource": "Leucorrhea",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32038",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73583",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Nefritis",
+      "activitySource": "Nephritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34610",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Puerperio",
+      "activitySource": "Puerperium",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57758",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Sialagogo",
+      "activitySource": "Sialogogue",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43458",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tuberculosis",
+      "activitySource": "Tuberculosis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79288",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uretritis",
+      "activitySource": "Urethritis",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53389",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Polución nocturna",
+      "activitySource": "Wet-Dream",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55633",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

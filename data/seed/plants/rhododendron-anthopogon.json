@@ -1,0 +1,123 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:734361f5b6355824f415a496ebc74a062aa8e17a0e973c97c18f6795a0fc067c",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2419250"
+    ],
+    "value": "Rhododendron anthopogon"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2419250"
+    ],
+    "value": "Ericaceae"
+  },
+  "goals": [],
+  "id": "rhododendron-anthopogon",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ulf Eliasson",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rhododendron_anthopogon_subsp._hypenanthum_%27Annapurna%27.JPG",
+    "refs": [
+      "commons:File:Rhododendron anthopogon subsp. hypenanthum 'Annapurna'.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Rhododendron_anthopogon_subsp._hypenanthum_%27Annapurna%27.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2419250"
+    ],
+    "value": "China, el subcontinente indio e Indochina"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rhododendron anthopogon subsp. hypenanthum 'Annapurna'.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rhododendron anthopogon subsp. hypenanthum 'Annapurna'.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rhododendron_anthopogon_subsp._hypenanthum_%27Annapurna%27.JPG"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:46915": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46915",
+      "license": "CC0"
+    },
+    "wcvp:2419250": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhododendron anthopogon D.Don",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "D.Don",
+    "name": "Rhododendron anthopogon",
+    "refs": [
+      "wcvp:2419250"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46915",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

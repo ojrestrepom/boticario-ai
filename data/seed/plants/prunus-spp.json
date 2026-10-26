@@ -1,0 +1,99 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2b79e74d21cb3e8e132d3f3054cfd40a5e613749c7f88d6f71631e1de91c52a1",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Prunus"
+    ],
+    "value": "Género de árboles y arbustos de la familia Rosaceae que incluye varias especies cultivadas por sus frutos. De los 700 taxones descritos, aproximadamente 100 son válidos y aceptados."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q190545"
+    ],
+    "value": "Prunus spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "prunus-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:.00_3019_Japanische_Bl%C3%BCtenkirsche_(Prunus_serrulata).jpg",
+    "refs": [
+      "commons:File:.00 3019 Japanische Blütenkirsche (Prunus serrulata).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/.00_3019_Japanische_Bl%C3%BCtenkirsche_%28Prunus_serrulata%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:.00 3019 Japanische Blütenkirsche (Prunus serrulata).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:.00 3019 Japanische Blütenkirsche (Prunus serrulata).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:.00_3019_Japanische_Bl%C3%BCtenkirsche_(Prunus_serrulata).jpg"
+    },
+    "wikidata:Q190545": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q190545",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q190545"
+    },
+    "wikipedia_es:Prunus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Prunus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Prunus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Prunus spp",
+    "refs": [
+      "wikidata:Q190545"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

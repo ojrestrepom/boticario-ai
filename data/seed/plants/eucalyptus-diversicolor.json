@@ -1,0 +1,117 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:98108d33856720a6f94e75d4595aa57eed0d26583d45c8bc54285ab6a16697c0",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus diversicolor",
+        "wikidata:Q159127"
+      ],
+      "text": "Karri"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus diversicolor"
+    ],
+    "value": "Eucalipto nativo de las regiones más húmedas del suroeste de Australia Occidental. Un ejemplar cerca de Coímbra (Portugal) tiene el título de árbol más alto de Europa, con 73 metros de altura."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eucalyptus diversicolor",
+      "wikidata:Q159127"
+    ],
+    "value": "Karri"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72838"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-diversicolor",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1375-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72838"
+    ],
+    "value": "Nativa de Australia (Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1375-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:72838": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus diversicolor F.Muell.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q159127": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q159127",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q159127"
+    },
+    "wikipedia_es:Eucalyptus diversicolor": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus diversicolor",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_diversicolor"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F.Muell.",
+    "name": "Eucalyptus diversicolor",
+    "refs": [
+      "wcvp:72838"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

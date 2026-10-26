@@ -1,0 +1,108 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:95cca1fcd5ca3b23b8380c7efc71cb1856beab7646c2bbe2bb667c57c789c05f",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:30673"
+    ],
+    "value": "Callicarpa arborea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:30673"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "callicarpa-arborea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:30673"
+    ],
+    "value": "Nativa de China, el subcontinente indio, Indochina, Malasia y Papuasia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10388": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10388",
+      "license": "CC0"
+    },
+    "wcvp:30673": {
+      "dataset": "wcvp",
+      "label": "WCVP: Callicarpa arborea Roxb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Roxb.",
+    "name": "Callicarpa arborea",
+    "refs": [
+      "wcvp:30673"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10388",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

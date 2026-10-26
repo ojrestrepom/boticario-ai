@@ -1,0 +1,121 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:fda56a9741f25811b67cec25337c9f65f63ecb2ac390d4e59046c1ef33fc84e3",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lavandula",
+        "wikidata:Q171892"
+      ],
+      "text": "Lavanda"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lavandula"
+      ],
+      "text": "Alhucema"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lavandula"
+      ],
+      "text": "Espliego"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lavandula"
+      ],
+      "text": "Cantueso"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2005-1"
+      ],
+      "text": "Lavender"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lavandula"
+    ],
+    "value": "Género de plantas de la familia de las lamiáceas, con unas sesenta especies y taxones infraespecíficos aceptados de los algo más de doscientos descritos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Lavandula",
+      "wikidata:Q171892"
+    ],
+    "value": "Lavanda"
+  },
+  "family": null,
+  "goals": [],
+  "id": "lavandula-sp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2005-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lavender»",
+      "license": "CC0"
+    },
+    "wikidata:Q171892": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q171892",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q171892"
+    },
+    "wikipedia_es:Lavandula": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lavandula",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lavandula"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Lavandula sp",
+    "refs": [
+      "wikidata:Q171892"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,101 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6f5047883bfa7403e1b53c70c267309806c434ab6d6f3f542940ebe9dfdd3e75",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2924902"
+    ],
+    "value": "Erythrospermum zeylanicum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2924902"
+    ],
+    "value": "Achariaceae"
+  },
+  "goals": [],
+  "id": "erythrospermum-zeylanicum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Alston, A. H. G.; Hooker, Joseph Dalton; Trimen, Henry",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:A_hand-book_to_the_flora_of_Ceylon_(Plate_VI)_(6430632811).jpg",
+    "refs": [
+      "commons:File:A hand-book to the flora of Ceylon (Plate VI) (6430632811).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/A_hand-book_to_the_flora_of_Ceylon_%28Plate_VI%29_%286430632811%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2924902"
+    ],
+    "value": "Sri Lanka"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:A hand-book to the flora of Ceylon (Plate VI) (6430632811).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:A hand-book to the flora of Ceylon (Plate VI) (6430632811).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:A_hand-book_to_the_flora_of_Ceylon_(Plate_VI)_(6430632811).jpg"
+    },
+    "wcvp:2924902": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythrospermum zeylanicum (Gaertn.) Alston",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3230816": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pectinea zeylanica Gaertn.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Gaertn.) Alston",
+    "name": "Erythrospermum zeylanicum",
+    "refs": [
+      "wcvp:2924902"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Gaertn.",
+      "name": "Pectinea zeylanica",
+      "refs": [
+        "wcvp:3230816"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

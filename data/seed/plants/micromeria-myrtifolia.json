@@ -1,0 +1,169 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:21e80c9a2ddf01b1d9a5bd1cfc5e30601fefd467ef7b41305f7a7da8ee06521f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1407-1"
+      ],
+      "text": "Dagcayi"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1407-2"
+      ],
+      "text": "Haydarotu"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1407-3"
+      ],
+      "text": "Topukcayi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:127317"
+    ],
+    "value": "Micromeria myrtifolia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:127317"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "micromeria-myrtifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Gidip",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Micromeria_myrtifolia_1.jpg",
+    "refs": [
+      "commons:File:Micromeria myrtifolia 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Micromeria_myrtifolia_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1407-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:127317"
+    ],
+    "value": "Sudeste de Europa y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Micromeria myrtifolia 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Micromeria myrtifolia 1.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Micromeria_myrtifolia_1.jpg"
+    },
+    "usda_common_name:1407-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dagcayi»",
+      "license": "CC0"
+    },
+    "usda_common_name:1407-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Haydarotu»",
+      "license": "CC0"
+    },
+    "usda_common_name:1407-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Topukcayi»",
+      "license": "CC0"
+    },
+    "usda_part:1407-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:127317": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria myrtifolia Boiss. & Hohen.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185819": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja myrtifolia (Boiss. & Hohen.) Greuter & Burdet",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:340564": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria juliana var. myrtifolia (Boiss. & Hohen.) Nyman",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boiss. & Hohen.",
+    "name": "Micromeria myrtifolia",
+    "refs": [
+      "wcvp:127317"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Boiss. & Hohen.) Nyman",
+      "name": "Micromeria juliana var. myrtifolia",
+      "refs": [
+        "wcvp:340564"
+      ]
+    },
+    {
+      "authors": "(Boiss. & Hohen.) Greuter & Burdet",
+      "name": "Satureja myrtifolia",
+      "refs": [
+        "wcvp:185819"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

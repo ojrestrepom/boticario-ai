@@ -1,0 +1,98 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:38503ee29483a35e3fb7baa31bfbf43431e334752c36cd5f26419b531fee373f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2186-1"
+      ],
+      "text": "Magdalena Ragweed"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3119515"
+    ],
+    "value": "Ambrosia magdalenae"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3119515"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "ambrosia-magdalenae",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3119515"
+    ],
+    "value": "Noroeste de México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2186-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Magdalena Ragweed»",
+      "license": "CC0"
+    },
+    "wcvp:3119514": {
+      "dataset": "wcvp",
+      "label": "WCVP: Franseria magdalenae Brandegee",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3119515": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ambrosia magdalenae (Brandegee) W.W.Payne",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Brandegee) W.W.Payne",
+    "name": "Ambrosia magdalenae",
+    "refs": [
+      "wcvp:3119515"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Brandegee",
+      "name": "Franseria magdalenae",
+      "refs": [
+        "wcvp:3119514"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

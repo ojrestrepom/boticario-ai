@@ -1,0 +1,124 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4dd943a6222ec98d3638766ab4d1da98ac11ec2da395611803945b258fdf93d0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "wikipedia_es:Eucalyptus leucoxylon"
+      ],
+      "text": "yellow gum"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "wikipedia_es:Eucalyptus leucoxylon"
+      ],
+      "text": "blue gum"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "wikipedia_es:Eucalyptus leucoxylon"
+      ],
+      "text": "white ironbark"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus leucoxylon"
+    ],
+    "value": "Especie de eucalipto de la familia de las mirtáceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73247"
+    ],
+    "value": "Eucalyptus leucoxylon"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73247"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-leucoxylon",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2117-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73247"
+    ],
+    "value": "Australia (Nueva Gales del Sur, Australia Meridional y Victoria)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2117-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:73247": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus leucoxylon F.Muell.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus leucoxylon": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus leucoxylon",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_leucoxylon"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El compuesto EO de USDA es el único respaldo del aceite esencial; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F.Muell.",
+    "name": "Eucalyptus leucoxylon",
+    "refs": [
+      "wcvp:73247"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

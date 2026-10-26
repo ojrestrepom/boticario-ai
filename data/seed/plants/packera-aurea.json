@@ -1,0 +1,146 @@
+{
+  "aliases": [
+    "senecio-aureus"
+  ],
+  "bundleHash": "sha256:012a5d3f1e71a0852121e50e0b58dfb9c22faceec035b8c29d47976f9e4584ba",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:923-1"
+      ],
+      "text": "Liferoot"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:923-2"
+      ],
+      "text": "Squawweed"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3079595"
+    ],
+    "value": "Packera aurea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3079595"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "packera-aurea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3079595"
+    ],
+    "value": "Canadá y el centro-norte, noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:2456": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Senecionine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:923-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Liferoot»",
+      "license": "CC0"
+    },
+    "usda_common_name:923-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Squawweed»",
+      "license": "CC0"
+    },
+    "wcvp:3079580": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cacalia aurea (L.) MacMill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3079582": {
+      "dataset": "wcvp",
+      "label": "WCVP: Senecio aureus L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3079594": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tephroseris aurea (L.) Konechn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3079595": {
+      "dataset": "wcvp",
+      "label": "WCVP: Packera aurea (L.) Á.Löve & D.Löve",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:2456"
+    ],
+    "text": "La EFSA registra en la parte aérea de la planta la sustancia senecionina, incluida en el grupo de sustancias de alta preocupación genotóxicas o carcinógenas."
+  },
+  "scientificName": {
+    "authors": "(L.) Á.Löve & D.Löve",
+    "name": "Packera aurea",
+    "refs": [
+      "wcvp:3079595"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) MacMill.",
+      "name": "Cacalia aurea",
+      "refs": [
+        "wcvp:3079580"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Senecio aureus",
+      "refs": [
+        "wcvp:3079582"
+      ]
+    },
+    {
+      "authors": "(L.) Konechn.",
+      "name": "Tephroseris aurea",
+      "refs": [
+        "wcvp:3079594"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

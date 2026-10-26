@@ -1,0 +1,175 @@
+{
+  "aliases": [
+    "micromeria-fruticosa-subsp-barbata"
+  ],
+  "bundleHash": "sha256:c9c5de24266875b621d1f04745270332ba48e34bea25fd7a769469132c15d7f0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2076-1"
+      ],
+      "text": "Tea Hyssop"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2076-2"
+      ],
+      "text": "Zopha"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2076-3"
+      ],
+      "text": "Zuta"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:520195"
+    ],
+    "value": "Clinopodium barbatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:520195"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-barbatum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2076-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:520195"
+    ],
+    "value": "Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2076-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tea Hyssop»",
+      "license": "CC0"
+    },
+    "usda_common_name:2076-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Zopha»",
+      "license": "CC0"
+    },
+    "usda_common_name:2076-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Zuta»",
+      "license": "CC0"
+    },
+    "usda_part:2076-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:127221": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria fruticosa subsp. barbata (Boiss.) P.H.Davis",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185935": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja serpyllifolia subsp. barbata Greuter & Burdet",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3331539": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria serpyllifolia var. barbata Boiss.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:346440": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium serpyllifolium subsp. barbatum (Boiss.) Bräuchler",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:520195": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium barbatum (Boiss.) Melnikov",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Boiss.) Melnikov",
+    "name": "Clinopodium barbatum",
+    "refs": [
+      "wcvp:520195"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Boiss.) Bräuchler",
+      "name": "Clinopodium serpyllifolium subsp. barbatum",
+      "refs": [
+        "wcvp:346440"
+      ]
+    },
+    {
+      "authors": "(Boiss.) P.H.Davis",
+      "name": "Micromeria fruticosa subsp. barbata",
+      "refs": [
+        "wcvp:127221"
+      ]
+    },
+    {
+      "authors": "Boiss.",
+      "name": "Micromeria serpyllifolia var. barbata",
+      "refs": [
+        "wcvp:3331539"
+      ]
+    },
+    {
+      "authors": "Greuter & Burdet",
+      "name": "Satureja serpyllifolia subsp. barbata",
+      "refs": [
+        "wcvp:185935"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

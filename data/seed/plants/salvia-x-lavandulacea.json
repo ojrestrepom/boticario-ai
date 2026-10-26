@@ -1,0 +1,144 @@
+{
+  "aliases": [
+    "rosmarinus-x-lavandulaceus"
+  ],
+  "bundleHash": "sha256:2213773c7be2bac58c49218b7fd55eeee14ec7740fa74ef809af71859b734a3d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2029-1"
+      ],
+      "text": "Lavender Rosemary"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:536470"
+    ],
+    "value": "Salvia × lavandulacea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:536470"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-x-lavandulacea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2029-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:536470"
+    ],
+    "value": "África del Norte y suroeste de Europa (Argelia, Marruecos y España)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2029-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lavender Rosemary»",
+      "license": "CC0"
+    },
+    "usda_part:2029-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:179864": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus × lavandulaceus de Noé",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:475804": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus officinalis f. lavandulaceus (de Noé) Batt.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:475806": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus officinalis var. lavandulaceus (de Noé) Maire",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:536470": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia × lavandulacea (de Noé) Roma-Marzio & Galasso",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(de Noé) Roma-Marzio & Galasso",
+    "name": "Salvia × lavandulacea",
+    "refs": [
+      "wcvp:536470"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(de Noé) Batt.",
+      "name": "Rosmarinus officinalis f. lavandulaceus",
+      "refs": [
+        "wcvp:475804"
+      ]
+    },
+    {
+      "authors": "(de Noé) Maire",
+      "name": "Rosmarinus officinalis var. lavandulaceus",
+      "refs": [
+        "wcvp:475806"
+      ]
+    },
+    {
+      "authors": "de Noé",
+      "name": "Rosmarinus × lavandulaceus",
+      "refs": [
+        "wcvp:179864"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

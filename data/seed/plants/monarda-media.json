@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dacf15b6fb70b9664b1c624bb2889d13b3e3e65772b7099faff99e472b170aa0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:637-1"
+      ],
+      "text": "Mean Monarda"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:129217"
+    ],
+    "value": "Monarda media"
+  },
+  "family": {
+    "refs": [
+      "wcvp:129217"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "monarda-media",
+  "image": {
+    "attributionRequired": true,
+    "author": "Hameltion",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Monarda_media_at_Coker_Arboretum_02.jpg",
+    "refs": [
+      "commons:File:Monarda media at Coker Arboretum 02.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Monarda_media_at_Coker_Arboretum_02.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:637-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:129217"
+    ],
+    "value": "Nativa del este de Canadá y del centro-norte, noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Monarda media at Coker Arboretum 02.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Monarda media at Coker Arboretum 02.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Monarda_media_at_Coker_Arboretum_02.jpg"
+    },
+    "usda_common_name:637-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mean Monarda»",
+      "license": "CC0"
+    },
+    "usda_part:637-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:129193": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda fistulosa var. media (Willd.) A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:129194": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda fistulosa f. media (Willd.) Voss",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:129217": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda media Willd.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Willd.",
+    "name": "Monarda media",
+    "refs": [
+      "wcvp:129217"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Willd.) Voss",
+      "name": "Monarda fistulosa f. media",
+      "refs": [
+        "wcvp:129194"
+      ]
+    },
+    {
+      "authors": "(Willd.) A.Gray",
+      "name": "Monarda fistulosa var. media",
+      "refs": [
+        "wcvp:129193"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,185 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:df9d0f7127b62c2cbf66da89b278d6b03b6eed8c2f1086e5715534549e358cc2",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q160092",
+        "wikipedia_es:Rubus chamaemorus"
+      ],
+      "text": "Mora de los pantanos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rubus chamaemorus"
+      ],
+      "text": "Zarzamora de los pantanos"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:875-1"
+      ],
+      "text": "Cloudberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rubus chamaemorus"
+    ],
+    "value": "Especie del género Rubus distribuida por la Europa central y septentrional, parte de Norteamérica, Japón, China y Corea. Produce frutos comestibles que se comercializan para elaborar zumos y mermeladas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q160092",
+      "wikipedia_es:Rubus chamaemorus"
+    ],
+    "value": "Mora de los pantanos"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2978282"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "rubus-chamaemorus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Philipum",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hjortron.jpg",
+    "refs": [
+      "commons:File:Hjortron.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Hjortron.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2978282"
+    ],
+    "value": "Europa central, oriental y septentrional, Siberia, Asia oriental, subcontinente indio y Norteamérica (Canadá, Alaska y norte de Estados Unidos)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hjortron.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hjortron.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Hjortron.jpg"
+    },
+    "efsa_botanic:2098": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: lambertianin C",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2099": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sanguiin H-6",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:875-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cloudberry»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:9388": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9388",
+      "license": "CC0"
+    },
+    "wcvp:2978282": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rubus chamaemorus L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q160092": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q160092",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q160092"
+    },
+    "wikipedia_es:Rubus chamaemorus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rubus chamaemorus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rubus_chamaemorus"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2098",
+      "efsa_botanic:2099"
+    ],
+    "text": "EFSA registra las sustancias lambertianina C y sanguiina H-6 como evidencia en el fruto; no fija un nivel de precaución."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Rubus chamaemorus",
+    "refs": [
+      "wcvp:2978282"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9388",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

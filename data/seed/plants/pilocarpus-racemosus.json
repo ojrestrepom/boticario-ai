@@ -1,0 +1,95 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b0c98b4c466eadc12a92c87569224919f34292a137151a10c0f10d666ede1b53",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:739-1"
+      ],
+      "text": "Guadalupe Jaborandi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2543331"
+    ],
+    "value": "Pilocarpus racemosus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2543331"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "pilocarpus-racemosus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2543331"
+    ],
+    "value": "Caribe, América Central, México y norte y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:2498": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: pilocarpine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:739-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Guadalupe Jaborandi»",
+      "license": "CC0"
+    },
+    "wcvp:2543331": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pilocarpus racemosus Vahl",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2498"
+    ],
+    "text": "EFSA registra la pilocarpina como sustancia de evidencia en las hojas; la fuente no fija un nivel de seguridad."
+  },
+  "scientificName": {
+    "authors": "Vahl",
+    "name": "Pilocarpus racemosus",
+    "refs": [
+      "wcvp:2543331"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

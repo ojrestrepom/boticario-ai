@@ -1,0 +1,112 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0e0f6caeb10d87fa596dcba9c68f151a7bcbe80d97570189b71f3a308b111daa",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1108-1"
+      ],
+      "text": "Ajicito"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1108-2"
+      ],
+      "text": "Coca de pescado"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum cataractarum"
+    ],
+    "value": "Especie de planta fanerógama de la familia Erythroxylaceae. Crece en los bosques húmedos subtropicales de Brasil, Colombia, Perú y Venezuela."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1108-1"
+    ],
+    "value": "Ajicito"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801316"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-cataractarum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801316"
+    ],
+    "value": "Brasil, norte de Sudamérica y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1108-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ajicito»",
+      "license": "CC0"
+    },
+    "usda_common_name:1108-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Coca de pescado»",
+      "license": "CC0"
+    },
+    "wcvp:2801316": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum cataractarum Spruce ex Peyr.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum cataractarum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum cataractarum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_cataractarum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "Los nombres «Ajicito» y «Coca de pescado» vienen de USDA con idioma «en», pero son claramente españoles; se registran como español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Spruce ex Peyr.",
+    "name": "Erythroxylum cataractarum",
+    "refs": [
+      "wcvp:2801316"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,117 @@
+{
+  "aliases": [
+    "lycopodium-gnidioides"
+  ],
+  "bundleHash": "sha256:92c1a1dfd269aa4c794b4cb45fc6f5a0ff0a12dbd16ce4f09b640285d953e2b8",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2242-1"
+      ],
+      "text": "Clubmoss"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3220965"
+    ],
+    "value": "Huperzia gnidioides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3220965"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "huperzia-gnidioides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3220965"
+    ],
+    "value": "África oriental, central y meridional, y el oeste del océano Índico"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2242-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "wcvp:2997795": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phlegmariurus gnidioides (L.f.) A.R.Field & Bostock",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3140057": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium gnidioides L.f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3220965": {
+      "dataset": "wcvp",
+      "label": "WCVP: Huperzia gnidioides (L.f.) Trevis.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.f.) Trevis.",
+    "name": "Huperzia gnidioides",
+    "refs": [
+      "wcvp:3220965"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.f.",
+      "name": "Lycopodium gnidioides",
+      "refs": [
+        "wcvp:3140057"
+      ]
+    },
+    {
+      "authors": "(L.f.) A.R.Field & Bostock",
+      "name": "Phlegmariurus gnidioides",
+      "refs": [
+        "wcvp:2997795"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

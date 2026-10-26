@@ -1,0 +1,176 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1485c581d81cb132d818c4dfa31ba5f18ddd3b4c2124e04dbaff93ef60922554",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Origanum syriacum"
+      ],
+      "text": "orégano de Siria"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Origanum syriacum"
+      ],
+      "text": "orégano de Líbano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Origanum syriacum"
+      ],
+      "text": "hisopo bíblico"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2080-1"
+      ],
+      "text": "Za'Atar"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Origanum syriacum"
+    ],
+    "value": "Planta aromática perenne de la familia Lamiaceae, conocida también como hisopo bíblico, orégano de Líbano u orégano de Siria."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Origanum syriacum"
+    ],
+    "value": "Orégano de Siria"
+  },
+  "family": {
+    "refs": [
+      "wcvp:143930"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "origanum-syriacum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kippi70",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Origanum_syriacum_Nachal_Kziv.JPG",
+    "refs": [
+      "commons:File:Origanum syriacum Nachal Kziv.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Origanum_syriacum_Nachal_Kziv.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2080-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:143930"
+    ],
+    "value": "Península arábiga y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Origanum syriacum Nachal Kziv.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Origanum syriacum Nachal Kziv.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Origanum_syriacum_Nachal_Kziv.JPG"
+    },
+    "usda_common_name:2080-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Za'Atar»",
+      "license": "CC0"
+    },
+    "usda_part:2080-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:117994": {
+      "dataset": "wcvp",
+      "label": "WCVP: Majorana syriaca (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:143930": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum syriacum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:188101": {
+      "dataset": "wcvp",
+      "label": "WCVP: Schizocalyx syriacus (L.) Scheele",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Origanum syriacum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Origanum syriacum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Origanum_syriacum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Origanum syriacum",
+    "refs": [
+      "wcvp:143930"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Raf.",
+      "name": "Majorana syriaca",
+      "refs": [
+        "wcvp:117994"
+      ]
+    },
+    {
+      "authors": "(L.) Scheele",
+      "name": "Schizocalyx syriacus",
+      "refs": [
+        "wcvp:188101"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

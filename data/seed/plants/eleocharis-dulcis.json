@@ -1,0 +1,205 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ea9c32c2733a05004a913137bff0de96b26586d8e6991c772df2de237060a73e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eleocharis dulcis"
+      ],
+      "text": "castaña de agua"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eleocharis dulcis"
+      ],
+      "text": "castaña de agua china"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eleocharis dulcis"
+      ],
+      "text": "apulid"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1308-1"
+      ],
+      "text": "Water chestnut"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eleocharis dulcis"
+    ],
+    "value": "Planta de la familia Cyperaceae, conocida como castaña de agua china o simplemente castaña de agua."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eleocharis dulcis"
+    ],
+    "value": "Castaña de agua"
+  },
+  "family": {
+    "refs": [
+      "wcvp:242450"
+    ],
+    "value": "Cyperaceae"
+  },
+  "goals": [],
+  "id": "eleocharis-dulcis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Francisco Manuel Blanco (O.S.A.)",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eleocharis_dulcis_Blanco1.15.jpg",
+    "refs": [
+      "commons:File:Eleocharis dulcis Blanco1.15.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Eleocharis_dulcis_Blanco1.15.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:242450"
+    ],
+    "value": "África tropical y meridional, Asia, Australia y el Pacífico"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eleocharis dulcis Blanco1.15.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eleocharis dulcis Blanco1.15.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Eleocharis_dulcis_Blanco1.15.jpg"
+    },
+    "usda_common_name:1308-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Water chestnut»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:64396": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64396",
+      "license": "CC0"
+    },
+    "usda_use:65386": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65386",
+      "license": "CC0"
+    },
+    "wcvp:242450": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eleocharis dulcis (Burm.f.) Trin. ex Hensch.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:392321": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andropogon dulcis Burm.f.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eleocharis dulcis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eleocharis dulcis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eleocharis_dulcis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Burm.f.) Trin. ex Hensch.",
+    "name": "Eleocharis dulcis",
+    "refs": [
+      "wcvp:242450"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Burm.f.",
+      "name": "Andropogon dulcis",
+      "refs": [
+        "wcvp:392321"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antibiótico",
+      "activitySource": "Antibiotic",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64396",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65386",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

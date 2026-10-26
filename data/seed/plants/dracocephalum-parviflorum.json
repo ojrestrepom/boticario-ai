@@ -1,0 +1,150 @@
+{
+  "aliases": [
+    "dracocephalum-parviflora"
+  ],
+  "bundleHash": "sha256:ff85c601599a69384022487e189bb954678a5505d5b57f347fd641ec077c20a1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:629-1"
+      ],
+      "text": "Small-Flowered Moldavica"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:63863"
+    ],
+    "value": "Dracocephalum parviflorum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:63863",
+      "wfo:wfo-0000945424"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "dracocephalum-parviflorum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Britton, N.L., and A. Brown. 1913. An illustrated flora of the northern United States, Canada and the British Possessions. 3 vols. Charles Scribner's Sons, New York. Vol. 3: 114. Courtesy of Kentucky Native Plant Society. Scanned by Omnitek Inc.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Dracocephalum_parviflorum_drawing_1.png",
+    "refs": [
+      "commons:File:Dracocephalum parviflorum drawing 1.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Dracocephalum_parviflorum_drawing_1.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:629-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:63863"
+    ],
+    "value": "América del Norte (Canadá, Estados Unidos y México)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Dracocephalum parviflorum drawing 1.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Dracocephalum parviflorum drawing 1.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Dracocephalum_parviflorum_drawing_1.png"
+    },
+    "usda_common_name:629-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Small-Flowered Moldavica»",
+      "license": "CC0"
+    },
+    "usda_part:629-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:180851": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ruyschiana parviflora (Nutt.) House",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:63863": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dracocephalum parviflorum Nutt.",
+      "license": "CC BY 3.0"
+    },
+    "wfo:wfo-0000945424": {
+      "dataset": "wfo",
+      "label": "WFO: Dracocephalum parviflorum Nutt.",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Nutt.",
+    "name": "Dracocephalum parviflorum",
+    "refs": [
+      "wcvp:63863"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Nutt.) House",
+      "name": "Ruyschiana parviflora",
+      "refs": [
+        "wcvp:180851"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

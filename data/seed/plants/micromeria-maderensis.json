@@ -1,0 +1,151 @@
+{
+  "aliases": [
+    "micromeria-varia-subsp-thymoides"
+  ],
+  "bundleHash": "sha256:dd7c4de2504c9fc48c333a1ddb9f11ed49faf9107592f3bb8e5a01eff2967727",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2098-1"
+      ],
+      "text": "Madeiran 'Hyssop'"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:497134"
+    ],
+    "value": "Micromeria maderensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:497134"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "micromeria-maderensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2098-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:497134"
+    ],
+    "value": "Macaronesia (Madeira)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2098-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Madeiran 'Hyssop'»",
+      "license": "CC0"
+    },
+    "usda_part:2098-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:127431": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria varia subsp. thymoides (Sol. ex Lowe) P.Pérez",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185605": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja ericifolia subsp. thymoides (Sol. ex Lowe) R.H.Willemse",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:186002": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja thymoides Sol. ex Lowe",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:186024": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja varia subsp. thymoides (Sol. ex Lowe) A.Hansen & Sunding",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:497134": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria maderensis Puppo & Bräuchler",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Puppo & Bräuchler",
+    "name": "Micromeria maderensis",
+    "refs": [
+      "wcvp:497134"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Sol. ex Lowe) P.Pérez",
+      "name": "Micromeria varia subsp. thymoides",
+      "refs": [
+        "wcvp:127431"
+      ]
+    },
+    {
+      "authors": "(Sol. ex Lowe) R.H.Willemse",
+      "name": "Satureja ericifolia subsp. thymoides",
+      "refs": [
+        "wcvp:185605"
+      ]
+    },
+    {
+      "authors": "Sol. ex Lowe",
+      "name": "Satureja thymoides",
+      "refs": [
+        "wcvp:186002"
+      ]
+    },
+    {
+      "authors": "(Sol. ex Lowe) A.Hansen & Sunding",
+      "name": "Satureja varia subsp. thymoides",
+      "refs": [
+        "wcvp:186024"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

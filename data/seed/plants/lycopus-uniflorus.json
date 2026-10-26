@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3228e7848250577f5f5f7fa8064e77201074bab038358db05c8eb1a718f917bc",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:581-1"
+      ],
+      "text": "One-Flowered Bugle"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:115977"
+    ],
+    "value": "Lycopus uniflorus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:115977"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lycopus-uniflorus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Rob Routledge, Sault College, Bugwood.org",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lycopus_uniflorus_5499186.jpg",
+    "refs": [
+      "commons:File:Lycopus uniflorus 5499186.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Lycopus_uniflorus_5499186.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:581-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:115977"
+    ],
+    "value": "Asia oriental y Norteamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lycopus uniflorus 5499186.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lycopus uniflorus 5499186.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lycopus_uniflorus_5499186.jpg"
+    },
+    "usda_common_name:581-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «One-Flowered Bugle»",
+      "license": "CC0"
+    },
+    "usda_part:581-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:115977": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopus uniflorus Michx.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:77345": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euhemus uniflorus (Michx.) Raf.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Michx.",
+    "name": "Lycopus uniflorus",
+    "refs": [
+      "wcvp:115977"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Michx.) Raf.",
+      "name": "Euhemus uniflorus",
+      "refs": [
+        "wcvp:77345"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

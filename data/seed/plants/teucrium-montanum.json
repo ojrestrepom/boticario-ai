@@ -1,0 +1,180 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d306b1f03c67fa0e0a3ecc93f30426d5d6552b24cac285efa9f39594ca5f511b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Teucrium montanum"
+      ],
+      "text": "Zamarrilla de hojas de espliego"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2063-1",
+        "tppt_plant:P557"
+      ],
+      "text": "Mountain Germander"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P557"
+      ],
+      "text": "Berg-Gamander"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Teucrium montanum"
+    ],
+    "value": "Planta de la familia de las labiadas (Lamiaceae), conocida como zamarrilla de hojas de espliego."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Teucrium montanum"
+    ],
+    "value": "Zamarrilla de hojas de espliego"
+  },
+  "family": {
+    "refs": [
+      "wcvp:203119"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-montanum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Franz Xaver",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Teucrium_montanum1.jpg",
+    "refs": [
+      "commons:File:Teucrium montanum1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Teucrium_montanum1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2063-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:203119"
+    ],
+    "value": "Europa, norte de África y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Teucrium montanum1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Teucrium montanum1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Teucrium_montanum1.jpg"
+    },
+    "tppt_plant:P557": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Teucrium montanum L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:2063-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mountain Germander»",
+      "license": "CC0"
+    },
+    "usda_part:2063-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:162286": {
+      "dataset": "wcvp",
+      "label": "WCVP: Polium montanum (L.) Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:203119": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium montanum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:37705": {
+      "dataset": "wcvp",
+      "label": "WCVP: Chamaedrys montana (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Teucrium montanum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Teucrium montanum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Teucrium_montanum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P557"
+    ],
+    "text": "TPPT registra toxicidad hepática para la parte aérea: los diterpenoides, con la teucrina A como posible toxina principal, causan toxicidad hepática tras la ingestión regular en medicina alternativa o bebidas."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Teucrium montanum",
+    "refs": [
+      "wcvp:203119"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Raf.",
+      "name": "Chamaedrys montana",
+      "refs": [
+        "wcvp:37705"
+      ]
+    },
+    {
+      "authors": "(L.) Mill.",
+      "name": "Polium montanum",
+      "refs": [
+        "wcvp:162286"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

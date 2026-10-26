@@ -1,0 +1,102 @@
+{
+  "aliases": [
+    "eucalyptus-erythrandra"
+  ],
+  "bundleHash": "sha256:4b986ea2cf26a809e0fad1bf397ca8c2ad1ddca4ed06738e83816c9564e71ff9",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72896"
+    ],
+    "value": "Eucalyptus × erythrandra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72896"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-x-erythrandra",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2142-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72896"
+    ],
+    "value": "Australia (Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2142-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72438": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus angulosa var. robusta C.A.Gardner",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:72896": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus × erythrandra Blakely & H.Steedman",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Blakely & H.Steedman",
+    "name": "Eucalyptus × erythrandra",
+    "refs": [
+      "wcvp:72896"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "C.A.Gardner",
+      "name": "Eucalyptus angulosa var. robusta",
+      "refs": [
+        "wcvp:72438"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

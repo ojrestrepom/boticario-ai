@@ -1,0 +1,99 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3fd9c889a8d35794bdab9daa01d01cec34982b55f6f1f14b79b198cea64801e2",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Uvaria"
+    ],
+    "value": "Género de plantas de la familia de las anonáceas, con 224 especies nativas de los trópicos del Viejo Mundo hasta Australia."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q2473724"
+    ],
+    "value": "Uvaria sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "uvaria-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Marco Schmidt [1]",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Uvaria_chamae_MS4186.JPG",
+    "refs": [
+      "commons:File:Uvaria chamae MS4186.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Uvaria_chamae_MS4186.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Uvaria chamae MS4186.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Uvaria chamae MS4186.JPG",
+      "license": "CC BY-SA 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Uvaria_chamae_MS4186.JPG"
+    },
+    "wikidata:Q2473724": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q2473724",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q2473724"
+    },
+    "wikipedia_es:Uvaria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Uvaria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Uvaria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Uvaria sp.",
+    "refs": [
+      "wikidata:Q2473724"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.5"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

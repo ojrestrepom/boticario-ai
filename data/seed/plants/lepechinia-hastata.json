@@ -1,0 +1,93 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:fa07351b73581adfce098c343de69d9a111dcf48b53f884da5eaa12eb7df3cc5",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:110777"
+    ],
+    "value": "Lepechinia hastata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:110777"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lepechinia-hastata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:110777"
+    ],
+    "value": "México (noroeste e islas del Pacífico mexicano)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:110777": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepechinia hastata (A.Gray) Epling",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:193992": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sphacele hastata A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:5991": {
+      "dataset": "wcvp",
+      "label": "WCVP: Alguelagum hastatum (A.Gray) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(A.Gray) Epling",
+    "name": "Lepechinia hastata",
+    "refs": [
+      "wcvp:110777"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(A.Gray) Kuntze",
+      "name": "Alguelagum hastatum",
+      "refs": [
+        "wcvp:5991"
+      ]
+    },
+    {
+      "authors": "A.Gray",
+      "name": "Sphacele hastata",
+      "refs": [
+        "wcvp:193992"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

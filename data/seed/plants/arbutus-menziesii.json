@@ -1,0 +1,241 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:108474c95605e23e5cca14ca318f92def3103c9e6653598b9a766cbc69c60154",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Arbutus menziesii"
+      ],
+      "text": "Madroño del Pacífico"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Arbutus menziesii"
+    ],
+    "value": "Planta de la familia de las ericáceas que se encuentra en la costa oeste de América del Norte, desde la Columbia Británica hasta California, y de forma dispersa en el oeste de Sierra Nevada."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Arbutus menziesii"
+    ],
+    "value": "Madroño del Pacífico"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2646696"
+    ],
+    "value": "Ericaceae"
+  },
+  "goals": [],
+  "id": "arbutus-menziesii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Walter Siegmund (talk)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Arbutus_menziesii_5822.JPG",
+    "refs": [
+      "commons:File:Arbutus menziesii 5822.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Arbutus_menziesii_5822.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2646696"
+    ],
+    "value": "Nativa del oeste de América del Norte y del noroeste de México."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Arbutus menziesii 5822.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Arbutus menziesii 5822.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Arbutus_menziesii_5822.JPG"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:12105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12105",
+      "license": "CC0"
+    },
+    "usda_use:15976": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15976",
+      "license": "CC0"
+    },
+    "usda_use:40945": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40945",
+      "license": "CC0"
+    },
+    "usda_use:55771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55771",
+      "license": "CC0"
+    },
+    "usda_use:8501": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8501",
+      "license": "CC0"
+    },
+    "wcvp:2646696": {
+      "dataset": "wcvp",
+      "label": "WCVP: Arbutus menziesii Pursh",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Arbutus menziesii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Arbutus menziesii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Arbutus_menziesii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Pursh",
+    "name": "Arbutus menziesii",
+    "refs": [
+      "wcvp:2646696"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Eb25: 82",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 82"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8501",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Eb25: 82",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 82"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12105",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Eb25: 82",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 82"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15976",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Eb25: 82",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 82"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40945",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Eb25: 82",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 82"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55771",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

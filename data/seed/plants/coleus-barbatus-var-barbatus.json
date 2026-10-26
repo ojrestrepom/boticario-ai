@@ -1,0 +1,128 @@
+{
+  "aliases": [
+    "coleus-forskohlii"
+  ],
+  "bundleHash": "sha256:e0f70d791444df7c5114a83538979bbe3b30630d267e641fbd79ae8985b47026",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:294-1"
+      ],
+      "text": "Forskohl's Coleus"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:157915"
+    ],
+    "value": "Coleus barbatus var. barbatus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:157915"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "coleus-barbatus-var-barbatus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Naturalis Biodiversity Center",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Coleus_forskohlii.jpg",
+    "refs": [
+      "commons:File:Coleus forskohlii.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Coleus_forskohlii.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:157915"
+    ],
+    "value": "Nativa de la península arábiga, China, África tropical oriental, el subcontinente indio, Indochina, el noreste de África tropical y África tropical centro-occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Coleus forskohlii.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Coleus forskohlii.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Coleus_forskohlii.jpg"
+    },
+    "efsa_botanic:216": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: forskolin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:64": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Coleus forskohlii (Willd.) Briq.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:294-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Forskohl's Coleus»",
+      "license": "CC0"
+    },
+    "wcvp:157915": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coleus barbatus var. barbatus",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:216",
+      "efsa_endpoint:64"
+    ],
+    "text": "EFSA registra la forskolina como sustancia de evidencia en plantas vivas y un estudio del catálogo de nuevos alimentos (Novel Food): el uso alimentario distinto del de complemento alimenticio entraría en el reglamento de nuevos alimentos."
+  },
+  "scientificName": {
+    "authors": null,
+    "name": "Coleus barbatus var. barbatus",
+    "refs": [
+      "wcvp:157915"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

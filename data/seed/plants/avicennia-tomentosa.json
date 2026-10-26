@@ -1,0 +1,68 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f6f99436a73fda2a93f43a192fa96b4d72dfac0a1862fb00a4c7f58d76776d5a",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1463-SB"
+    ],
+    "value": "Avicennia tomentosa"
+  },
+  "family": null,
+  "goals": [],
+  "id": "avicennia-tomentosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1463-SB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Stem Bark»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Avicennia tomentosa",
+    "refs": [
+      "usda_part:1463-SB"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

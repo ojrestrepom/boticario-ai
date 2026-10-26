@@ -1,0 +1,100 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e54ef34dae90973a413f8318ba45a5d392ab4d9e1c004b37ce00d9d4b0476185",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2058-1"
+      ],
+      "text": "'Cyprus' Germander"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:202857"
+    ],
+    "value": "Teucrium cyprium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:202857"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-cyprium",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2058-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:202857"
+    ],
+    "value": "Asia occidental (Chipre)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2058-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «'Cyprus' Germander»",
+      "license": "CC0"
+    },
+    "usda_part:2058-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:202857": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium cyprium Boiss.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boiss.",
+    "name": "Teucrium cyprium",
+    "refs": [
+      "wcvp:202857"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

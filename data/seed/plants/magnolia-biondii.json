@@ -1,0 +1,132 @@
+{
+  "aliases": [
+    "magnolia-fargesii"
+  ],
+  "bundleHash": "sha256:98b730737b8b83fba34b27ad635a0414113031cedacfabf519e91dfc6a05fa4d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:590-1"
+      ],
+      "text": "Hsin-I"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:590-2"
+      ],
+      "text": "Xin-Yi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:117467"
+    ],
+    "value": "Magnolia biondii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:117467"
+    ],
+    "value": "Magnoliaceae"
+  },
+  "goals": [],
+  "id": "magnolia-biondii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Krzysztof Golik",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Magnolia_biondii_in_Hackfalls_Arboretum_(3).jpg",
+    "refs": [
+      "commons:File:Magnolia biondii in Hackfalls Arboretum (3).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Magnolia_biondii_in_Hackfalls_Arboretum_%283%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:117467"
+    ],
+    "value": "Nativa de China."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Magnolia biondii in Hackfalls Arboretum (3).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Magnolia biondii in Hackfalls Arboretum (3).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Magnolia_biondii_in_Hackfalls_Arboretum_(3).jpg"
+    },
+    "usda_common_name:590-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hsin-I»",
+      "license": "CC0"
+    },
+    "usda_common_name:590-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Xin-Yi»",
+      "license": "CC0"
+    },
+    "wcvp:117467": {
+      "dataset": "wcvp",
+      "label": "WCVP: Magnolia biondii Pamp.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:273144": {
+      "dataset": "wcvp",
+      "label": "WCVP: Yulania biondii (Pamp.) D.L.Fu",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo transliteraciones «Hsin-I» y «Xin-Yi»); el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Pamp.",
+    "name": "Magnolia biondii",
+    "refs": [
+      "wcvp:117467"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pamp.) D.L.Fu",
+      "name": "Yulania biondii",
+      "refs": [
+        "wcvp:273144"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

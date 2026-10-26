@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8957df8bf994c226394ef5183044637fadee0daf562073eb11c185437cb6ac41",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:639-1"
+      ],
+      "text": "Russel's Monarda"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:129260"
+    ],
+    "value": "Monarda russeliana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:129260"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "monarda-russeliana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Michelle W. （鍾偉瑋）",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Monarda_russeliana_386096870.jpg",
+    "refs": [
+      "commons:File:Monarda russeliana 386096870.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Monarda_russeliana_386096870.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:639-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:129260"
+    ],
+    "value": "Nativa del centro-norte, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Monarda russeliana 386096870.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Monarda russeliana 386096870.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Monarda_russeliana_386096870.jpg"
+    },
+    "usda_common_name:639-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Russel's Monarda»",
+      "license": "CC0"
+    },
+    "usda_part:639-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:129260": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda russeliana Nutt. ex Sims",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Nutt. ex Sims",
+    "name": "Monarda russeliana",
+    "refs": [
+      "wcvp:129260"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

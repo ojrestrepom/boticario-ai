@@ -1,0 +1,87 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:def8eb5e2ef451cc335b174c8eb19d373e2e5238ecd7c9d0f559f51be6c1e899",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73468"
+    ],
+    "value": "Eucalyptus occidentalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73468"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-occidentalis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1381-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73468"
+    ],
+    "value": "Australia (Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1381-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:73468": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus occidentalis Endl.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El compuesto EO de USDA es el único respaldo del aceite esencial; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Endl.",
+    "name": "Eucalyptus occidentalis",
+    "refs": [
+      "wcvp:73468"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

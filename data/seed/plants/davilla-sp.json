@@ -1,0 +1,140 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0ca9e22da9139d4f6b2dced8cbdb408763598b36dd2c22a7f7265344b085f87c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1359-1"
+      ],
+      "text": "Bejuco de agua"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1359-2"
+      ],
+      "text": "Cipo caboclo"
+    },
+    {
+      "language": "und",
+      "refs": [
+        "usda_common_name:1359-3"
+      ],
+      "text": "Liane chasseur (=chaser vine)"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Davilla"
+    ],
+    "value": "Género de plantas de la familia Dilleniaceae, con 68 especies descritas, de las que solo 26 están aceptadas. Se distribuye desde México hasta Brasil."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q5241770"
+    ],
+    "value": "Davilla sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "davilla-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "João de Deus Medeiros",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Davilla_elliptica_1_Jo%C3%A3o_de_Deus_Medeiros.jpg",
+    "refs": [
+      "commons:File:Davilla elliptica 1 João de Deus Medeiros.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Davilla_elliptica_1_Jo%C3%A3o_de_Deus_Medeiros.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Davilla elliptica 1 João de Deus Medeiros.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Davilla elliptica 1 João de Deus Medeiros.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Davilla_elliptica_1_Jo%C3%A3o_de_Deus_Medeiros.jpg"
+    },
+    "usda_common_name:1359-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bejuco de agua»",
+      "license": "CC0"
+    },
+    "usda_common_name:1359-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cipo caboclo»",
+      "license": "CC0"
+    },
+    "usda_common_name:1359-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Liane chasseur (=chaser vine)»",
+      "license": "CC0"
+    },
+    "wikidata:Q5241770": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q5241770",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q5241770"
+    },
+    "wikipedia_es:Davilla": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Davilla",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Davilla"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Davilla sp.",
+    "refs": [
+      "wikidata:Q5241770"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

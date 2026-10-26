@@ -1,0 +1,91 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:79502ea0b76387b10430cf940af2554b363f13cab755adb63b325cb142520954",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:938-1"
+      ],
+      "text": "Sarsaparilla"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_common_name:938-1"
+    ],
+    "value": "Smilax spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "smilax-spp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:938-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:938-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sarsaparilla»",
+      "license": "CC0"
+    },
+    "usda_part:938-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete solo trae un nombre común en inglés; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Smilax spp",
+    "refs": [
+      "usda_common_name:938-1"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

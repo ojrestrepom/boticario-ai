@@ -1,0 +1,112 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dc9f9025ae2ffe978b4a9d1cd1a6fc32070015636693e34f513cf8f2631cbe4d",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:127172"
+    ],
+    "value": "Micromeria croatica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:127172"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "micromeria-croatica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2011-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:127172"
+    ],
+    "value": "Sureste de Europa (Albania y noroeste de la península balcánica)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2011-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:127172": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria croatica (Pers.) Schott",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185555": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja croatica (Pers.) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:204654": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus croaticus Pers.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Pers.) Schott",
+    "name": "Micromeria croatica",
+    "refs": [
+      "wcvp:127172"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pers.) Briq.",
+      "name": "Satureja croatica",
+      "refs": [
+        "wcvp:185555"
+      ]
+    },
+    {
+      "authors": "Pers.",
+      "name": "Thymus croaticus",
+      "refs": [
+        "wcvp:204654"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

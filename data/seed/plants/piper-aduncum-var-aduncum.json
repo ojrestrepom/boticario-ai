@@ -1,0 +1,107 @@
+{
+  "aliases": [
+    "piper-angustifolium"
+  ],
+  "bundleHash": "sha256:3cd04bdd82bf056504943c031e1e37e8069c159c080de3e7ddb88af4b22cf7ed",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:750-1"
+      ],
+      "text": "Matico"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:750-1"
+    ],
+    "value": "Matico"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3260638"
+    ],
+    "value": "Piperaceae"
+  },
+  "goals": [],
+  "id": "piper-aduncum-var-aduncum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:750-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3260638"
+    ],
+    "value": "Nativa de México, Centroamérica, el Caribe y Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:750-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Matico»",
+      "license": "CC0"
+    },
+    "usda_part:750-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:3260638": {
+      "dataset": "wcvp",
+      "label": "WCVP: Piper aduncum var. aduncum",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Matico» con idioma inglés, pero es un nombre usado en español; se registra como español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Piper aduncum var. aduncum",
+    "refs": [
+      "wcvp:3260638"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

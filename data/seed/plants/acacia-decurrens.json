@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:373c563ad06c85e9bf5fd48cff4f40d16a2673b3e0456df7cbd959ddb3761870",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:9-1"
+      ],
+      "text": "Green Wattle"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Acacia decurrens"
+    ],
+    "value": "Árbol perenne o arbusto nativo de las Montañas Azules de Nueva Gales del Sur, en Australia. También se encuentra en África, América, Europa, Nueva Zelanda y Japón."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2611901"
+    ],
+    "value": "Acacia decurrens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2611901"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "acacia-decurrens",
+  "image": {
+    "attributionRequired": true,
+    "author": "J Brew",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Acacia-decurrens-catalina.jpg",
+    "refs": [
+      "commons:File:Acacia-decurrens-catalina.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Acacia-decurrens-catalina.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2611901"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Acacia-decurrens-catalina.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Acacia-decurrens-catalina.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Acacia-decurrens-catalina.jpg"
+    },
+    "usda_common_name:9-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Green Wattle»",
+      "license": "CC0"
+    },
+    "wcvp:2374276": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mimosa decurrens J.C.Wendl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2611901": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acacia decurrens (J.C.Wendl.) Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2868835": {
+      "dataset": "wcvp",
+      "label": "WCVP: Racosperma decurrens (J.C.Wendl.) Pedley",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Acacia decurrens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Acacia decurrens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Acacia_decurrens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(J.C.Wendl.) Willd.",
+    "name": "Acacia decurrens",
+    "refs": [
+      "wcvp:2611901"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "J.C.Wendl.",
+      "name": "Mimosa decurrens",
+      "refs": [
+        "wcvp:2374276"
+      ]
+    },
+    {
+      "authors": "(J.C.Wendl.) Pedley",
+      "name": "Racosperma decurrens",
+      "refs": [
+        "wcvp:2868835"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

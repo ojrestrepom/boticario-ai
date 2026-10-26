@@ -1,0 +1,190 @@
+{
+  "aliases": [
+    "aniba-rosaeodora"
+  ],
+  "bundleHash": "sha256:97616685b39567754aec9494daa87416a9ef115293b70043222c5082bbba3efa",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Aniba rosaeodora"
+      ],
+      "text": "Palo de rosa"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q2235214"
+      ],
+      "text": "Palorrosa"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:88-1"
+      ],
+      "text": "Bois-De-Rose"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:88-2"
+      ],
+      "text": "Cayenne Rosewood"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Aniba rosaeodora"
+    ],
+    "value": "Especie de planta con flor de la familia de las lauráceas, conocida como palo de rosa."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Aniba rosaeodora"
+    ],
+    "value": "Palo de rosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2639744"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "aniba-rosodora",
+  "image": {
+    "attributionRequired": true,
+    "author": "Christma chota Mendoza",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Aniba_rosaeodora_-_lauraceae-_pau_rosa,_palo_de_rosa..JPG",
+    "refs": [
+      "commons:File:Aniba rosaeodora - lauraceae- pau rosa, palo de rosa..JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Aniba_rosaeodora_-_lauraceae-_pau_rosa%2C_palo_de_rosa..JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:88-EO",
+      "usda_part:88-WE"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2639744"
+    ],
+    "value": "Nativa de Brasil y del norte y el oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Aniba rosaeodora - lauraceae- pau rosa, palo de rosa..JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Aniba rosaeodora - lauraceae- pau rosa, palo de rosa..JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Aniba_rosaeodora_-_lauraceae-_pau_rosa,_palo_de_rosa..JPG"
+    },
+    "efsa_botanic:347": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: linalool",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:79": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Aniba rosaeodora Ducke",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:88-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bois-De-Rose»",
+      "license": "CC0"
+    },
+    "usda_common_name:88-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cayenne Rosewood»",
+      "license": "CC0"
+    },
+    "usda_part:88-EO": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Essential Oil»",
+      "license": "CC0"
+    },
+    "usda_part:88-WE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Wood Essent. Oil»",
+      "license": "CC0"
+    },
+    "wcvp:2639744": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aniba rosodora Ducke",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q2235214": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q2235214",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q2235214"
+    },
+    "wikipedia_es:Aniba rosaeodora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Aniba rosaeodora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Aniba_rosaeodora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:347",
+      "efsa_endpoint:79"
+    ],
+    "text": "EFSA registra el linalool como sustancia de evidencia en la madera y un estudio en humanos que describe un efecto sedante de la madera, sin indicar la vía de exposición."
+  },
+  "scientificName": {
+    "authors": "Ducke",
+    "name": "Aniba rosodora",
+    "refs": [
+      "wcvp:2639744"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

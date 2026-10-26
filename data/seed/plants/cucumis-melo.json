@@ -1,0 +1,993 @@
+{
+  "aliases": [
+    "cucumis-melo-subsp-ssp-melo-var-cantalupensis"
+  ],
+  "bundleHash": "sha256:a0acb41a49c6029f6c8f0432c464353c77e0e7349086393fb46b5dd61928d024",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Cucumis melo"
+      ],
+      "text": "Melón"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:324-1"
+      ],
+      "text": "Cantaloupe"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:324-2"
+      ],
+      "text": "Melon"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:324-3"
+      ],
+      "text": "Muskmelon"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:324-4"
+      ],
+      "text": "Netted Melon"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:324-6"
+      ],
+      "text": "Nutmeg Melon"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:324-5"
+      ],
+      "text": "Persian Melon"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cucumis melo"
+    ],
+    "value": "Especie de la familia de las cucurbitáceas, llamada comúnmente melón, domesticada hace más de cuatro mil años en la región mediterránea oriental y Asia occidental. Su cultivo ha dado origen a numerosas variedades que se producen en las regiones cálidas del mundo con veranos secos y calurosos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Cucumis melo"
+    ],
+    "value": "Melón"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2746992"
+    ],
+    "value": "Cucurbitaceae"
+  },
+  "goals": [],
+  "id": "cucumis-melo",
+  "image": {
+    "attributionRequired": false,
+    "author": "USDA photo by Scott Bauer. Image Number K7355-11.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cucumis_melo_var._reticulatus_(photo_by_Scott_Bauer).jpg",
+    "refs": [
+      "commons:File:Cucumis melo var. reticulatus (photo by Scott Bauer).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Cucumis_melo_var._reticulatus_%28photo_by_Scott_Bauer%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2746992"
+    ],
+    "value": "Nativa de Asia occidental, el subcontinente indio, la península arábiga, África tropical y austral, Papuasia y Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cucumis melo var. reticulatus (photo by Scott Bauer).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cucumis melo var. reticulatus (photo by Scott Bauer).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Cucumis_melo_var._reticulatus_(photo_by_Scott_Bauer).jpg"
+    },
+    "usda_common_name:324-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cantaloupe»",
+      "license": "CC0"
+    },
+    "usda_common_name:324-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Melon»",
+      "license": "CC0"
+    },
+    "usda_common_name:324-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Muskmelon»",
+      "license": "CC0"
+    },
+    "usda_common_name:324-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Netted Melon»",
+      "license": "CC0"
+    },
+    "usda_common_name:324-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Persian Melon»",
+      "license": "CC0"
+    },
+    "usda_common_name:324-6": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Nutmeg Melon»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Broun": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Broun",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:11137": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11137",
+      "license": "CC0"
+    },
+    "usda_use:13530": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13530",
+      "license": "CC0"
+    },
+    "usda_use:13803": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13803",
+      "license": "CC0"
+    },
+    "usda_use:14937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14937",
+      "license": "CC0"
+    },
+    "usda_use:17866": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17866",
+      "license": "CC0"
+    },
+    "usda_use:17867": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17867",
+      "license": "CC0"
+    },
+    "usda_use:17868": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17868",
+      "license": "CC0"
+    },
+    "usda_use:18288": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18288",
+      "license": "CC0"
+    },
+    "usda_use:18289": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18289",
+      "license": "CC0"
+    },
+    "usda_use:20353": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20353",
+      "license": "CC0"
+    },
+    "usda_use:20354": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20354",
+      "license": "CC0"
+    },
+    "usda_use:21112": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21112",
+      "license": "CC0"
+    },
+    "usda_use:21235": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21235",
+      "license": "CC0"
+    },
+    "usda_use:21236": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21236",
+      "license": "CC0"
+    },
+    "usda_use:2149": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2149",
+      "license": "CC0"
+    },
+    "usda_use:2150": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2150",
+      "license": "CC0"
+    },
+    "usda_use:39672": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39672",
+      "license": "CC0"
+    },
+    "usda_use:39851": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39851",
+      "license": "CC0"
+    },
+    "usda_use:4009": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4009",
+      "license": "CC0"
+    },
+    "usda_use:40341": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40341",
+      "license": "CC0"
+    },
+    "usda_use:40342": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40342",
+      "license": "CC0"
+    },
+    "usda_use:54226": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54226",
+      "license": "CC0"
+    },
+    "usda_use:5616": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5616",
+      "license": "CC0"
+    },
+    "usda_use:57672": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57672",
+      "license": "CC0"
+    },
+    "usda_use:57673": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57673",
+      "license": "CC0"
+    },
+    "usda_use:57675": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57675",
+      "license": "CC0"
+    },
+    "usda_use:59247": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59247",
+      "license": "CC0"
+    },
+    "usda_use:59250": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59250",
+      "license": "CC0"
+    },
+    "usda_use:66411": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66411",
+      "license": "CC0"
+    },
+    "usda_use:66827": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66827",
+      "license": "CC0"
+    },
+    "usda_use:6696": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6696",
+      "license": "CC0"
+    },
+    "usda_use:67156": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67156",
+      "license": "CC0"
+    },
+    "usda_use:69919": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69919",
+      "license": "CC0"
+    },
+    "usda_use:75625": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75625",
+      "license": "CC0"
+    },
+    "usda_use:75775": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75775",
+      "license": "CC0"
+    },
+    "usda_use:80075": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80075",
+      "license": "CC0"
+    },
+    "usda_use:8345": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8345",
+      "license": "CC0"
+    },
+    "usda_use:9799": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9799",
+      "license": "CC0"
+    },
+    "wcvp:2373082": {
+      "dataset": "wcvp",
+      "label": "WCVP: Melo sativus Sageret",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2746992": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cucumis melo L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Cucumis melo": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cucumis melo",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cucumis_melo"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Diuretic» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Emetic» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Purgative» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Cathartic» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[6]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Vermifuge» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Cucumis melo",
+    "refs": [
+      "wcvp:2746992"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Sageret",
+      "name": "Melo sativus",
+      "refs": [
+        "wcvp:2373082"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        },
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17866",
+        "usda_use:17867",
+        "usda_use:17868",
+        "usda_use:18288",
+        "usda_use:18289",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Broun",
+          "ref": "usda_reference:Broun",
+          "text": "Broun, A.F., and R.E. Massey. 1929. Flora of the Sudan. The controller, Sudan Govt. Office, Wellington House, Buchingham Gate, London, S.W.I."
+        },
+        {
+          "key": "Eb28: 12",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 12"
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México",
+        "Samoa",
+        "Sudán",
+        "Turquía"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21112",
+        "usda_use:21235",
+        "usda_use:21236",
+        "usda_use:57675",
+        "usda_use:69919",
+        "usda_reference:Broun",
+        "usda_reference:EB",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Eb28: 12",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 12"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Kurdistán",
+        "Samoa"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39672",
+        "usda_use:39851",
+        "usda_use:75625",
+        "usda_reference:Al-Rawi",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Refrescante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Irak",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40341",
+        "usda_use:40342",
+        "usda_use:75775",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Anasarca",
+      "activitySource": "Anasarca",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "China",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2149",
+        "usda_use:2150",
+        "usda_reference:Bliss",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9799",
+        "usda_use:57673",
+        "usda_reference:Bliss",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Broun",
+          "ref": "usda_reference:Broun",
+          "text": "Broun, A.F., and R.E. Massey. 1929. Flora of the Sudan. The controller, Sudan Govt. Office, Wellington House, Buchingham Gate, London, S.W.I."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Sudán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11137",
+        "usda_use:66827",
+        "usda_reference:Broun"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13803",
+        "usda_use:59250",
+        "usda_reference:Altschul",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "China",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20353",
+        "usda_use:20354",
+        "usda_reference:Bliss",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Kurdistán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54226",
+        "usda_use:80075",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Amenorrea",
+      "activitySource": "Amenorrhea",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59247",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Antivinous",
+      "activitySource": "Antivinous",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4009",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5616",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Bilious",
+      "activitySource": "Bilious",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6696",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8345",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Indias Occidentales"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57672",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de nariz",
+      "activitySource": "Cancer(Nose)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Gabón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66411",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67156",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Coriza",
+      "activitySource": "Coryza",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13530",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14937",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

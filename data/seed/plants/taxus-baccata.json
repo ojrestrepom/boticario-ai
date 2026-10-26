@@ -1,0 +1,884 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:188259d4277b9242cd65235bc9598661b5e3a1d7372b16c0b50b0760dc5fecf2",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Taxus baccata",
+        "wikidata:Q179729"
+      ],
+      "text": "Tejo común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Taxus baccata",
+        "wikidata:Q179729"
+      ],
+      "text": "Tejo negro"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q179729"
+      ],
+      "text": "Tejo europeo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P34"
+      ],
+      "text": "English yew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:996-1"
+      ],
+      "text": "Common Yew"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P34"
+      ],
+      "text": "Eibe"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Taxus baccata"
+    ],
+    "value": "Gimnosperma de la familia de las taxáceas, originaria de Europa occidental, central y meridional."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Taxus baccata",
+      "wikidata:Q179729"
+    ],
+    "value": "Tejo común"
+  },
+  "family": {
+    "refs": [
+      "wcvp:378626"
+    ],
+    "value": "Taxaceae"
+  },
+  "goals": [],
+  "id": "taxus-baccata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Sitomon",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Taxus_baccata_tree.jpg",
+    "refs": [
+      "commons:File:Taxus baccata tree.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Taxus_baccata_tree.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:378626"
+    ],
+    "value": "Nativa de Europa, el Cáucaso, el norte de África, Macaronesia y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Taxus baccata tree.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Taxus baccata tree.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Taxus_baccata_tree.jpg"
+    },
+    "efsa_botanic:89": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: taxine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:90": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: taxol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:91": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: cephalomannine",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P34": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Taxus baccata L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:996-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Common Yew»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Tackholm": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Tackholm",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:1026": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1026",
+      "license": "CC0"
+    },
+    "usda_use:10766": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10766",
+      "license": "CC0"
+    },
+    "usda_use:13259": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13259",
+      "license": "CC0"
+    },
+    "usda_use:13260": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13260",
+      "license": "CC0"
+    },
+    "usda_use:14574": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14574",
+      "license": "CC0"
+    },
+    "usda_use:15188": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15188",
+      "license": "CC0"
+    },
+    "usda_use:21475": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21475",
+      "license": "CC0"
+    },
+    "usda_use:21900": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21900",
+      "license": "CC0"
+    },
+    "usda_use:23330": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23330",
+      "license": "CC0"
+    },
+    "usda_use:23331": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23331",
+      "license": "CC0"
+    },
+    "usda_use:27387": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27387",
+      "license": "CC0"
+    },
+    "usda_use:33726": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33726",
+      "license": "CC0"
+    },
+    "usda_use:36293": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36293",
+      "license": "CC0"
+    },
+    "usda_use:38391": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38391",
+      "license": "CC0"
+    },
+    "usda_use:38392": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38392",
+      "license": "CC0"
+    },
+    "usda_use:38393": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38393",
+      "license": "CC0"
+    },
+    "usda_use:38394": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38394",
+      "license": "CC0"
+    },
+    "usda_use:38755": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38755",
+      "license": "CC0"
+    },
+    "usda_use:43245": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43245",
+      "license": "CC0"
+    },
+    "usda_use:47967": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47967",
+      "license": "CC0"
+    },
+    "usda_use:49636": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49636",
+      "license": "CC0"
+    },
+    "usda_use:51070": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51070",
+      "license": "CC0"
+    },
+    "usda_use:62009": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62009",
+      "license": "CC0"
+    },
+    "usda_use:62011": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62011",
+      "license": "CC0"
+    },
+    "usda_use:63583": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63583",
+      "license": "CC0"
+    },
+    "usda_use:66343": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66343",
+      "license": "CC0"
+    },
+    "usda_use:6774": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6774",
+      "license": "CC0"
+    },
+    "usda_use:67912": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67912",
+      "license": "CC0"
+    },
+    "usda_use:70101": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70101",
+      "license": "CC0"
+    },
+    "usda_use:72575": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72575",
+      "license": "CC0"
+    },
+    "usda_use:78106": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78106",
+      "license": "CC0"
+    },
+    "usda_use:80163": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80163",
+      "license": "CC0"
+    },
+    "usda_use:8735": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8735",
+      "license": "CC0"
+    },
+    "wcvp:378626": {
+      "dataset": "wcvp",
+      "label": "WCVP: Taxus baccata L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q179729": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q179729",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q179729"
+    },
+    "wikipedia_es:Taxus baccata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Taxus baccata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Taxus_baccata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Emmenagogue no tiene candidata.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Contraceptive no tiene candidata.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Expectorant no tiene candidata.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Stomachic no tiene candidata.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Ache(Head) no tiene candidata.",
+      "target": "traditionalUses[15]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Bilious no tiene candidata.",
+      "target": "traditionalUses[16]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Calculus no tiene candidata.",
+      "target": "traditionalUses[17]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Debility no tiene candidata.",
+      "target": "traditionalUses[18]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria del grupo Dentifrice no tiene candidata.",
+      "target": "traditionalUses[19]"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "tppt_plant:P34",
+      "efsa_botanic:89",
+      "efsa_botanic:90",
+      "efsa_botanic:91",
+      "usda_use:38391",
+      "usda_use:38392",
+      "usda_use:38393",
+      "usda_use:38394",
+      "usda_use:38755",
+      "usda_use:14574",
+      "usda_use:67912",
+      "usda_use:63583"
+    ],
+    "text": "TPPT registra toxicidad humana fuerte; la parte tóxica es la planta entera sin el arilo (cubierta roja de la semilla) y las toxinas principales son isotaxina B y taxina B, dentro de una mezcla de hasta 50 diterpenoides y alcaloides diterpenoides llamada taxina; TPPT registra también toxicidad muy fuerte en animales. EFSA registra la taxina en plantas vivas como sustancia de alta preocupación (veneno potente) y la cefalomanina y el taxol como sustancias de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica. Advertencia: registrada como abortiva en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Taxus baccata",
+    "refs": [
+      "wcvp:378626"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21475",
+        "usda_use:21900",
+        "usda_use:70101",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Anticonceptivo",
+      "activitySource": "Contraceptive",
+      "citations": [
+        {
+          "key": "Eb29: 45",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 45"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13259",
+        "usda_use:13260",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23330",
+        "usda_use:23331",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47967",
+        "usda_use:78106",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antifertilidad",
+      "activitySource": "Antifertility",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62009",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66343",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10766",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Aceite capilar",
+      "activitySource": "Hair-Oil",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27387",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72575",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "Egipto"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33726",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36293",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43245",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Eb25: 418",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 418"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49636",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Eb25: 418",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 418"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51070",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80163",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dolor (cabeza)",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:1026"
+      ]
+    },
+    {
+      "activity": "Bilioso",
+      "activitySource": "Bilious",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:6774"
+      ]
+    },
+    {
+      "activity": "Cálculo",
+      "activitySource": "Calculus",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:8735"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:62011"
+      ]
+    },
+    {
+      "activity": "Dentífrico",
+      "activitySource": "Dentifrice",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:15188"
+      ]
+    }
+  ]
+}

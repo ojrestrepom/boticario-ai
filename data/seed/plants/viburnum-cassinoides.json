@@ -1,0 +1,122 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ef72095fb51aec48be2459af13aa17ef177ebbf36aea3a888255fbd4a91106b4",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2456077"
+    ],
+    "value": "Viburnum cassinoides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2456077"
+    ],
+    "value": "Viburnaceae"
+  },
+  "goals": [],
+  "id": "viburnum-cassinoides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2456077"
+    ],
+    "value": "Nativa del este de Canadá y de Estados Unidos (centro-norte, noreste y sureste)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:14588": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14588",
+      "license": "CC0"
+    },
+    "usda_use:62589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62589",
+      "license": "CC0"
+    },
+    "wcvp:2456077": {
+      "dataset": "wcvp",
+      "label": "WCVP: Viburnum cassinoides L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2877685": {
+      "dataset": "wcvp",
+      "label": "WCVP: Viburnum nudum var. cassinoides (L.) Torr. & A.Gray",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:14588"
+    ],
+    "text": "Advertencia: registrada como cianogénica."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Viburnum cassinoides",
+    "refs": [
+      "wcvp:2456077"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Torr. & A.Gray",
+      "name": "Viburnum nudum var. cassinoides",
+      "refs": [
+        "wcvp:2877685"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62589",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

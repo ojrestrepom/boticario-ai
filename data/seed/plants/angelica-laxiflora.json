@@ -1,0 +1,81 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c423ab8369038297a032a684326a6c0fde358eedbcb697934d5cd928aa7a2c7c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:86-1"
+      ],
+      "text": "Tu Huo"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:86-RT"
+    ],
+    "value": "Angelica laxiflora"
+  },
+  "family": null,
+  "goals": [],
+  "id": "angelica-laxiflora",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:86-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tu Huo»",
+      "license": "CC0"
+    },
+    "usda_part:86-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "DIELS",
+    "name": "Angelica laxiflora",
+    "refs": [
+      "usda_part:86-RT"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

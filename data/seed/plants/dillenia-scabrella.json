@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:93aa7df1c790048f71b80e990be623ffae0b82413805c4a50f1b8249a840a1e8",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2768331"
+    ],
+    "value": "Dillenia scabrella"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2768331"
+    ],
+    "value": "Dilleniaceae"
+  },
+  "goals": [],
+  "id": "dillenia-scabrella",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2768331"
+    ],
+    "value": "Subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:44637": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44637",
+      "license": "CC0"
+    },
+    "wcvp:2466266": {
+      "dataset": "wcvp",
+      "label": "WCVP: Wormia scabrella (D.Don) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2730737": {
+      "dataset": "wcvp",
+      "label": "WCVP: Colbertia scabrella D.Don",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2768331": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dillenia scabrella (D.Don) Roxb. ex Wall.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(D.Don) Roxb. ex Wall.",
+    "name": "Dillenia scabrella",
+    "refs": [
+      "wcvp:2768331"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "D.Don",
+      "name": "Colbertia scabrella",
+      "refs": [
+        "wcvp:2730737"
+      ]
+    },
+    {
+      "authors": "(D.Don) Spreng.",
+      "name": "Wormia scabrella",
+      "refs": [
+        "wcvp:2466266"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Eb24: 251",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 251"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44637",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

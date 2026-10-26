@@ -1,0 +1,160 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:447f99808345c3b9e55e0e2fa4dcacc7b24597e8e8cd277b64fefada36e93221",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pinus elliottii"
+      ],
+      "text": "Pino ellioti"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1249109"
+      ],
+      "text": "Pino elioti"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:745-1"
+      ],
+      "text": "Slash Pine"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pinus elliottii"
+    ],
+    "value": "Pino nativo del sudeste de Estados Unidos, de crecimiento rápido y vida corta para un pino. Prefiere climas y suelos húmedos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Pinus elliottii"
+    ],
+    "value": "Pino ellioti"
+  },
+  "family": {
+    "refs": [
+      "wcvp:379943"
+    ],
+    "value": "Pinaceae"
+  },
+  "goals": [],
+  "id": "pinus-elliottii",
+  "image": {
+    "attributionRequired": false,
+    "author": "Mason Brock ( Masebrock )",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pinus_elliottii(1).jpg",
+    "refs": [
+      "commons:File:Pinus elliottii(1).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Pinus_elliottii%281%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:745-LF",
+      "usda_part:745-RE"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:379943"
+    ],
+    "value": "Sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pinus elliottii(1).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pinus elliottii(1).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Pinus_elliottii(1).jpg"
+    },
+    "usda_common_name:745-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Slash Pine»",
+      "license": "CC0"
+    },
+    "usda_part:745-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:745-RE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Resin, Exudate, Sap»",
+      "license": "CC0"
+    },
+    "wcvp:379943": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus elliottii Engelm.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q1249109": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1249109",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1249109"
+    },
+    "wikipedia_es:Pinus elliottii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pinus elliottii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pinus_elliottii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (hoja y resina), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Engelm.",
+    "name": "Pinus elliottii",
+    "refs": [
+      "wcvp:379943"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,101 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ce3d3d7a3a78db202eadbf07642df2da9e4912dba285f70262fdf2ef402bf418",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:184166"
+    ],
+    "value": "Salvia willeana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:184166"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-willeana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salvia_willeana_kz3.jpg",
+    "refs": [
+      "commons:File:Salvia willeana kz3.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Salvia_willeana_kz3.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:184166"
+    ],
+    "value": "Asia occidental (Chipre)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salvia willeana kz3.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salvia willeana kz3.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Salvia_willeana_kz3.jpg"
+    },
+    "wcvp:182755": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia grandiflora subsp. willeana Holmboe",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:184166": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia willeana (Holmboe) Hedge",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Holmboe) Hedge",
+    "name": "Salvia willeana",
+    "refs": [
+      "wcvp:184166"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Holmboe",
+      "name": "Salvia grandiflora subsp. willeana",
+      "refs": [
+        "wcvp:182755"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

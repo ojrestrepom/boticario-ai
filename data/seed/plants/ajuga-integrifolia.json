@@ -1,0 +1,391 @@
+{
+  "aliases": [
+    "ajuga-bracteosa",
+    "ajuga-remota"
+  ],
+  "bundleHash": "sha256:9faa8682d91e015b1be21b9a242c15c73167768f01d05928ffa80bcf1d301679",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1984-1"
+      ],
+      "text": "Bugle"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1979-1"
+      ],
+      "text": "Nilkanthi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:5288"
+    ],
+    "value": "Ajuga integrifolia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:5288"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "ajuga-integrifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "ChriKo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ajuga_integrifolia_habitus.jpg",
+    "refs": [
+      "commons:File:Ajuga integrifolia habitus.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Ajuga_integrifolia_habitus.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:5288"
+    ],
+    "value": "África tropical oriental, Península arábiga, subcontinente indio, China, Indochina y Malasia hasta Nueva Guinea"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ajuga integrifolia habitus.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ajuga integrifolia habitus.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ajuga_integrifolia_habitus.jpg"
+    },
+    "usda_common_name:1979-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Nilkanthi»",
+      "license": "CC0"
+    },
+    "usda_common_name:1984-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bugle»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:17453": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17453",
+      "license": "CC0"
+    },
+    "usda_use:17454": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17454",
+      "license": "CC0"
+    },
+    "usda_use:23987": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23987",
+      "license": "CC0"
+    },
+    "usda_use:23988": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23988",
+      "license": "CC0"
+    },
+    "usda_use:4052": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4052",
+      "license": "CC0"
+    },
+    "usda_use:46445": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46445",
+      "license": "CC0"
+    },
+    "usda_use:46446": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46446",
+      "license": "CC0"
+    },
+    "usda_use:5419": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5419",
+      "license": "CC0"
+    },
+    "usda_use:68153": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68153",
+      "license": "CC0"
+    },
+    "usda_use:7577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7577",
+      "license": "CC0"
+    },
+    "usda_use:80484": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80484",
+      "license": "CC0"
+    },
+    "wcvp:5288": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ajuga integrifolia Buch.-Ham. ex D.Don",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:5380": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ajuga remota Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Ajuga remota) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Buch.-Ham. ex D.Don",
+    "name": "Ajuga integrifolia",
+    "refs": [
+      "wcvp:5288"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Benth.",
+      "name": "Ajuga remota",
+      "refs": [
+        "wcvp:5380"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17453",
+        "usda_use:17454",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb25: 421",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 421"
+        },
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23987",
+        "usda_use:23988",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46445",
+        "usda_use:46446",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Laxante suave",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4052",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5419",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Eb25: 421",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 421"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7577",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Eb25: 421",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 421"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68153",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Eb25: 421",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 421"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80484",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:caa0144271ac1759310d8a795bab0944990f9b41745987cf3ca147883a40a23b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156344"
+      ],
+      "text": "amaranto"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156344"
+      ],
+      "text": "Amarantos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156344"
+      ],
+      "text": "amaranta"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:63-1"
+      ],
+      "text": "Pigweed"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Amaranthus"
+    ],
+    "value": "Género de plantas herbáceas y anuales de la familia Amaranthaceae, presente en la mayor parte de las regiones de clima templado y cálido. Varias de sus especies se cultivan por sus semillas u hojas como alimento y otras como ornamentales."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q156344"
+    ],
+    "value": "Amaranto"
+  },
+  "family": null,
+  "goals": [],
+  "id": "amaranthus-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kurt Stüber [1]",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Amaranthus_tricolor0.jpg",
+    "refs": [
+      "commons:File:Amaranthus tricolor0.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Amaranthus_tricolor0.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Amaranthus tricolor0.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Amaranthus tricolor0.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Amaranthus_tricolor0.jpg"
+    },
+    "usda_common_name:63-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pigweed»",
+      "license": "CC0"
+    },
+    "wikidata:Q156344": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q156344",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q156344"
+    },
+    "wikipedia_es:Amaranthus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Amaranthus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Amaranthus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Amaranthus sp.",
+    "refs": [
+      "wikidata:Q156344"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

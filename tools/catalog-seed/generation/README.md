@@ -62,8 +62,11 @@ El script envuelve cada lote en el mismo prompt, parametrizado por fase y lote:
 | --- | --- | --- | --- | --- | --- |
 | Control (prompt v7) | 20 | 2 | 5 a 7 minutos por lote | unos 370.000 | unos 18.500 |
 | Fase 1 | 189 | 19 | unos 14 minutos | 3.255.434 | unos 17.200 |
+| Fase 2 | 2.150 (2.149 escritas y 1 rechazada) | 215 | unos 23 minutos de reloj en la segunda ventana, más la primera parte antes de la pausa | 13.343.485 (corrida reanudada, incluye los 115 lotes de la primera parte) | unos 6.200 |
 
-La fase 1 dio 0 errores del validador y 0 rechazados. Con 17.200 a 18.500 tokens por planta, las 2.150 plantas de la fase 2 salen en unos 37 a 40 millones de tokens, y el tope práctico son las ventanas de uso de la cuenta.
+La fase 1 dio 0 errores del validador y 0 rechazados. La estimación con 17.200 a 18.500 tokens por planta daba unos 37 a 40 millones de tokens para la fase 2, pero el gasto real fue de unos 6.200 por planta, y el tope práctico fueron las ventanas de uso de la cuenta.
+
+La fase 2 dio 0 errores y 0 advertencias del validador en los 215 lotes y 1 rechazo, `malachra-alaceaefolia`, porque su paquete no trae ningún ref y el esquema exige al menos uno en `scientificName` y `displayName`. Una pausa por el límite de uso cortó la corrida tras 115 lotes y se reanudó con `resumeFromRunId` y los mismos argumentos; los 215 lotes quedaron completos. Los tokens de la tabla son los de la corrida reanudada.
 
 ## Cómo se hizo la corrida de control
 

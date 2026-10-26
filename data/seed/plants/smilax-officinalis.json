@@ -1,0 +1,156 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:82557a2f4935ddc23513a6b380e54ab4404872ba8041193d9baee93c9a14162f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2201-1"
+      ],
+      "text": "Sarsaparilla"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:288955"
+    ],
+    "value": "Smilax officinalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:288955"
+    ],
+    "value": "Smilacaceae"
+  },
+  "goals": [],
+  "id": "smilax-officinalis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Descourtilz, J. Theodore.; Descourtilz, M. E.; Pichard.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(8261802300).jpg",
+    "refs": [
+      "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (8261802300).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%288261802300%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:288955"
+    ],
+    "value": "Nativa de América Central y el oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (8261802300).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flore médicale des Antilles, ou, Traité des plantes usuelles (8261802300).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(8261802300).jpg"
+    },
+    "efsa_botanic:71": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sarsasapogenin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:72": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: parillin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:74": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: neotigogenin",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2201-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sarsaparilla»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:79551": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79551",
+      "license": "CC0"
+    },
+    "wcvp:288955": {
+      "dataset": "wcvp",
+      "label": "WCVP: Smilax officinalis Kunth",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:74",
+      "efsa_botanic:72",
+      "efsa_botanic:71"
+    ],
+    "text": "EFSA registra, para las raíces y otras partes subterráneas, las sustancias neotigogenina, parillina y sarsasapogenina como evidencia."
+  },
+  "scientificName": {
+    "authors": "Kunth",
+    "name": "Smilax officinalis",
+    "refs": [
+      "wcvp:288955"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79551",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

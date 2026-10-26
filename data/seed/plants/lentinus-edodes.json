@@ -1,0 +1,81 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f6a7b6ee04edec9dbdeb654c6a09d150163a3e2add51cbb1c0373bb85a540c96",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2163-1"
+      ],
+      "text": "Shiitake"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q105057495"
+    ],
+    "value": "Lentinus edodes"
+  },
+  "family": null,
+  "goals": [],
+  "id": "lentinus-edodes",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2163-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Shiitake»",
+      "license": "CC0"
+    },
+    "wikidata:Q105057495": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q105057495",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q105057495"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Lentinus edodes",
+    "refs": [
+      "wikidata:Q105057495"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

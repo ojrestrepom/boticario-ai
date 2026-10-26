@@ -1,0 +1,168 @@
+{
+  "aliases": [
+    "neuracanthus-sphaerostachys"
+  ],
+  "bundleHash": "sha256:35dd00655b4bc365b69f0c73bc05b267af1ed41312e7736d232e4bc2fe346e8c",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2380222"
+    ],
+    "value": "Neuracanthus sphaerostachyus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2380222"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "neuracanthus-sphaerostachyus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Dinesh Valke from Thane, India",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Neuracanthus_sphaerostachys_(5085618365).jpg",
+    "refs": [
+      "commons:File:Neuracanthus sphaerostachys (5085618365).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Neuracanthus_sphaerostachys_%285085618365%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2380222"
+    ],
+    "value": "Subcontinente indio (India)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Neuracanthus sphaerostachys (5085618365).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Neuracanthus sphaerostachys (5085618365).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Neuracanthus_sphaerostachys_(5085618365).jpg"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:20458": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20458",
+      "license": "CC0"
+    },
+    "usda_use:76250": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76250",
+      "license": "CC0"
+    },
+    "wcvp:2342191": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepidagathis sphaerostachya Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2380222": {
+      "dataset": "wcvp",
+      "label": "WCVP: Neuracanthus sphaerostachyus (Nees) Dalzell",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Nees) Dalzell",
+    "name": "Neuracanthus sphaerostachyus",
+    "refs": [
+      "wcvp:2380222"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Nees",
+      "name": "Lepidagathis sphaerostachya",
+      "refs": [
+        "wcvp:2342191"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20458",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tiña",
+      "activitySource": "Ringworm",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76250",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

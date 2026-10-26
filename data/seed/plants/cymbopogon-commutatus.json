@@ -1,0 +1,139 @@
+{
+  "aliases": [
+    "cymbopogon-parkeri"
+  ],
+  "bundleHash": "sha256:2612b5217dd4d5ad89e48e551e2bf30a8302ce912e0c677e55e3475d9337fe08",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:341-1"
+      ],
+      "text": "Skhabar"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:406139"
+    ],
+    "value": "Cymbopogon commutatus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:406139"
+    ],
+    "value": "Poaceae"
+  },
+  "goals": [],
+  "id": "cymbopogon-commutatus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:341-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:406139"
+    ],
+    "value": "Nativa de la península arábiga, el África tropical (oriental, noreste y occidental), el subcontinente indio y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:341-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Skhabar»",
+      "license": "CC0"
+    },
+    "usda_part:341-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:406139": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cymbopogon commutatus (Steud.) Stapf",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:418138": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gymnanthelia commutata (Steud.) Schweinf. & Asch.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:443361": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sorghum commutatum (Steud.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:469616": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andropogon commutatus Steud.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Steud.) Stapf",
+    "name": "Cymbopogon commutatus",
+    "refs": [
+      "wcvp:406139"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Steud.",
+      "name": "Andropogon commutatus",
+      "refs": [
+        "wcvp:469616"
+      ]
+    },
+    {
+      "authors": "(Steud.) Schweinf. & Asch.",
+      "name": "Gymnanthelia commutata",
+      "refs": [
+        "wcvp:418138"
+      ]
+    },
+    {
+      "authors": "(Steud.) Kuntze",
+      "name": "Sorghum commutatum",
+      "refs": [
+        "wcvp:443361"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

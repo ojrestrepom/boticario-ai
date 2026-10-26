@@ -1,0 +1,118 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:24ccd91b45a540526f261927b6c7e2e4f85ae71c1716e97cb6cb58d5eceedeab",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2089-1"
+      ],
+      "text": "'Croatian Alpine' Germander"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:202663"
+    ],
+    "value": "Teucrium arduini"
+  },
+  "family": {
+    "refs": [
+      "wcvp:202663"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-arduini",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2089-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:202663"
+    ],
+    "value": "Sudeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2089-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «'Croatian Alpine' Germander»",
+      "license": "CC0"
+    },
+    "usda_part:2089-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:188820": {
+      "dataset": "wcvp",
+      "label": "WCVP: Scorodonia arduini (L.) Rchb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:202663": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium arduini L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Teucrium arduini",
+    "refs": [
+      "wcvp:202663"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Rchb.",
+      "name": "Scorodonia arduini",
+      "refs": [
+        "wcvp:188820"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,199 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:680eda5fc5974991cb4c3c2c46aee9850e2b79147f46a8b9c46e00a25a4ab290",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1651-RT"
+    ],
+    "value": "Scirpus tuberosus"
+  },
+  "family": null,
+  "goals": [],
+  "id": "scirpus-tuberosus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1651-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_use:3288": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3288",
+      "license": "CC0"
+    },
+    "usda_use:61378": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61378",
+      "license": "CC0"
+    },
+    "usda_use:64455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64455",
+      "license": "CC0"
+    },
+    "usda_use:75826": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75826",
+      "license": "CC0"
+    },
+    "usda_use:7995": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7995",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Scirpus tuberosus",
+    "refs": [
+      "usda_part:1651-RT"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64455",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Antídoto (metal)",
+      "activitySource": "Antidote(Metal)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3288",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Aliento",
+      "activitySource": "Breath",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7995",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Flujo",
+      "activitySource": "Flux",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61378",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Refrigerante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75826",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

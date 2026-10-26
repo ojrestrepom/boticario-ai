@@ -1,0 +1,1732 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:88db14c41be2330ef6b607cfc32dde069eed8e4d37e81dca2ede91db0038dff0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:926-1"
+      ],
+      "text": "Coffee Senna"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Senna occidentalis"
+    ],
+    "value": "Especie de planta pantropical perteneciente a la familia de las fabáceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2490483"
+    ],
+    "value": "Senna occidentalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2490483"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "senna-occidentalis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Senna_occidentalis_-_Habit_-_Les_Martels,_Giroussens_Tarn.jpg",
+    "refs": [
+      "commons:File:(MHNT) Senna occidentalis - Habit - Les Martels, Giroussens Tarn.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/%28MHNT%29_Senna_occidentalis_-_Habit_-_Les_Martels%2C_Giroussens_Tarn.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:926-SD"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2490483"
+    ],
+    "value": "Nativa de México, América Central, el Caribe y América del Sur."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(MHNT) Senna occidentalis - Habit - Les Martels, Giroussens Tarn.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(MHNT) Senna occidentalis - Habit - Les Martels, Giroussens Tarn.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Senna_occidentalis_-_Habit_-_Les_Martels,_Giroussens_Tarn.jpg"
+    },
+    "efsa_botanic:1000": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Emodin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1001": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Aloe-emodin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1002": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: physcion",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1003": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: emodin anthron",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1004": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Phytotoxins",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:309": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Senna occidentalis (L.) Link",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:926-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Coffee Senna»",
+      "license": "CC0"
+    },
+    "usda_part:926-SD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Seed»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:Broun": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Broun",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Gupta": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Gupta",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Standley,1931": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley,1931",
+      "license": "CC0"
+    },
+    "usda_reference:Standley,Steyermark": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley,Steyermark",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:10856": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10856",
+      "license": "CC0"
+    },
+    "usda_use:10857": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10857",
+      "license": "CC0"
+    },
+    "usda_use:11996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11996",
+      "license": "CC0"
+    },
+    "usda_use:11997": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11997",
+      "license": "CC0"
+    },
+    "usda_use:11998": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11998",
+      "license": "CC0"
+    },
+    "usda_use:11999": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11999",
+      "license": "CC0"
+    },
+    "usda_use:12154": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12154",
+      "license": "CC0"
+    },
+    "usda_use:171": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 171",
+      "license": "CC0"
+    },
+    "usda_use:172": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 172",
+      "license": "CC0"
+    },
+    "usda_use:17725": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17725",
+      "license": "CC0"
+    },
+    "usda_use:17726": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17726",
+      "license": "CC0"
+    },
+    "usda_use:17727": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17727",
+      "license": "CC0"
+    },
+    "usda_use:17728": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17728",
+      "license": "CC0"
+    },
+    "usda_use:19072": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19072",
+      "license": "CC0"
+    },
+    "usda_use:19073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19073",
+      "license": "CC0"
+    },
+    "usda_use:19074": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19074",
+      "license": "CC0"
+    },
+    "usda_use:20812": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20812",
+      "license": "CC0"
+    },
+    "usda_use:24205": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24205",
+      "license": "CC0"
+    },
+    "usda_use:24206": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24206",
+      "license": "CC0"
+    },
+    "usda_use:24207": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24207",
+      "license": "CC0"
+    },
+    "usda_use:24208": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24208",
+      "license": "CC0"
+    },
+    "usda_use:26811": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26811",
+      "license": "CC0"
+    },
+    "usda_use:26812": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26812",
+      "license": "CC0"
+    },
+    "usda_use:27616": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27616",
+      "license": "CC0"
+    },
+    "usda_use:29450": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29450",
+      "license": "CC0"
+    },
+    "usda_use:29451": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29451",
+      "license": "CC0"
+    },
+    "usda_use:29452": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29452",
+      "license": "CC0"
+    },
+    "usda_use:29453": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29453",
+      "license": "CC0"
+    },
+    "usda_use:31855": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31855",
+      "license": "CC0"
+    },
+    "usda_use:31856": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31856",
+      "license": "CC0"
+    },
+    "usda_use:32845": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32845",
+      "license": "CC0"
+    },
+    "usda_use:32846": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32846",
+      "license": "CC0"
+    },
+    "usda_use:32847": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32847",
+      "license": "CC0"
+    },
+    "usda_use:39594": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39594",
+      "license": "CC0"
+    },
+    "usda_use:39595": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39595",
+      "license": "CC0"
+    },
+    "usda_use:39596": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39596",
+      "license": "CC0"
+    },
+    "usda_use:39597": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39597",
+      "license": "CC0"
+    },
+    "usda_use:39598": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39598",
+      "license": "CC0"
+    },
+    "usda_use:39599": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39599",
+      "license": "CC0"
+    },
+    "usda_use:41049": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41049",
+      "license": "CC0"
+    },
+    "usda_use:41050": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41050",
+      "license": "CC0"
+    },
+    "usda_use:41051": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41051",
+      "license": "CC0"
+    },
+    "usda_use:41052": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41052",
+      "license": "CC0"
+    },
+    "usda_use:41936": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41936",
+      "license": "CC0"
+    },
+    "usda_use:41937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41937",
+      "license": "CC0"
+    },
+    "usda_use:41938": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41938",
+      "license": "CC0"
+    },
+    "usda_use:41939": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41939",
+      "license": "CC0"
+    },
+    "usda_use:43583": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43583",
+      "license": "CC0"
+    },
+    "usda_use:43584": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43584",
+      "license": "CC0"
+    },
+    "usda_use:43585": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43585",
+      "license": "CC0"
+    },
+    "usda_use:47138": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47138",
+      "license": "CC0"
+    },
+    "usda_use:47139": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47139",
+      "license": "CC0"
+    },
+    "usda_use:47532": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47532",
+      "license": "CC0"
+    },
+    "usda_use:47533": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47533",
+      "license": "CC0"
+    },
+    "usda_use:50237": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50237",
+      "license": "CC0"
+    },
+    "usda_use:50238": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50238",
+      "license": "CC0"
+    },
+    "usda_use:53789": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53789",
+      "license": "CC0"
+    },
+    "usda_use:53790": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53790",
+      "license": "CC0"
+    },
+    "usda_use:53791": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53791",
+      "license": "CC0"
+    },
+    "usda_use:57181": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57181",
+      "license": "CC0"
+    },
+    "usda_use:57184": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57184",
+      "license": "CC0"
+    },
+    "usda_use:57185": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57185",
+      "license": "CC0"
+    },
+    "usda_use:57186": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57186",
+      "license": "CC0"
+    },
+    "usda_use:57195": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57195",
+      "license": "CC0"
+    },
+    "usda_use:57196": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57196",
+      "license": "CC0"
+    },
+    "usda_use:57201": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57201",
+      "license": "CC0"
+    },
+    "usda_use:63724": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63724",
+      "license": "CC0"
+    },
+    "usda_use:66734": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66734",
+      "license": "CC0"
+    },
+    "usda_use:67147": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67147",
+      "license": "CC0"
+    },
+    "usda_use:68845": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68845",
+      "license": "CC0"
+    },
+    "usda_use:68846": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68846",
+      "license": "CC0"
+    },
+    "usda_use:69255": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69255",
+      "license": "CC0"
+    },
+    "usda_use:69780": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69780",
+      "license": "CC0"
+    },
+    "usda_use:70816": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70816",
+      "license": "CC0"
+    },
+    "usda_use:70817": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70817",
+      "license": "CC0"
+    },
+    "usda_use:71645": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71645",
+      "license": "CC0"
+    },
+    "usda_use:731": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 731",
+      "license": "CC0"
+    },
+    "usda_use:73185": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73185",
+      "license": "CC0"
+    },
+    "usda_use:732": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 732",
+      "license": "CC0"
+    },
+    "usda_use:733": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 733",
+      "license": "CC0"
+    },
+    "usda_use:73493": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73493",
+      "license": "CC0"
+    },
+    "usda_use:73494": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73494",
+      "license": "CC0"
+    },
+    "usda_use:75545": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75545",
+      "license": "CC0"
+    },
+    "usda_use:75546": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75546",
+      "license": "CC0"
+    },
+    "usda_use:75547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75547",
+      "license": "CC0"
+    },
+    "usda_use:75976": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75976",
+      "license": "CC0"
+    },
+    "usda_use:75977": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75977",
+      "license": "CC0"
+    },
+    "usda_use:76728": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76728",
+      "license": "CC0"
+    },
+    "usda_use:76729": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76729",
+      "license": "CC0"
+    },
+    "usda_use:77857": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77857",
+      "license": "CC0"
+    },
+    "usda_use:77973": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77973",
+      "license": "CC0"
+    },
+    "usda_use:78807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78807",
+      "license": "CC0"
+    },
+    "usda_use:78808": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78808",
+      "license": "CC0"
+    },
+    "usda_use:80940": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80940",
+      "license": "CC0"
+    },
+    "usda_use:80941": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80941",
+      "license": "CC0"
+    },
+    "usda_use:80947": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80947",
+      "license": "CC0"
+    },
+    "usda_use:80948": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80948",
+      "license": "CC0"
+    },
+    "wcvp:2490483": {
+      "dataset": "wcvp",
+      "label": "WCVP: Senna occidentalis (L.) Link",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2703657": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cassia occidentalis L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2773572": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ditremexa occidentalis (L.) Britton & Rose",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Senna occidentalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Senna occidentalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Senna_occidentalis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (semilla), sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Purgante» tiene una clave de cita sin candidata (Woi.Syria) que queda sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Piel» tiene una clave de cita sin candidata (Woi.Syria) que queda sin resolver.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Uso tradicional, sin eficacia demostrada: malaria» tiene una clave de cita sin candidata (Woi.Syria) que queda sin resolver.",
+      "target": "traditionalUses[7]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:171",
+      "usda_use:172",
+      "efsa_botanic:1001",
+      "efsa_botanic:1000",
+      "efsa_botanic:1004",
+      "efsa_botanic:1003",
+      "efsa_botanic:1002",
+      "efsa_endpoint:309"
+    ],
+    "text": "Advertencia: registrada como abortiva en usos tradicionales. EFSA registra en la semilla las sustancias aloe-emodina, emodina, fitotoxinas, emodina antrona y fisciona, y un estudio describe accidentes en niños tras una ingesta alta de semillas."
+  },
+  "scientificName": {
+    "authors": "(L.) Link",
+    "name": "Senna occidentalis",
+    "refs": [
+      "wcvp:2490483"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Cassia occidentalis",
+      "refs": [
+        "wcvp:2703657"
+      ]
+    },
+    {
+      "authors": "(L.) Britton & Rose",
+      "name": "Ditremexa occidentalis",
+      "refs": [
+        "wcvp:2773572"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Eb33: 188",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 188"
+        },
+        {
+          "key": "Eb33: 41",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 41"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "África (suajili)",
+        "Brasil",
+        "Otros lugares",
+        "Haití",
+        "Irak",
+        "Nepal",
+        "Trinidad"
+      ],
+      "n": 10,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39594",
+        "usda_use:39595",
+        "usda_use:39596",
+        "usda_use:39597",
+        "usda_use:39598",
+        "usda_use:39599",
+        "usda_use:75545",
+        "usda_use:75546",
+        "usda_use:75547",
+        "usda_use:80947",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Altschul",
+        "usda_reference:Duke",
+        "usda_reference:EB",
+        "usda_reference:EB",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Singh",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Gambia",
+        "Ghana",
+        "Irak",
+        "México",
+        "Venezuela"
+      ],
+      "n": 8,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24205",
+        "usda_use:24206",
+        "usda_use:24207",
+        "usda_use:24208",
+        "usda_use:57184",
+        "usda_use:57185",
+        "usda_use:70816",
+        "usda_use:70817",
+        "usda_reference:Ayensu",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Duke",
+        "usda_reference:Martinez",
+        "usda_reference:Pittier",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Eb32: 281",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 281"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Borneo",
+        "Otros lugares",
+        "Haití",
+        "India (Gujarat)",
+        "México",
+        "Turquía",
+        "Venezuela"
+      ],
+      "n": 7,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43583",
+        "usda_use:43584",
+        "usda_use:43585",
+        "usda_use:57196",
+        "usda_use:76728",
+        "usda_use:76729",
+        "usda_use:80948",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Altschul",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Pittier",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Broun",
+          "ref": "usda_reference:Broun",
+          "text": "Broun, A.F., and R.E. Massey. 1929. Flora of the Sudan. The controller, Sudan Govt. Office, Wellington House, Buchingham Gate, London, S.W.I."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "México",
+        "Sudán",
+        "Venezuela"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17725",
+        "usda_use:17726",
+        "usda_use:17727",
+        "usda_use:17728",
+        "usda_use:68845",
+        "usda_use:68846",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Broun",
+        "usda_reference:Martinez",
+        "usda_reference:Pittier",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Ghana",
+        "Haití",
+        "México",
+        "Zaire"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41049",
+        "usda_use:41050",
+        "usda_use:41051",
+        "usda_use:41052",
+        "usda_use:75976",
+        "usda_use:75977",
+        "usda_reference:Ayensu",
+        "usda_reference:Liogier",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "Ghana",
+        "Hainan",
+        "Malaya",
+        "México",
+        "Filipinas"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:731",
+        "usda_use:732",
+        "usda_use:733",
+        "usda_use:27616",
+        "usda_use:63724",
+        "usda_reference:Altschul",
+        "usda_reference:Ayensu",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Otros lugares",
+        "Haití",
+        "México"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19072",
+        "usda_use:19073",
+        "usda_use:19074",
+        "usda_use:57181",
+        "usda_use:69255",
+        "usda_reference:Ayensu",
+        "usda_reference:Liogier",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití",
+        "Turquía",
+        "Venezuela"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32845",
+        "usda_use:32846",
+        "usda_use:32847",
+        "usda_use:73493",
+        "usda_use:73494",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Duke",
+        "usda_reference:Liogier",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Tiña",
+      "activitySource": "Ringworm",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Broun",
+          "ref": "usda_reference:Broun",
+          "text": "Broun, A.F., and R.E. Massey. 1929. Flora of the Sudan. The controller, Sudan Govt. Office, Wellington House, Buchingham Gate, London, S.W.I."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Guatemala",
+        "México",
+        "Sudán"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41936",
+        "usda_use:41937",
+        "usda_use:41938",
+        "usda_use:41939",
+        "usda_use:57195",
+        "usda_reference:Ayensu",
+        "usda_reference:Broun",
+        "usda_reference:Duke",
+        "usda_reference:Standley",
+        "usda_reference:Standley,Steyermark"
+      ]
+    },
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Standley,1931",
+          "ref": "usda_reference:Standley,1931",
+          "text": "Standley, P.C. 1931. Flora of the Lancetilla Valley, Honduras. Pub. 283, Botanical Series, vol. X. Field Museum of Natl. History, Chicago."
+        },
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Guatemala",
+        "Honduras",
+        "México"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11996",
+        "usda_use:11997",
+        "usda_use:11998",
+        "usda_use:11999",
+        "usda_reference:Duke",
+        "usda_reference:Standley",
+        "usda_reference:Standley,1931",
+        "usda_reference:Standley,Steyermark"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Ghana",
+        "Haití",
+        "Alto Volta"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26811",
+        "usda_use:26812",
+        "usda_use:57186",
+        "usda_use:71645",
+        "usda_reference:Ayensu",
+        "usda_reference:Duke",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Gupta",
+          "ref": "usda_reference:Gupta",
+          "text": "Gupta, M.P., et al. 1979. Ethnopharmacognostic observations on Panamanian medicinal plants. Part I. Quarterly journal of crude drug research 17(3-4):115-130."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Gambia",
+        "Panamá",
+        "Trinidad"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29450",
+        "usda_use:29451",
+        "usda_use:29452",
+        "usda_use:29453",
+        "usda_reference:Ayensu",
+        "usda_reference:EB",
+        "usda_reference:Gupta",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "México"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50237",
+        "usda_use:50238",
+        "usda_use:78807",
+        "usda_use:78808",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Enfermedades venéreas",
+      "activitySource": "Venereal",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Ghana",
+        "México",
+        "Alto Volta"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53789",
+        "usda_use:53790",
+        "usda_use:53791",
+        "usda_use:57201",
+        "usda_reference:Ayensu",
+        "usda_reference:Martinez",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Catarata",
+      "activitySource": "Cataract",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Ghana",
+        "Alto Volta"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10856",
+        "usda_use:10857",
+        "usda_use:66734",
+        "usda_reference:Ayensu",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad",
+        "Venezuela"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12154",
+        "usda_use:67147",
+        "usda_use:80940",
+        "usda_reference:EB",
+        "usda_reference:Pittier",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Eccema",
+      "activitySource": "Eczema",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20812",
+        "usda_use:69780",
+        "usda_use:80941",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: lepra",
+      "activitySource": "Leprosy",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México",
+        "Alto Volta"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31855",
+        "usda_use:31856",
+        "usda_use:73185",
+        "usda_reference:Ayensu",
+        "usda_reference:Martinez",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Eb28: 17",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 17"
+        },
+        {
+          "key": "Gupta",
+          "ref": "usda_reference:Gupta",
+          "text": "Gupta, M.P., et al. 1979. Ethnopharmacognostic observations on Panamanian medicinal plants. Part I. Quarterly journal of crude drug research 17(3-4):115-130."
+        }
+      ],
+      "countries": [
+        "Panamá",
+        "Samoa",
+        "Zaire"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47138",
+        "usda_use:47139",
+        "usda_use:77857",
+        "usda_reference:Ayensu",
+        "usda_reference:EB",
+        "usda_reference:Gupta"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47532",
+        "usda_use:47533",
+        "usda_use:77973",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

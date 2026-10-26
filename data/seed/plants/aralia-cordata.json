@@ -1,0 +1,330 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:06d1c78002fb96b9f72af53b14c880e7acbfefad3e5992c30c8c67be84764555",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Aralia cordata"
+      ],
+      "text": "Udo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:102-1"
+      ],
+      "text": "Udo"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Aralia cordata"
+    ],
+    "value": "Especie de planta herbácea perenne de la familia de las araliáceas, originaria de Japón, Corea y China oriental. Se encuentra comúnmente en las laderas boscosas en los terraplenes."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Aralia cordata"
+    ],
+    "value": "Udo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:14013"
+    ],
+    "value": "Araliaceae"
+  },
+  "goals": [],
+  "id": "aralia-cordata",
+  "image": {
+    "attributionRequired": true,
+    "author": "‘Uncle Carl’ (カールおじさん).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Aralia_cordata.jpg",
+    "refs": [
+      "commons:File:Aralia cordata.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Aralia_cordata.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:102-ST"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:14013"
+    ],
+    "value": "Nativa de China, Asia oriental y el Lejano Oriente ruso."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Aralia cordata.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Aralia cordata.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Aralia_cordata.jpg"
+    },
+    "usda_common_name:102-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Udo»",
+      "license": "CC0"
+    },
+    "usda_part:102-ST": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Stem»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Kimura": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Kimura",
+      "license": "CC0"
+    },
+    "usda_use:25985": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25985",
+      "license": "CC0"
+    },
+    "usda_use:46480": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46480",
+      "license": "CC0"
+    },
+    "usda_use:47116": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47116",
+      "license": "CC0"
+    },
+    "usda_use:47473": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47473",
+      "license": "CC0"
+    },
+    "usda_use:50131": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50131",
+      "license": "CC0"
+    },
+    "usda_use:66583": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66583",
+      "license": "CC0"
+    },
+    "usda_use:78770": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78770",
+      "license": "CC0"
+    },
+    "wcvp:14013": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aralia cordata Thunb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:14040": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aralia edulis Siebold",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:61887": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dimorphanthus edulis (Siebold & Zucc.) Miq.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Aralia cordata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Aralia cordata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Aralia_cordata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el tallo, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Thunb.",
+    "name": "Aralia cordata",
+    "refs": [
+      "wcvp:14013"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Siebold",
+      "name": "Aralia edulis",
+      "refs": [
+        "wcvp:14040"
+      ]
+    },
+    {
+      "authors": "(Siebold & Zucc.) Miq.",
+      "name": "Dimorphanthus edulis",
+      "refs": [
+        "wcvp:61887"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "Japón",
+        "Corea"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50131",
+        "usda_use:78770",
+        "usda_reference:Kimura"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66583",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Alimento",
+      "activitySource": "Food",
+      "citations": [
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25985",
+        "usda_reference:Kimura"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46480",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47116",
+        "usda_reference:Kimura"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47473",
+        "usda_reference:Kimura"
+      ]
+    }
+  ]
+}

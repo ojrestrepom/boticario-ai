@@ -1,0 +1,107 @@
+{
+  "aliases": [
+    "diospyros-oblongifolia"
+  ],
+  "bundleHash": "sha256:37af91f9ed375837ef631e02c488b818635442d0306f6f64c1af80ca060c49e6",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:490212"
+    ],
+    "value": "Diospyros srilankana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:490212"
+    ],
+    "value": "Ebenaceae"
+  },
+  "goals": [],
+  "id": "diospyros-srilankana",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:490212"
+    ],
+    "value": "Subcontinente indio"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:377923": {
+      "dataset": "wcvp",
+      "label": "WCVP: Macreightia oblongifolia Thwaites",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:377999": {
+      "dataset": "wcvp",
+      "label": "WCVP: Maba oblongifolia (Thwaites) Hiern",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:385107": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ebenus oblongifolia (Thwaites) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:490212": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros srilankana I.M.Turner",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "I.M.Turner",
+    "name": "Diospyros srilankana",
+    "refs": [
+      "wcvp:490212"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Thwaites) Kuntze",
+      "name": "Ebenus oblongifolia",
+      "refs": [
+        "wcvp:385107"
+      ]
+    },
+    {
+      "authors": "(Thwaites) Hiern",
+      "name": "Maba oblongifolia",
+      "refs": [
+        "wcvp:377999"
+      ]
+    },
+    {
+      "authors": "Thwaites",
+      "name": "Macreightia oblongifolia",
+      "refs": [
+        "wcvp:377923"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

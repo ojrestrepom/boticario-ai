@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:109f1f6b8b42115e6f479e8111bea82c9868a0c464bb47843e83437b599e36fa",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2278-1"
+      ],
+      "text": "Pitcher-Plant"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Sarracenia"
+    ],
+    "value": "Género de plantas con flores de la familia Sarraceniaceae, que comprende nueve a once especies de plantas carnívoras nativas de Norteamérica."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q161174"
+    ],
+    "value": "Sarracenia sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "sarracenia-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "No machine-readable author provided. NoahElhardt assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sarracenia_rubra_ne.JPG",
+    "refs": [
+      "commons:File:Sarracenia rubra ne.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Sarracenia_rubra_ne.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sarracenia rubra ne.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sarracenia rubra ne.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Sarracenia_rubra_ne.JPG"
+    },
+    "usda_common_name:2278-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pitcher-Plant»",
+      "license": "CC0"
+    },
+    "wikidata:Q161174": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q161174",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q161174"
+    },
+    "wikipedia_es:Sarracenia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Sarracenia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Sarracenia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Sarracenia sp.",
+    "refs": [
+      "wikidata:Q161174"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

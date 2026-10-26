@@ -1,0 +1,161 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:70110e0b5c5b4742924ed0862eee5fe0b43b109932757e6592411c4643e4ee1f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:975-1"
+      ],
+      "text": "Ouabain"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Strophanthus gratus"
+    ],
+    "value": "Especie de liana perteneciente a la familia de las apocináceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:198229"
+    ],
+    "value": "Strophanthus gratus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:198229"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "strophanthus-gratus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Tatiana Gerus",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Strophanthus_gratus.jpg",
+    "refs": [
+      "commons:File:Strophanthus gratus.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Strophanthus_gratus.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:198229"
+    ],
+    "value": "África tropical occidental y centro-occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Strophanthus gratus.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Strophanthus gratus.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Strophanthus_gratus.jpg"
+    },
+    "efsa_botanic:453": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: ouabain",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:975-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ouabain»",
+      "license": "CC0"
+    },
+    "usda_use:61864": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61864",
+      "license": "CC0"
+    },
+    "wcvp:180119": {
+      "dataset": "wcvp",
+      "label": "WCVP: Roupalia grata (Wall. & Hook. ex Benth.) T.Moore & Ayres",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:180121": {
+      "dataset": "wcvp",
+      "label": "WCVP: Roupellia grata Wall. & Hook. ex Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:198229": {
+      "dataset": "wcvp",
+      "label": "WCVP: Strophanthus gratus (Wall. & Hook. ex Benth.) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Strophanthus gratus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Strophanthus gratus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Strophanthus_gratus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:453",
+      "usda_use:61864"
+    ],
+    "text": "EFSA registra la ouabaína en la semilla entre las sustancias de alta preocupación (venenos potentes, como los glucósidos cardíacos). Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(Wall. & Hook. ex Benth.) Baill.",
+    "name": "Strophanthus gratus",
+    "refs": [
+      "wcvp:198229"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Wall. & Hook. ex Benth.) T.Moore & Ayres",
+      "name": "Roupalia grata",
+      "refs": [
+        "wcvp:180119"
+      ]
+    },
+    {
+      "authors": "Wall. & Hook. ex Benth.",
+      "name": "Roupellia grata",
+      "refs": [
+        "wcvp:180121"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

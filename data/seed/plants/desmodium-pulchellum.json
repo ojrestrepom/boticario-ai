@@ -1,0 +1,177 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:30f8194828cacdb60e9f30f20bdf326e42738ea55e14a4477b6fb9dfb4079d1d",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1500-RT"
+    ],
+    "value": "Desmodium pulchellum"
+  },
+  "family": null,
+  "goals": [],
+  "id": "desmodium-pulchellum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1500-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:28146": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28146",
+      "license": "CC0"
+    },
+    "usda_use:37578": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37578",
+      "license": "CC0"
+    },
+    "usda_use:68510": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68510",
+      "license": "CC0"
+    },
+    "usda_use:74420": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74420",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Desmodium pulchellum",
+    "refs": [
+      "usda_part:1500-RT"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68510",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hemorragia",
+      "activitySource": "Hemorrhage",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28146",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74420",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Pocks",
+      "activitySource": "Pocks",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37578",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

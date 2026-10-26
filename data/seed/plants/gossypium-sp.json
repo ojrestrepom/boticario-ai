@@ -1,0 +1,127 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5d1cd39f5a4689e45a887eaab848d6e797076525e8c6e5ec867da716ea0ee69a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q719312",
+        "wikipedia_es:Gossypium"
+      ],
+      "text": "Algodonero"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q719312"
+      ],
+      "text": "planta de algodón"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:452-1"
+      ],
+      "text": "Cotton"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Gossypium"
+    ],
+    "value": "Género de plantas herbáceas y arbustos de la familia Malvaceae, cultivadas para obtener la fibra del algodón. Tiene unos 60 taxones aceptados, oriundos de regiones tropicales y subtropicales del Viejo y del Nuevo Mundo."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q719312",
+      "wikipedia_es:Gossypium"
+    ],
+    "value": "Algodonero"
+  },
+  "family": null,
+  "goals": [],
+  "id": "gossypium-sp",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:CottonPlant.JPG",
+    "refs": [
+      "commons:File:CottonPlant.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/CottonPlant.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:CottonPlant.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:CottonPlant.JPG",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:CottonPlant.JPG"
+    },
+    "usda_common_name:452-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cotton»",
+      "license": "CC0"
+    },
+    "wikidata:Q719312": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q719312",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q719312"
+    },
+    "wikipedia_es:Gossypium": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Gossypium",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Gossypium"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Gossypium sp",
+    "refs": [
+      "wikidata:Q719312"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

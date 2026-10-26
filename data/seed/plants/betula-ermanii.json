@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bd2db44ead28eaf0e49dc38bf3064b736f2ae04016584550746c7fec13b4beb6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Betula ermanii"
+      ],
+      "text": "abedul de Erman"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Betula ermanii"
+    ],
+    "value": "Especie de árbol de la familia de las betuláceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Betula ermanii"
+    ],
+    "value": "Abedul de Erman"
+  },
+  "family": {
+    "refs": [
+      "wcvp:21280"
+    ],
+    "value": "Betulaceae"
+  },
+  "goals": [],
+  "id": "betula-ermanii",
+  "image": {
+    "attributionRequired": true,
+    "author": "E-190",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Betula_ermanii_(200612).jpg",
+    "refs": [
+      "commons:File:Betula ermanii (200612).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Betula_ermanii_%28200612%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:21280"
+    ],
+    "value": "Nativa de China, el este de Asia, el Extremo Oriente ruso y Siberia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Betula ermanii (200612).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Betula ermanii (200612).jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Betula_ermanii_(200612).jpg"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:55794": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55794",
+      "license": "CC0"
+    },
+    "usda_use:72440": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72440",
+      "license": "CC0"
+    },
+    "wcvp:21280": {
+      "dataset": "wcvp",
+      "label": "WCVP: Betula ermanii Cham.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Betula ermanii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Betula ermanii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Betula_ermanii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Cham.",
+    "name": "Betula ermanii",
+    "refs": [
+      "wcvp:21280"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Japón (ainu)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72440",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Japón (ainu)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55794",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

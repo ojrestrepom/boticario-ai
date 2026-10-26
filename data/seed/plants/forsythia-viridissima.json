@@ -1,0 +1,195 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:73178eeb441ecf5cc4e2647b61139638a0f09e3f3aca6987997db10ea822f2fc",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Forsythia viridissima"
+    ],
+    "value": "Especie de la familia de las oleáceas, originaria de China y Corea."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:369455"
+    ],
+    "value": "Forsythia viridissima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:369455"
+    ],
+    "value": "Oleaceae"
+  },
+  "goals": [],
+  "id": "forsythia-viridissima",
+  "image": {
+    "attributionRequired": true,
+    "author": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:ForsythiaViridissima6.jpg",
+    "refs": [
+      "commons:File:ForsythiaViridissima6.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/ForsythiaViridissima6.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:369455"
+    ],
+    "value": "Nativa de China y Corea."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:ForsythiaViridissima6.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:ForsythiaViridissima6.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:ForsythiaViridissima6.jpg"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:18010": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18010",
+      "license": "CC0"
+    },
+    "usda_use:58270": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58270",
+      "license": "CC0"
+    },
+    "usda_use:81277": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81277",
+      "license": "CC0"
+    },
+    "wcvp:369455": {
+      "dataset": "wcvp",
+      "label": "WCVP: Forsythia viridissima Lindl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:370934": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rangium viridissimum (Lindl.) Ohwi",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Forsythia viridissima": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Forsythia viridissima",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Forsythia_viridissima"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lindl.",
+    "name": "Forsythia viridissima",
+    "refs": [
+      "wcvp:369455"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lindl.) Ohwi",
+      "name": "Rangium viridissimum",
+      "refs": [
+        "wcvp:370934"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58270",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Antiflogístico",
+      "activitySource": "Antiphlogistic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81277",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18010",
+        "usda_reference:Takeda"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "aliases": [
+    "satureja-obovata"
+  ],
+  "bundleHash": "sha256:c706196cb66dd3a93594b850e85cb99e2eb4e9ddf29ccb266f9fcd09e2e77483",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2037-1"
+      ],
+      "text": "Cuneate Turkish Savory"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2088-1"
+      ],
+      "text": "Iberian Savory"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2088-2"
+      ],
+      "text": "Savory"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:185558"
+    ],
+    "value": "Satureja cuneifolia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:185558"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "satureja-cuneifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Philmarin",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:S.cuneifolia-1.jpg",
+    "refs": [
+      "commons:File:S.cuneifolia-1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/S.cuneifolia-1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2037-SH",
+      "usda_part:2088-LF",
+      "usda_part:2088-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:185558"
+    ],
+    "value": "Sureste y suroeste de Europa y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:S.cuneifolia-1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:S.cuneifolia-1.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:S.cuneifolia-1.jpg"
+    },
+    "efsa_botanic:2717": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: carvacrol",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2037-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cuneate Turkish Savory»",
+      "license": "CC0"
+    },
+    "usda_common_name:2088-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Iberian Savory»",
+      "license": "CC0"
+    },
+    "usda_common_name:2088-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Savory»",
+      "license": "CC0"
+    },
+    "usda_part:2037-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_part:2088-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:2088-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:185558": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja cuneifolia Ten.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185797": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja montana subsp. cuneifolia (Ten.) O.Bolòs & Vigo",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185832": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja obovata Lag.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43507": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium cuneifolium (Ten.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Satureja obovata) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2717"
+    ],
+    "text": "La EFSA registra carvacrol como sustancia de evidencia en la parte aérea de la planta."
+  },
+  "scientificName": {
+    "authors": "Ten.",
+    "name": "Satureja cuneifolia",
+    "refs": [
+      "wcvp:185558"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Lag.",
+      "name": "Satureja obovata",
+      "refs": [
+        "wcvp:185832"
+      ]
+    },
+    {
+      "authors": "(Ten.) Kuntze",
+      "name": "Clinopodium cuneifolium",
+      "refs": [
+        "wcvp:43507"
+      ]
+    },
+    {
+      "authors": "(Ten.) O.Bolòs & Vigo",
+      "name": "Satureja montana subsp. cuneifolia",
+      "refs": [
+        "wcvp:185797"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

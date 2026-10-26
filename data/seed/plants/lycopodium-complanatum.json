@@ -1,0 +1,190 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a312aeaf6dae504a6e17ad124548f2d6488110f59753f9d50f109cf56c965509",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2239-1"
+      ],
+      "text": "Clubmoss"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3139400"
+    ],
+    "value": "Lycopodium complanatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3139400"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "lycopodium-complanatum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Bernd Haynold",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Diphasiastrum_complanatum_151207c.jpg",
+    "refs": [
+      "commons:File:Diphasiastrum complanatum 151207c.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Diphasiastrum_complanatum_151207c.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3139400"
+    ],
+    "value": "Regiones templadas y frías de Europa, Asia y Norteamérica, además del Caribe."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Diphasiastrum complanatum 151207c.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Diphasiastrum complanatum 151207c.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Diphasiastrum_complanatum_151207c.jpg"
+    },
+    "usda_common_name:2239-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:64593": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64593",
+      "license": "CC0"
+    },
+    "wcvp:3137972": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diphasiastrum complanatum (L.) Holub",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139400": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium complanatum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139493": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diphasium complanatum (L.) Rothm.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139495": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepidotis complanata (L.) P.Beauv.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3224988": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stachygynandrum complanatum (L.) C.Presl",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Lycopodium complanatum",
+    "refs": [
+      "wcvp:3139400"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Holub",
+      "name": "Diphasiastrum complanatum",
+      "refs": [
+        "wcvp:3137972"
+      ]
+    },
+    {
+      "authors": "(L.) Rothm.",
+      "name": "Diphasium complanatum",
+      "refs": [
+        "wcvp:3139493"
+      ]
+    },
+    {
+      "authors": "(L.) P.Beauv.",
+      "name": "Lepidotis complanata",
+      "refs": [
+        "wcvp:3139495"
+      ]
+    },
+    {
+      "authors": "(L.) C.Presl",
+      "name": "Stachygynandrum complanatum",
+      "refs": [
+        "wcvp:3224988"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Eb24: 304",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 304"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64593",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

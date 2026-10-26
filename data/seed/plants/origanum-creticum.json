@@ -1,0 +1,100 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ef36e5fc1c9d15944af816a963e7be1fb7d0bfcaf4f9101bbc742fd4d213f9ca",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:677-1"
+      ],
+      "text": "Dittany Of Crete"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:143784"
+    ],
+    "value": "Origanum creticum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:143784"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "origanum-creticum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:677-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:677-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dittany Of Crete»",
+      "license": "CC0"
+    },
+    "usda_part:677-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:143784": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum creticum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Origanum creticum",
+    "refs": [
+      "wcvp:143784"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

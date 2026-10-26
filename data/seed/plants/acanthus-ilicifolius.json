@@ -1,0 +1,341 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1dcfc4fbf3261fac2b8a23cba8fcd08883e200a9b4af4754eee2a0a431d2b232",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Acanthus ilicifolius"
+    ],
+    "value": "Especie vegetal perteneciente a la familia Acanthaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2615257"
+    ],
+    "value": "Acanthus ilicifolius"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2615257"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "acanthus-ilicifolius",
+  "image": {
+    "attributionRequired": true,
+    "author": "Vengolis",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Acanthus_ilicifolius_flower.jpg",
+    "refs": [
+      "commons:File:Acanthus ilicifolius flower.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Acanthus_ilicifolius_flower.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2615257"
+    ],
+    "value": "Nativa de Australia, China, el subcontinente indio, Indochina, Malesia, Papuasia y el suroeste del Pacífico."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Acanthus ilicifolius flower.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Acanthus ilicifolius flower.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Acanthus_ilicifolius_flower.jpg"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:2293": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2293",
+      "license": "CC0"
+    },
+    "usda_use:26533": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26533",
+      "license": "CC0"
+    },
+    "usda_use:28603": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28603",
+      "license": "CC0"
+    },
+    "usda_use:32713": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32713",
+      "license": "CC0"
+    },
+    "usda_use:34594": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34594",
+      "license": "CC0"
+    },
+    "usda_use:40897": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40897",
+      "license": "CC0"
+    },
+    "usda_use:46162": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46162",
+      "license": "CC0"
+    },
+    "usda_use:74132": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74132",
+      "license": "CC0"
+    },
+    "wcvp:2615257": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acanthus ilicifolius L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3226207": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dilivaria ilicifolia (L.) J.St.-Hil.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Acanthus ilicifolius": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Acanthus ilicifolius",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Acanthus_ilicifolius"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "El resumen de Wikipedia dice que la especie es endémica de la India y Sri Lanka, pero WCVP registra una región nativa mucho más amplia; se usó WCVP para el origen y se omitió la afirmación de endemismo.",
+      "target": "description"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Acanthus ilicifolius",
+    "refs": [
+      "wcvp:2615257"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) J.St.-Hil.",
+      "name": "Dilivaria ilicifolia",
+      "refs": [
+        "wcvp:3226207"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2293",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Gases",
+      "activitySource": "Gas",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26533",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Hepatogegaly",
+      "activitySource": "Hepatogegaly",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28603",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Linfadenitis",
+      "activitySource": "Lymphadenitis",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32713",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Neophasia",
+      "activitySource": "Neophasia",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34594",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Neuralgia",
+      "activitySource": "Neuralgia",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Goa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74132",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "Goa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40897",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Esplenomegalia",
+      "activitySource": "Splenomegaly",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46162",
+        "usda_reference:Yeh"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3c036e348926535517c5ad85146563edc7370d7633cbe5ab712b2f8f6670fd6a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ulex"
+      ],
+      "text": "tojos"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ulex"
+    ],
+    "value": "Género de alrededor de 20 especies de arbustos perennes de la familia Fabaceae, conocidos comúnmente como tojos, con la mayoría de las especies en la península ibérica."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Ulex"
+    ],
+    "value": "Tojos"
+  },
+  "family": null,
+  "goals": [],
+  "id": "ulex-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Pere López",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ulex_parviflorus_a_Collserola.jpg",
+    "refs": [
+      "commons:File:Ulex parviflorus a Collserola.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ulex_parviflorus_a_Collserola.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ulex parviflorus a Collserola.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ulex parviflorus a Collserola.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ulex_parviflorus_a_Collserola.jpg"
+    },
+    "wikidata:Q393278": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q393278",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q393278"
+    },
+    "wikipedia_es:Ulex": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ulex",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ulex"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Ulex sp",
+    "refs": [
+      "wikidata:Q393278"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

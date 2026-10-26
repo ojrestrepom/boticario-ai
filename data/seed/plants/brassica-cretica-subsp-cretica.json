@@ -1,0 +1,163 @@
+{
+  "aliases": [
+    "brassica-oleracea-var-botrytis-l-var-botrytis"
+  ],
+  "bundleHash": "sha256:505502fbb0d4ab166fa50bc14570f29ef9124d9ffe219ee4cf965e1e928a60f4",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Brassica oleracea var. botrytis (coliflor)",
+        "wikidata:Q7537"
+      ],
+      "text": "Coliflor"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P364",
+        "usda_common_name:174-1"
+      ],
+      "text": "Cauliflower"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P364"
+      ],
+      "text": "Blumenkohl"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Brassica oleracea var. botrytis (coliflor)"
+    ],
+    "value": "Variedad de la especie Brassica oleracea, del grupo de cultivares Botrytis, de la familia Brassicaceae."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Brassica oleracea var. botrytis (coliflor)"
+    ],
+    "value": "Coliflor"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3262360"
+    ],
+    "value": "Brassicaceae"
+  },
+  "goals": [],
+  "id": "brassica-cretica-subsp-cretica",
+  "image": {
+    "attributionRequired": true,
+    "author": "Susan Slater",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:19_-_cauliflower.jpg",
+    "refs": [
+      "commons:File:19 - cauliflower.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/19_-_cauliflower.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3262360"
+    ],
+    "value": "Sureste de Europa y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:19 - cauliflower.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:19 - cauliflower.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:19_-_cauliflower.jpg"
+    },
+    "tppt_plant:P364": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Brassica oleraceae convar. boytrytis var. botrytis L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:174-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cauliflower»",
+      "license": "CC0"
+    },
+    "wcvp:3262360": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brassica cretica subsp. cretica",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q7537": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q7537",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q7537"
+    },
+    "wikipedia_es:Brassica oleracea var. botrytis (coliflor)": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Brassica oleracea var. botrytis (coliflor)",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Brassica_oleracea_var._botrytis_(coliflor)"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "El resumen de Wikipedia, la imagen y la ficha de TPPT corresponden a la coliflor (Brassica oleracea var. botrytis), que USDA registra como alias de esta planta, pero el nombre aceptado de la planta es Brassica cretica subsp. cretica; se conserva el nombre de WCVP y conviene una revisión humana.",
+      "target": "description"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "tppt_plant:P364"
+    ],
+    "text": "TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (butil-glucosinolato, glucolepidina y gluconapoleiferina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos."
+  },
+  "scientificName": {
+    "authors": null,
+    "name": "Brassica cretica subsp. cretica",
+    "refs": [
+      "wcvp:3262360"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

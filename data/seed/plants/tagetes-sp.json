@@ -1,0 +1,125 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:60604be91dbc6a10f5735b6d21114e52dc53859a5d3483e0436cc33787b25cb6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tagetes"
+      ],
+      "text": "Cempasúchil"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q147552"
+      ],
+      "text": "Clavel chino"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2331-1"
+      ],
+      "text": "Marigold"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Tagetes"
+    ],
+    "value": "Género de plantas herbáceas anuales o perennes de la familia de las margaritas (Asteraceae), nativas del continente americano, desde México hasta Perú."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Tagetes"
+    ],
+    "value": "Cempasúchil"
+  },
+  "family": null,
+  "goals": [],
+  "id": "tagetes-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Pohled 111",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Aksamitn%C3%ADk_-_Czech_Republic_03_(cropped).jpg",
+    "refs": [
+      "commons:File:Aksamitník - Czech Republic 03 (cropped).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Aksamitn%C3%ADk_-_Czech_Republic_03_%28cropped%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Aksamitník - Czech Republic 03 (cropped).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Aksamitník - Czech Republic 03 (cropped).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Aksamitn%C3%ADk_-_Czech_Republic_03_(cropped).jpg"
+    },
+    "usda_common_name:2331-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Marigold»",
+      "license": "CC0"
+    },
+    "wikidata:Q147552": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q147552",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q147552"
+    },
+    "wikipedia_es:Tagetes": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Tagetes",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Tagetes"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Tagetes sp.",
+    "refs": [
+      "wikidata:Q147552"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

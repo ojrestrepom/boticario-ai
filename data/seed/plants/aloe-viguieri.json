@@ -1,0 +1,103 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e96a2f3d2059b28ef6dfac1ad9912a1d1519cbf9cce79f6ad8f345a1fc56a445",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Aloe viguieri"
+    ],
+    "value": "Especie de planta suculenta de la familia de los aloes, originaria de Madagascar."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:298130"
+    ],
+    "value": "Aloe viguieri"
+  },
+  "family": {
+    "refs": [
+      "wcvp:298130"
+    ],
+    "value": "Asphodelaceae"
+  },
+  "goals": [],
+  "id": "aloe-viguieri",
+  "image": {
+    "attributionRequired": true,
+    "author": "Andry Petignat",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Aloe_viguieri.jpg",
+    "refs": [
+      "commons:File:Aloe viguieri.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Aloe_viguieri.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:298130"
+    ],
+    "value": "Nativa de Madagascar."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Aloe viguieri.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Aloe viguieri.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Aloe_viguieri.jpg"
+    },
+    "wcvp:298130": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aloe viguieri H.Perrier",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Aloe viguieri": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Aloe viguieri",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Aloe_viguieri"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "H.Perrier",
+    "name": "Aloe viguieri",
+    "refs": [
+      "wcvp:298130"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

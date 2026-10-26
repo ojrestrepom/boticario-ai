@@ -1,0 +1,98 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:85613872ed0aa230787bf261932338769526d754c39d1611cc9d207de1e788bd",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1967-1"
+      ],
+      "text": "Longleaf Periwinkle"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:35714"
+    ],
+    "value": "Catharanthus longifolius"
+  },
+  "family": {
+    "refs": [
+      "wcvp:35714"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "catharanthus-longifolius",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:35714"
+    ],
+    "value": "Océano Índico occidental (Madagascar)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1967-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Longleaf Periwinkle»",
+      "license": "CC0"
+    },
+    "wcvp:115003": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lochnera longifolia Pichon",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:35714": {
+      "dataset": "wcvp",
+      "label": "WCVP: Catharanthus longifolius (Pichon) Pichon",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Pichon) Pichon",
+    "name": "Catharanthus longifolius",
+    "refs": [
+      "wcvp:35714"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Pichon",
+      "name": "Lochnera longifolia",
+      "refs": [
+        "wcvp:115003"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,78 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bf9782049e79a79ca1e12f0d30c0061970491011bd09bf792b4f3180451abaa3",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:2104-LF"
+    ],
+    "value": "Eucalyptus largisparsa"
+  },
+  "family": null,
+  "goals": [],
+  "id": "eucalyptus-largisparsa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2104-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2104-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El compuesto EO de USDA es el único respaldo del aceite esencial; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F. MUELL.",
+    "name": "Eucalyptus largisparsa",
+    "refs": [
+      "usda_part:2104-LF"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

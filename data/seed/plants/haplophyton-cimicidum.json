@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5a3a37ab2a38f89015b83a81cdea89a82c7678f0993562110c1d541105cb0ffb",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:96249"
+    ],
+    "value": "Haplophyton cimicidum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:96249"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "haplophyton-cimicidum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:96249"
+    ],
+    "value": "México y América Central"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_use:36350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36350",
+      "license": "CC0"
+    },
+    "usda_use:72544": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72544",
+      "license": "CC0"
+    },
+    "wcvp:96249": {
+      "dataset": "wcvp",
+      "label": "WCVP: Haplophyton cimicidum A.DC.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "A.DC.",
+    "name": "Haplophyton cimicidum",
+    "refs": [
+      "wcvp:96249"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72544",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Pediculicida",
+      "activitySource": "Pediculicide",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36350",
+        "usda_reference:Standley"
+      ]
+    }
+  ]
+}

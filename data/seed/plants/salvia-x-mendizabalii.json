@@ -1,0 +1,120 @@
+{
+  "aliases": [
+    "rosmarinus-x-mendizabalii"
+  ],
+  "bundleHash": "sha256:2293bfd4231243d299d803e690f1e45e5ae679c80a891dcde9d64b27410f5305",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2030-1"
+      ],
+      "text": "Mendizabali's Rosemary"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:536469"
+    ],
+    "value": "Salvia × mendizabalii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:536469"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-x-mendizabalii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2030-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:536469"
+    ],
+    "value": "España"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2030-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mendizabali's Rosemary»",
+      "license": "CC0"
+    },
+    "usda_part:2030-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:179871": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus × mendizabalii Sagredo ex Rosua",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:536469": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia × mendizabalii (Sagredo ex Rosua) Roma-Marzio & Galasso",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Sagredo ex Rosua) Roma-Marzio & Galasso",
+    "name": "Salvia × mendizabalii",
+    "refs": [
+      "wcvp:536469"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Sagredo ex Rosua",
+      "name": "Rosmarinus × mendizabalii",
+      "refs": [
+        "wcvp:179871"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

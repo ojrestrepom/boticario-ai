@@ -1,0 +1,247 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c7719db7479205c9aa072f1d8f852c2e74a3e6795f14deeae0591b98e6644960",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ocimum kilimandscharicum"
+      ],
+      "text": "Albahaca perenne"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2020-1"
+      ],
+      "text": "African Blue Basil"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2020-2"
+      ],
+      "text": "Kenyan Perennial Basil"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ocimum kilimandscharicum"
+    ],
+    "value": "Especie perenne de la familia Lamiaceae, originaria de África Oriental y ampliamente cultivada por sus hojas aromáticas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Ocimum kilimandscharicum"
+    ],
+    "value": "Albahaca perenne"
+  },
+  "family": {
+    "refs": [
+      "wcvp:136967"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "ocimum-kilimandscharicum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jengod at English Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Westcoastlady.JPG",
+    "refs": [
+      "commons:File:Westcoastlady.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Westcoastlady.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2020-FL",
+      "usda_part:2020-LF",
+      "usda_part:2020-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:136967"
+    ],
+    "value": "África tropical oriental y nororiental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Westcoastlady.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Westcoastlady.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Westcoastlady.JPG"
+    },
+    "usda_common_name:2020-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «African Blue Basil»",
+      "license": "CC0"
+    },
+    "usda_common_name:2020-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kenyan Perennial Basil»",
+      "license": "CC0"
+    },
+    "usda_part:2020-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:2020-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:2020-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:29840": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29840",
+      "license": "CC0"
+    },
+    "usda_use:59838": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59838",
+      "license": "CC0"
+    },
+    "usda_use:72609": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72609",
+      "license": "CC0"
+    },
+    "wcvp:136967": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocimum kilimandscharicum Gürke",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Ocimum kilimandscharicum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ocimum kilimandscharicum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ocimum_kilimandscharicum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Flower, Leaf y Shoot), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Gürke",
+    "name": "Ocimum kilimandscharicum",
+    "refs": [
+      "wcvp:136967"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29840",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        }
+      ],
+      "countries": [
+        "Nepal"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59838",
+        "usda_reference:Singh"
+      ]
+    },
+    {
+      "activity": "Repelente (insectos)",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72609",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

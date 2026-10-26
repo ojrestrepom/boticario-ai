@@ -1,0 +1,131 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c08661fae0c6a69852e63c60434a955f326f7d16f4765ed7a427b4d6fd48a39f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:264-1"
+      ],
+      "text": "Quinine"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cinchona"
+    ],
+    "value": "Género de plantas fanerógamas de la familia Rubiaceae, con 25 especies de grandes arbustos o pequeños árboles que alcanzan los 5 a 15 metros de altura."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q160090"
+    ],
+    "value": "Cinchona spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "cinchona-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Forest & Kim Starr",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Starr_020501-0057_Cinchona_pubescens.jpg",
+    "refs": [
+      "commons:File:Starr 020501-0057 Cinchona pubescens.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Starr_020501-0057_Cinchona_pubescens.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:264-BK"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Starr 020501-0057 Cinchona pubescens.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Starr 020501-0057 Cinchona pubescens.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Starr_020501-0057_Cinchona_pubescens.jpg"
+    },
+    "usda_common_name:264-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Quinine»",
+      "license": "CC0"
+    },
+    "usda_part:264-BK": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Bark»",
+      "license": "CC0"
+    },
+    "wikidata:Q160090": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q160090",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q160090"
+    },
+    "wikipedia_es:Cinchona": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cinchona",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cinchona"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la corteza, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Cinchona spp",
+    "refs": [
+      "wikidata:Q160090"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

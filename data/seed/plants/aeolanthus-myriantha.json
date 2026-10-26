@@ -1,0 +1,91 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8d540139d58630da394273bd756e347ad5469a99b21c9c4cb2a9d6f3829c1658",
+  "commonNames": [
+    {
+      "language": "und",
+      "refs": [
+        "usda_common_name:1974-1"
+      ],
+      "text": "Ninde"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1974-FL"
+    ],
+    "value": "Aeolanthus myriantha"
+  },
+  "family": null,
+  "goals": [],
+  "id": "aeolanthus-myriantha",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1974-FL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1974-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ninde»",
+      "license": "CC0"
+    },
+    "usda_part:1974-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo «Ninde», de idioma no indicado); el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la flor, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "BAKER",
+    "name": "Aeolanthus myriantha",
+    "refs": [
+      "usda_part:1974-FL"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

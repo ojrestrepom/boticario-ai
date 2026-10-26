@@ -1,0 +1,484 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f28cc39c09f8c9320771f2f1052659e4f22be6ecf35e3c01d1ddfb4a27837aa5",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:111-1"
+      ],
+      "text": "Chinese Jack-In-The-Pulpit"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:15315"
+    ],
+    "value": "Arisaema consanguineum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:15315"
+    ],
+    "value": "Araceae"
+  },
+  "goals": [],
+  "id": "arisaema-consanguineum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Stan Shebs",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Arisaema_consanguineum_1.jpg",
+    "refs": [
+      "commons:File:Arisaema consanguineum 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Arisaema_consanguineum_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:15315"
+    ],
+    "value": "Nativa de China, Asia oriental, el subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Arisaema consanguineum 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Arisaema consanguineum 1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Arisaema_consanguineum_1.jpg"
+    },
+    "usda_common_name:111-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Jack-In-The-Pulpit»",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:NAS": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:22366": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22366",
+      "license": "CC0"
+    },
+    "usda_use:22920": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22920",
+      "license": "CC0"
+    },
+    "usda_use:2328": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2328",
+      "license": "CC0"
+    },
+    "usda_use:24061": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24061",
+      "license": "CC0"
+    },
+    "usda_use:341": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 341",
+      "license": "CC0"
+    },
+    "usda_use:48808": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48808",
+      "license": "CC0"
+    },
+    "usda_use:56715": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56715",
+      "license": "CC0"
+    },
+    "usda_use:65756": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65756",
+      "license": "CC0"
+    },
+    "usda_use:66416": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66416",
+      "license": "CC0"
+    },
+    "usda_use:67514": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67514",
+      "license": "CC0"
+    },
+    "usda_use:67987": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67987",
+      "license": "CC0"
+    },
+    "usda_use:6969": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6969",
+      "license": "CC0"
+    },
+    "usda_use:72436": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72436",
+      "license": "CC0"
+    },
+    "usda_use:79246": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79246",
+      "license": "CC0"
+    },
+    "wcvp:15315": {
+      "dataset": "wcvp",
+      "label": "WCVP: Arisaema consanguineum Schott",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:15356": {
+      "dataset": "wcvp",
+      "label": "WCVP: Arisaema erubescens var. consanguineum (Schott) Engl.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schott",
+    "name": "Arisaema consanguineum",
+    "refs": [
+      "wcvp:15315"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Schott) Engl.",
+      "name": "Arisaema erubescens var. consanguineum",
+      "refs": [
+        "wcvp:15356"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Absceso",
+      "activitySource": "Abscess",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:341",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2328",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Mordedura (serpiente)",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6969",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65756",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66416",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Convulsión",
+      "activitySource": "Convulsion",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67514",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Descoagulante",
+      "activitySource": "Decoagulant",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67987",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: epilepsia",
+      "activitySource": "Epilepsy",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22366",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22920",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24061",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS",
+          "text": "Lost Crops of the Incas."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72436",
+        "usda_reference:NAS"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56715",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Hinchazón",
+      "activitySource": "Swelling",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48808",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Trauma",
+      "activitySource": "Trauma",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79246",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

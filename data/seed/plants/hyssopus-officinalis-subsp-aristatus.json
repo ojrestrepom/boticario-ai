@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:970d7a7781ac1fca5d686310047ef224adb8b9cdd2e7390671344f6421bc76fc",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1983-1"
+      ],
+      "text": "Hyssop"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wfo:wfo-0000217208"
+    ],
+    "value": "Hyssopus officinalis subsp. aristatus"
+  },
+  "family": {
+    "refs": [
+      "wfo:wfo-0000217208"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "hyssopus-officinalis-subsp-aristatus",
+  "image": {
+    "attributionRequired": true,
+    "author": "peganum from Henfield, England",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hyssopus_officinalis_subsp._aristatus.jpg",
+    "refs": [
+      "commons:File:Hyssopus officinalis subsp. aristatus.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Hyssopus_officinalis_subsp._aristatus.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1983-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hyssopus officinalis subsp. aristatus.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hyssopus officinalis subsp. aristatus.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hyssopus_officinalis_subsp._aristatus.jpg"
+    },
+    "usda_common_name:1983-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hyssop»",
+      "license": "CC0"
+    },
+    "usda_part:1983-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wfo:wfo-0000217208": {
+      "dataset": "wfo",
+      "label": "WFO: Hyssopus officinalis subsp. aristatus (Godr.) Nyman",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "respaldo-wfo",
+      "message": "El aceptado viene del respaldo de WFO, no de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte aérea), sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Godr.) Nyman",
+    "name": "Hyssopus officinalis subsp. aristatus",
+    "refs": [
+      "wfo:wfo-0000217208"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,212 @@
+{
+  "aliases": [
+    "chrysanthemum-balsamita"
+  ],
+  "bundleHash": "sha256:47e7c93513eec0435b97e8b93ae04226f3e60c2f8147b78c2ad74667bad13de6",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:254-1"
+      ],
+      "text": "Balsamite"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:254-2"
+      ],
+      "text": "Costmary"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3111481"
+    ],
+    "value": "Tanacetum balsamita var. balsamitoides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3111481"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "tanacetum-balsamita-var-balsamitoides",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jacek Pietruszewski - https://www.inaturalist.org/people/hyacinthus",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Tanacetum_balsamitoides-1.jpg",
+    "refs": [
+      "commons:File:Tanacetum balsamitoides-1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Tanacetum_balsamitoides-1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:254-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3111481"
+    ],
+    "value": "Nativa del Cáucaso y de Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Tanacetum balsamitoides-1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Tanacetum balsamitoides-1.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Tanacetum_balsamitoides-1.jpg"
+    },
+    "usda_common_name:254-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Balsamite»",
+      "license": "CC0"
+    },
+    "usda_common_name:254-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Costmary»",
+      "license": "CC0"
+    },
+    "usda_part:254-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:3111078": {
+      "dataset": "wcvp",
+      "label": "WCVP: Balsamita balsamitoides (Sch.Bip.) Tzvelev",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3111476": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pyrethrum balsamita (L.) Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3111477": {
+      "dataset": "wcvp",
+      "label": "WCVP: Balsamita major subsp. balsamitoides (Sch.Bip.) Kerguélen",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3111480": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tanacetum balsamita subsp. balsamitoides (Sch.Bip.) Grierson",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3111481": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tanacetum balsamita var. balsamitoides (Sch.Bip.) P.D.Sell",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3111483": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tanacetum balsamitoides Sch.Bip.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3300901": {
+      "dataset": "wcvp",
+      "label": "WCVP: Chrysanthemum balsamita L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Sch.Bip.) P.D.Sell",
+    "name": "Tanacetum balsamita var. balsamitoides",
+    "refs": [
+      "wcvp:3111481"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Sch.Bip.) Tzvelev",
+      "name": "Balsamita balsamitoides",
+      "refs": [
+        "wcvp:3111078"
+      ]
+    },
+    {
+      "authors": "(Sch.Bip.) Kerguélen",
+      "name": "Balsamita major subsp. balsamitoides",
+      "refs": [
+        "wcvp:3111477"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Chrysanthemum balsamita",
+      "refs": [
+        "wcvp:3300901"
+      ]
+    },
+    {
+      "authors": "(L.) Willd.",
+      "name": "Pyrethrum balsamita",
+      "refs": [
+        "wcvp:3111476"
+      ]
+    },
+    {
+      "authors": "(Sch.Bip.) Grierson",
+      "name": "Tanacetum balsamita subsp. balsamitoides",
+      "refs": [
+        "wcvp:3111480"
+      ]
+    },
+    {
+      "authors": "Sch.Bip.",
+      "name": "Tanacetum balsamitoides",
+      "refs": [
+        "wcvp:3111483"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

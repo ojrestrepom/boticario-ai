@@ -1,0 +1,125 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a5045fa85f20f2dafb10ce7dce1f2b933fcee2f4a35ba228eef82d12fb4fd422",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus punctata"
+      ],
+      "text": "Eucalipto gris"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus punctata"
+    ],
+    "value": "Especie de eucalipto perteneciente a la familia de las mirtáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eucalyptus punctata"
+    ],
+    "value": "Eucalipto gris"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73725"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-punctata",
+  "image": {
+    "attributionRequired": true,
+    "author": "https://www.flickr.com/photos/tony_rodd/",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_punctatatrunk.jpg",
+    "refs": [
+      "commons:File:Eucalyptus punctatatrunk.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Eucalyptus_punctatatrunk.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2148-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73725"
+    ],
+    "value": "Australia (Nueva Gales del Sur y Queensland)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus punctatatrunk.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus punctatatrunk.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_punctatatrunk.jpg"
+    },
+    "usda_part:2148-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:73725": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus punctata DC.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus punctata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus punctata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_punctata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Eucalyptus punctata",
+    "refs": [
+      "wcvp:73725"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

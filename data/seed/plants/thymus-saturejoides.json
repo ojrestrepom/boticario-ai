@@ -1,0 +1,124 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:cc390bcd1503f79cc8d33ff862cf400959e6cf39bd67189ba39ac330d6e269b7",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2072-1"
+      ],
+      "text": "Moroccan Savory Thyme"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:205412",
+      "wfo:wfo-0000324708"
+    ],
+    "value": "Thymus saturejoides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:205412"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "thymus-saturejoides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2072-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:205412"
+    ],
+    "value": "África septentrional"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2072-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Moroccan Savory Thyme»",
+      "license": "CC0"
+    },
+    "usda_part:2072-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:143910": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum saturejoides (Coss.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:205412": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus saturejoides Coss.",
+      "license": "CC BY 3.0"
+    },
+    "wfo:wfo-0000324708": {
+      "dataset": "wfo",
+      "label": "WFO: Thymus saturejoides Coss.",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO (ASSUMED) de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Coss.",
+    "name": "Thymus saturejoides",
+    "refs": [
+      "wcvp:205412",
+      "wfo:wfo-0000324708"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Coss.) Kuntze",
+      "name": "Origanum saturejoides",
+      "refs": [
+        "wcvp:143910"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

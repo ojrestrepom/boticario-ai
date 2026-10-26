@@ -1,0 +1,124 @@
+{
+  "aliases": [
+    "lycopodium-lucidulum"
+  ],
+  "bundleHash": "sha256:d85446e0fecc0b83a50354d2d9358388a1d52127ddd52a94d05e6796052958ad",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2246-1"
+      ],
+      "text": "Shining Clubmoss"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3138035"
+    ],
+    "value": "Huperzia lucidula"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3138035"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "huperzia-lucidula",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3138035"
+    ],
+    "value": "Canadá oriental y occidental, y el centro, noreste y sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2246-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Shining Clubmoss»",
+      "license": "CC0"
+    },
+    "wcvp:3138035": {
+      "dataset": "wcvp",
+      "label": "WCVP: Huperzia lucidula (Michx.) Trevis.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139642": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium lucidulum Michx.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139645": {
+      "dataset": "wcvp",
+      "label": "WCVP: Urostachys lucidulus (Michx.) Herter ex Nessel",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3192572": {
+      "dataset": "wcvp",
+      "label": "WCVP: Huperzia selago subsp. lucidula (Michx.) Á.Löve & D.Löve",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Michx.) Trevis.",
+    "name": "Huperzia lucidula",
+    "refs": [
+      "wcvp:3138035"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Michx.) Á.Löve & D.Löve",
+      "name": "Huperzia selago subsp. lucidula",
+      "refs": [
+        "wcvp:3192572"
+      ]
+    },
+    {
+      "authors": "Michx.",
+      "name": "Lycopodium lucidulum",
+      "refs": [
+        "wcvp:3139642"
+      ]
+    },
+    {
+      "authors": "(Michx.) Herter ex Nessel",
+      "name": "Urostachys lucidulus",
+      "refs": [
+        "wcvp:3139645"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

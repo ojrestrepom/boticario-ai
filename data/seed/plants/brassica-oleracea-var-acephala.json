@@ -1,0 +1,153 @@
+{
+  "aliases": [
+    "brassica-oleracea-var-sabellica-l-var-acephala"
+  ],
+  "bundleHash": "sha256:6be0c44b2f02762a78a4c531484d2c387ae5e37127c97221cd9be7f503254b29",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:179-2"
+      ],
+      "text": "Curly Kale"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:179-1"
+      ],
+      "text": "Kale"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:179-3"
+      ],
+      "text": "Kitchen Kale"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:179-4"
+      ],
+      "text": "Scotch Kale"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3277964"
+    ],
+    "value": "Brassica oleracea var. acephala"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3277964"
+    ],
+    "value": "Brassicaceae"
+  },
+  "goals": [],
+  "id": "brassica-oleracea-var-acephala",
+  "image": {
+    "attributionRequired": true,
+    "author": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flowering_cabbage4.jpg",
+    "refs": [
+      "commons:File:Flowering cabbage4.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Flowering_cabbage4.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flowering cabbage4.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flowering cabbage4.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Flowering_cabbage4.jpg"
+    },
+    "usda_common_name:179-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kale»",
+      "license": "CC0"
+    },
+    "usda_common_name:179-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Curly Kale»",
+      "license": "CC0"
+    },
+    "usda_common_name:179-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kitchen Kale»",
+      "license": "CC0"
+    },
+    "usda_common_name:179-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Scotch Kale»",
+      "license": "CC0"
+    },
+    "wcvp:3277964": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brassica oleracea var. acephala DC.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "filas-sin-asignar",
+      "message": "Hay filas del grupo que no se pudieron asignar a ninguna planta.",
+      "target": "scientificName"
+    },
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Brassica oleracea var. acephala",
+    "refs": [
+      "wcvp:3277964"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

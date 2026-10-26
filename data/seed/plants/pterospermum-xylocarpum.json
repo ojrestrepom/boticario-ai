@@ -1,0 +1,173 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1657006991f9eec028effa1a6119b9de47230036824be10452bb7a6b2fc83e17",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2551744"
+    ],
+    "value": "Pterospermum xylocarpum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2551744"
+    ],
+    "value": "Malvaceae"
+  },
+  "goals": [],
+  "id": "pterospermum-xylocarpum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Lalithamba",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pterospermum_xylocarpum_(Gaertn)S%26W.jpg",
+    "refs": [
+      "commons:File:Pterospermum xylocarpum (Gaertn)S&W.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Pterospermum_xylocarpum_%28Gaertn%29S%26W.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2551744"
+    ],
+    "value": "Subcontinente indio."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pterospermum xylocarpum (Gaertn)S&W.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pterospermum xylocarpum (Gaertn)S&W.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pterospermum_xylocarpum_(Gaertn)S%26W.jpg"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:26284": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26284",
+      "license": "CC0"
+    },
+    "usda_use:32085": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32085",
+      "license": "CC0"
+    },
+    "wcvp:2450985": {
+      "dataset": "wcvp",
+      "label": "WCVP: Velaga xylocarpa Gaertn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2551744": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pterospermum xylocarpum (Gaertn.) Oken",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2552040": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pterospermadendron xylocarpum (Gaertn.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Gaertn.) Oken",
+    "name": "Pterospermum xylocarpum",
+    "refs": [
+      "wcvp:2551744"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Gaertn.) Kuntze",
+      "name": "Pterospermadendron xylocarpum",
+      "refs": [
+        "wcvp:2552040"
+      ]
+    },
+    {
+      "authors": "Gaertn.",
+      "name": "Velaga xylocarpa",
+      "refs": [
+        "wcvp:2450985"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fumitory",
+      "activitySource": "Fumitory",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26284",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Leucorrea",
+      "activitySource": "Leucorrhea",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32085",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

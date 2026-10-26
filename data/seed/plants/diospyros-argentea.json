@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ff15c98a5df919134f86ee316cc03be745aaee552c8bbaaf3f92626b94a5a238",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:383663"
+    ],
+    "value": "Diospyros argentea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:383663"
+    ],
+    "value": "Ebenaceae"
+  },
+  "goals": [],
+  "id": "diospyros-argentea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:383663"
+    ],
+    "value": "Malesia (Malaya)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:29945": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29945",
+      "license": "CC0"
+    },
+    "usda_use:72214": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72214",
+      "license": "CC0"
+    },
+    "wcvp:383663": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros argentea Griff.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español para Diospyros argentea; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Griff.",
+    "name": "Diospyros argentea",
+    "refs": [
+      "wcvp:383663"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Herpes",
+      "activitySource": "Herpes",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72214",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Insectífugo",
+      "activitySource": "Insectifuge",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaca"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29945",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1b7cd89a92489294ae79377ac6cf833e48d90149518d2ce545d771c34c115db5",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801013"
+    ],
+    "value": "Erythrina senegalensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801013"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "erythrina-senegalensis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Marco Schmidt [1]",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Erythrina_senegalensis_MS_1822.JPG",
+    "refs": [
+      "commons:File:Erythrina senegalensis MS 1822.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Erythrina_senegalensis_MS_1822.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801013"
+    ],
+    "value": "África tropical occidental, centro-occidental y nororiental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Erythrina senegalensis MS 1822.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Erythrina senegalensis MS 1822.JPG",
+      "license": "CC BY-SA 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Erythrina_senegalensis_MS_1822.JPG"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:7483": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7483",
+      "license": "CC0"
+    },
+    "wcvp:2736244": {
+      "dataset": "wcvp",
+      "label": "WCVP: Corallodendron senegalense (DC.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2801013": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythrina senegalensis DC.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Erythrina senegalensis",
+    "refs": [
+      "wcvp:2801013"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(DC.) Kuntze",
+      "name": "Corallodendron senegalense",
+      "refs": [
+        "wcvp:2736244"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Blenorragia",
+      "activitySource": "Blennorrhagia",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7483",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

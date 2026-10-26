@@ -1,0 +1,191 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7b5ba44d7208e829c0ff7a208c230922ada5d468d9b0cebf88d385efa0b7c4b6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Brassica oleracea var. gongylodes",
+        "wikidata:Q147202"
+      ],
+      "text": "Colirrábano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Brassica oleracea var. gongylodes"
+      ],
+      "text": "Col rábano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Brassica oleracea var. gongylodes"
+      ],
+      "text": "Colinabo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P359",
+        "usda_common_name:180-1"
+      ],
+      "text": "Kohlrabi"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P359"
+      ],
+      "text": "Kohlrabi"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Brassica oleracea var. gongylodes"
+    ],
+    "value": "Planta de la familia de las crucíferas, variedad de col, con la parte hinchada casi esférica."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Brassica oleracea var. gongylodes",
+      "wikidata:Q147202"
+    ],
+    "value": "Colirrábano"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2682504"
+    ],
+    "value": "Brassicaceae"
+  },
+  "goals": [],
+  "id": "brassica-oleracea-var-gongylodes",
+  "image": {
+    "attributionRequired": true,
+    "author": "Toubib at Dutch Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Koolrabi.jpg",
+    "refs": [
+      "commons:File:Koolrabi.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Koolrabi.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:180-ST"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Koolrabi.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Koolrabi.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Koolrabi.jpg"
+    },
+    "tppt_plant:P359": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Brassica oleraceae convar. caulocarpha var. gongylodes L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:180-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kohlrabi»",
+      "license": "CC0"
+    },
+    "usda_part:180-ST": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Stem»",
+      "license": "CC0"
+    },
+    "wcvp:2682504": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brassica oleracea var. gongylodes L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q147202": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q147202",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q147202"
+    },
+    "wikipedia_es:Brassica oleracea var. gongylodes": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Brassica oleracea var. gongylodes",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Brassica_oleracea_var._gongylodes"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "filas-sin-asignar",
+      "message": "Hay filas del grupo que no se pudieron asignar a ninguna planta.",
+      "target": "scientificName"
+    },
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el tallo, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "tppt_plant:P359"
+    ],
+    "text": "TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (glucoerucina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Brassica oleracea var. gongylodes",
+    "refs": [
+      "wcvp:2682504"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

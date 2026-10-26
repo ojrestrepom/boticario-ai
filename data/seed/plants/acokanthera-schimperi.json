@@ -1,0 +1,220 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8cc538b051d0a478b8324c55f65867e817aea1057829320bebbe262c01affc60",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:22-1"
+      ],
+      "text": "Arrow-Poison Tree"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Acokanthera schimperi"
+    ],
+    "value": "Especie de arbusto perteneciente a la familia Apocynaceae, originaria de África Oriental y Yemen."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2171"
+    ],
+    "value": "Acokanthera schimperi"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2171"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "acokanthera-schimperi",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Acokanthera_schimperi_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-150.jpg",
+    "refs": [
+      "commons:File:Acokanthera schimperi - Köhler–s Medizinal-Pflanzen-150.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Acokanthera_schimperi_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-150.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2171"
+    ],
+    "value": "Nativa del este, noreste y centro-oeste de África tropical y de la península arábiga."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Acokanthera schimperi - Köhler–s Medizinal-Pflanzen-150.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Acokanthera schimperi - Köhler–s Medizinal-Pflanzen-150.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Acokanthera_schimperi_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-150.jpg"
+    },
+    "efsa_botanic:1133": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: ouabain",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:291": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Acokanthera schimperi (A.DC.) Schweinf.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:414": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Acokanthera schimperi (A.DC.) Schweinf.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:22-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Arrow-Poison Tree»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10084": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10084",
+      "license": "CC0"
+    },
+    "usda_use:38461": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38461",
+      "license": "CC0"
+    },
+    "usda_use:38462": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38462",
+      "license": "CC0"
+    },
+    "usda_use:63170": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63170",
+      "license": "CC0"
+    },
+    "usda_use:74929": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74929",
+      "license": "CC0"
+    },
+    "wcvp:14490": {
+      "dataset": "wcvp",
+      "label": "WCVP: Arduina schimperi (A.DC.) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2171": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acokanthera schimperi (A.DC.) Schweinf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:34216": {
+      "dataset": "wcvp",
+      "label": "WCVP: Carissa schimperi A.DC.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Acokanthera schimperi": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Acokanthera schimperi",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Acokanthera_schimperi"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1133",
+      "efsa_endpoint:291",
+      "efsa_endpoint:414",
+      "usda_use:63170",
+      "usda_use:74929",
+      "usda_use:38461",
+      "usda_use:38462"
+    ],
+    "text": "EFSA registra la sustancia ouabain en plantas vivas, dentro del grupo de venenos potentes, y dos estudios en humanos con efecto cardiotóxico por exposición sistémica. Advertencia: registrada como veneno en usos tradicionales, también como veneno de flechas."
+  },
+  "scientificName": {
+    "authors": "(A.DC.) Schweinf.",
+    "name": "Acokanthera schimperi",
+    "refs": [
+      "wcvp:2171"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(A.DC.) Baill.",
+      "name": "Arduina schimperi",
+      "refs": [
+        "wcvp:14490"
+      ]
+    },
+    {
+      "authors": "A.DC.",
+      "name": "Carissa schimperi",
+      "refs": [
+        "wcvp:34216"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Cardíaco",
+      "activitySource": "Cardiac",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10084",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

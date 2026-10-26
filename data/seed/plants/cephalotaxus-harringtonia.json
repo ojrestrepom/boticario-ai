@@ -1,0 +1,214 @@
+{
+  "aliases": [
+    "cephalotaxus-drupacea",
+    "cephalotaxus-harringtonii",
+    "cephalotaxus-wilsoniana"
+  ],
+  "bundleHash": "sha256:37a5a980cba2efe4dba931e2b64bb91134412cbfa6f1eb7ebc47ca4bb8e08189",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Cephalotaxus harringtonia"
+      ],
+      "text": "Cefalotaxo drupáceo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:240-1"
+      ],
+      "text": "Japanese Plum Yew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:237-1"
+      ],
+      "text": "Plum Yew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:243-1"
+      ],
+      "text": "Wilson's Plum Yew"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cephalotaxus harringtonia"
+    ],
+    "value": "Conífera arbustiva o arbórea pequeña de la familia de las Cephalotaxaceae, originaria de Japón. Se cultiva en Europa desde 1829 y ocasionalmente en jardines occidentales."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Cephalotaxus harringtonia"
+    ],
+    "value": "Cefalotaxo drupáceo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:382742"
+    ],
+    "value": "Cephalotaxaceae"
+  },
+  "goals": [],
+  "id": "cephalotaxus-harringtonia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Hameltion",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cephalotaxus_harringtonia_(fruit)_at_Coker_Arboretum_03.jpg",
+    "refs": [
+      "commons:File:Cephalotaxus harringtonia (fruit) at Coker Arboretum 03.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Cephalotaxus_harringtonia_%28fruit%29_at_Coker_Arboretum_03.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:382742"
+    ],
+    "value": "China y Asia oriental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cephalotaxus harringtonia (fruit) at Coker Arboretum 03.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cephalotaxus harringtonia (fruit) at Coker Arboretum 03.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Cephalotaxus_harringtonia_(fruit)_at_Coker_Arboretum_03.jpg"
+    },
+    "usda_common_name:237-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Plum Yew»",
+      "license": "CC0"
+    },
+    "usda_common_name:240-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Japanese Plum Yew»",
+      "license": "CC0"
+    },
+    "usda_common_name:243-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wilson's Plum Yew»",
+      "license": "CC0"
+    },
+    "wcvp:378628": {
+      "dataset": "wcvp",
+      "label": "WCVP: Taxus harringtonia Knight ex J.Forbes",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:382728": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cephalotaxus drupacea Siebold & Zucc.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:382729": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cephalotaxus drupacea var. harringtonia (Knight ex J.Forbes) Pilg.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:382742": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cephalotaxus harringtonia (Knight ex J.Forbes) K.Koch",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:382768": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cephalotaxus wilsoniana Hayata",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Cephalotaxus harringtonia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cephalotaxus harringtonia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cephalotaxus_harringtonia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Cephalotaxus drupacea, Cephalotaxus wilsoniana) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Knight ex J.Forbes) K.Koch",
+    "name": "Cephalotaxus harringtonia",
+    "refs": [
+      "wcvp:382742"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Siebold & Zucc.",
+      "name": "Cephalotaxus drupacea",
+      "refs": [
+        "wcvp:382728"
+      ]
+    },
+    {
+      "authors": "Hayata",
+      "name": "Cephalotaxus wilsoniana",
+      "refs": [
+        "wcvp:382768"
+      ]
+    },
+    {
+      "authors": "(Knight ex J.Forbes) Pilg.",
+      "name": "Cephalotaxus drupacea var. harringtonia",
+      "refs": [
+        "wcvp:382729"
+      ]
+    },
+    {
+      "authors": "Knight ex J.Forbes",
+      "name": "Taxus harringtonia",
+      "refs": [
+        "wcvp:378628"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

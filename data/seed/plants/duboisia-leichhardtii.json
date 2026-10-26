@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6b2597c1c48be0d4e8fb5163c7c6a3fab19fdb61c734fcc05f4513c0093cdef9",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2778802"
+    ],
+    "value": "Duboisia leichhardtii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2778802"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "duboisia-leichhardtii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2778802"
+    ],
+    "value": "Nativa de Australia (Queensland)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:2327": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Atropine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2328": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Scopolamine",
+      "license": "CC BY 4.0"
+    },
+    "usda_use:37876": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37876",
+      "license": "CC0"
+    },
+    "wcvp:2641587": {
+      "dataset": "wcvp",
+      "label": "WCVP: Anthocercis leichhardtii F.Muell.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2778802": {
+      "dataset": "wcvp",
+      "label": "WCVP: Duboisia leichhardtii (F.Muell.) F.Muell.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico (Duboisia leichhardtii).",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:2327",
+      "efsa_botanic:2328",
+      "usda_use:37876"
+    ],
+    "text": "EFSA registra atropina y escopolamina en las hojas, sustancias de alta preocupación del grupo de venenos potentes. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(F.Muell.) F.Muell.",
+    "name": "Duboisia leichhardtii",
+    "refs": [
+      "wcvp:2778802"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "F.Muell.",
+      "name": "Anthocercis leichhardtii",
+      "refs": [
+        "wcvp:2641587"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

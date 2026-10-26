@@ -1,0 +1,311 @@
+{
+  "aliases": [
+    "mentha-rotundifolia"
+  ],
+  "bundleHash": "sha256:3b18edca5fb5673ecf3ca1218fdbf39e4589b07ca1f28aba5c06297ee09f0667",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2008-1"
+      ],
+      "text": "Apple Mint"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:620-1"
+      ],
+      "text": "Applemint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:125305"
+    ],
+    "value": "Mentha × rotundifolia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:125305"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "mentha-x-rotundifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kurt Stüber",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mentha_rotundifolia0.jpg",
+    "refs": [
+      "commons:File:Mentha rotundifolia0.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Mentha_rotundifolia0.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:620-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:125305"
+    ],
+    "value": "Europa (central, sureste y suroeste), norte de África, Asia occidental y central, y Siberia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Mentha rotundifolia0.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Mentha rotundifolia0.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mentha_rotundifolia0.jpg"
+    },
+    "usda_common_name:2008-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Apple Mint»",
+      "license": "CC0"
+    },
+    "usda_common_name:620-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Applemint»",
+      "license": "CC0"
+    },
+    "usda_part:620-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:34497": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34497",
+      "license": "CC0"
+    },
+    "usda_use:42443": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42443",
+      "license": "CC0"
+    },
+    "usda_use:51608": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51608",
+      "license": "CC0"
+    },
+    "usda_use:65246": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65246",
+      "license": "CC0"
+    },
+    "usda_use:77888": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77888",
+      "license": "CC0"
+    },
+    "usda_use:80089": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80089",
+      "license": "CC0"
+    },
+    "wcvp:125305": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha × rotundifolia (L.) Huds.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:125408": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha spicata var. rotundifolia L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Huds.",
+    "name": "Mentha × rotundifolia",
+    "refs": [
+      "wcvp:125305"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Mentha spicata var. rotundifolia",
+      "refs": [
+        "wcvp:125408"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Eb28: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 323"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65246",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Náusea",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Eb28: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 323"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34497",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Esclerosis",
+      "activitySource": "Sclerosis",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42443",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Eb28: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 323"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77888",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Blanqueador dental",
+      "activitySource": "Toothwhitener",
+      "citations": [
+        {
+          "key": "Eb28: 323",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 323"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51608",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80089",
+        "usda_reference:FontQuer"
+      ]
+    }
+  ]
+}

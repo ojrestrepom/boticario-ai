@@ -1,0 +1,187 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:35b3f9bab84ebe44a0208bed77b1436af664e51825cc443ccac0009d25556cd1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1208-1"
+      ],
+      "text": "Buffalo Gourd"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cucurbita foetidissima"
+    ],
+    "value": "Planta tuberosa y xerófila que se encuentra en el suroeste de Estados Unidos y el noroeste de México."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2747138"
+    ],
+    "value": "Cucurbita foetidissima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2747138"
+    ],
+    "value": "Cucurbitaceae"
+  },
+  "goals": [],
+  "id": "cucurbita-foetidissima",
+  "image": {
+    "attributionRequired": true,
+    "author": "Copyright by Curtis Clark, licensed as noted",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cucurbita_foetidissima_fruit_2003-02-04.jpg",
+    "refs": [
+      "commons:File:Cucurbita foetidissima fruit 2003-02-04.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Cucurbita_foetidissima_fruit_2003-02-04.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2747138"
+    ],
+    "value": "Nativa de México y de varias regiones de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cucurbita foetidissima fruit 2003-02-04.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cucurbita foetidissima fruit 2003-02-04.jpg",
+      "license": "CC BY-SA 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Cucurbita_foetidissima_fruit_2003-02-04.jpg"
+    },
+    "usda_common_name:1208-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Buffalo Gourd»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:31423": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31423",
+      "license": "CC0"
+    },
+    "usda_use:44217": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44217",
+      "license": "CC0"
+    },
+    "wcvp:2411068": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pepo foetidissimus (Kunth) Britton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2747138": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cucurbita foetidissima Kunth",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Cucurbita foetidissima": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cucurbita foetidissima",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cucurbita_foetidissima"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Kunth",
+    "name": "Cucurbita foetidissima",
+    "refs": [
+      "wcvp:2747138"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Kunth) Britton",
+      "name": "Pepo foetidissimus",
+      "refs": [
+        "wcvp:2411068"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31423",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Jabón",
+      "activitySource": "Soap",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44217",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

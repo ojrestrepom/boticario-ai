@@ -1,0 +1,81 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bab8f6346762fc573e6c02d6bb7ad815d13de27723bac9aa4f3b7eddb65c291b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:784-1"
+      ],
+      "text": "Santiago"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q10937387"
+    ],
+    "value": "Pothomorphe sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "pothomorphe-sp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:784-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Santiago»",
+      "license": "CC0"
+    },
+    "wikidata:Q10937387": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q10937387",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q10937387"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Pothomorphe sp.",
+    "refs": [
+      "wikidata:Q10937387"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

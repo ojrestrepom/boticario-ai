@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bbecafaa6dff56e63441ea7999291ce76bd9b8c23eb373d57a784c224ea0c33b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:920-1"
+      ],
+      "text": "Small Skullcap"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:189514"
+    ],
+    "value": "Scutellaria parvula"
+  },
+  "family": {
+    "refs": [
+      "wcvp:189514"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "scutellaria-parvula",
+  "image": {
+    "attributionRequired": false,
+    "author": "Mason Brock ( Masebrock )",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Scutellaria_parvula.jpg",
+    "refs": [
+      "commons:File:Scutellaria parvula.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Scutellaria_parvula.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:920-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:189514"
+    ],
+    "value": "Nativa de Canadá y Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Scutellaria parvula.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Scutellaria parvula.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Scutellaria_parvula.jpg"
+    },
+    "usda_common_name:920-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Small Skullcap»",
+      "license": "CC0"
+    },
+    "usda_part:920-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:189514": {
+      "dataset": "wcvp",
+      "label": "WCVP: Scutellaria parvula Michx.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:34903": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cassida parvula (Michx.) Lunell",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (usda_part:920-PL), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Michx.",
+    "name": "Scutellaria parvula",
+    "refs": [
+      "wcvp:189514"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Michx.) Lunell",
+      "name": "Cassida parvula",
+      "refs": [
+        "wcvp:34903"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,156 @@
+{
+  "aliases": [
+    "mucuna-deeringiana",
+    "stizolobium-deeringianum"
+  ],
+  "bundleHash": "sha256:a83a37ea1b7131f51aa4560198b3fcd742652d5520529e60ad20db7e678d5ea6",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2869612"
+    ],
+    "value": "Mucuna pruriens var. utilis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2869612"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "mucuna-pruriens-var-utilis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2869612"
+    ],
+    "value": "Subcontinente indio, Indochina y Malesia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_use:40786": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40786",
+      "license": "CC0"
+    },
+    "usda_use:66957": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66957",
+      "license": "CC0"
+    },
+    "wcvp:2375620": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mucuna utilis Wall. ex Wight",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2597129": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stizolobium utile (Wall. ex Wight) Piper & Tracy",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2869612": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mucuna pruriens var. utilis (Wall. ex Wight) Baker ex Burck",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Wall. ex Wight) Baker ex Burck",
+    "name": "Mucuna pruriens var. utilis",
+    "refs": [
+      "wcvp:2869612"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Wall. ex Wight",
+      "name": "Mucuna utilis",
+      "refs": [
+        "wcvp:2375620"
+      ]
+    },
+    {
+      "authors": "(Wall. ex Wight) Piper & Tracy",
+      "name": "Stizolobium utile",
+      "refs": [
+        "wcvp:2597129"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Escalofrío",
+      "activitySource": "Chill",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66957",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Respiración",
+      "activitySource": "Respiration",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40786",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

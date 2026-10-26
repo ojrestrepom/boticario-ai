@@ -1,0 +1,68 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:12b9a07e55c12ff2ca4369d39010a345a434109c69e05cf17bf2962f90ca6b9f",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1786-PL"
+    ],
+    "value": "Plectranthus urticifolius"
+  },
+  "family": null,
+  "goals": [],
+  "id": "plectranthus-urticifolius",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1786-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Plectranthus urticifolius",
+    "refs": [
+      "usda_part:1786-PL"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

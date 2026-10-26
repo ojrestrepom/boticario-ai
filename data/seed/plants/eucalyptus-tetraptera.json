@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4d9267233d1b147315874f88c2f175b2e6b933415d69f1e9ac5de374521a66c4",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:74032"
+    ],
+    "value": "Eucalyptus tetraptera"
+  },
+  "family": {
+    "refs": [
+      "wcvp:74032"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-tetraptera",
+  "image": {
+    "attributionRequired": false,
+    "author": "HelloMojo at English Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_tetraptera.jpg",
+    "refs": [
+      "commons:File:Eucalyptus tetraptera.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Eucalyptus_tetraptera.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2153-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:74032"
+    ],
+    "value": "Australia (Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus tetraptera.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus tetraptera.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_tetraptera.jpg"
+    },
+    "usda_part:2153-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:74032": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus tetraptera Turcz.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Turcz.",
+    "name": "Eucalyptus tetraptera",
+    "refs": [
+      "wcvp:74032"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

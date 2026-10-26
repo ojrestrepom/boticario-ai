@@ -1,0 +1,784 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:38f79e547ec27a588f3f6e4f08a9c037c8efbb36cbe546c70904dcfcdb078a14",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eupatorium perfoliatum"
+      ],
+      "text": "eupatoria"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:405-1"
+      ],
+      "text": "Boneset"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eupatorium perfoliatum"
+    ],
+    "value": "Planta perenne de la familia de las asteráceas, natural del este de Estados Unidos y Canadá y, en menor medida, de Europa. Crece en terrenos bajos pantanosos y lugares húmedos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eupatorium perfoliatum"
+    ],
+    "value": "Eupatoria"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2926636"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "eupatorium-perfoliatum",
+  "image": {
+    "attributionRequired": true,
+    "author": "SB_Johnny",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eupatorium_perfoliatum_001.JPG",
+    "refs": [
+      "commons:File:Eupatorium perfoliatum 001.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Eupatorium_perfoliatum_001.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2926636"
+    ],
+    "value": "Canadá y Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eupatorium perfoliatum 001.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eupatorium perfoliatum 001.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eupatorium_perfoliatum_001.JPG"
+    },
+    "usda_common_name:405-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Boneset»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11107": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11107",
+      "license": "CC0"
+    },
+    "usda_use:11371": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11371",
+      "license": "CC0"
+    },
+    "usda_use:12231": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12231",
+      "license": "CC0"
+    },
+    "usda_use:13875": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13875",
+      "license": "CC0"
+    },
+    "usda_use:15118": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15118",
+      "license": "CC0"
+    },
+    "usda_use:16217": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16217",
+      "license": "CC0"
+    },
+    "usda_use:21150": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21150",
+      "license": "CC0"
+    },
+    "usda_use:21151": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21151",
+      "license": "CC0"
+    },
+    "usda_use:23034": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23034",
+      "license": "CC0"
+    },
+    "usda_use:24516": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24516",
+      "license": "CC0"
+    },
+    "usda_use:24517": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24517",
+      "license": "CC0"
+    },
+    "usda_use:2495": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2495",
+      "license": "CC0"
+    },
+    "usda_use:26029": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26029",
+      "license": "CC0"
+    },
+    "usda_use:28318": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28318",
+      "license": "CC0"
+    },
+    "usda_use:31455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31455",
+      "license": "CC0"
+    },
+    "usda_use:31456": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31456",
+      "license": "CC0"
+    },
+    "usda_use:32910": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32910",
+      "license": "CC0"
+    },
+    "usda_use:32911": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32911",
+      "license": "CC0"
+    },
+    "usda_use:32912": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32912",
+      "license": "CC0"
+    },
+    "usda_use:34797": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34797",
+      "license": "CC0"
+    },
+    "usda_use:46320": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46320",
+      "license": "CC0"
+    },
+    "usda_use:46671": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46671",
+      "license": "CC0"
+    },
+    "usda_use:46672": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46672",
+      "license": "CC0"
+    },
+    "usda_use:50471": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50471",
+      "license": "CC0"
+    },
+    "usda_use:58106": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58106",
+      "license": "CC0"
+    },
+    "usda_use:58111": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58111",
+      "license": "CC0"
+    },
+    "usda_use:67174": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67174",
+      "license": "CC0"
+    },
+    "usda_use:70914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70914",
+      "license": "CC0"
+    },
+    "usda_use:73717": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73717",
+      "license": "CC0"
+    },
+    "usda_use:81234": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81234",
+      "license": "CC0"
+    },
+    "wcvp:2926636": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eupatorium perfoliatum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2926637": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cunigunda perfoliata (L.) Lunell",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2926638": {
+      "dataset": "wcvp",
+      "label": "WCVP: Uncasia perfoliata (L.) Greene",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eupatorium perfoliatum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eupatorium perfoliatum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eupatorium_perfoliatum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Eupatorium perfoliatum",
+    "refs": [
+      "wcvp:2926636"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Lunell",
+      "name": "Cunigunda perfoliata",
+      "refs": [
+        "wcvp:2926637"
+      ]
+    },
+    {
+      "authors": "(L.) Greene",
+      "name": "Uncasia perfoliata",
+      "refs": [
+        "wcvp:2926638"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Italia",
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24516",
+        "usda_use:24517",
+        "usda_use:70914",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos",
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32910",
+        "usda_use:32911",
+        "usda_use:32912",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12231",
+        "usda_use:67174",
+        "usda_reference:Krochmal",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Eb21: 213",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 213"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16217",
+        "usda_use:58111",
+        "usda_reference:EB",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21150",
+        "usda_use:21151",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31455",
+        "usda_use:31456",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46671",
+        "usda_use:46672",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Eb21: 213",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 213"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Francia",
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50471",
+        "usda_use:81234",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Escalofríos febriles",
+      "activitySource": "Ague",
+      "citations": [
+        {
+          "key": "Eb21: 213",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 213"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58106",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2495",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11107",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Pecho",
+      "activitySource": "Chest",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11371",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13875",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: dengue",
+      "activitySource": "Dengue",
+      "citations": [
+        {
+          "key": "Eb21: 213",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 213"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15118",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23034",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fractura",
+      "activitySource": "Fracture",
+      "citations": [
+        {
+          "key": "Eb28: 316",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 316"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26029",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Países Bajos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28318",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73717",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34797",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Baño de vapor",
+      "activitySource": "Steam-Bath",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46320",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

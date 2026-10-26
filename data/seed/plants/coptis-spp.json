@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f7d11f76064192c57d8d66df9f039616e9c3b749828e67deffd64de2214d675f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:306-1"
+      ],
+      "text": "Generic Goldthread"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Coptis"
+    ],
+    "value": "Género de 10 a 15 especies de plantas con flores de la familia Ranunculaceae, nativas de Asia y Norteamérica."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q135562"
+    ],
+    "value": "Coptis spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "coptis-spp",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Coptis_occidentalis.jpg",
+    "refs": [
+      "commons:File:Coptis occidentalis.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Coptis_occidentalis.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Coptis occidentalis.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Coptis occidentalis.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Coptis_occidentalis.jpg"
+    },
+    "usda_common_name:306-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Generic Goldthread»",
+      "license": "CC0"
+    },
+    "wikidata:Q135562": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q135562",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q135562"
+    },
+    "wikipedia_es:Coptis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Coptis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Coptis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Coptis spp",
+    "refs": [
+      "wikidata:Q135562"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

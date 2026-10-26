@@ -1,0 +1,118 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c9162e4189964037d93b900cc7ebedeca9650db3dfa0bf60d16c9092b741ca20",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q81513"
+      ],
+      "text": "Cítricos"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1143-1"
+      ],
+      "text": "Citrus"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Citrus"
+    ],
+    "value": "Género de grandes arbustos o arbolillos perennes de la familia de las rutáceas, oriundo del Asia tropical y subtropical, con unas 28 especies y numerosos híbridos cultivados, como el limón, la naranja, la lima, el pomelo y la mandarina."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q81513"
+    ],
+    "value": "Cítricos"
+  },
+  "family": null,
+  "goals": [],
+  "id": "citrus-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ellen Levy Finch ( Elf )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:OrangeBloss_wb.jpg",
+    "refs": [
+      "commons:File:OrangeBloss wb.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/OrangeBloss_wb.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:OrangeBloss wb.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:OrangeBloss wb.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:OrangeBloss_wb.jpg"
+    },
+    "usda_common_name:1143-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Citrus»",
+      "license": "CC0"
+    },
+    "wikidata:Q81513": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q81513",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q81513"
+    },
+    "wikipedia_es:Citrus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Citrus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Citrus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Citrus spp",
+    "refs": [
+      "wikidata:Q81513"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

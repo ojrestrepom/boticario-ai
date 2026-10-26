@@ -1,0 +1,142 @@
+{
+  "aliases": [
+    "lepechinia-chamaedryoides"
+  ],
+  "bundleHash": "sha256:2a0519932f6177091aac2a6b4c5c8bbe82661b895caba7fd1ab16be5c9023d7e",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:530156"
+    ],
+    "value": "Lepechinia chilensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:530156"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lepechinia-chilensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:530156"
+    ],
+    "value": "Sur de Sudamérica (Chile)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:53054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53054",
+      "license": "CC0"
+    },
+    "wcvp:179856": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus chilensis Molina",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:193979": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sphacele chilensis (Molina) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:530156": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepechinia chilensis (Molina) R.Morales",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:5985": {
+      "dataset": "wcvp",
+      "label": "WCVP: Alguelagum chilense (Molina) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Molina) R.Morales",
+    "name": "Lepechinia chilensis",
+    "refs": [
+      "wcvp:530156"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Molina) Kuntze",
+      "name": "Alguelagum chilense",
+      "refs": [
+        "wcvp:5985"
+      ]
+    },
+    {
+      "authors": "Molina",
+      "name": "Rosmarinus chilensis",
+      "refs": [
+        "wcvp:179856"
+      ]
+    },
+    {
+      "authors": "(Molina) Briq.",
+      "name": "Sphacele chilensis",
+      "refs": [
+        "wcvp:193979"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de miembro",
+      "activitySource": "Tumor(Limb)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile (Araucanía)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53054",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

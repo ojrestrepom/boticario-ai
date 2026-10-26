@@ -1,0 +1,88 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b219761227d1af0d42a9683fb01bbfb85a17a930dfe2e90141af6b813caaecc3",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1152-1"
+      ],
+      "text": "Iwuken"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1152-2"
+      ],
+      "text": "Oriental Silver Berry"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_common_name:1152-1"
+    ],
+    "value": "Elaeaegnus oldhami"
+  },
+  "family": null,
+  "goals": [],
+  "id": "elaeaegnus-oldhami",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1152-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Iwuken»",
+      "license": "CC0"
+    },
+    "usda_common_name:1152-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Oriental Silver Berry»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete solo trae nombres comunes en inglés o de idioma no español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "MAXIM.",
+    "name": "Elaeaegnus oldhami",
+    "refs": [
+      "usda_common_name:1152-1"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

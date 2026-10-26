@@ -1,0 +1,964 @@
+{
+  "aliases": [
+    "psoralea-corylifolia"
+  ],
+  "bundleHash": "sha256:88de481d8bd54d439a4dbad705398e5c0f3181ff2febcd1c653025994869fc04",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:798-1"
+      ],
+      "text": "Babchi"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:798-2"
+      ],
+      "text": "Black Dot"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:798-3"
+      ],
+      "text": "Malaya Tea"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cullen corylifolium"
+    ],
+    "value": "Planta importante en la medicina ayurvédica y Tamil Siddha de la India y también en la medicina tradicional china; sus semillas contienen cumarinas, entre ellas el psoraleno."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2747305"
+    ],
+    "value": "Cullen corylifolium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2747305"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "cullen-corylifolium",
+  "image": {
+    "attributionRequired": true,
+    "author": "Biswarup Ganguly",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Psoralea_corylifolia_-_Agri-Horticultural_Society_of_India_-_Alipore_-_Kolkata_2013-01-05_2279.JPG",
+    "refs": [
+      "commons:File:Psoralea corylifolia - Agri-Horticultural Society of India - Alipore - Kolkata 2013-01-05 2279.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Psoralea_corylifolia_-_Agri-Horticultural_Society_of_India_-_Alipore_-_Kolkata_2013-01-05_2279.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:798-SD"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2747305"
+    ],
+    "value": "Nativa de Asia occidental y oriental, el subcontinente indio, Indochina, Malesia, la península arábiga y el noreste de África tropical."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Psoralea corylifolia - Agri-Horticultural Society of India - Alipore - Kolkata 2013-01-05 2279.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Psoralea corylifolia - Agri-Horticultural Society of India - Alipore - Kolkata 2013-01-05 2279.JPG",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Psoralea_corylifolia_-_Agri-Horticultural_Society_of_India_-_Alipore_-_Kolkata_2013-01-05_2279.JPG"
+    },
+    "efsa_botanic:1155": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: psoralen",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1162": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: angelicin",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:798-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Babchi»",
+      "license": "CC0"
+    },
+    "usda_common_name:798-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Black Dot»",
+      "license": "CC0"
+    },
+    "usda_common_name:798-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Malaya Tea»",
+      "license": "CC0"
+    },
+    "usda_part:798-SD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Seed»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:1281": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1281",
+      "license": "CC0"
+    },
+    "usda_use:16972": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16972",
+      "license": "CC0"
+    },
+    "usda_use:18580": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18580",
+      "license": "CC0"
+    },
+    "usda_use:18581": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18581",
+      "license": "CC0"
+    },
+    "usda_use:20961": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20961",
+      "license": "CC0"
+    },
+    "usda_use:23891": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23891",
+      "license": "CC0"
+    },
+    "usda_use:26663": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26663",
+      "license": "CC0"
+    },
+    "usda_use:29298": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29298",
+      "license": "CC0"
+    },
+    "usda_use:29299": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29299",
+      "license": "CC0"
+    },
+    "usda_use:31957": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31957",
+      "license": "CC0"
+    },
+    "usda_use:31958": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31958",
+      "license": "CC0"
+    },
+    "usda_use:32012": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32012",
+      "license": "CC0"
+    },
+    "usda_use:32556": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32556",
+      "license": "CC0"
+    },
+    "usda_use:32557": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32557",
+      "license": "CC0"
+    },
+    "usda_use:38842": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38842",
+      "license": "CC0"
+    },
+    "usda_use:38843": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38843",
+      "license": "CC0"
+    },
+    "usda_use:43844": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43844",
+      "license": "CC0"
+    },
+    "usda_use:45982": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45982",
+      "license": "CC0"
+    },
+    "usda_use:4889": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4889",
+      "license": "CC0"
+    },
+    "usda_use:50880": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50880",
+      "license": "CC0"
+    },
+    "usda_use:50881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50881",
+      "license": "CC0"
+    },
+    "usda_use:50882": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50882",
+      "license": "CC0"
+    },
+    "usda_use:60752": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60752",
+      "license": "CC0"
+    },
+    "usda_use:60753": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60753",
+      "license": "CC0"
+    },
+    "usda_use:60754": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60754",
+      "license": "CC0"
+    },
+    "usda_use:65428": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65428",
+      "license": "CC0"
+    },
+    "usda_use:66449": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66449",
+      "license": "CC0"
+    },
+    "usda_use:68624": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68624",
+      "license": "CC0"
+    },
+    "usda_use:69105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69105",
+      "license": "CC0"
+    },
+    "usda_use:70238": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70238",
+      "license": "CC0"
+    },
+    "usda_use:72394": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72394",
+      "license": "CC0"
+    },
+    "usda_use:73234": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73234",
+      "license": "CC0"
+    },
+    "usda_use:75320": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75320",
+      "license": "CC0"
+    },
+    "usda_use:76820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76820",
+      "license": "CC0"
+    },
+    "usda_use:77511": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77511",
+      "license": "CC0"
+    },
+    "usda_use:8739": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8739",
+      "license": "CC0"
+    },
+    "wcvp:2344946": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lotodes corylifolium (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2535260": {
+      "dataset": "wcvp",
+      "label": "WCVP: Psoralea corylifolia L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2676253": {
+      "dataset": "wcvp",
+      "label": "WCVP: Bipontinia corylifolia (L.) Alef.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2747305": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cullen corylifolium (L.) Medik.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2775963": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dorychnium corylifolium (L.) Moench",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Cullen corylifolium": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cullen corylifolium",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cullen_corylifolium"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Seed), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1162",
+      "efsa_botanic:1155"
+    ],
+    "text": "EFSA registra en la semilla las furocumarinas angelicina y psoraleno, que pertenecen a su grupo de furocumarinas fototóxicas (reacciones de la piel con la luz)."
+  },
+  "scientificName": {
+    "authors": "(L.) Medik.",
+    "name": "Cullen corylifolium",
+    "refs": [
+      "wcvp:2747305"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Alef.",
+      "name": "Bipontinia corylifolia",
+      "refs": [
+        "wcvp:2676253"
+      ]
+    },
+    {
+      "authors": "(L.) Moench",
+      "name": "Dorychnium corylifolium",
+      "refs": [
+        "wcvp:2775963"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Lotodes corylifolium",
+      "refs": [
+        "wcvp:2344946"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Psoralea corylifolia",
+      "refs": [
+        "wcvp:2535260"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Impotencia",
+      "activitySource": "Impotency",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29298",
+        "usda_use:29299",
+        "usda_use:60754",
+        "usda_use:72394",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan",
+        "usda_reference:Keys",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb33: 191",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 191"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        }
+      ],
+      "countries": [
+        "China",
+        "Nepal"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18580",
+        "usda_use:18581",
+        "usda_use:69105",
+        "usda_reference:Bliss",
+        "usda_reference:EB",
+        "usda_reference:Singh"
+      ]
+    },
+    {
+      "activity": "Poliuria",
+      "activitySource": "Polyuria",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38842",
+        "usda_use:38843",
+        "usda_use:75320",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50880",
+        "usda_use:50881",
+        "usda_use:50882",
+        "usda_reference:Bliss",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16972",
+        "usda_use:68624",
+        "usda_reference:NAS2",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Eyaculación",
+      "activitySource": "Ejaculation",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20961",
+        "usda_use:60753",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: lepra",
+      "activitySource": "Leprosy",
+      "citations": [
+        {
+          "key": "Eb33: 191",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 191"
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "India",
+        "Nepal"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31957",
+        "usda_use:31958",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Leucodermia",
+      "activitySource": "Leucoderma",
+      "citations": [
+        {
+          "key": "Eb33: 191",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 191"
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "India",
+        "Nepal"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32012",
+        "usda_use:73234",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Lumbago",
+      "activitySource": "Lumbago",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32556",
+        "usda_use:32557",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "India",
+        "Vietnam"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43844",
+        "usda_use:76820",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Espermatorrea",
+      "activitySource": "Spermatorrhea",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China",
+        "Vietnam"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45982",
+        "usda_use:77511",
+        "usda_reference:Keys",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Vietnam"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1281",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4889",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65428",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Callosidad",
+      "activitySource": "Callosity",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8739",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de útero",
+      "activitySource": "Cancer(Uterus)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66449",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Caries",
+      "activitySource": "Caries",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60752",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Enuresis",
+      "activitySource": "Enuresis",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70238",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Female",
+      "activitySource": "Female",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Vietnam"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23891",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Genital",
+      "activitySource": "Genital",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26663",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

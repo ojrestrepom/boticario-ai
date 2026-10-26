@@ -1,0 +1,349 @@
+{
+  "aliases": [
+    "ocimum-suave"
+  ],
+  "bundleHash": "sha256:ddfaf6e1645649abd1c218cfa24677b1d92ba13517fd4892668cb125768bb97b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2023-1"
+      ],
+      "text": "Kenyan Tree Basil"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:136925"
+    ],
+    "value": "Ocimum gratissimum subsp. gratissimum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:136925"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "ocimum-gratissimum-subsp-gratissimum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2023-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:136925"
+    ],
+    "value": "África tropical y austral, península arábiga y sur y este de Asia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:3376": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:945": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2023-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kenyan Tree Basil»",
+      "license": "CC0"
+    },
+    "usda_part:2023-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10989": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10989",
+      "license": "CC0"
+    },
+    "usda_use:13054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13054",
+      "license": "CC0"
+    },
+    "usda_use:14057": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14057",
+      "license": "CC0"
+    },
+    "usda_use:24978": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24978",
+      "license": "CC0"
+    },
+    "usda_use:30542": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30542",
+      "license": "CC0"
+    },
+    "usda_use:32544": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32544",
+      "license": "CC0"
+    },
+    "usda_use:3855": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3855",
+      "license": "CC0"
+    },
+    "usda_use:40693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40693",
+      "license": "CC0"
+    },
+    "usda_use:41417": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41417",
+      "license": "CC0"
+    },
+    "wcvp:136925": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocimum gratissimum subsp. gratissimum",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Shoot), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:945",
+      "efsa_botanic:3376"
+    ],
+    "text": "EFSA incluye el estragol (yema) y el metileugenol (yema, flor y hojas) entre las sustancias de alta preocupación, del grupo de las genotóxicas o carcinógenas."
+  },
+  "scientificName": {
+    "authors": null,
+    "name": "Ocimum gratissimum subsp. gratissimum",
+    "refs": [
+      "wcvp:136925"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3855",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10989",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Conjuntivitis",
+      "activitySource": "Conjunctivitis",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13054",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14057",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24978",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Picazón",
+      "activitySource": "Itch",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30542",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Lumbago",
+      "activitySource": "Lumbago",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32544",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Repelente (insectos)",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40693",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41417",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:07351d349092b23a734e8550fc01566a8a39e0d289e29e00dec916e1d907f189",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:817-1"
+      ],
+      "text": "Muticous Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171062"
+    ],
+    "value": "Pycnanthemum muticum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171062"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-muticum",
+  "image": {
+    "attributionRequired": true,
+    "author": "User:SB_Johnny",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_muticum_heds_and_bracts_001.JPG",
+    "refs": [
+      "commons:File:Pycnanthemum muticum heds and bracts 001.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Pycnanthemum_muticum_heds_and_bracts_001.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:817-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171062"
+    ],
+    "value": "Nativa del centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum muticum heds and bracts 001.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum muticum heds and bracts 001.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_muticum_heds_and_bracts_001.JPG"
+    },
+    "usda_common_name:817-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Muticous Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:817-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106187": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia mutica (Michx.) Britton ex Small & Vail",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171062": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum muticum (Michx.) Pers.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:23933": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brachystemum muticum Michx.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Michx.) Pers.",
+    "name": "Pycnanthemum muticum",
+    "refs": [
+      "wcvp:171062"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Michx.",
+      "name": "Brachystemum muticum",
+      "refs": [
+        "wcvp:23933"
+      ]
+    },
+    {
+      "authors": "(Michx.) Britton ex Small & Vail",
+      "name": "Koellia mutica",
+      "refs": [
+        "wcvp:106187"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

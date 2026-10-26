@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c0255585f8eae917a3be2863f96a667e7e35d26b0006e76ede5ef25a3b72ed87",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2061-1"
+      ],
+      "text": "Stavros Kotschy's Germander"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:203019"
+    ],
+    "value": "Teucrium kotschyanum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:203019"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-kotschyanum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Denis Otkydach - https://www.inaturalist.org/people/denis190",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Teucrium_kotschyanum-1.jpg",
+    "refs": [
+      "commons:File:Teucrium kotschyanum-1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Teucrium_kotschyanum-1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2061-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:203019"
+    ],
+    "value": "Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Teucrium kotschyanum-1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Teucrium kotschyanum-1.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Teucrium_kotschyanum-1.jpg"
+    },
+    "usda_common_name:2061-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Stavros Kotschy's Germander»",
+      "license": "CC0"
+    },
+    "usda_part:2061-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:203019": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium kotschyanum Poech",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Poech",
+    "name": "Teucrium kotschyanum",
+    "refs": [
+      "wcvp:203019"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

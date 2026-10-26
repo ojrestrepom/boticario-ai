@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:db4ef85c53f730e8680c3c24211eebb7db2788b13e91129506f65ea3841d31ea",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:529-1"
+      ],
+      "text": "Rhatany"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Krameria"
+    ],
+    "value": "Género de plantas fanerógamas, el único de la familia Krameriaceae. Se encuentra únicamente en América, sobre todo en zonas tropicales y también en zonas áridas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q290473"
+    ],
+    "value": "Krameria spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "krameria-spp",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Krameria_lappacea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-084.jpg",
+    "refs": [
+      "commons:File:Krameria lappacea - Köhler–s Medizinal-Pflanzen-084.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Krameria_lappacea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-084.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Krameria lappacea - Köhler–s Medizinal-Pflanzen-084.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Krameria lappacea - Köhler–s Medizinal-Pflanzen-084.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Krameria_lappacea_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-084.jpg"
+    },
+    "usda_common_name:529-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Rhatany»",
+      "license": "CC0"
+    },
+    "wikidata:Q290473": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q290473",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q290473"
+    },
+    "wikipedia_es:Krameria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Krameria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Krameria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Krameria spp",
+    "refs": [
+      "wikidata:Q290473"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

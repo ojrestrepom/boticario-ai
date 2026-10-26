@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:fd4e7377747103cbf7dc845436e8e6a66ba8e38bf43a7ba366ba31dfc4e97e41",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73147"
+    ],
+    "value": "Eucalyptus intertexta"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73147"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-intertexta",
+  "image": {
+    "attributionRequired": true,
+    "author": "Mark Marathon",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_intertexta_habit.jpg",
+    "refs": [
+      "commons:File:Eucalyptus intertexta habit.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Eucalyptus_intertexta_habit.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2107-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73147"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus intertexta habit.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus intertexta habit.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_intertexta_habit.jpg"
+    },
+    "usda_part:2107-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:73147": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus intertexta R.T.Baker",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.T.Baker",
+    "name": "Eucalyptus intertexta",
+    "refs": [
+      "wcvp:73147"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

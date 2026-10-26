@@ -1,0 +1,103 @@
+{
+  "aliases": [
+    "erythroxylum-recurrens"
+  ],
+  "bundleHash": "sha256:c81777cc36cdbd5bc5e1d60d474becacb333829e38d9d5135ff1f05c291726d6",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum gracilipes"
+    ],
+    "value": "Erythroxylum gracilipes es una especie de planta silvestre de la familia Erythroxylaceae, distribuida en Sudamérica y Centroamérica. Contiene el alcaloide cocaína."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801430"
+    ],
+    "value": "Erythroxylum gracilipes"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801430"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-gracilipes",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801430"
+    ],
+    "value": "Brasil, América Central y el norte y el oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2801430": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum gracilipes Peyr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2801630": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum recurrens Huber",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum gracilipes": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum gracilipes",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_gracilipes"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Erythroxylum recurrens) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Peyr.",
+    "name": "Erythroxylum gracilipes",
+    "refs": [
+      "wcvp:2801430"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Huber",
+      "name": "Erythroxylum recurrens",
+      "refs": [
+        "wcvp:2801630"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

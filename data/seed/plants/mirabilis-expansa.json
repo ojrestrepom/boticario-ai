@@ -1,0 +1,181 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8dad88215c47c4374a1d9b69767c501473c2e5480787d5e07339a61b492b4ae6",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:627-1"
+      ],
+      "text": "Miso"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:627-2"
+      ],
+      "text": "Tazo"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Mirabilis expansa"
+    ],
+    "value": "Planta de la familia Nyctaginaceae que se cultiva como verdura de raíz en los Andes, entre 2200 y 3500 m de altitud, en zonas frías y ventosas. Sus raíces tuberosas pueden alcanzar unos 10 cm de diámetro."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2502213"
+    ],
+    "value": "Mirabilis expansa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2502213"
+    ],
+    "value": "Nyctaginaceae"
+  },
+  "goals": [],
+  "id": "mirabilis-expansa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Lou Tignoùs",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mauka_Mirabilis_expansa_Lou_Tigno%C3%B9s.jpg",
+    "refs": [
+      "commons:File:Mauka Mirabilis expansa Lou Tignoùs.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Mauka_Mirabilis_expansa_Lou_Tigno%C3%B9s.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2502213"
+    ],
+    "value": "Sudamérica occidental y meridional (Bolivia, Chile y Perú)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Mauka Mirabilis expansa Lou Tignoùs.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Mauka Mirabilis expansa Lou Tignoùs.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mauka_Mirabilis_expansa_Lou_Tigno%C3%B9s.jpg"
+    },
+    "usda_common_name:627-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Miso»",
+      "license": "CC0"
+    },
+    "usda_common_name:627-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tazo»",
+      "license": "CC0"
+    },
+    "wcvp:2397637": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oxybaphus expansus (Ruiz & Pav.) Vahl",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2502213": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mirabilis expansa (Ruiz & Pav.) Standl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2628746": {
+      "dataset": "wcvp",
+      "label": "WCVP: Allionia expansa (Ruiz & Pav.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2694145": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calymenia expansa (Ruiz & Pav.) Pers.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2694311": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calyxhymenia expansa Ruiz & Pav.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Mirabilis expansa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Mirabilis expansa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Mirabilis_expansa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Ruiz & Pav.) Standl.",
+    "name": "Mirabilis expansa",
+    "refs": [
+      "wcvp:2502213"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Ruiz & Pav.) Kuntze",
+      "name": "Allionia expansa",
+      "refs": [
+        "wcvp:2628746"
+      ]
+    },
+    {
+      "authors": "(Ruiz & Pav.) Pers.",
+      "name": "Calymenia expansa",
+      "refs": [
+        "wcvp:2694145"
+      ]
+    },
+    {
+      "authors": "Ruiz & Pav.",
+      "name": "Calyxhymenia expansa",
+      "refs": [
+        "wcvp:2694311"
+      ]
+    },
+    {
+      "authors": "(Ruiz & Pav.) Vahl",
+      "name": "Oxybaphus expansus",
+      "refs": [
+        "wcvp:2397637"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

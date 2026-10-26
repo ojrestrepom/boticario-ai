@@ -1,0 +1,154 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1f708b195ef06c513e437b90b07a453c376a37c82b770a04858cc34e41bd8d77",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1303-1"
+      ],
+      "text": "Texas colubrina"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2731559"
+    ],
+    "value": "Colubrina texensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2731559"
+    ],
+    "value": "Rhamnaceae"
+  },
+  "goals": [],
+  "id": "colubrina-texensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2731559"
+    ],
+    "value": "Nativa de México y del centro-sur de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1303-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Texas colubrina»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:27887": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27887",
+      "license": "CC0"
+    },
+    "usda_use:68494": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68494",
+      "license": "CC0"
+    },
+    "wcvp:2522874": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhamnus texensis Torr. & A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2731559": {
+      "dataset": "wcvp",
+      "label": "WCVP: Colubrina texensis (Torr. & A.Gray) A.Gray",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Torr. & A.Gray) A.Gray",
+    "name": "Colubrina texensis",
+    "refs": [
+      "wcvp:2731559"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Torr. & A.Gray",
+      "name": "Rhamnus texensis",
+      "refs": [
+        "wcvp:2522874"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Eb31: 349",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 349"
+        }
+      ],
+      "countries": [
+        "México (Kickapoo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68494",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Hematoquecia",
+      "activitySource": "Hematochezia",
+      "citations": [
+        {
+          "key": "Eb31: 349",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 349"
+        }
+      ],
+      "countries": [
+        "México (Kickapoo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27887",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

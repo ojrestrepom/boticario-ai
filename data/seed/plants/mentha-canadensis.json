@@ -1,0 +1,315 @@
+{
+  "aliases": [
+    "mentha-arvensis-var-piperascens"
+  ],
+  "bundleHash": "sha256:23adb82e2f30fb04c63be3092ad661f7031d1033379efdd45783101c25d8f1d6",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:615-1"
+      ],
+      "text": "Cornmint"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:615-2"
+      ],
+      "text": "Field Mint"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:615-3"
+      ],
+      "text": "Japanese Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:124520"
+    ],
+    "value": "Mentha canadensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:124520"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "mentha-canadensis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Jasper Shide",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mentha_canadensis_-_Wild_Mint_02.jpg",
+    "refs": [
+      "commons:File:Mentha canadensis - Wild Mint 02.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Mentha_canadensis_-_Wild_Mint_02.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:615-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:124520"
+    ],
+    "value": "China, Asia oriental, el subcontinente indio, Indochina, Malesia, Mongolia, Siberia, el Lejano Oriente ruso, Canadá, Estados Unidos y México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Mentha canadensis - Wild Mint 02.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Mentha canadensis - Wild Mint 02.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mentha_canadensis_-_Wild_Mint_02.jpg"
+    },
+    "efsa_botanic:3371": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: pulegone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3372": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: (R)-(+)-Menthofuran",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:615-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cornmint»",
+      "license": "CC0"
+    },
+    "usda_common_name:615-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Field Mint»",
+      "license": "CC0"
+    },
+    "usda_common_name:615-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Japanese Mint»",
+      "license": "CC0"
+    },
+    "usda_part:615-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:16265": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16265",
+      "license": "CC0"
+    },
+    "usda_use:53104": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53104",
+      "license": "CC0"
+    },
+    "usda_use:59495": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59495",
+      "license": "CC0"
+    },
+    "usda_use:6583": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6583",
+      "license": "CC0"
+    },
+    "usda_use:70688": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70688",
+      "license": "CC0"
+    },
+    "wcvp:124393": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha arvensis var. canadensis (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:124394": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha arvensis subsp. canadensis (L.) H.Hara",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:124520": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha canadensis L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:3372",
+      "efsa_botanic:3371"
+    ],
+    "text": "El Compendio de Botánicos de la EFSA registra, en la parte aérea de la planta, dos sustancias del grupo de tóxicos con límite: (R)-(+)-mentofurano y pulegona."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Mentha canadensis",
+    "refs": [
+      "wcvp:124520"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) H.Hara",
+      "name": "Mentha arvensis subsp. canadensis",
+      "refs": [
+        "wcvp:124394"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Mentha arvensis var. canadensis",
+      "refs": [
+        "wcvp:124393"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Balsámico",
+      "activitySource": "Balsamic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6583",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16265",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Febrífugo",
+      "activitySource": "Febrifuge",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70688",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59495",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de nariz",
+      "activitySource": "Tumor(Nose)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53104",
+        "usda_reference:Yeh"
+      ]
+    }
+  ]
+}

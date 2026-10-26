@@ -1,0 +1,169 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ae907024724bba9e4531e51e96f946e4de9ef6384a3fabea304fb5635b106c83",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2365-1"
+      ],
+      "text": "Sangre de Drago"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2365-3"
+      ],
+      "text": "Sangre de Dragon"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2365-2"
+      ],
+      "text": "Sangre de Grado"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2365-4"
+      ],
+      "text": "Dragons Blood"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Croton lechleri"
+    ],
+    "value": "Especie de angiosperma de la familia Euphorbiaceae, nativa del noroeste de América del Sur y conocida por su látex."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:2365-1"
+    ],
+    "value": "Sangre de Drago"
+  },
+  "family": {
+    "refs": [
+      "wcvp:50333"
+    ],
+    "value": "Euphorbiaceae"
+  },
+  "goals": [],
+  "id": "croton-lechleri",
+  "image": {
+    "attributionRequired": true,
+    "author": "por natikka",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sangre_de_Grado.jpg",
+    "refs": [
+      "commons:File:Sangre de Grado.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Sangre_de_Grado.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:50333"
+    ],
+    "value": "Noroeste de América del Sur"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sangre de Grado.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sangre de Grado.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Sangre_de_Grado.jpg"
+    },
+    "usda_common_name:2365-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sangre de Drago»",
+      "license": "CC0"
+    },
+    "usda_common_name:2365-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sangre de Grado»",
+      "license": "CC0"
+    },
+    "usda_common_name:2365-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sangre de Dragon»",
+      "license": "CC0"
+    },
+    "usda_common_name:2365-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dragons Blood»",
+      "license": "CC0"
+    },
+    "wcvp:336678": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oxydectes lechleri (Müll.Arg.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:50333": {
+      "dataset": "wcvp",
+      "label": "WCVP: Croton lechleri Müll.Arg.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Croton lechleri": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Croton lechleri",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Croton_lechleri"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA etiqueta como inglés los nombres «Sangre de Drago», «Sangre de Dragon» y «Sangre de Grado», que parecen españoles; se registran como español y queda por confirmar.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Müll.Arg.",
+    "name": "Croton lechleri",
+    "refs": [
+      "wcvp:50333"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Müll.Arg.) Kuntze",
+      "name": "Oxydectes lechleri",
+      "refs": [
+        "wcvp:336678"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

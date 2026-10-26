@@ -1,0 +1,155 @@
+{
+  "aliases": [
+    "justicia-procumbens"
+  ],
+  "bundleHash": "sha256:c943af28d8bbb35c9c946f23d70b44b733fe3462559371bfc83a9dcb2501643c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rostellularia procumbens"
+      ],
+      "text": "Sauce de agua"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rostellularia procumbens"
+    ],
+    "value": "Especie de planta con flores de la familia de las acantáceas, conocida comúnmente como sauce de agua."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Rostellularia procumbens"
+    ],
+    "value": "Sauce de agua"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2421593"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "rostellularia-procumbens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jeevan Jose, Kerala, India",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rostellularia_procumbens_by_kadavoor.jpg",
+    "refs": [
+      "commons:File:Rostellularia procumbens by kadavoor.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Rostellularia_procumbens_by_kadavoor.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2421593"
+    ],
+    "value": "Asia oriental y meridional: China, subcontinente indio, Indochina y Malesia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rostellularia procumbens by kadavoor.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rostellularia procumbens by kadavoor.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rostellularia_procumbens_by_kadavoor.jpg"
+    },
+    "wcvp:2329315": {
+      "dataset": "wcvp",
+      "label": "WCVP: Justicia procumbens L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2420910": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rostellaria procumbens (L.) Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2421593": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rostellularia procumbens (L.) Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2780917": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ecbolium procumbens (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Rostellularia procumbens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rostellularia procumbens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rostellularia_procumbens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "Wikipedia en español la describe como endémica de la India, pero WCVP registra un área nativa mucho más amplia; se usó WCVP para el origen y se omitió la endemicidad de la descripción.",
+      "target": "description"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Nees",
+    "name": "Rostellularia procumbens",
+    "refs": [
+      "wcvp:2421593"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Ecbolium procumbens",
+      "refs": [
+        "wcvp:2780917"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Justicia procumbens",
+      "refs": [
+        "wcvp:2329315"
+      ]
+    },
+    {
+      "authors": "(L.) Nees",
+      "name": "Rostellaria procumbens",
+      "refs": [
+        "wcvp:2420910"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

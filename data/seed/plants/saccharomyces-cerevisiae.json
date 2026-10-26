@@ -1,19 +1,50 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:89a9c81a3966108fe53498018aa924aa1027dcad950b712c9e49fff1d9df9c07",
-  "commonNames": [],
-  "description": null,
-  "displayName": {
-    "language": "la",
+  "bundleHash": "sha256:7890d402e130bacae7511fd9acadee1db0b9abb7779376d08f1b3f51dfd774b8",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Saccharomyces cerevisiae",
+        "wikidata:Q719725"
+      ],
+      "text": "Levadura de cerveza"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q719725"
+      ],
+      "text": "Levadura de panadería"
+    }
+  ],
+  "description": {
     "refs": [
-      "ema_herbal:saccharomyces-cerevisiae-cbs-5926"
+      "wikipedia_es:Saccharomyces cerevisiae"
     ],
-    "value": "Saccharomyces cerevisiae"
+    "value": "Es un hongo unicelular, un tipo de levadura utilizado industrialmente en la fabricación de pan, cerveza y vino. Su genoma fue el primero entre los eucariotas en ser secuenciado."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Saccharomyces cerevisiae"
+    ],
+    "value": "Levadura de cerveza"
   },
   "family": null,
   "goals": [],
   "id": "saccharomyces-cerevisiae",
-  "image": null,
+  "image": {
+    "attributionRequired": true,
+    "author": "DataBase Center for Life Science (DBCLS)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:202502_Saccharomyces_cerevisiae.svg",
+    "refs": [
+      "commons:File:202502 Saccharomyces cerevisiae.svg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/202502_Saccharomyces_cerevisiae.svg"
+  },
   "model": "claude-sonnet-5-5",
   "oil": null,
   "origin": null,
@@ -21,11 +52,29 @@
   "promptVersion": 7,
   "recordVersion": 1,
   "refs": {
+    "commons:File:202502 Saccharomyces cerevisiae.svg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:202502 Saccharomyces cerevisiae.svg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:202502_Saccharomyces_cerevisiae.svg"
+    },
     "ema_herbal:saccharomyces-cerevisiae-cbs-5926": {
       "dataset": "ema_json",
       "label": "EMA: Saccharomyces cerevisiae CBS 5926",
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/medicines/herbal/saccharomyces-cerevisiae-cbs-5926"
+    },
+    "wikidata:Q719725": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q719725",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q719725"
+    },
+    "wikipedia_es:Saccharomyces cerevisiae": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Saccharomyces cerevisiae",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Saccharomyces_cerevisiae"
     }
   },
   "reviewFlags": [
@@ -35,18 +84,8 @@
       "target": "scientificName"
     },
     {
-      "code": "wikidata-no-consultada",
-      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
-      "target": "wikidata"
-    },
-    {
-      "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
-      "target": "displayName"
-    },
-    {
       "code": "sin-datos-de-seguridad",
-      "message": "El paquete solo trae una declaración pública de la EMA sin datos de seguridad; la planta no se presenta como segura.",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
       "target": "safety"
     }
   ],
@@ -60,8 +99,20 @@
   },
   "sources": [
     {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
       "dataset": "ema_json",
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     }
   ],
   "synonyms": [],

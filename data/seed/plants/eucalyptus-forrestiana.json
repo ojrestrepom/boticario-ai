@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:60cff652f838ba193670fda647f39947cb279d7e48cfe27816a2d09ae38f766a",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72965"
+    ],
+    "value": "Eucalyptus forrestiana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72965"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-forrestiana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Melburnian",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_forrestiana.jpg",
+    "refs": [
+      "commons:File:Eucalyptus forrestiana.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Eucalyptus_forrestiana.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2143-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72965"
+    ],
+    "value": "Nativa de Australia (Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus forrestiana.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus forrestiana.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_forrestiana.jpg"
+    },
+    "usda_part:2143-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72965": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus forrestiana Diels",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Diels",
+    "name": "Eucalyptus forrestiana",
+    "refs": [
+      "wcvp:72965"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

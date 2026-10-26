@@ -1,0 +1,184 @@
+{
+  "aliases": [
+    "rhynchosia-cabibaea"
+  ],
+  "bundleHash": "sha256:7d445a6ccdb5f51cd935b74c78f4875008de55ea3ff21c97f20f45390fa9f9f8",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2428002"
+    ],
+    "value": "Rhynchosia caribaea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2428002"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "rhynchosia-caribaea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2428002"
+    ],
+    "value": "África tropical del sur, África austral y oeste del océano Índico"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Guillarmod": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Guillarmod",
+      "license": "CC0"
+    },
+    "usda_use:41562": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41562",
+      "license": "CC0"
+    },
+    "usda_use:82120": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82120",
+      "license": "CC0"
+    },
+    "wcvp:2428002": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhynchosia caribaea (Jacq.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2647485": {
+      "dataset": "wcvp",
+      "label": "WCVP: Arcyphyllum caribaeum (Jacq.) Elliott",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2736070": {
+      "dataset": "wcvp",
+      "label": "WCVP: Copisma caribaeum (Jacq.) E.Mey.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774131": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolicholus caribaeus (Jacq.) Hiern",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2827254": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycine caribaea Jacq.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Jacq.) DC.",
+    "name": "Rhynchosia caribaea",
+    "refs": [
+      "wcvp:2428002"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Jacq.) Elliott",
+      "name": "Arcyphyllum caribaeum",
+      "refs": [
+        "wcvp:2647485"
+      ]
+    },
+    {
+      "authors": "(Jacq.) E.Mey.",
+      "name": "Copisma caribaeum",
+      "refs": [
+        "wcvp:2736070"
+      ]
+    },
+    {
+      "authors": "(Jacq.) Hiern",
+      "name": "Dolicholus caribaeus",
+      "refs": [
+        "wcvp:2774131"
+      ]
+    },
+    {
+      "authors": "Jacq.",
+      "name": "Glycine caribaea",
+      "refs": [
+        "wcvp:2827254"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Guillarmod",
+          "ref": "usda_reference:Guillarmod",
+          "text": "Guillarmod, A.J. 1971. Flora of Lesotho (Basutoland). Verlag von J. Cramer, 3301 Lehre, Germany."
+        }
+      ],
+      "countries": [
+        "Lesotho"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82120",
+        "usda_reference:Guillarmod"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Guillarmod",
+          "ref": "usda_reference:Guillarmod",
+          "text": "Guillarmod, A.J. 1971. Flora of Lesotho (Basutoland). Verlag von J. Cramer, 3301 Lehre, Germany."
+        }
+      ],
+      "countries": [
+        "Lesotho"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41562",
+        "usda_reference:Guillarmod"
+      ]
+    }
+  ]
+}

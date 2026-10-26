@@ -1,0 +1,111 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:cc6114822693fa8b7052dd5e8a69c3760c61cab8bf229647070d3a9036cb4189",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1101-1"
+      ],
+      "text": "Chia"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia"
+    ],
+    "value": "Género de plantas más numeroso de la familia de las lamiáceas, con setecientas a novecientas especies de arbustos y herbáceas perennes y anuales."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1101-SD"
+    ],
+    "value": "Salvia sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "salvia-sp",
+  "image": {
+    "attributionRequired": false,
+    "author": "Rob Hille",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salvia_nemorosa_ostfriesland_0.6_R.jpg",
+    "refs": [
+      "commons:File:Salvia nemorosa ostfriesland 0.6 R.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Salvia_nemorosa_ostfriesland_0.6_R.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salvia nemorosa ostfriesland 0.6 R.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salvia nemorosa ostfriesland 0.6 R.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Salvia_nemorosa_ostfriesland_0.6_R.jpg"
+    },
+    "usda_common_name:1101-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chia»",
+      "license": "CC0"
+    },
+    "usda_part:1101-SD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Seed»",
+      "license": "CC0"
+    },
+    "wikipedia_es:Salvia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Salvia sp.",
+    "refs": [
+      "usda_part:1101-SD"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

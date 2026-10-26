@@ -1,0 +1,161 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b66ed458961a3d064190b310ab1ace187437cc16f801ce41d710e56e52d95d1b",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2521072"
+    ],
+    "value": "Ternstroemia gymnanthera"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2521072"
+    ],
+    "value": "Pentaphylacaceae"
+  },
+  "goals": [],
+  "id": "ternstroemia-gymnanthera",
+  "image": {
+    "attributionRequired": true,
+    "author": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ternstroemia_gymnanthera4.jpg",
+    "refs": [
+      "commons:File:Ternstroemia gymnanthera4.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Ternstroemia_gymnanthera4.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2521072"
+    ],
+    "value": "China, subcontinente indio e Indochina"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ternstroemia gymnanthera4.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ternstroemia gymnanthera4.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ternstroemia_gymnanthera4.jpg"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:62068": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62068",
+      "license": "CC0"
+    },
+    "usda_use:6214": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6214",
+      "license": "CC0"
+    },
+    "wcvp:2521072": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ternstroemia gymnanthera (Wight & Arn.) Bedd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2727763": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cleyera gymnanthera Wight & Arn.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Wight & Arn.) Bedd.",
+    "name": "Ternstroemia gymnanthera",
+    "refs": [
+      "wcvp:2521072"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Wight & Arn.",
+      "name": "Cleyera gymnanthera",
+      "refs": [
+        "wcvp:2727763"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6214",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62068",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

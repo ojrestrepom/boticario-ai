@@ -1,0 +1,178 @@
+{
+  "aliases": [
+    "mitracarpus-scaber"
+  ],
+  "bundleHash": "sha256:23d32325c0c4b9b3e452fb24d3b9e84352d0b268ba7cdf8f9513b93f3a2686c7",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:128746"
+    ],
+    "value": "Mitracarpus hirtus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:128746"
+    ],
+    "value": "Rubiaceae"
+  },
+  "goals": [],
+  "id": "mitracarpus-hirtus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Forest & Kim Starr",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Starr_010726-9002_Mitracarpus_hirtus.jpg",
+    "refs": [
+      "commons:File:Starr 010726-9002 Mitracarpus hirtus.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Starr_010726-9002_Mitracarpus_hirtus.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:5006-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:128746"
+    ],
+    "value": "Brasil, el Caribe, América Central, México y Sudamérica (norte, sur y oeste)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Starr 010726-9002 Mitracarpus hirtus.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Starr 010726-9002 Mitracarpus hirtus.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Starr_010726-9002_Mitracarpus_hirtus.jpg"
+    },
+    "usda_part:5006-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:44934": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44934",
+      "license": "CC0"
+    },
+    "usda_use:63328": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63328",
+      "license": "CC0"
+    },
+    "wcvp:128746": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mitracarpus hirtus (L.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:193603": {
+      "dataset": "wcvp",
+      "label": "WCVP: Spermacoce hirta L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (brote), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) DC.",
+    "name": "Mitracarpus hirtus",
+    "refs": [
+      "wcvp:128746"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Spermacoce hirta",
+      "refs": [
+        "wcvp:193603"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto (veneno de flechas)",
+      "activitySource": "Antidote(Arrow poison)",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63328",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44934",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

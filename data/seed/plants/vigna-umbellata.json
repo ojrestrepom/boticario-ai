@@ -1,0 +1,148 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:46a55add30c33493bb286d0a87daae14c478e10f3102cd3726cf36c32b63286c",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2451891"
+    ],
+    "value": "Vigna umbellata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2451891"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "vigna-umbellata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Samuel Wong",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E8%B5%A4%E5%B0%8F%E8%B1%86.jpg",
+    "refs": [
+      "commons:File:赤小豆.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/%E8%B5%A4%E5%B0%8F%E8%B1%86.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2451891"
+    ],
+    "value": "China, Asia oriental, subcontinente indio, Indochina, Malesia y Papuasia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:赤小豆.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:赤小豆.jpg",
+      "license": "CC BY-SA 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:%E8%B5%A4%E5%B0%8F%E8%B1%86.jpg"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:47381": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47381",
+      "license": "CC0"
+    },
+    "wcvp:2451891": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vigna umbellata (Thunb.) Ohwi & H.Ohashi",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2667538": {
+      "dataset": "wcvp",
+      "label": "WCVP: Azukia umbellata (Thunb.) Ohwi",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774623": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolichos umbellatus Thunb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Thunb.) Ohwi & H.Ohashi",
+    "name": "Vigna umbellata",
+    "refs": [
+      "wcvp:2451891"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Thunb.) Ohwi",
+      "name": "Azukia umbellata",
+      "refs": [
+        "wcvp:2667538"
+      ]
+    },
+    {
+      "authors": "Thunb.",
+      "name": "Dolichos umbellatus",
+      "refs": [
+        "wcvp:2774623"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Dolor (estómago)",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47381",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

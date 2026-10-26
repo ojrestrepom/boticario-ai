@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:01fed5f6f309833604094e680906dd1a18ed79b7fb7bf53a57f7f76f51ab2978",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72548"
+    ],
+    "value": "Eucalyptus bosistoana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72548"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-bosistoana",
+  "image": {
+    "attributionRequired": false,
+    "author": "Poyt448 Peter Woodard",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_bosistoana_Batemans_Bay.jpg",
+    "refs": [
+      "commons:File:Eucalyptus bosistoana Batemans Bay.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Eucalyptus_bosistoana_Batemans_Bay.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1368-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72548"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus bosistoana Batemans Bay.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus bosistoana Batemans Bay.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_bosistoana_Batemans_Bay.jpg"
+    },
+    "usda_part:1368-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:72548": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus bosistoana F.Muell.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F.Muell.",
+    "name": "Eucalyptus bosistoana",
+    "refs": [
+      "wcvp:72548"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

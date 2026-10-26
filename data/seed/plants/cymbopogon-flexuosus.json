@@ -1,0 +1,246 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:aed8887b4b4c74e2dbbe7dead8d307037b67a7dcd3a726888f1bd35b2da05ecb",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:338-1"
+      ],
+      "text": "East Indian Lemongrass"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cymbopogon flexuosus"
+    ],
+    "value": "Planta herbácea perenne natural de la India, Sri Lanka, Birmania y Tailandia, del género Cymbopogon de la familia Poaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:406169"
+    ],
+    "value": "Cymbopogon flexuosus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:406169"
+    ],
+    "value": "Poaceae"
+  },
+  "goals": [],
+  "id": "cymbopogon-flexuosus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Cbaile19",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cymbopogon_flexuosus,_Phipps_Conservatory,_2015-10-10,_01.jpg",
+    "refs": [
+      "commons:File:Cymbopogon flexuosus, Phipps Conservatory, 2015-10-10, 01.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Cymbopogon_flexuosus%2C_Phipps_Conservatory%2C_2015-10-10%2C_01.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:338-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:406169"
+    ],
+    "value": "Nativa del subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cymbopogon flexuosus, Phipps Conservatory, 2015-10-10, 01.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cymbopogon flexuosus, Phipps Conservatory, 2015-10-10, 01.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Cymbopogon_flexuosus,_Phipps_Conservatory,_2015-10-10,_01.jpg"
+    },
+    "usda_common_name:338-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «East Indian Lemongrass»",
+      "license": "CC0"
+    },
+    "usda_part:338-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:66997": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66997",
+      "license": "CC0"
+    },
+    "usda_use:72597": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72597",
+      "license": "CC0"
+    },
+    "usda_use:75928": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75928",
+      "license": "CC0"
+    },
+    "wcvp:392416": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andropogon flexuosus Nees ex Steud.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:392924": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andropogon nardus subsp. flexuosus (Nees ex Steud.) Hack.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:406169": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cymbopogon flexuosus (Nees ex Steud.) Will.Watson",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Cymbopogon flexuosus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cymbopogon flexuosus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cymbopogon_flexuosus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Nees ex Steud.) Will.Watson",
+    "name": "Cymbopogon flexuosus",
+    "refs": [
+      "wcvp:406169"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Nees ex Steud.",
+      "name": "Andropogon flexuosus",
+      "refs": [
+        "wcvp:392416"
+      ]
+    },
+    {
+      "authors": "(Nees ex Steud.) Hack.",
+      "name": "Andropogon nardus subsp. flexuosus",
+      "refs": [
+        "wcvp:392924"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cólera",
+      "activitySource": "Cholera",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Vietnam"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66997",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Repelente de insectos",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72597",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Vietnam"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75928",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

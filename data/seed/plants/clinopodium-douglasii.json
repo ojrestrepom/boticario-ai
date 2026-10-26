@@ -1,0 +1,264 @@
+{
+  "aliases": [
+    "satureja-douglasii"
+  ],
+  "bundleHash": "sha256:62b20b077e1d8f7b18786b56bd3056b579b6393f74d01de34977e6ad96f22fcc",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Clinopodium douglasii"
+      ],
+      "text": "Hierbabuena"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Clinopodium douglasii"
+      ],
+      "text": "Yerbabuena"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Clinopodium douglasii"
+      ],
+      "text": "Ajedrea"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:901-1"
+      ],
+      "text": "Douglas' Savory"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Clinopodium douglasii"
+    ],
+    "value": "Hierba aromática perenne de la familia de las lamiáceas, endémica de Norteamérica."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Clinopodium douglasii"
+    ],
+    "value": "Hierbabuena"
+  },
+  "family": {
+    "refs": [
+      "wcvp:43517"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-douglasii",
+  "image": {
+    "attributionRequired": false,
+    "author": "Gordon Leppig & Andrea J. Pickart",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinopodiumdouglasii.jpg",
+    "refs": [
+      "commons:File:Clinopodiumdouglasii.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Clinopodiumdouglasii.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:901-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:43517"
+    ],
+    "value": "Noroeste y suroeste de Estados Unidos, América subártica y oeste de Canadá."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Clinopodiumdouglasii.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Clinopodiumdouglasii.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Clinopodiumdouglasii.jpg"
+    },
+    "usda_common_name:901-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Douglas' Savory»",
+      "license": "CC0"
+    },
+    "usda_part:901-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:15304": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15304",
+      "license": "CC0"
+    },
+    "usda_use:49621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49621",
+      "license": "CC0"
+    },
+    "usda_use:7559": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7559",
+      "license": "CC0"
+    },
+    "wcvp:127195": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria douglasii Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185590": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja douglasii (Benth.) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43517": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium douglasii (Benth.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Clinopodium douglasii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Clinopodium douglasii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Clinopodium_douglasii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth.) Kuntze",
+    "name": "Clinopodium douglasii",
+    "refs": [
+      "wcvp:43517"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Benth.",
+      "name": "Micromeria douglasii",
+      "refs": [
+        "wcvp:127195"
+      ]
+    },
+    {
+      "authors": "(Benth.) Briq.",
+      "name": "Satureja douglasii",
+      "refs": [
+        "wcvp:185590"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Sangre",
+      "activitySource": "Blood",
+      "citations": [
+        {
+          "key": "Eb25: 84",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 84"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7559",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Desodorante",
+      "activitySource": "Deodorant",
+      "citations": [
+        {
+          "key": "Eb25: 84",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 84"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15304",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Eb25: 84",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 84"
+        }
+      ],
+      "countries": [
+        "Canadá (Salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49621",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

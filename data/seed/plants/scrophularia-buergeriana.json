@@ -1,0 +1,173 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:37021874f38b82d7effff26a4841f0abf44360764b722bc81682411638766c4d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:914-1"
+      ],
+      "text": "Hsuan-Shen"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:914-2"
+      ],
+      "text": "Yuan-Shen"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2585664"
+    ],
+    "value": "Scrophularia buergeriana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2585664"
+    ],
+    "value": "Scrophulariaceae"
+  },
+  "goals": [],
+  "id": "scrophularia-buergeriana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Doronenko",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Scrophularia_buergiriana_1.jpg",
+    "refs": [
+      "commons:File:Scrophularia buergiriana 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Scrophularia_buergiriana_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2585664"
+    ],
+    "value": "Nativa de China, Asia oriental y el Lejano Oriente ruso."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Scrophularia buergiriana 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Scrophularia buergiriana 1.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Scrophularia_buergiriana_1.jpg"
+    },
+    "usda_common_name:914-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hsuan-Shen»",
+      "license": "CC0"
+    },
+    "usda_common_name:914-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yuan-Shen»",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:23839": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23839",
+      "license": "CC0"
+    },
+    "usda_use:61401": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61401",
+      "license": "CC0"
+    },
+    "wcvp:2585664": {
+      "dataset": "wcvp",
+      "label": "WCVP: Scrophularia buergeriana Miq.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Miq.",
+    "name": "Scrophularia buergeriana",
+    "refs": [
+      "wcvp:2585664"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antiflogístico",
+      "activitySource": "Antiphlogistic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61401",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Febrífugo",
+      "activitySource": "Febrifuge",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23839",
+        "usda_reference:Takeda"
+      ]
+    }
+  ]
+}

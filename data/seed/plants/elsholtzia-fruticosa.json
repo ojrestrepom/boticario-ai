@@ -1,0 +1,147 @@
+{
+  "aliases": [
+    "elsholtzia-polystachya"
+  ],
+  "bundleHash": "sha256:38ba1267a94498a5427a3ed17c63761a17d2150ef43a2fdef0180a1f6719f67d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2002-1"
+      ],
+      "text": "Bush Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:66748"
+    ],
+    "value": "Elsholtzia fruticosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:66748"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "elsholtzia-fruticosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Vinayaraj",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Elsholtzia_fruticosa_-_Shrubby_Mint_at_Ha_Valley_during_LGFC_-_Bhutan_2019_(3).jpg",
+    "refs": [
+      "commons:File:Elsholtzia fruticosa - Shrubby Mint at Ha Valley during LGFC - Bhutan 2019 (3).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Elsholtzia_fruticosa_-_Shrubby_Mint_at_Ha_Valley_during_LGFC_-_Bhutan_2019_%283%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2002-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:66748"
+    ],
+    "value": "China, subcontinente indio e Indochina"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Elsholtzia fruticosa - Shrubby Mint at Ha Valley during LGFC - Bhutan 2019 (3).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Elsholtzia fruticosa - Shrubby Mint at Ha Valley during LGFC - Bhutan 2019 (3).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Elsholtzia_fruticosa_-_Shrubby_Mint_at_Ha_Valley_during_LGFC_-_Bhutan_2019_(3).jpg"
+    },
+    "usda_common_name:2002-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bush Mint»",
+      "license": "CC0"
+    },
+    "usda_part:2002-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:12696": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aphanochilus fruticosus (D.Don) Kudô",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:150308": {
+      "dataset": "wcvp",
+      "label": "WCVP: Perilla fruticosa D.Don",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:66748": {
+      "dataset": "wcvp",
+      "label": "WCVP: Elsholtzia fruticosa (D.Don) Rehder",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(D.Don) Rehder",
+    "name": "Elsholtzia fruticosa",
+    "refs": [
+      "wcvp:66748"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(D.Don) Kudô",
+      "name": "Aphanochilus fruticosus",
+      "refs": [
+        "wcvp:12696"
+      ]
+    },
+    {
+      "authors": "D.Don",
+      "name": "Perilla fruticosa",
+      "refs": [
+        "wcvp:150308"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:eea481687aebf4946e0fd3e53eb226fe3769ef43edbe9bb46181e3eafe388b17",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1135-1"
+      ],
+      "text": "Wild coca"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum"
+    ],
+    "value": "Género de plantas tropicales de la familia Erythroxylaceae, con unas 230 especies aceptadas repartidas por zonas tropicales y subtropicales del mundo."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q158138"
+    ],
+    "value": "Erythroxylum sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "erythroxylum-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "João Medeiros",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Erythroxylum_tortuosum_2.jpg",
+    "refs": [
+      "commons:File:Erythroxylum tortuosum 2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Erythroxylum_tortuosum_2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Erythroxylum tortuosum 2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Erythroxylum tortuosum 2.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Erythroxylum_tortuosum_2.jpg"
+    },
+    "usda_common_name:1135-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wild coca»",
+      "license": "CC0"
+    },
+    "wikidata:Q158138": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q158138",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q158138"
+    },
+    "wikipedia_es:Erythroxylum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Erythroxylum sp.",
+    "refs": [
+      "wikidata:Q158138"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

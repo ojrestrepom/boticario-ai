@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:020a90e5576041f9f71ef4208003b5131151096e08b903591bec7f2a24a01ee0",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2734154"
+    ],
+    "value": "Conium chaerophylloides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2734154"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "conium-chaerophylloides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2734154"
+    ],
+    "value": "África austral."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Guillarmod": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Guillarmod",
+      "license": "CC0"
+    },
+    "usda_use:24334": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24334",
+      "license": "CC0"
+    },
+    "wcvp:2479543": {
+      "dataset": "wcvp",
+      "label": "WCVP: Seseli chaerophylloides Thunb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2734154": {
+      "dataset": "wcvp",
+      "label": "WCVP: Conium chaerophylloides (Thunb.) Eckl. & Zeyh.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Thunb.) Eckl. & Zeyh.",
+    "name": "Conium chaerophylloides",
+    "refs": [
+      "wcvp:2734154"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Thunb.",
+      "name": "Seseli chaerophylloides",
+      "refs": [
+        "wcvp:2479543"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Guillarmod",
+          "ref": "usda_reference:Guillarmod",
+          "text": "Guillarmod, A.J. 1971. Flora of Lesotho (Basutoland). Verlag von J. Cramer, 3301 Lehre, Germany."
+        }
+      ],
+      "countries": [
+        "Lesotho"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24334",
+        "usda_reference:Guillarmod"
+      ]
+    }
+  ]
+}

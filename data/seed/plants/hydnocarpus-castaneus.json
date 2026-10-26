@@ -1,0 +1,174 @@
+{
+  "aliases": [
+    "hydnocarpus-anthelminticus"
+  ],
+  "bundleHash": "sha256:cbd75bd90d6d12b564ee10a492fcc200af5d09ebe158cd26903c828881dd6503",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:484-1"
+      ],
+      "text": "Thai Chaulmoogra"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Hydnocarpus anthelmintica"
+    ],
+    "value": "Especie de planta herbácea de la familia Achariaceae, según el artículo de Wikipedia en español sobre Hydnocarpus anthelmintica."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2925433"
+    ],
+    "value": "Hydnocarpus castaneus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2925433"
+    ],
+    "value": "Achariaceae"
+  },
+  "goals": [],
+  "id": "hydnocarpus-castaneus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Lannafolium",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hydnocarpus_castanea_1.jpg",
+    "refs": [
+      "commons:File:Hydnocarpus castanea 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Hydnocarpus_castanea_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2925433"
+    ],
+    "value": "Subcontinente indio, Indochina y Malasia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hydnocarpus castanea 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hydnocarpus castanea 1.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hydnocarpus_castanea_1.jpg"
+    },
+    "efsa_botanic:1060": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: hydnocarpic acid",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:365": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Hydnocarpus anthelminthicus Pierre ex Laness.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:484-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Thai Chaulmoogra»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:43700": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43700",
+      "license": "CC0"
+    },
+    "wcvp:2925433": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hydnocarpus castaneus Hook.f. & Thomson",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Hydnocarpus anthelmintica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Hydnocarpus anthelmintica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Hydnocarpus_anthelmintica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:1060",
+      "efsa_endpoint:365"
+    ],
+    "text": "EFSA registra el ácido hidnocárpico en la semilla como sustancia de evidencia. Un estudio de EFSA en rumiantes (caso reportado, vía oral con el alimento, parte: semilla) señala que el cianuro es un veneno metabólico que interfiere con el suministro de energía de las células."
+  },
+  "scientificName": {
+    "authors": "Hook.f. & Thomson",
+    "name": "Hydnocarpus castaneus",
+    "refs": [
+      "wcvp:2925433"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Islas Andamán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43700",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

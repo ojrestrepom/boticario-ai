@@ -1,0 +1,105 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8f1c4c98a476b24292c983b5f19ac2c401dd50c4ecdaa8dcd517c9034c9cb203",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:668-1"
+      ],
+      "text": "Ocotea"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2386033"
+    ],
+    "value": "Ocotea glaziovii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2386033"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "ocotea-glaziovii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Instituto Nacional da Mata Atlântica - INMA",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:LAURACEAE_Ocotea_glaziovii_Mez,_INMA_(MBML010850).pdf",
+    "refs": [
+      "commons:File:LAURACEAE Ocotea glaziovii Mez, INMA (MBML010850).pdf"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/LAURACEAE_Ocotea_glaziovii_Mez%2C_INMA_%28MBML010850%29.pdf"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2386033"
+    ],
+    "value": "Brasil"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:LAURACEAE Ocotea glaziovii Mez, INMA (MBML010850).pdf": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:LAURACEAE Ocotea glaziovii Mez, INMA (MBML010850).pdf",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:LAURACEAE_Ocotea_glaziovii_Mez,_INMA_(MBML010850).pdf"
+    },
+    "usda_common_name:668-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ocotea»",
+      "license": "CC0"
+    },
+    "wcvp:2386033": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocotea glaziovii Mez",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Mez",
+    "name": "Ocotea glaziovii",
+    "refs": [
+      "wcvp:2386033"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

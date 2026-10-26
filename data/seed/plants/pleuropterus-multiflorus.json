@@ -1,0 +1,938 @@
+{
+  "aliases": [
+    "polygonum-multiflorum"
+  ],
+  "bundleHash": "sha256:79f55fa9ecde0873538075c875786a97df98f7707c135a5aaea8cb7721b2d72e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Fallopia multiflora"
+      ],
+      "text": "Fo-ti"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Fallopia multiflora"
+      ],
+      "text": "Fo-ti-teng"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:775-1"
+      ],
+      "text": "Chinese Cornbind"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:775-5"
+      ],
+      "text": "Chinese Knotweed"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:775-2"
+      ],
+      "text": "Fleeceflower"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:775-3"
+      ],
+      "text": "Fo Ti"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:775-4"
+      ],
+      "text": "He Shou Wu"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Fallopia multiflora"
+    ],
+    "value": "Hierba china ampliamente utilizada como planta medicinal, también conocida como fo-ti o fo-ti-teng; su raíz contiene una cantidad considerable de lecitina."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Fallopia multiflora"
+    ],
+    "value": "Fo-ti"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2572418"
+    ],
+    "value": "Polygonaceae"
+  },
+  "goals": [],
+  "id": "pleuropterus-multiflorus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Doronenko",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Fallopia_multiflora_leaf.jpg",
+    "refs": [
+      "commons:File:Fallopia multiflora leaf.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Fallopia_multiflora_leaf.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2572418"
+    ],
+    "value": "China, Asia oriental e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Fallopia multiflora leaf.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Fallopia multiflora leaf.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Fallopia_multiflora_leaf.jpg"
+    },
+    "efsa_botanic:2834": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Emodin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2835": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: chrysophanol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:971": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Polygonum multiflorum Thunb.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:775-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Cornbind»",
+      "license": "CC0"
+    },
+    "usda_common_name:775-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Fleeceflower»",
+      "license": "CC0"
+    },
+    "usda_common_name:775-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Fo Ti»",
+      "license": "CC0"
+    },
+    "usda_common_name:775-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «He Shou Wu»",
+      "license": "CC0"
+    },
+    "usda_common_name:775-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Knotweed»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Kimura": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Kimura",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:WO2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WO2",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:13134": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13134",
+      "license": "CC0"
+    },
+    "usda_use:16939": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16939",
+      "license": "CC0"
+    },
+    "usda_use:2211": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2211",
+      "license": "CC0"
+    },
+    "usda_use:27440": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27440",
+      "license": "CC0"
+    },
+    "usda_use:27441": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27441",
+      "license": "CC0"
+    },
+    "usda_use:3516": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3516",
+      "license": "CC0"
+    },
+    "usda_use:39430": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39430",
+      "license": "CC0"
+    },
+    "usda_use:39431": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39431",
+      "license": "CC0"
+    },
+    "usda_use:4882": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4882",
+      "license": "CC0"
+    },
+    "usda_use:50824": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50824",
+      "license": "CC0"
+    },
+    "usda_use:50843": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50843",
+      "license": "CC0"
+    },
+    "usda_use:50844": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50844",
+      "license": "CC0"
+    },
+    "usda_use:53228": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53228",
+      "license": "CC0"
+    },
+    "usda_use:60537": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60537",
+      "license": "CC0"
+    },
+    "usda_use:60545": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60545",
+      "license": "CC0"
+    },
+    "usda_use:60547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60547",
+      "license": "CC0"
+    },
+    "usda_use:60553": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60553",
+      "license": "CC0"
+    },
+    "usda_use:60556": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60556",
+      "license": "CC0"
+    },
+    "usda_use:60581": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60581",
+      "license": "CC0"
+    },
+    "usda_use:63666": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63666",
+      "license": "CC0"
+    },
+    "usda_use:66017": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66017",
+      "license": "CC0"
+    },
+    "usda_use:71844": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71844",
+      "license": "CC0"
+    },
+    "usda_use:7556": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7556",
+      "license": "CC0"
+    },
+    "usda_use:79010": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79010",
+      "license": "CC0"
+    },
+    "usda_use:79011": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79011",
+      "license": "CC0"
+    },
+    "usda_use:81979": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81979",
+      "license": "CC0"
+    },
+    "usda_use:81981": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81981",
+      "license": "CC0"
+    },
+    "usda_use:81989": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81989",
+      "license": "CC0"
+    },
+    "usda_use:9325": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9325",
+      "license": "CC0"
+    },
+    "wcvp:2425429": {
+      "dataset": "wcvp",
+      "label": "WCVP: Reynoutria multiflora (Thunb.) Moldenke",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2572418": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pleuropterus multiflorus (Thunb.) Turcz. ex Nakai",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2574870": {
+      "dataset": "wcvp",
+      "label": "WCVP: Polygonum multiflorum Thunb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2675937": {
+      "dataset": "wcvp",
+      "label": "WCVP: Bilderdykia multiflora (Thunb.) Roberty & Vautier",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2807327": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fagopyrum multiflorum (Thunb.) Grinţ.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2807651": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fallopia multiflora (Thunb.) Haraldson",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2844949": {
+      "dataset": "wcvp",
+      "label": "WCVP: Helxine multiflorum (Thunb.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Fallopia multiflora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Fallopia multiflora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Fallopia_multiflora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2834",
+      "efsa_botanic:2835",
+      "efsa_endpoint:971"
+    ],
+    "text": "EFSA anota la emodina y el crisofanol (raíces y otras partes subterráneas) como sustancias de evidencia, y registra un estudio de toxicidad aguda en humanos con efecto purgante y afectación digestiva (hígado)."
+  },
+  "scientificName": {
+    "authors": "(Thunb.) Turcz. ex Nakai",
+    "name": "Pleuropterus multiflorus",
+    "refs": [
+      "wcvp:2572418"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Thunb.) Roberty & Vautier",
+      "name": "Bilderdykia multiflora",
+      "refs": [
+        "wcvp:2675937"
+      ]
+    },
+    {
+      "authors": "(Thunb.) Grinţ.",
+      "name": "Fagopyrum multiflorum",
+      "refs": [
+        "wcvp:2807327"
+      ]
+    },
+    {
+      "authors": "(Thunb.) Haraldson",
+      "name": "Fallopia multiflora",
+      "refs": [
+        "wcvp:2807651"
+      ]
+    },
+    {
+      "authors": "(Thunb.) Raf.",
+      "name": "Helxine multiflorum",
+      "refs": [
+        "wcvp:2844949"
+      ]
+    },
+    {
+      "authors": "Thunb.",
+      "name": "Polygonum multiflorum",
+      "refs": [
+        "wcvp:2574870"
+      ]
+    },
+    {
+      "authors": "(Thunb.) Moldenke",
+      "name": "Reynoutria multiflora",
+      "refs": [
+        "wcvp:2425429"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Japón"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50824",
+        "usda_use:50843",
+        "usda_use:50844",
+        "usda_use:79010",
+        "usda_use:79011",
+        "usda_reference:Hunan",
+        "usda_reference:Keys",
+        "usda_reference:Kimura",
+        "usda_reference:Takeda",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Ennegrecimiento del cabello",
+      "activitySource": "Hairblack",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27440",
+        "usda_use:27441",
+        "usda_use:71844",
+        "usda_reference:Bliss",
+        "usda_reference:Hunan",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9325",
+        "usda_use:81981",
+        "usda_reference:Hartwell",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Puerperio",
+      "activitySource": "Puerperium",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Wo",
+          "ref": "usda_reference:WO2",
+          "text": "Wealth of India."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39430",
+        "usda_use:39431",
+        "usda_reference:Bliss",
+        "usda_reference:WO2"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53228",
+        "usda_use:60581",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dolor de espalda",
+      "activitySource": "Ache(Back)",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63666",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2211",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Antídoto (escorpión)",
+      "activitySource": "Antidote(Scorpion)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81979",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Antiprogestacional",
+      "activitySource": "Antiprogestational",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3516",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4882",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60537",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Sangre",
+      "activitySource": "Blood",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7556",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66017",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: carcinoma de mama",
+      "activitySource": "Carcinoma(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60545",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60547",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Estreñimiento",
+      "activitySource": "Constipation",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13134",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16939",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60553",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Fertilidad",
+      "activitySource": "Fertility",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60556",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81989",
+        "usda_reference:NAS2"
+      ]
+    }
+  ]
+}

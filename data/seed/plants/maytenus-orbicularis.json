@@ -1,0 +1,130 @@
+{
+  "aliases": [
+    "maytenus-octogona"
+  ],
+  "bundleHash": "sha256:f2c285bf10691edee79e67d9ab068c629a9012583eea14cae6b6f0dcc5d968cf",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2369840"
+    ],
+    "value": "Maytenus orbicularis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2369840"
+    ],
+    "value": "Celastraceae"
+  },
+  "goals": [],
+  "id": "maytenus-orbicularis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2369840"
+    ],
+    "value": "Ecuador, Galápagos y Perú"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_use:57232": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57232",
+      "license": "CC0"
+    },
+    "wcvp:2369840": {
+      "dataset": "wcvp",
+      "label": "WCVP: Maytenus orbicularis (Humb. & Bonpl. ex Schult.) Loes.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2431682": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tricerma orbiculare (Humb. & Bonpl. ex Schult.) Lundell",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2707629": {
+      "dataset": "wcvp",
+      "label": "WCVP: Celastrus orbicularis Humb. & Bonpl. ex Schult.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Humb. & Bonpl. ex Schult.) Loes.",
+    "name": "Maytenus orbicularis",
+    "refs": [
+      "wcvp:2369840"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Humb. & Bonpl. ex Schult.",
+      "name": "Celastrus orbicularis",
+      "refs": [
+        "wcvp:2707629"
+      ]
+    },
+    {
+      "authors": "(Humb. & Bonpl. ex Schult.) Lundell",
+      "name": "Tricerma orbiculare",
+      "refs": [
+        "wcvp:2431682"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57232",
+        "usda_reference:NAS2"
+      ]
+    }
+  ]
+}

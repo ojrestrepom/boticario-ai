@@ -1,0 +1,103 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f581f2f4b738857f6293e99bf2b33fed2523e1d42129a77df037fd6b68af1399",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum areolatum"
+    ],
+    "value": "Especie de planta fanerógama de la familia Erythroxylaceae. Según Wikipedia en español, contiene el alcaloide cocaína."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801259"
+    ],
+    "value": "Erythroxylum areolatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801259"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-areolatum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Descourtilz, J. Theodore.; Descourtilz, M. E.; Pichard.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(10421424504).jpg",
+    "refs": [
+      "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10421424504).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%2810421424504%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801259"
+    ],
+    "value": "Caribe, América Central, México y norte de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10421424504).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10421424504).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(10421424504).jpg"
+    },
+    "wcvp:2801259": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum areolatum L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum areolatum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum areolatum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_areolatum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Erythroxylum areolatum",
+    "refs": [
+      "wcvp:2801259"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

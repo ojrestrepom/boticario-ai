@@ -1,0 +1,111 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5b4a6f652947906dcdda66da053231220bda20d54f1dfea1b0985b21f8d1238d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1014-1"
+      ],
+      "text": "Orosped Thyme"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:205191",
+      "wfo:wfo-0000324479"
+    ],
+    "value": "Thymus orospedanus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:205191"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "thymus-orospedanus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1014-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:205191"
+    ],
+    "value": "Europa suroccidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1014-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Orosped Thyme»",
+      "license": "CC0"
+    },
+    "usda_part:1014-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:205191": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus orospedanus Villar",
+      "license": "CC BY 3.0"
+    },
+    "wfo:wfo-0000324479": {
+      "dataset": "wfo",
+      "label": "WFO: Thymus orospedanus Villar",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Villar",
+    "name": "Thymus orospedanus",
+    "refs": [
+      "wcvp:205191",
+      "wfo:wfo-0000324479"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,292 @@
+{
+  "aliases": [
+    "sweetia-panamensis"
+  ],
+  "bundleHash": "sha256:206d5a0f9f6448c3aa47a40b3c382ca68656139eea33c406aee6348f8703a154",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Acosmium panamense"
+      ],
+      "text": "bálsamo amarillo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:981-1"
+      ],
+      "text": "Billy Webb"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:981-2"
+      ],
+      "text": "Cascara Amarga"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Acosmium panamense"
+    ],
+    "value": "Especie arbórea de la familia Fabaceae nativa de México."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Acosmium panamense"
+    ],
+    "value": "Bálsamo amarillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2607714"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "leptolobium-panamense",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2607714"
+    ],
+    "value": "América Central, México y norte y oeste de Sudamérica (Belice, Colombia, Costa Rica, El Salvador, México, Nicaragua, Panamá y Venezuela)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:981-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Billy Webb»",
+      "license": "CC0"
+    },
+    "usda_common_name:981-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cascara Amarga»",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Standley,Steyermark": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley,Steyermark",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:16086": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16086",
+      "license": "CC0"
+    },
+    "usda_use:33105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33105",
+      "license": "CC0"
+    },
+    "usda_use:42672": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42672",
+      "license": "CC0"
+    },
+    "usda_use:51041": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51041",
+      "license": "CC0"
+    },
+    "usda_use:71213": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71213",
+      "license": "CC0"
+    },
+    "wcvp:2598627": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sweetia panamensis Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2607714": {
+      "dataset": "wcvp",
+      "label": "WCVP: Leptolobium panamense (Benth.) Sch.Rodr. & A.M.G.Azevedo",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2619933": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acosmium panamense (Benth.) Yakovlev",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Acosmium panamense": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Acosmium panamense",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Acosmium_panamense"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El paquete registra «Cascara Amarga» como inglés, pero parece un nombre en español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth.) Sch.Rodr. & A.M.G.Azevedo",
+    "name": "Leptolobium panamense",
+    "refs": [
+      "wcvp:2607714"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth.) Yakovlev",
+      "name": "Acosmium panamense",
+      "refs": [
+        "wcvp:2619933"
+      ]
+    },
+    {
+      "authors": "Benth.",
+      "name": "Sweetia panamensis",
+      "refs": [
+        "wcvp:2598627"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16086",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71213",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        }
+      ],
+      "countries": [
+        "Guatemala"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33105",
+        "usda_reference:Standley,Steyermark"
+      ]
+    },
+    {
+      "activity": "Escrófula",
+      "activitySource": "Scrofula",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "América Central"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42672",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51041",
+        "usda_reference:Martinez"
+      ]
+    }
+  ]
+}

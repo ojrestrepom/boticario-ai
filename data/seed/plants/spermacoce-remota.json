@@ -1,0 +1,125 @@
+{
+  "aliases": [
+    "spermacoce-assurgens"
+  ],
+  "bundleHash": "sha256:33d657ccb5a31d13c847d2119516c555a03308594ecd33bd2c2d904157fb950d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1331-1"
+      ],
+      "text": "Juan la blanca"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:193816"
+    ],
+    "value": "Spermacoce remota"
+  },
+  "family": {
+    "refs": [
+      "wcvp:193816"
+    ],
+    "value": "Rubiaceae"
+  },
+  "goals": [],
+  "id": "spermacoce-remota",
+  "image": {
+    "attributionRequired": false,
+    "author": "David E Mead",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Purple-leaved_buttonweed_(Spermacoce_remota)_flowers_closeup_1.jpg",
+    "refs": [
+      "commons:File:Purple-leaved buttonweed (Spermacoce remota) flowers closeup 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Purple-leaved_buttonweed_%28Spermacoce_remota%29_flowers_closeup_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:193816"
+    ],
+    "value": "Nativa de Brasil, el Caribe, América Central, México, el norte, el oeste y el sur de Sudamérica, y el sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Purple-leaved buttonweed (Spermacoce remota) flowers closeup 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Purple-leaved buttonweed (Spermacoce remota) flowers closeup 1.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Purple-leaved_buttonweed_(Spermacoce_remota)_flowers_closeup_1.jpg"
+    },
+    "usda_common_name:1331-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Juan la blanca»",
+      "license": "CC0"
+    },
+    "wcvp:193816": {
+      "dataset": "wcvp",
+      "label": "WCVP: Spermacoce remota Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:23346": {
+      "dataset": "wcvp",
+      "label": "WCVP: Borreria remota (Lam.) Bacigalupo & E.L.Cabral",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común marcado en español; el único nombre (Juan la blanca) viene con idioma inglés, así que se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El nombre «Juan la blanca» viene etiquetado como inglés en USDA y su idioma real es dudoso.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lam.",
+    "name": "Spermacoce remota",
+    "refs": [
+      "wcvp:193816"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lam.) Bacigalupo & E.L.Cabral",
+      "name": "Borreria remota",
+      "refs": [
+        "wcvp:23346"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

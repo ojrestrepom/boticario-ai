@@ -1,0 +1,186 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f1b5aca067855af1397bc0db95fda2061b8fcbb71145da210a08d915be597fd9",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Phoradendron juniperinum"
+    ],
+    "value": "Especie de planta fanerógama perteneciente a la familia Santalaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2548289"
+    ],
+    "value": "Phoradendron juniperinum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2548289"
+    ],
+    "value": "Santalaceae"
+  },
+  "goals": [],
+  "id": "phoradendron-juniperinum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Stan Shebs",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Phoradendron_juniperinum_1.jpg",
+    "refs": [
+      "commons:File:Phoradendron juniperinum 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Phoradendron_juniperinum_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2548289"
+    ],
+    "value": "México y el noroeste, el centro-sur y el suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Phoradendron juniperinum 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Phoradendron juniperinum 1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Phoradendron_juniperinum_1.jpg"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:12029": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12029",
+      "license": "CC0"
+    },
+    "usda_use:55465": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55465",
+      "license": "CC0"
+    },
+    "usda_use:67098": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67098",
+      "license": "CC0"
+    },
+    "wcvp:2548289": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phoradendron juniperinum Engelm. ex A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Phoradendron juniperinum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Phoradendron juniperinum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Phoradendron_juniperinum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Engelm. ex A.Gray",
+    "name": "Phoradendron juniperinum",
+    "refs": [
+      "wcvp:2548289"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "México",
+        "Estados Unidos (hopi)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12029",
+        "usda_use:67098",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (navajo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55465",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

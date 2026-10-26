@@ -1,0 +1,101 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f3ef739034319763afd75ca4321fdaf74d6be3ec1a18a13340ef0706dc1be037",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:124836"
+    ],
+    "value": "Mentha japonica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:124836"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "mentha-japonica",
+  "image": {
+    "attributionRequired": true,
+    "author": "Yoshimasa Uchiyama",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mentha_japonica.jpg",
+    "refs": [
+      "commons:File:Mentha japonica.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Mentha_japonica.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:124836"
+    ],
+    "value": "Japón"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Mentha japonica.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Mentha japonica.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mentha_japonica.jpg"
+    },
+    "wcvp:124836": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha japonica (Miq.) Makino",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:127272": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria japonica Miq.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Miq.) Makino",
+    "name": "Mentha japonica",
+    "refs": [
+      "wcvp:124836"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Miq.",
+      "name": "Micromeria japonica",
+      "refs": [
+        "wcvp:127272"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

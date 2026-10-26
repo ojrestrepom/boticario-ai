@@ -1,0 +1,160 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b24b0cf200f0684aeb45f77c8162d4c9eae988b3f08516a874d0919504761fbf",
+  "commonNames": [
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P760"
+      ],
+      "text": "Garten-Hyazinthe"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P760"
+      ],
+      "text": "Common hyacinth"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:483-1"
+      ],
+      "text": "Hyacinth"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:278658"
+    ],
+    "value": "Hyacinthus orientalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:278658"
+    ],
+    "value": "Asparagaceae"
+  },
+  "goals": [],
+  "id": "hyacinthus-orientalis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hyacinth_bloem.jpg",
+    "refs": [
+      "commons:File:Hyacinth bloem.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Hyacinth_bloem.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:483-FL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:278658"
+    ],
+    "value": "Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hyacinth bloem.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hyacinth bloem.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hyacinth_bloem.jpg"
+    },
+    "efsa_botanic:978": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P760": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Hyacinthus orientalis L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:483-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hyacinth»",
+      "license": "CC0"
+    },
+    "usda_part:483-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_use:75050": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75050",
+      "license": "CC0"
+    },
+    "wcvp:278658": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hyacinthus orientalis L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la flor, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:978",
+      "tppt_plant:P760",
+      "usda_use:75050"
+    ],
+    "text": "EFSA registra el metileugenol en la flor, una sustancia del grupo genotóxico o carcinógeno. TPPT registra la flor (o la planta entera) como irritante de la piel, con el ácido oxálico como toxina principal. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Hyacinthus orientalis",
+    "refs": [
+      "wcvp:278658"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

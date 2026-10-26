@@ -1,0 +1,126 @@
+{
+  "aliases": [
+    "teucrium-oxylepis-subsp-marianum",
+    "teucrium-oxylepis-subsp-oxylepis"
+  ],
+  "bundleHash": "sha256:b13400f53515468bd9f9163fd044f2bdb6d7c7019271846920bd5c4ca4d350e6",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:203182"
+    ],
+    "value": "Teucrium oxylepis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:203182"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-oxylepis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2090-SH",
+      "usda_part:2091-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:203182"
+    ],
+    "value": "Europa suroccidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:2090-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_part:2091-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:202921": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium flavum subsp. oxylepis (Font Quer) Fern.Casas",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:203182": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium oxylepis Font Quer",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:460099": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium oxylepis subsp. marianum (Ruíz Torre & Ruíz Cast.) Ruíz Torre & Ruíz Cast.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Teucrium oxylepis subsp. marianum) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Font Quer",
+    "name": "Teucrium oxylepis",
+    "refs": [
+      "wcvp:203182"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Ruíz Torre & Ruíz Cast.) Ruíz Torre & Ruíz Cast.",
+      "name": "Teucrium oxylepis subsp. marianum",
+      "refs": [
+        "wcvp:460099"
+      ]
+    },
+    {
+      "authors": "(Font Quer) Fern.Casas",
+      "name": "Teucrium flavum subsp. oxylepis",
+      "refs": [
+        "wcvp:202921"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

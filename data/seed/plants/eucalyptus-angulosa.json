@@ -1,0 +1,132 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c78432a2917c9d4079cf1979d45aac4e8bd976f14160fac263ad9f63c14ea274",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72436"
+    ],
+    "value": "Eucalyptus angulosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72436"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-angulosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kevin Thiele from Perth, Australia",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_angulosa_-_Flickr_-_Kevin_Thiele.jpg",
+    "refs": [
+      "commons:File:Eucalyptus angulosa - Flickr - Kevin Thiele.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Eucalyptus_angulosa_-_Flickr_-_Kevin_Thiele.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2134-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72436"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus angulosa - Flickr - Kevin Thiele.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus angulosa - Flickr - Kevin Thiele.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_angulosa_-_Flickr_-_Kevin_Thiele.jpg"
+    },
+    "usda_part:2134-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72436": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus angulosa Schauer",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73125": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus incrassata subsp. angulosa (Schauer) F.C.Johnstone & Hallam",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73126": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus incrassata var. angulosa (Schauer) Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schauer",
+    "name": "Eucalyptus angulosa",
+    "refs": [
+      "wcvp:72436"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Schauer) F.C.Johnstone & Hallam",
+      "name": "Eucalyptus incrassata subsp. angulosa",
+      "refs": [
+        "wcvp:73125"
+      ]
+    },
+    {
+      "authors": "(Schauer) Benth.",
+      "name": "Eucalyptus incrassata var. angulosa",
+      "refs": [
+        "wcvp:73126"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

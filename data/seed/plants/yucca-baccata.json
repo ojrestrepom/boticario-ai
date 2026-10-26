@@ -1,0 +1,234 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:63888aa6da4c320752b5cd78b886548894dc01d89f796897f8357667120b2b8b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Yucca baccata"
+      ],
+      "text": "yuca banana"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q284896"
+      ],
+      "text": "dátil"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1073-3"
+      ],
+      "text": "Banana Yucca"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1073-4"
+      ],
+      "text": "Blue Yucca"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1073-1"
+      ],
+      "text": "Spanish Bayonet"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1073-2"
+      ],
+      "text": "Yucca"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Yucca baccata"
+    ],
+    "value": "Especie de planta fanerógama perteneciente a la familia Asparagaceae."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Yucca baccata"
+    ],
+    "value": "Yuca banana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:291585"
+    ],
+    "value": "Asparagaceae"
+  },
+  "goals": [],
+  "id": "yucca-baccata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Stan Shebs",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Yucca_baccata_whole.jpg",
+    "refs": [
+      "commons:File:Yucca baccata whole.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Yucca_baccata_whole.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1073-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:291585"
+    ],
+    "value": "México y el oeste, centro-sur y suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Yucca baccata whole.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Yucca baccata whole.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Yucca_baccata_whole.jpg"
+    },
+    "usda_common_name:1073-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Spanish Bayonet»",
+      "license": "CC0"
+    },
+    "usda_common_name:1073-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yucca»",
+      "license": "CC0"
+    },
+    "usda_common_name:1073-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Banana Yucca»",
+      "license": "CC0"
+    },
+    "usda_common_name:1073-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Blue Yucca»",
+      "license": "CC0"
+    },
+    "usda_part:1073-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:7306": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7306",
+      "license": "CC0"
+    },
+    "wcvp:286964": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sarcoyucca baccata (Torr.) Linding.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:291585": {
+      "dataset": "wcvp",
+      "label": "WCVP: Yucca baccata Torr.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q284896": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q284896",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q284896"
+    },
+    "wikipedia_es:Yucca baccata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Yucca baccata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Yucca_baccata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (raíz), sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Torr.",
+    "name": "Yucca baccata",
+    "refs": [
+      "wcvp:291585"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Torr.) Linding.",
+      "name": "Sarcoyucca baccata",
+      "refs": [
+        "wcvp:286964"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Eb31: 351",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 351"
+        }
+      ],
+      "countries": [
+        "México (Kickapoo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7306",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:62ad64cdd39fb926a56efee16e1610f4743ae5266ca099fd43f140c7a223298d",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3039867"
+    ],
+    "value": "Dicoma tomentosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3039867"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "dicoma-tomentosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3039867"
+    ],
+    "value": "Nativa de África tropical y austral, la península arábiga, el subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Broun": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Broun",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:24437": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24437",
+      "license": "CC0"
+    },
+    "usda_use:35886": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35886",
+      "license": "CC0"
+    },
+    "usda_use:44636": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44636",
+      "license": "CC0"
+    },
+    "usda_use:70885": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70885",
+      "license": "CC0"
+    },
+    "wcvp:3039867": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dicoma tomentosa Cass.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Cass.",
+    "name": "Dicoma tomentosa",
+    "refs": [
+      "wcvp:3039867"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Broun",
+          "ref": "usda_reference:Broun",
+          "text": "Broun, A.F., and R.E. Massey. 1929. Flora of the Sudan. The controller, Sudan Govt. Office, Wellington House, Buchingham Gate, London, S.W.I."
+        },
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India",
+        "Sudán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24437",
+        "usda_use:70885",
+        "usda_reference:Broun",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Broun",
+          "ref": "usda_reference:Broun",
+          "text": "Broun, A.F., and R.E. Massey. 1929. Flora of the Sudan. The controller, Sudan Govt. Office, Wellington House, Buchingham Gate, London, S.W.I."
+        }
+      ],
+      "countries": [
+        "Sudán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35886",
+        "usda_reference:Broun"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44636",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

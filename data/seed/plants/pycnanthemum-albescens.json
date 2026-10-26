@@ -1,0 +1,186 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:51bbf16e08b4366979e7496c3c7ea3bbd91fc275a016a75e6329eb836cb5f37a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:808-1"
+      ],
+      "text": "White Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171033"
+    ],
+    "value": "Pycnanthemum albescens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171033"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-albescens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_albescens_143092908.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum albescens 143092908.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pycnanthemum_albescens_143092908.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:171033"
+    ],
+    "value": "Centro-norte, centro-sur y sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum albescens 143092908.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum albescens 143092908.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_albescens_143092908.jpg"
+    },
+    "usda_common_name:808-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «White Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:68420": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68420",
+      "license": "CC0"
+    },
+    "usda_use:82071": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82071",
+      "license": "CC0"
+    },
+    "wcvp:106170": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia albescens (Torr. & A.Gray) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171033": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum albescens Torr. & A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171048": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum incanum var. albescens (Torr. & A.Gray) Chapm.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Torr. & A.Gray",
+    "name": "Pycnanthemum albescens",
+    "refs": [
+      "wcvp:171033"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Torr. & A.Gray) Kuntze",
+      "name": "Koellia albescens",
+      "refs": [
+        "wcvp:106170"
+      ]
+    },
+    {
+      "authors": "(Torr. & A.Gray) Chapm.",
+      "name": "Pycnanthemum incanum var. albescens",
+      "refs": [
+        "wcvp:171048"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Choctaw)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82071",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Choctaw)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68420",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

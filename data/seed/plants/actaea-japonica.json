@@ -1,0 +1,132 @@
+{
+  "aliases": [
+    "cimicifuga-japonica"
+  ],
+  "bundleHash": "sha256:33985f87d9445ed3fc060b2a770a2c7c4924879ecd7439aabdafbc53b21deb58",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2259-1"
+      ],
+      "text": "San mian dao"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2620541"
+    ],
+    "value": "Actaea japonica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2620541"
+    ],
+    "value": "Ranunculaceae"
+  },
+  "goals": [],
+  "id": "actaea-japonica",
+  "image": {
+    "attributionRequired": true,
+    "author": "Qwert1234",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Actaea_japonica_6.JPG",
+    "refs": [
+      "commons:File:Actaea japonica 6.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Actaea_japonica_6.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2620541"
+    ],
+    "value": "Nativa de China, Asia oriental, Japón y Corea."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Actaea japonica 6.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Actaea japonica 6.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Actaea_japonica_6.JPG"
+    },
+    "usda_common_name:2259-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «San mian dao»",
+      "license": "CC0"
+    },
+    "wcvp:2516494": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thalictrodes japonica (Thunb.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2620541": {
+      "dataset": "wcvp",
+      "label": "WCVP: Actaea japonica Thunb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2720976": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cimicifuga japonica (Thunb.) Spreng.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Thunb.",
+    "name": "Actaea japonica",
+    "refs": [
+      "wcvp:2620541"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Thunb.) Spreng.",
+      "name": "Cimicifuga japonica",
+      "refs": [
+        "wcvp:2720976"
+      ]
+    },
+    {
+      "authors": "(Thunb.) Kuntze",
+      "name": "Thalictrodes japonica",
+      "refs": [
+        "wcvp:2516494"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

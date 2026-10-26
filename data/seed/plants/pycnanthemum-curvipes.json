@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a4958719b99a6202a3debe508ff95eeff9d92eb5a00aa2f31fd36b14cde522fa",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:812-1"
+      ],
+      "text": "Curved Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171040"
+    ],
+    "value": "Pycnanthemum curvipes"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171040"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-curvipes",
+  "image": {
+    "attributionRequired": false,
+    "author": "Mason Brock ( Masebrock )",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_curvipes.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum curvipes.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Pycnanthemum_curvipes.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:812-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171040"
+    ],
+    "value": "Sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum curvipes.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum curvipes.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_curvipes.jpg"
+    },
+    "usda_common_name:812-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Curved Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:812-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106176": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia curvipes Greene",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171040": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum curvipes (Greene) E.Grant & Epling",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Greene) E.Grant & Epling",
+    "name": "Pycnanthemum curvipes",
+    "refs": [
+      "wcvp:171040"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Greene",
+      "name": "Koellia curvipes",
+      "refs": [
+        "wcvp:106176"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

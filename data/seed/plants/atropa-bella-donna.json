@@ -1,0 +1,958 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5fc6f895d40423d9a0a86c2aefed0cad8b4fdea36a4172516083e9d6f8df0a98",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Atropa belladonna",
+        "wikidata:Q156091"
+      ],
+      "text": "Belladona"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156091"
+      ],
+      "text": "Beladona"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156091"
+      ],
+      "text": "Belladonna"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P505"
+      ],
+      "text": "Tollkirsche"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P505"
+      ],
+      "text": "Deadly night shade"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:143-1"
+      ],
+      "text": "Belladonna"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Atropa belladonna"
+    ],
+    "value": "Arbusto perenne de la familia Solanaceae, nativo de Europa, África del Norte y Asia Occidental. Se encuentra en áreas normalmente sombreadas y con un suelo rico en limo."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Atropa belladonna",
+      "wikidata:Q156091"
+    ],
+    "value": "Belladona"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2665943"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "atropa-bella-donna",
+  "image": {
+    "attributionRequired": true,
+    "author": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Atropa_belladonna_003.JPG",
+    "refs": [
+      "commons:File:Atropa belladonna 003.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Atropa_belladonna_003.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2665943"
+    ],
+    "value": "Europa, norte de África, el Cáucaso y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Atropa belladonna 003.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Atropa belladonna 003.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Atropa_belladonna_003.JPG"
+    },
+    "tppt_plant:P505": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Atropa bella-donna L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:143-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Belladonna»",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:2343": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2343",
+      "license": "CC0"
+    },
+    "usda_use:2344": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2344",
+      "license": "CC0"
+    },
+    "usda_use:2345": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2345",
+      "license": "CC0"
+    },
+    "usda_use:2346": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2346",
+      "license": "CC0"
+    },
+    "usda_use:24098": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24098",
+      "license": "CC0"
+    },
+    "usda_use:3035": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3035",
+      "license": "CC0"
+    },
+    "usda_use:34189": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34189",
+      "license": "CC0"
+    },
+    "usda_use:34231": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34231",
+      "license": "CC0"
+    },
+    "usda_use:34232": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34232",
+      "license": "CC0"
+    },
+    "usda_use:34233": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34233",
+      "license": "CC0"
+    },
+    "usda_use:37691": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37691",
+      "license": "CC0"
+    },
+    "usda_use:37692": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37692",
+      "license": "CC0"
+    },
+    "usda_use:37693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37693",
+      "license": "CC0"
+    },
+    "usda_use:38602": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38602",
+      "license": "CC0"
+    },
+    "usda_use:38603": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38603",
+      "license": "CC0"
+    },
+    "usda_use:3880": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3880",
+      "license": "CC0"
+    },
+    "usda_use:3881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3881",
+      "license": "CC0"
+    },
+    "usda_use:40980": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40980",
+      "license": "CC0"
+    },
+    "usda_use:42940": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42940",
+      "license": "CC0"
+    },
+    "usda_use:42941": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42941",
+      "license": "CC0"
+    },
+    "usda_use:42942": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42942",
+      "license": "CC0"
+    },
+    "usda_use:42943": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42943",
+      "license": "CC0"
+    },
+    "usda_use:42944": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42944",
+      "license": "CC0"
+    },
+    "usda_use:42945": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42945",
+      "license": "CC0"
+    },
+    "usda_use:45614": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45614",
+      "license": "CC0"
+    },
+    "usda_use:46503": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46503",
+      "license": "CC0"
+    },
+    "usda_use:46504": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46504",
+      "license": "CC0"
+    },
+    "usda_use:49709": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49709",
+      "license": "CC0"
+    },
+    "usda_use:52946": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52946",
+      "license": "CC0"
+    },
+    "usda_use:56842": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56842",
+      "license": "CC0"
+    },
+    "usda_use:56843": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56843",
+      "license": "CC0"
+    },
+    "usda_use:64706": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64706",
+      "license": "CC0"
+    },
+    "usda_use:66162": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66162",
+      "license": "CC0"
+    },
+    "usda_use:66498": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66498",
+      "license": "CC0"
+    },
+    "usda_use:73905": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73905",
+      "license": "CC0"
+    },
+    "usda_use:74091": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74091",
+      "license": "CC0"
+    },
+    "usda_use:74963": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74963",
+      "license": "CC0"
+    },
+    "usda_use:74964": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74964",
+      "license": "CC0"
+    },
+    "usda_use:79661": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79661",
+      "license": "CC0"
+    },
+    "usda_use:8324": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8324",
+      "license": "CC0"
+    },
+    "usda_use:8883": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8883",
+      "license": "CC0"
+    },
+    "usda_use:9873": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9873",
+      "license": "CC0"
+    },
+    "wcvp:2665943": {
+      "dataset": "wcvp",
+      "label": "WCVP: Atropa bella-donna L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2677725": {
+      "dataset": "wcvp",
+      "label": "WCVP: Boberella bella-donna (L.) E.H.L.Krause",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q156091": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q156091",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q156091"
+    },
+    "wikipedia_es:Atropa belladonna": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Atropa belladonna",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Atropa_belladonna"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Sedative» tiene la clave de cita Woi.Syria sin candidata en el paquete; el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Stimulant» tiene la clave de cita Woi.Syria sin candidata en el paquete; el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[6]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Antidote» tiene la clave de cita Woi.Syria sin candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[18]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Spasm» tiene la clave de cita Woi.Syria sin candidata en el paquete; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[19]"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "tppt_plant:P505",
+      "usda_use:37691",
+      "usda_use:37692",
+      "usda_use:37693",
+      "usda_use:38602",
+      "usda_use:38603",
+      "usda_use:74963",
+      "usda_use:74964"
+    ],
+    "text": "TPPT la califica de muy fuertemente tóxica para las personas (planta entera); sus toxinas son alcaloides tropánicos, con la hiosciamina como toxina principal y la escopolamina y la atropina entre las secundarias. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Atropa bella-donna",
+    "refs": [
+      "wcvp:2665943"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) E.H.L.Krause",
+      "name": "Boberella bella-donna",
+      "refs": [
+        "wcvp:2677725"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Eb24: 86",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 86"
+        },
+        {
+          "key": "Eb33: 188",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 188"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Nepal",
+        "Turquía",
+        "Reino Unido"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42940",
+        "usda_use:42941",
+        "usda_use:42942",
+        "usda_use:42943",
+        "usda_use:42944",
+        "usda_use:42945",
+        "usda_reference:EB",
+        "usda_reference:Singh",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Eb33: 188",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 188"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Nepal"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2343",
+        "usda_use:2344",
+        "usda_use:2345",
+        "usda_use:2346",
+        "usda_reference:EB",
+        "usda_reference:Singh",
+        "usda_reference:Takeda",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Eb33: 188",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 188"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Nepal",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34231",
+        "usda_use:34232",
+        "usda_use:34233",
+        "usda_use:56843",
+        "usda_reference:EB",
+        "usda_reference:Singh",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3880",
+        "usda_use:3881",
+        "usda_reference:Takeda",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "España",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8883",
+        "usda_use:66162",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Midriático",
+      "activitySource": "Mydriatic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34189",
+        "usda_use:73905",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46503",
+        "usda_use:46504",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anhidrótico",
+      "activitySource": "Anydrotic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64706",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8324",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de útero",
+      "activitySource": "Cancer(Uterus)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9873",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: carcinoma",
+      "activitySource": "Carcinoma",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Alemania"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66498",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56842",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24098",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74091",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40980",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tétanos",
+      "activitySource": "Tetanus",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49709",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de mama",
+      "activitySource": "Tumor(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52946",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de articulación",
+      "activitySource": "Tumor(Joint)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Bélgica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79661",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:3035"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:45614"
+      ]
+    }
+  ]
+}

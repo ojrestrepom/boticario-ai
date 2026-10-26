@@ -1,0 +1,156 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2903c087d400127b24bf184a32b2469acb5b4bfc93f58ccbec8034578d72e7ea",
+  "commonNames": [
+    {
+      "language": "pt",
+      "refs": [
+        "usda_common_name:1109-1"
+      ],
+      "text": "Guarda orvalho"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum citrifolium"
+    ],
+    "value": "Especie de arbusto perteneciente a la familia de las eritroxiláceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801324"
+    ],
+    "value": "Erythroxylum citrifolium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801324"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-citrifolium",
+  "image": {
+    "attributionRequired": true,
+    "author": "João Medeiros",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Erythroxylum_citrifolium_(2).jpg",
+    "refs": [
+      "commons:File:Flickr - João de Deus Medeiros - Erythroxylum citrifolium (2).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Erythroxylum_citrifolium_%282%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801324"
+    ],
+    "value": "Brasil, América Central, norte de Sudamérica y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flickr - João de Deus Medeiros - Erythroxylum citrifolium (2).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flickr - João de Deus Medeiros - Erythroxylum citrifolium (2).jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Erythroxylum_citrifolium_(2).jpg"
+    },
+    "usda_common_name:1109-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Guarda orvalho»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:55936": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55936",
+      "license": "CC0"
+    },
+    "wcvp:2801324": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum citrifolium A.St.-Hil.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum citrifolium": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum citrifolium",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_citrifolium"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español («Guarda orvalho» parece portugués); el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA marca «Guarda orvalho» con idioma «en», pero parece portugués; se registra como portugués.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "A.St.-Hil.",
+    "name": "Erythroxylum citrifolium",
+    "refs": [
+      "wcvp:2801324"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Brasil"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55936",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "aliases": [
+    "rosmarinus-eriocalyx"
+  ],
+  "bundleHash": "sha256:f981629531832a43fe20fc01366823ab7bf43d6b6307fe374838618a90aab080",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia jordanii",
+        "wikidata:Q90595367"
+      ],
+      "text": "Romero moro"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2087-1"
+      ],
+      "text": "Rosemary"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia jordanii"
+    ],
+    "value": "Especie de planta de la familia de las lamiáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Salvia jordanii",
+      "wikidata:Q90595367"
+    ],
+    "value": "Romero moro"
+  },
+  "family": {
+    "refs": [
+      "wcvp:526749"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-jordanii",
+  "image": {
+    "attributionRequired": true,
+    "author": "TheF",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rosmarinus_eriocalix.JPG",
+    "refs": [
+      "commons:File:Rosmarinus eriocalix.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Rosmarinus_eriocalix.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2087-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:526749"
+    ],
+    "value": "Nativa del norte de África y del suroeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rosmarinus eriocalix.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rosmarinus eriocalix.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rosmarinus_eriocalix.JPG"
+    },
+    "usda_common_name:2087-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Rosemary»",
+      "license": "CC0"
+    },
+    "usda_part:2087-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:179858": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus eriocalyx Jord. & Fourr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:179878": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus officinalis var. tournefortii de Noé ex Murb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:179886": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosmarinus tournefortii (Noë ex Jord. & Fourr.) Jahand. & Maire",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:526749": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia jordanii J.B.Walker",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q90595367": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q90595367",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q90595367"
+    },
+    "wikipedia_es:Salvia jordanii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia jordanii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia_jordanii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "J.B.Walker",
+    "name": "Salvia jordanii",
+    "refs": [
+      "wcvp:526749"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Jord. & Fourr.",
+      "name": "Rosmarinus eriocalyx",
+      "refs": [
+        "wcvp:179858"
+      ]
+    },
+    {
+      "authors": "de Noé ex Murb.",
+      "name": "Rosmarinus officinalis var. tournefortii",
+      "refs": [
+        "wcvp:179878"
+      ]
+    },
+    {
+      "authors": "(Noë ex Jord. & Fourr.) Jahand. & Maire",
+      "name": "Rosmarinus tournefortii",
+      "refs": [
+        "wcvp:179886"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

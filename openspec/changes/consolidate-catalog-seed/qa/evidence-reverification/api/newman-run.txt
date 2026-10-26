@@ -1,0 +1,141 @@
+npm notice run npx
+npm notice run 'newman' run /Users/jsrc1115/Code/boticario-ai/openspec/changes/consolidate-catalog-seed/qa/postman/consolidate-catalog-seed.collection.json --env-var token=<token>
+newman
+
+consolidate-catalog-seed API
+
+→ listado por defecto
+  GET http://127.0.0.1:8080/v1/plants [200 OK, 5.91kB, 10ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  total 2354, limit 20, offset 0
+
+→ pagina 2 de 5
+  GET http://127.0.0.1:8080/v1/plants?limit=5&offset=5 [200 OK, 1.95kB, 2ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+
+→ busqueda cientifica sinonimo: rosmarinus officinalis
+  GET http://127.0.0.1:8080/v1/plants?q=rosmarinus%20officinalis [200 OK, 961B, 3ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  encuentra salvia-rosmarinus
+
+→ busqueda comun es: manzanilla
+  GET http://127.0.0.1:8080/v1/plants?q=manzanilla [200 OK, 1.65kB, 2ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  encuentra matricaria-chamomilla
+
+→ busqueda comun es: menta
+  GET http://127.0.0.1:8080/v1/plants?q=menta&limit=100 [200 OK, 12.32kB, 2ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  encuentra mentha-x-piperita
+
+→ detalle manzanilla
+  GET http://127.0.0.1:8080/v1/plants/matricaria-chamomilla [200 OK, 6.62kB, 0µs]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  manzanilla tiene usos
+  ✓  usos en es con referencia
+
+→ detalle menta
+  GET http://127.0.0.1:8080/v1/plants/mentha-x-piperita [200 OK, 5.23kB, 1ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  menta tiene usos
+  ✓  usos en es con referencia
+
+→ detalle lavanda
+  GET http://127.0.0.1:8080/v1/plants/lavandula-angustifolia [200 OK, 2.35kB, 0µs]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  lavanda tiene usos
+  ✓  usos en es con referencia
+
+→ detalle hiperico
+  GET http://127.0.0.1:8080/v1/plants/hypericum-perforatum [200 OK, 6.18kB, 0µs]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  hiperico tiene usos
+  ✓  usos en es con referencia
+
+→ detalle solo genero
+  GET http://127.0.0.1:8080/v1/plants/lavandula-sp [200 OK, 526B, 0µs]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+
+→ 404 planta inexistente
+  GET http://127.0.0.1:8080/v1/plants/no-existe [404 Not Found, 267B, 0µs]
+  ✓  estado 404
+  ✓  content-type application/problem+json
+  ✓  cumple el esquema de backend/openapi.json
+
+→ 404 ID anterior (alias aun no resuelto por la API)
+  GET http://127.0.0.1:8080/v1/plants/rosmarinus-officinalis [404 Not Found, 280B, 1ms]
+  ✓  estado 404
+  ✓  content-type application/problem+json
+  ✓  cumple el esquema de backend/openapi.json
+
+→ 400 limit=0
+  GET http://127.0.0.1:8080/v1/plants?limit=0 [400 Bad Request, 265B, 0µs]
+  ✓  estado 400
+  ✓  content-type application/problem+json
+  ✓  cumple el esquema de backend/openapi.json
+
+→ 400 limit=101
+  GET http://127.0.0.1:8080/v1/plants?limit=101 [400 Bad Request, 265B, 1ms]
+  ✓  estado 400
+  ✓  content-type application/problem+json
+  ✓  cumple el esquema de backend/openapi.json
+
+→ 401 sin token (listado)
+  GET http://127.0.0.1:8080/v1/plants [401 Unauthorized, 282B, 1ms]
+  ✓  estado 401
+  ✓  content-type application/problem+json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  WWW-Authenticate: Bearer
+
+→ 401 sin token (detalle)
+  GET http://127.0.0.1:8080/v1/plants/lavandula-angustifolia [401 Unauthorized, 305B, 0µs]
+  ✓  estado 401
+  ✓  content-type application/problem+json
+  ✓  cumple el esquema de backend/openapi.json
+  ✓  WWW-Authenticate: Bearer
+
+→ health publico
+  GET http://127.0.0.1:8080/health [200 OK, 123B, 1ms]
+  ✓  estado 200
+  ✓  content-type application/json
+  ✓  cumple el esquema de backend/openapi.json
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              17 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              17 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              65 │               0 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 242ms                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 43.46kB (approx)                       │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 2ms [min: 1ms, max: 10ms, s.d.: 2ms] │
+└─────────────────────────────────────────────────────────────┘

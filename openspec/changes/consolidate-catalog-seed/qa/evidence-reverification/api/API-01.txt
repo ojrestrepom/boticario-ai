@@ -1,0 +1,230 @@
+--- listado por defecto (se recorta)
+GET /v1/plants
+-> 200 {"content-type": "application/json", "content-length": "5800"}
+{
+ "items": [
+  {
+   "id": "abelmoschus-esculentus",
+   "scientificName": "Abelmoschus esculentus",
+   "commonNames": [
+    {
+     "text": "Bolondrón",
+     "language": "es"
+    },
+    {
+     "text": "Gambo",
+     "language": "es"
+    },
+    {
+     "text": "Naju",
+     "language": "es"
+    },
+    {
+     "text": "Okra",
+     "language": "en"
+    },
+    {
+     "text": "Quimbombó",
+     "language": "es"
+    },
+    {
+     "text": "Yambo",
+     "language": "es"
+    },
+    {
+     "text": "Yerba de culebra",
+     "language": "es"
+    },
+    {
+     "text": "abelmosco",
+     "language": "es"
+    },
+    {
+     "text": "candia",
+     "language": "es"
+    },
+    {
+     "text": "chingambó",
+     "language": "es"
+    },
+    {
+     "text": "gombó",
+     "language": "es"
+    },
+    {
+     "text": "guingambó",
+     "language": "es"
+    },
+    {
+     "text": "molondrón",
+     "language": "es"
+    },
+    {
+     "text": "ocra",
+     "language": "es"
+    },
+    {
+     "text": "ocro",
+     "language": "es"
+    },
+    {
+     "text": "okra",
+     "language": "es"
+    },
+    {
+     "text": "quimbombó",
+     "language": "es"
+    },
+    {
+     "text": "quingombó",
+     "language": "es"
+    },
+    {
+     "text": "ñajú",
+     "language": "es"
+    }
+   ],
+   "family": "Malvaceae"
+  },
+  {
+   "id": "abelmoschus-manihot",
+   "scientificName": "Abelmoschus manihot",
+   "commonNames": [
+    {
+     "text": "Aibika",
+     "language": "es"
+    },
+    {
+     "text": "Manioc Hibiscus",
+     "language": "en"
+    },
+    {
+     "text": "sunset hibiscus",
+     "language": "en"
+    },
+    {
+     "text": "sunset muskmallow",
+     "language": "en"
+    }
+   ],
+   "family": "Malvaceae"
+  },
+  {
+   "id": "abelmoschus-moschatus",
+   "scientificName": "Abelmoschus moschatus",
+   "commonNames": [
+    {
+     "text": "Abelmosco",
+     "language": "es"
+    },
+    {
+     "text": "Ambrette",
+     "language": "en"
+    },
+    {
+     "text": "Musk Okra",
+     "language": "en"
+    },
+    {
+     "text": "Muskmallow",
+     "language": "en"
+    },
+    {
+     "text": "Tropical Jewel Hibiscus",
+     "language": "en"
+    },
+    {
+     "text": "abelmosco",
+     "language": "es"
+    },
+    {
+     "text": "ambreta",
+     "language": "es"
+    },
+    {
+     "text": "hibisco",
+     "language": "es"
+    }
+   ],
+   "family": "Malvaceae"
+  },
+  {
+   "id": "abies-alba",
+   "scientificName": "Abies alba",
+   "commonNames": [
+    {
+     "text": "Abeto blanco",
+     "language": "es"
+    },
+    {
+     "text": "Abeto común",
+     "language": "es"
+    },
+    {
+     "text": "Abeto pectinado",
+     "language": "es"
+    },
+    {
+     "text": "Silver fir",
+     "language": "en"
+    },
+    {
+     "text": "Silver-Fir",
+     "language": "en"
+    },
+    {
+     "text": "Weisstanne",
+     "language": "de"
+    }
+   ],
+   "family": "Pinaceae"
+  },
+  {
+   "id": "abies-balsamea",
+   "scientificName": "Abies balsamea",
+   "commonNames": [
+    {
+     "text": "Abeto balsámico",
+     "language": "es"
+    },
+    {
+     "text": "Balsam Fir",
+     "language": "en"
+    },
+    {
+     "text": "abeto balsámico",
+     "language": "es"
+    },
+    {
+     "text": "abeto de Navidad",
+     "language": "es"
+    }
+   ],
+   "family": "Pinaceae"
+  },
+  {
+   "id": "abies-sachalinensis",
+   "scientificName": "Abies sachalinensis",
+   "commonNames": [
+    {
+     "text": "Abeto de Sajalín",
+     "language": "es"
+    },
+    {
+     "text": "Japanese Fir",
+     "language": "en"
+    },
+    {
+     "text": "Shin-Yo-Yu",
+     "language": "en"
+    }
+   ],
+   "fami
+... (recortado, 8592 caracteres)
+
+PASA  200 200
+PASA  Content-Type application/json application/json
+PASA  respuesta cumple PageDto_PlantSummaryDto 
+PASA  limit=20 y offset=0 por defecto limit=20 offset=0 n=20
+PASA  total = plantas de la base (2354) total=2354
+PASA  orden por nombre cientifico e id 

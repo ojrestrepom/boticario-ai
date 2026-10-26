@@ -205,3 +205,10 @@ Cada resolución propuesta es una de: corregir regenerando la planta, añadir un
 - Barridos: `python3 openspec/changes/consolidate-catalog-seed/qa/scripts-content-review/global_scans.py --out openspec/changes/consolidate-catalog-seed/qa/evidence-content-review/barridos`. Solo leen `data/seed/plants/` y `data/work/bundles/`, y no necesitan red ni dependencias.
 - Validador del proyecto, para confirmar que no detecta los hallazgos: `python3 -I tools/catalog-seed/cli.py validate --records data/seed/plants --bundles data/work/bundles` (2.354 registros, 0 errores, 0 advertencias).
 - No se instaló ninguna herramienta ni se agregó ninguna dependencia.
+
+## Reverificación
+
+Después de las correcciones de `ca3a613` y `78df6b8`, el 2026-10-26 se repitieron los barridos en [`reverification.md`](reverification.md) (rama en `78df6b8`). Este informe no se reescribe: describe el estado al 25 de octubre.
+
+- Corregidos: CR-01, CR-02, CR-03, la fórmula de CR-06, las anotaciones de CR-14 y «Malasia» de CR-11. El validador da 0 errores y 0 advertencias.
+- Siguen (decisiones y menores): CR-04, CR-05 y el resto, sin empeorar salvo cifras absolutas por las plantas recuperadas.

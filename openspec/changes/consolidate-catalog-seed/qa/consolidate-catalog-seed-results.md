@@ -165,3 +165,11 @@ Severidad: crítica (rompe el funcionamiento principal o la seguridad), alta (co
 - 10.3: `API_TOKENS=$(openssl rand -hex 32)` (guardar en una variable) y `catalog-api` con `CATALOG_DB=data/build/catalog.db`; luego `QA_TOKEN=<token> QA_DB=data/build/catalog.db QA_OLD_MAP=qa/evidence/ids/id-map.tsv python3 -I qa/scripts/api_tests.py . qa/evidence/api` y `npx --yes newman@6.2.1 run qa/postman/consolidate-catalog-seed.collection.json --env-var "token=<token>"`. La colección se regenera con `qa/scripts/make_postman_collection.py`.
 - 10.4: desde `app/`, `flutter analyze`, `flutter test` y `flutter test integration_test/app_test.dart -d flutter-tester --dart-define=API_BASE_URL=http://127.0.0.1:8080 --dart-define=API_TOKEN=<token>`.
 - Herramientas instaladas: ninguna en el proyecto. Newman 6.2.1 se descarga con `npx` en su caché.
+
+## Reverificación
+
+Después de las correcciones de `04f3543`, `ca3a613`, `6b01eb1` y `78df6b8`, el 2026-10-26 se repitió la verificación en [`reverification.md`](reverification.md) (rama en `78df6b8`, base con el hash `affdf016...3818d`). Este informe no se reescribe: describe el estado al 25 y 26 de octubre.
+
+- Corregidos: DEF-02 y DEF-05. DEF-03: las 17 plantas con usos recuperables los tienen; las 9 que siguen en 0 tienen solo una señal de riesgo, que está en precauciones.
+- Siguen, a la espera de la decisión de despliegue y sin empeorar: DEF-01 (el smoke falla igual), DEF-04 y DEF-06. DEF-07 se corrigió en parte.
+- Sin defectos nuevos.

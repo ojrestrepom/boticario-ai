@@ -1,0 +1,31 @@
+======== prunus-amygdalus | nuse 1 | flags ['aceite-por-compuesto-eo']
+IDENT Prunus amygdalus role= None kind= resolved aliases= ['prunus-dulcis'] notes= []
+B.names [["de", "Mandelbaum", "tppt_plant"], ["en", "Almond tree", "tppt_plant"], ["en", "Almond", "usda_common_name"], ["es", "almendro", "wikidata"]]
+B.wd [["Q12835396", "Amygdalus communis", [], [], "Amygdalus communis"], ["Q15545507", "Prunus amygdalus", [], [], "Prunus amygdalus"], ["Q39918", "almendro", [], ["P. dulcis", "Prunus dulcis"], "Prunus dulcis"]] con-item
+B.desc [["wikipedia_es:Prunus dulcis", "Prunus dulcis, el almendro, es un árbol de la familia de las rosáceas. Hay dos variedades: Prunus dulcis var. dulcis se cultiva desde hace milenios para aprovechar sus semillas, las almendras, como alimento y como materia prima para obtener su aceite; y Prunus dulcis var. amara, el almendro amargo, que produce semillas que no pueden ser consumidas por su contenido en amigdalina, una sustancia tóxica."]]
+B.dist aceptado ['Caucasus'] ['Transcaucasus'] 1
+B.parts [["usda_part:790-FL", "Flower", false], ["usda_part:790-GU", "Gum", false], ["usda_part:790-LF", "Leaf", false], ["usda_part:790-PL", "Plant", false], ["usda_part:790-SD", "Seed", true], ["usda_part:790-SP", "Sprout Seedling", false]]
+B.reg []
+B.efsa None [] ["prunasin"] []
+B.tppt weak toxic [{'category': 'weak toxic', 'level': 'bajo'}] bajo part= Fruit, leaf, seed animal=  remarks= The two cyanogenic glycosides prunasin (leaves) and amygdalin (seeds) are toxic. major= [] ntox 2
+B.uses sens: []
+B.images [["commons:File:Almonds - in shell, shell cracked open, shelled", "CC BY-SA 4.0", "image/jpeg", "Ivar Leidus"], ["commons:File:Almonds - in shell, shell cracked open, shelled", "CC BY-SA 4.0", "image/jpeg", "Ivar Leidus"], ["commons:File:Prunus dulcis - Köhler–s Medizinal-Pflanzen-250", "Public domain", "image/jpeg", "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen"], ["commons:File:Prunus dulcis - Köhler–s Medizinal-Pflanzen-250", "Public domain", "image/jpeg", "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen"]]
+--- RECORD
+aliases : ["prunus-dulcis"]
+scientificName : {"authors": "Batsch", "name": "Prunus amygdalus", "refs": ["wcvp:2917141"]}
+family : {"refs": ["wcvp:2917141"], "value": "Rosaceae"}
+synonyms : [{"authors": "L.", "name": "Amygdalus communis", "refs": ["wcvp:2917142"]}, {"authors": "(Batsch) Clairv.", "name": "Druparia amygdalus", "refs": ["wcvp:2947988"]}]
+displayName : {"language": "es", "refs": ["wikidata:Q39918", "wikipedia_es:Prunus dulcis"], "value": "Almendro"}
+commonNames : [["es", "almendro", ["wikidata", "wikipedia_es"]], ["en", "Almond tree", ["tppt_plant"]], ["en", "Almond", ["usda_common_name"]], ["de", "Mandelbaum", ["tppt_plant"]]]
+origin : {"refs": ["wcvp:2917141"], "value": "Cáucaso (Transcaucasia)"}
+description : {"refs": ["wikipedia_es:Prunus dulcis"], "value": "Árbol de la familia de las rosáceas. Se distinguen dos variedades: una cultivada desde hace milenios por sus semillas, las almendras, y el almendro amargo, cuyas semillas contienen amigdalina, una sustancia tóxica."}
+partsUsed : []
+oil : {"refs": ["usda_part:790-SD"], "type": "Esencial"}
+goals : []
+safety : {"level": "bajo", "refs": ["tppt_plant:P195", "efsa_botanic:499"], "text": "TPPT clasifica la toxicidad humana como débil (fruto, hoja y semilla) y anota que los glucósidos cianogénicos prunasina (hojas) y amigdalina (semillas) son tóxicos. EFSA registra prunasina en la semilla como sustancia de evidencia."}
+image : {"author": "Ivar Leidus", "license": "CC BY-SA 4.0", "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Almonds_-_in_shell%2C_shell_cracked_open%2C_shelled%2C_blanched.jpg", "attributionRequired": true}
+reviewFlags : [["aceite-por-compuesto-eo", "oil", "El aceite esencial se deduce solo del compuesto EO de USDA (parte «Seed»), sin ficha aetheroleum de la EMA ni "], ["cita-sin-resolver x0"]]
+traditionalUses (1):
+  [0] Champú <= Shampoo | n=1 | Otros lugares | pend=False | cit=[('Eb20: 22', 'Economic Botany 20: 22')]
+AUTO:
+

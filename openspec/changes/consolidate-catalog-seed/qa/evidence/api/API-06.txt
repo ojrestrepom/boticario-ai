@@ -1,0 +1,129 @@
+PASA  /v1/plants/no-existe -> 404 problem+json 404
+--- 404 no-existe
+GET /v1/plants/no-existe
+-> 404 {"content-type": "application/problem+json", "content-length": "143"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/no-existe"
+}
+
+PASA  /v1/plants/rosmarinus-officinalis -> 404 problem+json 404
+--- 404 rosmarinus-officinalis
+GET /v1/plants/rosmarinus-officinalis
+-> 404 {"content-type": "application/problem+json", "content-length": "156"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/rosmarinus-officinalis"
+}
+
+PASA  /v1/plants/matricaria-recutita -> 404 problem+json 404
+--- 404 matricaria-recutita
+GET /v1/plants/matricaria-recutita
+-> 404 {"content-type": "application/problem+json", "content-length": "153"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/matricaria-recutita"
+}
+
+PASA  /v1/plants/LAVANDULA-ANGUSTIFOLIA -> 404 problem+json 404
+--- 404 LAVANDULA-ANGUSTIFOLIA
+GET /v1/plants/LAVANDULA-ANGUSTIFOLIA
+-> 404 {"content-type": "application/problem+json", "content-length": "156"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/LAVANDULA-ANGUSTIFOLIA"
+}
+
+PASA  /v1/plants/lavandula-angustifolia%20 -> 404 problem+json 404
+--- 404 lavandula-angustifolia%20
+GET /v1/plants/lavandula-angustifolia%20
+-> 404 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/lavandula-angustifolia%20"
+}
+
+PASA  /v1/plants/malachra-alaceaefolia -> 404 problem+json 404
+--- 404 malachra-alaceaefolia
+GET /v1/plants/malachra-alaceaefolia
+-> 404 {"content-type": "application/problem+json", "content-length": "155"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/malachra-alaceaefolia"
+}
+
+PASA  /v1/plants sin token -> 401 + WWW-Authenticate: Bearer 401
+--- 401 sin token
+GET /v1/plants
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "129"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/plants"
+}
+
+PASA  /v1/plants token incorrecto -> 401 + WWW-Authenticate: Bearer 401
+--- 401 token incorrecto
+GET /v1/plants
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "129"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/plants"
+}
+
+PASA  /v1/plants/lavandula-angustifolia sin token -> 401 + WWW-Authenticate: Bearer 401
+--- 401 sin token
+GET /v1/plants/lavandula-angustifolia
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "152"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/plants/lavandula-angustifolia"
+}
+
+PASA  /v1/plants/lavandula-angustifolia token incorrecto -> 401 + WWW-Authenticate: Bearer 401
+--- 401 token incorrecto
+GET /v1/plants/lavandula-angustifolia
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "152"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/plants/lavandula-angustifolia"
+}
+
+PASA  /v1/plants?q=lavanda sin token -> 401 + WWW-Authenticate: Bearer 401
+PASA  /v1/plants?q=lavanda token incorrecto -> 401 + WWW-Authenticate: Bearer 401
+PASA  /v1/plants/no-existe sin token -> 401 + WWW-Authenticate: Bearer 401
+PASA  /v1/plants/no-existe token incorrecto -> 401 + WWW-Authenticate: Bearer 401
+PASA  /v1/otra-cosa sin token -> 401 + WWW-Authenticate: Bearer 401
+PASA  /v1/otra-cosa token incorrecto -> 401 + WWW-Authenticate: Bearer 401
+PASA  el cuerpo del 401 es el mismo para toda ruta y credencial salvo `instance` (no revela el motivo) 1 variantes
+PASA  /health publico sin token -> 200 200
+PASA  /openapi.json publico sin token -> 200 200

@@ -1,0 +1,7 @@
+PASA  /openapi.json servido = backend/openapi.json versionado 
+PASA  rutas del contrato: solo /health, /openapi.json, /v1/plants y /v1/plants/{id} ['/health', '/openapi.json', '/v1/plants', '/v1/plants/{id}']
+PASA  backend/openapi.json no cambia respecto de main 
+PASA  /health cumple HealthDto 
+PASA  POST /v1/plants -> 405 con Allow: GET 405 GET
+PASA  PUT /v1/plants -> 405 con Allow: GET 405 GET
+PASA  DELETE /v1/plants -> 405 con Allow: GET 405 GET

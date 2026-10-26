@@ -1,0 +1,45 @@
+======== zygophyllum-creticum | nuse 15 | flags ['cita-sin-resolver', 'idioma-de-nombre-dudoso', 'sin-datos-de-seguridad']
+IDENT Zygophyllum creticum role= None kind= resolved aliases= ['fagonia-cretica'] notes= []
+B.names []
+B.wd [["Q310127", "Fagonia cretica", [], ["Abrojo de Creta", "Manto de la Verge Maria", "Manto de la Verge María", "Risa de la Virgen", "Rosa de Navidad", "Rosal de la Virgen"], "Fagonia cretica"], ["Q89280262", "Zygophyllum creticum", [], [], "Zygophyllum creticum"]] con-item
+B.desc [["wikipedia_es:Fagonia cretica", "El manto de la virgen, rosa de la virgen es una especie de planta de la familia Zygophyllaceae. Especie descrita ya en el año 1620 por Caspar Bauhin, botánico y médico suizo, como Trifolium spinosum Creticum."]]
+B.dist aceptado ['Macaronesia', 'Northern Africa', 'Southeastern Europe', 'Southwestern Europe', 'West Tropical Africa', 'Western Asia'] ['Algeria', 'Baleares', 'Canary Is.', 'Cape Verde', 'Cyprus', 'East Aegean Is.', 'Egypt', 'Greece', 'Italy', 'Kriti', 'Lebanon-Syria', 'Libya', 'Mauritania', 'Morocco', 'Portugal', 'Selvagens', 'Senegal', 'Sicilia', 'Spain', 'Tunisia', 'Western Sahara'] 21
+B.parts [["usda_part:1567-PL", "Plant", false]]
+B.reg []
+B.uses sens: [('Tumor', 3), ('Smallpox', 1)]
+B.images [["commons:File:Fagonia cretica.jpg", "CC BY-SA 3.0", "image/jpeg", "Retama"]]
+--- RECORD
+aliases : ["fagonia-cretica"]
+scientificName : {"authors": "(L.) Christenh. & Byng", "name": "Zygophyllum creticum", "refs": ["wcvp:3225889"]}
+family : {"refs": ["wcvp:3225889"], "value": "Zygophyllaceae"}
+synonyms : [{"authors": "L.", "name": "Fagonia cretica", "refs": ["wcvp:2807156"]}]
+displayName : {"language": "es", "refs": ["wikipedia_es:Fagonia cretica"], "value": "Manto de la virgen"}
+commonNames : [["es", "Manto de la virgen", ["wikipedia_es"]], ["es", "Rosa de la virgen", ["wikipedia_es"]], ["es", "Abrojo de Creta", ["wikidata"]], ["es", "Risa de la Virgen", ["wikidata"]], ["es", "Rosa de Navidad", ["wikidata"]], ["es", "Rosal de la Virgen", ["wikidata"]], ["und", "Manto de la Verge Maria", ["wikidata"]], ["und", "Manto de la Verge María", ["wikidata"]]]
+origin : {"refs": ["wcvp:3225889"], "value": "Nativa de Macaronesia, el norte de África, el sureste y suroeste de Europa, el África tropical occidental y Asia occidental."}
+description : {"refs": ["wikipedia_es:Fagonia cretica"], "value": "Especie de planta de la familia Zygophyllaceae. Fue descrita en 1620 por Caspar Bauhin, botánico y médico suizo, como Trifolium spinosum Creticum."}
+partsUsed : []
+oil : null
+goals : []
+safety : null
+image : {"author": "Retama", "license": "CC BY-SA 3.0", "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Fagonia_cretica.jpg", "attributionRequired": true}
+reviewFlags : [["idioma-de-nombre-dudoso", "commonNames", "«Manto de la Verge Maria» y «Manto de la Verge María» (alias de Wikidata) parecen catalán; no es seguro que se"], ["sin-datos-de-seguridad", "safety", "El paquete no trae información de seguridad; la planta no se presenta como segura."], ["cita-sin-resolver x14"]]
+traditionalUses (15):
+  [0] Uso tradicional, sin eficacia demostrada: tumor <= Tumor | n=3 | India, Pakistán, Sudán | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai'), ('Broun', 'Broun, A.F., and R.E. Massey. 1929. Flor')]
+  [1] Llaga <= Sore | n=2 | Otros lugares, Sudán | pend=False | cit=[('Broun', 'Broun, A.F., and R.E. Massey. 1929. Flor'), ('Woi.Syria', 'SR')]
+  [2] Absceso <= Abscess | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [3] Alterativo <= Alterative | n=1 | India | pend=True | cit=[('Woi.Syria', 'SR')]
+  [4] Antiséptico <= Antiseptic | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [5] Astringente <= Astringent | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [6] Dentífrico <= Dentifrice | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [7] Fiebre <= Fever | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [8] Laxante <= Laxative | n=1 | India | pend=True | cit=[('Woi.Syria', 'SR')]
+  [9] Sarna <= Scabies | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [10] Escrófula <= Scrofula | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [11] Uso tradicional, sin eficacia demostrada: viruela <= Smallpox | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [12] Estimulante <= Stimulant | n=1 | India | pend=True | cit=[('Woi.Syria', 'SR')]
+  [13] Tónico <= Tonic | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+  [14] Herida <= Wound | n=1 | Otros lugares | pend=True | cit=[('Woi.Syria', 'SR')]
+AUTO:
+   ('LEX', 'flag[14]', 'seguro', '«Manto de la Verge Maria» y «Manto de la Verge María» (alias de Wikidata) parecen catalán; no es seguro que sean español.')
+   ('LEX', 'flag[15]', 'segura', 'El paquete no trae información de seguridad; la planta no se presenta como segura.')
+

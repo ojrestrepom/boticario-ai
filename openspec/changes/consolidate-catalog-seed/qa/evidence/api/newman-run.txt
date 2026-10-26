@@ -1,0 +1,141 @@
+npm notice run npx
+npm notice run 'newman' run postman/consolidate-catalog-seed.collection.json --env-var token=<token> --disable-unicode
+newman
+
+consolidate-catalog-seed API
+
+Root listado por defecto
+  GET http://127.0.0.1:8080/v1/plants [200 OK, 6.34kB, 10ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  total 2354, limit 20, offset 0
+
+Root pagina 2 de 5
+  GET http://127.0.0.1:8080/v1/plants?limit=5&offset=5 [200 OK, 2.04kB, 1ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+
+Root busqueda cientifica sinonimo: rosmarinus officinalis
+  GET http://127.0.0.1:8080/v1/plants?q=rosmarinus%20officinalis [200 OK, 1.01kB, 2ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  encuentra salvia-rosmarinus
+
+Root busqueda comun es: manzanilla
+  GET http://127.0.0.1:8080/v1/plants?q=manzanilla [200 OK, 1.65kB, 2ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  encuentra matricaria-chamomilla
+
+Root busqueda comun es: menta
+  GET http://127.0.0.1:8080/v1/plants?q=menta&limit=100 [200 OK, 12.37kB, 3ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  encuentra mentha-x-piperita
+
+Root detalle manzanilla
+  GET http://127.0.0.1:8080/v1/plants/matricaria-chamomilla [200 OK, 6.62kB, 0µs]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  manzanilla tiene usos
+  Pass  usos en es con referencia
+
+Root detalle menta
+  GET http://127.0.0.1:8080/v1/plants/mentha-x-piperita [200 OK, 5.23kB, 1ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  menta tiene usos
+  Pass  usos en es con referencia
+
+Root detalle lavanda
+  GET http://127.0.0.1:8080/v1/plants/lavandula-angustifolia [200 OK, 2.35kB, 1ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  lavanda tiene usos
+  Pass  usos en es con referencia
+
+Root detalle hiperico
+  GET http://127.0.0.1:8080/v1/plants/hypericum-perforatum [200 OK, 6.18kB, 1ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  hiperico tiene usos
+  Pass  usos en es con referencia
+
+Root detalle solo genero
+  GET http://127.0.0.1:8080/v1/plants/lavandula-sp [200 OK, 526B, 0µs]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+
+Root 404 planta inexistente
+  GET http://127.0.0.1:8080/v1/plants/no-existe [404 Not Found, 267B, 0µs]
+  Pass  estado 404
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+
+Root 404 ID anterior (alias aun no resuelto por la API)
+  GET http://127.0.0.1:8080/v1/plants/rosmarinus-officinalis [404 Not Found, 280B, 1ms]
+  Pass  estado 404
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+
+Root 400 limit=0
+  GET http://127.0.0.1:8080/v1/plants?limit=0 [400 Bad Request, 265B, 0µs]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+
+Root 400 limit=101
+  GET http://127.0.0.1:8080/v1/plants?limit=101 [400 Bad Request, 265B, 0µs]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+
+Root 401 sin token (listado)
+  GET http://127.0.0.1:8080/v1/plants [401 Unauthorized, 282B, 1ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  WWW-Authenticate: Bearer
+
+Root 401 sin token (detalle)
+  GET http://127.0.0.1:8080/v1/plants/lavandula-angustifolia [401 Unauthorized, 305B, 1ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  WWW-Authenticate: Bearer
+
+Root health publico
+  GET http://127.0.0.1:8080/health [200 OK, 123B, 0µs]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+
+---------------------------------------------------------------
+|                         |        executed |          failed |
+--------------------------+-----------------+------------------
+|              iterations |               1 |               0 |
+--------------------------+-----------------+------------------
+|                requests |              17 |               0 |
+--------------------------+-----------------+------------------
+|            test-scripts |              17 |               0 |
+--------------------------+-----------------+------------------
+|      prerequest-scripts |               0 |               0 |
+--------------------------+-----------------+------------------
+|              assertions |              65 |               0 |
+---------------------------------------------------------------
+| total run duration: 241ms                                   |
+---------------------------------------------------------------
+| total data received: 44.08kB (approx)                       |
+---------------------------------------------------------------
+| average response time: 2ms [min: 1ms, max: 10ms, s.d.: 2ms] |
+---------------------------------------------------------------

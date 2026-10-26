@@ -1,0 +1,44 @@
+--- detalle solo genero (Lavandula sp)
+GET /v1/plants/lavandula-sp
+-> 200 {"content-type": "application/json", "content-length": "417"}
+{
+ "id": "lavandula-sp",
+ "scientificName": "Lavandula sp",
+ "family": null,
+ "names": [
+  {
+   "text": "Lavandula sp",
+   "kind": "scientific",
+   "language": "la"
+  },
+  {
+   "text": "Alhucema",
+   "kind": "common",
+   "language": "es"
+  },
+  {
+   "text": "Cantueso",
+   "kind": "common",
+   "language": "es"
+  },
+  {
+   "text": "Espliego",
+   "kind": "common",
+   "language": "es"
+  },
+  {
+   "text": "Lavanda",
+   "kind": "common",
+   "language": "es"
+  },
+  {
+   "text": "Lavender",
+   "kind": "common",
+   "language": "en"
+  }
+ ],
+ "parts": [],
+ "uses": []
+}
+
+resumen: 0 usos, 6 nombres, 0 partes, familia=None

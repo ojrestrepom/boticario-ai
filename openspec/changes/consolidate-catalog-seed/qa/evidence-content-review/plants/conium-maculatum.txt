@@ -1,0 +1,49 @@
+======== conium-maculatum | nuse 21 | flags ['aceite-por-compuesto-eo', 'cita-sin-resolver', 'sin-nombre-comun-es']
+IDENT Conium maculatum role= None kind= resolved aliases= [] notes= []
+B.names [["de", "Gefleckter Schierling", "tppt_plant"], ["en", "Hemlock", "tppt_plant"], ["en", "Carrot Fern", "usda_common_name"], ["en", "Fool's Parsley", "usda_common_name"], ["en", "Hemlock", "usda_common_name"], ["en", "Poison Hemlock", "usda_common_name"], ["en", "Spotted Hemlock", "usda_common_name"], ["en", "Spotted Parsley", "usda_common_name"]]
+B.wd [["Q110308208", "Cicuta officinalis", [], [], "Cicuta officinalis"], ["Q110308459", "Coriandrum maculatum", [], [], "Coriandrum maculatum"], ["Q218041", "Conium maculatum", [], [], "Conium maculatum"]] con-item
+B.desc [["wikipedia_es:Conium maculatum", "Conium maculatum es una de las dos cicutas presentes en Europa y la única en la península ibérica. La otra es Cicuta virosa. Es una especie herbácea bienal de la familia de las apiáceas. Es típica de terrenos baldíos, escombreras y bordes de caminos."]]
+B.dist aceptado ['Arabian Peninsula', 'Caucasus', 'Central Asia', 'China', 'Eastern Europe', 'Indian Subcontinent', 'Middle Europe', 'Northeast Tropical Africa', 'Northern Africa', 'Northern Europe', 'Southeastern Europe', 'Southwestern Europe', 'Western Asia'] ['Afghanistan', 'Albania', 'Algeria', 'Austria', 'Baleares', 'Baltic States', 'Belarus', 'Belgium', 'Bulgaria', 'Central European Russia', 'Corse', 'Cyprus', 'Czechia-Slovakia', 'Denmark', 'East Aegean Is.', 'East European Russia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iran', 'Iraq', 'Italy'] 60
+B.parts [["usda_part:299-FR", "Fruit", false], ["usda_part:299-LF", "Leaf", false], ["usda_part:299-PL", "Plant", true], ["usda_part:299-SD", "Seed", false], ["usda_part:299-ST", "Stem", false]]
+B.reg []
+B.efsa medio [{"group": "veneno-potente", "parts": ["Fruit unspecified", "Live plants"], "ref": "efsa_botanic:509", "substance": "coniine"}] [] []
+B.tppt very strong toxic [{'category': 'very strong toxic', 'level': 'alto'}] alto part= Whole plant animal= very strong toxic remarks= Piperidine alkaloids are the toxins, below 10 are known. major= ['(+)-Coniine', '(+)-N-Methylconiine', 'gamma-Coniceine'] ntox 7
+B.uses sens: [('Poison', 10), ('Cancer', 4), ('Cancer(Breast)', 2), ('Fatality', 2), ('Tetanus', 1), ('Tumor', 1), ('Tumor(Breast)', 1), ('Tumor(Scrotum)', 1)]
+B.images [["commons:File:Conium maculatum Cresswell 01.jpg", "CC BY-SA 3.0", "image/jpeg", "MPF"], ["commons:File:Conium maculatum Hauxley 2.jpg", "CC BY-SA 3.0", "image/jpeg", "MPF"]]
+--- RECORD
+aliases : []
+scientificName : {"authors": "L.", "name": "Conium maculatum", "refs": ["wcvp:2734165"]}
+family : {"refs": ["wcvp:2734165"], "value": "Apiaceae"}
+synonyms : [{"authors": "Crantz", "name": "Cicuta officinalis", "refs": ["wcvp:2720755"]}, {"authors": "(Crantz) Neck.", "name": "Conium cicuta", "refs": ["wcvp:2734155"]}, {"authors": "(L.) Roth", "name": "Coriandrum maculatum", "refs": ["wcvp:2737541"]}]
+displayName : {"language": "la", "refs": ["wcvp:2734165"], "value": "Conium maculatum"}
+commonNames : [["en", "Hemlock", ["tppt_plant", "usda_common_name"]], ["en", "Poison Hemlock", ["usda_common_name"]], ["en", "Spotted Hemlock", ["usda_common_name"]], ["en", "Fool's Parsley", ["usda_common_name"]], ["en", "Carrot Fern", ["usda_common_name"]], ["en", "Spotted Parsley", ["usda_common_name"]], ["de", "Gefleckter Schierling", ["tppt_plant"]]]
+origin : {"refs": ["wcvp:2734165"], "value": "Europa, norte y noreste de África y Asia."}
+description : {"refs": ["wikipedia_es:Conium maculatum"], "value": "Especie herbácea bienal de la familia de las apiáceas, típica de terrenos baldíos, escombreras y bordes de caminos. Es una de las dos cicutas presentes en Europa y la única en la península ibérica."}
+partsUsed : []
+oil : {"refs": ["usda_part:299-PL"], "type": "Esencial"}
+goals : []
+safety : {"level": "alto", "refs": ["tppt_plant:P601", "efsa_botanic:509", "usda_use:37790", "usda_use:37791", "usda_use:37792", "usda_use:37793", "usda_use:37794", "usda_use:37795", "usda_use:37796", "usda_use:37797", "usda_use:38622", "usda_use:57523", "usda_use:23674", "usda_use:23675"], "text": "TPPT la califica de muy tóxica para las personas (planta entera); las toxinas son alcaloides de piperidina (coniina, N-metilconiina y gamma-coniceína). EFSA incluye la coniina del fruto y de la planta viva entre las sustancias de alta preocupación (veneno potente). Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."}
+image : {"author": "MPF", "license": "CC BY-SA 3.0", "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Conium_maculatum_Cresswell_01.jpg", "attributionRequired": true}
+reviewFlags : [["sin-nombre-comun-es", "displayName", "El paquete no trae ningún nombre común en español (el resumen de Wikipedia solo la clasifica como una de las c"], ["aceite-por-compuesto-eo", "oil", "El aceite esencial se deduce solo del compuesto EO de USDA (parte «Plant»), sin ficha aetheroleum de la EMA ni"], ["cita-sin-resolver x1"]]
+traditionalUses (19):
+  [0] Uso tradicional, sin eficacia demostrada: cáncer <= Cancer | n=4 | Bélgica, Finlandia, Indochina, Estados Unidos | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+  [1] Uso tradicional, sin eficacia demostrada: cáncer de mama <= Cancer(Breast) | n=2 | Turquía, Reino Unido (Gales) | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+  [2] Espasmo <= Spasm | n=2 | Otros lugares, Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.'), ('Woi.Syria', 'SR')]
+  [3] Anodino <= Anodyne | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [4] Antiespasmódico <= Antispasmodic | n=1 | Otros lugares | pend=False | cit=[('Takeda', 'ANON. 1978. List of Plants. Kyoto Herbal')]
+  [5] Afrodisíaco <= Aphrodisiac | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [6] Asma <= Asthma | n=1 | España | pend=False | cit=[('FontQuer', 'Font Query, P. 1979. Plantas Medicinales')]
+  [7] Sedante del sistema nervioso central <= CNS sedative | n=1 | Irak | pend=False | cit=[('Al-Rawi', 'Al-Rawi, Ali. 1964. Medicinal Plants of ')]
+  [8] Corea <= Chorea | n=1 | Irak | pend=False | cit=[('Al-Rawi', 'Al-Rawi, Ali. 1964. Medicinal Plants of ')]
+  [9] Delirio <= Delirium | n=1 | Irak | pend=False | cit=[('Al-Rawi', 'Al-Rawi, Ali. 1964. Medicinal Plants of ')]
+  [10] Nervino <= Nervine | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [11] Parálisis <= Paralysis | n=1 | Irak | pend=False | cit=[('Al-Rawi', 'Al-Rawi, Ali. 1964. Medicinal Plants of ')]
+  [12] Esclerosis (glándulas) <= Sclerosis(Glands) | n=1 | Argentina | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+  [13] Sedante <= Sedative | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [14] Uso tradicional, sin eficacia demostrada: tétanos <= Tetanus | n=1 | Irak | pend=False | cit=[('Al-Rawi', 'Al-Rawi, Ali. 1964. Medicinal Plants of ')]
+  [15] Uso tradicional, sin eficacia demostrada: tumor <= Tumor | n=1 | Hungría | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+  [16] Uso tradicional, sin eficacia demostrada: tumor de mama <= Tumor(Breast) | n=1 | Europa | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+  [17] Uso tradicional, sin eficacia demostrada: tumor de escroto <= Tumor(Scrotum) | n=1 | Francia | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+  [18] Wen <= Wen | n=1 | Reino Unido | pend=False | cit=[('Hartwell', 'Hartwell, J.L. 1967-71. Plants used agai')]
+AUTO:
+

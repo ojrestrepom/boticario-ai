@@ -118,7 +118,7 @@ class ScenarioTests(ValidatorCase):
         self.assertEqual(errors, [])
         found = " | ".join(warnings)
         self.assertIn("goals[0].evidence", found)
-        for word in ("Cura", "dosis", "mg"):
+        for word in ("Cura", "dosis", "3 mg"):
             self.assertIn("'%s'" % word, found)
 
     def test_gota_como_dosis_es_advertencia(self):
@@ -138,6 +138,39 @@ class ScenarioTests(ValidatorCase):
     def test_texto_sin_dosis_no_da_advertencias(self):
         _, warnings = self.run_validator(fx.record())
         self.assertEqual(warnings, [])
+
+    def test_cantidad_en_microgramos_por_kilo_es_advertencia(self):
+        for text in ("supera el valor guía de 1,0 µg/kg de peso corporal", "hasta 5 mcg al día", "2 g/kg", "10 mg/kg", "por kg de peso", "3 ug"):
+            record = fx.record()
+            record["goals"][0]["evidence"] = text
+            errors, warnings = self.run_validator(record)
+            self.assertEqual(errors, [], text)
+            self.assertIn("expresión de dosis", " | ".join(warnings), text)
+
+    def test_unidad_sin_cifra_no_es_advertencia(self):
+        for text in ("Se mide en µg/kg en los estudios.", "Niños de 4 a 12 años.", "Ingesta diaria de estragol."):
+            record = fx.record()
+            record["goals"][0]["evidence"] = text
+            _, warnings = self.run_validator(record)
+            self.assertEqual(warnings, [], text)
+
+    def test_nombre_con_anotacion_de_idioma_es_advertencia(self):
+        for name in ("Canela de la China (Sp.)", "Weihrauchbaum (Ger.)", "Grenadier (Fr.)", "Zakuro (Jap.)", "Isihlungu (Zulu)"):
+            record = fx.record()
+            record["commonNames"][0]["text"] = name
+            errors, warnings = self.run_validator(record)
+            self.assertEqual(errors, [], name)
+            self.assertTrue(any("anotación de idioma" in w and "commonNames[0]" in w for w in warnings), (name, warnings))
+        record = fx.record()
+        record["displayName"]["value"] = "Canela de la China (Sp.)"
+        _, warnings = self.run_validator(record)
+        self.assertTrue(any("displayName.value" in w and "anotación de idioma" in w for w in warnings), warnings)
+
+    def test_nombre_con_parentesis_que_no_es_idioma_no_advierte(self):
+        record = fx.record()
+        record["commonNames"][0]["text"] = "Manzanilla (flor)"
+        _, warnings = self.run_validator(record)
+        self.assertEqual([w for w in warnings if "anotación" in w], [])
 
     def test_codigo_de_flag_fuera_del_catalogo_es_advertencia(self):
         record = fx.record()
@@ -413,6 +446,7 @@ class SensitiveActivityTests(ValidatorCase):
 
     def test_senal_de_riesgo_en_safety_con_su_ref_es_valida(self):
         record, bundle = self.with_activity("Poison")
+        bundle["sections"]["uses"] = bundle["sections"]["uses"][:1]
         record["traditionalUses"] = []
         record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"
                                  and not f["target"].startswith("traditionalUses")]
@@ -435,6 +469,41 @@ class SensitiveActivityTests(ValidatorCase):
                                  and f["code"] != "sin-datos-de-seguridad"]
         record["safety"] = {"level": None, "text": "La EMA registra advertencias.", "refs": ["ema_herbal:matricariae-flos"]}
         self.assertError(record, "ningún ref usda_use:*", bundle)
+
+    def test_formula_malformada_es_error(self):
+        for tail in (" fiebre amarilla", "fiebre amarilla\"", "fiebre  amarilla", "fiebre amarilla ", "\"fiebre\"", ""):
+            record, bundle = self.with_activity("Cancer")
+            record["traditionalUses"][0]["activity"] = PREFIX + tail
+            self.assertError(record, "fórmula de enfermedad grave está mal formada", bundle)
+
+    def test_formula_exacta_con_apostrofo_interno_es_valida(self):
+        record, bundle = self.with_activity("Cancer")
+        record["traditionalUses"][0]["activity"] = PREFIX + "cáncer de mama"
+        self.assertNoErrors(record, bundle)
+
+    def test_cobertura_minima_de_usos(self):
+        record, bundle = self.with_activity("Aphrodisiac")
+        record["traditionalUses"] = []
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if not f["target"].startswith("traditionalUses")]
+        self.assertError(record, "se esperan al menos 2", bundle)
+
+    def test_cobertura_no_cuenta_las_senales_de_riesgo(self):
+        record, bundle = self.with_activity("Poison")
+        bundle["sections"]["uses"] = bundle["sections"]["uses"][:1]
+        record["traditionalUses"] = []
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if not f["target"].startswith("traditionalUses")
+                                 and f["code"] != "sin-datos-de-seguridad"]
+        record["safety"] = {"level": None, "text": "Advertencia: registrada como veneno (USDA).", "refs": ["usda_use:1001"]}
+        record["refs"]["usda_use:1001"] = bundle["refs"]["usda_use:1001"]
+        errors, _ = self.run_validator(record, bundle)
+        self.assertEqual([e for e in errors if "se esperan" in e], [])
+
+    def test_cobertura_con_tope_de_20(self):
+        record, bundle = fx.record(), fx.bundle()
+        template = bundle["sections"]["uses"][0]
+        bundle["sections"]["uses"] = [dict(template, activity="Uso%d" % i) for i in range(25)]
+        record["traditionalUses"] = [dict(record["traditionalUses"][0], activitySource="Uso%d" % i) for i in range(19)]
+        self.assertError(record, "tiene 19 grupos y el paquete trae 25 usos", bundle)
 
     def test_actividad_sin_categoria_no_cambia(self):
         record, bundle = self.with_activity("Aphrodisiac")

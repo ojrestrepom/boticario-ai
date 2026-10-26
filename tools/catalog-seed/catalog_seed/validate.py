@@ -59,9 +59,14 @@ STRESS_GOAL = "relajacion-estres"
 DOSE_PATTERNS = [
     r"\bdosis\b", r"\bposolog\w*", r"\bmg\b", r"\bml\b", r"\b(?:\d+|un|una|unas|unos|dos|tres|cuatro|cinco|seis|diez|varias|algunas|pocas)\s+gotas?\b", r"\bgotas\s+de\b", r"\bcucharad\w*",
     r"\bcura(?:r|n|tiv\w*)?\b", r"\btrata(?:n|r)?\b", r"\btratamientos?\b", r"\bprevien\w*", r"\bprevenir\b",
+    r"\d+(?:[.,]\d+)?\s*(?:[µμ]g|mcg|ug|mg|kg|g)\b(?:\s*/\s*(?:kg|día|dia|d)\b)?", r"\bpor\s+(?:kg|kilo|kilogramo)s?\b(?:\s+de\s+peso)?",
     r"\belimina\w*", r"\balivia\w*", r"\baliviar\b", r"\beficaz\w*", r"\beficacia\b", r"\befectiv\w*",
 ]
 DOSE_RE = re.compile("|".join(DOSE_PATTERNS), re.IGNORECASE)
+
+# Anotación de idioma de USDA al final de un nombre: «Canela de la China (Sp.)», «Weihrauchbaum (Ger.)».
+LANGUAGE_NOTE_RE = re.compile(r"\(\s*(?:[A-Z][a-z]{1,7}\.|(?:Sp|Ger|Fr|Jap|Chin|Port|Ital|Dut|Rus|Peru|Bol)\.?|Zulu|Pinyin|Chinese|Japanese|Spanish|German|French|Portuguese|Italian|Latin)\s*\)\s*$")
+MAX_USE_GROUPS = 20
 
 PUBLIC_DOMAIN_RE = re.compile(r"^(?:cc0(?:[ -]?1\.0)?|public domain|dominio p[uú]blico|pd(?:[ -].*)?)$", re.IGNORECASE)
 CC_BY_RE = re.compile(r"^cc[ -]by(?P<sa>[ -]sa)?(?:[ -]\d\.\d)?(?:[ -]\w+)?$", re.IGNORECASE)
@@ -280,6 +285,10 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None,
         category = activity_category(group["activitySource"], sensitive)
         if category == SERIOUS_DISEASE and not group["activity"].startswith(sensitive["prefix"]):
             errors.append("%s: la actividad '%s' es una enfermedad grave y 'activity' debe empezar por «%s»" % (label, group["activitySource"], sensitive["prefix"]))
+        elif category == SERIOUS_DISEASE:
+            rest = group["activity"][len(sensitive["prefix"]):]
+            if not rest or not rest[0].isalpha() or "  " in rest or rest != rest.strip() or re.search(r"[\"“”«»'‘’]$|\"", rest):
+                errors.append("%s: la fórmula de enfermedad grave está mal formada ('%s'): exige «%s» con un solo espacio, sin espacios dobles y sin comillas sueltas" % (label, group["activity"], sensitive["prefix"]))
         if category == RISK_SIGNAL:
             errors.append("%s: la actividad '%s' es una señal de riesgo y va en safety como advertencia, no en traditionalUses" % (label, group["activitySource"]))
         if source_group is None:
@@ -315,6 +324,14 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None,
             errors.append("%s: pendingReview sin un reviewFlag cuyo target sea '%s'" % (label, label))
         if unresolved and not any(f["code"] == "cita-sin-resolver" and f["target"] == label for f in record["reviewFlags"]):
             errors.append("%s: falta el reviewFlag 'cita-sin-resolver' con target '%s'" % (label, label))
+
+    # Cobertura mínima: los grupos del paquete que no son señales de riesgo llegan al registro hasta el tope.
+    package_groups = {use.get("activity") for use in bundle.get("sections", {}).get("uses", [])
+                      if activity_category(use.get("activity"), sensitive) != RISK_SIGNAL}
+    expected = min(MAX_USE_GROUPS, len(package_groups))
+    if len(record["traditionalUses"]) < expected:
+        errors.append("traditionalUses: tiene %d grupos y el paquete trae %d usos que no son señales de riesgo (se esperan al menos %d)"
+                        % (len(record["traditionalUses"]), len(package_groups), expected))
 
     # Seguridad: el nivel nulo con texto es válido cuando ninguna entrada fija nivel; sin información, safety es nulo con su flag.
     safety = record["safety"]
@@ -357,6 +374,13 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None,
     for index, flag in enumerate(record["reviewFlags"]):
         if flag["code"] not in known:
             warnings.append("reviewFlags[%d]: el código '%s' no está en el catálogo de flag-codes.json" % (index, flag["code"]))
+
+    # Anotaciones de idioma de USDA al final de un nombre: advertencia.
+    names = [("displayName.value", record["displayName"]["value"])] if record.get("displayName") else []
+    names += [("commonNames[%d].text" % i, item["text"]) for i, item in enumerate(record["commonNames"])]
+    for path, text in names:
+        if isinstance(text, str) and LANGUAGE_NOTE_RE.search(text):
+            warnings.append("%s: el nombre '%s' conserva una anotación de idioma de USDA" % (path, text))
 
     # Palabras de dosis o eficacia: advertencia.
     for path, text in _visible_texts(record, sensitive["prefix"]):

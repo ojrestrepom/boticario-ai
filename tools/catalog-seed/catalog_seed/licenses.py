@@ -22,7 +22,11 @@ OTHER = "otra-licencia"
 UNKNOWN = "licencia-desconocida"
 NO_AUTHOR = "sin-autor"
 MISSING = "archivo-no-encontrado"
-DISCARD_REASONS = (NON_COMMERCIAL, NO_DERIVATIVES, GFDL, OTHER, UNKNOWN, NO_AUTHOR, MISSING)
+NOT_DISPLAYABLE = "formato-no-mostrable"
+DISCARD_REASONS = (NON_COMMERCIAL, NO_DERIVATIVES, GFDL, OTHER, UNKNOWN, NO_AUTHOR, MISSING, NOT_DISPLAYABLE)
+
+# Tipos MIME que la app puede mostrar; las láminas de herbario en PDF o TIFF y similares se descartan.
+DISPLAYABLE_MIMES = ("image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml")
 
 _CC_BY = re.compile(r"^cc[- ]by(?P<sa>[- ]sa)?[- ](?P<version>\d(?:\.\d)?)(?:[- ][a-z]+)*$")
 _CC_RESTRICTED = re.compile(r"^cc[- ]by\b.*[- ](?P<kind>nc|nd)\b")
@@ -48,6 +52,46 @@ def strip_html(text):
     """Texto plano de un fragmento HTML de Commons (Artist, Credit)."""
     text = _TAG.sub(" ", text or "")
     return " ".join(html.unescape(text).split())
+
+
+_EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
+_URL = re.compile(r"https?://\S+")
+_ASSUMED = re.compile(r"^No machine-readable author provided\.\s*(?P<name>.+?)\s+assumed\b.*$", re.I)
+_LICENSE_SENTENCE = re.compile(r"^This (?:file|work|image) is (?:licensed|made available)\b", re.I)
+_ATTRIBUTION = re.compile(r"\bAttribution:\s*(?P<name>.+?)(?:\s+You are free\b.*)?$", re.I)
+_RIGHTS_TAIL = re.compile(r"\s*,?\s*(?:some rights reserved|all rights reserved|licensed as noted)\b.*$", re.I)
+_RIGHTS_HEAD = re.compile(r"^\s*(?:\(c\)|©|copyright(?:\s*\(c\))?(?:\s+by)?)\s+", re.I)
+_LICENSE_TOKEN = re.compile(r"\(?\bCC[- ]?(?:BY|0)(?:[- ](?:SA|NC|ND))*(?:[- ]\d(?:\.\d)?)?\b\)?", re.I)
+
+
+def clean_author(text):
+    """Autor de Commons sin correos, texto de licencia ni avisos de «sin autor legible». Vacío si no queda un autor."""
+    text = " ".join((text or "").split())
+    if not text:
+        return ""
+    match = _ASSUMED.match(text)
+    if match:
+        text = re.sub(r"~commonswiki$", "", match.group("name")).strip()
+    elif text.lower().startswith("no machine-readable author"):
+        return ""
+    elif _LICENSE_SENTENCE.match(text):
+        match = _ATTRIBUTION.search(text)
+        text = match.group("name") if match else ""
+    text = _EMAIL.sub("", text)
+    text = re.sub(r"^\s*(?:at|on)\s+(?:the\s+)?\w+\s+(?:Wikipedia|Wikimedia Commons)\s*$", "", text, flags=re.I)
+    text = _LICENSE_TOKEN.sub("", text)
+    text = _RIGHTS_TAIL.sub("", text)
+    text = _RIGHTS_HEAD.sub("", text)
+    text = re.sub(r"\(\s*[,;]?\s*\)", "", text)
+    text = re.sub(r"\s*[,;]\s*(?=\)|$)", "", text)
+    text = " ".join(text.split()).strip(" ,;-")
+    if not re.search(r"[^\W\d_]", _URL.sub("", text)):
+        return ""
+    return text
+
+
+def is_displayable(mime):
+    return (mime or "").strip().lower() in DISPLAYABLE_MIMES
 
 
 def _labels(extmetadata):
@@ -104,17 +148,20 @@ def license_family(extmetadata):
     return UNKNOWN, None
 
 
-def classify(extmetadata):
-    """Clasifica los extmetadata de una imagen. Devuelve un dict con `admitted`, `reason` (si se descarta) y los datos de la licencia."""
+def classify(extmetadata, mime=None):
+    """Clasifica los extmetadata de una imagen (y su `mime`, si se da). Devuelve un dict con `admitted`, `reason` (si se descarta) y los datos de la licencia."""
     code, version = license_family(extmetadata)
     short = meta(extmetadata, "LicenseShortName") or meta(extmetadata, "UsageTerms") or meta(extmetadata, "License")
-    author = strip_html(meta(extmetadata, "Artist"))
-    credit = strip_html(meta(extmetadata, "Credit"))
+    author = clean_author(strip_html(meta(extmetadata, "Artist")))
+    credit = clean_author(strip_html(meta(extmetadata, "Credit")))
     result = {"admitted": False, "reason": None, "license": short or None, "licenseCode": code, "licenseUrl": None,
               "attributionRequired": None, "author": author or None, "credit": credit or None}
     if code in DISCARD_REASONS:
         result["reason"] = code
         result["licenseCode"] = None
+        return result
+    if mime is not None and not is_displayable(mime):
+        result["reason"] = NOT_DISPLAYABLE
         return result
     url = meta(extmetadata, "LicenseUrl").strip()
     if not url and code in ("cc-by", "cc-by-sa"):

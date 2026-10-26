@@ -63,6 +63,63 @@ class LicenseTests(unittest.TestCase):
         record = commons_response("File:A.jpg", License="cc-by-sa-4.0", LicenseShortName="CC BY-SA 4.0", Artist="Ana")
         self.assertTrue(licenses.classify(record["imageinfo"]["extmetadata"])["admitted"])
 
+    def test_clean_author_with_real_commons_cases(self):
+        cases = {
+            "No machine-readable author provided. Bogdan assumed (based on copyright claims).": "Bogdan",
+            "No machine-readable author provided. Hans B.~commonswiki assumed (based on copyright claims).": "Hans B.",
+            "No machine-readable author provided.": "",
+            "manfred.sause@volloeko.de": "",
+            "Rbieman@bigpond.net.au at English Wikipedia": "",
+            "Martin Olsson (mnemo on en/sv wikipedia and commons, martin@minimum.se)": "Martin Olsson (mnemo on en/sv wikipedia and commons)",
+            "Jean-François Molino and Pl@ntNet": "Jean-François Molino and Pl@ntNet",
+            "(c) Jens-Christian Svenning, some rights reserved (CC BY)": "Jens-Christian Svenning",
+            "Copyright by Curtis Clark, licensed as noted": "Curtis Clark",
+            "This file is licensed under the Creative Commons Attribution 3.0 Unported license. Attribution: Forest & Kim Starr "
+            "You are free: to share – to copy, distribute and transmit the work to remix – to adapt the work": "Forest & Kim Starr",
+            "https://www.flickr.com/photos/tony_rodd/": "",
+            "Denis Otkydach - https://www.inaturalist.org/people/denis190": "Denis Otkydach - https://www.inaturalist.org/people/denis190",
+            "Epgrande": "Epgrande",
+        }
+        for raw, expected in cases.items():
+            self.assertEqual(licenses.clean_author(raw), expected, raw)
+
+    def test_dirty_author_is_cleaned_and_empty_author_discards_when_attribution_is_required(self):
+        cleaned = licenses.classify(meta(License="cc-by-4.0", LicenseShortName="CC BY 4.0",
+                                         Artist="No machine-readable author provided. Zimbres assumed (based on copyright claims)."))
+        self.assertTrue(cleaned["admitted"])
+        self.assertEqual(cleaned["author"], "Zimbres")
+        empty = licenses.classify(meta(License="cc-by-4.0", LicenseShortName="CC BY 4.0", Artist="manfred.sause@volloeko.de"))
+        self.assertFalse(empty["admitted"])
+        self.assertEqual(empty["reason"], licenses.NO_AUTHOR)
+        public = licenses.classify(meta(License="pd", LicenseShortName="Public domain", Artist="manfred.sause@volloeko.de"))
+        self.assertTrue(public["admitted"])
+        self.assertIsNone(public["author"])
+
+    def test_only_displayable_formats_are_admitted(self):
+        for mime in ("image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml"):
+            self.assertTrue(licenses.classify(meta(License="cc0", LicenseShortName="CC0"), mime)["admitted"], mime)
+        for mime in ("application/pdf", "image/tiff", "image/vnd.djvu", ""):
+            result = licenses.classify(meta(License="cc0", LicenseShortName="CC0"), mime)
+            self.assertFalse(result["admitted"], mime)
+            self.assertEqual(result["reason"], licenses.NOT_DISPLAYABLE)
+        # Sin mime (no se pasó) no se aplica el filtro, y una licencia descartada conserva su propio motivo.
+        self.assertTrue(licenses.classify(meta(License="cc0", LicenseShortName="CC0"))["admitted"])
+        nc = licenses.classify(meta(License="cc-by-nc-2.0", LicenseShortName="CC BY-NC 2.0"), "application/pdf")
+        self.assertEqual(nc["reason"], licenses.NON_COMMERCIAL)
+
+    def test_extractor_and_assignment_discard_unshowable_files(self):
+        import tempfile
+        from catalog_seed.wiki import CommonsStep
+        from catalog_seed.wiki_assign import _commons_record
+        with tempfile.TemporaryDirectory() as tmp:
+            record = commons_response("File:Plate.tif", License="cc0", LicenseShortName="CC0", Artist="A")
+            record["imageinfo"]["mime"] = "image/tiff"
+            step = CommonsStep(cache_dir=tmp)
+            step.store("File:Plate.tif", record)
+            result = _commons_record(step, "File:Plate.tif")
+            self.assertFalse(result["admitted"])
+            self.assertEqual(result["reason"], licenses.NOT_DISPLAYABLE)
+
     def test_clean_file_url_drops_utm_parameters_only(self):
         base = "https://upload.wikimedia.org/wikipedia/commons/a/ab/Lavanda.jpg"
         self.assertEqual(licenses.clean_file_url(base + "?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"), base)

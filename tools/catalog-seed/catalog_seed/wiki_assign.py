@@ -235,7 +235,7 @@ def _commons_record(step, title):
     response = step.load(title)
     if response.get("missing"):
         return {"title": title, "admitted": False, "reason": MISSING}
-    result = classify(response["imageinfo"].get("extmetadata"))
+    result = classify(response["imageinfo"].get("extmetadata"), response["imageinfo"].get("mime", ""))
     info = response["imageinfo"]
     result.update(title=response.get("title", title), pageUrl=info.get("descriptionurl"), fileUrl=info.get("url"),
                   mime=info.get("mime"), width=info.get("width"), height=info.get("height"))

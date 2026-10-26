@@ -79,7 +79,7 @@ def commons_rows(cache_dir):
             stats["discarded_" + MISSING] = stats.get("discarded_" + MISSING, 0) + 1
             continue
         info = response["imageinfo"]
-        result = classify(info.get("extmetadata"))
+        result = classify(info.get("extmetadata"), info.get("mime", ""))
         if not result["admitted"]:
             stats["discarded"] += 1
             key = "discarded_" + result["reason"]

@@ -790,23 +790,29 @@ fn insert_plant(conn: &mut SqliteConnection, rec: &PlantRecord) -> Result<(), Bu
     }
     if let Some(display) = &rec.display_name {
         let datasets = refs.datasets("displayName", &display.refs)?;
-        add_name(
-            &mut names,
-            &display.value,
-            "common",
-            &display.language,
-            datasets,
-        );
+        // Un `displayName` en latín es el nombre científico (planta sin nombre común): queda en el perfil, no como nombre común.
+        if display.language != "la" {
+            add_name(
+                &mut names,
+                &display.value,
+                "common",
+                &display.language,
+                datasets,
+            );
+        }
     }
     for (i, common) in rec.common_names.iter().enumerate() {
         let datasets = refs.datasets(&format!("commonNames[{i}]"), &common.refs)?;
-        add_name(
-            &mut names,
-            &common.text,
-            "common",
-            &common.language,
-            datasets,
-        );
+        // Un nombre en latín no es un nombre común.
+        if common.language != "la" {
+            add_name(
+                &mut names,
+                &common.text,
+                "common",
+                &common.language,
+                datasets,
+            );
+        }
     }
     for name in &names {
         let normalized = normalize_name(&name.text);

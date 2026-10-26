@@ -191,7 +191,7 @@ fn one_use_per_resolved_reference_of_each_served_group() {
 }
 
 #[test]
-fn display_name_is_in_the_profile_and_as_a_common_name() {
+fn display_name_is_in_the_profile_and_as_a_common_name_unless_latin() {
     let seed = seed();
     let (_dir, _out, conn) = built(&seed);
     for p in &seed.plants {
@@ -208,7 +208,18 @@ fn display_name_is_in_the_profile_and_as_a_common_name() {
             "{}",
             p.id
         );
-        if let Some(d) = &p.display_name {
+        if let Some(d) = p.display_name.as_ref().filter(|d| d.language == "la") {
+            // Sin nombre común en español: el nombre científico no se guarda como común.
+            let found = count(
+                &conn,
+                &format!(
+                    "SELECT COUNT(*) FROM plant_name WHERE plant_id = '{}' AND kind = 'common' AND text = '{}'",
+                    p.id,
+                    d.value.replace('\'', "''"),
+                ),
+            );
+            assert_eq!(found, 0, "{}", p.id);
+        } else if let Some(d) = &p.display_name {
             let found = count(
                 &conn,
                 &format!(

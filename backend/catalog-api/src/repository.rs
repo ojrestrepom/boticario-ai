@@ -570,6 +570,16 @@ mod tests {
     }
 
     #[test]
+    fn search_treats_hybrid_sign_and_plain_x_alike() {
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        for q in ["mentha x piperita", "Mentha × piperita", "mentha×piperita"] {
+            let page = repo.list_plants(&query(Some(q), 20, 0)).unwrap();
+            assert_eq!(ids(&page), ["mentha-x-piperita"], "q = {q:?}");
+        }
+    }
+
+    #[test]
     fn shared_normalization_cases_match_their_normalized_form() {
         let fixture = Fixture::standard();
         let repo = fixture.repo();

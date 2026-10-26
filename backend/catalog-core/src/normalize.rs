@@ -8,7 +8,9 @@ use unicode_normalization::{UnicodeNormalization, char::is_combining_mark};
 ///
 /// Pasa a minúsculas, descompone en NFD y descarta las marcas diacríticas combinantes, recorta los espacios exteriores y colapsa los internos repetidos en uno.
 pub fn normalize_name(input: &str) -> String {
+    // El signo de híbrido `×` se separa como palabra `x`, igual que la `x` suelta de los nombres antiguos; las `x` dentro de una palabra no cambian.
     let stripped: String = input
+        .replace('×', " x ")
         .to_lowercase()
         .nfd()
         .filter(|c| !is_combining_mark(*c))
@@ -47,6 +49,10 @@ pub const NORMALIZATION_CASES: &[(&str, &str)] = &[
         "Mentha x piperita subsp. nothosubsp. piperita",
         "mentha x piperita subsp. nothosubsp. piperita",
     ),
+    ("Mentha × piperita", "mentha x piperita"),
+    ("Mentha x piperita", "mentha x piperita"),
+    ("×Citrofortunella", "x citrofortunella"),
+    ("Xanthium Maximowiczii Alex", "xanthium maximowiczii alex"),
     ("Ñandú Café", "nandu cafe"),
     ("", ""),
     ("   ", ""),

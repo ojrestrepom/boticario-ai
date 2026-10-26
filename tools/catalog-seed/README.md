@@ -978,7 +978,7 @@ Resultado con los datos reales (WCVP v16, WFO 2026-06, USDA y EMA de la caché; 
 | Separados por excepción | 0 | 10 |
 | Fusionados | 0 | 52: 24 por redirección, 27 sin artículo y 1 por artículo compartido |
 | Sin decisión | 75 | 0 |
-| IDs actuales que se conservan como ID / pasan a alias / se pierden | 1.790 / 586 / 0 | 1.748 / 628 / 0 |
+| IDs actuales que se conservan como ID / pasan a alias / se pierden | 1.790 / 586 / 0 | 1.747 / 628 / 1 (`malachra-alaceaefolia`, sin datos) |
 | IDs repetidos; `lavandula-angustifolia` | ninguno; presente | ninguno; presente |
 
 Se separan por artículo propio la bergamota (*Citrus × bergamia*), la lima (*C. × limetta*), la naranja (*C. × sinensis*), el pomelo (*C. × paradisi*), *C. × sudachi* y *C. × sphaerocarpa* (su artículo existe sin la `×`: «Citrus sudachi» y «Citrus sphaerocarpa»), el brócoli (*Brassica oleracea* var. *italica*), el repollo (*B. oleracea* var. *capitata*), *B. oleracea* var. *gemmifera*, var. *gongylodes* y var. *viridis*, *Grindelia robusta* y *Tagetes patula*. Las diez excepciones quedan separadas. Se fusionan, entre otras, *Cinnamomum zeylanicum* (redirige a *C. verum*), *Ocimum sanctum*, *Aloe barbadensis*, *Commiphora molmol* y *Thevetia peruviana* (tiene artículo, pero el de *Cascabela thevetia* redirige a él). La lista completa, con la evidencia de cada una, está en `collision-decisions.json`.
@@ -1017,12 +1017,12 @@ python3 -I tools/catalog-seed/cli.py resolve
 | Homónimos ambiguos | unos 19 | 21 (19 más dos de la coincidencia aproximada) |
 | Sin resolver (USDA) | 164 | 32 tras variantes, coincidencia aproximada y respaldo |
 | Solo género | 62 o 63 | 62 de USDA y 62 plantas |
-| IDs distintos de los actuales | unos 500 | 607 en todo el universo (los IDs con errata del catálogo actual y los heterotípicos fusionados pasan a alias) |
+| IDs distintos de los actuales | unos 500 | 629 en la semilla final (527 renombrados, 101 fusionados y 1 ausente; los IDs con errata del catálogo actual y los heterotípicos fusionados pasan a alias) |
 | `lavandula-angustifolia` | presente | presente |
 | IDs repetidos | ninguno | ninguno |
 
 - Plantas por tipo: 2.215 `resolved`, 23 `heterotypic`, 21 `ambiguous`, 34 sin resolver (33 `unmatched` y 1 `unresolved`), 62 solo género. Hay 650 alias en 620 plantas y 1 descartado (`cynara-cardunculus-subsp-cardunculus`, que es el ID de otra planta).
-- Contra los 2.376 IDs actuales de `data/build/catalog.db`: 1.748 se conservan como ID, 628 pasan a alias (los heterotípicos fusionados entre ellos) y ninguno se pierde.
+- Contra los 2.376 IDs actuales de `data/build/catalog.db`: 1.747 se conservan como ID, 628 pasan a alias (los heterotípicos fusionados entre ellos) y 1 queda ausente, `malachra-alaceaefolia`, que no tiene datos en ninguna fuente y no entra en la semilla. Los IDs que cambian son 629 (527 renombrados, 101 fusionados y 1 ausente).
 - Antes de las correcciones de calidad (primera generación del universo) había 2.414 plantas, 117 sin resolver, 63 solo género, 52 grupos partidos y 14 entradas por el respaldo de WFO. Las correcciones cambian eso así: 8 plantas menos (las erratas de la EMA y de USDA se unen a su planta; desaparecen `lippia-citriodora`, `salix-various-species-including-s-purpurea-l`, `eschscholzia-california` y `salvia-fructicosa`), 83 sin resolver menos, 1 solo género menos (el de `Salix [...]`), 4 grupos partidos más (al unirse, una entrada nueva vuelve heterotípico a un sinónimo que antes estaba solo) y 9 entradas del respaldo de WFO que pasan a coincidencia aproximada.
 - El piloto cuenta 164 sin resolver; aquí quedan 32 de USDA. La tarea 2.7 (contraste con el script del piloto) no se ha hecho, así que las diferencias de cifras con el piloto no se han atribuido.
 - Coincidencias aproximadas: 91 entradas (87 de USDA y 4 de la EMA: `Curcuma xanthorrhiza` dos veces, `Eschscholzia california` y `Salvia fructicosa`), todas listadas en `report.md` con la distancia y el aceptado para revisarlas una por una. 54 son de epíteto con distancia 1, 19 de epíteto con distancia 2 y 18 de género (`Zizyphus`, `Macroptylium`, `Syzgium`, ...). Dos más quedaron `ambiguous` (`Croton macrostachys` y `Zizyphus trinervia`).
@@ -1033,7 +1033,7 @@ python3 -I tools/catalog-seed/cli.py resolve
 
 ## Asignación de USDA y citas candidatas (tarea 3.2)
 
-Los datos de USDA se asignan a las plantas del universo en `catalog_seed/usda_assign.py` (`assign_usda`). Los nombres comunes (`usda_common_name`) y las partes (`usda_part`) traen FNFNUM y se asignan por la entrada `usda:<FNFNUM>` del universo. Las filas de uso (`usda_use`, una por ETHNOBOT) solo traen el nombre (TAXON) y el autor (TAXAUTHOR): se asignan con `Universe.assign`, por resolución taxonómica y no por nombre exacto, así que una fila bajo un sinónimo (*Matricaria recutita*) llega a la planta del aceptado, y una fila bajo un heterotípico fusionado por la regla de colisiones (*Cinnamomum zeylanicum*) llega a la planta del aceptado en la que se fusionó. Cada par distinto (TAXON, TAXAUTHOR) se resuelve una sola vez. Las filas que no se asignan quedan en `UsdaAssignment.unassigned` con su motivo: `sin-resolver`, `fuera-del-universo` (la especie resuelve, pero no está en el universo), `sin-asignar` o `fnfnum-sin-planta`. `build_universe_from_work` (en `resolve_universe.py`) construye el universo en memoria a partir de `sources.db` y `taxonomy.db` sin escribir salidas; lee `collision-decisions.json` y `collision-exceptions.json`, así que da el mismo universo que `resolve`.
+Los datos de USDA se asignan a las plantas del universo en `catalog_seed/usda_assign.py` (`assign_usda`). Los nombres comunes (`usda_common_name`) y las partes (`usda_part`) traen FNFNUM y se asignan por la entrada `usda:<FNFNUM>` del universo. Las filas de uso (`usda_use`, una por ETHNOBOT) solo traen el nombre (TAXON) y el autor (TAXAUTHOR): se asignan con `Universe.assign`, por resolución taxonómica y no por nombre exacto, así que una fila bajo un sinónimo (*Matricaria recutita*) llega a la planta del aceptado, y una fila bajo un heterotípico fusionado por la regla de colisiones (*Cinnamomum zeylanicum*) llega a la planta del aceptado en la que se fusionó. Cada par distinto (TAXON, TAXAUTHOR) se resuelve una sola vez, y un par cuyo TAXON es literalmente el nombre de una entrada de USDA de una sola planta va a esa planta (`taxon-exacto`, véase «Defecto 3 de la QA»). Las filas que no se asignan quedan en `UsdaAssignment.unassigned` con su motivo: `sin-resolver`, `fuera-del-universo` (la especie resuelve, pero no está en el universo), `sin-asignar` o `fnfnum-sin-planta`. `build_universe_from_work` (en `resolve_universe.py`) construye el universo en memoria a partir de `sources.db` y `taxonomy.db` sin escribir salidas; lee `collision-decisions.json` y `collision-exceptions.json`, así que da el mismo universo que `resolve`.
 
 Por planta, el resultado trae `commonNames` (nombre, idioma y ref `usda_common_name:<id>`), `parts` (compuestos, `hasEo` y ref `usda_part:<id>`) y `useGroups`: un grupo por actividad con `n`, los `countries`, los refs `usda_use:<ETHNO>` y las claves cortas de REFERENCE tal como vienen (`keys`, con el número de filas de cada una). Todo se ordena de forma estable, para poder hashearlo.
 
@@ -1044,15 +1044,36 @@ Resultado con los datos reales (universo de 2.355 plantas con el criterio de Wik
 | Cifra | Valor |
 | --- | --- |
 | Filas de uso (`usda_use`) | 82.873 en 13.899 pares (TAXON, TAXAUTHOR) |
-| Filas de uso asignadas | 35.935: `grupo-unico` 35.386, `misma-clave` 522, `aceptado-propio` 25, `homotipico` 2 |
-| Filas de uso sin asignar | 46.938: `fuera-del-universo` 42.635, `sin-resolver` 4.272, `sin-asignar` 31 (en 11.628 pares) |
+| Filas de uso asignadas | 36.262: `grupo-unico` 35.386, `misma-clave` 522, `taxon-exacto` 327, `aceptado-propio` 25, `homotipico` 2 (eran 35.935 antes de `taxon-exacto`) |
+| Filas de uso sin asignar | 46.611: `fuera-del-universo` 42.557, `sin-resolver` 4.023, `sin-asignar` 31 (en 11.599 pares) |
 | Nombres comunes y partes | 2.920 y 6.740, todos asignados (`fnfnum-sin-planta` 0) |
-| Plantas con datos de USDA | 2.316 |
+| Plantas con datos de USDA | 2.317 |
 | Manzanilla (`matricaria-chamomilla`) | 91 filas de uso (0 con la asignación por nombre exacto) |
 | Menta (`mentha-x-piperita`) | 49 filas de uso (0 con la asignación por nombre exacto) |
-| Claves cortas distintas en las plantas asignadas | 678: 637 con candidatas y 41 sin ninguna |
+| Claves cortas distintas en las plantas asignadas | 679: 638 con candidatas y 41 sin ninguna |
 
 Las 31 filas `sin-asignar` son las de nombres que resuelven a un grupo partido sin el propio aceptado y sin miembro con su clave (*Brassica oleracea*, con 15 filas, y *Citrus bigaradia*, *C. fusca*, *C. natsudaidai* y *C. nobilis*). El efecto de la regla de colisiones sobre USDA: 51 plantas menos, 45 plantas con cambios en sus datos (por ejemplo `aloe-vera` pasa de 24 a 128 filas de uso por *Aloe barbadensis*, y `cinnamomum-verum` de 28 a 41 por *Cinnamomum zeylanicum*) y una fila más asignada (la de *Erythroxylum havanense*, que antes quedaba sin asignar). *Citrus × sudachi* y *C. × sphaerocarpa* siguen siendo plantas propias, con sus nombres comunes.
+
+### Defecto 3 de la QA: plantas que perdían sus usos
+
+La QA del cambio encontró 26 plantas con usos en el catálogo anterior (el de USDA por nombre exacto del TAXON) y ninguno en la semilla nueva.
+La causa de 17 era un error de la asignación y está corregida.
+Las filas de ETHNOBOT no traen autor (TAXAUTHOR vacío en las 327 filas afectadas), pero la entrada de USDA de la planta sí (*Eupatorium odoratum* L.).
+Sin autor, `Universe.assign` resuelve el nombre solo, y eso falla de dos maneras: el nombre es un homónimo ambiguo en WCVP (*Eupatorium odoratum* L. y *E. odoratum* Walter, *Cimicifuga foetida* L. y Pursh, *Chrysanthemum balsamita*, *Origanum creticum*, *Satureja obovata*), así que queda `sin-resolver`; o resuelve a otro aceptado homónimo que no está en el universo (*Senecio aureus* Georgi en WFO en vez de *Packera aurea*, *Piper angustifolium* Lam. en vez de *P. aduncum* var. *aduncum*, *Justicia procumbens* L. en WFO en vez de *Rostellularia procumbens*), así que queda `fuera-del-universo`.
+Las nueve plantas de solo género (*Eucalyptus sp*, *Gossypium sp*, ...) nunca resuelven porque no tienen especie, y también quedaban `sin-resolver`.
+
+Regla corregida (`usda_assign.py`): si el TAXON de un par es, escrito igual (sin distinguir mayúsculas ni espacios repetidos), el nombre de una entrada `usda:<FNFNUM>` y esas entradas son de una sola planta, la fila va a esa planta con el motivo `taxon-exacto`, tanto si el resolvedor no la resuelve como si la lleva a otra planta.
+Un nombre que llevan entradas de dos plantas distintas no se fuerza: sigue la resolución taxonómica.
+La entrada es la misma identidad que el catálogo anterior usaba, y el resolvedor sigue valiendo para los nombres que no coinciden con ninguna entrada (sinónimos como *Matricaria recutita*).
+Impacto medido en los 13.899 pares del universo real: 1.509 pares (30.157 filas) ya iban a la planta de su entrada y no cambian; 29 pares (327 filas) no tenían destino y ahora lo tienen; 0 pares cambian de una planta a otra; 0 nombres de entrada ambiguos entre plantas; el resto (12.361 pares) no coincide con ninguna entrada y no se toca.
+Los 29 pares son los de las 17 plantas más otras 11 que también perdían filas sin que la QA lo viera (*Prunus dulcis* 38 filas, *Diospyros tomentosa* 29, *Thymus capitatus*, *Zanthoxylum alatum*, *Garcinia cambogia*, *Satureja vulgaris*, *Amaranthus sp.*, *Morinda sp*, *Lamium sp*, *Murraya sp* y *Andropogon virginicus*).
+
+Cambian 28 paquetes (solo la sección `uses`) y suman 327 filas de uso; `plan --seed data/seed` los lista por `bundleHash`, más `malachra-alaceaefolia` (sin registro y sin datos, que sigue fuera). Los lotes de 10 están en `data/work/generation/fix2/lot-NN.txt` y `lots.json`, con las 17 plantas que perdían usos primero.
+
+Las otras 9 plantas de la lista (`actaea-pachypoda`, `dalbergia-nitidula`, `dictamnus-hispanicus`, `duboisia-leichhardtii`, `eucalyptus-cladocalyx`, `hyacinthus-orientalis`, `inocarpus-fagifer`, `huperzia-selago` y `strophanthus-gratus`) no tienen un error de asignación: la asignación ya les daba las filas y su paquete las trae.
+En 8 la única fila de USDA es de toxicidad o abortivo (`Poison`, `Poison(Arrow)`, `Fatality`, `Abortifacient`), y el consolidador la pasó a `safety` y no a `traditionalUses`, que es lo que pide el prompt.
+El catálogo anterior las contaba como «uso» porque no distinguía seguridad de uso tradicional.
+La novena, `inocarpus-fagifer`, tiene 12 grupos de uso reales (astringente, diarrea, hemorragia, ...) y su registro quedó con 0: es una omisión del consolidador y no del pipeline, y se corrige regenerándola (ya está con el paquete vigente y no entra en `plan`).
 
 ## Pruebas
 

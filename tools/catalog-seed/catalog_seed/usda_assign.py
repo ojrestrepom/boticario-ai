@@ -3,7 +3,9 @@
 Los nombres comunes y las partes traen FNFNUM y se asignan por la entrada `usda:<FNFNUM>` del universo. Las filas de uso
 (ETHNOBOT) solo traen el nombre (TAXON) y el autor (TAXAUTHOR): se asignan con `Universe.assign`, por resolución taxonómica y
 no por nombre exacto, de modo que una fila bajo un sinónimo (*Matricaria recutita*) llega a la planta del aceptado. Cada par distinto
-(TAXON, TAXAUTHOR) se resuelve una sola vez, en orden alfabético. Una fila bajo un sinónimo heterotípico fusionado por la regla de
+(TAXON, TAXAUTHOR) se resuelve una sola vez, en orden alfabético. Un par cuyo TAXON, escrito igual, es el nombre de una entrada `usda:<FNFNUM>` de una sola planta
+va a esa planta ("taxon-exacto"), como hacía el catálogo anterior, aunque el resolvedor no lo resuelva o lo lleve a otra: la fila no trae autor, el nombre
+sin autor es ambiguo o es el de otro aceptado homónimo (*Eupatorium odoratum* L. frente a *E. odoratum* Walter), y la entrada, que sí trae el autor, es la identidad de la fila. Una fila bajo un sinónimo heterotípico fusionado por la regla de
 colisiones (*Cinnamomum zeylanicum*) llega a la planta del aceptado en la que se fusionó, tanto por FNFNUM (la entrada `usda:<FNFNUM>`
 es de esa planta) como por `Universe.assign` (comparte sus claves). `Universe.assign` registra en el universo (`unassigned` y el flag
 `unassigned_rows`) las filas que no puede asignar, así que la llamada tiene ese efecto lateral.
@@ -42,6 +44,20 @@ class UsdaAssignment(object):
 
     def canonical(self):
         return json.dumps(self.to_dict(), sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+
+def _name_key(text):
+    return re.sub(r"\s+", " ", (text or "").strip()).lower()
+
+
+def _usda_name_map(uni):
+    """Nombre escrito de cada entrada de USDA (en minúsculas, espacios simples) -> planta, solo si lo lleva una sola planta."""
+    found = {}
+    for plant in uni.plants:
+        for entry in plant.entries:
+            if entry.source == SOURCE:
+                found.setdefault(_name_key(entry.name), {})[plant.id] = plant
+    return {name: next(iter(plants.values())) for name, plants in found.items() if len(plants) == 1}
 
 
 def _plant_entry_map(uni):
@@ -92,9 +108,15 @@ def assign_usda(uni, connection, max_candidates=MAX_CANDIDATES):
         pairs.setdefault((row["raw_name_cell"] or row["content"].get("taxon") or "", (row["content"].get("taxauthor") or "").strip()), []).append(row)
     pair_plant = {}
     reasons_assigned, unassigned_pairs = {}, []
+    exact_plant = _usda_name_map(uni)
     for pair in sorted(pairs):
         name, author = pair
+        n_unassigned = len(uni.unassigned)
         plant, reason = uni.assign(name, author=author or None, source="usda_use")
+        exact = exact_plant.get(_name_key(name))
+        if exact is not None and plant is not exact:
+            del uni.unassigned[n_unassigned:]   # la fila se recupera: no queda sin asignar
+            plant, reason = exact, "taxon-exacto"
         rows = pairs[pair]
         if plant is None:
             unassigned_pairs.append({"kind": "usda_use", "reason": reason, "name": name, "author": author, "rows": len(rows),

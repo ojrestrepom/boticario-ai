@@ -97,6 +97,9 @@ class AssignUsdaTest(unittest.TestCase):
             use("3", "Matricaria recutita", "Fever", "Egypt", "Woi.10", "L."),
             use("4", "Matricaria recutita", "Colic", "", "Eb24: 441", "L."),
             use("20", "Mentha piperita", "Colic", "Italy", "EB35:24", "L."),
+            taxon("12", "Gossypium sp"),
+            use("40", "Gossypium sp", "Colic", "Peru", "Woi.10"),
+            use("41", "Gossypium sp", "Colic", "Peru", "Woi.10"),
             use("30", "Quercus nonexistens", "Cough", "Peru", "Woi.10"),
             use("31", "Quercus nonexistens", "Cough", "Peru", "Woi.10"),
             Row("usda_reference", "Burkill, 1966", {"reference": "Burkill, 1966", "longref": "Burkill 1966 Dictionary"}, raw_name_cell="Burkill, 1966"),
@@ -145,10 +148,29 @@ class AssignUsdaTest(unittest.TestCase):
         self.assertEqual((quercus["reason"], quercus["rows"], quercus["examples"]), ("sin-resolver", 2, ["30", "31"]))
         ghost = by_kind[("usda_common_name", "Fantasma")]
         self.assertEqual((ghost["reason"], ghost["rows"]), ("fnfnum-sin-planta", 1))
-        self.assertEqual(result.stats["use_rows_assigned"], 5)
+        self.assertEqual(result.stats["use_rows_assigned"], 7)
         self.assertEqual(result.stats["use_rows_unassigned"], 2)
         self.assertEqual(result.stats["use_rows_unassigned_by_reason"], {"sin-resolver": 2})
         self.assertEqual(result.stats["short_keys_without_candidates"], 0)
+
+    def test_row_with_the_exact_taxon_of_an_entry_goes_to_its_plant(self):
+        # "Gossypium sp" no se resuelve (solo género): el catálogo anterior la asignaba por el nombre exacto de la entrada.
+        self.assertEqual(self.uni.assign("Gossypium sp", source="usda_use")[0], None)
+        self.uni.unassigned.clear()
+        result = self.run_assign()
+        self.assertEqual(result_group(result, "gossypium-sp", "Colic")["refs"], ["usda_use:40", "usda_use:41"])
+        self.assertEqual(result.stats["use_rows_assigned_by_reason"]["taxon-exacto"], 2)
+        self.assertNotIn("Gossypium sp", [u["name"] for u in result.unassigned])
+        self.assertEqual([u["name"] for u in self.uni.unassigned if u["name"] == "Gossypium sp"], [])
+
+    def test_exact_taxon_wins_over_another_destination_of_the_resolver(self):
+        other = self.uni.assign("Mentha piperita", author="L.")[0]
+        gossypium = self.uni.plant("gossypium-sp")
+        real_assign = self.uni.assign
+        self.uni.assign = lambda name, **kw: (other, "grupo-unico") if name == "Gossypium sp" else real_assign(name, **kw)
+        result = self.run_assign()
+        self.assertEqual(result_group(result, gossypium.id, "Colic")["n"], 2)
+        self.assertEqual(result_group(result, other.id, "Colic")["refs"], ["usda_use:20"])
 
     def test_result_is_deterministic(self):
         first = self.run_assign().canonical()

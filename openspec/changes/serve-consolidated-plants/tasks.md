@@ -52,7 +52,7 @@ Nota: este cambio depende de que `consolidate-catalog-seed` esté implementado (
 - [x] 7.4 Reescribir `Propiedades` con `Objetivos registrados por la EMA` (nombre, subárea, área, tipo de documento, cita y aclaración fija) y `Precauciones` (nivel como texto si existe, texto y citas, o el aviso de ausencia de datos; sin etiqueta de nivel cuando `level` es nulo); verificar con widget tests de «Planta con objetivos de la EMA», «Objetivo de otros objetivos», «Plantas sin evaluación respaldada», «Precauciones de nivel alto», «Precauciones sin nivel», «Precauciones sin datos» y «Ninguna planta se presenta como segura», y con una prueba que recorre los textos fijos buscando palabras de efecto.
 - [x] 7.5 Reescribir `Usos` con el aviso fijo al inicio (texto provisional en un solo lugar del código, siempre visible, también sin usos) y por grupos (actividad, `Registro tradicional`, número de registros, países, todas las citas, las no resueltas como «(sin resolver)» en estilo atenuado, y la aclaración) con el vacío explícito vigente; sin lógica nueva para actividades sensibles; verificar con widget tests de «Registro tradicional elegible», «Aviso fijo de usos tradicionales», «Cita sin resolver visible», «Actividades sensibles tal como llegan», «Grupo sin países», «Sin registro elegible» y «Muchos usos» (decenas de grupos desplazables, sin truncar).
 - [x] 7.6 Implementar la sección `Fuentes` tras el contenido de la pestaña activa (créditos, entrada de la imagen, texto de licencias mixtas y vacío explícito); verificar con widget tests de «Fuentes de una planta», «Fuentes visibles en cada pestaña», «Entrada de la imagen», «Sin créditos» y «Sin procedencia por campo», y de «Atribución sin procedencia por campo».
-- [ ] 7.7 Comprobar la accesibilidad del pasaporte a 360x640 dp al 100 % y 200 % (pie de imagen, enlaces, `Fuentes`, áreas de toque de 48 dp, nivel de precauciones en texto, descripción de la imagen); verificar con los widget tests de accesibilidad adaptados y los de «Imagen descrita» y «Nivel de precauciones sin depender del color».
+- [x] 7.7 Comprobar la accesibilidad del pasaporte a 360x640 dp al 100 % y 200 % (pie de imagen, enlaces, `Fuentes`, áreas de toque de 48 dp, nivel de precauciones en texto, descripción de la imagen); verificar con los widget tests de accesibilidad adaptados y los de «Imagen descrita» y «Nivel de precauciones sin depender del color».
 
 ## 8. Explorar
 
@@ -61,14 +61,14 @@ Nota: este cambio depende de que `consolidate-catalog-seed` esté implementado (
 
 ## 9. Documentación de la app
 
-- [ ] 9.1 Actualizar `README.md` y `app/README.md` en lo que describan el pasaporte y la API (campos nuevos, imágenes de Wikimedia, `Fuentes`, estados sin datos, comportamiento ante un backend anterior); verificar con `grep` que no queda «arte local» como único origen de la cabecera ni la afirmación de que el pasaporte no muestra créditos, y que cada párrafo y elemento de lista está en una sola línea (`check-md-lines.py` del cambio archivado `add-api-token-auth`).
+- [x] 9.1 Actualizar `README.md` y `app/README.md` en lo que describan el pasaporte y la API (campos nuevos, imágenes de Wikimedia, `Fuentes`, estados sin datos, comportamiento ante un backend anterior); verificar con `grep` que no queda «arte local» como único origen de la cabecera ni la afirmación de que el pasaporte no muestra créditos, y que cada párrafo y elemento de lista está en una sola línea (`check-md-lines.py` del cambio archivado `add-api-token-auth`).
 - [x] 9.2 Documentar en `docs/data/fuentes-y-licencias.md` (creado por el cambio 1) qué licencias se muestran al usuario, dónde y los términos aún no verificados de la EMA y TPPT; verificar leyendo el documento contra los widget tests de `Fuentes` (hecho); la comprobación contra la sección `Fuentes` real en el emulador queda para la QA (grupo 11).
 
 ## 10. Verificación global
 
-- [ ] 10.1 Desde `app/`, ejecutar `flutter pub get --enforce-lockfile`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/`; verificar que todo queda en verde.
-- [ ] 10.2 Desde `backend/`, ejecutar `mise exec -- cargo fmt --all --check`, `mise exec -- cargo clippy --all-targets --workspace --locked -- -D warnings` y `mise exec -- cargo test --workspace --locked`, y las pruebas ignoradas con la base real; verificar que todo queda en verde.
-- [ ] 10.3 Ejecutar `openspec validate serve-consolidated-plants --strict`; verificar que pasa.
+- [x] 10.1 Desde `app/`, ejecutar `flutter pub get --enforce-lockfile`, `dart format --output=none --set-exit-if-changed .`, `flutter analyze` y `flutter test test/`; verificar que todo queda en verde.
+- [x] 10.2 Desde `backend/`, ejecutar `mise exec -- cargo fmt --all --check`, `mise exec -- cargo clippy --all-targets --workspace --locked -- -D warnings` y `mise exec -- cargo test --workspace --locked`, y las pruebas ignoradas con la base real; verificar que todo queda en verde.
+- [x] 10.3 Ejecutar `openspec validate serve-consolidated-plants --strict`; verificar que pasa.
 
 ## 11. QA de la API y de la app
 

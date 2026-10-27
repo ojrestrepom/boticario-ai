@@ -55,3 +55,5 @@ Para PNG, GIF y SVG la miniatura se serviría rasterizada; no se probó.
 Como el original supera 2 MB en el 40 % de la muestra y llega a 74 MB, conviene pedir un ancho acotado (500 px para la cabecera). La tarea 6.4 pide abrir la decisión con el usuario antes de seguir en ese caso, así que no se implementó la miniatura: `PlantImagePolicy.providerFor` carga hoy `image.url` tal cual.
 
 La opción es una función pura que convierta `image.url` en la URL de miniatura (solo si la ruta es `/wikipedia/commons/<a>/<ab>/<archivo>`) y que la política aplique en la cabecera; si la ruta no encaja se usaría el original o el arte local. La decisión es del usuario.
+
+Decisión del usuario (2026-10-27): miniatura de 500 px, implementada en la tarea 6.4. Comprobación con red: las miniaturas de lavanda, manzanilla romana, manzanilla común y *Berberis aquifolium* (original de 74,65 MB, miniatura de 115 KB), una PNG (547 KB), dos SVG servidas como PNG (128 y 177 KB) y dos GIF respondieron 200.

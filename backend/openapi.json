@@ -78,7 +78,7 @@
           {
             "name": "q",
             "in": "query",
-            "description": "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal. No admite caracteres de control.",
+            "description": "Subcadena a buscar en el nombre científico, los sinónimos, los nombres comunes y los identificadores anteriores (alias) de la planta, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal. No admite caracteres de control.",
             "required": false,
             "schema": {
               "type": "string",
@@ -183,12 +183,13 @@
           "catalog"
         ],
         "summary": "Detalle de una planta.",
+        "description": "El identificador puede ser el de una planta o un identificador anterior (alias): en ese caso responde 200 con el detalle de la planta canónica y la cabecera `Content-Location`, sin redirección.",
         "operationId": "get_plant",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.",
+            "description": "Identificador público de la planta, por ejemplo `lavandula-angustifolia`, o un identificador anterior (alias) que resuelve a una planta. Un identificador de planta tiene prioridad sobre un alias igual.",
             "required": true,
             "schema": {
               "type": "string"
@@ -197,7 +198,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Detalle de la planta",
+            "description": "Detalle de la planta. Si el identificador pedido era un alias, es el detalle de la planta canónica (su `id` es el canónico) y la respuesta lleva `Content-Location`; no hay redirección.",
+            "headers": {
+              "Content-Location": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Solo cuando el identificador pedido era un alias: la ruta canónica de la planta, por ejemplo `/v1/plants/salvia-rosmarinus`."
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -290,6 +299,45 @@
           "text": {
             "type": "string",
             "description": "Texto del nombre."
+          }
+        }
+      },
+      "CreditDto": {
+        "type": "object",
+        "description": "Crédito de un dataset que respalda los datos de la planta. Es neutral: no dice qué campo proviene de él.",
+        "required": [
+          "name",
+          "license",
+          "licenseUrl",
+          "attribution",
+          "url"
+        ],
+        "properties": {
+          "attribution": {
+            "type": "string",
+            "description": "Atribución exigida por la licencia."
+          },
+          "license": {
+            "type": "string",
+            "description": "Licencia, en texto."
+          },
+          "licenseUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL de la licencia, o `null` si la fuente no tiene una."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre legible del dataset."
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Página del dataset o, si la descripción resume un artículo, enlace a ese artículo; `null` si no existe."
           }
         }
       },
@@ -540,9 +588,17 @@
           "useGroups",
           "goals",
           "safety",
-          "image"
+          "image",
+          "credits"
         ],
         "properties": {
+          "credits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreditDto"
+            },
+            "description": "Datasets que respaldan los datos de la planta, sin repeticiones y ordenados por nombre; no indica qué dato viene de cuál."
+          },
           "description": {
             "type": [
               "string",

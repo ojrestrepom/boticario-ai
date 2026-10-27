@@ -5,7 +5,7 @@
 //! Todos los DTOs viven en este módulo y derivan `ToSchema`: de ellos sale el documento OpenAPI, así que el contrato HTTP se define en un solo sitio.
 
 use catalog_core::domain::{
-    Goal, Image, NameKind, Page, Part, Plant, PlantName, PlantSummary, Reference, Safety,
+    Credit, Goal, Image, NameKind, Page, Part, Plant, PlantName, PlantSummary, Reference, Safety,
     SafetyLevel, Use, UseGroup, UseGroupReference,
 };
 use serde::Serialize;
@@ -360,6 +360,36 @@ impl From<Image> for ImageDto {
     }
 }
 
+/// Crédito de un dataset que respalda los datos de la planta. Es neutral: no dice qué campo proviene de él.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct CreditDto {
+    /// Nombre legible del dataset.
+    pub name: String,
+    /// Licencia, en texto.
+    pub license: String,
+    /// URL de la licencia, o `null` si la fuente no tiene una.
+    #[schema(required = true)]
+    pub license_url: Option<String>,
+    /// Atribución exigida por la licencia.
+    pub attribution: String,
+    /// Página del dataset o, si la descripción resume un artículo, enlace a ese artículo; `null` si no existe.
+    #[schema(required = true)]
+    pub url: Option<String>,
+}
+
+impl From<Credit> for CreditDto {
+    fn from(c: Credit) -> Self {
+        Self {
+            name: c.name,
+            license: c.license,
+            license_url: c.license_url,
+            attribution: c.attribution,
+            url: c.url,
+        }
+    }
+}
+
 /// Detalle completo de una planta.
 ///
 /// Los campos consolidados están siempre presentes: con `null` o lista vacía cuando la planta no tiene el dato.
@@ -401,6 +431,8 @@ pub struct PlantDto {
     /// Imagen con su licencia, o `null`.
     #[schema(required = true)]
     pub image: Option<ImageDto>,
+    /// Datasets que respaldan los datos de la planta, sin repeticiones y ordenados por nombre; no indica qué dato viene de cuál.
+    pub credits: Vec<CreditDto>,
 }
 
 impl From<Plant> for PlantDto {
@@ -421,6 +453,7 @@ impl From<Plant> for PlantDto {
             goals: p.goals.into_iter().map(Into::into).collect(),
             safety: p.safety.map(Into::into),
             image: p.image.map(Into::into),
+            credits: p.credits.into_iter().map(Into::into).collect(),
         }
     }
 }

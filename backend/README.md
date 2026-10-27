@@ -68,8 +68,8 @@ Los logs salen por stdout en texto, una línea por evento. Llevan colores (secue
 Endpoints, todos `GET`:
 
 - `/health`: estado del servicio (público).
-- `/v1/plants`: lista paginada, con búsqueda opcional por `q` (exige token).
-- `/v1/plants/{id}`: detalle de una planta (exige token).
+- `/v1/plants`: lista paginada, con búsqueda opcional por `q` en los nombres, los sinónimos y los identificadores anteriores (exige token).
+- `/v1/plants/{id}`: detalle de una planta; el `id` puede ser también un identificador anterior (exige token).
 - `/openapi.json`: el contrato OpenAPI (público).
 
 Todo camino bajo `/v1`, también los inexistentes y los métodos no permitidos, exige `Authorization: Bearer <token>` (el nombre del esquema no distingue mayúsculas). Sin la cabecera, con otro esquema o con un token que no coincide con ninguno, la respuesta es 401 `application/problem+json` con `WWW-Authenticate: Bearer`, siempre igual para no revelar el motivo.
@@ -78,6 +78,123 @@ Todo camino bajo `/v1`, también los inexistentes y los métodos no permitidos, 
 TOKEN=<uno-de-los-tokens-de-API_TOKENS>
 curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants?q=lavand'
 ```
+
+### Qué devuelve la API
+
+Cada elemento del listado lleva `id`, `scientificName`, `displayName` (el nombre para mostrar que guarda la semilla: un nombre común en español o, si no hay, el científico), `commonNames` (con `displayName` primero si es un nombre común y el resto por texto e idioma) y `family`.
+
+El detalle suma `names`, `parts` y `uses` (una fila por referencia resuelta, con la etiqueta de la referencia como cita) y los campos consolidados, siempre presentes (`null` o lista vacía si la planta no tiene el dato):
+
+- `synonyms`, `description`, `origin` y `oil` (`{"type": "Esencial"}`).
+- `useGroups`: grupos de uso tradicional por número de registros descendente y actividad, con `activity`, `activitySource`, `count`, `countries` y `references`; la `citation` de cada referencia es el texto completo de la cita y una cita sin obra identificada lleva `id` nulo, `resolved` falso y «<clave> (sin resolver)».
+- `goals`: objetivos por nombre, con `id`, `name`, `subarea` (solo en «otros objetivos»), `area`, `evidence` y `references`.
+- `safety`: `level` (`alto`, `medio`, `bajo` o `null` si las fuentes traen advertencias pero ninguna fija un nivel, como el eucalipto), `text` y `references`; es `null` solo cuando no hay ningún dato, lo que no significa que la planta sea segura.
+- `image`: `url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`, o `null`. La API solo entrega los datos del registro: no descarga ni sirve la imagen.
+- `credits`: los datasets que respaldan los datos de la planta, sin repeticiones y ordenados por nombre, cada uno con `name`, `license`, `licenseUrl` (de `source.license_url`, `null` si la fuente no la tiene), `attribution` y `url`. Es neutral: no dice qué campo viene de qué dataset. Si la descripción resume un artículo, la `url` del crédito de ese dataset es la del artículo.
+
+Una planta con `reviewFlags` se sirve igual, y la API no los expone. Solo omite lo que la semilla marca como pendiente de revisión: los objetivos con `plant_goal.pending_review` (hoy `relajacion-estres` del hipérico) y los grupos de uso con `plant_use_group.pending_review` (sin ninguna cita resuelta), que tampoco generan filas en `uses`. Un grupo con al menos una cita resuelta se sirve con todas sus citas. La regla depende solo de esas columnas; la API no interpreta códigos de flags.
+
+Fragmentos de la respuesta real de `GET /v1/plants/lavandula-angustifolia` con la base construida desde la semilla (cada objeto está completo; se omiten el resto de los elementos de cada lista):
+
+```bash
+TOKEN=<token>
+curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants/lavandula-angustifolia'
+```
+
+```json
+"displayName": "Lavanda",
+"oil": {"type": "Esencial"},
+"useGroups[0]": {
+  "activity": "Carminativo",
+  "activitySource": "Carminative",
+  "count": 2,
+  "countries": [
+    "Otros lugares",
+    "Turquía"
+  ],
+  "references": [
+    {
+      "id": "usda_reference:Steinmetz",
+      "citation": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam.",
+      "resolved": true
+    },
+    {
+      "id": "usda_reference:WOI",
+      "citation": "The Wealth of India, vol. 6",
+      "resolved": true
+    }
+  ]
+},
+"goals[0]": {
+  "id": "mejorar-el-sueno",
+  "name": "Mejorar el sueño",
+  "subarea": null,
+  "area": "Trastornos del sueño e insomnio pasajero",
+  "evidence": "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.",
+  "references": [
+    {
+      "id": "ema_herbal:lavandulae-aetheroleum",
+      "citation": "EMA: Lavandulae aetheroleum"
+    },
+    {
+      "id": "ema_herbal:lavandulae-flos",
+      "citation": "EMA: Lavandulae flos"
+    }
+  ]
+},
+"image": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg",
+  "pageUrl": "https://commons.wikimedia.org/wiki/File:Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg",
+  "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+  "license": "Public domain",
+  "licenseUrl": null,
+  "attributionRequired": false
+},
+"credits[5]": {
+  "name": "Wikipedia en español",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attribution": "Colaboradores de Wikipedia en español (https://es.wikipedia.org). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.",
+  "url": "https://es.wikipedia.org/wiki/Lavandula_angustifolia"
+}
+```
+
+Los créditos de la lavanda son EFSA, las dos fuentes de la EMA, TPPT, USDA, Wikipedia en español y WCVP; los del eucalipto cambian TPPT por Wikidata. El crédito de Wikipedia enlaza al artículo de la planta porque la descripción lo resume.
+
+### Identificadores anteriores
+
+El ID de una planta es el slug de su nombre aceptado, y los anteriores se guardan como alias. `GET /v1/plants/{id}` busca primero el ID de planta (siempre gana) y luego el alias. Con un alias responde 200 con el detalle de la planta canónica, su `id` canónico en el cuerpo y la cabecera `Content-Location`, sin redirección; con un ID canónico no lleva esa cabecera, y con uno desconocido responde 404. Es la misma ruta, con el mismo token:
+
+```bash
+curl -i -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants/rosmarinus-officinalis'
+```
+
+```text
+HTTP/1.1 200 OK
+content-type: application/json
+content-location: /v1/plants/salvia-rosmarinus
+```
+
+El listado nunca incluye alias como plantas. `q` sí los usa para encontrar la planta: además de los nombres, compara `slug(q)` (la consulta normalizada con los caracteres que no son letras ni dígitos reducidos a un guion) por subcadena con cada alias, de modo que `Acinos thymoides` encuentra `clinopodium-acinos`. Cada planta cuenta una vez aunque coincida por varias vías, el alias no se devuelve como nombre y una consulta sin letras ni dígitos (como `%`) no busca en alias. Respuesta real de `GET /v1/plants?q=acinos%20thymoides`:
+
+```json
+{
+  "items": [
+    {
+      "id": "clinopodium-acinos",
+      "scientificName": "Clinopodium acinos",
+      "displayName": "Clinopodium acinos",
+      "commonNames": [],
+      "family": "Lamiaceae"
+    }
+  ],
+  "total": 1,
+  "limit": 20,
+  "offset": 0
+}
+```
+
+La búsqueda es por subcadena, así que `mentha piperita` no encuentra nada (el alias de `mentha-x-piperita` que la menciona lleva una `x` en medio), mientras que `mentha x piperita` sí lo encuentra.
 
 ## 4. Contrato OpenAPI
 

@@ -8,7 +8,7 @@ Documentos relacionados:
 - [La fuente USDA](usda-catalog.md): procedencia, límites y cruce de usos por sinónimos resueltos.
 - [Regeneración incremental, versiones y reviewFlags](regeneracion-de-la-semilla.md): `plan`, `bundleHash`, versionado de prompt y modelo, y el catálogo de `reviewFlags`.
 - [README de las herramientas](../../tools/catalog-seed/README.md): referencia operativa de cada comando de `tools/catalog-seed/`.
-- [`backend/openapi.json`](../../backend/openapi.json): el contrato HTTP. La API sirve los mismos endpoints y campos de siempre: los campos nuevos de la semilla se guardan en tablas nuevas y los expondrá un cambio posterior.
+- [`backend/openapi.json`](../../backend/openapi.json): el contrato HTTP. La API sirve los campos consolidados de la semilla, los créditos y los identificadores anteriores (véase «Lo que la API sirve»).
 - Para ejecutar el backend, ver el [README de la raíz](../../README.md); los comandos nativos para construir el catálogo, ejecutar la API y verificar están en [`backend/README.md`](../../backend/README.md).
 
 ## 1. Las capas
@@ -38,7 +38,7 @@ La base tiene 25 tablas: las 12 del esquema v1 (las que lee la API) y 13 nuevas 
 | Tabla | Contenido |
 | --- | --- |
 | `metadata` | Pares clave-valor de la base; guarda `schema_version`. |
-| `source` | Fuentes del manifiesto: id, nombre, versión, licencia, cita (la atribución), URL de la página y checksum del insumo. |
+| `source` | Fuentes del manifiesto: id, nombre, versión, licencia, cita (la atribución), URL de la página, checksum del insumo y `license_url`, la URL de la licencia (nulable: es `null` en las fuentes sin una licencia con URL única). |
 | `plant` | Plantas; el ID es el de la semilla, con el nombre científico, su forma normalizada, la familia y la fuente que la aportó (`family_source_id`). |
 | `plant_source_id` | Procedencia: el identificador que cada fuente da a la planta (`plant_id`, `source_id`, `source_plant_id`). Es un dato de procedencia, no un identificador público. |
 | `plant_name` | Nombres científicos y comunes, con idioma y versión normalizada para buscar. |
@@ -68,7 +68,32 @@ La migración está en `data/migrations/2026-10-26-000000_catalog_v2/up.sql`. La
 
 ### Procedencia y atribución
 
-La procedencia es interna: la API no la expone. Un dato con varias fuentes significa que todas lo respaldan, y la atribución las conserva todas. La familia es un valor único, así que `plant` guarda cuál fuente la aportó (el dataset del primer ref del nombre científico). Las tablas `plant_*_source` y `reference_source` se rellenan con el dataset de los refs de cada dato; `plant_profile_ref`, `plant_goal_ref`, `plant_safety_ref` y `plant_use_group_ref` conservan la referencia concreta.
+La procedencia por dato es interna: la API no dice de qué fuente viene cada nombre, parte, uso, grupo, objetivo o nivel. Un dato con varias fuentes significa que todas lo respaldan, y la atribución las conserva todas. La familia es un valor único, así que `plant` guarda cuál fuente la aportó (el dataset del primer ref del nombre científico). Las tablas `plant_*_source` y `reference_source` se rellenan con el dataset de los refs de cada dato; `plant_profile_ref`, `plant_goal_ref`, `plant_safety_ref` y `plant_use_group_ref` conservan la referencia concreta.
+
+Lo que sí sale por la API es la atribución a nivel de planta (`credits`), descrita en la sección siguiente.
+
+### Lo que la API sirve
+
+El listado de `GET /v1/plants` suma `displayName` (el `plant_profile.display_name` de la semilla, o el nombre científico si la planta no tiene perfil) y deja ese nombre primero entre los `commonNames` cuando es un nombre común. El detalle de `GET /v1/plants/{id}` conserva `id`, `scientificName`, `family`, `names`, `parts` y `uses` (cuya cita sigue siendo la etiqueta de `reference.citation`) y suma, siempre presentes y con `null` o lista vacía si no hay dato:
+
+| Campo del detalle | De dónde sale |
+| --- | --- |
+| `displayName`, `description`, `origin`, `oil` | `plant_profile` (`display_name`, `description`, `origin`, `oil_type`). |
+| `synonyms` | Los demás nombres científicos de `plant_name`, sin repetir. |
+| `useGroups` | `plant_use_group` y `plant_use_group_ref`, por `n` descendente y actividad. La `citation` de cada referencia es `plant_use_group_ref.text` (la cita completa) y no la etiqueta de `reference`; una cita sin resolver lleva `id` nulo y `resolved` falso. |
+| `goals` | `plant_goal` con `goal.label` como nombre y `goal_subarea.label` como subárea, por nombre. |
+| `safety` | `plant_safety` y `plant_safety_ref`; `level` es `alto`, `medio`, `bajo` o `null`, y todo el objeto es `null` solo sin fila. |
+| `image` | `plant_image`; la API no descarga ni sirve la imagen. |
+| `credits` | La unión sin repeticiones de las fuentes de la planta, ordenada por nombre: `source` por las tablas `plant_name_source`, `plant_part_source` y `plant_use_source`, por `plant.family_source_id` y por el `reference.dataset` de las referencias del perfil, de los objetivos, de las precauciones y de los grupos de uso servidos. `name`, `license`, `licenseUrl` (`source.license_url`), `attribution` (`source.citation`) y `url` salen de `source`, no de `reference`. Si la descripción cita un artículo, la `url` de ese dataset es la `reference.url` del artículo. No indica qué campo viene de qué dataset. |
+
+Reglas de lo que no se sirve:
+
+- La API omite los objetivos con `plant_goal.pending_review` y los grupos de uso con `plant_use_group.pending_review` (ninguna cita resuelta); estos últimos tampoco generan filas en `uses`. Un grupo con al menos una cita resuelta se sirve con todas sus citas. La regla depende solo de esas columnas, sin tabla de reglas en la API, y no indica que algo se omitió.
+- Los `reviewFlags` (`plant_review_flag`) no salen en ninguna respuesta ni en el documento OpenAPI, y una planta con flags se sirve completa. Lo omitido por `pending_review` tampoco acredita su fuente en `credits`.
+
+Los alias de `plant_alias` se usan en dos sitios. En `GET /v1/plants/{id}`, un ID que no es el de una planta pero sí un alias responde 200 con el detalle de la planta canónica y la cabecera `Content-Location: /v1/plants/<canónico>`, sin redirección; un ID de planta gana siempre a un alias igual. En `q`, la consulta reducida con `slug` se compara por subcadena con el alias, y la planta se une al resultado de la búsqueda por nombres sin duplicarla ni devolver el alias como nombre. El listado nunca incluye alias como plantas. Con la base real, los 357 nombres anteriores que la QA del cambio `consolidate-catalog-seed` no encontraba (API-04) encuentran su planta nueva; `mentha piperita` sigue sin resultado porque no es subcadena de ningún nombre ni alias (`mentha x piperita` sí lo encuentra).
+
+Los textos de ejemplo y el detalle de los campos están en el [README del backend](../../backend/README.md#qué-devuelve-la-api).
 
 ## 3. Mapeo de la semilla a las tablas
 
@@ -100,7 +125,7 @@ Las aplican las herramientas de `tools/catalog-seed/` antes de la semilla; el ba
 
 - **Identidad e ID.** Los nombres de USDA y de la EMA se normalizan y se resuelven con WCVP, con WFO solo como respaldo (flag `respaldo-wfo`). El ID es el slug del nombre aceptado de WCVP, generado una vez y fijo en la semilla: si Kew renombra, cambia el nombre mostrado y no el ID. Los nombres que no resuelven conservan la identidad de la fuente con un `reviewFlag`.
 - **Regla de colisiones («criterio de Wikipedia»).** Cuando varias plantas resuelven al mismo aceptado, se fusionan siempre el aceptado y sus sinónimos homotípicos. Un miembro heterotípico queda como planta propia (flag `grupo-partido`) solo si su nombre tiene artículo propio en Wikipedia en español, o si está en `collision-exceptions.json`. Si no, se fusiona con el aceptado (flag `fusion-heterotipica`). La decisión de cada grupo se registra una vez en `collision-decisions.json`, para que un cambio posterior de Wikipedia no altere IDs.
-- **Alias.** Los IDs anteriores (el slug del nombre literal de USDA de cada planta fusionada o renombrada) se guardan en `aliases` y en `plant_alias`. La API todavía no los resuelve.
+- **Alias.** Los IDs anteriores (el slug del nombre literal de USDA de cada planta fusionada o renombrada) se guardan en `aliases` y en `plant_alias`. La API los resuelve en el detalle (200 con `Content-Location`) y los usa en la búsqueda `q`.
 - **Política «variante A» del LLM.** El LLM solo elige, traduce y resume lo que está en el paquete de la planta, y cada campo cita refs del paquete; no aporta conocimiento propio. Se prohíben dosis, posologías, indicaciones de tratamiento y promesas de eficacia.
 - **Citas abreviadas.** El paquete conserva las claves cortas de USDA y suma hasta 5 candidatas por clave; el LLM elige. Una clave sin candidata queda «(sin resolver)» con el flag `cita-sin-resolver`. Un grupo es `pendingReview` solo si ninguna de sus citas se resolvió.
 - **Objetivos.** Salen solo de las áreas terapéuticas de la EMA con monografía de la UE o entrada de lista, mediante `goals-map.json`. Una planta con TPPT «strong toxic» o «very strong toxic» no recibe objetivos.
@@ -236,9 +261,9 @@ Una fuente cuya licencia no permita redistribuir su contenido no puede entrar en
 
 ## 10. Límites conocidos
 
-- **La API no indica el origen.** El detalle de una planta no dice qué fuente aportó cada dato; esa información queda en la base y no sale por el contrato HTTP. Mostrar los créditos es un cambio posterior.
-- **Los IDs cambiaron.** El ID es el slug del nombre aceptado de WCVP, no el literal de USDA, y 629 de los 2.376 IDs anteriores cambian (el piloto estimaba unos 500), por ejemplo `rosmarinus-officinalis` es ahora `salvia-rosmarinus`. Los alias anteriores se guardan en `plant_alias`, pero la API no los resuelve todavía.
+- **La API no indica el origen por dato.** El detalle de una planta no dice qué fuente aportó cada dato; solo entrega los créditos de la planta (`credits`), sin campos. La procedencia por dato queda en la base y no sale por el contrato HTTP.
+- **Los IDs cambiaron.** El ID es el slug del nombre aceptado de WCVP, no el literal de USDA, y 629 de los 2.376 IDs anteriores cambian (el piloto estimaba unos 500), por ejemplo `rosmarinus-officinalis` es ahora `salvia-rosmarinus`. Los alias anteriores se guardan en `plant_alias` y la API los resuelve en el detalle y los encuentra con `q`; la búsqueda es por subcadena, así que `mentha piperita` no encuentra `mentha-x-piperita`.
 - **No es reproducible desde cero.** Wikidata, Wikipedia, Commons y la EMA cambian, y el LLM puede dar textos distintos. La reproducibilidad está en la semilla versionada.
-- **Los pendientes no se sirven.** Los grupos de usos y los objetivos con `pendingReview` se guardan pero no generan `plant_use` ni se muestran; la capa de validación humana está fuera de alcance.
+- **Los pendientes no se sirven.** Los grupos de usos y los objetivos con `pendingReview` se guardan pero la API no los sirve y los grupos no generan `plant_use`; la capa de validación humana está fuera de alcance.
 - **Términos sin verificar.** Los términos de reutilización de la EMA y de TPPT no se verificaron contra el texto legal, y TPPT se usa con fines académicos (véase [fuentes y licencias](fuentes-y-licencias.md)).
 - **Semilla provisional.** Hasta que termine la generación completa, `data/seed/` contiene los 20 registros de la corrida de control y no se publica.

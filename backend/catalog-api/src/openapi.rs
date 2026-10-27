@@ -7,9 +7,9 @@ use utoipa::openapi::security::{HttpAuthScheme, HttpBuilder, SecurityScheme};
 use utoipa::{Modify, OpenApi};
 
 use crate::dto::{
-    CommonNameDto, GoalDto, HealthDto, ImageDto, NameDto, NameKindDto, OilDto, PageDto, PartDto,
-    PlantDto, PlantSummaryDto, ProblemDto, ReferenceDto, SafetyDto, SafetyLevelDto, UseDto,
-    UseGroupDto, UseGroupReferenceDto,
+    CommonNameDto, CreditDto, GoalDto, HealthDto, ImageDto, NameDto, NameKindDto, OilDto, PageDto,
+    PartDto, PlantDto, PlantSummaryDto, ProblemDto, ReferenceDto, SafetyDto, SafetyLevelDto,
+    UseDto, UseGroupDto, UseGroupReferenceDto,
 };
 use crate::http;
 
@@ -39,6 +39,7 @@ use crate::http;
         SafetyLevelDto,
         SafetyDto,
         ImageDto,
+        CreditDto,
         PlantDto,
         ProblemDto,
     )),
@@ -174,6 +175,45 @@ mod tests {
                     );
                 }
             }
+        }
+    }
+    #[test]
+    fn plant_detail_documents_credits_and_the_content_location_header() {
+        let doc = serde_json::to_value(openapi()).unwrap();
+        let ok = &doc["paths"]["/v1/plants/{id}"]["get"]["responses"]["200"];
+        assert!(
+            ok["headers"]["Content-Location"].is_object(),
+            "falta Content-Location en la respuesta 200: {ok}"
+        );
+        let plant = &doc["components"]["schemas"]["PlantDto"];
+        assert_eq!(plant["properties"]["credits"]["type"], "array", "{plant}");
+        let required = plant["required"].as_array().unwrap();
+        assert!(required.iter().any(|r| r == "credits"));
+        let credit = &doc["components"]["schemas"]["CreditDto"];
+        let credit_required: Vec<&str> = credit["required"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|r| r.as_str().unwrap())
+            .collect();
+        for field in ["name", "license", "licenseUrl", "attribution", "url"] {
+            assert!(
+                credit_required.contains(&field),
+                "{field} no es obligatorio"
+            );
+        }
+    }
+
+    #[test]
+    fn document_never_mentions_review_flags() {
+        let text = openapi_json().to_lowercase();
+        for term in [
+            "reviewflag",
+            "review_flag",
+            "pending_review",
+            "pendingreview",
+        ] {
+            assert!(!text.contains(term), "el documento menciona {term}");
         }
     }
 }

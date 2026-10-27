@@ -91,4 +91,30 @@ async fn api_serves_a_catalog_built_from_the_fixture_seed() {
         !body.to_string().contains("\"sources\""),
         "el detalle no debe exponer la procedencia: {body}"
     );
+
+    // Los datasets aparecen solo como créditos de la planta: sin repetir, por nombre y con licencia y atribución.
+    let credits = body["credits"].as_array().unwrap();
+    assert!(!credits.is_empty(), "{body}");
+    let names = labels(&body["credits"], "name");
+    let mut sorted = names.clone();
+    sorted.sort();
+    sorted.dedup();
+    assert_eq!(names, sorted, "créditos sin repetir y por nombre: {body}");
+    for credit in credits {
+        assert!(!credit["license"].as_str().unwrap().is_empty(), "{credit}");
+        assert!(
+            !credit["attribution"].as_str().unwrap().is_empty(),
+            "{credit}"
+        );
+        assert!(
+            credit.get("licenseUrl").is_some() && credit.get("url").is_some(),
+            "{credit}"
+        );
+    }
+    assert!(body["displayName"].is_string());
+    assert!(body.get("reviewFlags").is_none() && !body.to_string().contains("reviewFlags"));
+
+    // Un identificador que no es de planta ni alias es un 404.
+    let (status, _) = get(&app, "/v1/plants/no-existe").await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
 }

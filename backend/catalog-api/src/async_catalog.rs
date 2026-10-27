@@ -88,6 +88,7 @@ mod tests {
                 goals: Vec::new(),
                 safety: None,
                 image: None,
+                credits: Vec::new(),
             }))
         }
     }
@@ -156,7 +157,7 @@ mod tests {
             catalog.list_plants(ListQuery::default()),
             catalog.get_plant(PlantId("lavandula-angustifolia".to_string())),
         );
-        assert_eq!(page.unwrap().total, 34);
+        assert_eq!(page.unwrap().total, 35);
         assert_eq!(detail.unwrap().unwrap().uses.len(), 2);
     }
 }

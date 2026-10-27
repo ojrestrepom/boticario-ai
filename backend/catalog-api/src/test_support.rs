@@ -1,7 +1,8 @@
 //! Base de fixture para las pruebas: se crea en un directorio temporal aplicando las migraciones de `catalog-core`, sin red.
 //!
-//! Contenido (34 plantas), pensado para los casos de prueba:
+//! Contenido (35 plantas), pensado para los casos de prueba:
 //! - `lavandula-angustifolia`: la planta completa. Familia, nombres de dos fuentes y un sinónimo, partes, usos con referencia, perfil (nombre para mostrar «Lavanda», origen, descripción de Wikipedia, aceite), tres grupos de uso (uno con una cita sin resolver y otro sin ninguna cita resuelta), objetivos (uno con subárea y uno pendiente de revisión), seguridad de nivel medio, imagen y marcas de revisión.
+//! - `matricaria-chamomilla`: sin ninguna fuente registrada (sin créditos) y con el alias `matricaria-recutita`, que no es el nombre de ninguna planta.
 //! - `lavandula-latifolia`: la planta vacía. Prefijo común con la anterior, sin perfil, partes, usos ni nada consolidado.
 //! - `mentha-x-piperita`: sin familia; un nombre común con acentos y mayúsculas; una marca de revisión de identidad.
 //! - `zea-mays`: nombres con `%` y `_` literales.
@@ -11,7 +12,9 @@
 //! - `twin-a` y `twin-b`: mismo nombre científico (se insertan en orden inverso) para probar el desempate por id.
 //! - `fillerus-01` a `fillerus-25`: relleno para paginar.
 //!
-//! Fuentes `a` y `b` (sin URL de licencia), `wiki` (con URL de licencia) y `ema` (sin ella).
+//! Alias: `lavandula-vera` (cuyo nombre coincide con un sinónimo de la planta), `matricaria-recutita` y `mentha-x-piperita-subsp-nothosubsp-piperita` (con puntuación al pasar de la consulta al alias).
+//!
+//! Fuentes `a` y `b` (sin URL de licencia), `wiki` (con URL de licencia), `ema` (sin ella) y `pend` (solo respalda contenido pendiente de revisión).
 
 use std::path::PathBuf;
 
@@ -65,6 +68,18 @@ impl Fixture {
         }
         populate(&mut conn);
         Self { _dir: dir, path }
+    }
+
+    /// Añade un alias a la base ya creada (para casos que la fixture estándar no cubre). Debe llamarse antes de abrir el repositorio: este se abre en solo lectura.
+    pub fn insert_alias(&self, alias: &str, plant_id: &str) {
+        let mut conn = SqliteConnection::establish(self.path.to_str().unwrap()).unwrap();
+        add_alias(&mut conn, alias, plant_id);
+    }
+
+    /// Añade una marca de revisión a la base ya creada, como `insert_alias`.
+    pub fn insert_review_flag(&self, plant_id: &str, code: &str, target: &str) {
+        let mut conn = SqliteConnection::establish(self.path.to_str().unwrap()).unwrap();
+        add_review_flag(&mut conn, plant_id, code, target);
     }
 
     /// Abre el repositorio sobre la fixture.
@@ -488,6 +503,8 @@ fn populate(conn: &mut SqliteConnection) {
     add_reference(conn, "ref-2", "Jones 2001", "b");
     add_reference(conn, "ref-ema-skin", "Monografía sobre la piel", "ema");
     add_reference(conn, "ref-ema-safety", "Advertencias de la agencia", "ema");
+    add_source_with_license(conn, "pend", "Fuente pendiente", "CC0", None);
+    add_reference(conn, "ref-pending", "Referencia solo pendiente", "pend");
     add_reference_with_url(
         conn,
         "ref-wiki",
@@ -641,7 +658,7 @@ fn populate(conn: &mut SqliteConnection) {
         "Estrés",
         "La agencia tiene una monografía en esta área.",
         true,
-        &["ref-ema-skin"],
+        &["ref-ema-skin", "ref-pending"],
     );
     add_safety(
         conn,
@@ -658,6 +675,7 @@ fn populate(conn: &mut SqliteConnection) {
         Some("https://creativecommons.org/licenses/by-sa/4.0/"),
         true,
     );
+    // Su alias coincide con un sinónimo científico de la misma planta (la búsqueda no debe duplicarla).
     add_alias(conn, "lavandula-vera", "lavandula-angustifolia");
     add_review_flag(
         conn,
@@ -682,7 +700,22 @@ fn populate(conn: &mut SqliteConnection) {
         &["a"],
     );
 
+    // Sin ninguna fuente registrada: ni sus nombres ni nada de la planta acreditan un dataset. Su alias no es nombre de ninguna planta.
+    add_plant(
+        conn,
+        "matricaria-chamomilla",
+        "Matricaria chamomilla",
+        None,
+        &[],
+    );
+    add_alias(conn, "matricaria-recutita", "matricaria-chamomilla");
+
     add_plant(conn, "mentha-x-piperita", "Mentha x piperita", None, &["b"]);
+    add_alias(
+        conn,
+        "mentha-x-piperita-subsp-nothosubsp-piperita",
+        "mentha-x-piperita",
+    );
     add_name(
         conn,
         "mentha-x-piperita",

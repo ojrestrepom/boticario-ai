@@ -3,27 +3,28 @@
 //! Lee únicamente el esquema neutral, siempre con el DSL de Diesel: aquí no hay SQL escrito a mano.
 //! La base se abre en solo lectura y se comprueba su versión de esquema antes de servir nada.
 
-use std::collections::HashMap;
+use std::collections::{BTreeSet, HashMap};
 use std::error::Error;
 use std::fmt;
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 use catalog_core::domain::{
-    Goal, Image, ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary,
+    Credit, Goal, Image, ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary,
     Reference, Safety, SafetyLevel, Use, UseGroup, UseGroupReference,
 };
-use catalog_core::normalize::normalize_name;
+use catalog_core::normalize::{normalize_name, slug};
 use catalog_core::repository::{CatalogRepository, RepositoryError};
 use catalog_core::rows::{
     GoalRow, GoalSubareaRow, PlantGoalRefRow, PlantGoalRow, PlantImageRow, PlantNameRow,
     PlantPartRow, PlantProfileRow, PlantRow, PlantSafetyRefRow, PlantSafetyRow,
-    PlantUseGroupRefRow, PlantUseGroupRow, PlantUseRow, ReferenceRow,
+    PlantUseGroupRefRow, PlantUseGroupRow, PlantUseRow, ReferenceRow, SourceRow,
 };
 use catalog_core::schema::{
-    goal, goal_subarea, metadata, plant, plant_goal, plant_goal_ref, plant_image, plant_name,
-    plant_part, plant_profile, plant_safety, plant_safety_ref, plant_use, plant_use_group,
-    plant_use_group_ref, reference,
+    goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
+    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
+    plant_safety, plant_safety_ref, plant_use, plant_use_group, plant_use_group_ref,
+    plant_use_source, reference, source,
 };
 use catalog_core::sqlite::{InvalidPath, read_only_url};
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY};
@@ -200,6 +201,10 @@ impl CatalogRepository for SqliteCatalogRepository {
         // Un `q` vacío o solo con espacios se normaliza a "" y no filtra.
         let normalized = query.q.as_deref().map(normalize_name).unwrap_or_default();
         let pattern = (!normalized.is_empty()).then(|| contains_pattern(&normalized));
+        // Para los alias (identificadores anteriores) la consulta se reduce con `slug`: los caracteres que no son letras ni dígitos pasan a un guion, como en el alias. Un `slug` vacío (por ejemplo `%`) no busca en alias.
+        let alias_pattern = Some(slug(&normalized))
+            .filter(|s| !s.is_empty())
+            .map(|s| contains_pattern(&s));
 
         // Ids de las plantas con algún nombre (científico o común) que contiene el texto.
         // `escape('\\')` declara `\` como carácter de escape: sin él, `%` y `_` del usuario actuarían como comodines.
@@ -208,13 +213,33 @@ impl CatalogRepository for SqliteCatalogRepository {
                 .filter(plant_name::normalized.like(pattern.to_owned()).escape('\\'))
                 .select(plant_name::plant_id)
         };
+        // Ids de las plantas con algún alias que contiene el texto reducido. El alias solo sirve para encontrar la planta: nunca se devuelve como nombre.
+        let matching_alias_ids = |pattern: &str| {
+            plant_alias::table
+                .filter(plant_alias::alias.like(pattern.to_owned()).escape('\\'))
+                .select(plant_alias::plant_id)
+        };
 
         // `into_boxed` permite añadir el filtro solo si hay búsqueda.
+        // Una sola cláusula `IN (nombres) OR IN (alias)` por planta: cada planta cuenta una vez en la lista y en el total.
         let mut count_query = plant::table.into_boxed();
         let mut page_query = plant::table.into_boxed();
         if let Some(pattern) = &pattern {
-            count_query = count_query.filter(plant::id.eq_any(matching_ids(pattern)));
-            page_query = page_query.filter(plant::id.eq_any(matching_ids(pattern)));
+            if let Some(alias_pattern) = &alias_pattern {
+                count_query = count_query.filter(
+                    plant::id
+                        .eq_any(matching_ids(pattern))
+                        .or(plant::id.eq_any(matching_alias_ids(alias_pattern))),
+                );
+                page_query = page_query.filter(
+                    plant::id
+                        .eq_any(matching_ids(pattern))
+                        .or(plant::id.eq_any(matching_alias_ids(alias_pattern))),
+                );
+            } else {
+                count_query = count_query.filter(plant::id.eq_any(matching_ids(pattern)));
+                page_query = page_query.filter(plant::id.eq_any(matching_ids(pattern)));
+            }
         }
 
         let total: i64 = count_query.count().get_result(conn).map_err(storage)?;
@@ -294,15 +319,38 @@ impl CatalogRepository for SqliteCatalogRepository {
         let mut conn = self.conn()?;
         let conn = &mut *conn;
 
-        let Some(row) = plant::table
+        // Primero el identificador de planta; solo si no existe se busca un alias (un identificador de planta siempre gana).
+        let row: Option<PlantRow> = plant::table
             .find(&id.0)
             .select(PlantRow::as_select())
             .first(conn)
             .optional()
-            .map_err(storage)?
-        else {
-            return Ok(None);
+            .map_err(storage)?;
+        let row = match row {
+            Some(row) => row,
+            None => {
+                let canonical: Option<String> = plant_alias::table
+                    .find(&id.0)
+                    .select(plant_alias::plant_id)
+                    .first(conn)
+                    .optional()
+                    .map_err(storage)?;
+                let Some(canonical) = canonical else {
+                    return Ok(None);
+                };
+                plant::table
+                    .find(&canonical)
+                    .select(PlantRow::as_select())
+                    .first(conn)
+                    .optional()
+                    .map_err(storage)?
+                    .ok_or_else(|| {
+                        storage(format!("alias {:?} apunta a una planta inexistente", id.0))
+                    })?
+            }
         };
+        // De aquí en adelante todo se carga por el identificador canónico, sea cual sea el que se pidió.
+        let id = &PlantId(row.id.clone());
 
         let profile: Option<PlantProfileRow> = plant_profile::table
             .find(&id.0)
@@ -347,6 +395,7 @@ impl CatalogRepository for SqliteCatalogRepository {
             goals: load_goals(conn, &id.0)?,
             safety: load_safety(conn, &id.0)?,
             image: load_image(conn, &id.0)?,
+            credits: load_credits(conn, &id.0)?,
         }))
     }
 }
@@ -688,6 +737,187 @@ fn load_image(
         }))
 }
 
+/// Créditos de la planta: los datasets que respaldan sus datos, sin repeticiones y ordenados por nombre.
+///
+/// Es la unión de las fuentes de sus nombres, partes, usos y familia, y de los datasets de las referencias que respaldan el perfil, los objetivos servidos, las precauciones y los grupos de uso servidos.
+/// No indica qué dato viene de cada uno. Nombre, licencia, URL de licencia y atribución salen de la fuente (`source`), no de la referencia.
+/// Si una referencia de la descripción trae su propia URL (el artículo resumido), esa es la `url` del crédito de su dataset.
+fn load_credits(
+    conn: &mut SqliteConnection,
+    plant_id: &str,
+) -> Result<Vec<Credit>, RepositoryError> {
+    let mut source_ids: BTreeSet<String> = BTreeSet::new();
+
+    // Tablas de atribución de nombres, partes y usos.
+    source_ids.extend(
+        plant_name_source::table
+            .filter(
+                plant_name_source::plant_name_id.eq_any(
+                    plant_name::table
+                        .filter(plant_name::plant_id.eq(plant_id))
+                        .select(plant_name::id),
+                ),
+            )
+            .select(plant_name_source::source_id)
+            .distinct()
+            .load::<String>(conn)
+            .map_err(storage)?,
+    );
+    source_ids.extend(
+        plant_part_source::table
+            .filter(
+                plant_part_source::plant_part_id.eq_any(
+                    plant_part::table
+                        .filter(plant_part::plant_id.eq(plant_id))
+                        .select(plant_part::id),
+                ),
+            )
+            .select(plant_part_source::source_id)
+            .distinct()
+            .load::<String>(conn)
+            .map_err(storage)?,
+    );
+    source_ids.extend(
+        plant_use_source::table
+            .filter(
+                plant_use_source::plant_use_id.eq_any(
+                    plant_use::table
+                        .filter(plant_use::plant_id.eq(plant_id))
+                        .select(plant_use::id),
+                ),
+            )
+            .select(plant_use_source::source_id)
+            .distinct()
+            .load::<String>(conn)
+            .map_err(storage)?,
+    );
+    let family_source: Option<Option<String>> = plant::table
+        .find(plant_id)
+        .select(plant::family_source_id)
+        .first(conn)
+        .optional()
+        .map_err(storage)?;
+    source_ids.extend(family_source.flatten());
+
+    // Datasets de las referencias de lo que se sirve: perfil, objetivos, precauciones y grupos de uso.
+    // Los objetivos y grupos pendientes de revisión no se sirven, así que tampoco acreditan.
+    let datasets = [
+        reference::table
+            .filter(
+                reference::id.eq_any(
+                    plant_profile_ref::table
+                        .filter(plant_profile_ref::plant_id.eq(plant_id))
+                        .select(plant_profile_ref::reference_id),
+                ),
+            )
+            .select(reference::dataset)
+            .distinct()
+            .load::<Option<String>>(conn)
+            .map_err(storage)?,
+        reference::table
+            .filter(
+                reference::id.eq_any(
+                    plant_goal_ref::table
+                        .filter(
+                            plant_goal_ref::plant_goal_id.eq_any(
+                                plant_goal::table
+                                    .filter(plant_goal::plant_id.eq(plant_id))
+                                    .filter(plant_goal::pending_review.eq(false))
+                                    .select(plant_goal::id),
+                            ),
+                        )
+                        .select(plant_goal_ref::reference_id),
+                ),
+            )
+            .select(reference::dataset)
+            .distinct()
+            .load::<Option<String>>(conn)
+            .map_err(storage)?,
+        reference::table
+            .filter(
+                reference::id.eq_any(
+                    plant_safety_ref::table
+                        .filter(plant_safety_ref::plant_id.eq(plant_id))
+                        .select(plant_safety_ref::reference_id),
+                ),
+            )
+            .select(reference::dataset)
+            .distinct()
+            .load::<Option<String>>(conn)
+            .map_err(storage)?,
+        reference::table
+            .filter(
+                reference::id.nullable().eq_any(
+                    plant_use_group_ref::table
+                        .filter(
+                            plant_use_group_ref::use_group_id.eq_any(
+                                plant_use_group::table
+                                    .filter(plant_use_group::plant_id.eq(plant_id))
+                                    .filter(plant_use_group::pending_review.eq(false))
+                                    .select(plant_use_group::id),
+                            ),
+                        )
+                        .select(plant_use_group_ref::reference_id),
+                ),
+            )
+            .select(reference::dataset)
+            .distinct()
+            .load::<Option<String>>(conn)
+            .map_err(storage)?,
+    ];
+    source_ids.extend(datasets.into_iter().flatten().flatten());
+
+    if source_ids.is_empty() {
+        return Ok(Vec::new());
+    }
+
+    // Si la descripción resume un artículo, el crédito de su dataset enlaza a ese artículo y no al sitio.
+    let description_refs: Vec<(Option<String>, Option<String>)> = reference::table
+        .filter(
+            reference::id.eq_any(
+                plant_profile_ref::table
+                    .filter(plant_profile_ref::plant_id.eq(plant_id))
+                    .filter(plant_profile_ref::field.eq("description"))
+                    .select(plant_profile_ref::reference_id),
+            ),
+        )
+        .order_by(reference::id.asc())
+        .select((reference::dataset, reference::url))
+        .load(conn)
+        .map_err(storage)?;
+    let mut article_urls: HashMap<String, String> = HashMap::new();
+    for (dataset, url) in description_refs {
+        if let (Some(dataset), Some(url)) = (dataset, url) {
+            article_urls.entry(dataset).or_insert(url);
+        }
+    }
+
+    let ids: Vec<&str> = source_ids.iter().map(String::as_str).collect();
+    let sources: Vec<SourceRow> = source::table
+        .filter(source::id.eq_any(&ids))
+        .select(SourceRow::as_select())
+        .load(conn)
+        .map_err(storage)?;
+    let mut credits: Vec<(String, Credit)> = sources
+        .into_iter()
+        .map(|s| {
+            let url = article_urls.remove(&s.id).unwrap_or(s.url);
+            (
+                s.id,
+                Credit {
+                    name: s.name,
+                    license: s.license,
+                    license_url: s.license_url,
+                    attribution: s.citation,
+                    url: Some(url),
+                },
+            )
+        })
+        .collect();
+    credits.sort_by(|(ia, a), (ib, b)| (&a.name, ia).cmp(&(&b.name, ib)));
+    Ok(credits.into_iter().map(|(_, c)| c).collect())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -803,6 +1033,7 @@ mod tests {
             [
                 "lavandula-angustifolia",
                 "lavandula-latifolia",
+                "matricaria-chamomilla",
                 "mentha-x-piperita",
                 "twin-a",
                 "twin-b",
@@ -818,7 +1049,7 @@ mod tests {
         let fixture = Fixture::standard();
         let repo = fixture.repo();
         let page = repo.list_plants(&query(None, 100, 0)).unwrap();
-        assert_eq!(page.total, 34);
+        assert_eq!(page.total, 35);
         assert_eq!(ids(&page), expected_order());
     }
 
@@ -827,9 +1058,9 @@ mod tests {
         let fixture = Fixture::standard();
         let repo = fixture.repo();
         let mut seen = Vec::new();
-        for offset in (0..34).step_by(7) {
+        for offset in (0..35).step_by(7) {
             let page = repo.list_plants(&query(None, 7, offset)).unwrap();
-            assert_eq!(page.total, 34);
+            assert_eq!(page.total, 35);
             seen.extend(page.items.into_iter().map(|p| p.id.0));
         }
         assert_eq!(seen, expected_order());
@@ -840,9 +1071,9 @@ mod tests {
         let fixture = Fixture::standard();
         let repo = fixture.repo();
         let page = repo.list_plants(&ListQuery::default()).unwrap();
-        assert_eq!((page.items.len(), page.total), (20, 34));
+        assert_eq!((page.items.len(), page.total), (20, 35));
         let past = repo.list_plants(&query(None, 20, 500)).unwrap();
-        assert_eq!((past.items.len(), past.total), (0, 34));
+        assert_eq!((past.items.len(), past.total), (0, 35));
     }
 
     #[test]
@@ -1434,5 +1665,348 @@ mod tests {
         let fixture = Fixture::standard();
         let repo = fixture.repo();
         assert_eq!(repo.get_plant(&pid("does-not-exist")).unwrap(), None);
+    }
+    // ---- 3.4 créditos ----
+
+    fn credit_names(plant: &Plant) -> Vec<&str> {
+        plant.credits.iter().map(|c| c.name.as_str()).collect()
+    }
+
+    fn credit<'a>(plant: &'a Plant, name: &str) -> &'a Credit {
+        plant
+            .credits
+            .iter()
+            .find(|c| c.name == name)
+            .unwrap_or_else(|| panic!("falta el crédito {name:?}: {:?}", credit_names(plant)))
+    }
+
+    #[test]
+    fn credits_are_the_union_of_the_datasets_of_a_plant_with_several_sources() {
+        // Escenario «Créditos de una planta con varias fuentes»: orden por nombre y sin indicar campos.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            credit_names(&plant),
+            [
+                "Agencia reguladora",
+                "Enciclopedia libre",
+                "Fuente a",
+                "Fuente b"
+            ]
+        );
+        // Nombre, licencia y atribución salen de la fuente, no de la referencia (cuya licencia es otra).
+        let wiki = credit(&plant, "Enciclopedia libre");
+        assert_eq!(wiki.license, "CC BY-SA 4.0");
+        assert_eq!(wiki.attribution, "Cita de wiki");
+    }
+
+    #[test]
+    fn credit_license_url_comes_from_the_source() {
+        // Escenario «URL de licencia por fuente».
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            credit(&plant, "Enciclopedia libre").license_url.as_deref(),
+            Some("https://creativecommons.org/licenses/by-sa/4.0/")
+        );
+        assert_eq!(credit(&plant, "Agencia reguladora").license_url, None);
+        assert_eq!(credit(&plant, "Fuente a").license_url, None);
+    }
+
+    #[test]
+    fn credits_have_no_repeated_datasets() {
+        // Escenario «Sin repeticiones»: la fuente `a` respalda nombres, partes, usos, familia y referencias, y sale una vez.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        for id in ["lavandula-angustifolia", "conium-maculatum"] {
+            let plant = repo.get_plant(&pid(id)).unwrap().unwrap();
+            let names = credit_names(&plant);
+            let unique: BTreeSet<&str> = names.iter().copied().collect();
+            assert_eq!(names.len(), unique.len(), "{id}: {names:?}");
+        }
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            plant
+                .credits
+                .iter()
+                .filter(|c| c.name == "Fuente a")
+                .count(),
+            1
+        );
+    }
+
+    #[test]
+    fn credits_link_the_wikipedia_style_article_of_the_description() {
+        // Escenario «Descripción derivada de Wikipedia»: el enlace del crédito es el del artículo, no el del sitio.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        let wiki = credit(&plant, "Enciclopedia libre");
+        assert_eq!(
+            wiki.url.as_deref(),
+            Some("https://es.example.test/wiki/Lavandula_angustifolia")
+        );
+        // Una fuente sin artículo enlaza a su página.
+        assert_eq!(
+            credit(&plant, "Fuente a").url.as_deref(),
+            Some("https://example.test/a")
+        );
+    }
+
+    #[test]
+    fn credits_come_from_served_content_only() {
+        // El objetivo pendiente no se sirve, así que su referencia no acredita su fuente.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert!(!credit_names(&plant).contains(&"Fuente pendiente"));
+        // La tóxica solo tiene fuente `a` y la de las precauciones.
+        let toxic = repo.get_plant(&pid("conium-maculatum")).unwrap().unwrap();
+        assert_eq!(credit_names(&toxic), ["Agencia reguladora", "Fuente a"]);
+    }
+
+    #[test]
+    fn plant_without_any_dataset_has_no_credits() {
+        // Escenario «Planta sin créditos».
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("matricaria-chamomilla"))
+            .unwrap()
+            .unwrap();
+        assert!(plant.credits.is_empty());
+    }
+
+    // ---- 3.5 contenido pendiente de revisión ----
+
+    #[test]
+    fn a_review_flag_without_pending_review_omits_nothing() {
+        // Los flags no condicionan nada por sí solos: ni uno con el código del objetivo condicionado.
+        let fixture = Fixture::standard();
+        let before = fixture
+            .repo()
+            .get_plant(&pid("conium-maculatum"))
+            .unwrap()
+            .unwrap();
+        for code in [
+            "objetivos-omitidos-por-toxicidad",
+            "interacciones-graves-estres",
+            "cita-sin-resolver",
+            "inventado",
+        ] {
+            fixture.insert_review_flag("lavandula-angustifolia", code, "goals");
+            fixture.insert_review_flag("conium-maculatum", code, "goals");
+        }
+        let repo = fixture.repo();
+        let lavender = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        // Siguen los dos objetivos no pendientes y los dos grupos servidos, con la cita sin resolver.
+        let goal_ids: Vec<&str> = lavender.goals.iter().map(|g| g.id.as_str()).collect();
+        assert_eq!(goal_ids, ["cuidado-de-la-piel", "otros-objetivos"]);
+        assert_eq!(lavender.use_groups.len(), 2);
+        assert_eq!(lavender.use_groups[0].references.len(), 2);
+        let after = repo.get_plant(&pid("conium-maculatum")).unwrap().unwrap();
+        assert_eq!(before, after);
+    }
+
+    #[test]
+    fn only_pending_review_omits_goals_and_groups() {
+        // Escenarios «Objetivo condicionado» y «Grupo sin ninguna cita resuelta»: la omisión depende solo de `pending_review`.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let lavender = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert!(lavender.goals.iter().all(|g| g.id != "relajacion-estres"));
+        assert!(
+            lavender
+                .use_groups
+                .iter()
+                .all(|g| g.activity != "Actividad pendiente")
+        );
+        // El resto del detalle se sirve igual.
+        assert_eq!(lavender.display_name, "Lavanda");
+        assert!(lavender.safety.is_some() && lavender.image.is_some());
+    }
+
+    // ---- 4.1 identificadores anteriores ----
+
+    #[test]
+    fn an_alias_resolves_to_the_canonical_plant() {
+        // Escenario «Alias de un renombre» (capa de repositorio): el detalle es el de la planta canónica.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let canonical = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        let by_alias = repo.get_plant(&pid("lavandula-vera")).unwrap().unwrap();
+        assert_eq!(by_alias.id, pid("lavandula-angustifolia"));
+        assert_eq!(by_alias, canonical);
+        // Un identificador que no es de planta ni alias no existe.
+        assert_eq!(repo.get_plant(&pid("lavandula-nada")).unwrap(), None);
+    }
+
+    #[test]
+    fn a_plant_id_wins_over_an_equal_alias() {
+        let fixture = Fixture::standard();
+        fixture.insert_alias("zea-mays", "abutilon-theophrasti");
+        let repo = fixture.repo();
+        let plant = repo.get_plant(&pid("zea-mays")).unwrap().unwrap();
+        assert_eq!(plant.id, pid("zea-mays"));
+    }
+
+    // ---- 4.3 búsqueda por identificador anterior ----
+
+    #[test]
+    fn search_finds_a_plant_by_its_previous_identifier() {
+        // Escenario «Búsqueda por identificador anterior»: el alias `matricaria-recutita` no es nombre de ninguna planta.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let page = repo
+            .list_plants(&query(Some("matricaria recutita"), 20, 0))
+            .unwrap();
+        assert_eq!(ids(&page), ["matricaria-chamomilla"]);
+        assert_eq!(page.total, 1);
+        // Otras formas de escribir la misma consulta dan lo mismo.
+        for q in ["Matricaria  Recutita", "  MATRICARIA-RECUTITA ", "recutita"] {
+            let again = repo.list_plants(&query(Some(q), 20, 0)).unwrap();
+            assert_eq!(again, page, "q = {q:?}");
+        }
+    }
+
+    #[test]
+    fn the_alias_is_never_returned_as_a_name() {
+        // Escenario «Alias que no es nombre».
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        let item = summary_of(&repo, "matricaria recutita");
+        assert_eq!(item.scientific_name, "Matricaria chamomilla");
+        assert_eq!(item.display_name, "Matricaria chamomilla");
+        assert!(item.common_names.is_empty());
+        let plant = repo
+            .get_plant(&pid("matricaria-chamomilla"))
+            .unwrap()
+            .unwrap();
+        let everything = format!("{item:?} {plant:?}").to_lowercase();
+        assert!(!everything.contains("recutita"), "{everything}");
+    }
+
+    #[test]
+    fn a_plant_matching_by_name_and_by_alias_is_listed_and_counted_once() {
+        // Escenario «Alias sin duplicar resultados»: `Lavandula vera` es sinónimo y `lavandula-vera` es alias de la misma planta.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        for q in ["lavandula vera", "vera", "lavandula-vera"] {
+            let page = repo.list_plants(&query(Some(q), 20, 0)).unwrap();
+            assert_eq!(ids(&page), ["lavandula-angustifolia"], "q = {q:?}");
+            assert_eq!(page.total, 1, "q = {q:?}");
+        }
+        // Una consulta que coincide por nombres con dos plantas y por alias con una de ellas sigue contando dos.
+        let both = repo.list_plants(&query(Some("lavandula"), 20, 0)).unwrap();
+        assert_eq!(
+            ids(&both),
+            ["lavandula-angustifolia", "lavandula-latifolia"]
+        );
+        assert_eq!(both.total, 2);
+    }
+
+    #[test]
+    fn alias_search_compares_the_query_reduced_to_a_slug() {
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        // La puntuación de la consulta es un espacio al compararla con el alias.
+        let page = repo
+            .list_plants(&query(
+                Some("Mentha x piperita subsp. nothosubsp. piperita"),
+                20,
+                0,
+            ))
+            .unwrap();
+        assert_eq!(ids(&page), ["mentha-x-piperita"]);
+        assert_eq!(page.total, 1);
+        // Sin la `x` la consulta no es subcadena de ningún nombre ni alias: es el límite conocido de la búsqueda por subcadena.
+        let none = repo
+            .list_plants(&query(Some("mentha piperita"), 20, 0))
+            .unwrap();
+        assert_eq!((none.items.len(), none.total), (0, 0));
+        let with_x = repo
+            .list_plants(&query(Some("mentha x piperita"), 20, 0))
+            .unwrap();
+        assert_eq!(ids(&with_x), ["mentha-x-piperita"]);
+    }
+
+    #[test]
+    fn a_query_without_letters_or_digits_does_not_search_aliases() {
+        // Escenario «Consulta sin letras ni dígitos»: todos los alias llevan guiones, y `-` no debe coincidir con ellos.
+        let fixture = Fixture::standard();
+        let repo = fixture.repo();
+        for q in ["-", " - ", "--", "%", "_"] {
+            let page = repo.list_plants(&query(Some(q), 100, 0)).unwrap();
+            let by_names_only: Vec<&str> = if matches!(q, "%" | "_") {
+                vec!["zea-mays"]
+            } else {
+                Vec::new()
+            };
+            assert_eq!(ids(&page), by_names_only, "q = {q:?}");
+            assert_eq!(page.total, by_names_only.len() as u64, "q = {q:?}");
+        }
+    }
+
+    #[test]
+    fn alias_matches_keep_the_total_order_and_consistent_pages() {
+        let fixture = Fixture::standard();
+        fixture.insert_alias("lavandula-spica", "twin-b");
+        fixture.insert_alias("lavandula-stoechas", "twin-a");
+        let repo = fixture.repo();
+        // Coinciden por nombre (las dos lavandas) y por alias (las gemelas, de igual nombre científico): orden por nombre científico y luego id.
+        let all = repo.list_plants(&query(Some("lavandula"), 20, 0)).unwrap();
+        assert_eq!(
+            ids(&all),
+            [
+                "lavandula-angustifolia",
+                "lavandula-latifolia",
+                "twin-a",
+                "twin-b"
+            ]
+        );
+        assert_eq!(all.total, 4);
+        let mut seen = Vec::new();
+        for offset in 0..4 {
+            let page = repo
+                .list_plants(&query(Some("lavandula"), 1, offset))
+                .unwrap();
+            assert_eq!(page.total, 4);
+            seen.extend(page.items.into_iter().map(|p| p.id.0));
+        }
+        assert_eq!(
+            seen,
+            [
+                "lavandula-angustifolia",
+                "lavandula-latifolia",
+                "twin-a",
+                "twin-b"
+            ]
+        );
     }
 }

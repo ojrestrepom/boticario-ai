@@ -151,7 +151,7 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
     path = "/v1/plants",
     tag = "catalog",
     params(
-        ("q" = Option<String>, Query, max_length = 200, description = "Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal. No admite caracteres de control."),
+        ("q" = Option<String>, Query, max_length = 200, description = "Subcadena a buscar en el nombre científico, los sinónimos, los nombres comunes y los identificadores anteriores (alias) de la planta, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Vacío o solo espacios no filtra; `%` y `_` se buscan como texto literal. No admite caracteres de control."),
         // Los literales de `limit` reflejan `MAX_LIMIT` y `DEFAULT_LIMIT` de catalog-core; el test de `openapi.rs` avisa si divergen.
         ("limit" = Option<u32>, Query, minimum = 1, maximum = 100, description = "Elementos por página (1 a 100, por defecto 20)."),
         ("offset" = Option<u32>, Query, minimum = 0, maximum = 2147483647, description = "Elementos a saltar (por defecto 0)."),
@@ -188,14 +188,16 @@ pub(crate) async fn list_plants(
 }
 
 /// Detalle de una planta.
+///
+/// El identificador puede ser el de una planta o un identificador anterior (alias): en ese caso responde 200 con el detalle de la planta canónica y la cabecera `Content-Location`, sin redirección.
 #[utoipa::path(
     get,
     path = "/v1/plants/{id}",
     tag = "catalog",
-    params(("id" = String, Path, description = "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.")),
+    params(("id" = String, Path, description = "Identificador público de la planta, por ejemplo `lavandula-angustifolia`, o un identificador anterior (alias) que resuelve a una planta. Un identificador de planta tiene prioridad sobre un alias igual.")),
     security(("bearerAuth" = [])),
     responses(
-        (status = 200, description = "Detalle de la planta", body = PlantDto),
+        (status = 200, description = "Detalle de la planta. Si el identificador pedido era un alias, es el detalle de la planta canónica (su `id` es el canónico) y la respuesta lleva `Content-Location`; no hay redirección.", body = PlantDto, headers(("Content-Location" = String, description = "Solo cuando el identificador pedido era un alias: la ruta canónica de la planta, por ejemplo `/v1/plants/salvia-rosmarinus`."))),
         (status = 400, description = "Identificador no válido", body = ProblemDto, content_type = "application/problem+json"),
         (status = 401, description = "Falta el token de API o no es válido", body = ProblemDto, content_type = "application/problem+json", headers(("WWW-Authenticate" = String, description = "Siempre `Bearer`"))),
         (status = 404, description = "La planta no existe", body = ProblemDto, content_type = "application/problem+json"),
@@ -216,8 +218,21 @@ pub(crate) async fn get_plant(
                 .into_response_at(&uri);
         }
     };
+    let requested = id.clone();
     match catalog.get_plant(PlantId(id)).await {
-        Ok(Some(plant)) => Json(PlantDto::from(plant)).into_response(),
+        Ok(Some(plant)) => {
+            // Si lo pedido era un alias, el detalle es el de la planta canónica y se indica su ruta; sin redirección.
+            let canonical = (plant.id.0 != requested)
+                .then(|| HeaderValue::from_str(&format!("/v1/plants/{}", plant.id.0)).ok())
+                .flatten();
+            let mut response = Json(PlantDto::from(plant)).into_response();
+            if let Some(location) = canonical {
+                response
+                    .headers_mut()
+                    .insert(header::CONTENT_LOCATION, location);
+            }
+            response
+        }
         Ok(None) => ApiError::NotFound {
             detail: "no existe una planta con ese identificador".to_string(),
         }
@@ -339,7 +354,7 @@ mod tests {
         let (status, json) = get_json(&app, "/v1/plants").await;
         assert_eq!(status, StatusCode::OK);
         assert_eq!(json["items"].as_array().unwrap().len(), 20);
-        assert_eq!(json["total"], 34);
+        assert_eq!(json["total"], 35);
         assert_eq!(
             (json["limit"].as_u64(), json["offset"].as_u64()),
             (Some(20), Some(0))
@@ -367,15 +382,15 @@ mod tests {
     async fn paginates_with_constant_total() {
         let (_fixture, app) = app();
         let (_, page) = get_json(&app, "/v1/plants?limit=5&offset=27").await;
-        assert_eq!(page["total"], 34);
+        assert_eq!(page["total"], 35);
         assert_eq!(
             ids(&page),
             [
                 "fillerus-25",
                 "lavandula-angustifolia",
                 "lavandula-latifolia",
-                "mentha-x-piperita",
-                "twin-a"
+                "matricaria-chamomilla",
+                "mentha-x-piperita"
             ]
         );
         assert_eq!(
@@ -394,7 +409,7 @@ mod tests {
                 past["items"].as_array().unwrap().len(),
                 past["total"].as_u64()
             ),
-            (0, Some(34))
+            (0, Some(35))
         );
         let (status, none) = get_json(&app, "/v1/plants?q=zzzz").await;
         assert_eq!(status, StatusCode::OK);
@@ -793,7 +808,7 @@ mod tests {
         let (status, json) = get_json(&app, "/v1/plants?offset=2147483647").await;
         assert_eq!(status, StatusCode::OK);
         assert_eq!(json["items"].as_array().unwrap().len(), 0);
-        assert_eq!(json["total"], 34);
+        assert_eq!(json["total"], 35);
         for value in ["2147483648", "4294967295"] {
             let uri = format!("/v1/plants?offset={value}");
             let json = expect_problem(&app, Method::GET, &uri, StatusCode::BAD_REQUEST).await;
@@ -988,5 +1003,309 @@ mod tests {
         let value = format!("Bearer {second}");
         let (status, _, _) = send_with(&app, Method::GET, "/v1/plants", Some(&value)).await;
         assert_eq!(status, StatusCode::OK);
+    }
+    // ---- 3.4 créditos ----
+
+    #[tokio::test]
+    async fn credits_are_a_neutral_list_at_plant_level() {
+        // Escenarios «Créditos de una planta con varias fuentes», «URL de licencia por fuente» y «Descripción derivada de Wikipedia».
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_camel_case(&json);
+        let credits = json["credits"].as_array().unwrap();
+        let names: Vec<&str> = credits
+            .iter()
+            .map(|c| c["name"].as_str().unwrap())
+            .collect();
+        assert_eq!(
+            names,
+            [
+                "Agencia reguladora",
+                "Enciclopedia libre",
+                "Fuente a",
+                "Fuente b"
+            ]
+        );
+        assert_eq!(
+            credits[1],
+            serde_json::json!({
+                "name": "Enciclopedia libre",
+                "license": "CC BY-SA 4.0",
+                "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Cita de wiki",
+                "url": "https://es.example.test/wiki/Lavandula_angustifolia"
+            })
+        );
+        // Sin URL de licencia, el campo está presente y es `null`.
+        assert_eq!(credits[0]["licenseUrl"], Value::Null);
+        // Ningún crédito indica un campo, y el detalle no tiene `sources` en ningún nivel.
+        for credit in credits {
+            let mut keys: Vec<&str> = credit
+                .as_object()
+                .unwrap()
+                .keys()
+                .map(String::as_str)
+                .collect();
+            keys.sort_unstable();
+            assert_eq!(
+                keys,
+                ["attribution", "license", "licenseUrl", "name", "url"]
+            );
+        }
+        let mut found = Vec::new();
+        find_sources_keys(&json, "$", &mut found);
+        assert!(found.is_empty(), "{found:?}");
+    }
+
+    #[tokio::test]
+    async fn a_plant_without_credits_has_an_empty_list() {
+        // Escenario «Planta sin créditos».
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/matricaria-chamomilla").await;
+        assert_eq!(json["credits"], serde_json::json!([]));
+        let (_, empty) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+        assert!(empty["credits"].is_array());
+    }
+
+    // ---- 3.5 contenido pendiente y flags ----
+
+    /// Recorre el JSON y devuelve las rutas de toda clave o texto que mencione flags o marcas de revisión.
+    fn find_flag_mentions(value: &Value, path: &str, found: &mut Vec<String>) {
+        let mentions = |text: &str| {
+            let lower = text.to_lowercase();
+            [
+                "reviewflag",
+                "review_flag",
+                "pending_review",
+                "pendingreview",
+                "cita-sin-resolver",
+                "identidad-ambigua",
+            ]
+            .iter()
+            .any(|term| lower.contains(term))
+        };
+        match value {
+            Value::Object(map) => {
+                for (key, v) in map {
+                    let here = format!("{path}.{key}");
+                    if mentions(key) {
+                        found.push(here.clone());
+                    }
+                    find_flag_mentions(v, &here, found);
+                }
+            }
+            Value::Array(items) => {
+                for (i, v) in items.iter().enumerate() {
+                    find_flag_mentions(v, &format!("{path}[{i}]"), found);
+                }
+            }
+            Value::String(text) if mentions(text) => found.push(format!("{path} = {text:?}")),
+            _ => {}
+        }
+    }
+
+    #[tokio::test]
+    async fn pending_goal_and_group_are_omitted_and_the_rest_is_served() {
+        // Escenarios «Objetivo condicionado» y «Grupo sin ninguna cita resuelta».
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        let goal_ids: Vec<&str> = json["goals"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|g| g["id"].as_str().unwrap())
+            .collect();
+        assert_eq!(goal_ids, ["cuidado-de-la-piel", "otros-objetivos"]);
+        let activities: Vec<&str> = json["useGroups"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|g| g["activity"].as_str().unwrap())
+            .collect();
+        assert_eq!(activities, ["Sedante", "Antiséptico"]);
+        // `uses` no genera filas del grupo omitido y el resto de la planta sigue completo.
+        assert_eq!(json["uses"].as_array().unwrap().len(), 2);
+        assert_eq!(json["displayName"], "Lavanda");
+        assert_eq!(json["safety"]["level"], "medio");
+        assert!(json["image"].is_object());
+    }
+
+    #[tokio::test]
+    async fn a_group_with_a_resolved_and_an_unresolved_citation_is_served_whole() {
+        // Escenario «Grupo con una cita resuelta y otra sin resolver»: el registro conserva el flag y la respuesta no lo expone.
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        let sedative = &json["useGroups"][0];
+        assert_eq!(sedative["references"][0]["resolved"], true);
+        assert_eq!(sedative["references"][1]["resolved"], false);
+        assert_eq!(
+            sedative["references"][1]["citation"],
+            "Woi.6 (sin resolver)"
+        );
+        let mut found = Vec::new();
+        find_flag_mentions(&json, "$", &mut found);
+        assert!(found.is_empty(), "{found:?}");
+    }
+
+    #[tokio::test]
+    async fn plants_with_other_flags_are_served_complete() {
+        // Escenario «Planta con otros flags»: identidad ambigua en la menta.
+        let (_fixture, app) = app();
+        let (status, json) = get_json(&app, "/v1/plants/mentha-x-piperita").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(json["scientificName"], "Mentha x piperita");
+        assert_eq!(json["names"].as_array().unwrap().len(), 3);
+        let mut found = Vec::new();
+        find_flag_mentions(&json, "$", &mut found);
+        assert!(found.is_empty(), "{found:?}");
+    }
+
+    #[tokio::test]
+    async fn no_response_or_openapi_document_exposes_review_flags() {
+        // Escenario «Sin flags en las respuestas»: detalle de todas las plantas con y sin flags, listado y OpenAPI.
+        let (_fixture, app) = app();
+        let (_, list) = get_json(&app, "/v1/plants?limit=100").await;
+        let mut found = Vec::new();
+        find_flag_mentions(&list, "$list", &mut found);
+        for item in list["items"].as_array().unwrap() {
+            let id = item["id"].as_str().unwrap();
+            let (_, detail) = get_json(&app, &format!("/v1/plants/{id}")).await;
+            find_flag_mentions(&detail, &format!("${id}"), &mut found);
+        }
+        let (_, doc) = get_json(&app, "/openapi.json").await;
+        find_flag_mentions(&doc, "$openapi", &mut found);
+        assert!(found.is_empty(), "{found:?}");
+        // Y en el texto sin procesar, por si alguna cadena escapara al recorrido.
+        let (_, _, raw) = send(&app, Method::GET, "/v1/plants/lavandula-angustifolia").await;
+        assert!(!raw.contains("reviewFlags"), "{raw}");
+        let (_, _, raw_doc) = send(&app, Method::GET, "/openapi.json").await;
+        assert!(!raw_doc.contains("reviewFlags"), "{raw_doc}");
+    }
+
+    // ---- 4.1 identificadores anteriores ----
+
+    #[tokio::test]
+    async fn an_alias_answers_200_with_the_canonical_detail_and_content_location() {
+        // Escenario «Alias de un renombre» (aquí `lavandula-vera` es alias de `lavandula-angustifolia`).
+        let (_fixture, app) = app();
+        let (status, headers, body) = send(&app, Method::GET, "/v1/plants/lavandula-vera").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(
+            headers[header::CONTENT_LOCATION],
+            "/v1/plants/lavandula-angustifolia"
+        );
+        let json: Value = serde_json::from_str(&body).unwrap();
+        assert_eq!(json["id"], "lavandula-angustifolia");
+        let (_, canonical) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(json, canonical);
+    }
+
+    #[tokio::test]
+    async fn a_canonical_identifier_has_no_content_location() {
+        // Escenario «Identificador canónico».
+        let (_fixture, app) = app();
+        let (status, headers, _) =
+            send(&app, Method::GET, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(!headers.contains_key(header::CONTENT_LOCATION));
+    }
+
+    #[tokio::test]
+    async fn an_unknown_identifier_is_a_404_problem_json() {
+        // Escenario «Identificador desconocido».
+        let (_fixture, app) = app();
+        let json = expect_problem(
+            &app,
+            Method::GET,
+            "/v1/plants/lavandula-nada",
+            StatusCode::NOT_FOUND,
+        )
+        .await;
+        assert_eq!(json["instance"], "/v1/plants/lavandula-nada");
+    }
+
+    #[tokio::test]
+    async fn an_alias_needs_the_token_like_any_v1_route() {
+        // Escenario «Alias sin autorización».
+        let (_fixture, app) = app();
+        let (status, headers, body) =
+            send_with(&app, Method::GET, "/v1/plants/lavandula-vera", None).await;
+        assert_eq!(status, StatusCode::UNAUTHORIZED);
+        assert_eq!(headers[header::WWW_AUTHENTICATE], "Bearer");
+        assert!(!headers.contains_key(header::CONTENT_LOCATION));
+        assert!(!body.contains("lavandula-angustifolia"), "{body}");
+    }
+
+    #[tokio::test]
+    async fn aliases_are_not_listed_as_plants() {
+        // Escenario «Alias fuera del listado»: ni en el listado completo ni cuando `q` los usa para encontrar la planta.
+        let (_fixture, app) = app();
+        let (_, all) = get_json(&app, "/v1/plants?limit=100").await;
+        let all_ids = ids(&all);
+        for alias in [
+            "lavandula-vera",
+            "matricaria-recutita",
+            "mentha-x-piperita-subsp-nothosubsp-piperita",
+        ] {
+            assert!(!all_ids.contains(&alias), "{alias}");
+        }
+        let (_, by_alias) = get_json(&app, "/v1/plants?q=lavandula-vera").await;
+        assert_eq!(ids(&by_alias), ["lavandula-angustifolia"]);
+    }
+
+    #[tokio::test]
+    async fn a_plant_id_equal_to_an_alias_wins() {
+        let fixture = Fixture::standard();
+        fixture.insert_alias("zea-mays", "abutilon-theophrasti");
+        let app = router(AsyncCatalog::new(Arc::new(fixture.repo())), test_tokens());
+        let (status, headers, body) = send(&app, Method::GET, "/v1/plants/zea-mays").await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(!headers.contains_key(header::CONTENT_LOCATION));
+        let json: Value = serde_json::from_str(&body).unwrap();
+        assert_eq!(json["id"], "zea-mays");
+    }
+
+    // ---- 4.3 búsqueda por identificador anterior ----
+
+    #[tokio::test]
+    async fn search_by_previous_identifier_finds_the_plant_without_the_alias_as_name() {
+        // Escenarios «Búsqueda por identificador anterior» y «Alias que no es nombre».
+        let (_fixture, app) = app();
+        let (_, page) = get_json(&app, "/v1/plants?q=matricaria%20recutita").await;
+        assert_eq!(ids(&page), ["matricaria-chamomilla"]);
+        assert_eq!(page["total"], 1);
+        assert_eq!(page["items"][0]["scientificName"], "Matricaria chamomilla");
+        assert_eq!(page["items"][0]["commonNames"], serde_json::json!([]));
+        assert!(
+            !page.to_string().to_lowercase().contains("recutita"),
+            "{page}"
+        );
+        let (_, detail) = get_json(&app, "/v1/plants/matricaria-chamomilla").await;
+        assert!(
+            !detail.to_string().to_lowercase().contains("recutita"),
+            "{detail}"
+        );
+    }
+
+    #[tokio::test]
+    async fn search_by_alias_does_not_duplicate_results() {
+        // Escenario «Alias sin duplicar resultados».
+        let (_fixture, app) = app();
+        let (_, page) = get_json(&app, "/v1/plants?q=lavandula%20vera").await;
+        assert_eq!(ids(&page), ["lavandula-angustifolia"]);
+        assert_eq!(page["total"], 1);
+    }
+
+    #[tokio::test]
+    async fn percent_in_q_stays_literal_with_alias_search() {
+        // Escenarios «Consulta sin letras ni dígitos» y de `%` y `_` literales: el `slug` de `%` es vacío y no busca en alias.
+        let (_fixture, app) = app();
+        for uri in ["/v1/plants?q=%25", "/v1/plants?q=100%25", "/v1/plants?q=_"] {
+            let (_, json) = get_json(&app, uri).await;
+            assert_eq!(ids(&json), ["zea-mays"], "{uri}");
+            assert_eq!(json["total"], 1, "{uri}");
+        }
+        let (_, dash) = get_json(&app, "/v1/plants?q=-").await;
+        assert_eq!(dash["total"], 0);
     }
 }

@@ -245,6 +245,8 @@ pub struct Plant {
     pub safety: Option<Safety>,
     /// Imagen con su licencia, si la planta tiene una.
     pub image: Option<Image>,
+    /// Créditos de los datasets que respaldan los datos de la planta, sin repetir y ordenados por nombre.
+    pub credits: Vec<Credit>,
 }
 
 /// Elemento del listado de plantas.

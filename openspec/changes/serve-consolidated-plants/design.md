@@ -59,6 +59,8 @@ El detalle suma estos campos, siempre presentes (valor, `null` o lista vacía):
 
 `parts` (que ya contiene `partsUsed`), `names` y `uses` no cambian de forma. `uses` se conserva porque quitarlo sería incompatible dentro de `/v1`; la app nueva lee `useGroups`, y `uses` queda para clientes anteriores y como respaldo del cliente (D11). El mapeo `traditionalUses` a `uses` ya lo escribe el cambio 1 (un uso por cada referencia resuelta), de modo que ambos son coherentes.
 
+Cita completa (DEF-06 de la QA del cambio 1): `reference.citation` guarda una etiqueta («USDA Dr. Duke: referencia Steinmetz») y por eso los 24.286 usos la muestran como cita. La semilla guarda la cita completa en `traditionalUses[].citations[].text`, y el build la escribe en `plant_use_group_ref.text`. Por eso `useGroups[].references[].citation` es ese texto completo (y «<clave> (sin resolver)» en las no resueltas), no la etiqueta. `uses[].reference.citation` se mantiene como hoy, la etiqueta, por compatibilidad con clientes anteriores: cambiarla alteraría un valor de `/v1` ya consumido. La app nueva muestra `useGroups`, de modo que el usuario ve la cita completa; los clientes anteriores siguen viendo la etiqueta hasta que se actualicen. Alternativa descartada: poner el texto completo también en `uses[].reference.citation`; arregla la vista anterior, pero cambia el contenido de un campo existente.
+
 Dos decisiones del usuario durante el cambio 1 fijan el contrato. Primero, `safety.level` es `null` cuando las fuentes traen advertencias (por ejemplo las contraindicaciones de la EMA para el eucalipto) pero ninguna fija un nivel: la API sirve el objeto con `level` nulo, el `text` y las `references`; `safety` es `null` solo cuando no hay ningún dato de precauciones. Segundo, un grupo de uso con al menos una cita resuelta se sirve con todas sus citas: las que no tienen obra identificada llevan `resolved` falso, `id` nulo y la cita «<clave> (sin resolver)»; los grupos sin ninguna cita resuelta (`plant_use_group.pending_review`) no se sirven. `uses` sigue teniendo una fila por referencia resuelta de los grupos servidos.
 
 Alternativas:
@@ -137,7 +139,7 @@ Cuando exista la capa humana, aprobar un objetivo cambia un dato (el flag se res
 
 ### D7. Alias: 200 con el ID canónico, sin redirección
 
-`GET /v1/plants/{id}` busca primero la planta por ID; si no existe, busca un alias en `plant_alias` y, si lo encuentra, devuelve el detalle de la planta canónica con `id` canónico en el cuerpo y `Content-Location: /v1/plants/<canónico>`. El ID de una planta tiene prioridad (el cambio 1 prohíbe que un alias iguale el ID de otra, pero la API lo comprueba en este orden). Los alias no aparecen en el listado ni se resuelven en `q` (la búsqueda por nombre antiguo ya funciona por los sinónimos de `plant_name`).
+`GET /v1/plants/{id}` busca primero la planta por ID; si no existe, busca un alias en `plant_alias` y, si lo encuentra, devuelve el detalle de la planta canónica con `id` canónico en el cuerpo y `Content-Location: /v1/plants/<canónico>`. El ID de una planta tiene prioridad (el cambio 1 prohíbe que un alias iguale el ID de otra, pero la API lo comprueba en este orden). Los alias no aparecen en el listado como plantas. `q` sí los usa para encontrar la planta canónica (D14), porque los sinónimos de `plant_name` no cubren todos los nombres anteriores.
 
 Por qué no una redirección: los clientes de la app usan `http` de Dart y el token viaja en `Authorization`; el comportamiento de las cabeceras al seguir una redirección depende del cliente y del host, y un cliente que no la siga rompería con un 301. Con 200 y `id` canónico, el cliente obtiene los datos y puede corregir su ID guardado, y no hay un salto extra. Hoy nadie guarda IDs, así que el valor es para clientes futuros (favoritos, enlaces).
 
@@ -205,7 +207,7 @@ Alternativa: parseo estricto de los campos nuevos (como los requeridos). Detecta
 
 ### D12. Consultas y esquema
 
-No hay cambio de esquema. `catalog-core` suma tipos de dominio y filas para las tablas del cambio 1; `catalog-api` suma cargadores por planta (perfil, grupos de uso con referencias, objetivos, seguridad, imagen, alias, créditos, flags) siguiendo el patrón de `load_names` y `load_uses`. El detalle pasa de 3 a unas 9 consultas indexadas por `plant_id` sobre una base SQLite de solo lectura; no se espera impacto medible, y la tarea 11.2 lo mide con la base real. Los tests unitarios amplían `test_support.rs` (la `Fixture` que arma una base mínima) con filas de las tablas nuevas, y `tests/real_catalog.rs` se actualiza para la semilla.
+No hay cambio de esquema. `catalog-core` suma tipos de dominio y filas para las tablas del cambio 1; `catalog-api` suma cargadores por planta (perfil, grupos de uso con referencias, objetivos, seguridad, imagen, alias, créditos, flags). La cita completa de los grupos de uso se lee de `plant_use_group_ref.text`, no de `reference.citation` siguiendo el patrón de `load_names` y `load_uses`. El detalle pasa de 3 a unas 9 consultas indexadas por `plant_id` sobre una base SQLite de solo lectura; no se espera impacto medible, y la tarea 11.2 lo mide con la base real. Los tests unitarios amplían `test_support.rs` (la `Fixture` que arma una base mínima) con filas de las tablas nuevas, y `tests/real_catalog.rs` se actualiza para la semilla.
 
 Alternativa: una sola consulta con uniones. Menos viajes, pero cartesianos entre grupos de uso, objetivos y referencias, y más difícil de leer y mantener; no hace falta con este volumen.
 
@@ -213,6 +215,29 @@ Alternativa: una sola consulta con uniones. Menos viajes, pero cartesianos entre
 
 - API: Postman sobre los endpoints que cambian (listado, detalle con y sin alias, plantas con distintos niveles de precauciones, una con `level` nulo como el eucalipto, un grupo con una cita sin resolver, imagen y créditos), con el token como variable de entorno secreta. En QA anteriores el CLI de Postman estaba instalado pero sin sesión; si sigue así, se usa el equivalente con `curl` o un script de Python, y se anota.
 - Interfaz: la app es nativa Android y no tiene destino web, así que Playwright no aplica (la QA archivada de `add-goal-search-screen` lo anotó). Se usan el emulador con `integration_test`, `adb` y `uiautomator`, como en `connect-app-to-backend` y `add-api-token-auth`. Si el emulador no está disponible, se reporta como no ejecutado.
+
+### D14. Búsqueda por identificadores anteriores (alias)
+
+`q` busca, además de en los nombres (`plant_name.normalized`), en `plant_alias.alias`. La consulta se normaliza como hoy y, para los alias, se reduce con `slug` (los caracteres que no son letras ni dígitos pasan a un guion); se compara por subcadena con el alias. Es equivalente a comparar la consulta con el alias con sus guiones como espacios. La planta se selecciona con `plant.id IN (nombres) OR plant.id IN (alias)`, de modo que cada planta cuenta una vez en la lista y en el total, y el alias no se devuelve como nombre: el elemento lleva solo el nombre científico y los comunes de siempre. Si `slug(q)` es vacío (por ejemplo `q=%`), los alias no aportan nada. El orden sigue siendo por nombre científico e identificador.
+
+Por qué: la QA del cambio 1 (DEF-04) halló que `q=matricaria recutita` y `q=mentha piperita` dan 0 resultados, una regresión frente a la API anterior, que sí los encontraba. De los 628 identificadores que cambian, 357 tienen un nombre anterior que no está entre los nombres de la planta: 181 heterotípicos resueltos al aceptado, 135 nombres que USDA tenía como aceptados y 41 homotípicos. Su única huella es el alias, que es el slug del `TAXON` literal de USDA.
+
+Medición con `data/build/catalog.db` construida desde la semilla completa (2.354 plantas, 650 alias) y los 357 casos de `qa/evidence/api/API-04-old-names-not-found.tsv` del cambio archivado:
+
+| Regla | Casos recuperados |
+|---|---|
+| Alias, consulta solo normalizada con `normalize_name` (puntuación intacta) | 311 de 357 (87 %) |
+| Alias, consulta reducida con `slug` (la regla de esta decisión) | 357 de 357 (100 %) |
+
+La diferencia entre las dos filas son 46 nombres con puntuación, como `Acinos alpinus var. meridionalis`, cuyo alias es `acinos-alpinus-var-meridionalis`. En todos los casos la coincidencia es la planta nueva y ninguna consulta devuelve más de una planta. Con la regla, `matricaria recutita` encuentra `matricaria-chamomilla` y `mentha x piperita` encuentra `mentha-x-piperita`. `mentha piperita` sigue sin resultados: no es alias de ninguna planta y el único alias de `mentha-x-piperita` que lo menciona es `mentha-x-piperita-subsp-nothosubsp-piperita`, que lleva la `x` en medio y no contiene `mentha piperita` como subcadena. Es un límite conocido de la búsqueda por subcadena, no una pérdida nueva de este cambio.
+
+Alternativas:
+
+- Añadir los nombres anteriores como sinónimos científicos en la semilla (`plant_name`). La búsqueda por nombres los encontraría sin tocar la API y el detalle los mostraría, pero obliga a regenerar la semilla del cambio 1, que ya está archivada y verificada, y mezcla en `synonyms` nombres que la fuente taxonómica no da como sinónimos del aceptado (por ejemplo, el nombre que USDA tenía como aceptado). Se descarta aquí; sigue siendo posible como cambio de la semilla.
+- No hacer nada. Deja la regresión de la búsqueda y el caso de la propuesta del cambio 1 (`matricaria-recutita`) sin resolver. Se descarta.
+- Normalizar la consulta solo con `normalize_name` y compararla con el alias con guiones como espacios. Recupera 311 de 357: los nombres con `var.`, `subsp.` o `f.` fallan porque el alias no tiene puntos. Se descarta por la medición.
+
+Riesgo: una consulta corta como `a` coincide con muchos alias; es el mismo comportamiento de subcadena que ya tienen los nombres. La consulta suma un `IN` sobre `plant_alias` (650 filas); el `LIKE '%…%'` no usa el índice, pero la tabla es pequeña. La tarea 4.3 lo verifica y la 11.2 mide el listado con la base real.
 
 ## Risks / Trade-offs
 
@@ -230,13 +255,60 @@ Alternativa: una sola consulta con uniones. Menos viajes, pero cartesianos entre
 
 ## Migration Plan
 
-1. Implementar y probar en local con la semilla provisional del cambio 1 y con fixtures (la semilla completa es la tarea 11 de ese cambio).
+1. Implementar y probar en local con la semilla completa del cambio 1 (2.354 plantas, `data/seed/`) y con fixtures.
 2. Desplegar primero la API (aditiva: la app anterior ignora los campos nuevos), verificando el detalle de `lavandula-angustifolia` con el token.
 3. Publicar la app nueva, que tolera un backend anterior.
 4. Retroceso: revertir los commits de este cambio. La API vuelve a servir el contrato anterior y la app anterior sigue funcionando; no hay datos que migrar. Si el cambio 1 ya está desplegado, el retroceso solo quita lo servido, no lo guardado.
 
-No se hace `push` a `main` sin el cambio 1 implementado y con la semilla completa, porque `main` despliega.
+Los cambios 1 y 2 se despliegan juntos, porque `main` despliega y la app necesita el contenido y el contrato nuevos a la vez; no se hace `push` a `main` hasta que ambos estén implementados.
 
 ## Open Questions
 
 - **`url_launcher` o solo texto.** Se propone abrir los enlaces de licencia e imagen con `url_launcher` (D9). Si el usuario prefiere no añadir la dependencia, cambia una tarea y un escenario de `plant-passport` (el enlace queda como texto copiable).
+
+## Esquema real
+
+Resultado de la tarea 1.1. Se construyó `data/build/catalog.db` desde la semilla completa con `mise exec -- cargo run --release --manifest-path backend/Cargo.toml -p catalog-ingest -- build` (2.354 plantas, 650 alias, 5.200 avisos de revisión, 43.940 referencias, 10 fuentes en la salida; `metadata.schema_version` es 2) y se leyeron `data/migrations/2026-10-26-000000_catalog_v2/up.sql`, `backend/catalog-core/src/schema.rs`, `rows.rs` y `backend/catalog-ingest/src/seed_build.rs`. Las consultas se hicieron con `sqlite3`. Hay 25 tablas y no falta ninguna de las que lista la tarea.
+
+Tablas y columnas comprobadas (todas existen con estos nombres):
+
+| Tabla | Columnas | Observaciones |
+|---|---|---|
+| `plant_profile` | `plant_id` (PK), `display_name`, `authors`, `origin`, `description`, `oil_type`, `record_version`, `bundle_hash`, `prompt_version` | 2.354 filas, `display_name` nunca nulo; 1.459 con descripción, 2.197 con origen y 587 con `oil_type` `Esencial` (el resto es nulo) |
+| `plant_profile_ref` | `plant_id`, `field`, `reference_id` | `field` en `scientificName`, `family`, `displayName`, `origin`, `description`, `oil`, `partsUsed`; la descripción de la lavanda cita la referencia de Wikipedia con su URL |
+| `plant_use_group` | `id`, `plant_id`, `position`, `activity`, `activity_source`, `n`, `countries` (JSON), `pending_review` | 17.526 grupos en 1.459 plantas, 366 con `pending_review` verdadero |
+| `plant_use_group_ref` | `use_group_id`, `key`, `position`, `text`, `resolved`, `reference_id` (nulo si no está resuelta) | 24.882 resueltas y 1.361 sin resolver; `text` es la cita completa y, en las no resueltas, «<clave> (sin resolver)» |
+| `plant_goal` | `id`, `plant_id`, `goal_id`, `subarea_id`, `position`, `area`, `evidence`, `pending_review` | 288 filas, 170 con subárea y 1 pendiente (`hypericum-perforatum`, `relajacion-estres`) |
+| `plant_goal_ref` | `plant_goal_id`, `reference_id` | |
+| `goal` | `id`, `label`, `position` | 6 objetivos, con los ids supuestos |
+| `goal_subarea` | `id`, `goal_id`, `label`, `position` | 6 subáreas, todas de `otros-objetivos`, con los ids supuestos |
+| `plant_safety` | `plant_id` (PK), `level` (`alto`, `medio`, `bajo` o nulo), `text` | 873 plantas: 112 altos, 204 medios, 85 bajos y 472 sin nivel; las demás no tienen fila |
+| `plant_safety_ref` | `plant_id`, `reference_id` | 3.653 filas; datasets `efsa`, `ema_pdf`, `tppt`, `usda` y `wikipedia_es` |
+| `plant_image` | `plant_id` (PK), `url`, `page_url`, `author`, `license`, `license_url`, `attribution_required` | 1.860 plantas; 51 sin autor y 419 sin `license_url` |
+| `plant_alias` | `alias` (PK), `plant_id` | 650 alias, ninguno igual al id de una planta |
+| `plant_review_flag` | `id`, `plant_id`, `code`, `target`, `message` | 5.200 filas; `objetivos-omitidos-por-toxicidad` e `interacciones-graves-estres` existen como códigos |
+| `reference` | `id`, `citation`, `dataset`, `license`, `url` | 43.940 filas, `dataset` y `license` nunca nulos; `url` nulo en parte de las de USDA, WCVP, EFSA, TPPT y WFO |
+| `source` | `id`, `name`, `version`, `license`, `citation`, `url`, `checksum` | 10 filas |
+| `plant_name_source`, `plant_part_source`, `plant_use_source`, `plant_source_id`, `reference_source` | pares de claves a `source` | Cada nombre, parte y uso tiene al menos una fuente, y las 2.354 plantas tienen `plant_source_id`; toda `reference` tiene `reference_source` |
+
+Atribución por fuente: cada una de las 10 fuentes (`commons`, `efsa`, `ema_json`, `ema_pdf`, `tppt`, `usda`, `wcvp`, `wfo`, `wikidata`, `wikipedia_es`) tiene `name`, `license`, `citation` (el texto de atribución exigido, por ejemplo «Colaboradores de Wikipedia en español (...). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.») y `url`, todos no nulos. Idioma: `area` y `evidence` de `plant_goal` están en español («Tos y resfriado», «La EMA tiene una monografía en esta área.»), y los países de `plant_use_group.countries` también («Turquía», «Estados Unidos», «Otros lugares»); una búsqueda de países en inglés («United States», «Germany», «Turkey») y de textos con «the» u «of» no encontró casos. Las actividades traducidas siguen las observaciones de DEF-07 del cambio 1 (términos sin traducir en algunos grupos).
+
+Diferencias con lo supuesto (ninguna bloquea las tareas siguientes, pero tres cambian lo que hay que implementar):
+
+- `reference.dataset` y la clave de `plant_*_source` son el id de la fuente (`usda`, `wikipedia_es`), no el nombre para mostrar. Para `credits.name`, `license`, `attribution` y `url` hay que unir con `source.id`: `name` sale de `source.name`, `attribution` de `source.citation` y `url` de `source.url`. Para la descripción derivada de Wikipedia, el enlace al artículo sale de `reference.url` de la referencia `description` de `plant_profile_ref` (la de `source.url` es solo el sitio). `source.license` es texto libre («CC BY-SA 4.0», pero también «por archivo: CC0, dominio público, CC BY o CC BY-SA» para Commons).
+- No hay URL de la licencia en `source` ni en `reference` (`credits.licenseUrl`): el esquema tiene `license_url` solo en `plant_image`. `licenseUrl` de los créditos queda en `null` para todos los datasets, salvo que la API derive el enlace del texto de la licencia, lo que ataría el código a nombres de licencia. El contrato admite `null`, así que no bloquea; si se quiere el enlace de CC BY-SA 4.0 junto al crédito de Wikipedia, hay que ajustar el cambio 1 o decidirlo aquí.
+- `reference.license` puede diferir de `source.license` (1.852 referencias; por ejemplo Commons por archivo): en los créditos de una fuente vale `source.license`.
+- Dos fuentes de la EMA (`ema_json` y `ema_pdf`) tienen nombres propios distintos, de modo que una planta con objetivos de ambas lleva dos créditos de la EMA.
+- `reference.citation` es una etiqueta («USDA Dr. Duke: referencia Steinmetz»); la cita completa de los grupos de uso solo está en `plant_use_group_ref.text` (véase D1).
+- Los alias son el slug del nombre de USDA, y para `q` hay que compararlos con `slug(q)` (véase D14).
+- `catalog-core` ya tiene `schema.rs` y `rows.rs` con las tablas y filas Diesel de todas las tablas nuevas (`PlantProfileRow`, `PlantUseGroupRow`, `PlantGoalRow`, etc.), de modo que la tarea 1.2 solo debe añadir los tipos de dominio.
+- Nombre para mostrar: la build ya no escribe el nombre científico como nombre común de idioma `la` (DEF-02 corregido). Pero en 571 plantas el `display_name` es el nombre científico aunque la planta tiene nombres comunes en otro idioma (por ejemplo `abutilon-theophrasti`, con «Velvetleaf» en inglés), porque no tienen nombre común en español (flag `sin-nombre-comun-es`, 1.195 plantas en total, de las cuales 624 no tienen ningún nombre común). En esas, el nombre para mostrar no está entre los nombres comunes y no puede ser «el primero de ellos», como dicen D2 y el requisito «Nombre para mostrar y orden de los nombres comunes». Se deja como pregunta abierta antes de la tarea 2.1.
+
+Consultas de muestra, con `sqlite3 data/build/catalog.db`:
+
+- `select display_name, origin, oil_type from plant_profile where plant_id='lavandula-angustifolia'` devuelve «Lavanda», «Sureste y suroeste de Europa.» y «Esencial».
+- `select activity, countries, n from plant_use_group where plant_id='lavandula-angustifolia'` devuelve, entre otros, «Carminativo», `["Otros lugares","Turquía"]` y 2.
+- `select key, text from plant_use_group_ref where use_group_id=8864` devuelve la clave `Steinmetz` con «Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam.» y la clave `Woi.6`.
+- `select level, substr(text,1,60) from plant_safety where plant_id='eucalyptus-globulus'` devuelve `level` nulo con el texto de las contraindicaciones de la EMA, y la lavanda tiene nivel `medio`.
+- `select alias, plant_id from plant_alias where plant_id='salvia-rosmarinus'` devuelve `rosmarinus-officinalis`, y `matricaria-recutita` lleva a `matricaria-chamomilla`.
+- `select plant_id, goal_id, pending_review from plant_goal where pending_review=1` devuelve solo `hypericum-perforatum` con `relajacion-estres`.

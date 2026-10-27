@@ -13,6 +13,8 @@ Este es el segundo de tres cambios (semilla, detalle de planta y pasaporte, bús
 - **Detalle de planta ampliado (aditivo dentro de `/v1`)**: `GET /v1/plants/{id}` suma `displayName`, `synonyms`, `description`, `origin`, `oil`, `useGroups` (actividad traducida con número de registros, países y citas, incluidas las citas sin resolver marcadas como tales), `goals` (objetivos de la EMA con área, tipo de documento y citas), `safety` (nivel, que puede ser `null`, texto y citas), `image` (URL, página del archivo, autor, licencia y atribución) y `credits` (dataset, licencia, atribución y enlace, a nivel de planta). Los campos existentes (`names`, `parts`, `uses`) se conservan.
 - **Listado**: cada elemento suma `displayName`. No suma miniatura (véase `design.md`, D5).
 - **Orden de nombres comunes**: el nombre para mostrar de la semilla va primero entre los nombres comunes. Hoy la API los ordena alfabéticamente, de modo que el «primer nombre común» no sería el que la semilla eligió.
+- **Búsqueda por nombres anteriores**: `q` busca también en los alias guardados, de modo que `matricaria recutita` encuentra `matricaria-chamomilla`. Corrige la regresión DEF-04 de la QA del cambio 1 (357 nombres anteriores sin resultados) sin cambiar la semilla; el alias no se devuelve como nombre.
+- **Cita completa en los grupos de uso**: `useGroups[].references[].citation` es el texto completo de la cita y no la etiqueta (DEF-06 de la QA del cambio 1); `uses[].reference.citation` no cambia.
 - **Alias de identificadores**: un ID anterior guardado como alias en el cambio 1 se resuelve en `GET /v1/plants/{id}` con 200 y el ID canónico en el cuerpo y en `Content-Location`; no hay redirección.
 - **Contenido pendiente de revisión**: la API no sirve un objetivo que un `reviewFlag` deja condicionado a revisión (el caso del hipérico y `relajacion-estres`). Los demás `reviewFlags` no se exponen. Un grupo de uso con al menos una cita resuelta se sirve, con sus citas sin resolver marcadas; solo se omiten los grupos sin ninguna cita resuelta (`plant_use_group.pending_review`).
 - **Se levanta la prohibición de procedencia**: la API y el pasaporte pueden mostrar créditos y atribución como un dato neutral a nivel de planta (nombre del dataset, licencia, atribución y enlace), sin indicar qué campo vino de qué fuente. Se mantiene el rechazo de procedencia por campo.
@@ -30,7 +32,7 @@ Ninguna.
 
 ### Modified Capabilities
 
-- `catalog-api`: el listado suma `displayName`; el detalle suma los campos nuevos y créditos neutrales (se retira la prohibición de procedencia y se reescribe «Atribución en las respuestas»); resolución de alias; omisión de objetivos pendientes de revisión.
+- `catalog-api`: el listado suma `displayName` y `q` busca también en los alias; el detalle suma los campos nuevos y créditos neutrales (se retira la prohibición de procedencia y se reescribe «Atribución en las respuestas»); resolución de alias; omisión de objetivos pendientes de revisión.
 - `catalog-client`: parseo tolerante de los campos nuevos, nombre para mostrar desde `displayName` y carga de imágenes de hosts de Wikimedia acotada.
 - `plant-passport`: imagen con atribución, `General` de P05, `Propiedades` (objetivos y `Precauciones`), `Usos` por grupos, sección `Fuentes`, estados sin datos y accesibilidad. Se retira la prohibición de mostrar procedencia o créditos.
 - `explore-screen`: la fila muestra el nombre para mostrar en español.

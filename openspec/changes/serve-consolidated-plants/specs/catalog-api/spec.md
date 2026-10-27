@@ -3,7 +3,7 @@
 ## MODIFIED Requirements
 
 ### Requirement: Listado y búsqueda de plantas
-`GET /v1/plants` SHALL devolver las plantas con los elementos de la página solicitada y el total de coincidencias. Cada elemento SHALL incluir el identificador, el nombre científico, el nombre para mostrar, los nombres comunes con su idioma y la familia si existe. El orden SHALL ser total y estable: por nombre científico y, en caso de empate, por identificador. El parámetro opcional `q` SHALL filtrar por subcadena sobre el nombre científico, los sinónimos y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. Sin `q`, o con `q` vacío o formado solo por espacios, SHALL listar todas las plantas. Los caracteres especiales de patrón, como `%` y `_`, SHALL tratarse como texto literal.
+`GET /v1/plants` SHALL devolver las plantas con los elementos de la página solicitada y el total de coincidencias. Cada elemento SHALL incluir el identificador, el nombre científico, el nombre para mostrar, los nombres comunes con su idioma y la familia si existe. El orden SHALL ser total y estable: por nombre científico y, en caso de empate, por identificador. El parámetro opcional `q` SHALL filtrar por subcadena sobre el nombre científico, los sinónimos y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o exteriores. `q` SHALL buscar además en los identificadores anteriores (alias) de cada planta: la consulta normalizada, con los caracteres que no son letras ni dígitos reducidos a espacios, se compara por subcadena con el alias con sus guiones como espacios. Una planta SHALL contarse y listarse una sola vez aunque coincida por varias vías, y el alias SHALL NOT aparecer como nombre ni como planta en la respuesta. Sin `q`, o con `q` vacío o formado solo por espacios, SHALL listar todas las plantas. Los caracteres especiales de patrón, como `%` y `_`, SHALL tratarse como texto literal.
 
 #### Scenario: Listado sin búsqueda
 - **WHEN** un cliente pide `GET /v1/plants` sin `q`
@@ -45,6 +45,22 @@
 - **WHEN** un cliente busca `rosmarinus officinalis`, un sinónimo científico de la planta `salvia-rosmarinus`
 - **THEN** la respuesta incluye `salvia-rosmarinus`, con su nombre científico aceptado
 
+#### Scenario: Búsqueda por identificador anterior
+- **WHEN** un cliente busca `matricaria recutita`, que no es un nombre de ninguna planta pero sí el alias `matricaria-recutita` de `matricaria-chamomilla`
+- **THEN** la respuesta incluye `matricaria-chamomilla` con su nombre científico aceptado, y ningún `names`, `commonNames` ni elemento del listado contiene `matricaria-recutita` ni `Matricaria recutita` por el alias
+
+#### Scenario: Alias con puntuación en la consulta
+- **WHEN** un cliente busca `Mentha x piperita subsp. nothosubsp. piperita`, cuyo alias guardado es `mentha-x-piperita-subsp-nothosubsp-piperita`
+- **THEN** la respuesta incluye `mentha-x-piperita`, porque la puntuación de la consulta se trata como espacio al compararla con el alias
+
+#### Scenario: Alias sin duplicar resultados
+- **WHEN** una consulta coincide con el nombre de una planta y también con uno de sus alias, como `rosmarinus officinalis` con `salvia-rosmarinus`
+- **THEN** esa planta aparece una sola vez en la lista y cuenta una sola vez en el total
+
+#### Scenario: Consulta sin letras ni dígitos
+- **WHEN** `q` contiene solo caracteres que no son letras ni dígitos, como `%`
+- **THEN** la búsqueda en alias no devuelve coincidencias y el resultado es el de la búsqueda por nombres, con `%` como texto literal
+
 #### Scenario: Búsqueda insensible a mayúsculas, acentos y espacios
 - **WHEN** un cliente busca con otras mayúsculas, con o sin acentos o con espacios repetidos o exteriores
 - **THEN** la respuesta es la misma que con la forma normalizada de la consulta
@@ -54,7 +70,7 @@
 - **THEN** la respuesta tiene una lista vacía y un total de cero, no un error
 
 ### Requirement: Detalle de planta
-`GET /v1/plants/{id}` SHALL devolver la identidad de la planta, su nombre para mostrar, sus nombres con tipo e idioma, la familia si existe, sus partes, sus usos (actividad, idioma y referencia con su cita) y el contenido consolidado y los créditos definidos en los requisitos «Contenido consolidado del detalle», «Imagen con atribución en el detalle» y «Créditos neutrales a nivel de planta». La familia SHALL ser un texto o `null`. La respuesta SHALL NOT indicar de qué dataset proviene un dato concreto. Lo ausente SHALL devolverse como `null` o lista vacía, nunca inventado.
+`GET /v1/plants/{id}` SHALL devolver la identidad de la planta, su nombre para mostrar, sus nombres con tipo e idioma, la familia si existe, sus partes, sus usos (actividad, idioma y referencia con su cita, que sigue siendo la etiqueta de la referencia como hasta ahora) y el contenido consolidado y los créditos definidos en los requisitos «Contenido consolidado del detalle», «Imagen con atribución en el detalle» y «Créditos neutrales a nivel de planta». La familia SHALL ser un texto o `null`. La respuesta SHALL NOT indicar de qué dataset proviene un dato concreto. Lo ausente SHALL devolverse como `null` o lista vacía, nunca inventado.
 
 #### Scenario: Planta existente
 - **WHEN** un cliente pide el detalle de un identificador existente
@@ -63,6 +79,10 @@
 #### Scenario: Sin información de procedencia
 - **WHEN** un cliente pide el detalle de una planta con datos de una o varias fuentes
 - **THEN** ningún nombre, parte, uso, grupo de uso, objetivo, nivel de seguridad ni la familia incluye campos de fuente, dataset u origen
+
+#### Scenario: Cita de `uses` sin cambios
+- **WHEN** un cliente anterior lee `uses[].reference.citation` de una planta con usos
+- **THEN** el valor es la etiqueta de la referencia, igual que antes de este cambio, y la cita completa solo está en `useGroups`
 
 #### Scenario: Planta sin usos
 - **WHEN** la planta no tiene usos en el catálogo
@@ -109,7 +129,7 @@ La API SHALL entregar `displayName` en el listado y en el detalle: el nombre par
 - **THEN** `displayName` es el nombre científico y en el detalle no hay nombres de tipo común
 
 ### Requirement: Contenido consolidado del detalle
-El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando la planta no tiene el dato: `synonyms` (sinónimos científicos, sin repetir el nombre aceptado), `description` (texto o `null`), `origin` (texto o `null`), `oil` (objeto con `type` o `null`), `useGroups` (grupos de uso tradicional, cada uno con `activity`, `activitySource`, `count`, `countries` y `references`, cada una con `id`, `citation` y `resolved`; una cita sin obra identificada lleva `id` nulo, `resolved` falso y la cita «<clave> (sin resolver)»), `goals` (cada objetivo con `id`, `name`, `subarea` o `null`, `area`, `evidence` y `references`) y `safety` (objeto con `level` igual a `alto`, `medio`, `bajo` o `null`, `text` y `references`, o `null` solo cuando no hay ningún dato de precauciones). Los grupos SHALL ordenarse por `count` descendente y luego por actividad; los objetivos por nombre. Los textos visibles SHALL estar en español y no contener dosis ni promesas de eficacia, porque la semilla los valida.
+El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando la planta no tiene el dato: `synonyms` (sinónimos científicos, sin repetir el nombre aceptado), `description` (texto o `null`), `origin` (texto o `null`), `oil` (objeto con `type` o `null`), `useGroups` (grupos de uso tradicional, cada uno con `activity`, `activitySource`, `count`, `countries` y `references`, cada una con `id`, `citation` y `resolved`; la `citation` de cada referencia es el texto completo de la cita que guarda la semilla y no la etiqueta corta de la referencia; una cita sin obra identificada lleva `id` nulo, `resolved` falso y la cita «<clave> (sin resolver)»), `goals` (cada objetivo con `id`, `name`, `subarea` o `null`, `area`, `evidence` y `references`) y `safety` (objeto con `level` igual a `alto`, `medio`, `bajo` o `null`, `text` y `references`, o `null` solo cuando no hay ningún dato de precauciones). Los grupos SHALL ordenarse por `count` descendente y luego por actividad; los objetivos por nombre. Los textos visibles SHALL estar en español y no contener dosis ni promesas de eficacia, porque la semilla los valida.
 
 #### Scenario: Planta con todos los campos
 - **WHEN** se pide el detalle de una planta con descripción, origen, aceite esencial, usos agrupados, un objetivo y nivel de seguridad
@@ -130,6 +150,10 @@ El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando 
 #### Scenario: Seguridad sin nivel
 - **WHEN** las fuentes traen advertencias para la planta (por ejemplo las contraindicaciones de la EMA para el eucalipto) pero ninguna fija un nivel
 - **THEN** `safety` es un objeto con `level` igual a `null`, el `text` y las `references`, y la API no inventa un nivel ni lo sustituye por `null` en todo el objeto
+
+#### Scenario: Cita completa en los grupos de uso
+- **WHEN** un grupo de uso de la lavanda cita la obra de clave `Steinmetz`, cuya etiqueta de referencia es «USDA Dr. Duke: referencia Steinmetz» y cuyo texto completo en la semilla es «Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam.»
+- **THEN** la referencia de `useGroups` lleva `citation` igual al texto completo y no a la etiqueta
 
 #### Scenario: Grupo de uso con una cita sin resolver
 - **WHEN** un grupo de uso tiene una cita resuelta y otra sin obra identificada
@@ -178,7 +202,7 @@ El detalle SHALL incluir `credits`, una lista de los datasets que respaldan los 
 - **THEN** `credits` es una lista vacía
 
 ### Requirement: Identificadores anteriores
-`GET /v1/plants/{id}` SHALL resolver un identificador que no es el de ninguna planta pero sí un alias guardado de una planta, y SHALL responder 200 con el detalle de la planta canónica, con su identificador canónico en el campo `id` y en la cabecera `Content-Location`. Un identificador que sea el de una planta SHALL resolverse siempre a esa planta. La API SHALL NOT responder con redirección. El listado SHALL NOT incluir alias como plantas.
+`GET /v1/plants/{id}` SHALL resolver un identificador que no es el de ninguna planta pero sí un alias guardado de una planta, y SHALL responder 200 con el detalle de la planta canónica, con su identificador canónico en el campo `id` y en la cabecera `Content-Location`. Un identificador que sea el de una planta SHALL resolverse siempre a esa planta. La API SHALL NOT responder con redirección. El listado SHALL NOT incluir alias como plantas, aunque `q` los use para encontrar la planta canónica.
 
 #### Scenario: Alias de un renombre
 - **WHEN** un cliente pide `GET /v1/plants/rosmarinus-officinalis` y esa cadena es un alias de `salvia-rosmarinus`

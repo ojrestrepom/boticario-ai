@@ -124,7 +124,7 @@ Las fixtures de tipografía Roboto usadas por pruebas de layout están en [`app/
 
 ### 4. Smoke Android
 
-El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz) con su `API_TOKENS`. El smoke exige `--dart-define=API_TOKEN=<token-de-la-app>` y falla enseguida con un mensaje claro si falta. Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «English Lavender» / «Lavandula angustifolia»), filtros y retorno a Inicio.
+El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz) con su `API_TOKENS`. El smoke exige `--dart-define=API_TOKEN=<token-de-la-app>` y falla enseguida con un mensaje claro si falta. Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «Lavanda» / «Lavandula angustifolia», el nombre para mostrar de la semilla), filtros y retorno a Inicio.
 
 Desde `app/`:
 

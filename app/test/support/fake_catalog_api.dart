@@ -49,9 +49,22 @@ String apiFixture(String name) =>
     File('test/fixtures/api/$name').readAsStringSync();
 
 class FakeCatalogApi {
-  FakeCatalogApi({this.failure = FakeApiFailure.none, this.requiredToken}) {
+  FakeCatalogApi({
+    this.failure = FakeApiFailure.none,
+    this.requiredToken,
+    this.listFixture = 'list_lavandula.json',
+    this.detailFixtures = const {},
+  }) {
     client = MockClient(_handle);
   }
+
+  /// Fixture served by the list when `q` is absent or contains "lavandula".
+  final String listFixture;
+
+  /// Detail fixtures by plant id, taking precedence over `plant_{id}.json`.
+  /// Used to serve real responses of the consolidated backend
+  /// (`consolidated_*.json`).
+  final Map<String, String> detailFixtures;
 
   /// Ids that have a detail fixture.
   static const plantIds = [
@@ -104,6 +117,14 @@ class FakeCatalogApi {
         segments[0] == 'v1' &&
         segments[1] == 'plants') {
       final id = segments[2];
+      final override = detailFixtures[id];
+      if (override != null) {
+        return http.Response.bytes(
+          utf8.encode(apiFixture(override)),
+          200,
+          headers: _jsonHeaders,
+        );
+      }
       if (plantIds.contains(id)) {
         return http.Response.bytes(
           utf8.encode(apiFixture('plant_$id.json')),
@@ -129,7 +150,7 @@ class FakeCatalogApi {
     final q = query['q'];
     if (q == null || q.toLowerCase().contains('lavandula')) {
       return http.Response.bytes(
-        utf8.encode(apiFixture('list_lavandula.json')),
+        utf8.encode(apiFixture(listFixture)),
         200,
         headers: _jsonHeaders,
       );

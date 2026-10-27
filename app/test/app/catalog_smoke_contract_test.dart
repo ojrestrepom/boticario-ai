@@ -12,7 +12,13 @@ void main() {
   testWidgets(
     'shared real-app smoke flow passes against the fake catalog API',
     (tester) async {
-      final api = FakeCatalogApi(requiredToken: testApiToken);
+      final api = FakeCatalogApi(
+        requiredToken: testApiToken,
+        listFixture: 'consolidated_list_lavand.json',
+        detailFixtures: const {
+          'lavandula-angustifolia': 'consolidated_lavandula-angustifolia.json',
+        },
+      );
       await runCatalogSmoke(
         tester,
         overrides: [
@@ -44,7 +50,13 @@ void main() {
       // it, so a retained scroll must clamp to the new extent.
       tester.view.physicalSize = const Size(1080, 3000);
       tester.view.devicePixelRatio = 3;
-      final api = FakeCatalogApi(requiredToken: testApiToken);
+      final api = FakeCatalogApi(
+        requiredToken: testApiToken,
+        listFixture: 'consolidated_list_lavand.json',
+        detailFixtures: const {
+          'lavandula-angustifolia': 'consolidated_lavandula-angustifolia.json',
+        },
+      );
       await runCatalogSmoke(
         tester,
         overrides: [

@@ -33,7 +33,8 @@
 //   Host success is contract evidence only, never Android QA.
 //
 // The flow never assumes which plants the first page holds nor how many: it
-// searches for `lavandula` and expects the "English Lavender" row.
+// searches for `lavandula` and expects the "Lavanda" row
+// (the seed's display name).
 import 'dart:async';
 import 'dart:io';
 
@@ -78,7 +79,7 @@ const _footerActions = <HomeAction>{
 /// The row and passport the flow looks for. `lavandula` is stable catalog data
 /// both in the API and in the test fixtures.
 const _searchTerm = 'lavandula';
-const _lavenderCommon = 'English Lavender';
+const _lavenderCommon = 'Lavanda';
 const _lavenderScientific = 'Lavandula angustifolia';
 const _lavenderPath = '/explore/lavandula-angustifolia';
 

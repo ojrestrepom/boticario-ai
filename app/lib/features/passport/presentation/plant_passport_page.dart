@@ -4,10 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../catalog/data/catalog_client_exception.dart';
 import '../../catalog/domain/plant.dart';
 import '../application/plant_detail_provider.dart';
-
-const _green = Color(0xFF236335);
-const _ink = Color(0xFF172A1F);
-const _background = Color(0xFFF9FAF7);
+import 'passport_general_tab.dart';
+import 'passport_header.dart';
+import 'passport_properties_tab.dart';
+import 'passport_sources_section.dart';
+import 'passport_style.dart';
+import 'passport_uses_tab.dart';
 
 /// Route-facing entry point. It resolves the API id (slug) of the route
 /// against the catalog API; the content itself is [PlantPassportPage].
@@ -73,7 +75,7 @@ class _PassportStatusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: _background,
+    backgroundColor: passportBackground,
     body: SafeArea(
       child: Column(
         children: [
@@ -85,7 +87,7 @@ class _PassportStatusPage extends StatelessWidget {
               child: IconButton(
                 tooltip: 'Volver a Explorar',
                 onPressed: onBack,
-                icon: const Icon(Icons.chevron_left, color: _green),
+                icon: const Icon(Icons.chevron_left, color: passportGreen),
               ),
             ),
           ),
@@ -180,11 +182,15 @@ Widget _navItem(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 20, color: selected ? _green : Colors.grey),
+              Icon(
+                icon,
+                size: 20,
+                color: selected ? passportGreen : Colors.grey,
+              ),
               Text(
                 label,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: selected ? _green : Colors.grey),
+                style: TextStyle(color: selected ? passportGreen : Colors.grey),
               ),
             ],
           ),
@@ -225,13 +231,15 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: _background,
+    backgroundColor: passportBackground,
     body: SafeArea(
       bottom: false,
       child: CustomScrollView(
         key: PageStorageKey('passport-${widget.plant.id}-$_tab'),
         slivers: [
-          SliverToBoxAdapter(child: _header()),
+          SliverToBoxAdapter(
+            child: PassportHeader(plant: widget.plant, onBack: widget.onBack),
+          ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
             sliver: SliverList.list(
@@ -239,11 +247,12 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
                 _tabs(),
                 const SizedBox(height: 16),
                 if (_tab == 0)
-                  _general()
+                  PassportGeneralTab(plant: widget.plant)
                 else if (_tab == 1)
-                  _properties()
+                  PassportPropertiesTab(plant: widget.plant)
                 else
-                  _uses(),
+                  PassportUsesTab(plant: widget.plant),
+                PassportSourcesSection(plant: widget.plant),
               ],
             ),
           ),
@@ -267,56 +276,6 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     ),
   );
 
-  Widget _header() => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-    child: Row(
-      children: [
-        SizedBox(
-          width: 48,
-          height: 48,
-          child: IconButton(
-            tooltip: 'Volver a Explorar',
-            onPressed: widget.onBack,
-            icon: const Icon(Icons.chevron_left),
-            color: _green,
-          ),
-        ),
-        const ExcludeSemantics(
-          child: Icon(Icons.local_florist, color: _green, size: 34),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.plant.primaryName,
-                style: Theme.of(context).textTheme.titleLarge
-                    ?.copyWith(color: _ink),
-              ),
-              if (widget.plant.secondaryName != null)
-                Text(
-                  widget.plant.secondaryName!,
-                  style: Theme.of(context).textTheme.bodyMedium
-                      ?.copyWith(color: _ink),
-                ),
-            ],
-          ),
-        ),
-        Semantics(
-          label: 'Favorito no disponible',
-          button: true,
-          enabled: false,
-          child: const SizedBox(
-            width: 48,
-            height: 48,
-            child: Icon(Icons.favorite_border, color: Colors.grey),
-          ),
-        ),
-      ],
-    ),
-  );
-
   Widget _tabs() => Wrap(
     spacing: 8,
     runSpacing: 4,
@@ -329,128 +288,6 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),
     ],
-  );
-
-  Widget _general() {
-    final plant = widget.plant;
-    final commonNames = plant.commonNames;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _field('Familia', plant.family ?? 'No disponible en fuente'),
-        if (commonNames.isEmpty)
-          _field('Nombres comunes', 'No hay nombres comunes registrados')
-        else
-          _fieldLines('Nombres comunes', [
-            for (final name in commonNames) '${name.text} (${name.language})',
-          ]),
-        _field(
-          'Partes registradas en fuente',
-          plant.parts.isEmpty
-              ? 'No hay partes registradas en fuente'
-              : plant.parts.join(', '),
-        ),
-        _field('Tipo de aceite', 'No aplicable: ficha de planta'),
-        if (plant.uses.isNotEmpty) ...[
-          const SizedBox(height: 8),
-          _sectionTitle('Referencias bibliográficas'),
-          for (final ref in _references()) _field(ref.id, ref.citation),
-        ],
-      ],
-    );
-  }
-
-  Widget _properties() => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      _sectionTitle('Propiedades'),
-      const SizedBox(height: 8),
-      const Text('sin propiedades medicinales evaluadas en este catálogo'),
-    ],
-  );
-
-  Widget _uses() {
-    final uses = widget.plant.uses;
-    if (uses.isEmpty) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _sectionTitle('Usos tradicionales'),
-          const SizedBox(height: 8),
-          const Text(
-            'No hay usos tradicionales con referencia verificable disponibles',
-          ),
-        ],
-      );
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _sectionTitle('Registros tradicionales'),
-        const SizedBox(height: 8),
-        const Text(
-          'No es una recomendación de uso ni evidencia de eficacia clínica',
-        ),
-        const SizedBox(height: 12),
-        for (final use in uses) ...[
-          _field('Registro tradicional', use.activity),
-          _field('Referencia: ${use.reference.id}', use.reference.citation),
-          const Divider(height: 20),
-        ],
-      ],
-    );
-  }
-
-  List<UseReference> _references() {
-    final refs = <String, UseReference>{};
-    for (final use in widget.plant.uses) {
-      refs[use.reference.id] = use.reference;
-    }
-    return refs.values.toList();
-  }
-
-  Widget _fieldLines(String label, List<String> values) => Padding(
-    padding: const EdgeInsets.only(bottom: 14),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.labelLarge
-              ?.copyWith(color: _green),
-        ),
-        const SizedBox(height: 3),
-        for (final value in values)
-          Text(
-            value,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: _ink),
-          ),
-      ],
-    ),
-  );
-
-  Widget _field(String label, String value) => Padding(
-    padding: const EdgeInsets.only(bottom: 14),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.labelLarge
-              ?.copyWith(color: _green),
-        ),
-        const SizedBox(height: 3),
-        Text(
-          value,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: _ink),
-        ),
-      ],
-    ),
-  );
-
-  Widget _sectionTitle(String text) => Text(
-    text,
-    style: Theme.of(context).textTheme.titleMedium?.copyWith(color: _ink),
   );
 }
 

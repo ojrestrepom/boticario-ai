@@ -3,7 +3,7 @@
 ## MODIFIED Requirements
 
 ### Requirement: Consumo de la API v1 del catálogo
-La app SHALL usar únicamente `GET /v1/plants` (con `q`, `limit` y `offset` codificados) y `GET /v1/plants/{id}` (con el id codificado en la ruta), con la cabecera `Accept: application/json` y la cabecera `Authorization: Bearer <token>` con el token de API de la compilación en cada petición. SHALL NOT usar otros endpoints de la API ni comunicarse con otro host, con una única excepción: descargar la imagen de una planta desde la URL que la API entrega en `image.url`, solo si es HTTPS y su host es `commons.wikimedia.org` o `upload.wikimedia.org`, y sin enviar `Authorization` ni datos de usuario. SHALL NOT enviar otras cabeceras de identidad ni datos de usuario, ni escribir el token en logs, mensajes de error o la interfaz.
+La app SHALL usar únicamente `GET /v1/plants` (con `q`, `limit` y `offset` codificados) y `GET /v1/plants/{id}` (con el id codificado en la ruta), con la cabecera `Accept: application/json` y la cabecera `Authorization: Bearer <token>` con el token de API de la compilación en cada petición. SHALL NOT usar otros endpoints de la API ni comunicarse con otro host, con una única excepción: descargar la imagen de una planta, en la miniatura de 500 px derivada de la URL que la API entrega en `image.url`, solo si es HTTPS y su host es `commons.wikimedia.org` o `upload.wikimedia.org`, y sin enviar `Authorization` ni datos de usuario. SHALL NOT enviar otras cabeceras de identidad ni datos de usuario, ni escribir el token en logs, mensajes de error o la interfaz.
 
 #### Scenario: Listado con parámetros
 - **WHEN** se pide una página del listado con consulta `lavandula`, `limit` 50 y `offset` 100
@@ -35,7 +35,7 @@ La app SHALL usar únicamente `GET /v1/plants` (con `q`, `limit` y `offset` codi
 
 #### Scenario: Imagen de un host permitido
 - **WHEN** el detalle trae `image.url` HTTPS con host `upload.wikimedia.org`
-- **THEN** la app la descarga sin la cabecera `Authorization` ni otras cabeceras de identidad
+- **THEN** la app descarga su miniatura de 500 px sin la cabecera `Authorization` ni otras cabeceras de identidad, salvo un `User-Agent` genérico con el nombre y la versión de la app
 
 #### Scenario: Imagen de un host no permitido
 - **WHEN** `image.url` usa HTTP, o un host distinto de `commons.wikimedia.org` y `upload.wikimedia.org`

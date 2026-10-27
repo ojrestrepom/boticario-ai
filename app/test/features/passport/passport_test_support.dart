@@ -1,5 +1,6 @@
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
+import 'package:boticario_ai/features/catalog/data/plant_image_policy.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ Future<void> showPassport(
   WidgetTester tester,
   Plant plant, {
   String tab = 'General',
+  ImageProvider? Function(String? url)? imageProviderFor,
 }) async {
   tester.view.physicalSize = const Size(360, 2400);
   tester.view.devicePixelRatio = 1;
@@ -26,7 +28,13 @@ Future<void> showPassport(
   await tester.pumpWidget(
     MaterialApp(
       theme: buildBoticarioTheme(),
-      home: PlantPassportPage(plant: plant, onBack: () {}, onHome: () {}),
+      home: PlantPassportPage(
+        plant: plant,
+        onBack: () {},
+        onHome: () {},
+        imageProviderFor:
+            imageProviderFor ?? PlantImagePolicy.thumbnailProviderFor,
+      ),
     ),
   );
   if (tab != 'General') {

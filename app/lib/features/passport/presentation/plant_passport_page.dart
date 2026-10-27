@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../catalog/data/catalog_client_exception.dart';
+import '../../catalog/data/plant_image_policy.dart';
 import '../../catalog/domain/plant.dart';
 import '../application/plant_detail_provider.dart';
 import 'passport_general_tab.dart';
@@ -209,12 +210,17 @@ class PlantPassportPage extends StatefulWidget {
     required this.plant,
     required this.onBack,
     required this.onHome,
+    this.imageProviderFor = PlantImagePolicy.thumbnailProviderFor,
     super.key,
   });
 
   final Plant plant;
   final VoidCallback onBack;
   final VoidCallback onHome;
+
+  /// Resolves the header image from `image.url`. Tests replace it to simulate
+  /// a download without the network.
+  final ImageProvider? Function(String? url) imageProviderFor;
 
   @override
   State<PlantPassportPage> createState() => _PlantPassportPageState();
@@ -238,7 +244,11 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
         key: PageStorageKey('passport-${widget.plant.id}-$_tab'),
         slivers: [
           SliverToBoxAdapter(
-            child: PassportHeader(plant: widget.plant, onBack: widget.onBack),
+            child: PassportHeader(
+              plant: widget.plant,
+              onBack: widget.onBack,
+              imageProviderFor: widget.imageProviderFor,
+            ),
           ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),

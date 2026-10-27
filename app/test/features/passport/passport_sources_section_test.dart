@@ -42,7 +42,9 @@ void main() {
     expect(find.text(PassportTexts.noSources), findsNothing);
   });
 
-  testWidgets('las URL son texto seleccionable, sin abrirse', (tester) async {
+  testWidgets('las URL son texto seleccionable y se pueden abrir', (
+    tester,
+  ) async {
     final plant = consolidatedPlant('lavandula-angustifolia');
     await showPassport(tester, plant);
     await _scrollToSources(tester);
@@ -54,8 +56,14 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(
-      find.ancestor(of: find.text(url), matching: find.byType(InkWell)),
-      findsNothing,
+      find.ancestor(of: find.text(url), matching: find.byType(SelectableText)),
+      findsWidgets,
+    );
+    expect(
+      find.byTooltip(
+        PassportTexts.openLinkTooltip(PassportTexts.pageUrlPrefix),
+      ),
+      findsWidgets,
     );
   });
 

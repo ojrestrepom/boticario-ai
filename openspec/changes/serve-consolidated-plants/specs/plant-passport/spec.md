@@ -132,11 +132,11 @@ El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, de
 ## ADDED Requirements
 
 ### Requirement: Imagen de cabecera con atribución
-Cuando el detalle trae `image`, el pasaporte SHALL mostrar esa imagen en la cabecera y, visible junto a ella, el autor, la licencia y un enlace a la página del archivo, también cuando `attributionRequired` es falso. La URL de la página SHALL poder abrirse en el navegador del sistema y SHALL mostrarse como texto. Mientras la imagen carga, si falla la descarga o si la planta no tiene imagen, el pasaporte SHALL mostrar el arte local provisional, sin atribución de imagen y sin tratarlo como un error de la ficha.
+Cuando el detalle trae `image`, el pasaporte SHALL mostrar en la cabecera la miniatura de 500 px de ancho que Wikimedia sirve para `image.url`, no el original, y, visible junto a ella, el autor, la licencia y un enlace a la página del archivo, también cuando `attributionRequired` es falso. La URL de la página SHALL poder abrirse en el navegador del sistema y SHALL mostrarse como texto. Mientras la imagen carga, si falla la descarga si no puede construirse la miniatura o si la planta no tiene imagen, el pasaporte SHALL mostrar el arte local provisional, sin recurrir al original, sin atribución de imagen y sin tratarlo como un error de la ficha.
 
 #### Scenario: Imagen con licencia CC BY-SA
 - **WHEN** la planta tiene una imagen con autor «J. Pérez», licencia CC BY-SA 4.0 y página en Commons
-- **THEN** la cabecera muestra la imagen con «J. Pérez», `CC BY-SA 4.0` y el enlace a la página del archivo
+- **THEN** la cabecera muestra la miniatura de 500 px con «J. Pérez», `CC BY-SA 4.0` y el enlace a la página del archivo
 
 #### Scenario: Imagen sin atribución obligatoria
 - **WHEN** la imagen es de dominio público y `attributionRequired` es falso

@@ -175,7 +175,7 @@ La consulta exacta (qué tablas de atribución unir) depende de las tablas del c
 
 ### D9. Imagen en la app: carga directa desde Wikimedia, con respaldo local
 
-La app carga `image.url` directamente, sin pasar por el backend, solo si es HTTPS y su host es `commons.wikimedia.org` o `upload.wikimedia.org`, sin `Authorization` ni otros datos. Mientras carga, si falla o si no hay imagen, muestra el arte local provisional actual. Bajo la imagen se ve el autor, la licencia y la página del archivo como texto; la URL se abre en el navegador del sistema mediante un paquete de enlaces (`url_launcher`), con la URL siempre visible como texto seleccionable por si no puede abrirse.
+La app muestra en la cabecera la miniatura de 500 px de ancho que Wikimedia sirve para `image.url`, no el original. Una función pura de la política de imágenes deriva su URL (`.../wikipedia/commons/<a>/<ab>/<archivo>` pasa a `.../wikipedia/commons/thumb/<a>/<ab>/<archivo>/500px-<archivo>`, con el nombre tal como viene, codificado; un SVG se pide como `500px-<archivo>.png`) y devuelve `null` si la ruta no encaja o el formato no admite miniatura (TIFF, PDF u otros). La carga es directa, sin pasar por el backend, solo si la URL es HTTPS y su host es `commons.wikimedia.org` o `upload.wikimedia.org`, sin `Authorization` ni otros datos. Mientras carga, si falla, si no hay miniatura derivable o si no hay imagen, la cabecera muestra el arte local provisional y nunca recurre al original. El pie de atribución (autor, licencia y página del archivo como texto) aparece solo con la imagen cargada. Las URL se abren en el navegador del sistema con `url_launcher` (solo `https`, modo de aplicación externa), con la URL siempre visible como texto seleccionable por si no puede abrirse.
 
 Por qué directa: el backend es de solo lectura, sin red y de bajo costo; un proxy añadiría una dependencia de red, caché y el reenvío de licencias. Los hosts de Wikimedia están pensados para el uso directo de las imágenes. La lista de hosts evita que una URL de un registro mal formado haga que la app contacte con un host arbitrario.
 
@@ -183,10 +183,11 @@ Alternativas:
 
 - Un proxy en la API (`/v1/plants/{id}/image`). Deja la app solo con un host, pero hace que la API acceda a la red y guarde o transmita imágenes; contradice «solo lectura» y el despliegue escalable a cero.
 - Incluir las imágenes en el contenedor o en la app. Unos 2.400 archivos con licencias variadas y varios MB cada uno; inflan la imagen y el APK. Se descarta.
-- Texto de enlace sin abrir (sin `url_launcher`). Evita una dependencia y un cambio en el manifest, pero «enlace» queda como texto copiable. Se deja como alternativa si el usuario prefiere no añadir la dependencia (véase Open Questions).
-- Pedir el tamaño reducido a Commons. `Special:FilePath` admite `?width=`, pero no todas las URL del registro tienen esa forma; no se contrata aquí. Se mide en la tarea 6.4 (véase Risks).
+- Texto de enlace sin abrir (sin `url_launcher`). Evita una dependencia y un cambio en el manifest, pero «enlace» queda como texto copiable. El usuario eligió `url_launcher` el 2026-10-27; esta opción queda descartada.
+- Pedir el tamaño reducido a Commons con `Special:FilePath?width=`. No todas las URL del registro tienen esa forma; las 1.860 son de `upload.wikimedia.org`, por lo que se deriva la miniatura de esa ruta (decisión del usuario del 2026-10-27, medida en la tarea 6.4).
+- Cargar el original cuando no hay miniatura. Se descarta: el 40 % de los originales de la muestra supera 2 MB y el mayor pesa 74 MB; sin miniatura se muestra el arte local.
 
-Wikimedia pide un `User-Agent` identificable en sus peticiones y puede limitar las anónimas; la descarga de imágenes de Flutter envía el de Dart por defecto. Se identifica en la tarea 6.4.
+Wikimedia pide un `User-Agent` identificable en sus peticiones y puede limitar las anónimas (responde 429 con `Retry-After`); la descarga de imágenes de Flutter envía el de Dart por defecto. La app envía el genérico `BoticarioAI/0.1.0` (nombre y versión, sin correo ni datos personales), definido en la política de imágenes.
 
 ### D10. Estados vacíos y de «sin datos»
 
@@ -250,12 +251,7 @@ Riesgo: una consulta corta como `a` coincide con muchos alias; es el mismo compo
 ## Risks / Trade-offs
 
 - **[El cambio 1 no deja lo que este cambio lee]** `display_name`, `goal`, `goal_subarea`, `plant_goal.subarea_id` y `pending_review`, y la atribución con texto. → La tarea 1.1 comprueba la migración real antes de escribir consultas y detiene la implementación si falta algo, para ajustar el cambio 1 y no duplicarlo aquí.
-- **[Imágenes pesadas o limitadas por Wikimedia]** El `url` puede ser el original de varios MB, y Wikimedia limita a clientes anónimos con un agente genérico. → Medir tamaños y respuestas con la base real (tarea 6.4), pedir un ancho acotado si la URL lo admite y fijar un `User-Agent`; sin imagen la ficha sigue completa.
-- **[Imágenes pesadas: decisión pendiente sobre la miniatura]** La medición de la tarea 6.4 (`qa/image-sizes.md`, 20 plantas) arroja lo siguiente y la decisión es del usuario.
-  - Los originales van de 0,02 MB a 74,65 MB (`berberis-aquifolium`), con mediana de 1,28 MB.
-  - El 40 % (8 de 20) supera 2 MB y dos pasan de 7 MB; lavanda, menta y eucalipto son ligeras (menos de 200 KB).
-  - Wikimedia sirve miniaturas de 500 px (de 33 a 115 KB en la muestra), pero no de 640 px, y la app hoy carga `image.url` tal cual.
-  - Está pendiente decidir si se adopta una función pura que convierta la URL en la de la miniatura de 500 px.
+- **[Imágenes pesadas o limitadas por Wikimedia]** El `url` es el original, que va de 0,02 MB a 74,65 MB (mediana 1,28 MB; el 40 % de las 20 plantas medidas supera 2 MB, véase `qa/image-sizes.md`), y Wikimedia limita a clientes anónimos con un agente genérico. → Decisión del usuario del 2026-10-27: la cabecera pide la miniatura de 500 px (de 33 a 115 KB en la muestra; Wikimedia no sirve 640 px, que responde 400, pero sí 500 y 960), derivada de `image.url` por una función pura. Si la miniatura no puede construirse o falla, se usa el arte local y no el original. La comprobación con red de la tarea 6.4 dio 200 en las miniaturas de lavanda, manzanilla, PNG, GIF y SVG (este como PNG), con `User-Agent: BoticarioAI/0.1.0`. Sin imagen la ficha sigue completa.
 - **[El aviso fijo de `Usos` es provisional]** El texto lo ajustará el usuario en la app. → Vive en un solo lugar del código de la app, con una prueba que verifica que se muestra siempre al inicio y no contiene lenguaje de eficacia.
 - **[La planta tóxica no avisa suficiente]** El aviso de `General` solo aparece con nivel alto. → Los niveles se definen en la semilla desde TPPT y la EMA; la QA revisa tóxicas conocidas y una planta sin datos.
 - **[«Objetivos de la EMA» se lee como indicación]** → Aclaración fija junto a cada objetivo, nombres sin verbos de efecto, prueba que los textos fijos no contienen palabras de efecto, y el origen (EMA) nombrado.
@@ -263,7 +259,7 @@ Riesgo: una consulta corta como `a` coincide con muchos alias; es el mismo compo
 - **[Dos URL para un recurso (alias)]** → Sin caché de respuestas hoy; `Content-Location` identifica el canónico.
 - **[Tolerancia del cliente oculta un backend defectuoso]** → Pruebas de contrato de la API y OpenAPI regenerado y verificado.
 - **[Las fichas de plantas con muchos grupos de uso son largas]** → Lista desplazable y probada a 200 % de texto; sin paginación.
-- **[Dependencia nueva `url_launcher`]** Añade un plugin nativo y una consulta de intents en el manifest. → Versión fijada en `pubspec.lock`, prueba con la plataforma simulada y alternativa de solo texto si el usuario lo prefiere.
+- **[Dependencia nueva `url_launcher`]** Añade un plugin nativo y una consulta de intents en el manifest. → Elegida por el usuario el 2026-10-27. Versión 6.3.3 fijada en `pubspec.yaml` y `pubspec.lock`, `<queries>` con `ACTION_VIEW` para `https` en el manifest de Android (el proyecto no tiene destino iOS) y pruebas con la plataforma simulada. Si el enlace no puede abrirse, la URL sigue visible como texto seleccionable.
 - **[`display_name` vacío o ausente]** Si el registro no tiene nombre para mostrar, la API usa el nombre científico. → Prueba con una planta sin nombres comunes y con la lavanda de la semilla.
 
 ## Migration Plan
@@ -277,7 +273,7 @@ Los cambios 1 y 2 se despliegan juntos, porque `main` despliega y la app necesit
 
 ## Open Questions
 
-- **`url_launcher` o solo texto.** Se propone abrir los enlaces de licencia e imagen con `url_launcher` (D9). Si el usuario prefiere no añadir la dependencia, cambia una tarea y un escenario de `plant-passport` (el enlace queda como texto copiable).
+Ninguna abierta. La pregunta sobre `url_launcher` o solo texto se resolvió el 2026-10-27 a favor de `url_launcher` (D9 y Risks).
 
 ## Esquema real
 

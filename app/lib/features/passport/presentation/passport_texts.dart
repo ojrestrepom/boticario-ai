@@ -69,6 +69,14 @@ abstract final class PassportTexts {
   static const licenseUrlPrefix = 'Enlace de la licencia';
   static const pageUrlPrefix = 'Página';
 
+  // Enlaces y pie de la imagen.
+  static const imageFilePageLabel = 'Página del archivo';
+  static const openLink = 'Abrir en el navegador';
+  static String openLinkTooltip(String label) => 'Abrir $label';
+  static const linkNotOpened = 'No se pudo abrir el enlace';
+  static String imageDescription(String plantName) =>
+      'Fotografía de $plantName';
+
   static const levelHigh = 'Alto';
   static const levelMedium = 'Medio';
   static const levelLow = 'Bajo';
@@ -119,5 +127,8 @@ abstract final class PassportTexts {
     authorPrefix,
     licenseUrlPrefix,
     pageUrlPrefix,
+    imageFilePageLabel,
+    openLink,
+    linkNotOpened,
   ];
 }

@@ -60,6 +60,10 @@ La pestaña `General` SHALL mostrar solo campos entregados por la API: `Nombre c
 - **WHEN** el nivel de precauciones es `medio`, `bajo` o `null`, o la planta no tiene datos de precauciones
 - **THEN** `General` no muestra el aviso
 
+#### Scenario: Sin lista de referencias en General
+- **WHEN** se abre `General` de una planta con usos y referencias
+- **THEN** no muestra una lista de referencias bibliográficas; las citas con su texto completo están en `Usos` y las fuentes en `Fuentes`
+
 ### Requirement: Propiedades sin inferencia de eficacia
 La pestaña `Propiedades` SHALL mostrar dos secciones: `Objetivos registrados por la EMA` y `Precauciones`. Cada objetivo SHALL mostrar su nombre, su subárea si existe, el área y el tipo de documento de la EMA y la cita de su referencia, con una aclaración fija de que es una clasificación de la Agencia Europea de Medicamentos, no una indicación de uso ni una promesa de eficacia. La pestaña SHALL NOT inferir eficacia ni propiedades medicinales a partir de fitoquímica ni añadir textos propios que describan efectos. Sin objetivos, SHALL decir `No hay objetivos registrados por la EMA para esta planta`.
 

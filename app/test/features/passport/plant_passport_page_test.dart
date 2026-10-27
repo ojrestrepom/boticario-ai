@@ -311,10 +311,10 @@ void main() {
     }
     expect(find.textContaining('CC0'), findsNothing);
     expect(find.textContaining('MD5'), findsNothing);
-    // Bibliography is deduplicated by reference id: ten uses, one reference.
-    expect(find.text('Referencias bibliográficas'), findsOneWidget);
-    expect(find.text('Steinmetz'), findsOneWidget);
-    expect(find.textContaining('codex Vegetabilis'), findsOneWidget);
+    // `General` has no reference list: citations live in `Usos`.
+    expect(find.text('Referencias bibliográficas'), findsNothing);
+    expect(find.text('Steinmetz'), findsNothing);
+    expect(find.textContaining('codex Vegetabilis'), findsNothing);
   });
 
   testWidgets('a null family is stated as not available in the source', (
@@ -1039,7 +1039,6 @@ void main() {
                 ? 'No hay partes registradas en fuente'
                 : plant.parts.join(', '),
             'Tipo de aceite',
-            if (plant.uses.isNotEmpty) 'Referencias bibliográficas',
           ]) {
             final target = find.text(text);
             // Rows are built lazily: scroll until the text exists.
@@ -1131,13 +1130,14 @@ void main() {
           tester,
           find.text('No hay partes registradas en fuente'),
         );
+        // `General` has no reference list: the citation is in `Usos` only.
+        expect(find.text(citation), findsNothing);
+        await selectTab(tester, 'Usos');
         await assertParagraphReadable(tester, find.text(citation));
         expect(
           tester.getSize(find.text(citation)).height,
           greaterThan(tester.getSize(find.byType(CustomScrollView)).height),
         );
-        await selectTab(tester, 'Usos');
-        await assertParagraphReadable(tester, find.text(citation));
         expect(tester.takeException(), isNull);
       },
     );

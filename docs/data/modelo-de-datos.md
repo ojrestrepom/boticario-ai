@@ -266,4 +266,4 @@ Una fuente cuya licencia no permita redistribuir su contenido no puede entrar en
 - **No es reproducible desde cero.** Wikidata, Wikipedia, Commons y la EMA cambian, y el LLM puede dar textos distintos. La reproducibilidad está en la semilla versionada.
 - **Los pendientes no se sirven.** Los grupos de usos y los objetivos con `pendingReview` se guardan pero la API no los sirve y los grupos no generan `plant_use`; la capa de validación humana está fuera de alcance.
 - **Términos sin verificar.** Los términos de reutilización de la EMA y de TPPT no se verificaron contra el texto legal, y TPPT se usa con fines académicos (véase [fuentes y licencias](fuentes-y-licencias.md)).
-- **Semilla provisional.** Hasta que termine la generación completa, `data/seed/` contiene los 20 registros de la corrida de control y no se publica.
+- **Semilla completa.** `data/seed/` contiene la semilla completa, con 2.354 plantas (`plantCount` del manifiesto).

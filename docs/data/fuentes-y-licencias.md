@@ -33,6 +33,21 @@ La licencia y la atribución son las del campo `license` y `attribution` de `sou
 - **Wikipedia en español (CC BY-SA 4.0).** Resumen del artículo, que alimenta `description`, y el criterio de la regla de colisiones. Véase la nota siguiente.
 - **Commons (licencia por archivo).** La imagen de la planta. Véase la regla de licencias más abajo.
 
+## Qué licencias ve el usuario
+
+El pasaporte de cada planta muestra la licencia y la atribución en tres sitios.
+
+- **Sección `Fuentes`.** Va tras el contenido de la pestaña activa, en `General`, `Propiedades` y `Usos`. Tiene una entrada por cada crédito de la planta (`credits` de la API) con el nombre del dataset, su licencia, la atribución exigida, la URL de la licencia cuando existe y la URL de la página cuando existe. Antes de las entradas dice que los datos se reúnen de fuentes abiertas y que cada fuente conserva su licencia, de modo que las licencias mixtas se declaran sin atribuir cada campo a una fuente. Los créditos son de la planta, no de cada campo, y solo incluyen las fuentes que respaldan algo que la API sirve.
+- **Entrada de la imagen en `Fuentes`.** Cuando la planta tiene imagen, una entrada `Imagen` con el autor, la licencia, la URL de la licencia si existe y la URL de la página del archivo. La imagen no se repite en `credits`.
+- **Pie de la imagen.** Bajo la imagen de la cabecera, con el autor, la licencia y la página del archivo, también cuando la atribución no es obligatoria. Lo implementa la tarea 7.2 de `serve-consolidated-plants`.
+- **Sin créditos.** Una planta sin créditos ni imagen muestra «No hay fuentes registradas para esta planta».
+
+Las URL se muestran como texto seleccionable; abrirlas en el navegador depende de que se añada `url_launcher` (decisión pendiente).
+
+La URL de la licencia de cada crédito sale de `source.license_url` en `catalog.db`, que viene de `licenseUrl` en `sources.json`. La API no la deriva del texto de la licencia: es `null` en `commons`, `ema_json`, `ema_pdf` y `tppt`. La de una imagen sale de `plant_image.license_url`, guardada por archivo.
+
+Los términos de reutilización de la EMA y de TPPT siguen sin verificarse contra el texto legal (véanse las notas anteriores). La app los muestra tal como la semilla los guarda: la licencia como texto y la atribución, sin URL de licencia.
+
 ## Notas de licencia
 
 ### Términos de la EMA sin verificar
@@ -45,7 +60,7 @@ Según opendata.swiss, el uso de TPPT es abierto citando la fuente y el uso come
 
 ### Wikipedia: CC BY-SA 4.0
 
-El resumen de Wikipedia que alimenta `description` probablemente es una obra derivada, así que ese campo se registra con la licencia CC BY-SA 4.0 y el enlace al artículo (el ref de `wikipedia_es` con esa licencia exige `url`, y el validador lo comprueba). El resto del registro es una compilación con licencias mixtas, y cada dato conserva su ref, dataset y licencia (`reference.dataset`, `reference.license`, `reference.url` en `catalog.db`). La licencia CC BY-SA obliga a conservar la licencia en lo derivado y a atribuir a los autores, cuyo historial lista cada artículo. La sección «Fuentes» y los créditos que muestran todo esto en la app son del cambio siguiente, `serve-consolidated-plants`.
+El resumen de Wikipedia que alimenta `description` probablemente es una obra derivada, así que ese campo se registra con la licencia CC BY-SA 4.0 y el enlace al artículo (el ref de `wikipedia_es` con esa licencia exige `url`, y el validador lo comprueba). El resto del registro es una compilación con licencias mixtas, y cada dato conserva su ref, dataset y licencia (`reference.dataset`, `reference.license`, `reference.url` en `catalog.db`). La licencia CC BY-SA obliga a conservar la licencia en lo derivado y a atribuir a los autores, cuyo historial lista cada artículo. La sección `Fuentes` del pasaporte muestra estos créditos en la app (véase «Qué licencias ve el usuario»).
 
 Mantener Wikipedia fue una decisión del usuario. Retirarla después es un cambio de configuración: se pone `"enabled": false` en la fuente `wikipedia_es` de `sources.json`, `plan` marca solo las plantas afectadas y `description` queda `null` o se resume de otras fuentes del paquete.
 

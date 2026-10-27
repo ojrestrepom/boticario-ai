@@ -62,7 +62,7 @@ Nota: este cambio depende de que `consolidate-catalog-seed` esté implementado (
 ## 9. Documentación de la app
 
 - [ ] 9.1 Actualizar `README.md` y `app/README.md` en lo que describan el pasaporte y la API (campos nuevos, imágenes de Wikimedia, `Fuentes`, estados sin datos, comportamiento ante un backend anterior); verificar con `grep` que no queda «arte local» como único origen de la cabecera ni la afirmación de que el pasaporte no muestra créditos, y que cada párrafo y elemento de lista está en una sola línea (`check-md-lines.py` del cambio archivado `add-api-token-auth`).
-- [ ] 9.2 Documentar en `docs/data/fuentes-y-licencias.md` (creado por el cambio 1) qué licencias se muestran al usuario, dónde y los términos aún no verificados de la EMA y TPPT; verificar leyendo el documento contra la sección `Fuentes` real en el emulador.
+- [x] 9.2 Documentar en `docs/data/fuentes-y-licencias.md` (creado por el cambio 1) qué licencias se muestran al usuario, dónde y los términos aún no verificados de la EMA y TPPT; verificar leyendo el documento contra los widget tests de `Fuentes` (hecho); la comprobación contra la sección `Fuentes` real en el emulador queda para la QA (grupo 11).
 
 ## 10. Verificación global
 

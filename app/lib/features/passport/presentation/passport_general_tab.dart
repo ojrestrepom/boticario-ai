@@ -62,11 +62,6 @@ class PassportGeneralTab extends StatelessWidget {
           PassportFieldLines(PassportTexts.otherCommonNamesLabel, [
             for (final name in others) '${name.text} (${name.language})',
           ]),
-        if (plant.uses.isNotEmpty) ...[
-          const SizedBox(height: 8),
-          const PassportSectionTitle('Referencias bibliográficas'),
-          for (final ref in _references()) PassportField(ref.id, ref.citation),
-        ],
       ],
     );
   }
@@ -77,14 +72,6 @@ class PassportGeneralTab extends StatelessWidget {
     final index = others.indexWhere((name) => name.text == primary);
     if (index >= 0) others.removeAt(index);
     return others;
-  }
-
-  List<UseReference> _references() {
-    final refs = <String, UseReference>{};
-    for (final use in plant.uses) {
-      refs[use.reference.id] = use.reference;
-    }
-    return refs.values.toList();
   }
 }
 

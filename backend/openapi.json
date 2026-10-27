@@ -293,6 +293,50 @@
           }
         }
       },
+      "GoalDto": {
+        "type": "object",
+        "description": "Objetivo registrado para la planta.",
+        "required": [
+          "id",
+          "name",
+          "subarea",
+          "area",
+          "evidence",
+          "references"
+        ],
+        "properties": {
+          "area": {
+            "type": "string",
+            "description": "Área, en español."
+          },
+          "evidence": {
+            "type": "string",
+            "description": "Tipo de respaldo, en español."
+          },
+          "id": {
+            "type": "string",
+            "description": "Identificador del objetivo."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre del objetivo, en español."
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferenceDto"
+            },
+            "description": "Referencias que respaldan el objetivo."
+          },
+          "subarea": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Subárea (solo en «otros objetivos»), o `null`."
+          }
+        }
+      },
       "HealthDto": {
         "type": "object",
         "description": "Respuesta de `GET /health`.",
@@ -303,6 +347,50 @@
           "status": {
             "type": "string",
             "description": "Siempre `\"ok\"` si el servicio está activo."
+          }
+        }
+      },
+      "ImageDto": {
+        "type": "object",
+        "description": "Imagen de la planta con su licencia. La API solo entrega los datos del registro: nunca sirve los bytes de la imagen.",
+        "required": [
+          "url",
+          "pageUrl",
+          "author",
+          "license",
+          "licenseUrl",
+          "attributionRequired"
+        ],
+        "properties": {
+          "attributionRequired": {
+            "type": "boolean",
+            "description": "Si hay que mostrar la atribución al usar la imagen."
+          },
+          "author": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Autor, o `null` si no se conoce."
+          },
+          "license": {
+            "type": "string",
+            "description": "Licencia de la imagen."
+          },
+          "licenseUrl": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "URL de la licencia, o `null` si no existe."
+          },
+          "pageUrl": {
+            "type": "string",
+            "description": "Página del archivo de la imagen."
+          },
+          "url": {
+            "type": "string",
+            "description": "URL de la imagen."
           }
         }
       },
@@ -337,6 +425,19 @@
           "common"
         ]
       },
+      "OilDto": {
+        "type": "object",
+        "description": "Aceite de la planta.",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tipo de aceite, por ejemplo `Esencial`."
+          }
+        }
+      },
       "PageDto_PlantSummaryDto": {
         "type": "object",
         "description": "Página de resultados.\n\nEs genérica: `T` es el tipo de elemento. Con `T: Serialize` el `derive` de serde genera la serialización de `PageDto<T>` para cualquier `T` serializable.",
@@ -355,6 +456,7 @@
               "required": [
                 "id",
                 "scientificName",
+                "displayName",
                 "commonNames"
               ],
               "properties": {
@@ -363,7 +465,11 @@
                   "items": {
                     "$ref": "#/components/schemas/CommonNameDto"
                   },
-                  "description": "Nombres comunes con su idioma."
+                  "description": "Nombres comunes con su idioma; si el nombre para mostrar es uno de ellos, va primero."
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico."
                 },
                 "family": {
                   "type": [
@@ -419,15 +525,35 @@
       },
       "PlantDto": {
         "type": "object",
-        "description": "Detalle completo de una planta.",
+        "description": "Detalle completo de una planta.\n\nLos campos consolidados están siempre presentes: con `null` o lista vacía cuando la planta no tiene el dato.",
         "required": [
           "id",
           "scientificName",
+          "displayName",
           "names",
           "parts",
-          "uses"
+          "uses",
+          "synonyms",
+          "description",
+          "origin",
+          "oil",
+          "useGroups",
+          "goals",
+          "safety",
+          "image"
         ],
         "properties": {
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Descripción neutra, o `null`."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico."
+          },
           "family": {
             "type": [
               "string",
@@ -435,9 +561,27 @@
             ],
             "description": "Familia, o `null` si ninguna fuente la aporta."
           },
+          "goals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GoalDto"
+            },
+            "description": "Objetivos registrados, por nombre."
+          },
           "id": {
             "type": "string",
             "description": "Identificador público."
+          },
+          "image": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageDto",
+                "description": "Imagen con su licencia, o `null`."
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "names": {
             "type": "array",
@@ -446,6 +590,24 @@
             },
             "description": "Nombres de la planta."
           },
+          "oil": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OilDto",
+                "description": "Aceite de la planta, o `null`."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "origin": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Origen, o `null`."
+          },
           "parts": {
             "type": "array",
             "items": {
@@ -453,16 +615,41 @@
             },
             "description": "Partes de la planta."
           },
+          "safety": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SafetyDto",
+                "description": "Precauciones, o `null` solo cuando no hay ningún dato (lo que no significa que la planta sea segura)."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "scientificName": {
             "type": "string",
             "description": "Nombre científico canónico."
+          },
+          "synonyms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Nombres científicos distintos del aceptado, ordenados por texto."
+          },
+          "useGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UseGroupDto"
+            },
+            "description": "Grupos de uso tradicional, por número de registros descendente y actividad, con la cita completa."
           },
           "uses": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UseDto"
             },
-            "description": "Usos de la planta."
+            "description": "Usos de la planta (una fila por referencia resuelta); su cita es la etiqueta de la referencia."
           }
         }
       },
@@ -472,6 +659,7 @@
         "required": [
           "id",
           "scientificName",
+          "displayName",
           "commonNames"
         ],
         "properties": {
@@ -480,7 +668,11 @@
             "items": {
               "$ref": "#/components/schemas/CommonNameDto"
             },
-            "description": "Nombres comunes con su idioma."
+            "description": "Nombres comunes con su idioma; si el nombre para mostrar es uno de ellos, va primero."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico."
           },
           "family": {
             "type": [
@@ -561,6 +753,48 @@
           }
         }
       },
+      "SafetyDto": {
+        "type": "object",
+        "description": "Precauciones de la planta. Su ausencia (`null`) significa que no hay ningún dato, no que la planta sea segura.",
+        "required": [
+          "level",
+          "text",
+          "references"
+        ],
+        "properties": {
+          "level": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SafetyLevelDto",
+                "description": "Nivel, o `null` si las fuentes traen advertencias pero ninguna fija un nivel."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReferenceDto"
+            },
+            "description": "Referencias que respaldan el texto."
+          },
+          "text": {
+            "type": "string",
+            "description": "Texto de las advertencias."
+          }
+        }
+      },
+      "SafetyLevelDto": {
+        "type": "string",
+        "description": "Nivel de precaución, serializado como `\"alto\"`, `\"medio\"` o `\"bajo\"`.",
+        "enum": [
+          "alto",
+          "medio",
+          "bajo"
+        ]
+      },
       "UseDto": {
         "type": "object",
         "description": "Uso de la planta con su referencia.",
@@ -581,6 +815,73 @@
           "reference": {
             "$ref": "#/components/schemas/ReferenceDto",
             "description": "Referencia que respalda el uso."
+          }
+        }
+      },
+      "UseGroupDto": {
+        "type": "object",
+        "description": "Grupo de uso tradicional: una actividad con el número de registros, los países y sus citas.",
+        "required": [
+          "activity",
+          "activitySource",
+          "count",
+          "countries",
+          "references"
+        ],
+        "properties": {
+          "activity": {
+            "type": "string",
+            "description": "Actividad, en español."
+          },
+          "activitySource": {
+            "type": "string",
+            "description": "Actividad tal como la trae la fuente original."
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Número de registros que respaldan el grupo.",
+            "minimum": 0
+          },
+          "countries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Países, en español."
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UseGroupReferenceDto"
+            },
+            "description": "Citas del grupo, resueltas o no."
+          }
+        }
+      },
+      "UseGroupReferenceDto": {
+        "type": "object",
+        "description": "Cita de un grupo de uso: el texto completo de la cita, resuelta o no.",
+        "required": [
+          "id",
+          "citation",
+          "resolved"
+        ],
+        "properties": {
+          "citation": {
+            "type": "string",
+            "description": "Texto completo de la cita; en una cita sin resolver, la clave seguida de «(sin resolver)»."
+          },
+          "id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Identificador de la referencia, o `null` si la cita no tiene una obra identificada."
+          },
+          "resolved": {
+            "type": "boolean",
+            "description": "Si la cita tiene una obra identificada."
           }
         }
       }

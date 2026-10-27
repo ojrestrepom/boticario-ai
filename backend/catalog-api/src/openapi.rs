@@ -7,8 +7,9 @@ use utoipa::openapi::security::{HttpAuthScheme, HttpBuilder, SecurityScheme};
 use utoipa::{Modify, OpenApi};
 
 use crate::dto::{
-    CommonNameDto, HealthDto, NameDto, NameKindDto, PageDto, PartDto, PlantDto, PlantSummaryDto,
-    ProblemDto, ReferenceDto, UseDto,
+    CommonNameDto, GoalDto, HealthDto, ImageDto, NameDto, NameKindDto, OilDto, PageDto, PartDto,
+    PlantDto, PlantSummaryDto, ProblemDto, ReferenceDto, SafetyDto, SafetyLevelDto, UseDto,
+    UseGroupDto, UseGroupReferenceDto,
 };
 use crate::http;
 
@@ -31,6 +32,13 @@ use crate::http;
         PartDto,
         ReferenceDto,
         UseDto,
+        OilDto,
+        UseGroupReferenceDto,
+        UseGroupDto,
+        GoalDto,
+        SafetyLevelDto,
+        SafetyDto,
+        ImageDto,
         PlantDto,
         ProblemDto,
     )),

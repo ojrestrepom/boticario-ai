@@ -79,6 +79,15 @@ mod tests {
                 names: Vec::new(),
                 parts: Vec::new(),
                 uses: Vec::new(),
+                display_name: p.scientific_name.clone(),
+                synonyms: Vec::new(),
+                description: None,
+                origin: None,
+                oil_type: None,
+                use_groups: Vec::new(),
+                goals: Vec::new(),
+                safety: None,
+                image: None,
             }))
         }
     }
@@ -99,6 +108,7 @@ mod tests {
         PlantSummary {
             id: PlantId(id.to_string()),
             scientific_name: id.to_string(),
+            display_name: id.to_string(),
             common_names: Vec::new(),
             family: None,
         }
@@ -146,7 +156,7 @@ mod tests {
             catalog.list_plants(ListQuery::default()),
             catalog.get_plant(PlantId("lavandula-angustifolia".to_string())),
         );
-        assert_eq!(page.unwrap().total, 31);
+        assert_eq!(page.unwrap().total, 34);
         assert_eq!(detail.unwrap().unwrap().uses.len(), 2);
     }
 }

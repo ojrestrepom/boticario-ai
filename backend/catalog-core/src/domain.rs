@@ -227,6 +227,24 @@ pub struct Plant {
     pub parts: Vec<Part>,
     /// Usos de la planta.
     pub uses: Vec<Use>,
+    /// Nombre para mostrar: el de la semilla o, si la planta no tiene perfil o su nombre es nulo, el científico.
+    pub display_name: String,
+    /// Nombres científicos distintos del aceptado, sin repetir y ordenados.
+    pub synonyms: Vec<String>,
+    /// Descripción neutra, si existe.
+    pub description: Option<String>,
+    /// Origen, si existe.
+    pub origin: Option<String>,
+    /// Tipo de aceite (por ejemplo `Esencial`), si existe.
+    pub oil_type: Option<String>,
+    /// Grupos de uso tradicional servidos, por número de registros descendente y actividad.
+    pub use_groups: Vec<UseGroup>,
+    /// Objetivos servidos, por nombre.
+    pub goals: Vec<Goal>,
+    /// Precauciones; `None` solo cuando no hay ningún dato.
+    pub safety: Option<Safety>,
+    /// Imagen con su licencia, si la planta tiene una.
+    pub image: Option<Image>,
 }
 
 /// Elemento del listado de plantas.
@@ -236,7 +254,9 @@ pub struct PlantSummary {
     pub id: PlantId,
     /// Nombre científico canónico.
     pub scientific_name: String,
-    /// Nombres comunes con su idioma.
+    /// Nombre para mostrar (véase [`Plant::display_name`]).
+    pub display_name: String,
+    /// Nombres comunes con su idioma: el nombre para mostrar primero si es uno de ellos y el resto por texto e idioma.
     pub common_names: Vec<PlantName>,
     /// Familia, si existe.
     pub family: Option<String>,

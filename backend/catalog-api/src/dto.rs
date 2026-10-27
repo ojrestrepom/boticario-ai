@@ -4,7 +4,10 @@
 //! `rename_all = "camelCase"` hace que los campos Rust (`scientific_name`) salgan como `scientificName`.
 //! Todos los DTOs viven en este módulo y derivan `ToSchema`: de ellos sale el documento OpenAPI, así que el contrato HTTP se define en un solo sitio.
 
-use catalog_core::domain::{NameKind, Page, Part, Plant, PlantName, PlantSummary, Use};
+use catalog_core::domain::{
+    Goal, Image, NameKind, Page, Part, Plant, PlantName, PlantSummary, Reference, Safety,
+    SafetyLevel, Use, UseGroup, UseGroupReference,
+};
 use serde::Serialize;
 use utoipa::ToSchema;
 
@@ -33,7 +36,9 @@ pub struct PlantSummaryDto {
     pub id: String,
     /// Nombre científico canónico.
     pub scientific_name: String,
-    /// Nombres comunes con su idioma.
+    /// Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico.
+    pub display_name: String,
+    /// Nombres comunes con su idioma; si el nombre para mostrar es uno de ellos, va primero.
     pub common_names: Vec<CommonNameDto>,
     /// Familia, o `null` si ninguna fuente la aporta.
     pub family: Option<String>,
@@ -44,6 +49,7 @@ impl From<PlantSummary> for PlantSummaryDto {
         Self {
             id: p.id.0,
             scientific_name: p.scientific_name,
+            display_name: p.display_name,
             common_names: p
                 .common_names
                 .into_iter()
@@ -169,7 +175,194 @@ impl From<Use> for UseDto {
     }
 }
 
+/// Aceite de la planta.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct OilDto {
+    /// Tipo de aceite, por ejemplo `Esencial`.
+    #[serde(rename = "type")]
+    #[schema(rename = "type")]
+    pub oil_type: String,
+}
+
+/// Cita de un grupo de uso: el texto completo de la cita, resuelta o no.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct UseGroupReferenceDto {
+    /// Identificador de la referencia, o `null` si la cita no tiene una obra identificada.
+    #[schema(required = true)]
+    pub id: Option<String>,
+    /// Texto completo de la cita; en una cita sin resolver, la clave seguida de «(sin resolver)».
+    pub citation: String,
+    /// Si la cita tiene una obra identificada.
+    pub resolved: bool,
+}
+
+impl From<UseGroupReference> for UseGroupReferenceDto {
+    fn from(r: UseGroupReference) -> Self {
+        Self {
+            resolved: r.is_resolved(),
+            id: r.id,
+            citation: r.citation,
+        }
+    }
+}
+
+/// Grupo de uso tradicional: una actividad con el número de registros, los países y sus citas.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct UseGroupDto {
+    /// Actividad, en español.
+    pub activity: String,
+    /// Actividad tal como la trae la fuente original.
+    pub activity_source: String,
+    /// Número de registros que respaldan el grupo.
+    pub count: u32,
+    /// Países, en español.
+    pub countries: Vec<String>,
+    /// Citas del grupo, resueltas o no.
+    pub references: Vec<UseGroupReferenceDto>,
+}
+
+impl From<UseGroup> for UseGroupDto {
+    fn from(g: UseGroup) -> Self {
+        Self {
+            activity: g.activity,
+            activity_source: g.activity_source,
+            count: g.count,
+            countries: g.countries,
+            references: g.references.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
+impl From<Reference> for ReferenceDto {
+    fn from(r: Reference) -> Self {
+        Self {
+            id: r.id,
+            citation: r.citation,
+        }
+    }
+}
+
+/// Objetivo registrado para la planta.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct GoalDto {
+    /// Identificador del objetivo.
+    pub id: String,
+    /// Nombre del objetivo, en español.
+    pub name: String,
+    /// Subárea (solo en «otros objetivos»), o `null`.
+    #[schema(required = true)]
+    pub subarea: Option<String>,
+    /// Área, en español.
+    pub area: String,
+    /// Tipo de respaldo, en español.
+    pub evidence: String,
+    /// Referencias que respaldan el objetivo.
+    pub references: Vec<ReferenceDto>,
+}
+
+impl From<Goal> for GoalDto {
+    fn from(g: Goal) -> Self {
+        Self {
+            id: g.id,
+            name: g.name,
+            subarea: g.subarea,
+            area: g.area,
+            evidence: g.evidence,
+            references: g.references.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
+/// Nivel de precaución, serializado como `"alto"`, `"medio"` o `"bajo"`.
+#[derive(Debug, Clone, Copy, Serialize, ToSchema)]
+pub enum SafetyLevelDto {
+    /// Nivel alto.
+    #[serde(rename = "alto")]
+    #[schema(rename = "alto")]
+    High,
+    /// Nivel medio.
+    #[serde(rename = "medio")]
+    #[schema(rename = "medio")]
+    Medium,
+    /// Nivel bajo.
+    #[serde(rename = "bajo")]
+    #[schema(rename = "bajo")]
+    Low,
+}
+
+impl From<SafetyLevel> for SafetyLevelDto {
+    fn from(level: SafetyLevel) -> Self {
+        match level {
+            SafetyLevel::High => Self::High,
+            SafetyLevel::Medium => Self::Medium,
+            SafetyLevel::Low => Self::Low,
+        }
+    }
+}
+
+/// Precauciones de la planta. Su ausencia (`null`) significa que no hay ningún dato, no que la planta sea segura.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct SafetyDto {
+    /// Nivel, o `null` si las fuentes traen advertencias pero ninguna fija un nivel.
+    #[schema(required = true)]
+    pub level: Option<SafetyLevelDto>,
+    /// Texto de las advertencias.
+    pub text: String,
+    /// Referencias que respaldan el texto.
+    pub references: Vec<ReferenceDto>,
+}
+
+impl From<Safety> for SafetyDto {
+    fn from(s: Safety) -> Self {
+        Self {
+            level: s.level.map(Into::into),
+            text: s.text,
+            references: s.references.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
+/// Imagen de la planta con su licencia. La API solo entrega los datos del registro: nunca sirve los bytes de la imagen.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct ImageDto {
+    /// URL de la imagen.
+    pub url: String,
+    /// Página del archivo de la imagen.
+    pub page_url: String,
+    /// Autor, o `null` si no se conoce.
+    #[schema(required = true)]
+    pub author: Option<String>,
+    /// Licencia de la imagen.
+    pub license: String,
+    /// URL de la licencia, o `null` si no existe.
+    #[schema(required = true)]
+    pub license_url: Option<String>,
+    /// Si hay que mostrar la atribución al usar la imagen.
+    pub attribution_required: bool,
+}
+
+impl From<Image> for ImageDto {
+    fn from(i: Image) -> Self {
+        Self {
+            url: i.url,
+            page_url: i.page_url,
+            author: i.author,
+            license: i.license,
+            license_url: i.license_url,
+            attribution_required: i.attribution_required,
+        }
+    }
+}
+
 /// Detalle completo de una planta.
+///
+/// Los campos consolidados están siempre presentes: con `null` o lista vacía cuando la planta no tiene el dato.
 #[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct PlantDto {
@@ -177,14 +370,37 @@ pub struct PlantDto {
     pub id: String,
     /// Nombre científico canónico.
     pub scientific_name: String,
+    /// Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico.
+    pub display_name: String,
     /// Familia, o `null` si ninguna fuente la aporta.
     pub family: Option<String>,
     /// Nombres de la planta.
     pub names: Vec<NameDto>,
     /// Partes de la planta.
     pub parts: Vec<PartDto>,
-    /// Usos de la planta.
+    /// Usos de la planta (una fila por referencia resuelta); su cita es la etiqueta de la referencia.
     pub uses: Vec<UseDto>,
+    /// Nombres científicos distintos del aceptado, ordenados por texto.
+    pub synonyms: Vec<String>,
+    /// Descripción neutra, o `null`.
+    #[schema(required = true)]
+    pub description: Option<String>,
+    /// Origen, o `null`.
+    #[schema(required = true)]
+    pub origin: Option<String>,
+    /// Aceite de la planta, o `null`.
+    #[schema(required = true)]
+    pub oil: Option<OilDto>,
+    /// Grupos de uso tradicional, por número de registros descendente y actividad, con la cita completa.
+    pub use_groups: Vec<UseGroupDto>,
+    /// Objetivos registrados, por nombre.
+    pub goals: Vec<GoalDto>,
+    /// Precauciones, o `null` solo cuando no hay ningún dato (lo que no significa que la planta sea segura).
+    #[schema(required = true)]
+    pub safety: Option<SafetyDto>,
+    /// Imagen con su licencia, o `null`.
+    #[schema(required = true)]
+    pub image: Option<ImageDto>,
 }
 
 impl From<Plant> for PlantDto {
@@ -192,10 +408,19 @@ impl From<Plant> for PlantDto {
         Self {
             id: p.id.0,
             scientific_name: p.scientific_name,
+            display_name: p.display_name,
             family: p.family,
             names: p.names.into_iter().map(Into::into).collect(),
             parts: p.parts.into_iter().map(Into::into).collect(),
             uses: p.uses.into_iter().map(Into::into).collect(),
+            synonyms: p.synonyms,
+            description: p.description,
+            origin: p.origin,
+            oil: p.oil_type.map(|oil_type| OilDto { oil_type }),
+            use_groups: p.use_groups.into_iter().map(Into::into).collect(),
+            goals: p.goals.into_iter().map(Into::into).collect(),
+            safety: p.safety.map(Into::into),
+            image: p.image.map(Into::into),
         }
     }
 }

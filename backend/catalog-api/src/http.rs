@@ -339,12 +339,13 @@ mod tests {
         let (status, json) = get_json(&app, "/v1/plants").await;
         assert_eq!(status, StatusCode::OK);
         assert_eq!(json["items"].as_array().unwrap().len(), 20);
-        assert_eq!(json["total"], 31);
+        assert_eq!(json["total"], 34);
         assert_eq!(
             (json["limit"].as_u64(), json["offset"].as_u64()),
             (Some(20), Some(0))
         );
-        let first = &json["items"][0];
+        // Las tres primeras son las plantas especiales de la fixture (Abutilon, Conium, Eucalyptus).
+        let first = &json["items"][3];
         assert_eq!(first["id"], "fillerus-01");
         assert_eq!(first["scientificName"], "Fillerus 01");
         assert_eq!(first["family"], "Fillerfam");
@@ -365,8 +366,8 @@ mod tests {
     #[tokio::test]
     async fn paginates_with_constant_total() {
         let (_fixture, app) = app();
-        let (_, page) = get_json(&app, "/v1/plants?limit=5&offset=24").await;
-        assert_eq!(page["total"], 31);
+        let (_, page) = get_json(&app, "/v1/plants?limit=5&offset=27").await;
+        assert_eq!(page["total"], 34);
         assert_eq!(
             ids(&page),
             [
@@ -379,7 +380,7 @@ mod tests {
         );
         assert_eq!(
             (page["limit"].as_u64(), page["offset"].as_u64()),
-            (Some(5), Some(24))
+            (Some(5), Some(27))
         );
     }
 
@@ -393,7 +394,7 @@ mod tests {
                 past["items"].as_array().unwrap().len(),
                 past["total"].as_u64()
             ),
-            (0, Some(31))
+            (0, Some(34))
         );
         let (status, none) = get_json(&app, "/v1/plants?q=zzzz").await;
         assert_eq!(status, StatusCode::OK);
@@ -530,6 +531,180 @@ mod tests {
         assert_camel_case(&mentha);
     }
 
+    // ---- nombre para mostrar y contenido consolidado ----
+
+    #[tokio::test]
+    async fn list_items_and_detail_carry_display_name_as_text() {
+        // Escenarios «Contenido de cada elemento» y «Nombre para mostrar en el listado».
+        let (_fixture, app) = app();
+        let (_, list) = get_json(&app, "/v1/plants?limit=100").await;
+        for item in list["items"].as_array().unwrap() {
+            assert!(item["displayName"].is_string(), "{item}");
+        }
+        let (_, lavender) = get_json(&app, "/v1/plants?q=lavandula%20angustifolia").await;
+        assert_eq!(lavender["items"][0]["displayName"], "Lavanda");
+        assert_eq!(lavender["items"][0]["commonNames"][0]["text"], "Lavanda");
+        // Planta sin nombre común: el nombre para mostrar es el científico.
+        let (_, twin) = get_json(&app, "/v1/plants?q=twin").await;
+        assert_eq!(twin["items"][0]["displayName"], "Twin plant");
+        assert_eq!(twin["items"][0]["commonNames"], serde_json::json!([]));
+        // Solo nombres en otros idiomas: el nombre para mostrar no es uno de ellos.
+        let (_, velvet) = get_json(&app, "/v1/plants?q=abutilon").await;
+        assert_eq!(velvet["items"][0]["displayName"], "Abutilon theophrasti");
+        assert_eq!(velvet["items"][0]["commonNames"][1]["text"], "Velvetleaf");
+
+        let (_, detail) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(detail["displayName"], "Lavanda");
+        assert_eq!(detail["names"][2]["text"], "Lavanda");
+        let (_, latifolia) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+        assert_eq!(latifolia["displayName"], "Lavandula latifolia");
+    }
+
+    #[tokio::test]
+    async fn complete_detail_has_every_consolidated_field() {
+        // Escenario «Planta con todos los campos».
+        let (_fixture, app) = app();
+        let (status, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_camel_case(&json);
+        assert_eq!(json["synonyms"], serde_json::json!(["Lavandula vera"]));
+        assert_eq!(json["description"], "Arbusto aromático de flores violetas.");
+        assert_eq!(json["origin"], "Sureste de Europa.");
+        assert_eq!(json["oil"], serde_json::json!({"type": "Esencial"}));
+        assert_eq!(
+            json["useGroups"][0],
+            serde_json::json!({
+                "activity": "Sedante",
+                "activitySource": "Sedative",
+                "count": 12,
+                "countries": ["Turquía", "Francia", "Otros lugares"],
+                "references": [
+                    {"id": "ref-2", "citation": "Jones, A. 2001. Plantas medicinales. Editorial Ejemplo, Madrid.", "resolved": true},
+                    {"id": null, "citation": "Woi.6 (sin resolver)", "resolved": false}
+                ]
+            })
+        );
+        assert_eq!(
+            json["goals"][1],
+            serde_json::json!({
+                "id": "otros-objetivos",
+                "name": "Otros objetivos",
+                "subarea": "Digestión",
+                "area": "Digestión lenta",
+                "evidence": "La agencia tiene una entrada de lista en esta área.",
+                "references": [
+                    {"id": "ref-1", "citation": "Smith 1990"},
+                    {"id": "ref-ema-skin", "citation": "Monografía sobre la piel"}
+                ]
+            })
+        );
+        assert_eq!(json["goals"][0]["subarea"], Value::Null);
+        assert_eq!(json["safety"]["level"], "medio");
+        assert_eq!(json["safety"]["text"], "Evitar durante el embarazo.");
+        assert_eq!(json["safety"]["references"][0]["id"], "ref-1");
+        assert_eq!(
+            json["image"],
+            serde_json::json!({
+                "url": "https://imagenes.invalid/lavandula-angustifolia.jpg",
+                "pageUrl": "https://commons.wikimedia.org/wiki/File:lavandula-angustifolia.jpg",
+                "author": "Autora Ejemplo",
+                "license": "CC BY-SA 4.0",
+                "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attributionRequired": true
+            })
+        );
+    }
+
+    #[tokio::test]
+    async fn uses_keep_the_label_while_use_groups_carry_the_full_citation() {
+        // Escenarios «Cita de `uses` sin cambios» y «Cita completa en los grupos de uso».
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(json["uses"][0]["reference"]["citation"], "Smith 1990");
+        assert_eq!(
+            json["useGroups"][1]["references"][0]["citation"],
+            "Smith, J. 1990. Registros de plantas. Publicado por el autor, Lisboa."
+        );
+        assert_eq!(json["uses"].as_array().unwrap().len(), 2);
+    }
+
+    #[tokio::test]
+    async fn empty_detail_has_null_and_empty_consolidated_fields() {
+        // Escenario «Planta con campos vacíos»: los campos están presentes aunque vacíos.
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+        for key in ["description", "origin", "oil", "safety", "image"] {
+            assert_eq!(json[key], Value::Null, "{key}");
+        }
+        for key in ["synonyms", "useGroups", "goals", "uses", "parts"] {
+            assert_eq!(json[key], serde_json::json!([]), "{key}");
+        }
+    }
+
+    #[tokio::test]
+    async fn safety_distinguishes_no_data_from_no_level() {
+        // Escenarios «Seguridad sin datos» y «Seguridad sin nivel».
+        let (_fixture, app) = app();
+        let (_, none) = get_json(&app, "/v1/plants/zea-mays").await;
+        assert_eq!(none["safety"], Value::Null);
+        let (_, eucalyptus) = get_json(&app, "/v1/plants/eucalyptus-globulus").await;
+        assert_eq!(eucalyptus["safety"]["level"], Value::Null);
+        assert_eq!(
+            eucalyptus["safety"]["text"],
+            "Contraindicado en niños pequeños."
+        );
+        assert_eq!(
+            eucalyptus["safety"]["references"][0]["id"],
+            "ref-ema-safety"
+        );
+        let (_, toxic) = get_json(&app, "/v1/plants/conium-maculatum").await;
+        assert_eq!(toxic["safety"]["level"], "alto");
+    }
+
+    #[tokio::test]
+    async fn image_is_served_as_data_without_network_access() {
+        // Escenarios «Sin imagen» y «Sin acceso a la red»: la URL de la fixture es de un dominio `.invalid`
+        // que nunca resuelve, así que un 200 con los datos prueba que la API no descarga nada.
+        let (_fixture, app) = app();
+        let (status, toxic) = get_json(&app, "/v1/plants/conium-maculatum").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(
+            toxic["image"]["url"],
+            "https://imagenes.invalid/conium-maculatum.jpg"
+        );
+        assert_eq!(toxic["image"]["author"], Value::Null);
+        assert_eq!(toxic["image"]["licenseUrl"], Value::Null);
+        assert_eq!(toxic["image"]["attributionRequired"], false);
+        let (_, none) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+        assert_eq!(none["image"], Value::Null);
+    }
+
+    #[tokio::test]
+    async fn pending_content_and_review_flags_are_not_served() {
+        // Avance de la regla de 3.5: el grupo sin cita resuelta y el objetivo pendiente no salen, y ningún flag se expone.
+        let (_fixture, app) = app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        let text = json.to_string();
+        assert!(!text.contains("Actividad pendiente"), "{text}");
+        assert!(!text.contains("Estrés"), "{text}");
+        assert!(!text.contains("cita-sin-resolver"), "{text}");
+        assert!(!text.contains("reviewFlags"), "{text}");
+    }
+
+    #[tokio::test]
+    async fn openapi_declares_display_name_in_summary_and_detail() {
+        let (_fixture, app) = app();
+        let (_, doc) = get_json(&app, "/openapi.json").await;
+        for schema in ["PlantSummaryDto", "PlantDto"] {
+            let property = &doc["components"]["schemas"][schema]["properties"]["displayName"];
+            assert_eq!(property["type"], "string", "{schema}");
+            let required = doc["components"]["schemas"][schema]["required"]
+                .as_array()
+                .unwrap();
+            assert!(required.iter().any(|r| r == "displayName"), "{schema}");
+        }
+    }
+
     #[tokio::test]
     async fn serves_the_openapi_document_outside_v1() {
         let (_fixture, app) = app();
@@ -618,7 +793,7 @@ mod tests {
         let (status, json) = get_json(&app, "/v1/plants?offset=2147483647").await;
         assert_eq!(status, StatusCode::OK);
         assert_eq!(json["items"].as_array().unwrap().len(), 0);
-        assert_eq!(json["total"], 31);
+        assert_eq!(json["total"], 34);
         for value in ["2147483648", "4294967295"] {
             let uri = format!("/v1/plants?offset={value}");
             let json = expect_problem(&app, Method::GET, &uri, StatusCode::BAD_REQUEST).await;

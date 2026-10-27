@@ -1011,11 +1011,22 @@
           "enum": [
             "tppt",
             "ema_pdf",
-            "efsa"
+            "efsa",
+            "usda"
           ]
         },
         "ref": {
           "$ref": "#/$defs/ref"
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        },
+        "terms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "level": {
           "enum": [

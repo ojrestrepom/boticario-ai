@@ -2,7 +2,7 @@
 
 El contrato del paquete (bundle v1) sale de la spec «Paquete por planta determinista». El validador
 solo depende de estos campos: refs; identity.proposedId; bundleHash; sections.regulatory[]
-(ref, therapeuticAreas, outcome, combination); sections.safety[] (source, humanToxicity y, para la EMA,
+(ref, therapeuticAreas, outcome, combination); sections.safety[] (source, level, humanToxicity y, para la EMA,
 severeInteractions); sections.images[].ref; sections.uses[] (activity y, opcional, candidates).
 """
 import json
@@ -10,6 +10,7 @@ import re
 from pathlib import Path
 
 from . import goals as goals_lib
+from .safety import max_level
 from .schema import load_schema, validate as validate_schema
 from .sources import TOOL_DIR, SourceError
 
@@ -347,6 +348,11 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None,
             errors.append("safety.level: es nulo pero el paquete fija nivel de seguridad (%s)" % ", ".join(sorted(set(bundle_levels))))
         if has_no_data_flag:
             errors.append("safety: tiene contenido y el registro lleva el reviewFlag 'sin-datos-de-seguridad'")
+        # El nivel es el más alto entre los de las entradas del paquete (o nulo si ninguna fija nivel).
+        expected_level = max_level(bundle_levels)
+        if safety["level"] is not None and safety["level"] != expected_level:
+            errors.append("safety.level: es '%s' pero el más alto entre las entradas de safety del paquete es %s" % (
+                safety["level"], "'%s'" % expected_level if expected_level else "nulo (ninguna fija nivel)"))
 
     # Señales de riesgo del paquete: van a safety con los refs usda_use:* de sus filas.
     risk_refs = {ref for use in bundle.get("sections", {}).get("uses", []) if activity_category(use.get("activity"), sensitive) == RISK_SIGNAL

@@ -247,6 +247,42 @@ class ScenarioTests(ValidatorCase):
         record["safety"]["level"] = None
         self.assertError(record, "safety.level: es nulo pero el paquete fija nivel", fx.bundle("hiperico"))
 
+    def test_el_nivel_de_safety_es_el_maximo_de_las_entradas_del_paquete(self):
+        bundle = fx.bundle("hiperico")
+        levels = [e.get("level") for e in bundle["sections"]["safety"] if e.get("level")]
+        self.assertIn("alto", levels)
+        record = fx.record("hiperico")
+        record["safety"]["level"] = "alto"
+        self.assertNoErrors(record, bundle)
+        record["safety"]["level"] = "medio"
+        self.assertError(record, "safety.level: es 'medio' pero el más alto entre las entradas de safety del paquete es 'alto'", bundle)
+        record["safety"]["level"] = "bajo"
+        self.assertError(record, "es 'bajo' pero el más alto", bundle)
+
+    def test_un_nivel_en_safety_sin_ninguna_entrada_que_lo_fije_es_error(self):
+        bundle = fx.bundle("hiperico")
+        for entry in bundle["sections"]["safety"]:
+            entry["level"] = None
+        record = fx.record("hiperico")
+        record["safety"]["level"] = "medio"
+        self.assertError(record, "es 'medio' pero el más alto entre las entradas de safety del paquete es nulo", bundle)
+        record["safety"]["level"] = None
+        self.assertNoErrors(record, bundle)
+
+    def test_una_entrada_letal_de_usda_exige_nivel_alto(self):
+        bundle = fx.bundle("hiperico")
+        for entry in bundle["sections"]["safety"]:
+            entry["level"] = "medio" if entry["source"] == "tppt" else None
+        bundle["sections"]["safety"].append({"source": "usda", "ref": "usda_use:1001", "refs": ["usda_use:1001"], "terms": ["Fatality"],
+                                             "level": "alto", "levelReason": "Señal letal de USDA."})
+        bundle["refs"]["usda_use:1001"] = fx.bundle()["refs"]["usda_use:1001"]
+        record = fx.record("hiperico")
+        record["refs"]["usda_use:1001"] = bundle["refs"]["usda_use:1001"]
+        record["safety"]["level"] = "medio"
+        self.assertError(record, "es 'medio' pero el más alto entre las entradas de safety del paquete es 'alto'", bundle)
+        record["safety"]["level"] = "alto"
+        self.assertNoErrors(record, bundle)
+
     def test_cita_sin_resolver_exige_flag_cita_sin_resolver(self):
         record = fx.record()
         record["reviewFlags"][0]["code"] = "otro-motivo"
@@ -309,6 +345,7 @@ class ScenarioTests(ValidatorCase):
         record = fx.record("hiperico")
         record["goals"][0]["pendingReview"] = False
         record["reviewFlags"] = []
+        record["safety"]["level"] = None        # sin entradas que fijen nivel, el registro no puede llevarlo
         self.assertNoErrors(record, bundle)
 
     def test_planta_toxica_segun_tppt_sin_objetivos(self):

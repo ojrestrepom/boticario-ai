@@ -1,11 +1,11 @@
 {
- "version": 2,
+ "version": 3,
  "levels": [
   "bajo",
   "medio",
   "alto"
  ],
- "description": "Niveles mínimos de seguridad que fija cada fuente. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva safety nulo y un reviewFlag, y nunca se presenta como segura. level null significa sin nivel, por el motivo indicado. Versión 2: niveles de TPPT aprobados, declaraciones públicas de la EMA con datos de seguridad en medio y EFSA limitada a una lista versionada de sustancias de alta preocupación.",
+ "description": "Niveles mínimos de seguridad que fija cada fuente. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva safety nulo y un reviewFlag, y nunca se presenta como segura. level null significa sin nivel, por el motivo indicado. Versión 2: niveles de TPPT aprobados, declaraciones públicas de la EMA con datos de seguridad en medio y EFSA limitada a una lista versionada de sustancias de alta preocupación. Versión 3: las señales de riesgo de los usos de USDA (sección usda) se clasifican; las letales (Fatality, Fatal, Death, Suicide, Homicide) fijan el nivel alto y las demás señales siguen sin nivel.",
  "tppt": {
   "match": "Se separa por «, » y se compara en minúsculas el prefijo anterior al paréntesis (los calificadores como «only wild growing plants» o la especie animal no cambian la categoría).",
   "human_toxicity": {
@@ -980,5 +980,95 @@
     "why": "Ficha cuyos PDF aún no se han descargado: debe resolverse antes de armar paquetes."
    }
   }
+ },
+ "usda": {
+  "match": "Se compara en minúsculas la forma base de la actividad de un grupo de uso (el texto anterior al primer paréntesis, sin espacios sobrantes), igual que sensitive-activities.json: «Fatality(Veterinary)» cuenta como «fatality». Los términos son las señales de riesgo de sensitive-activities.json; las pruebas comprueban que ambas listas coinciden. Una señal con level alto fija el nivel de la planta; con level null es solo advertencia. Vocabulario letal revisado sobre las 1.572 actividades reales: los términos con raíz fatal, death, suicide y homicide son estos cinco; «Homocide» (1 fila, grafía errónea de Homicide) e «Infanticide» (1 fila) no están en la lista de señales de riesgo y no se tratan como señal.",
+  "risk_signals": {
+   "fatality": {
+    "level": "alto",
+    "why": "Señal letal de USDA: se registran casos mortales."
+   },
+   "fatal": {
+    "level": "alto",
+    "why": "Señal letal de USDA: se registran casos mortales."
+   },
+   "death": {
+    "level": "alto",
+    "why": "Señal letal de USDA: se registran muertes."
+   },
+   "suicide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno de suicidio."
+   },
+   "homicide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno homicida."
+   },
+   "poison": {
+    "level": null,
+    "why": "Veneno registrado en usos tradicionales, sin indicar muerte ni gravedad: advertencia sin nivel."
+   },
+   "popison": {
+    "level": null,
+    "why": "Variante tipográfica de «Poison»: advertencia sin nivel."
+   },
+   "arrow-poison": {
+    "level": null,
+    "why": "Veneno de flechas: dato de uso tradicional sin gradación para personas; advertencia sin nivel."
+   },
+   "ordeal-poison": {
+    "level": null,
+    "why": "Veneno de ordalía: dato histórico sin gradación; advertencia sin nivel."
+   },
+   "food-poison": {
+    "level": null,
+    "why": "Veneno alimentario: sin gradación; advertencia sin nivel."
+   },
+   "toxic": {
+    "level": null,
+    "why": "Tóxica sin gradación; advertencia sin nivel (TPPT fija el nivel cuando hay dato)."
+   },
+   "toxemia": {
+    "level": null,
+    "why": "Toxemia registrada sin gradación; advertencia sin nivel."
+   },
+   "abortifacient": {
+    "level": null,
+    "why": "Efecto abortivo: riesgo específico (embarazo) que no equivale a letalidad general; advertencia sin nivel."
+   },
+   "abortive": {
+    "level": null,
+    "why": "Efecto abortivo: riesgo específico (embarazo) que no equivale a letalidad general; advertencia sin nivel."
+   },
+   "carcinogenic": {
+    "level": null,
+    "why": "Riesgo a largo plazo sin gradación en USDA; advertencia sin nivel (TPPT fija el nivel cuando hay dato)."
+   },
+   "mutagenic": {
+    "level": null,
+    "why": "Riesgo a largo plazo sin gradación; advertencia sin nivel."
+   },
+   "convulsant": {
+    "level": null,
+    "why": "Efecto convulsivante sin gradación; advertencia sin nivel."
+   },
+   "cyanogenetic": {
+    "level": null,
+    "why": "Contiene precursores de cianuro, sin cantidad ni gravedad; advertencia sin nivel."
+   },
+   "dermatitogenic": {
+    "level": null,
+    "why": "Reacción local de la piel; advertencia sin nivel."
+   },
+   "phototoxic": {
+    "level": null,
+    "why": "Reacción de la piel con la luz, sin gradación; advertencia sin nivel."
+   },
+   "hemolytic": {
+    "level": null,
+    "why": "Efecto hemolítico sin gradación; advertencia sin nivel."
+   }
+  },
+  "lethal_rule": "Decisión del usuario (2026-10-26): las señales letales de USDA fijan el nivel alto por precaución; las demás señales de riesgo no fijan nivel."
  }
 }

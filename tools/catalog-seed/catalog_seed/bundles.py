@@ -515,6 +515,31 @@ class Builder(object):
         return entry
 
     # -- TPPT y EFSA
+    def _usda_safety(self, plant, refs):
+        """Entrada de seguridad de USDA: las señales letales de los usos (safety-map.json, sección `usda`) fijan el nivel alto.
+
+        Se calcula sobre todos los grupos de uso de la planta, aunque un tope deje alguno fuera de `sections.uses`. Las demás señales
+        de riesgo (Poison, Abortifacient, ...) no fijan nivel y no generan entrada: siguen visibles en `sections.uses`.
+        """
+        bucket = (self.usda.by_plant.get(plant.id) if self.usda else None) or {}
+        terms, use_refs, reasons = {}, set(), {}
+        for group in bucket.get("useGroups", []):
+            base = safety.usda_signal_base(group["activity"])
+            entry = safety.usda_signal(self.safety_map, group["activity"])
+            if not entry or entry["level"] is None:
+                continue
+            terms.setdefault(base, group["activity"].split("(")[0].strip())
+            reasons[base] = entry
+            use_refs.update(group["refs"])
+        if not terms:
+            return []
+        ordered = sorted(use_refs, key=_natural)
+        for ref in ordered:
+            refs.add(ref, "usda", "USDA Dr. Duke: uso etnobotánico %s" % ref.split(":", 1)[1])
+        level = safety.max_level(e["level"] for e in reasons.values())
+        reason = " ".join(dict.fromkeys(reasons[b]["why"] for b in sorted(reasons) if reasons[b]["level"] == level))
+        return [{"ref": ordered[0], "source": "usda", "refs": ordered, "terms": [terms[b] for b in sorted(terms)], "level": level, "levelReason": reason}]
+
     def _tppt_safety(self, plant, refs):
         out = []
         for row in sorted(self.rows.tppt.get(plant.id, []), key=lambda r: _natural(r["row_key"])):
@@ -673,6 +698,7 @@ class Builder(object):
             safety_rows += self._ema_safety(plant, refs, flags)
         if self.enabled.get("efsa"):
             safety_rows += self._efsa_safety(plant, refs)
+        safety_rows += self._usda_safety(plant, refs)
         status, wikidata_items, wiki_names, descriptions, images = self._wiki(plant, doc, refs, notes)
         names = sorted(names + wiki_names + self._tppt_names(safety_rows), key=lambda n: (n["source"], n["language"] or "", n["text"], n["ref"]))
         if status in WIKIDATA_FLAGS:

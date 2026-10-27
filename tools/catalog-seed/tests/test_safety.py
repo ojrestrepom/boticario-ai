@@ -278,7 +278,7 @@ class EmaInteractionTests(unittest.TestCase):
 class MapValidityTests(unittest.TestCase):
     def test_levels_are_valid_and_every_entry_is_justified(self):
         data = safety_map()
-        self.assertEqual(data["version"], 2)
+        self.assertEqual(data["version"], 3)
         self.assertEqual(tuple(data["levels"]), safety.LEVELS)
 
     def test_invalid_level_is_rejected(self):
@@ -329,6 +329,47 @@ class MapValidityTests(unittest.TestCase):
         self.assertEqual(set(concern["groups"]), {"genotoxico-carcinogeno", "toxico-con-limite", "furocumarina-fototoxica", "veneno-potente"})
         for entry in concern["substances"]:
             self.assertIn(entry["group"], concern["groups"])
+
+
+class UsdaSignalTests(unittest.TestCase):
+    LETHAL = {"fatality", "fatal", "death", "suicide", "homicide"}
+
+    def test_lethal_signals_set_high_and_the_rest_set_no_level(self):
+        signals = safety_map()["usda"]["risk_signals"]
+        for name, entry in signals.items():
+            self.assertTrue(entry["why"].strip(), name)
+            self.assertEqual(entry["level"], "alto" if name in self.LETHAL else None, name)
+        self.assertTrue(self.LETHAL <= set(signals))
+
+    def test_base_form_comparison_ignores_qualifier_and_case(self):
+        data = safety_map()
+        self.assertEqual(safety.usda_signal_level(data, "Fatality(Veterinary)"), "alto")
+        self.assertEqual(safety.usda_signal_level(data, " DEATH (Child)"), "alto")
+        self.assertEqual(safety.usda_signal_level(data, "Homicide"), "alto")
+        self.assertIsNone(safety.usda_signal_level(data, "Poison(Arrow)"))
+        self.assertIsNone(safety.usda_signal(data, "Aphrodisiac"))
+        self.assertIsNone(safety.usda_signal_level(data, "Antidote(Poison)"))
+
+    def test_terms_agree_with_the_risk_signals_of_sensitive_activities(self):
+        import json
+        from catalog_seed.validate import SENSITIVE_ACTIVITIES_PATH
+        with open(SENSITIVE_ACTIVITIES_PATH, encoding="utf-8") as handle:
+            terms = {t.strip().lower() for t in json.load(handle)["categories"]["senal-de-riesgo"]["terms"]}
+        self.assertEqual(terms, set(safety_map()["usda"]["risk_signals"]))
+
+    def test_malformed_usda_section_is_rejected(self):
+        def mutate(change):
+            return MapValidityTests.load_modified(self, change)
+        bad = {
+            "sin sección": lambda d: d.pop("usda"),
+            "sin señales": lambda d: d["usda"].update({"risk_signals": {}}),
+            "nivel inválido": lambda d: d["usda"]["risk_signals"]["death"].update({"level": "critico"}),
+            "sin why": lambda d: d["usda"]["risk_signals"]["death"].update({"why": ""}),
+            "clave con mayúsculas": lambda d: d["usda"]["risk_signals"].update({"Death": {"level": "alto", "why": "x"}}),
+        }
+        for name, change in bad.items():
+            with self.assertRaises(safety.SafetyMapError, msg=name):
+                mutate(change)
 
 
 if __name__ == "__main__":

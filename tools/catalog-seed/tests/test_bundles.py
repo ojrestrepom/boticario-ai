@@ -276,6 +276,44 @@ class SafetyTests(BundleTestCase):
         self.assertEqual([e["source"] for e in self.built["lavandula-latifolia"]["sections"]["safety"]], ["efsa"])
 
 
+    def test_a_lethal_usda_signal_adds_a_high_entry_with_its_refs(self):
+        world = bs.World()
+        world.rows["usda"] += [
+            bs.Row("usda_use", "301", {"activity": "Fatality(Veterinary)", "taxon": "Lavandula angustifolia", "reference": "Woi.10"}, raw_name_cell="Lavandula angustifolia"),
+            bs.Row("usda_use", "302", {"activity": "Suicide", "taxon": "Lavandula angustifolia", "reference": "Woi.10"}, raw_name_cell="Lavandula angustifolia"),
+            bs.Row("usda_use", "303", {"activity": "Poison", "taxon": "Lavandula angustifolia", "reference": "Woi.10"}, raw_name_cell="Lavandula angustifolia"),
+        ]
+        bundle = world.build(plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+        entries = [e for e in bundle["sections"]["safety"] if e["source"] == "usda"]
+        self.assertEqual(len(entries), 1)
+        entry = entries[0]
+        self.assertEqual((entry["level"], entry["terms"], entry["refs"], entry["ref"]), ("alto", ["Fatality", "Suicide"], ["usda_use:301", "usda_use:302"], "usda_use:301"))
+        self.assertIn("Señal letal de USDA", entry["levelReason"])
+        self.assertNotIn("usda_use:303", entry["refs"])             # Poison no fija nivel
+        self.assertIn("usda_use:301", bundle["refs"])
+        self.assertEqual(validate(bundle, self.schema), [])
+        self.assertNotEqual(bundle["bundleHash"], self.built["lavandula-angustifolia"]["bundleHash"])
+
+    def test_a_lethal_signal_is_found_even_when_the_group_cap_leaves_it_out_of_uses(self):
+        world = bs.World()
+        world.rows["usda"].append(bs.Row("usda_use", "301", {"activity": "Death", "taxon": "Lavandula angustifolia", "reference": "Woi.10"},
+                                         raw_name_cell="Lavandula angustifolia"))
+        bundle = world.build(limits={"useGroups": 1}, plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+        self.assertEqual([e["level"] for e in bundle["sections"]["safety"] if e["source"] == "usda"], ["alto"])
+
+    def test_a_plant_with_only_poison_gets_no_usda_entry_and_keeps_its_bundle(self):
+        world = bs.World()
+        world.rows["usda"].append(bs.Row("usda_use", "303", {"activity": "Poison(Arrow)", "taxon": "Lavandula angustifolia", "reference": "Woi.10"},
+                                         raw_name_cell="Lavandula angustifolia"))
+        bundle = world.build(plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+        self.assertEqual([e for e in bundle["sections"]["safety"] if e["source"] == "usda"], [])
+        self.assertEqual([e["source"] for e in bundle["sections"]["safety"]], [e["source"] for e in self.built["lavandula-angustifolia"]["sections"]["safety"]])
+
+    def test_plants_without_lethal_signals_have_no_usda_entry(self):
+        for plant_id, bundle in self.built.items():
+            self.assertEqual([e for e in bundle["sections"]["safety"] if e["source"] == "usda"], [], plant_id)
+
+
 class GoalCandidatesTests(BundleTestCase):
     def candidates(self, plant_id):
         out = {}

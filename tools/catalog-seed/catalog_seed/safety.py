@@ -8,6 +8,7 @@ nivel (`level: null`) con su motivo, y las pruebas lo verifican con los datos re
 - TPPT: Human_toxicity, separado por «, » y comparado por el prefijo anterior al paréntesis (sin mayúsculas).
 - EMA: la sección 4.5 de la monografía se clasifica con reglas de texto explícitas (patrones de interacción grave).
 - EFSA: «sustancia de preocupación» según la lista versionada `efsa.concern_list` del mapa; el resto de las sustancias es evidencia sin nivel.
+- USDA: las señales de riesgo de los usos (sección `usda` del mapa, versión 3) se comparan por su forma base; las letales (Fatality, Fatal, Death, Suicide, Homicide) fijan el nivel alto y las demás no fijan nivel.
 """
 import json
 import re
@@ -50,7 +51,7 @@ def load_safety_map(path=DEFAULT_SAFETY_MAP):
         raise SafetyMapError("JSON inválido en %s: %s" % (path, error))
     if not isinstance(data.get("version"), int):
         raise SafetyMapError("el mapa necesita 'version' entera")
-    for section in ("tppt", "ema", "efsa"):
+    for section in ("tppt", "ema", "efsa", "usda"):
         if not isinstance(data.get(section), dict):
             raise SafetyMapError("falta la sección '%s'" % section)
     for field in ("human_toxicity", "animal_toxicity"):
@@ -66,6 +67,13 @@ def load_safety_map(path=DEFAULT_SAFETY_MAP):
     for name in ("substance-of-concern", "evidence-only", "no-substance"):
         if name not in data["efsa"]["classes"]:
             raise SafetyMapError("efsa.classes: falta la clase %r" % name)
+    signals = data["usda"].get("risk_signals")
+    if not isinstance(signals, dict) or not signals:
+        raise SafetyMapError("usda.risk_signals: necesita al menos una señal")
+    for name, entry in signals.items():
+        _check_entry("usda.risk_signals.%s" % name, entry)
+        if name != name.strip().lower() or "(" in name:
+            raise SafetyMapError("usda.risk_signals: la clave %r debe estar en minúsculas y sin paréntesis" % name)
     _check_concern_list(data["efsa"].get("concern_list"))
     for index, group in enumerate(data["efsa"].get("evidence_only", [])):
         names = group.get("substances") if isinstance(group, dict) else None
@@ -208,6 +216,24 @@ def efsa_concern(safety_map, botanic_contents):
 def efsa_effect_group(value):
     """Grupo de un efecto de ENDPOINTSTUDY (TOXICITYSUMMARY): la parte anterior a «:» («digestive: Liver» → «digestive»)."""
     return (value or "").split(":")[0].strip().lower()
+
+
+# --- USDA ---------------------------------------------------------------
+
+def usda_signal_base(activity):
+    """Forma base de una actividad de USDA: el texto anterior al primer paréntesis, sin espacios sobrantes y en minúsculas."""
+    return str(activity or "").split("(")[0].strip().lower()
+
+
+def usda_signal(safety_map, activity):
+    """La entrada del mapa (`{level, why}`) de una actividad que es señal de riesgo, o None si no lo es."""
+    return safety_map["usda"]["risk_signals"].get(usda_signal_base(activity))
+
+
+def usda_signal_level(safety_map, activity):
+    """Nivel que fija una actividad de USDA (alto para las señales letales), o None."""
+    entry = usda_signal(safety_map, activity)
+    return entry["level"] if entry else None
 
 
 def combine(*levels):

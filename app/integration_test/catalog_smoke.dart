@@ -45,6 +45,7 @@ import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:boticario_ai/main.dart' as app;
 import 'package:flutter/material.dart';
@@ -349,13 +350,7 @@ Future<void> _runCatalogSmoke(
     expect(find.text('Precauciones'), findsOneWidget);
     await _tapVisible(tester, find.text('Usos'));
     expect(_selectedChip(tester, 'Usos'), isTrue);
-    expect(find.text('Registros tradicionales'), findsOneWidget);
-    expect(
-      find.text(
-        'No es una recomendación de uso ni evidencia de eficacia clínica',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
     await _expectPassportDisabled(tester, router, homeLogs);
 
     // First real P05 return: its chevron restores the captured P04 state.

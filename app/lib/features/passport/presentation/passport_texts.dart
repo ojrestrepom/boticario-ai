@@ -1,4 +1,4 @@
-/// Fixed texts of the passport tabs `General` and `Propiedades`. They live
+/// Fixed texts of the passport tabs and the `Fuentes` section. They live
 /// here, in one place, so a test can scan them for effect language.
 abstract final class PassportTexts {
   static const notAvailable = 'No disponible en fuente';
@@ -17,7 +17,7 @@ abstract final class PassportTexts {
   static const descriptionLabel = 'Descripción';
   static const otherCommonNamesLabel = 'Otros nombres comunes';
   static const noCommonNames = 'No hay nombres comunes registrados';
-  static const highLevelNoticeTitle = 'Precauciones de nivel Alto';
+  static const highLevelNoticeTitle = 'Precauciones de nivel alto';
   static const highLevelNoticeBody =
       'Consulta las precauciones de esta planta en la pestaña Propiedades.';
 
@@ -38,11 +38,42 @@ abstract final class PassportTexts {
       'No hay precauciones registradas en las fuentes consultadas. '
       'Esto no significa que la planta sea segura.';
 
+  // Usos.
+  /// Provisional text (the user will adjust it in the app); see the
+  /// `plant-passport` spec, "Usos como registros tradicionales trazables".
+  static const usesNotice =
+      'Usos registrados en fuentes etnobotánicas históricas. No son '
+      'recomendaciones ni están comprobados clínicamente. Algunas citas no '
+      'se pudieron identificar y se muestran como «sin resolver».';
+  static const noUses =
+      'No hay usos tradicionales con referencia verificable disponibles';
+  static const traditionalRecord = 'Registro tradicional';
+  static const useGroupClarification = 'Es un registro, no un consejo de uso.';
+  static const countriesLabel = 'Países';
+  static const unresolvedSuffix = '(sin resolver)';
+
+  /// Record count of a use group (`1 registro`, `12 registros`).
+  static String recordCount(int count) =>
+      count == 1 ? '1 registro' : '$count registros';
+
+  // Fuentes.
+  static const sourcesTitle = 'Fuentes';
+  static const sourcesIntro =
+      'Los datos se reúnen de fuentes abiertas y cada fuente conserva su '
+      'licencia.';
+  static const noSources = 'No hay fuentes registradas para esta planta';
+  static const imageSourceTitle = 'Imagen';
+  static const licensePrefix = 'Licencia';
+  static const attributionPrefix = 'Atribución';
+  static const authorPrefix = 'Autor';
+  static const licenseUrlPrefix = 'Enlace de la licencia';
+  static const pageUrlPrefix = 'Página';
+
   static const levelHigh = 'Alto';
   static const levelMedium = 'Medio';
   static const levelLow = 'Bajo';
 
-  /// Every fixed text of `General` and `Propiedades`, for the effect-language
+  /// Every fixed text of the passport, for the effect-language
   /// scan.
   static const all = <String>[
     notAvailable,
@@ -73,5 +104,20 @@ abstract final class PassportTexts {
     levelHigh,
     levelMedium,
     levelLow,
+    usesNotice,
+    noUses,
+    traditionalRecord,
+    useGroupClarification,
+    countriesLabel,
+    unresolvedSuffix,
+    sourcesTitle,
+    sourcesIntro,
+    noSources,
+    imageSourceTitle,
+    licensePrefix,
+    attributionPrefix,
+    authorPrefix,
+    licenseUrlPrefix,
+    pageUrlPrefix,
   ];
 }

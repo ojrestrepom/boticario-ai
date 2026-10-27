@@ -27,7 +27,7 @@ PlantSafety _safety(SafetyLevel? level) => PlantSafety(
 );
 
 void main() {
-  const noticeTitle = 'Precauciones de nivel Alto';
+  const noticeTitle = 'Precauciones de nivel alto';
 
   testWidgets('Campos de P05 presentes', (tester) async {
     await showPassport(tester, consolidatedPlant('lavandula-angustifolia'));

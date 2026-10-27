@@ -6,6 +6,7 @@ import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -383,13 +384,7 @@ void main() {
     await show(tester, _lavender);
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Registros tradicionales'), findsOneWidget);
-    expect(
-      find.text(
-        'No es una recomendación de uso ni evidencia de eficacia clínica',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
     expect(find.text('Carminative'), findsOneWidget);
     final lavender = plants[_lavender]!;
     expect(lavender.uses, hasLength(10));
@@ -408,7 +403,9 @@ void main() {
     await tester.pumpAndSettle();
     final rosemary = plants[_rosemary]!;
     expect(rosemary.uses, hasLength(59));
-    expect(find.text('Registro tradicional'), findsNWidgets(59));
+    // The older backend sends `uses` only: one derived group per activity.
+    expect(rosemary.useGroups, hasLength(46));
+    expect(find.text('Registro tradicional'), findsNWidgets(46));
     expect(
       find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
       findsOneWidget,
@@ -457,7 +454,7 @@ void main() {
     );
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Registros tradicionales'), findsOneWidget);
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
     await tester.pumpWidget(
       MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_noFamily)),
     );
@@ -534,7 +531,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Registros tradicionales'), findsOneWidget);
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
 
     await tester.pumpWidget(entry('999999'));
     await tester.pumpAndSettle();
@@ -543,7 +540,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Japanese Fir'), findsWidgets);
     expect(find.text('Familia'), findsOneWidget);
-    expect(find.text('Registros tradicionales'), findsNothing);
+    expect(find.text(PassportTexts.usesNotice), findsNothing);
   });
 
   testWidgets('a 401 shows unauthorized, not "not found", with retry', (
@@ -1068,9 +1065,7 @@ void main() {
           } else {
             await assertParagraphReadable(
               tester,
-              find.text(
-                'No es una recomendación de uso ni evidencia de eficacia clínica',
-              ),
+              find.text(PassportTexts.usesNotice),
             );
             for (final use in plant.uses) {
               await assertParagraphReadable(

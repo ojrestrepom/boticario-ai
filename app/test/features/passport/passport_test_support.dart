@@ -21,6 +21,8 @@ Future<void> showPassport(
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
+  // A fresh tree, so the scroll position of a previous pump is not reused.
+  await tester.pumpWidget(const SizedBox.shrink());
   await tester.pumpWidget(
     MaterialApp(
       theme: buildBoticarioTheme(),

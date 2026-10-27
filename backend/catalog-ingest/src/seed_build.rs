@@ -473,6 +473,7 @@ fn insert_all(
                 citation: s.attribution.clone(),
                 url: s.url.clone(),
                 checksum: source_checksum(&s.files),
+                license_url: s.license_url.clone(),
             })
             .execute(conn)?;
     }

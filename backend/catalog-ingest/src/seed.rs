@@ -157,7 +157,7 @@ where
 
 /// Fuente declarada en el manifiesto.
 #[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
-#[serde(deny_unknown_fields)]
+#[serde(deny_unknown_fields, rename_all = "camelCase")]
 pub struct ManifestSource {
     /// Atribución.
     pub attribution: String,
@@ -167,6 +167,9 @@ pub struct ManifestSource {
     pub id: String,
     /// Licencia.
     pub license: String,
+    /// URL de la licencia (opcional en el manifiesto; `null` si la fuente no tiene una).
+    #[serde(default)]
+    pub license_url: Option<String>,
     /// Nombre legible de la fuente.
     pub name: String,
     /// Página del dataset.
@@ -599,6 +602,22 @@ pub fn load_seed(dir: &Path) -> Result<Seed, SeedError> {
             plant: None,
             message: e.to_string(),
         })?;
+    if let Some(source) = manifest.sources.iter().find(|s| {
+        s.license_url.as_deref().is_some_and(|u| {
+            !u.starts_with("https://")
+                || u.len() == "https://".len()
+                || u.chars().any(char::is_whitespace)
+        })
+    }) {
+        return Err(SeedError::Parse {
+            file: manifest_path,
+            plant: None,
+            message: format!(
+                "la fuente `{}` tiene un `licenseUrl` que no es una URL https",
+                source.id
+            ),
+        });
+    }
     if manifest.format_version != MANIFEST_FORMAT {
         return Err(SeedError::UnsupportedVersion {
             file: manifest_path,

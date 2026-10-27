@@ -532,6 +532,32 @@ fn extra_fields_are_kept_in_the_new_tables() {
         ),
         0
     );
+    // URL de licencia de cada fuente: la del manifiesto, o nula si la fuente no tiene una.
+    assert_eq!(
+        strings(
+            &conn,
+            "SELECT id || '|' || COALESCE(license_url, 'NULL') FROM source ORDER BY id"
+        ),
+        seed.manifest
+            .sources
+            .iter()
+            .map(|s| format!("{}|{}", s.id, s.license_url.as_deref().unwrap_or("NULL")))
+            .collect::<Vec<_>>()
+    );
+    assert_eq!(
+        strings(
+            &conn,
+            "SELECT license_url FROM source WHERE id = 'wikipedia_es'"
+        ),
+        ["https://creativecommons.org/licenses/by-sa/4.0/"]
+    );
+    assert_eq!(
+        count(
+            &conn,
+            "SELECT COUNT(*) FROM source WHERE id IN ('commons', 'ema_json', 'ema_pdf', 'tppt') AND license_url IS NOT NULL"
+        ),
+        0
+    );
     // Fuentes del manifiesto y su trazabilidad.
     assert_eq!(
         count(&conn, "SELECT COUNT(*) FROM source"),

@@ -45,6 +45,8 @@ pub struct SourceRow {
     pub url: String,
     /// Checksum del insumo original.
     pub checksum: String,
+    /// URL de la licencia, si la fuente tiene una.
+    pub license_url: Option<String>,
 }
 
 /// Fila de `plant`.

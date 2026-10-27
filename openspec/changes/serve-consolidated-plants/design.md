@@ -21,7 +21,7 @@ Estado actual de la app (`app/lib/features`):
 
 Mockups: P05 define `General` (Nombre común, Origen, Parte utilizada, Tipo de aceite, Descripción) y la imagen de cabecera, y no define `Propiedades` ni `Usos` (`docs/mockups/pantallas.md`). P04 muestra una miniatura por fila.
 
-Lo que el cambio 1 deja en `catalog.db` y este cambio lee: `plant_profile` (nombre para mostrar `display_name`, origen, descripción, tipo de aceite), `plant_use_group` y `plant_use_group_ref` (actividad traducida y original, `n`, países), `plant_goal` (con `subarea_id` y `pending_review`) y `plant_goal_ref`, `goal` y `goal_subarea`, `plant_safety` y `plant_safety_ref`, `plant_image`, `plant_alias`, `plant_review_flag`, `reference.dataset` y `reference.license`, y `source` con sus tablas de atribución (`plant_*_source`).
+Lo que el cambio 1 deja en `catalog.db` y este cambio lee: `plant_profile` (nombre para mostrar `display_name`, origen, descripción, tipo de aceite), `plant_use_group` y `plant_use_group_ref` (actividad traducida y original, `n`, países), `plant_goal` (con `subarea_id` y `pending_review`) y `plant_goal_ref`, `goal` y `goal_subarea`, `plant_safety` y `plant_safety_ref`, `plant_image`, `plant_alias`, `plant_review_flag`, `reference.dataset` y `reference.license`, y `source` (con `license_url`, que añade la tarea 1.3) con sus tablas de atribución (`plant_*_source`).
 
 ## Goals / Non-Goals
 
@@ -35,7 +35,7 @@ Lo que el cambio 1 deja en `catalog.db` y este cambio lee: `plant_profile` (nomb
 **Non-Goals:**
 
 - Los de `proposal.md` (cambio 3, capa humana, chat, miniaturas en Explorar, proxy de imágenes).
-- Cambiar la semilla, sus herramientas o el esquema de `catalog.db`. Si falta algo que este cambio necesita, se reporta en la tarea 1.1 y se ajusta el cambio 1; no se añade aquí.
+- Cambiar la semilla, sus herramientas o el esquema de `catalog.db`, salvo la URL de licencia por fuente (tarea 1.3), que no toca ningún registro de planta. Si falta algo más que este cambio necesita, se reporta y se ajusta el cambio 1; no se añade aquí.
 - Un modelo de «favoritos» o de historial sobre los IDs (no hay persistencia en la app).
 
 ## Decisions
@@ -76,9 +76,14 @@ Los textos visibles (descripción, actividades traducidas, advertencias) los val
 
 ### D2. Nombre para mostrar: campo explícito y orden de los nombres comunes
 
-Se añade `displayName` al listado y al detalle, y además el nombre para mostrar pasa a ser el primero entre los nombres comunes. El cambio 1 lo guarda de forma explícita en `plant_profile.display_name` y la API lo lee de ahí (o usa el nombre científico si la planta no tiene nombres comunes). Con eso `commonNames` y `names` salen con ese nombre primero y el resto por texto e idioma.
+Se añade `displayName` al listado y al detalle. El cambio 1 guarda el nombre para mostrar de forma explícita en `plant_profile.display_name`, y la API lo sirve tal cual: `displayName` es siempre ese valor (y, solo como defensa, el nombre científico si la planta no tiene fila de perfil o el valor es nulo). Según la regla del cambio 1, ese nombre es un nombre común en español o, si la planta no tiene ninguno, el nombre científico; la API no elige un nombre en otro idioma. Lo que cambia es el orden de los nombres comunes:
 
-Por qué ambos: el campo explícito evita que un cliente dependa del orden de una lista; el orden mantiene el comportamiento de la app anterior («primer nombre común»), que con el orden alfabético mostraría un nombre distinto del elegido.
+- Si el `displayName` es un nombre común, va primero entre los comunes y el resto sale por texto e idioma.
+- Si el `displayName` es el nombre científico (1.195 plantas no tienen nombre común en español, y 571 de ellas tienen nombres comunes en otros idiomas, como «Velvetleaf» en `abutilon-theophrasti`), los comunes salen por texto e idioma, sin ninguno destacado. El nombre en otro idioma sigue disponible en `commonNames` y `names`, pero no es el principal.
+
+Decisión del usuario sobre el caso de las plantas sin nombre en español (tarea 1.1): se mantiene la regla del cambio 1. Alternativa descartada: elegir como nombre para mostrar el primer nombre común en otro idioma. Daría un principal como «Velvetleaf» en una app en español y cambiaría la regla de la semilla, que el cambio 1 ya validó.
+
+Por qué ambos: el campo explícito evita que un cliente dependa del orden de una lista (y es la única forma de saber que el principal es el científico); el orden mantiene el comportamiento de la app anterior («primer nombre común») cuando el nombre para mostrar es un nombre común, que con el orden alfabético mostraría un nombre distinto del elegido. En una planta sin nombre en español, la app anterior seguirá mostrando como principal el primer nombre común (el de otro idioma), porque no lee `displayName`; es un límite aceptado de la compatibilidad.
 
 Alternativas:
 
@@ -153,7 +158,7 @@ Riesgo asumido: dos URLs sirven el mismo recurso (la canónica y las de alias). 
 
 ### D8. Créditos neutrales a nivel de planta
 
-`credits` es la unión sin repeticiones de los datasets que respaldan los datos de la planta: los de `source` por las tablas de atribución de la planta y los de `reference.dataset` de los objetivos, la seguridad y los grupos de uso, más Wikipedia cuando la descripción la resume. Cada entrada lleva `name`, `license`, `licenseUrl`, `attribution` y `url`. No indica el campo. La imagen no se repite en `credits`: su autor y licencia van en `image`, y la app los muestra en el pie de la imagen y en `Fuentes`.
+`credits` es la unión sin repeticiones de los datasets que respaldan los datos de la planta: los de `source` por las tablas de atribución de la planta y los de `reference.dataset` de los objetivos, la seguridad y los grupos de uso, más Wikipedia cuando la descripción la resume. Cada entrada lleva `name`, `license`, `licenseUrl`, `attribution` y `url`. No indica el campo. `licenseUrl` es un dato de la fuente y no lógica de la API: sale de `source.license_url`, que viene de `licenseUrl` en `tools/catalog-seed/sources.json` y en el manifiesto de la semilla (tarea 1.3), y es `null` si la fuente no tiene una licencia con URL única (Commons, que declara la licencia por archivo y cuya imagen ya trae la suya, `ema_json`, `ema_pdf` y `tppt`). Las URL son las oficiales de Creative Commons: CC BY-SA 4.0 (`wikipedia_es`), CC BY 4.0 (`efsa`), CC BY 3.0 (`wcvp`) y CC0 1.0 (`usda`, `wfo` y `wikidata`). La API no la deriva del texto de la licencia, para no atar el código a nombres de licencia. La imagen no se repite en `credits`: su autor y licencia van en `image`, y la app los muestra en el pie de la imagen y en `Fuentes`.
 
 Por qué: es el «dato neutral de créditos» que anticipó `remove-api-provenance`. Cumple la atribución de CC BY y CC BY-SA (nombre, licencia, enlace) sin volver a una lista de datasets por campo, y mantiene la API sin nombres de dataset en su código (los nombres son datos).
 
@@ -163,6 +168,8 @@ Alternativas:
 - Un endpoint `GET /v1/sources` con todas las fuentes. Retira de la ficha la atribución concreta de la planta, obliga a una segunda petición y a mostrar fuentes que la planta no usa. Se descarta.
 - Créditos solo en la app como texto fijo. Sería una atribución global, no la de esa planta; la licencia de una imagen de Commons es por archivo, así que no puede ser fija.
 - Incluir la imagen también en `credits`. Duplica la información; se prefiere un único origen (`image`).
+- Derivar `licenseUrl` en la API a partir del texto de `source.license` (por ejemplo, «CC BY-SA 4.0» a su URL). Ataría el código a nombres de licencia y fallaría con textos libres como los de la EMA y TPPT; se descarta.
+- Dejar `licenseUrl` en `null` para todos. CC BY, CC BY-SA y CC BY 3.0 piden indicar la licencia con su URI o un enlace, así que no cumpliría la atribución de Wikipedia, EFSA y WCVP; se descarta.
 
 La consulta exacta (qué tablas de atribución unir) depende de las tablas del cambio 1 y se fija en la tarea 1.1; el contrato no cambia por ello. Los términos de la EMA y TPPT siguen sin verificarse contra el texto legal; la atribución de ambas se muestra tal como la semilla la guarda.
 
@@ -207,7 +214,7 @@ Alternativa: parseo estricto de los campos nuevos (como los requeridos). Detecta
 
 ### D12. Consultas y esquema
 
-No hay cambio de esquema. `catalog-core` suma tipos de dominio y filas para las tablas del cambio 1; `catalog-api` suma cargadores por planta (perfil, grupos de uso con referencias, objetivos, seguridad, imagen, alias, créditos, flags). La cita completa de los grupos de uso se lee de `plant_use_group_ref.text`, no de `reference.citation` siguiendo el patrón de `load_names` y `load_uses`. El detalle pasa de 3 a unas 9 consultas indexadas por `plant_id` sobre una base SQLite de solo lectura; no se espera impacto medible, y la tarea 11.2 lo mide con la base real. Los tests unitarios amplían `test_support.rs` (la `Fixture` que arma una base mínima) con filas de las tablas nuevas, y `tests/real_catalog.rs` se actualiza para la semilla.
+Este cambio no modifica el esquema de la API: la columna `source.license_url` (D8) la añade la tarea 1.3 a la migración v2 del cambio 1, que no se ha desplegado, sin crear una v3 y con `SCHEMA_VERSION` en 2. `catalog-core` suma tipos de dominio y filas para las tablas del cambio 1; `catalog-api` suma cargadores por planta (perfil, grupos de uso con referencias, objetivos, seguridad, imagen, alias, créditos, flags). La cita completa de los grupos de uso se lee de `plant_use_group_ref.text`, no de `reference.citation` siguiendo el patrón de `load_names` y `load_uses`. El detalle pasa de 3 a unas 9 consultas indexadas por `plant_id` sobre una base SQLite de solo lectura; no se espera impacto medible, y la tarea 11.2 lo mide con la base real. Los tests unitarios amplían `test_support.rs` (la `Fixture` que arma una base mínima) con filas de las tablas nuevas, y `tests/real_catalog.rs` se actualiza para la semilla.
 
 Alternativa: una sola consulta con uniones. Menos viajes, pero cartesianos entre grupos de uso, objetivos y referencias, y más difícil de leer y mantener; no hace falta con este volumen.
 
@@ -288,7 +295,7 @@ Tablas y columnas comprobadas (todas existen con estos nombres):
 | `plant_alias` | `alias` (PK), `plant_id` | 650 alias, ninguno igual al id de una planta |
 | `plant_review_flag` | `id`, `plant_id`, `code`, `target`, `message` | 5.200 filas; `objetivos-omitidos-por-toxicidad` e `interacciones-graves-estres` existen como códigos |
 | `reference` | `id`, `citation`, `dataset`, `license`, `url` | 43.940 filas, `dataset` y `license` nunca nulos; `url` nulo en parte de las de USDA, WCVP, EFSA, TPPT y WFO |
-| `source` | `id`, `name`, `version`, `license`, `citation`, `url`, `checksum` | 10 filas |
+| `source` | `id`, `name`, `version`, `license`, `citation`, `url`, `checksum` y, desde la tarea 1.3, `license_url` (nulable) | 10 filas |
 | `plant_name_source`, `plant_part_source`, `plant_use_source`, `plant_source_id`, `reference_source` | pares de claves a `source` | Cada nombre, parte y uso tiene al menos una fuente, y las 2.354 plantas tienen `plant_source_id`; toda `reference` tiene `reference_source` |
 
 Atribución por fuente: cada una de las 10 fuentes (`commons`, `efsa`, `ema_json`, `ema_pdf`, `tppt`, `usda`, `wcvp`, `wfo`, `wikidata`, `wikipedia_es`) tiene `name`, `license`, `citation` (el texto de atribución exigido, por ejemplo «Colaboradores de Wikipedia en español (...). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.») y `url`, todos no nulos. Idioma: `area` y `evidence` de `plant_goal` están en español («Tos y resfriado», «La EMA tiene una monografía en esta área.»), y los países de `plant_use_group.countries` también («Turquía», «Estados Unidos», «Otros lugares»); una búsqueda de países en inglés («United States», «Germany», «Turkey») y de textos con «the» u «of» no encontró casos. Las actividades traducidas siguen las observaciones de DEF-07 del cambio 1 (términos sin traducir en algunos grupos).
@@ -296,13 +303,13 @@ Atribución por fuente: cada una de las 10 fuentes (`commons`, `efsa`, `ema_json
 Diferencias con lo supuesto (ninguna bloquea las tareas siguientes, pero tres cambian lo que hay que implementar):
 
 - `reference.dataset` y la clave de `plant_*_source` son el id de la fuente (`usda`, `wikipedia_es`), no el nombre para mostrar. Para `credits.name`, `license`, `attribution` y `url` hay que unir con `source.id`: `name` sale de `source.name`, `attribution` de `source.citation` y `url` de `source.url`. Para la descripción derivada de Wikipedia, el enlace al artículo sale de `reference.url` de la referencia `description` de `plant_profile_ref` (la de `source.url` es solo el sitio). `source.license` es texto libre («CC BY-SA 4.0», pero también «por archivo: CC0, dominio público, CC BY o CC BY-SA» para Commons).
-- No hay URL de la licencia en `source` ni en `reference` (`credits.licenseUrl`): el esquema tiene `license_url` solo en `plant_image`. `licenseUrl` de los créditos queda en `null` para todos los datasets, salvo que la API derive el enlace del texto de la licencia, lo que ataría el código a nombres de licencia. El contrato admite `null`, así que no bloquea; si se quiere el enlace de CC BY-SA 4.0 junto al crédito de Wikipedia, hay que ajustar el cambio 1 o decidirlo aquí.
+- No había URL de la licencia en `source` ni en `reference` (`credits.licenseUrl`): el esquema tenía `license_url` solo en `plant_image`. Decisión del usuario: la URL de licencia es un dato de la fuente. Se añade `licenseUrl` opcional (cadena https o `null`) en `tools/catalog-seed/sources.json` y en las fuentes de `data/seed/manifest.json`, la columna nulable `source.license_url` en la migración v2 (nada se ha desplegado, así que no hay v3) y `credits.licenseUrl` se lee de ahí (D8). Valores: `wikipedia_es` CC BY-SA 4.0, `efsa` CC BY 4.0, `wcvp` CC BY 3.0, `usda`, `wfo` y `wikidata` CC0 1.0, y `null` en `commons`, `ema_json`, `ema_pdf` y `tppt`. La implementa la tarea 1.3.
 - `reference.license` puede diferir de `source.license` (1.852 referencias; por ejemplo Commons por archivo): en los créditos de una fuente vale `source.license`.
 - Dos fuentes de la EMA (`ema_json` y `ema_pdf`) tienen nombres propios distintos, de modo que una planta con objetivos de ambas lleva dos créditos de la EMA.
 - `reference.citation` es una etiqueta («USDA Dr. Duke: referencia Steinmetz»); la cita completa de los grupos de uso solo está en `plant_use_group_ref.text` (véase D1).
 - Los alias son el slug del nombre de USDA, y para `q` hay que compararlos con `slug(q)` (véase D14).
-- `catalog-core` ya tiene `schema.rs` y `rows.rs` con las tablas y filas Diesel de todas las tablas nuevas (`PlantProfileRow`, `PlantUseGroupRow`, `PlantGoalRow`, etc.), de modo que la tarea 1.2 solo debe añadir los tipos de dominio.
-- Nombre para mostrar: la build ya no escribe el nombre científico como nombre común de idioma `la` (DEF-02 corregido). Pero en 571 plantas el `display_name` es el nombre científico aunque la planta tiene nombres comunes en otro idioma (por ejemplo `abutilon-theophrasti`, con «Velvetleaf» en inglés), porque no tienen nombre común en español (flag `sin-nombre-comun-es`, 1.195 plantas en total, de las cuales 624 no tienen ningún nombre común). En esas, el nombre para mostrar no está entre los nombres comunes y no puede ser «el primero de ellos», como dicen D2 y el requisito «Nombre para mostrar y orden de los nombres comunes». Se deja como pregunta abierta antes de la tarea 2.1.
+- Nombre para mostrar: la build ya no escribe el nombre científico como nombre común de idioma `la` (DEF-02 corregido). En 571 plantas el `display_name` es el nombre científico aunque la planta tiene nombres comunes en otro idioma (por ejemplo `abutilon-theophrasti`, con «Velvetleaf» en inglés), porque no tienen nombre común en español (flag `sin-nombre-comun-es`, 1.195 plantas en total, de las cuales 624 no tienen ningún nombre común). En esas, el nombre para mostrar no está entre los nombres comunes y no puede ser «el primero de ellos». Decisión del usuario: se mantiene la regla del cambio 1 (un nombre en español o, si no lo hay, el científico) y D2 y el requisito «Nombre para mostrar y orden de los nombres comunes» se ajustaron: `displayName` es siempre `plant_profile.display_name`, va primero entre los comunes solo si es un nombre común, y si es el científico los comunes salen por texto e idioma sin ninguno destacado. La tarea 2.1 prueba ese caso.
+- `catalog-core` ya tenía `schema.rs` y `rows.rs` con todas las filas Diesel de las tablas nuevas (la tarea 1.2 no necesitó añadir ninguna; `SourceRow` ganó `license_url` con la tarea 1.3).
 
 Consultas de muestra, con `sqlite3 data/build/catalog.db`:
 

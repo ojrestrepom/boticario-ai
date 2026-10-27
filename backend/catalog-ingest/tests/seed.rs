@@ -145,6 +145,58 @@ fn plant_count_must_match_manifest() {
 }
 
 #[test]
+fn source_license_url_is_optional_https_or_null() {
+    let seed = load_seed(&fixture()).unwrap();
+    let url_of = |id: &str| {
+        seed.manifest
+            .sources
+            .iter()
+            .find(|s| s.id == id)
+            .unwrap()
+            .license_url
+            .clone()
+    };
+    assert_eq!(
+        url_of("wikipedia_es").as_deref(),
+        Some("https://creativecommons.org/licenses/by-sa/4.0/")
+    );
+    assert_eq!(url_of("commons"), None);
+
+    // Sin la clave, el manifiesto se lee igual (campo opcional).
+    let tmp = copy_fixture();
+    let path = tmp.path().join("manifest.json");
+    let mut value: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(&path).unwrap()).unwrap();
+    for source in value["sources"].as_array_mut().unwrap() {
+        source.as_object_mut().unwrap().remove("licenseUrl");
+    }
+    fs::write(&path, serde_json::to_string(&value).unwrap()).unwrap();
+    let seed = load_seed(tmp.path()).unwrap();
+    assert!(
+        seed.manifest
+            .sources
+            .iter()
+            .all(|s| s.license_url.is_none())
+    );
+
+    // Una URL que no es https, o de otro tipo, se rechaza nombrando la fuente.
+    for bad in [
+        serde_json::json!("http://creativecommons.org/licenses/by/4.0/"),
+        serde_json::json!("https://"),
+        serde_json::json!("https://a b/"),
+        serde_json::json!(""),
+    ] {
+        value["sources"][0]["licenseUrl"] = bad.clone();
+        fs::write(&path, serde_json::to_string(&value).unwrap()).unwrap();
+        let err = load_seed(tmp.path()).unwrap_err();
+        assert!(err.to_string().contains("licenseUrl"), "{bad}: {err}");
+    }
+    value["sources"][0]["licenseUrl"] = serde_json::json!(3);
+    fs::write(&path, serde_json::to_string(&value).unwrap()).unwrap();
+    assert!(load_seed(tmp.path()).is_err());
+}
+
+#[test]
 fn extra_record_is_detected() {
     let tmp = copy_fixture();
     fs::copy(

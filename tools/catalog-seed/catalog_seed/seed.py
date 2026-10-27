@@ -110,7 +110,7 @@ def manifest_sources(sources):
             continue
         if not source.pinned:
             raise SourceError("la fuente '%s' está activa pero su snapshot no está fijado (size y checksum null)" % source.id)
-        entries.append({
+        entry = {
             "id": source.id,
             "name": source.name,
             "url": source.page_url,
@@ -119,7 +119,10 @@ def manifest_sources(sources):
             "attribution": source.attribution,
             "files": [{"filename": f.filename, "size": f.size,
                        "checksum": {"algorithm": f.algorithm, "value": f.checksum}} for f in source.files],
-        })
+        }
+        if source.has_license_url:
+            entry["licenseUrl"] = source.license_url
+        entries.append(entry)
     return sorted(entries, key=lambda e: e["id"])
 
 

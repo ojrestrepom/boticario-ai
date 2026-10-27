@@ -185,6 +185,36 @@ mod tests {
     }
 
     #[test]
+    fn source_license_url_is_nullable() {
+        let dir = tempfile::tempdir().unwrap();
+        let path = dir.path().join("source.db");
+        {
+            let mut conn = SqliteConnection::establish(path.to_str().unwrap()).unwrap();
+            apply_schema(&mut conn).unwrap();
+        }
+        let conn = Rusqlite::open(&path).unwrap();
+        conn.execute_batch(
+            "INSERT INTO source VALUES ('a', 'A', '1', 'CC BY 4.0', 'cita', 'https://a.test', 'x', 'https://creativecommons.org/licenses/by/4.0/');
+             INSERT INTO source VALUES ('b', 'B', '1', 'por archivo', 'cita', 'https://b.test', 'x', NULL);",
+        )
+        .unwrap();
+        let urls: Vec<Option<String>> = conn
+            .prepare("SELECT license_url FROM source ORDER BY id")
+            .unwrap()
+            .query_map([], |row| row.get(0))
+            .unwrap()
+            .collect::<Result<_, _>>()
+            .unwrap();
+        assert_eq!(
+            urls,
+            [
+                Some("https://creativecommons.org/licenses/by/4.0/".to_string()),
+                None
+            ]
+        );
+    }
+
+    #[test]
     fn schema_has_no_dataset_terms() {
         let sql = UP_SQL.join("\n").to_lowercase();
         // Los términos se arman con `concat!` para que este archivo tampoco los contenga literalmente: el test de independencia de la API busca esos nombres en todo el código de `catalog-core`.

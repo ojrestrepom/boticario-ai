@@ -70,6 +70,46 @@ class SourceListTests(unittest.TestCase):
         self.assertEqual([f.filename for f in sources["efsa"].files], ["BOTANIC.xls", "ENDPOINTSTUDY.xls"])
         self.assertIn("meta.timestamp", sources["ema_json"].version)
 
+    def test_license_url_is_optional_and_must_be_https_or_null(self):
+        self.assertFalse(make_source().has_license_url)
+        self.assertIsNone(make_source().license_url)
+        url = "https://creativecommons.org/licenses/by/4.0/"
+        with_url = make_source(licenseUrl=url)
+        self.assertTrue(with_url.has_license_url)
+        self.assertEqual(with_url.license_url, url)
+        explicit_null = make_source(licenseUrl=None)
+        self.assertTrue(explicit_null.has_license_url)
+        self.assertIsNone(explicit_null.license_url)
+        for bad in ("", "   ", "http://creativecommons.org/licenses/by/4.0/", "creativecommons.org", "https://", "https://a b/", 3, True, ["https://x/"]):
+            data = copy.deepcopy(make_source().data)
+            data["licenseUrl"] = bad
+            with self.assertRaises(SourceError, msg=repr(bad)) as ctx:
+                validate_source(data)
+            self.assertIn("licenseUrl", str(ctx.exception))
+
+    def test_shipped_sources_declare_the_license_url(self):
+        sources = {s.id: s for s in load_sources(DEFAULT_SOURCES_FILE)}
+        cc = "https://creativecommons.org/"
+        expected = {
+            "wikipedia_es": (cc + "licenses/by-sa/4.0/", "CC BY-SA 4.0"),
+            "efsa": (cc + "licenses/by/4.0/", "CC BY 4.0"),
+            "wcvp": (cc + "licenses/by/3.0/", "CC BY 3.0"),
+            "usda": (cc + "publicdomain/zero/1.0/", "CC0"),
+            "wfo": (cc + "publicdomain/zero/1.0/", "CC0"),
+            "wikidata": (cc + "publicdomain/zero/1.0/", "CC0 1.0"),
+            "commons": (None, None),
+            "ema_json": (None, None),
+            "ema_pdf": (None, None),
+            "tppt": (None, None),
+        }
+        self.assertEqual(set(expected), set(sources))
+        for source_id, (url, license_text) in expected.items():
+            source = sources[source_id]
+            self.assertTrue(source.has_license_url, source_id)
+            self.assertEqual(source.license_url, url, source_id)
+            if license_text:
+                self.assertEqual(source.license, license_text, source_id)
+
     def test_multi_file_source_is_valid_and_single_file_stays_compatible(self):
         single = copy.deepcopy(make_source().data)
         multi = {k: v for k, v in single.items() if k not in ("url", "filename", "size", "checksum")}

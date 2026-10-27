@@ -61,6 +61,9 @@ class Source:
         self.page_url = data["pageUrl"]
         self.version = data["version"]
         self.license = data["license"]
+        # URL de la licencia (opcional): texto https o null; el manifiesto la copia y la base la guarda en `source.license_url`.
+        self.has_license_url = "licenseUrl" in data
+        self.license_url = data.get("licenseUrl")
         self.attribution = data["attribution"]
         self.enabled = data["enabled"]
         self.is_service = self.id in SERVICE_SOURCES
@@ -150,6 +153,11 @@ def validate_source(data):
             raise SourceError("fuente '%s': '%s' debe ser texto no vacío" % (data["id"], field))
     if not data["pageUrl"].strip().startswith(("http://", "https://")):
         raise SourceError("fuente '%s': 'pageUrl' debe ser una URL http o https" % data["id"])
+    license_url = data.get("licenseUrl")
+    if license_url is not None and (
+            not isinstance(license_url, str) or not license_url.startswith("https://") or license_url != license_url.strip()
+            or len(license_url) <= len("https://") or any(c.isspace() for c in license_url)):
+        raise SourceError("fuente '%s': 'licenseUrl' debe ser una URL https o null" % data["id"])
     if not isinstance(data["enabled"], bool):
         raise SourceError("fuente '%s': 'enabled' debe ser booleano" % data["id"])
     if data["id"] in SERVICE_SOURCES:

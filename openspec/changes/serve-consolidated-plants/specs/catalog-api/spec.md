@@ -118,7 +118,7 @@ La API SHALL leer únicamente el esquema neutral del catálogo y SHALL NOT conte
 ## ADDED Requirements
 
 ### Requirement: Nombre para mostrar y orden de los nombres comunes
-La API SHALL entregar `displayName` en el listado y en el detalle: el nombre para mostrar elegido en la semilla o, si la planta no tiene nombres comunes, su nombre científico. Cuando la planta tiene nombres comunes, el nombre para mostrar SHALL ser el primero de sus nombres comunes en el listado y en los nombres del detalle, y los demás SHALL seguir ordenados por texto e idioma. Los nombres científicos SHALL seguir antes que los comunes en el detalle.
+La API SHALL entregar `displayName` en el listado y en el detalle, siempre igual al nombre para mostrar que guarda la semilla (`plant_profile.display_name`): un nombre común en español o, si la planta no tiene ninguno, su nombre científico. La API SHALL NOT elegir un nombre en otro idioma como nombre para mostrar. Si el `displayName` es un nombre común, SHALL ser el primero de los nombres comunes en el listado y en los nombres del detalle, y los demás SHALL seguir ordenados por texto e idioma. Si el `displayName` es el nombre científico, los nombres comunes que la planta tenga en otros idiomas SHALL seguir ordenados por texto e idioma, sin ninguno destacado. Los nombres científicos SHALL seguir antes que los comunes en el detalle.
 
 #### Scenario: Nombre para mostrar primero
 - **WHEN** una planta tiene los nombres comunes «Árnica», «Lavanda» y «Espliego» y la semilla elige «Lavanda»
@@ -127,6 +127,14 @@ La API SHALL entregar `displayName` en el listado y en el detalle: el nombre par
 #### Scenario: Sin nombre común
 - **WHEN** la planta no tiene nombres comunes
 - **THEN** `displayName` es el nombre científico y en el detalle no hay nombres de tipo común
+
+#### Scenario: Solo nombres en otros idiomas
+- **WHEN** la planta tiene como único nombre común «Velvetleaf» (idioma `en`) y la semilla le da como nombre para mostrar su nombre científico `Abutilon theophrasti`
+- **THEN** `displayName` es `Abutilon theophrasti`, `Velvetleaf` está entre sus nombres comunes y ningún nombre común va destacado ni se convierte en el nombre para mostrar
+
+#### Scenario: Varios nombres en otros idiomas
+- **WHEN** la planta tiene los nombres comunes «Velvetleaf» (`en`) y «Butterprint» (`en`) y su nombre para mostrar es el científico
+- **THEN** los nombres comunes salen ordenados por texto e idioma («Butterprint», «Velvetleaf») y `displayName` sigue siendo el nombre científico
 
 ### Requirement: Contenido consolidado del detalle
 El detalle SHALL incluir siempre estos campos, con `null` o lista vacía cuando la planta no tiene el dato: `synonyms` (sinónimos científicos, sin repetir el nombre aceptado), `description` (texto o `null`), `origin` (texto o `null`), `oil` (objeto con `type` o `null`), `useGroups` (grupos de uso tradicional, cada uno con `activity`, `activitySource`, `count`, `countries` y `references`, cada una con `id`, `citation` y `resolved`; la `citation` de cada referencia es el texto completo de la cita que guarda la semilla y no la etiqueta corta de la referencia; una cita sin obra identificada lleva `id` nulo, `resolved` falso y la cita «<clave> (sin resolver)»), `goals` (cada objetivo con `id`, `name`, `subarea` o `null`, `area`, `evidence` y `references`) y `safety` (objeto con `level` igual a `alto`, `medio`, `bajo` o `null`, `text` y `references`, o `null` solo cuando no hay ningún dato de precauciones). Los grupos SHALL ordenarse por `count` descendente y luego por actividad; los objetivos por nombre. Los textos visibles SHALL estar en español y no contener dosis ni promesas de eficacia, porque la semilla los valida.
@@ -183,11 +191,15 @@ El detalle SHALL incluir `image`, un objeto con `url`, `pageUrl`, `author`, `lic
 - **THEN** responde 200 con los datos de la imagen, porque no descarga nada
 
 ### Requirement: Créditos neutrales a nivel de planta
-El detalle SHALL incluir `credits`, una lista de los datasets que respaldan los datos de la planta, cada uno con `name`, `license`, `licenseUrl` (o `null`), `attribution` y `url` (o `null`). La lista SHALL ser a nivel de planta, sin repeticiones y ordenada por nombre. La lista SHALL NOT indicar qué campo proviene de qué dataset. Si la descripción de la planta resume una obra con licencia CC BY-SA, `credits` SHALL incluir esa obra con su licencia y su enlace.
+El detalle SHALL incluir `credits`, una lista de los datasets que respaldan los datos de la planta, cada uno con `name`, `license`, `licenseUrl` (o `null`), `attribution` y `url` (o `null`). La lista SHALL ser a nivel de planta, sin repeticiones y ordenada por nombre. La `licenseUrl` de cada entrada SHALL leerse del dato de la fuente en la base (`source.license_url`), sin derivarla del texto de la licencia, y SHALL ser `null` cuando la fuente no tiene una. La lista SHALL NOT indicar qué campo proviene de qué dataset. Si la descripción de la planta resume una obra con licencia CC BY-SA, `credits` SHALL incluir esa obra con su licencia y su enlace.
 
 #### Scenario: Créditos de una planta con varias fuentes
 - **WHEN** se pide el detalle de una planta con datos de WCVP, la EMA y Wikipedia
 - **THEN** `credits` tiene una entrada por cada uno, con su licencia y atribución, y ninguna indica un campo
+
+#### Scenario: URL de licencia por fuente
+- **WHEN** se pide el detalle de una planta cuya descripción resume Wikipedia y que tiene un objetivo de la EMA
+- **THEN** el crédito de Wikipedia lleva `licenseUrl` igual a `https://creativecommons.org/licenses/by-sa/4.0/` y el de la EMA lleva `licenseUrl` igual a `null`
 
 #### Scenario: Sin repeticiones
 - **WHEN** varios datos de la planta provienen del mismo dataset

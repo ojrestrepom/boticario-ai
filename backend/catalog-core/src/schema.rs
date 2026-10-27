@@ -228,6 +228,7 @@ diesel::table! {
         citation -> Text,
         url -> Text,
         checksum -> Text,
+        license_url -> Nullable<Text>,
     }
 }
 

@@ -1,12 +1,12 @@
 # Fuentes y licencias de la semilla del catálogo
 
-Esta guía lista cada fuente que alimenta la semilla del catálogo (`data/seed/`), con su versión o snapshot, licencia, atribución y página, las notas que exigen algunas licencias y las fuentes que se descartaron. La fuente de verdad de los datos es `tools/catalog-seed/sources.json`, que valida `catalog_seed/sources.py`; el sellado (`seal`) copia cada fuente activa al manifiesto de la semilla (`data/seed/manifest.json`), y `catalog-ingest build` copia ese nombre, versión, licencia, atribución, URL y checksum a la tabla `source` de `catalog.db`. Cómo se usa la semilla está en el [modelo de datos](modelo-de-datos.md); la guía de USDA está en [la fuente USDA](usda-catalog.md).
+Esta guía lista cada fuente que alimenta la semilla del catálogo (`data/seed/`), con su versión o snapshot, licencia, atribución y página, las notas que exigen algunas licencias y las fuentes que se descartaron. La fuente de verdad de los datos es `tools/catalog-seed/sources.json`, que valida `catalog_seed/sources.py`; el sellado (`seal`) copia cada fuente activa al manifiesto de la semilla (`data/seed/manifest.json`), y `catalog-ingest build` copia ese nombre, versión, licencia, URL de la licencia, atribución, URL y checksum a la tabla `source` de `catalog.db`. Cómo se usa la semilla está en el [modelo de datos](modelo-de-datos.md); la guía de USDA está en [la fuente USDA](usda-catalog.md).
 
 Los términos de reutilización de la EMA y de TPPT no se verificaron contra el texto legal (véanse las notas más abajo). Esta guía describe lo que el repositorio declara; no es asesoría legal.
 
 ## Resumen
 
-La licencia y la atribución son las del campo `license` y `attribution` de `sources.json`. El tamaño y el checksum de cada archivo están en ese mismo archivo.
+La licencia y la atribución son las del campo `license` y `attribution` de `sources.json`. La URL de la licencia (`licenseUrl`, guardada en `source.license_url`) es opcional: es la URL oficial de Creative Commons en las fuentes CC0 (`usda`, `wfo`, `wikidata`), CC BY 3.0 (`wcvp`), CC BY 4.0 (`efsa`) y CC BY-SA 4.0 (`wikipedia_es`), y es `null` en `commons` (la licencia es por archivo y cada imagen guarda la suya), `ema_json`, `ema_pdf` y `tppt` (términos propios). El tamaño y el checksum de cada archivo están en ese mismo archivo.
 
 | Id | Fuente | Versión o snapshot | Licencia | Página |
 | --- | --- | --- | --- | --- |

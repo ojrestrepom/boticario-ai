@@ -10,6 +10,9 @@ ALTER TABLE reference ADD COLUMN license TEXT;
 -- URL de la referencia (por ejemplo, el artículo concreto cuando la licencia exige enlazarlo); nulable porque no todas la tienen.
 ALTER TABLE reference ADD COLUMN url TEXT;
 
+-- URL de la licencia de la fuente (por ejemplo, la de Creative Commons que exigen CC BY y CC BY-SA); nula si la fuente no tiene una licencia con URL única (licencia por archivo o términos propios).
+ALTER TABLE source ADD COLUMN license_url TEXT;
+
 -- Perfil de la planta: un registro por planta.
 -- `display_name` es la fuente de verdad del nombre para mostrar (la API actual no lo usa).
 -- `authors` son los autores del nombre científico canónico.

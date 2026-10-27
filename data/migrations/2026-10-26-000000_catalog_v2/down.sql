@@ -12,6 +12,7 @@ DROP TABLE plant_use_group_ref;
 DROP TABLE plant_use_group;
 DROP TABLE plant_profile_ref;
 DROP TABLE plant_profile;
+ALTER TABLE source DROP COLUMN license_url;
 ALTER TABLE reference DROP COLUMN url;
 ALTER TABLE reference DROP COLUMN license;
 ALTER TABLE reference DROP COLUMN dataset;

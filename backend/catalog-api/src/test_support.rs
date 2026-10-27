@@ -73,6 +73,7 @@ fn add_source(conn: &mut SqliteConnection, id: &str) {
             citation: format!("Cita de {id}"),
             url: format!("https://example.test/{id}"),
             checksum: "abc".to_string(),
+            license_url: None,
         })
         .execute(conn)
         .unwrap();

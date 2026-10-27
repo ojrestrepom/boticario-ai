@@ -199,6 +199,19 @@ class SealTests(SeedCase):
         self.assertEqual(after["sources"][0]["files"][0]["checksum"]["value"], "ab" * 32)
         self.assertEqual(before["seedHash"], after["seedHash"])  # los registros no cambiaron
 
+    def test_la_url_de_licencia_es_opcional_y_se_copia_al_manifiesto(self):
+        manifest, _ = self.seal()
+        self.assertNotIn("licenseUrl", manifest["sources"][0])
+        url = "https://creativecommons.org/publicdomain/zero/1.0/"
+        self.write_sources(licenseUrl=url)
+        manifest, changed = self.seal()
+        self.assertTrue(changed)
+        self.assertEqual(manifest["sources"][0]["licenseUrl"], url)
+        self.write_sources(licenseUrl=None)
+        manifest, _ = self.seal()
+        self.assertIn("licenseUrl", manifest["sources"][0])
+        self.assertIsNone(manifest["sources"][0]["licenseUrl"])
+
     def test_fuente_desactivada_deja_de_listarse(self):
         dump(self.sources, {"sources": [support.make_source(enabled=False).data]})
         manifest, _ = self.seal()

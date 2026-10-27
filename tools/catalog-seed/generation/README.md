@@ -78,6 +78,7 @@ En la regeneración `fix2` los agentes recibieron estas aclaraciones de la QA en
 - Clave de cita `Nas` (candidatas NAS «Lost Crops of the Incas» y NAS2 «Herbal pharmacology in the People's Republic of China»): se elige por los países del grupo, NAS2 para usos de China o Asia y NAS para usos de los Andes; si los países no permiten decidir, queda sin resolver.
 - Nombres de USDA con anotación de idioma entre paréntesis («(Sp.)», «(Ger.)», «(Fr.)», «(Jap.)», etc.): se quita la anotación del texto del nombre y se usa solo para fijar `language`.
 - Origen: «Malesia» es la región biogeográfica de WCVP, no el país Malasia, y se escribe «Malesia».
+- Señales letales de USDA: una entrada de `sections.safety` con `source` igual a `usda` (señal letal) fija nivel alto como cualquier otra entrada, según la regla del máximo. La frase del prompt v7 «Las señales de riesgo no fijan nivel por sí solas» se refiere a las señales no letales, que van solo en el texto; esa frase debe precisarse en la próxima versión del prompt.
 
 ## Cómo se hizo la corrida de control
 

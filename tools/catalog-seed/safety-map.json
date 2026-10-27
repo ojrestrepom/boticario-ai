@@ -982,7 +982,7 @@
   }
  },
  "usda": {
-  "match": "Se compara en minúsculas la forma base de la actividad de un grupo de uso (el texto anterior al primer paréntesis, sin espacios sobrantes), igual que sensitive-activities.json: «Fatality(Veterinary)» cuenta como «fatality». Los términos son las señales de riesgo de sensitive-activities.json; las pruebas comprueban que ambas listas coinciden. Una señal con level alto fija el nivel de la planta; con level null es solo advertencia. Vocabulario letal revisado sobre las 1.572 actividades reales: los términos con raíz fatal, death, suicide y homicide son estos cinco; «Homocide» (1 fila, grafía errónea de Homicide) e «Infanticide» (1 fila) no están en la lista de señales de riesgo y no se tratan como señal.",
+  "match": "Se compara en minúsculas la forma base de la actividad de un grupo de uso (el texto anterior al primer paréntesis, sin espacios sobrantes), igual que sensitive-activities.json: «Fatality(Veterinary)» cuenta como «fatality». Los términos son las señales de riesgo de sensitive-activities.json; las pruebas comprueban que ambas listas coinciden. Una señal con level alto fija el nivel de la planta; con level null es solo advertencia. Vocabulario letal revisado sobre las 1.572 actividades reales: los términos letales son Fatality, Fatal, Death, Suicide y Homicide, más la errata «Homocide» e «Infanticide», agregadas por decisión del coordinador.",
   "risk_signals": {
    "fatality": {
     "level": "alto",
@@ -1067,6 +1067,14 @@
    "hemolytic": {
     "level": null,
     "why": "Efecto hemolítico sin gradación; advertencia sin nivel."
+   },
+   "homocide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno homicida (grafía errónea de Homicide)."
+   },
+   "infanticide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno de infanticidio."
    }
   },
   "lethal_rule": "Decisión del usuario (2026-10-26): las señales letales de USDA fijan el nivel alto por precaución; las demás señales de riesgo no fijan nivel."

@@ -332,7 +332,7 @@ class MapValidityTests(unittest.TestCase):
 
 
 class UsdaSignalTests(unittest.TestCase):
-    LETHAL = {"fatality", "fatal", "death", "suicide", "homicide"}
+    LETHAL = {"fatality", "fatal", "death", "suicide", "homicide", "homocide", "infanticide"}
 
     def test_lethal_signals_set_high_and_the_rest_set_no_level(self):
         signals = safety_map()["usda"]["risk_signals"]

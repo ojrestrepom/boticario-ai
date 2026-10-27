@@ -1,9 +1,9 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:089c8106205c9ef112ac0a1f5bc5412bffcf3fcb11cfec5a9c0c61cb091d598e",
+  "bundleHash": "sha256:44b5c1e5c4a2b57c4dd291e7ca63bd719e07ecdb7d70cdb4902fd77fee2ad2a3",
   "commonNames": [
     {
-      "language": "es",
+      "language": "en",
       "refs": [
         "usda_common_name:911-1"
       ],
@@ -12,11 +12,11 @@
   ],
   "description": null,
   "displayName": {
-    "language": "es",
+    "language": "la",
     "refs": [
-      "usda_common_name:911-1"
+      "wcvp:287068"
     ],
-    "value": "Sabadilla"
+    "value": "Schoenocaulon officinale"
   },
   "family": {
     "refs": [
@@ -43,7 +43,7 @@
     "refs": [
       "wcvp:287068"
     ],
-    "value": "México, América Central y norte de Sudamérica"
+    "value": "América Central, México y el norte de Sudamérica"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -213,27 +213,27 @@
   },
   "reviewFlags": [
     {
-      "code": "idioma-de-nombre-dudoso",
-      "message": "El paquete registra «Sabadilla» con idioma inglés, pero también es una palabra española; se acepta como español.",
-      "target": "commonNames"
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
     }
   ],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
-      "usda_use:38296",
-      "usda_use:38750",
-      "usda_use:82838",
-      "usda_use:61373",
-      "efsa_botanic:781",
       "efsa_botanic:780",
+      "efsa_botanic:781",
       "efsa_endpoint:138",
       "efsa_endpoint:139",
       "efsa_endpoint:140",
       "efsa_endpoint:141",
-      "efsa_endpoint:142"
+      "efsa_endpoint:142",
+      "usda_use:61373",
+      "usda_use:38296",
+      "usda_use:38750",
+      "usda_use:82838"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales. La EFSA registra en la semilla las sustancias cevadina y veratridina como evidencia, y efectos en personas de tipo digestivo (náuseas y vómitos) y cardiovascular (arritmia, bradicardia e hipotensión grave)."
+    "text": "EFSA registra para la semilla las sustancias cevadina y veratridina como evidencia, con estudios en humanos por vía oral que describen náuseas, vómitos, arritmia, bradicardia e hipotensión grave. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: registrada como veneno homicida en usos tradicionales. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "(Schltdl. & Cham.) A.Gray",

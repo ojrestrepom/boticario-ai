@@ -3,13 +3,13 @@
     "citrus-aurantium",
     "citrus-aurantium-f-kabusu"
   ],
-  "bundleHash": "sha256:6685a78466744c39a89c6e833db105a525b964ae528acaab5e29899d11e881c8",
+  "bundleHash": "sha256:5972dda0094bf94d33bbf11f83c0725f04bbcce1a202b3d0b9d733c3639e40c1",
   "commonNames": [
     {
       "language": "en",
       "refs": [
-        "usda_common_name:276-2",
-        "usda_common_name:1352-2"
+        "usda_common_name:1352-2",
+        "usda_common_name:276-2"
       ],
       "text": "Bitter Orange"
     },
@@ -30,8 +30,8 @@
     {
       "language": "en",
       "refs": [
-        "usda_common_name:276-1",
-        "usda_common_name:1352-4"
+        "usda_common_name:1352-4",
+        "usda_common_name:276-1"
       ],
       "text": "Petitgrain"
     }
@@ -456,12 +456,17 @@
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Hay claves de cita sin candidata en el grupo «Stomachic»: Woi.Syria.",
+      "message": "El grupo «Stomachic» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[0]"
     },
     {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Stomach» tiene claves de cita sin candidata o sin página real: Nas.",
+      "target": "traditionalUses[7]"
+    },
+    {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
@@ -471,13 +476,13 @@
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
+      "usda_use:23717",
       "efsa_botanic:952",
-      "efsa_botanic:1090",
-      "usda_use:23717"
+      "efsa_botanic:1090"
     ],
-    "text": "La EFSA registra en la parte aérea de la planta una sustancia de alta preocupación, el bergapteno, una furocumarina fototóxica (reacciones de la piel con la luz), y la sinefrina en el fruto como sustancia de evidencia. Advertencia: se registran casos mortales."
+    "text": "EFSA registra el bergapteno, una furocumarina fototóxica, en la parte aérea de la planta, y la sinefrina como sustancia de evidencia en el fruto. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "L.",
@@ -716,7 +721,7 @@
       ]
     },
     {
-      "activity": "Llagas",
+      "activity": "Llaga",
       "activitySource": "Sore",
       "citations": [
         {
@@ -766,13 +771,13 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         }
       ],
       "countries": [
         "China",
-        "Ecuador (Jivaro)",
+        "Ecuador (Jívaro)",
         "Otros lugares"
       ],
       "n": 3,
@@ -781,9 +786,7 @@
         "usda_use:47146",
         "usda_use:47147",
         "usda_use:77862",
-        "usda_reference:EB",
-        "usda_reference:EB",
-        "usda_reference:NAS2"
+        "usda_reference:EB"
       ]
     },
     {
@@ -853,7 +856,6 @@
         "usda_use:51631",
         "usda_use:51632",
         "usda_reference:EB",
-        "usda_reference:EB",
         "usda_reference:Martinez"
       ]
     },
@@ -874,14 +876,13 @@
       ],
       "countries": [
         "India (Santal)",
-        "México (Chinantec)"
+        "México (Chinanteco)"
       ],
       "n": 2,
       "pendingReview": false,
       "refs": [
         "usda_use:1132",
         "usda_use:57386",
-        "usda_reference:EB",
         "usda_reference:EB"
       ]
     },

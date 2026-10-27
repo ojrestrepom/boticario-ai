@@ -1,21 +1,13 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:43ede4fc9e5d44b95e1e4fa6e5cf97cac0b7de39f7ab7c7a71370e634a23cc8a",
+  "bundleHash": "sha256:61950bf8180079ab9b51d921e1c062f629cdbdd36b45de02e6a48b9fb63ecd80",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Crocus sativus",
         "wikidata:Q15041677"
       ],
       "text": "azafrán"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P805"
-      ],
-      "text": "Echter Safran"
     },
     {
       "language": "en",
@@ -30,18 +22,24 @@
         "usda_common_name:318-1"
       ],
       "text": "Saffron"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P805"
+      ],
+      "text": "Echter Safran"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Crocus sativus"
     ],
-    "value": "El azafrán es una especia que se obtiene de los tres estigmas secos del pistilo de la flor de Crocus sativus, de la familia Iridaceae."
+    "value": "Especie del género Crocus, de la familia Iridaceae; el azafrán es la especia derivada de los tres estigmas secos del pistilo de su flor."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Crocus sativus",
       "wikidata:Q15041677"
     ],
     "value": "Azafrán"
@@ -76,7 +74,7 @@
     "refs": [
       "wcvp:327454"
     ],
-    "value": "Sureste de Europa"
+    "value": "Europa sudoriental."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -414,42 +412,42 @@
   "reviewFlags": [
     {
       "code": "cita-sin-resolver",
-      "message": "Una o más claves de cita de este grupo no tienen candidata y quedan sin resolver para revisión humana.",
+      "message": "El grupo «Stimulant» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Una o más claves de cita de este grupo no tienen candidata y quedan sin resolver para revisión humana.",
+      "message": "El grupo «Melancholy» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Una o más claves de cita de este grupo no tienen candidata y quedan sin resolver para revisión humana.",
+      "message": "El grupo «Narcotic» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Una o más claves de cita de este grupo no tienen candidata y quedan sin resolver para revisión humana.",
+      "message": "El grupo «Stomachic» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[12]"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el estigma, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la parte del estigma, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
-      "tppt_plant:P805",
       "usda_use:37801",
       "usda_use:37817",
       "usda_use:37818",
-      "usda_use:70643",
       "usda_use:189",
-      "usda_use:190"
+      "usda_use:190",
+      "usda_use:70643",
+      "tppt_plant:P805"
     ],
-    "text": "TPPT registra la planta entera como tóxica para las personas; sus toxinas principales son la picrocrocina y el safranal, y las menores la crocetina, el harmano, la perlolirina y la alfa-crocina. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. Advertencia: registrada como abortiva en usos tradicionales."
+    "text": "TPPT clasifica la planta como tóxica para las personas (planta entera); sus toxinas principales son la picrocrocina y el safranal. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -982,7 +980,7 @@
       ]
     },
     {
-      "activity": "Sangre",
+      "activity": "Blood",
       "activitySource": "Blood",
       "citations": [
         {

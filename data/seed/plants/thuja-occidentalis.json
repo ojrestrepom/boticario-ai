@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:5f503a2eccbab028e2928ae532c398bc89280f3e147e529004197233c71df4a5",
+  "bundleHash": "sha256:e2f666b4995091bc4b413005ae8d03d7bebbade48ca272c10d06bb9d7ea9cbb5",
   "commonNames": [
     {
       "language": "es",
@@ -19,11 +19,11 @@
       "text": "Tuya occidental"
     },
     {
-      "language": "es",
+      "language": "de",
       "refs": [
-        "wikidata:Q147468"
+        "tppt_plant:P36"
       ],
-      "text": "Tuja"
+      "text": "Amerikanischer Lebensbaum"
     },
     {
       "language": "en",
@@ -45,26 +45,18 @@
         "usda_common_name:1011-2"
       ],
       "text": "Northern White-Cedar"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P36"
-      ],
-      "text": "Amerikanischer Lebensbaum"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Thuja occidentalis"
     ],
-    "value": "Árbol conífero siempreverde de la familia de las cupresáceas, originario del nordeste de Estados Unidos y sudeste de Canadá."
+    "value": "Árbol de la familia de las Cupresáceas. Es una conífera siempreverde originaria del nordeste de EE. UU. y sudeste de Canadá."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Thuja occidentalis",
-      "wikidata:Q147468"
+      "wikipedia_es:Thuja occidentalis"
     ],
     "value": "Tuya del Canadá"
   },
@@ -98,7 +90,7 @@
     "refs": [
       "wcvp:378542"
     ],
-    "value": "Canadá y centro, noreste y sureste de Estados Unidos."
+    "value": "Este y oeste de Canadá y centro-norte, noreste y sureste de Estados Unidos"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -421,23 +413,23 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en las ramas, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
-      "tppt_plant:P36",
       "efsa_botanic:1853",
       "efsa_botanic:1856",
       "efsa_botanic:1855",
-      "usda_use:308",
-      "usda_use:63591",
+      "tppt_plant:P36",
       "usda_use:23722",
-      "usda_use:38404"
+      "usda_use:38404",
+      "usda_use:308",
+      "usda_use:63591"
     ],
-    "text": "TPPT registra la planta como tóxica para las personas (parte tóxica: semilla o planta entera; toxinas principales: tuyona alfa y tuyona beta) y como muy fuertemente tóxica para animales. EFSA incluye la alfa-tuyona y la beta-tuyona de la parte aérea entre las sustancias con límite de ingesta y la fenchona como sustancia de evidencia. Advertencias de usos tradicionales de USDA: registrada como abortiva; se registran casos mortales; registrada como veneno."
+    "text": "EFSA registra alfa-tuyona y beta-tuyona como sustancias de preocupación (tóxicas con límite de ingesta) y fenchona como sustancia de evidencia en la parte aérea. TPPT clasifica la planta como tóxica: parte tóxica, semilla (o planta entera); toxinas principales, las tuyonas del aceite esencial. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -500,7 +492,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -570,7 +562,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -606,7 +598,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -642,7 +634,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -713,7 +705,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -822,7 +814,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -925,7 +917,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -985,7 +977,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [

@@ -15,7 +15,7 @@ La construcción SHALL leer la semilla versionada del repositorio (`data/seed/`)
 
 #### Scenario: Nombre para mostrar explícito
 - **WHEN** el registro tiene `displayName` y otros nombres comunes
-- **THEN** la base guarda `displayName` en el perfil de la planta (`plant_profile.display_name`) y también como nombre común, sin depender del orden en que la API devuelve los nombres
+- **THEN** la base guarda `displayName` en el perfil de la planta (`plant_profile.display_name`) y también como nombre común, sin depender del orden en que la API devuelve los nombres; la excepción es un `displayName` cuyo idioma es `la` (nombre científico), que no se guarda como nombre común
 
 #### Scenario: Catálogo de objetivos cargado
 - **WHEN** se construye la base con `data/seed/goals.json`

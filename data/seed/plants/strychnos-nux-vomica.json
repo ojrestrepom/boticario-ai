@@ -1,20 +1,14 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:4a2c6c2159e86849e62dd1b41541935536c97738f78498220585b72bb3b831ba",
+  "bundleHash": "sha256:3291b970419a8378afdaba3f9c8de25ae1f25c65b605eedcd78f5875f724d91b",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Strychnos nux-vomica"
-      ],
-      "text": "Nuez vómica"
-    },
-    {
-      "language": "es",
-      "refs": [
+        "wikipedia_es:Strychnos nux-vomica",
         "wikidata:Q272945"
       ],
-      "text": "Nuez vomica"
+      "text": "Nuez vómica"
     },
     {
       "language": "en",
@@ -35,13 +29,12 @@
     "refs": [
       "wikipedia_es:Strychnos nux-vomica"
     ],
-    "value": "Especie del género Strychnos de la familia de las loganiáceas."
+    "value": "Especie del género Strychnos de las Loganiáceas."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Strychnos nux-vomica",
-      "wikidata:Q272945"
+      "wikipedia_es:Strychnos nux-vomica"
     ],
     "value": "Nuez vómica"
   },
@@ -70,7 +63,7 @@
     "refs": [
       "wcvp:2598138"
     ],
-    "value": "Subcontinente indio, Indochina y Malesia."
+    "value": "Subcontinente indio, Indochina y Malesia"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -337,8 +330,10 @@
   },
   "reviewFlags": [],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
+      "usda_use:23706",
+      "usda_use:61876",
       "usda_use:38375",
       "usda_use:38376",
       "usda_use:38377",
@@ -346,11 +341,9 @@
       "usda_use:61881",
       "usda_use:75184",
       "usda_use:38536",
-      "usda_use:23706",
-      "usda_use:61876",
       "usda_use:63582"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. Advertencia: registrada como abortiva en usos tradicionales."
+    "text": "Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -361,24 +354,24 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "Public domain"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
     }
   ],
   "synonyms": [],
@@ -405,7 +398,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -434,7 +427,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         },
         {
           "key": "Bliss",
@@ -474,7 +467,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -505,7 +498,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -533,7 +526,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -596,7 +589,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -616,7 +609,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -636,7 +629,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -690,6 +683,26 @@
       ]
     },
     {
+      "activity": "Estimulante del sistema nervioso central",
+      "activitySource": "CNS stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Malasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82379",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
       "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
       "activitySource": "Cancer",
       "citations": [
@@ -716,7 +729,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -730,33 +743,13 @@
       ]
     },
     {
-      "activity": "Estimulante del sistema nervioso central",
-      "activitySource": "CNS stimulant",
-      "citations": [
-        {
-          "key": "Uphof",
-          "ref": "usda_reference:Uphof",
-          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
-        }
-      ],
-      "countries": [
-        "Malasia"
-      ],
-      "n": 1,
-      "pendingReview": false,
-      "refs": [
-        "usda_use:82379",
-        "usda_reference:Uphof"
-      ]
-    },
-    {
       "activity": "Cólico",
       "activitySource": "Colic",
       "citations": [
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -816,7 +809,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -836,7 +829,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [

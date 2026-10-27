@@ -1,13 +1,13 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:84157e8c5a687314179bad850778969a93c21af1019c155b88f72e6db2c1ba56",
+  "bundleHash": "sha256:1f2b4e8c03582a51fa53e0799e16432576bd2663f5b1c297b90f046124f5675a",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Panax ginseng"
       ],
-      "text": "ginseng"
+      "text": "Ginseng"
     },
     {
       "language": "en",
@@ -15,13 +15,6 @@
         "usda_common_name:691-1"
       ],
       "text": "Chinese Ginseng"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "usda_common_name:691-3"
-      ],
-      "text": "Ginseng"
     },
     {
       "language": "en",
@@ -60,7 +53,7 @@
   "goals": [
     {
       "area": "Fatiga y debilidad",
-      "evidence": "La EMA tiene una monografía en esta área.",
+      "evidence": "La EMA tiene una monografía de la raíz en esta área.",
       "goal": "cansancio-y-fatiga",
       "pendingReview": false,
       "refs": [
@@ -92,7 +85,7 @@
     "refs": [
       "wcvp:146697"
     ],
-    "value": "Nativa de China, Asia oriental y el Lejano Oriente ruso."
+    "value": "China, Asia oriental y el Lejano Oriente ruso"
   },
   "partsUsed": [
     {
@@ -129,12 +122,6 @@
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-panax-ginseng-camey-radix-revision-1_en.pdf"
     },
-    "ema_pdf:ginseng-radix:4.5": {
-      "dataset": "ema_pdf",
-      "label": "EMA: monografía de ginseng-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
-      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
-      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-panax-ginseng-camey-radix-revision-1_en.pdf"
-    },
     "usda_common_name:691-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Chinese Ginseng»",
@@ -143,11 +130,6 @@
     "usda_common_name:691-2": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Oriental Ginseng»",
-      "license": "CC0"
-    },
-    "usda_common_name:691-3": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: nombre común «Ginseng»",
       "license": "CC0"
     },
     "usda_common_name:691-4": {
@@ -435,19 +417,18 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
-      "usda_use:14686",
       "ema_pdf:ginseng-radix:4.3",
       "ema_pdf:ginseng-radix:4.4",
-      "ema_pdf:ginseng-radix:4.5"
+      "usda_use:14686"
     ],
-    "text": "Advertencia: se registran muertes en usos tradicionales. La monografía de la EMA para la raíz registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, que el uso en menores de 18 años no está establecido por falta de datos y que los extractos con etanol deben llevar el etiquetado correspondiente. No registra interacciones."
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y señala que el uso en menores de 18 años no está establecido por falta de datos suficientes. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: se registran muertes en usos tradicionales."
   },
   "scientificName": {
     "authors": "C.A.Mey.",

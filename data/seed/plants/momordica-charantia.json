@@ -1,69 +1,69 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:5182ea2eb8bafa3dba051c5eba7682344b2e64662563c87e4906de19c8d153d8",
+  "bundleHash": "sha256:c2667c7ce9771b7514267e6e9b1b588be7ecec433dec0998f12ef26d4280bc56",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "melón amargo"
+      "text": "Melón amargo"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "caigua amarga"
+      "text": "Caigua amarga"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "pimpinillo"
+      "text": "Pimpinillo"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "cundeamor chino"
+      "text": "Cundeamor chino"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "ampalea"
+      "text": "Ampalea"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "balsamina"
+      "text": "Balsamina"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "ampalayá"
+      "text": "Ampalayá"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "aplayá"
+      "text": "Aplayá"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Momordica charantia"
       ],
-      "text": "amargoso"
+      "text": "Amargoso"
     },
     {
       "language": "en",
@@ -84,7 +84,7 @@
     "refs": [
       "wikipedia_es:Momordica charantia"
     ],
-    "value": "Especie de la familia Cucurbitaceae ampliamente cultivada en las regiones tropicales y subtropicales de Asia, África y el Caribe por su fruta comestible. También se utiliza como planta medicinal en las Américas, Asia, África y Oceanía."
+    "value": "Especie de la familia Cucurbitaceae ampliamente cultivada en las regiones tropicales y subtropicales de Asia, África y el Caribe por su fruta comestible."
   },
   "displayName": {
     "language": "es",
@@ -113,17 +113,12 @@
     "url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Feuilles_de_Marg%C3%B4zy.jpg"
   },
   "model": "claude-sonnet-5-5",
-  "oil": {
-    "refs": [
-      "usda_part:631-ED"
-    ],
-    "type": "Esencial"
-  },
+  "oil": null,
   "origin": {
     "refs": [
       "wcvp:2372864"
     ],
-    "value": "África tropical y meridional, Subcontinente indio, Indochina, Malesia, Papuasia, Australia, Macaronesia y el Pacífico"
+    "value": "Regiones de África tropical y austral, el subcontinente indio, Indochina, Malesia, Papuasia, Australia, Macaronesia y el Pacífico."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -163,11 +158,6 @@
     "usda_common_name:631-2": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Sorosi»",
-      "license": "CC0"
-    },
-    "usda_part:631-ED": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: química de la parte «Seed Essent. Oil»",
       "license": "CC0"
     },
     "usda_reference:Al-Rawi": {
@@ -644,32 +634,27 @@
   },
   "reviewFlags": [
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo de la parte «Seed Essent. Oil» de USDA (sin compuesto EO), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
-    },
-    {
       "code": "cita-sin-resolver",
-      "message": "Hay una clave de cita de USDA sin candidata en el paquete (Duke,19); queda sin resolver para revisión humana.",
+      "message": "La clave de cita Duke,19 está truncada y sus candidatas (Duke 1992 y Duke 1972) no permiten elegir una; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[1]"
     }
   ],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
+      "efsa_botanic:1361",
+      "efsa_botanic:1359",
+      "efsa_botanic:1360",
+      "efsa_endpoint:706",
       "usda_use:235",
       "usda_use:236",
       "usda_use:63570",
       "usda_use:38105",
       "usda_use:38698",
       "usda_use:75091",
-      "usda_use:70652",
-      "efsa_botanic:1361",
-      "efsa_botanic:1359",
-      "efsa_botanic:1360",
-      "efsa_endpoint:706"
+      "usda_use:70652"
     ],
-    "text": "Advertencia: registrada como abortiva en usos tradicionales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. EFSA registra, para la parte aérea, momordicina y momordicósidos y, para la semilla, momordina como sustancias de evidencia, y un estudio de toxicidad para la reproducción en ratas con la semilla (actividad antiespermatogénica)."
+    "text": "EFSA anota la momordicina y los momordicósidos (parte aérea) y la momordina (semilla) como sustancias de evidencia, y cita un estudio en ratas sobre actividad antiespermatogénica de la semilla. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "L.",

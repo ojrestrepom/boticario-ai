@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:f8626358ee399ceaeb1259d34c8783e9c86dc59fba019038dd1ca39f7c49aae0",
+  "bundleHash": "sha256:4dac2b008818ef04eaabee4f57eaac4269f2099c9a56d8ba5f6c46572d04a368",
   "commonNames": [
     {
       "language": "es",
@@ -28,7 +28,7 @@
     "refs": [
       "wikipedia_es:Blighia sapida"
     ],
-    "value": "Árbol perenne de la familia de las sapindáceas, apreciado por su fruto comestible. Es nativo de regiones tropicales del oeste de África e introducido en América. Su madera se usa en la construcción de mobiliario o como leña."
+    "value": "Árbol perenne de la familia de las sapindáceas, apreciado por su fruto comestible, nativo de regiones tropicales del oeste de África e introducido en América."
   },
   "displayName": {
     "language": "es",
@@ -62,7 +62,7 @@
     "refs": [
       "wcvp:2677575"
     ],
-    "value": "Nativa del oeste y centro-oeste de África tropical."
+    "value": "África tropical occidental y centro-occidental."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -274,22 +274,21 @@
   "reviewFlags": [
     {
       "code": "idioma-de-nombre-dudoso",
-      "message": "USDA marca «Seso Vegetal» como inglés, pero parece un nombre en español; se registró como español.",
+      "message": "USDA marca «Seso Vegetal» como inglés, pero parece un nombre en español; se registra como español.",
       "target": "commonNames"
     }
   ],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
+      "usda_use:23667",
       "usda_use:37706",
       "usda_use:37707",
       "usda_use:37708",
       "usda_use:37709",
-      "usda_use:37710",
-      "usda_use:23667",
-      "wikipedia_es:Blighia sapida"
+      "usda_use:37710"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. El resumen de Wikipedia indica que el fruto inmaduro puede provocar una intoxicación conocida como «vómito de Jamaica»."
+    "text": "Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "K.D.Koenig",
@@ -405,7 +404,7 @@
       ]
     },
     {
-      "activity": "Dolor de costillas",
+      "activity": "Dolor (costilla)",
       "activitySource": "Ache(Rib)",
       "citations": [
         {

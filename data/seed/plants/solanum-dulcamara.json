@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:24cff879ad5a08573e454e46defbd6fbf1f0f7582c6c1614e49f8810f6228ab6",
+  "bundleHash": "sha256:a7289ddddc6915f251fd27da819c545c7cdf2e6cacb455ffecb30a19b497653c",
   "commonNames": [
     {
       "language": "es",
@@ -15,7 +15,7 @@
       "refs": [
         "wikipedia_es:Solanum dulcamara"
       ],
-      "text": "adela"
+      "text": "Adela"
     },
     {
       "language": "es",
@@ -43,13 +43,6 @@
       "refs": [
         "wikidata:Q147707"
       ],
-      "text": "Espuma de látex"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q147707"
-      ],
       "text": "Hierba pelada"
     },
     {
@@ -58,6 +51,13 @@
         "wikidata:Q147707"
       ],
       "text": "Morera trepadora"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P512"
+      ],
+      "text": "Bittersuesser Nachtschatten"
     },
     {
       "language": "en",
@@ -73,26 +73,18 @@
         "usda_common_name:940-1"
       ],
       "text": "Bitter Nightshade"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P512"
-      ],
-      "text": "Bittersuesser Nachtschatten"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Solanum dulcamara"
     ],
-    "value": "Planta trepadora del género Solanum, conocida como dulcamara. En América Central hispanohablante se denomina también adela."
+    "value": "Planta trepadora del género Solanum."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Solanum dulcamara",
-      "wikidata:Q147707"
+      "wikipedia_es:Solanum dulcamara"
     ],
     "value": "Dulcamara"
   },
@@ -121,7 +113,7 @@
     "refs": [
       "wcvp:2932815"
     ],
-    "value": "Europa, Asia y norte de África"
+    "value": "Europa, norte de África, Macaronesia y gran parte de Asia"
   },
   "partsUsed": [
     {
@@ -140,12 +132,22 @@
       "license": "Public domain",
       "url": "https://commons.wikimedia.org/wiki/File:Dettaglio_-_Solanaceae_Solanum_dulcamara_Lin._Erbario_Frizzi_Perugia_n._551.jpg"
     },
-    "efsa_endpoint:577": {
+    "efsa_botanic:1739": {
       "dataset": "efsa",
-      "label": "EFSA Compendium of Botanicals: estudio de Solanum dulcamara L.",
+      "label": "EFSA Compendium of Botanicals: solanine",
       "license": "CC BY 4.0"
     },
-    "efsa_endpoint:956": {
+    "efsa_botanic:3300": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: solasonine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3301": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: solamargine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:577": {
       "dataset": "efsa",
       "label": "EFSA Compendium of Botanicals: estudio de Solanum dulcamara L.",
       "license": "CC BY 4.0"
@@ -165,6 +167,12 @@
     "ema_pdf:solani-dulcamarae-stipites:4.4": {
       "dataset": "ema_pdf",
       "label": "EMA: monografía de solani-dulcamarae-stipites, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-solanum-dulcamara-l-stipites_en.pdf"
+    },
+    "ema_pdf:solani-dulcamarae-stipites:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de solani-dulcamarae-stipites, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
       "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
       "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-solanum-dulcamara-l-stipites_en.pdf"
     },
@@ -404,32 +412,32 @@
   "reviewFlags": [
     {
       "code": "objetivos-omitidos-por-toxicidad",
-      "message": "TPPT marca la planta con toxicidad humana fuerte, por lo que se omite el objetivo de cuidado de la piel que le asigna la EMA.",
+      "message": "TPPT marca la planta como de toxicidad humana fuerte (strong toxic), por lo que se omite el objetivo de piel que la EMA le asigna.",
       "target": "goals"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Al-Rawi sí se resolvió.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Uphof sí se resolvió.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete.",
       "target": "traditionalUses[4]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Al-Rawi sí se resolvió.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Hartwell sí se resolvió.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete.",
       "target": "traditionalUses[6]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave Woi.Syria no tiene candidata en el paquete; la cita Hartwell sí se resolvió.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete.",
       "target": "traditionalUses[7]"
     }
   ],
@@ -437,15 +445,18 @@
     "level": "alto",
     "refs": [
       "tppt_plant:P512",
+      "efsa_botanic:1739",
+      "efsa_botanic:3300",
+      "efsa_botanic:3301",
       "efsa_endpoint:577",
-      "efsa_endpoint:956",
       "ema_pdf:solani-dulcamarae-stipites:4.3",
       "ema_pdf:solani-dulcamarae-stipites:4.4",
+      "ema_pdf:solani-dulcamarae-stipites:4.5",
+      "usda_use:70656",
       "usda_use:38332",
-      "usda_use:75162",
-      "usda_use:70656"
+      "usda_use:75162"
     ],
-    "text": "TPPT registra toxicidad humana fuerte en toda la planta, con alcaloides esteroidales (solamargina, solasonina, solasodina, entre otros) entre sus toxinas. EFSA recoge un estudio sobre los efectos gastrointestinales del consumo de bayas inmaduras y que la especie quedó fuera de las fuentes de aromatizantes por motivos toxicológicos. La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y señala que no se ha establecido el uso en menores de 18 años. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "TPPT clasifica la planta con toxicidad humana fuerte (parte tóxica: planta entera; alcaloides esteroidales). EFSA registra en el tallo solanina, solasonina y solamargina, entre otras sustancias de evidencia, y un estudio con efectos digestivos tras el consumo de bayas inmaduras. La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa, indica que no se ha establecido el uso en menores de 18 años y no registra interacciones. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -456,20 +467,16 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "Public domain"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     },
     {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
-      "dataset": "ema_json",
-      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
-    },
-    {
-      "dataset": "ema_pdf",
-      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
     },
     {
       "dataset": "tppt",
@@ -480,16 +487,20 @@
       "license": "CC0"
     },
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
     },
     {
-      "dataset": "wikidata",
-      "license": "CC0 1.0"
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
     }
   ],
   "synonyms": [
@@ -948,7 +959,7 @@
       ]
     },
     {
-      "activity": "Ojos",
+      "activity": "Ojo",
       "activitySource": "Eye",
       "citations": [
         {

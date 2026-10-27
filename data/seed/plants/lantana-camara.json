@@ -1,7 +1,21 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:8fa7f731972f3e7e73e4a9ea2c92d3125fd241b5b6fc0cb807982ca3d2fcc7f2",
+  "bundleHash": "sha256:93ef4587ceef762825b441f8a1ba08e4d0b5890e66b9336e541391e2108ad954",
   "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lantana camara"
+      ],
+      "text": "Cinco negritos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lantana camara"
+      ],
+      "text": "Flor de fuego"
+    },
     {
       "language": "es",
       "refs": [
@@ -12,31 +26,9 @@
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Lantana camara"
-      ],
-      "text": "flor de fuego"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Lantana camara"
-      ],
-      "text": "cinco negritos"
-    },
-    {
-      "language": "es",
-      "refs": [
         "wikidata:Q332469"
       ],
       "text": "Frutillo"
-    },
-    {
-      "language": "en",
-      "refs": [
-        "tppt_plant:P531",
-        "usda_common_name:540-2"
-      ],
-      "text": "Wild sage"
     },
     {
       "language": "de",
@@ -44,20 +36,34 @@
         "tppt_plant:P531"
       ],
       "text": "Wandelroeschen"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P531"
+      ],
+      "text": "Wild sage"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:540-1"
+      ],
+      "text": "Lantana"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Lantana camara"
     ],
-    "value": "Arbusto de follaje perenne de 1,5 a 3 m de altura, nativo de las regiones tropicales de América. Está incluido en la lista de las 100 especies exóticas invasoras más dañinas del mundo y se utiliza como planta ornamental y para formar cercos vivos."
+    "value": "Arbusto de follaje perenne, nativo de las regiones tropicales de América. Figura en la lista de las especies exóticas invasoras más dañinas del mundo de la UICN y se usa como planta ornamental y para formar cercos vivos."
   },
   "displayName": {
     "language": "es",
     "refs": [
       "wikipedia_es:Lantana camara"
     ],
-    "value": "Lantana"
+    "value": "Cinco negritos"
   },
   "family": {
     "refs": [
@@ -91,7 +97,7 @@
     "refs": [
       "wcvp:107934"
     ],
-    "value": "México, América Central, el Caribe, Brasil y el norte y oeste de Sudamérica"
+    "value": "Brasil, el Caribe, Centroamérica, México y el norte y el oeste de Sudamérica."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -108,9 +114,9 @@
       "label": "TPPT (Agroscope): Lantana camara L.",
       "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
     },
-    "usda_common_name:540-2": {
+    "usda_common_name:540-1": {
       "dataset": "usda",
-      "label": "USDA Dr. Duke: nombre común «Wild Sage»",
+      "label": "USDA Dr. Duke: nombre común «Lantana»",
       "license": "CC0"
     },
     "usda_part:540-FL": {
@@ -554,47 +560,47 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en flor, hoja y brote, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Reumatismo» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Piel» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Diaforético» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Picazón» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[6]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Pectoral» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[7]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Dolor de muelas» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[8]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Uso tradicional, sin eficacia demostrada: malaria» tiene claves de cita sin candidata que las resuelva.",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete; el grupo conserva las demás citas resueltas.",
       "target": "traditionalUses[19]"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
       "tppt_plant:P531",
       "usda_use:38029",
@@ -602,7 +608,7 @@
       "usda_use:59021",
       "usda_use:59013"
     ],
-    "text": "TPPT la califica de tóxica para las personas; la parte tóxica es la planta entera y las toxinas principales son las lantadenas A y B. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "TPPT la califica de tóxica para las personas (planta entera); señala triterpenoides tóxicos, con las lantadenas A y B como principales, y saponinas triterpénicas. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "L.",

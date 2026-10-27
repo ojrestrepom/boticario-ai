@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:202a41cc4129fcc6d1c00cf080c62d27e486d558ce9de3856f2a381e5a90e2f0",
+  "bundleHash": "sha256:db1c08e9a008cf6d0f48622e498c6863027efd6abc5d95842bbec32229f0314e",
   "commonNames": [
     {
       "language": "en",
@@ -48,7 +48,7 @@
     "refs": [
       "wcvp:2817816"
     ],
-    "value": "China, el subcontinente indio, Indochina y Malesia"
+    "value": "China, subcontinente indio, Indochina y Malesia."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -214,19 +214,19 @@
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
     }
   ],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
+      "efsa_botanic:1237",
       "usda_use:207",
-      "usda_use:58318",
       "usda_use:75038",
-      "efsa_botanic:1237"
+      "usda_use:58318"
     ],
-    "text": "Advertencia: registrada como abortiva en usos tradicionales. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. EFSA registra metilsalicilato en las hojas como sustancia de evidencia, sin fijar un nivel de riesgo."
+    "text": "EFSA registra el salicilato de metilo en las hojas como sustancia de evidencia. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "Wall.",
@@ -474,7 +474,7 @@
       ]
     },
     {
-      "activity": "Repelente (insectos)",
+      "activity": "Repelente (de insectos)",
       "activitySource": "Repellant(Insect)",
       "citations": [
         {

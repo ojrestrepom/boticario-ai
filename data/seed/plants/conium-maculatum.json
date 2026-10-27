@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:18f6f3452207a68bb09768288c23d936e68c17d656688ec6717286c551a12d8a",
+  "bundleHash": "sha256:211eaaf05636ae0bf442c89d0b03a48b5aaee10629fc320e55724fb875aeb2fa",
   "commonNames": [
     {
       "language": "en",
@@ -96,7 +96,7 @@
     "refs": [
       "wcvp:2734165"
     ],
-    "value": "Europa, norte y noreste de África y Asia."
+    "value": "Europa (oriental, central, septentrional, sudoriental y sudoccidental), norte de África, África tropical del nordeste, Asia occidental, Cáucaso, Asia central, China, subcontinente indio y península arábiga."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -387,26 +387,24 @@
   },
   "reviewFlags": [
     {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Spasm» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
+      "target": "traditionalUses[2]"
+    },
+    {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español (el resumen de Wikipedia solo la clasifica como una de las cicutas); el displayName es el nombre científico y no se aporta un nombre por cuenta propia en una planta tóxica.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte «Plant»), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente.",
       "target": "oil"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Spasm» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
-      "target": "traditionalUses[2]"
     }
   ],
   "safety": {
     "level": "alto",
     "refs": [
-      "tppt_plant:P601",
-      "efsa_botanic:509",
       "usda_use:37790",
       "usda_use:37791",
       "usda_use:37792",
@@ -418,9 +416,11 @@
       "usda_use:38622",
       "usda_use:57523",
       "usda_use:23674",
-      "usda_use:23675"
+      "usda_use:23675",
+      "tppt_plant:P601",
+      "efsa_botanic:509"
     ],
-    "text": "TPPT la califica de muy tóxica para las personas (planta entera); las toxinas son alcaloides de piperidina (coniina, N-metilconiina y gamma-coniceína). EFSA incluye la coniina del fruto y de la planta viva entre las sustancias de alta preocupación (veneno potente). Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "TPPT clasifica la planta como muy tóxica para las personas (planta entera); sus toxinas son alcaloides piperidínicos, con la coniina, la N-metilconiina y la gamma-coniceína como toxinas principales. EFSA registra la coniina como veneno potente en el fruto y en plantas vivas. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -635,26 +635,6 @@
       ]
     },
     {
-      "activity": "Sedante del sistema nervioso central",
-      "activitySource": "CNS sedative",
-      "citations": [
-        {
-          "key": "Al-Rawi",
-          "ref": "usda_reference:Al-Rawi",
-          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
-        }
-      ],
-      "countries": [
-        "Irak"
-      ],
-      "n": 1,
-      "pendingReview": false,
-      "refs": [
-        "usda_use:11960",
-        "usda_reference:Al-Rawi"
-      ]
-    },
-    {
       "activity": "Corea",
       "activitySource": "Chorea",
       "citations": [
@@ -671,6 +651,26 @@
       "pendingReview": false,
       "refs": [
         "usda_use:11817",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Sedante del sistema nervioso central",
+      "activitySource": "CNS sedative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11960",
         "usda_reference:Al-Rawi"
       ]
     },

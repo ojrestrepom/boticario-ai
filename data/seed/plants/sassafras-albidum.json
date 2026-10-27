@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:0abcda8a4f0fa80a5438d6a1bf87464503088bfff1d5013f21ef0e6a48baa385",
+  "bundleHash": "sha256:cda53d773ccf84577982fce8a7be6f01a79e181e3c2a1a1d107bebd5431d5c02",
   "commonNames": [
     {
       "language": "en",
@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Sassafras albidum"
     ],
-    "value": "Árbol de la familia de las lauráceas, originario del este de Norteamérica, que crece en bosques caducifolios; se extinguió como árbol autóctono en el sur de Wisconsin."
+    "value": "Árbol de la familia de las lauráceas, originario del este de Norteamérica, desde el sur de Maine y de Ontario hasta Iowa, y al sur hasta Florida y el este de Texas. Se encuentra en bosques caducifolios."
   },
   "displayName": {
     "language": "la",
@@ -54,7 +54,7 @@
     "refs": [
       "wcvp:2591964"
     ],
-    "value": "Este de Canadá y centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+    "value": "Canadá oriental y el centro, noreste y sureste de Estados Unidos"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -401,23 +401,23 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
     },
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en hoja y raíz, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
       "efsa_botanic:1865",
-      "efsa_botanic:1875",
       "efsa_botanic:1868",
-      "efsa_botanic:1876",
       "efsa_botanic:1871",
+      "efsa_botanic:1875",
+      "efsa_botanic:1876",
       "efsa_botanic:1869",
       "efsa_botanic:1867",
       "efsa_botanic:1873",
@@ -426,10 +426,10 @@
       "efsa_endpoint:283",
       "efsa_endpoint:302",
       "efsa_endpoint:303",
-      "usda_use:66496",
-      "usda_use:23720"
+      "usda_use:23720",
+      "usda_use:66496"
     ],
-    "text": "La EFSA registra en la corteza sustancias de la lista de alta preocupación: safrol, metileugenol y asarona (grupo genotóxico o carcinógeno) y alfa-tuyona y beta-tuyona (sustancias con límites de ingesta), además de alcanfor, apiol, elemicina y miristicina como evidencia, y estudios que registran efectos carcinógenos y abortivos en personas. Advertencia: registrada como carcinógena. Advertencia: se registran casos mortales."
+    "text": "EFSA registra en la corteza sustancias de la lista de alta preocupación: safrol, metileugenol y asarona (genotóxicas o carcinógenas) y alfa y beta-tuyona (tóxicas con límite de ingesta); como evidencia figuran alcanfor, apiol, elemicina y miristicina, y los estudios en humanos registran efectos carcinógeno y abortivo. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: se registran casos mortales. Advertencia: registrada como carcinógena."
   },
   "scientificName": {
     "authors": "(Nutt.) Nees",

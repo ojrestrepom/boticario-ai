@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:282c70f7e8e57589c0c77857360b4abf894aebf5b413589aa04ad8e0e138095b",
+  "bundleHash": "sha256:e564a91bd3a06644d9bef44004a50a9707417bc12dd62809d79983af2f02d8c5",
   "commonNames": [
     {
       "language": "en",
@@ -28,7 +28,7 @@
     "refs": [
       "wikipedia_es:Phytolacca americana"
     ],
-    "value": "Especie de la familia Phytolaccaceae. Algunas partes de la planta son altamente tóxicas para el ganado y los seres humanos, y se la considera una plaga importante para los agricultores."
+    "value": "Especie de la familia Phytolaccaceae. Algunas partes de esta planta son altamente tóxicas para el ganado y los seres humanos, y se la considera una plaga importante para los agricultores."
   },
   "displayName": {
     "language": "la",
@@ -62,7 +62,7 @@
     "refs": [
       "wcvp:2562777"
     ],
-    "value": "Este de Canadá, Estados Unidos y México."
+    "value": "Canadá oriental, México y varias regiones de Estados Unidos"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -112,11 +112,6 @@
     "usda_reference:Lewis": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Lewis",
-      "license": "CC0"
-    },
-    "usda_reference:NAS2": {
-      "dataset": "usda",
-      "label": "USDA Dr. Duke: referencia NAS2",
       "license": "CC0"
     },
     "usda_reference:Steinmetz": {
@@ -331,20 +326,30 @@
       "code": "sin-nombre-comun-es",
       "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
       "target": "displayName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Alguna clave de cita del grupo «Emético» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Alguna clave de cita del grupo «Diurético» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[3]"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
       "tppt_plant:P393",
       "efsa_botanic:353",
+      "usda_use:70654",
       "usda_use:38181",
       "usda_use:38182",
       "usda_use:60236",
-      "usda_use:75115",
-      "usda_use:70654"
+      "usda_use:75115"
     ],
-    "text": "TPPT la califica de tóxica; registra como parte tóxica la planta entera, con mayores concentraciones en la raíz y la semilla, y saponinas triterpénicas como toxinas. EFSA registra la fitolacatoxina como sustancia de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "TPPT clasifica la toxicidad humana como tóxica; indica como parte tóxica la planta entera, con mayores concentraciones en la raíz y la semilla, y señala que las saponinas triterpénicas son tóxicas. EFSA registra la fitolacotoxina en plantas vivas como evidencia. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -398,7 +403,10 @@
       ],
       "countries": [
         "Bélgica",
-        "Cuba"
+        "Cuba",
+        "Estados Unidos (amerindios)",
+        "Estados Unidos (época colonial)",
+        "Estados Unidos (penobscot)"
       ],
       "n": 5,
       "pendingReview": false,
@@ -433,8 +441,8 @@
         },
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         },
         {
           "key": "Steinmetz",
@@ -446,7 +454,8 @@
         "China",
         "Otros lugares",
         "Turquía",
-        "Estados Unidos"
+        "Estados Unidos",
+        "Estados Unidos (Apalaches)"
       ],
       "n": 5,
       "pendingReview": false,
@@ -457,7 +466,6 @@
         "usda_use:60231",
         "usda_use:69944",
         "usda_reference:EB",
-        "usda_reference:NAS2",
         "usda_reference:Steinmetz"
       ]
     },
@@ -510,8 +518,8 @@
       "citations": [
         {
           "key": "Nas",
-          "ref": "usda_reference:NAS2",
-          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+          "ref": null,
+          "text": "Nas (sin resolver)"
         },
         {
           "key": "Takeda",
@@ -528,7 +536,6 @@
       "refs": [
         "usda_use:18478",
         "usda_use:60228",
-        "usda_reference:NAS2",
         "usda_reference:Takeda"
       ]
     },
@@ -593,26 +600,6 @@
       ]
     },
     {
-      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
-      "activitySource": "Cancer(Breast)",
-      "citations": [
-        {
-          "key": "Hartwell",
-          "ref": "usda_reference:Hartwell",
-          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
-        }
-      ],
-      "countries": [
-        "Estados Unidos"
-      ],
-      "n": 1,
-      "pendingReview": false,
-      "refs": [
-        "usda_use:9632",
-        "usda_reference:Hartwell"
-      ]
-    },
-    {
       "activity": "Estimulante del sistema nervioso central",
       "activitySource": "CNS stimulant",
       "citations": [
@@ -633,6 +620,26 @@
       ]
     },
     {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
+      "activitySource": "Cancer(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9632",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
       "activity": "Erupción",
       "activitySource": "Eruption",
       "citations": [
@@ -642,7 +649,9 @@
           "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (época colonial)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [
@@ -660,7 +669,9 @@
           "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [
@@ -698,7 +709,9 @@
           "text": "Economic Botany 22: 333"
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [
@@ -816,7 +829,9 @@
           "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (época colonial)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:a690b919fd35a280530f87ceb5aaef8dbecc06df723e835e871349082622c2d9",
+  "bundleHash": "sha256:6cf8691b940d7766e2604fa2aaba1fbd94482420c56f79661cf8869abdace79c",
   "commonNames": [
     {
       "language": "es",
@@ -8,14 +8,14 @@
         "wikipedia_es:Datura stramonium",
         "wikidata:Q30959"
       ],
-      "text": "estramonio"
+      "text": "Estramonio"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Datura stramonium"
       ],
-      "text": "chamico"
+      "text": "Chamico"
     },
     {
       "language": "es",
@@ -60,13 +60,6 @@
       "text": "Higera del infierno"
     },
     {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P517"
-      ],
-      "text": "Stechapfel"
-    },
-    {
       "language": "en",
       "refs": [
         "tppt_plant:P517"
@@ -79,6 +72,13 @@
         "usda_common_name:356-1"
       ],
       "text": "Jimsonweed"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P517"
+      ],
+      "text": "Stechapfel"
     }
   ],
   "description": {
@@ -90,8 +90,7 @@
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Datura stramonium",
-      "wikidata:Q30959"
+      "wikipedia_es:Datura stramonium"
     ],
     "value": "Estramonio"
   },
@@ -772,52 +771,49 @@
   },
   "reviewFlags": [
     {
-      "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
-      "target": "oil"
-    },
-    {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Asthma» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Sedative» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Piles» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Sore» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[8]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Spasm» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[9]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Boil» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[11]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "message": "El grupo «Dandruff» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[12]"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
     }
   ],
   "safety": {
     "level": "alto",
     "refs": [
-      "tppt_plant:P517",
-      "efsa_botanic:689",
-      "efsa_botanic:690",
       "usda_use:37844",
       "usda_use:37845",
       "usda_use:37846",
@@ -829,9 +825,12 @@
       "usda_use:23681",
       "usda_use:28835",
       "usda_use:28836",
-      "usda_use:14435"
+      "usda_use:14435",
+      "tppt_plant:P517",
+      "efsa_botanic:689",
+      "efsa_botanic:690"
     ],
-    "text": "TPPT califica la planta de muy fuertemente tóxica para las personas y para los animales; la parte tóxica es la planta entera, con mayor concentración en la raíz y la semilla, y registra que los alcaloides tropánicos son tóxicos, con hiosciamina y escopolamina como toxinas principales. EFSA registra atropina y escopolamina (parte aérea y partes subterráneas) como venenos potentes. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. Advertencia: registrada como veneno homicida en usos tradicionales. Advertencia: registrada como cianogénica."
+    "text": "TPPT clasifica la planta como muy tóxica para las personas (planta entera, con mayor concentración en la raíz y la semilla); sus toxinas son alcaloides tropánicos, con la hiosciamina y la escopolamina como toxinas principales. EFSA registra la atropina y la escopolamina en la parte aérea y en las raíces como venenos potentes. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -938,6 +937,7 @@
         "Nepal",
         "Turquía",
         "Estados Unidos",
+        "Estados Unidos (Pamunkey)",
         "Venezuela"
       ],
       "n": 12,
@@ -1079,7 +1079,8 @@
         "India",
         "Nepal",
         "Turquía",
-        "Estados Unidos"
+        "Estados Unidos",
+        "Estados Unidos (Huskenaw)"
       ],
       "n": 8,
       "pendingReview": false,
@@ -1144,6 +1145,7 @@
         "India",
         "México",
         "Estados Unidos",
+        "Estados Unidos (Pamunkey)",
         "Venezuela"
       ],
       "n": 7,
@@ -1192,7 +1194,8 @@
       "countries": [
         "Otros lugares",
         "Haití",
-        "Turquía"
+        "Turquía",
+        "Estados Unidos (Apalaches)"
       ],
       "n": 6,
       "pendingReview": false,
@@ -1267,7 +1270,7 @@
         "Costa Rica",
         "Nigeria",
         "Perú",
-        "España (islas Baleares)",
+        "España (Islas Baleares)",
         "Venezuela"
       ],
       "n": 5,
@@ -1308,7 +1311,8 @@
       ],
       "countries": [
         "China",
-        "México"
+        "México",
+        "Estados Unidos (amerindios)"
       ],
       "n": 4,
       "pendingReview": false,
@@ -1351,7 +1355,8 @@
       "countries": [
         "Otros lugares",
         "Hawái",
-        "Estados Unidos"
+        "Estados Unidos",
+        "Estados Unidos (Rappahannock)"
       ],
       "n": 4,
       "pendingReview": false,
@@ -1436,7 +1441,7 @@
       ]
     },
     {
-      "activity": "Forúnculo",
+      "activity": "Furúnculo",
       "activitySource": "Boil",
       "citations": [
         {
@@ -1585,7 +1590,8 @@
         }
       ],
       "countries": [
-        "Etiopía"
+        "Etiopía",
+        "Estados Unidos (Huskenaw)"
       ],
       "n": 2,
       "pendingReview": false,
@@ -1627,7 +1633,10 @@
           "text": "Economic Botany 29: 179"
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (Huskenaw)",
+        "Estados Unidos (Rappahannock)"
+      ],
       "n": 2,
       "pendingReview": false,
       "refs": [

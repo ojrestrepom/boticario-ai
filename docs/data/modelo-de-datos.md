@@ -237,7 +237,7 @@ Una fuente cuya licencia no permita redistribuir su contenido no puede entrar en
 ## 10. Límites conocidos
 
 - **La API no indica el origen.** El detalle de una planta no dice qué fuente aportó cada dato; esa información queda en la base y no sale por el contrato HTTP. Mostrar los créditos es un cambio posterior.
-- **Los IDs cambiaron.** El ID es el slug del nombre aceptado de WCVP, no el literal de USDA, y unos 500 de los 2.376 IDs anteriores cambian (por ejemplo `rosmarinus-officinalis` es ahora `salvia-rosmarinus`). Los alias anteriores se guardan en `plant_alias`, pero la API no los resuelve todavía.
+- **Los IDs cambiaron.** El ID es el slug del nombre aceptado de WCVP, no el literal de USDA, y 629 de los 2.376 IDs anteriores cambian (el piloto estimaba unos 500) (por ejemplo `rosmarinus-officinalis` es ahora `salvia-rosmarinus`). Los alias anteriores se guardan en `plant_alias`, pero la API no los resuelve todavía.
 - **No es reproducible desde cero.** Wikidata, Wikipedia, Commons y la EMA cambian, y el LLM puede dar textos distintos. La reproducibilidad está en la semilla versionada.
 - **Los pendientes no se sirven.** Los grupos de usos y los objetivos con `pendingReview` se guardan pero no generan `plant_use` ni se muestran; la capa de validación humana está fuera de alcance.
 - **Términos sin verificar.** Los términos de reutilización de la EMA y de TPPT no se verificaron contra el texto legal, y TPPT se usa con fines académicos (véase [fuentes y licencias](fuentes-y-licencias.md)).

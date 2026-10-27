@@ -1,11 +1,10 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:be33639fb4f12cd9c9a8b5b56e665018e1fecb53afe1e2744a439ec76a1c2821",
+  "bundleHash": "sha256:66bfdff1078f266c84cfcfede8da3a10bdbb6de65fdcc09fa70b6927a5252128",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Ricinus communis",
         "wikidata:Q155867"
       ],
       "text": "Ricino"
@@ -64,20 +63,6 @@
       "refs": [
         "wikidata:Q155867"
       ],
-      "text": "Catapucia mayor"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q155867"
-      ],
-      "text": "Catapúcia mayor"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikidata:Q155867"
-      ],
       "text": "Hiera del demonio"
     },
     {
@@ -85,21 +70,15 @@
       "refs": [
         "wikidata:Q155867"
       ],
-      "text": "Kerva"
+      "text": "Catapucia mayor"
     },
     {
       "language": "en",
       "refs": [
-        "tppt_plant:P321"
-      ],
-      "text": "Castor bean"
-    },
-    {
-      "language": "en",
-      "refs": [
+        "tppt_plant:P321",
         "usda_common_name:861-1"
       ],
-      "text": "Castorbean"
+      "text": "Castor bean"
     },
     {
       "language": "de",
@@ -113,12 +92,11 @@
     "refs": [
       "wikipedia_es:Ricinus communis"
     ],
-    "value": "Planta arbustiva de la familia Euphorbiaceae, única especie aceptada del género Ricinus, con gran capacidad para invadir territorios. Originaria de África tropical, se ha naturalizado en áreas tropicales y subtropicales de todo el mundo. Sus semillas son sumamente venenosas."
+    "value": "Planta arbustiva de la familia Euphorbiaceae, única especie aceptada del género Ricinus, originaria de África tropical y naturalizada en áreas tropicales y subtropicales de todo el mundo, donde se comporta como maleza invasora."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Ricinus communis",
       "wikidata:Q155867"
     ],
     "value": "Ricino"
@@ -148,7 +126,7 @@
     "refs": [
       "wcvp:178867"
     ],
-    "value": "Noreste de África tropical."
+    "value": "África tropical del noreste"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -799,62 +777,57 @@
   "reviewFlags": [
     {
       "code": "objetivos-omitidos-por-toxicidad",
-      "message": "TPPT la marca como «very strong toxic»; se omite el objetivo que la EMA le asigna (digestión, aceite de ricino).",
+      "message": "TPPT marca la planta como muy tóxica (very strong toxic) y se omite el objetivo de digestión que la EMA le asigna por la monografía del aceite de ricino.",
       "target": "goals"
     },
     {
-      "code": "idioma-de-nombre-dudoso",
-      "message": "No es seguro que «Kerva» y «Catapúcia mayor» (alias en español de Wikidata) sean nombres en español.",
-      "target": "commonNames"
-    },
-    {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Purgative» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Purgante» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Sore» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Llaga» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[2]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Emollient» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Emoliente» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Ache(Stomach)» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Dolor de estómago» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[4]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Boil» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Forúnculo» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Cancer» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Uso tradicional, sin eficacia demostrada: cáncer» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[6]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Cathartic» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Catártico» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[7]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Parturition» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Parto» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[10]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Rheumatism» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Reumatismo» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[11]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Lactagogue» tiene claves de cita sin candidata (Woi.Syria) y queda para revisión humana.",
+      "message": "Alguna clave de cita del grupo «Lactagogo» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[17]"
     }
   ],
@@ -866,6 +839,7 @@
       "ema_pdf:ricini-oleum:4.3",
       "ema_pdf:ricini-oleum:4.4",
       "ema_pdf:ricini-oleum:4.5",
+      "usda_use:23700",
       "usda_use:38260",
       "usda_use:38261",
       "usda_use:38262",
@@ -874,10 +848,9 @@
       "usda_use:63158",
       "usda_use:75142",
       "usda_use:75143",
-      "usda_use:14556",
-      "usda_use:23700"
+      "usda_use:14556"
     ],
-    "text": "TPPT la califica de muy tóxica para las personas (semilla). EFSA incluye la ricina de la semilla entre las sustancias de alta preocupación (veneno potente). La EMA registra para el aceite de ricino como contraindicaciones la hipersensibilidad a la sustancia activa, la obstrucción y estenosis intestinal, la atonía, la apendicitis, las enfermedades inflamatorias del colon, el dolor abdominal de origen desconocido, la deshidratación grave con pérdida de agua y electrolitos, el embarazo y la lactancia. En advertencias, la EMA anota que no se ha establecido el uso en menores de 18 años y que el uso prolongado de laxantes puede alterar la función intestinal. En interacciones, la EMA registra que la hipopotasemia potencia la acción de los glucósidos cardiacos e interactúa con los antiarrítmicos, que los diuréticos, los corticosteroides suprarrenales y la raíz de regaliz pueden aumentar la pérdida de potasio y que los antihistamínicos pueden reducir la acción laxante. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica. Advertencia: se registran casos mortales."
+    "text": "TPPT clasifica la toxicidad humana como muy fuerte y señala la semilla como parte tóxica; EFSA registra la ricina de la semilla como veneno potente. La monografía de la EMA del aceite de ricino registra contraindicaciones (hipersensibilidad, obstrucción intestinal, apendicitis, enfermedades inflamatorias del colon, embarazo y lactancia), advertencias sobre el uso prolongado y en menores de 18 años, e interacciones con glucósidos cardíacos, antiarrítmicos, diuréticos y corticosteroides. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -1128,8 +1101,7 @@
         "Otros lugares",
         "India (santal)",
         "Java",
-        "Filipinas",
-        "Sudáfrica"
+        "Filipinas"
       ],
       "n": 6,
       "pendingReview": false,
@@ -1223,7 +1195,6 @@
       ],
       "countries": [
         "Otros lugares",
-        "Sudáfrica",
         "Trinidad"
       ],
       "n": 4,
@@ -1266,7 +1237,6 @@
       "countries": [
         "China",
         "Otros lugares",
-        "Sudáfrica",
         "Tonga"
       ],
       "n": 4,
@@ -1685,8 +1655,7 @@
       ],
       "countries": [
         "Guatemala",
-        "Haití",
-        "Sudáfrica"
+        "Haití"
       ],
       "n": 3,
       "pendingReview": false,

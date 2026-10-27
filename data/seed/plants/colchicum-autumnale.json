@@ -1,7 +1,14 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:8d001b012b5e52f6a800f796afbb9f545481839b508d7465810e19a2aff8cf5e",
+  "bundleHash": "sha256:cf16b6aa0a29b3fe40b018046114a0ba87cb0c959342675264fc4717c3645d65",
   "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "cólquico"
+    },
     {
       "language": "es",
       "refs": [
@@ -21,7 +28,7 @@
       "refs": [
         "wikidata:Q152553"
       ],
-      "text": "cólquico"
+      "text": "cólquico de otoño"
     },
     {
       "language": "es",
@@ -49,7 +56,14 @@
       "refs": [
         "wikidata:Q152553"
       ],
-      "text": "azafrán silvestre"
+      "text": "colchico que mata"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "azafrán"
     },
     {
       "language": "es",
@@ -63,7 +77,63 @@
       "refs": [
         "wikidata:Q152553"
       ],
-      "text": "quitameriendas"
+      "text": "azafrán silvestre"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "acefrán"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "cebolla montés"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "chicolquicos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "cholquicos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "despachapastores"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "fell de terra"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "fllo de sementé"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "flor de otoño"
     },
     {
       "language": "es",
@@ -84,26 +154,34 @@
       "refs": [
         "wikidata:Q152553"
       ],
-      "text": "despachapastores"
+      "text": "narciso de otoño"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q152553"
       ],
-      "text": "flor de otoño"
+      "text": "quitameriendas"
     },
     {
-      "language": "de",
+      "language": "es",
       "refs": [
-        "tppt_plant:P753"
+        "wikidata:Q152553"
       ],
-      "text": "Herbstzeitlose"
+      "text": "quitameriendas de otoño"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q152553"
+      ],
+      "text": "yerba sembradera"
     },
     {
       "language": "en",
       "refs": [
-        "tppt_plant:P753"
+        "tppt_plant:P753",
+        "usda_common_name:292-2"
       ],
       "text": "Meadow saffron"
     },
@@ -113,20 +191,27 @@
         "usda_common_name:292-1"
       ],
       "text": "Autumn Crocus"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P753"
+      ],
+      "text": "Herbstzeitlose"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Colchicum autumnale"
     ],
-    "value": "Planta con flor, bulbosa, de la familia de las colchicáceas."
+    "value": "Especie de planta con flor, bulbosa, de la familia de las colchicáceas."
   },
   "displayName": {
     "language": "es",
     "refs": [
       "wikidata:Q152553"
     ],
-    "value": "Cólchico"
+    "value": "Cólquico"
   },
   "family": {
     "refs": [
@@ -153,7 +238,7 @@
     "refs": [
       "wcvp:302771"
     ],
-    "value": "Nativa de Europa (suroeste, centro, norte, este y sureste)."
+    "value": "Europa oriental, central, septentrional, sudoriental y sudoccidental."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -170,16 +255,6 @@
       "label": "EFSA Compendium of Botanicals: Colchicin",
       "license": "CC BY 4.0"
     },
-    "efsa_endpoint:62": {
-      "dataset": "efsa",
-      "label": "EFSA Compendium of Botanicals: estudio de Colchicum autumnale L.",
-      "license": "CC BY 4.0"
-    },
-    "efsa_endpoint:63": {
-      "dataset": "efsa",
-      "label": "EFSA Compendium of Botanicals: estudio de Colchicum autumnale L.",
-      "license": "CC BY 4.0"
-    },
     "tppt_plant:P753": {
       "dataset": "tppt",
       "label": "TPPT (Agroscope): Colchicum autumnale L.",
@@ -188,6 +263,11 @@
     "usda_common_name:292-1": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Autumn Crocus»",
+      "license": "CC0"
+    },
+    "usda_common_name:292-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Meadow Saffron»",
       "license": "CC0"
     },
     "usda_reference:Hartwell": {
@@ -316,11 +396,9 @@
       "usda_use:74992",
       "usda_use:70642",
       "tppt_plant:P753",
-      "efsa_botanic:217",
-      "efsa_endpoint:62",
-      "efsa_endpoint:63"
+      "efsa_botanic:217"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. TPPT la califica de muy fuertemente tóxica para las personas: toda la planta, con las mayores concentraciones en el bulbo y la semilla, y la colchicina como alcaloide principal. EFSA registra colchicina, clasificada como veneno potente, en hojas, plantas vivas y semilla, con estudios de toxicidad aguda en humanos que describen efectos tóxicos y mortales por ingestión."
+    "text": "TPPT clasifica la planta como muy tóxica para las personas (planta entera, con mayor concentración en el bulbo y la semilla) y su toxina principal es la colchicina. EFSA registra la colchicina como veneno potente en hojas, plantas vivas y semilla. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -446,7 +524,7 @@
       ]
     },
     {
-      "activity": "Callo",
+      "activity": "Callos",
       "activitySource": "Corn",
       "citations": [
         {

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:82133f32bfa3ee5a90f8fde22c132b20d8cdc99e993aab9aee1b42e61f1f40e1",
+  "bundleHash": "sha256:de2209f3746fb87719fd1078c8321f4513a0f44301f792172c529e5e1340e9cf",
   "commonNames": [
     {
       "language": "es",
@@ -8,7 +8,7 @@
         "wikipedia_es:Veratrum viride",
         "wikidata:Q2707753"
       ],
-      "text": "falso eléboro verde"
+      "text": "Falso eléboro verde"
     },
     {
       "language": "en",
@@ -29,13 +29,12 @@
     "refs": [
       "wikipedia_es:Veratrum viride"
     ],
-    "value": "Planta perenne que crece de un pequeño rizoma y lanza hojas espectaculares. Se conoce como extremadamente tóxica."
+    "value": "Planta perenne que crece de un pequeño rizoma y lanza unas hojas espectaculares."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Veratrum viride",
-      "wikidata:Q2707753"
+      "wikipedia_es:Veratrum viride"
     ],
     "value": "Falso eléboro verde"
   },
@@ -64,7 +63,7 @@
     "refs": [
       "wcvp:291258"
     ],
-    "value": "Nativa del este y el oeste de Canadá, de Estados Unidos (noreste, noroeste, sureste y suroeste) y de la América subártica."
+    "value": "Canadá oriental y occidental, Estados Unidos y América subártica"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -336,21 +335,21 @@
   },
   "reviewFlags": [],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
       "efsa_botanic:1797",
       "efsa_endpoint:589",
       "efsa_endpoint:742",
       "efsa_endpoint:743",
       "efsa_endpoint:744",
+      "usda_use:23715",
       "usda_use:38435",
       "usda_use:38436",
       "usda_use:62497",
       "usda_use:75199",
-      "usda_use:63586",
-      "usda_use:23715"
+      "usda_use:63586"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: se registran casos mortales. EFSA registra en la planta la sustancia jervina y estudios con efectos en personas como vómitos, hipotensión grave y cardiotoxicidad, y teratogenicidad en animales de laboratorio."
+    "text": "EFSA registra la jervina como sustancia de evidencia en plantas vivas y reúne estudios sobre la planta: efecto teratogénico en animales de laboratorio y, en personas, vómito, hipotensión grave y cardiotoxicidad. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
   },
   "scientificName": {
     "authors": "Aiton",
@@ -361,28 +360,28 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY-SA 3.0"
-    },
-    {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
     }
   ],
   "synonyms": [
@@ -432,7 +431,7 @@
       ]
     },
     {
-      "activity": "Dolor de muelas",
+      "activity": "Dolor (diente)",
       "activitySource": "Ache(Tooth)",
       "citations": [
         {
@@ -527,7 +526,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -555,7 +554,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -598,7 +597,7 @@
       ]
     },
     {
-      "activity": "Dolor de espalda",
+      "activity": "Dolor (espalda)",
       "activitySource": "Ache(Back)",
       "citations": [
         {
@@ -618,13 +617,13 @@
       ]
     },
     {
-      "activity": "Dolor de cabeza",
+      "activity": "Dolor (cabeza)",
       "activitySource": "Ache(Head)",
       "citations": [
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -824,7 +823,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [

@@ -1,12 +1,18 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:6c2c25386dee28689b8213ad99f3fb48275adb88d259a6b5e58ca4fade0c8136",
+  "bundleHash": "sha256:9865ede4534fddad3cc61b94e55ad5f87699ef14394e37a6ce3cb1a3c8a9beb8",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Tabernanthe iboga",
-        "wikidata:Q132677",
+        "wikidata:Q132677"
+      ],
+      "text": "Iboga"
+    },
+    {
+      "language": "en",
+      "refs": [
         "usda_common_name:988-1"
       ],
       "text": "Iboga"
@@ -16,13 +22,12 @@
     "refs": [
       "wikipedia_es:Tabernanthe iboga"
     ],
-    "value": "Arbusto de la familia de las Apocynaceae."
+    "value": "Arbusto perteneciente a la familia de las Apocynaceae."
   },
   "displayName": {
     "language": "es",
     "refs": [
-      "wikipedia_es:Tabernanthe iboga",
-      "wikidata:Q132677"
+      "wikipedia_es:Tabernanthe iboga"
     ],
     "value": "Iboga"
   },
@@ -51,7 +56,7 @@
     "refs": [
       "wcvp:200996"
     ],
-    "value": "Nativa del África tropical meridional y centro-occidental."
+    "value": "África tropical austral y centro-occidental"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -183,12 +188,12 @@
   },
   "reviewFlags": [],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
-      "usda_use:23708",
-      "efsa_botanic:324"
+      "efsa_botanic:324",
+      "usda_use:23708"
     ],
-    "text": "Advertencia: se registran casos mortales en usos tradicionales (USDA). La base de EFSA registra la sustancia ibogaína en plantas vivas como evidencia de seguridad."
+    "text": "EFSA registra la ibogaína como sustancia de evidencia en plantas vivas. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "Baill.",
@@ -199,28 +204,28 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "Public domain"
-    },
-    {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
-    },
-    {
-      "dataset": "usda",
-      "license": "CC0"
-    },
-    {
       "dataset": "wcvp",
       "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
     },
     {
       "dataset": "wikidata",
       "license": "CC0 1.0"
     },
     {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
     }
   ],
   "synonyms": [],

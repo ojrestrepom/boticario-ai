@@ -129,14 +129,14 @@ Registro de decisiones y D14: la decisión de cada grupo se registra una vez en 
 
 Alternativas descartadas: la regla anterior (todo heterotípico es planta propia) deja unas 48 plantas duplicadas, como *Cinnamomum zeylanicum* junto a *C. verum*; y la fusión por defecto con excepciones para separar, que funde por error plantas de uso diferenciado y obliga a mantener una lista larga que crece con cada versión de WCVP. Motivos del piloto que se conservan: sin separar los heterotípicos con artículo propio, la bergamota y la lima se fusionan con el limón, naranja y pomelo comparten aceptado, y brócoli, repollo y kale son *Brassica oleracea*. Aparte, la regla «homónimo no resuelto → ambiguo» evitó que el almendro (*Prunus dulcis*) se fusionara con el cerezo; quedaron 19 homónimos para revisión.
 
-El ID es el slug del nombre aceptado de WCVP, generado una vez y fijo en la semilla. Si Kew renombra, cambia el nombre mostrado y no el ID. Cambian unos 500 de los 2.376 IDs actuales. `lavandula-angustifolia` se conserva y su prueba va como tarea (la verificación del despliegue depende de él).
+El ID es el slug del nombre aceptado de WCVP, generado una vez y fijo en la semilla. Si Kew renombra, cambia el nombre mostrado y no el ID. Cambian 629 de los 2.376 IDs actuales (el piloto estimaba unos 500). `lavandula-angustifolia` se conserva y su prueba va como tarea (la verificación del despliegue depende de él).
 
 Alias: sí se guardan los IDs anteriores (el slug del `TAXON` literal de USDA de cada planta fusionada o renombrada) en `aliases` del registro y en `plant_alias`. Cuestan poco, y no pueden reconstruirse después sin conservar el ZIP de USDA. Hoy nada los consulta: la API no los resuelve en este cambio (el cambio 2 puede añadir una redirección o una búsqueda por alias). Un alias nunca puede igualar el ID de otra planta: el generador lo descarta y lo registra, y la construcción lo trata como error.
 
 Alternativas:
 
 - No guardar alias, porque no hay consumidores. Más simple, pero pierde la única forma barata de explicar o migrar un ID antiguo (por ejemplo para favoritos futuros).
-- Mantener los IDs de USDA y añadir el nombre aceptado aparte. Evita el cambio de ~500 IDs, pero deja IDs que no coinciden con el nombre mostrado y no resuelve la fusión de sinónimos.
+- Mantener los IDs de USDA y añadir el nombre aceptado aparte. Evita el cambio de los IDs (629 con el universo real; el piloto estimaba ~500), pero deja IDs que no coinciden con el nombre mostrado y no resuelve la fusión de sinónimos.
 - ID por nombre aceptado recalculado en cada build. Un renombre de Kew cambiaría IDs ya publicados; se descarta.
 
 ### D6. Paquete por planta: determinista, no versionado, con filtro de homónimos
@@ -217,7 +217,7 @@ Alternativas: el dump de Wikidata (decenas de GB para ~2.400 plantas) y la API `
 
 ### D11. Ejecución de la generación completa: decisión explícita del usuario
 
-Estimación para unas 2.411 plantas: unos 23 millones de tokens en unos 240 lotes de 10, y unas 3 horas con 8 lotes en paralelo (el piloto midió 12.000 a 15.500 tokens por planta y 4 a 7 minutos por lote; las plantas del universo son más ligeras que las del piloto). Es la última tarea y no se ejecuta sin que el usuario elija el modo:
+Estimación del piloto para unas 2.411 plantas (el universo real es de 2.355, con 2.354 en la semilla): unos 23 millones de tokens en unos 240 lotes de 10, y unas 3 horas con 8 lotes en paralelo (el piloto midió 12.000 a 15.500 tokens por planta y 4 a 7 minutos por lote; las plantas del universo son más ligeras que las del piloto). Es la última tarea y no se ejecuta sin que el usuario elija el modo:
 
 - Opción A: agentes de Claude Code por lotes, orquestados con un workflow. Coherente con lo acordado (Claude Code como LLM), sin integración nueva, pero requiere que el usuario pida el workflow explícitamente y consume la cuota del plan.
 - Opción B: un script de las herramientas con la API de Anthropic en modo batch. Reanudable, medible y versionado; del orden de US$40 a 70 con Sonnet 5.5 según la estimación acordada; requiere clave de API y un cambio de enfoque respecto de «Claude Code como LLM».
@@ -244,7 +244,7 @@ Alternativa descartada: código condicional por fuente en el prompt o el validad
 
 ## Risks / Trade-offs
 
-- **[Cambio de unos 500 IDs]** Un cliente con un ID guardado dejaría de encontrarlo. → Hoy no se encontró persistencia de IDs; los alias se guardan; `lavandula-angustifolia` se conserva; la tarea 10 recorre todos los IDs fijados en tests, fixtures y workflows. El cambio 2 decide si la API los resuelve.
+- **[Cambio de 629 IDs (el piloto estimaba unos 500)]** Un cliente con un ID guardado dejaría de encontrarlo. → Hoy no se encontró persistencia de IDs; los alias se guardan; `lavandula-angustifolia` se conserva; la tarea 10 recorre todos los IDs fijados en tests, fixtures y workflows. El cambio 2 decide si la API los resuelve.
 - **[Límite de peticiones de Wikidata]** El piloto recibió 429 con `Retry-After: 1000`. → POST, lotes, caché, reanudación y paquetes marcados como incompletos (D10). La imagen y el nombre en español son enriquecimiento, no bloquean una planta.
 - **[Extracción de PDF de la EMA]** No está probada. → Spike antes de generalizar, con criterio de éxito y plan de salida (D9).
 - **[Licencias CC BY-SA]** Wikipedia (y posiblemente imágenes de Commons) obliga a conservar la licencia en lo derivado. → Se registran por campo y por imagen; el usuario decidió mantener Wikipedia; retirarla después es un cambio de configuración (D14).
@@ -263,7 +263,8 @@ Alternativa descartada: código condicional por fuente en el prompt o el validad
 1. Construir la semilla en una rama con las tareas 1 a 6 sin tocar el build. Hasta que la tarea 8 cambie el `Dockerfile`, el despliegue sigue con la ingesta de USDA.
 2. Cambiar el build y el `Dockerfile` (tareas 7 y 8) con una semilla completa ya presente (tarea 11) o, para probar antes, con la semilla de la corrida de control, que debe producir un `catalog.db` válido aunque pequeño. No se publica (`push` a `main`, que despliega) con una semilla parcial.
 3. QA de la API con la base real (tarea 10), antes del despliegue.
-4. Retroceso: `git revert` de los commits del cambio devuelve el marco de adaptadores y el ZIP de USDA; no hay datos de usuario que migrar. Los alias y la semilla no se consumen fuera de este repo.
+4. Decisión del usuario (2026-10-26): el cambio 1 no se publica solo, no hay `push` a `main`. El cambio 2 se implementa en la misma rama y los dos se despliegan juntos. El motivo es que, con el cambio 1 solo, la app mostraría el primer nombre por orden alfabético en lugar del `displayName`, perdería la búsqueda por nombres anteriores y mostraría las citas de los usos como etiquetas. Lo resuelve el cambio 2.
+5. Retroceso: `git revert` de los commits del cambio devuelve el marco de adaptadores y el ZIP de USDA; no hay datos de usuario que migrar. Los alias y la semilla no se consumen fuera de este repo.
 
 ## Open Questions
 

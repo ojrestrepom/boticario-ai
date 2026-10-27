@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:ff3d5fd03912e9c1da48eb58d56dec8b92a07cd013d05cce2ba41786e661d944",
+  "bundleHash": "sha256:a274a7846189efc8a28d9f03b354f31acbaa7d6ee93e92a6798383cec99fb71d",
   "commonNames": [
     {
       "language": "es",
@@ -35,19 +35,20 @@
       "refs": [
         "wikidata:Q157555"
       ],
-      "text": "dedales de monja"
+      "text": "Dedales de monja"
     },
     {
       "language": "es",
       "refs": [
         "wikidata:Q157555"
       ],
-      "text": "dedillos de Dios"
+      "text": "Dedillos de Dios"
     },
     {
       "language": "en",
       "refs": [
-        "tppt_plant:P563"
+        "tppt_plant:P563",
+        "usda_common_name:362-1"
       ],
       "text": "Purple foxglove"
     },
@@ -63,7 +64,7 @@
     "refs": [
       "wikipedia_es:Digitalis purpurea"
     ],
-    "value": "Especie herbácea bienal de la familia de las Escrofulariáceas, llamada popularmente dedalera o digital, entre otros muchos nombres."
+    "value": "Especie herbácea bienal conocida popularmente como dedalera o digital."
   },
   "displayName": {
     "language": "es",
@@ -97,7 +98,7 @@
     "refs": [
       "wcvp:2768087"
     ],
-    "value": "Nativa de Europa central, septentrional y suroccidental y del norte de África."
+    "value": "Europa central, norte de África, norte de Europa y suroeste de Europa."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -128,6 +129,11 @@
       "dataset": "tppt",
       "label": "TPPT (Agroscope): Digitalis purpurea L.",
       "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:362-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Purple Foxglove»",
+      "license": "CC0"
     },
     "usda_reference:Al-Rawi": {
       "dataset": "usda",
@@ -353,14 +359,14 @@
     "refs": [
       "tppt_plant:P563",
       "efsa_botanic:65",
-      "efsa_botanic:67",
       "efsa_botanic:66",
+      "efsa_botanic:67",
       "usda_use:37859",
       "usda_use:57877",
       "usda_use:75015",
       "usda_use:23682"
     ],
-    "text": "TPPT la califica de muy fuertemente tóxica para las personas (planta entera), con glucósidos cardíacos como toxinas, y EFSA registra en la planta viva sustancias de alta preocupación del grupo de venenos potentes: digitoxina, gitaloxina y gitoxina. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "TPPT clasifica la planta como de toxicidad humana muy fuerte: la parte tóxica es la planta entera y sus toxinas son glucósidos cardíacos (esteroides) que aparecen en mezcla. EFSA registra entre las sustancias de alta preocupación, como venenos potentes de la planta viva, la digitoxina, la gitaloxina y la gitoxina. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "L.",
@@ -671,7 +677,7 @@
       ]
     },
     {
-      "activity": "Locura",
+      "activity": "Insanidad",
       "activitySource": "Insanity",
       "citations": [
         {
@@ -791,7 +797,7 @@
       ]
     },
     {
-      "activity": "Uso tradicional, sin eficacia demostrada: tumor abdominal",
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de abdomen",
       "activitySource": "Tumor(Abdomen)",
       "citations": [
         {

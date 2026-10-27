@@ -3,12 +3,13 @@
     "thevetia-neriifolia",
     "thevetia-peruviana"
   ],
-  "bundleHash": "sha256:a3924c7a1838425f9997a12619ddda2cd768ca3ca94d8178f57ed3dff0a41d18",
+  "bundleHash": "sha256:4dd403aad3b865e96f48dc7bc1af51cba197e8ab82583774ce2c8f01b3d422f8",
   "commonNames": [
     {
       "language": "es",
       "refs": [
-        "wikipedia_es:Thevetia peruviana"
+        "wikipedia_es:Thevetia peruviana",
+        "usda_common_name:1335-7"
       ],
       "text": "Adelfa amarilla"
     },
@@ -32,103 +33,90 @@
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Árbol de ayoyote"
+      "text": "codo de fraile"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Codo de fraile"
+      "text": "nuez de la india"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Hueso"
+      "text": "haba de San Ignacio"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Nuez de la india"
+      "text": "campanilla amarilla"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Haba de San Ignacio"
+      "text": "árbol de Panamá"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Campanilla amarilla"
+      "text": "campanelo de Filipinas"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Árbol de Panamá"
+      "text": "icoctli"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Campanelo de Filipinas"
+      "text": "lengua de gato"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Icoctli"
+      "text": "chilca"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Lengua de gato"
+      "text": "bacuá"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Chilca"
+      "text": "amancay"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Thevetia peruviana"
       ],
-      "text": "Bacuá"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Thevetia peruviana"
-      ],
-      "text": "Amancay"
-    },
-    {
-      "language": "es",
-      "refs": [
-        "wikipedia_es:Thevetia peruviana"
-      ],
-      "text": "Paichachí"
+      "text": "paichachí"
     },
     {
       "language": "en",
       "refs": [
         "tppt_plant:P475",
+        "usda_common_name:1334-1",
         "usda_common_name:1335-3"
       ],
       "text": "Yellow oleander"
@@ -148,18 +136,39 @@
       "text": "Peruvian Yellow Oleander"
     },
     {
+      "language": "pt",
+      "refs": [
+        "usda_common_name:1335-6"
+      ],
+      "text": "Loandro-Amarelo"
+    },
+    {
+      "language": "fr",
+      "refs": [
+        "usda_common_name:1335-4"
+      ],
+      "text": "Oleandre Jaune"
+    },
+    {
       "language": "de",
       "refs": [
         "tppt_plant:P475"
       ],
       "text": "Schellenbaum"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "usda_common_name:1335-5"
+      ],
+      "text": "Thevetie"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Thevetia peruviana"
     ],
-    "value": "Arbusto o pequeño árbol de la familia Apocynaceae, originario desde México hasta América tropical."
+    "value": "Especie de arbusto o pequeño árbol de la familia Apocynaceae, originario desde México hasta América tropical."
   },
   "displayName": {
     "language": "es",
@@ -194,7 +203,7 @@
     "refs": [
       "wcvp:34836"
     ],
-    "value": "Brasil, América Central, México y Sudamérica (norte, oeste y sur)."
+    "value": "Brasil, América Central, México y América del Sur (septentrional, meridional y occidental)."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -216,10 +225,30 @@
       "label": "EFSA Compendium of Botanicals: thevetine",
       "license": "CC BY 4.0"
     },
+    "efsa_endpoint:810": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Cascabela thevetia (L.) Lippold",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:811": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Cascabela thevetia (L.) Lippold",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:812": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Cascabela thevetia (L.) Lippold",
+      "license": "CC BY 4.0"
+    },
     "tppt_plant:P475": {
       "dataset": "tppt",
       "label": "TPPT (Agroscope): Thevetia peruviana (Pers.) K. Schum.",
       "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:1334-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yellow oleander»",
+      "license": "CC0"
     },
     "usda_common_name:1335-1": {
       "dataset": "usda",
@@ -234,6 +263,21 @@
     "usda_common_name:1335-3": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: nombre común «Yellow Oleander»",
+      "license": "CC0"
+    },
+    "usda_common_name:1335-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Oleandre Jaune (Fr.)»",
+      "license": "CC0"
+    },
+    "usda_common_name:1335-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Thevetie (Ger.)»",
+      "license": "CC0"
+    },
+    "usda_common_name:1335-6": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Loandro-Amarelo (Port.)»",
       "license": "CC0"
     },
     "usda_common_name:1335-7": {
@@ -591,56 +635,60 @@
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Fever(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete y queda sin resolver; el grupo conserva otras citas resueltas.",
       "target": "traditionalUses[0]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Emetic(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete y queda sin resolver; el grupo conserva otras citas resueltas.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Dropsy(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete y queda sin resolver; el grupo conserva otras citas resueltas.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Pile(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete y queda sin resolver; el grupo conserva otras citas resueltas.",
       "target": "traditionalUses[7]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Rheumatism(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete y queda sin resolver; el grupo conserva otras citas resueltas.",
       "target": "traditionalUses[8]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Tumor(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete y queda sin resolver; el grupo conserva otras citas resueltas.",
       "target": "traditionalUses[10]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Alexiteric(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[17]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Cathartic(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[18]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Fumitory(Veterinary)» no tiene candidata y quedó sin resolver.",
+      "message": "La clave Woi.Syria no tiene candidata en el paquete; el grupo queda pendiente de revisión.",
       "target": "traditionalUses[19]"
     }
   ],
   "safety": {
     "level": "alto",
     "refs": [
-      "tppt_plant:P475",
       "efsa_botanic:2600",
       "efsa_botanic:2601",
+      "efsa_endpoint:810",
+      "efsa_endpoint:811",
+      "efsa_endpoint:812",
+      "tppt_plant:P475",
+      "usda_use:82454",
       "usda_use:38564",
       "usda_use:38565",
       "usda_use:38567",
@@ -649,10 +697,9 @@
       "usda_use:75246",
       "usda_use:301",
       "usda_use:62120",
-      "usda_use:63589",
-      "usda_use:82454"
+      "usda_use:63589"
     ],
-    "text": "TPPT clasifica la toxicidad humana como «very strong toxic»; la parte tóxica es la planta entera, con mayores concentraciones en la corteza y el látex, y registra como tóxicos esteroides (glucósidos cardíacos) como cannogenina, digitoxigenina, neriifolina, peruvosido, tevetinas A, B y C y uzarigenina. EFSA registra cardenólidos y tevetina como sustancias de alta preocupación (venenos potentes) en plantas vivas. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: se registran casos mortales. Estas tres advertencias provienen de usos veterinarios."
+    "text": "EFSA registra cardenólidos y tevetina, venenos potentes, en la planta viva, y estudios los describen con un efecto cardiotónico similar al de Nerium oleander y una acción de tipo digitálico. TPPT clasifica la planta entera como muy tóxica, con mayor concentración en la corteza y el látex, y atribuye la toxicidad a glucósidos cardíacos (cannogenina y digitoxigenina como agliconas principales). Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales. Las señales de USDA corresponden a registros de uso veterinario."
   },
   "scientificName": {
     "authors": "(L.) Lippold",

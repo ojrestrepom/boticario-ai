@@ -1,20 +1,20 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:46d831f9d6ba458e635efafbe3d9ed9b045b74f08e5d0fc2b867b0764fef0017",
+  "bundleHash": "sha256:8e0978d5f8ffdb3dd192e5f75631cc8d50cfff25c8c1620a51b20e4b634b8dad",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Nicotiana tabacum"
       ],
-      "text": "tabaco"
+      "text": "Tabaco"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Nicotiana tabacum"
       ],
-      "text": "hierba santa"
+      "text": "Hierba santa"
     },
     {
       "language": "en",
@@ -76,7 +76,7 @@
     "refs": [
       "wcvp:2382275"
     ],
-    "value": "Oeste de Sudamérica"
+    "value": "Sudamérica occidental"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -96,6 +96,16 @@
     "efsa_botanic:900": {
       "dataset": "efsa",
       "label": "EFSA Compendium of Botanicals: anabasine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:266": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Nicotiana tabacum L.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:267": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Nicotiana tabacum L.",
       "license": "CC BY 4.0"
     },
     "efsa_endpoint:268": {
@@ -528,12 +538,12 @@
   "reviewFlags": [
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Insecticide» tiene una clave de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "message": "Alguna clave de cita del grupo «Insecticida» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[1]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "El grupo «Sedative» tiene una clave de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "message": "Alguna clave de cita del grupo «Sedante» no tiene candidata en el paquete y queda sin resolver.",
       "target": "traditionalUses[3]"
     }
   ],
@@ -543,16 +553,18 @@
       "tppt_plant:P518",
       "efsa_botanic:899",
       "efsa_botanic:900",
+      "efsa_endpoint:266",
+      "efsa_endpoint:267",
       "efsa_endpoint:268",
+      "usda_use:28844",
+      "usda_use:70653",
       "usda_use:38123",
       "usda_use:38124",
       "usda_use:38701",
       "usda_use:75101",
-      "usda_use:67892",
-      "usda_use:70653",
-      "usda_use:28844"
+      "usda_use:67892"
     ],
-    "text": "TPPT clasifica la planta entera como muy fuertemente tóxica para las personas y registra la nicotina, un alcaloide piridínico, como toxina principal, junto con otros alcaloides como la anabasina. EFSA registra nicotina y anabasina en las hojas y recoge un estudio que describe la anabasina como teratogénica. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica. Advertencia: se registran casos mortales. Advertencia: registrada como veneno homicida en usos tradicionales."
+    "text": "TPPT clasifica la toxicidad humana como muy fuerte; indica como parte tóxica la planta entera y como toxina principal la nicotina, un alcaloide piridínico, con anabasina y anatabina entre las toxinas menores. EFSA registra nicotina y anabasina en las hojas como evidencia, con estudios en humanos que describen un efecto letal y señalan la anabasina como teratogénica. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: se registran casos mortales. Advertencia: registrada como veneno homicida en usos tradicionales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como cianogénica."
   },
   "scientificName": {
     "authors": "L.",
@@ -646,7 +658,7 @@
         "China",
         "Haití",
         "México",
-        "Filipinas (Ifugao)",
+        "Filipinas (ifugao)",
         "Sudán",
         "Turquía",
         "Estados Unidos",
@@ -1125,7 +1137,7 @@
       ]
     },
     {
-      "activity": "Resfriado (cabeza)",
+      "activity": "Resfriado de cabeza",
       "activitySource": "Cold(Head)",
       "citations": [
         {

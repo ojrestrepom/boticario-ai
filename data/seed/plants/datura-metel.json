@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:87ce8a754d953065110deda899c81bf7c09ea37f96f93a512ef2ab1ac67eb7df",
+  "bundleHash": "sha256:630151ee11a9ce7b7fd4f11a1e5d80f79f28b81a1739db052f443e72f66a7704",
   "commonNames": [
     {
       "language": "en",
@@ -14,7 +14,7 @@
     "refs": [
       "wikipedia_es:Datura metel"
     ],
-    "value": "Arbusto vivaz en zonas cálidas y anual en zonas con heladas, que produce grandes flores en forma de trompeta de color blanco, amarillo o morado, vistosas y perfumadas. Se utiliza como planta ornamental en jardines y huertos en todo el mundo."
+    "value": "Arbusto vivaz en zonas cálidas y anual en zonas con heladas, que produce grandes flores en forma de trompeta, de color blanco, amarillo o morado, vistosas y perfumadas. Se usa como planta ornamental en jardines y huertos de todo el mundo."
   },
   "displayName": {
     "language": "la",
@@ -494,45 +494,45 @@
   },
   "reviewFlags": [
     {
-      "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
-      "target": "displayName"
-    },
-    {
-      "code": "conflicto-entre-fuentes",
-      "message": "El resumen de Wikipedia en español la da como natural del sur de China y de la India, pero WCVP la registra como nativa de México; se usó WCVP.",
-      "target": "origin"
-    },
-    {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Sumatra» del grupo «Fumitory» no tiene una candidata que corresponda y queda sin resolver.",
+      "message": "El grupo «Fumitory» tiene claves de cita sin candidata o sin página real: Sumatra.",
       "target": "traditionalUses[3]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Spasm» no tiene una candidata que corresponda y queda sin resolver.",
+      "message": "El grupo «Spasm» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[5]"
     },
     {
       "code": "cita-sin-resolver",
-      "message": "La clave de cita «Woi.Syria» del grupo «Narcotic» no tiene una candidata que corresponda y queda sin resolver.",
+      "message": "El grupo «Narcotic» tiene claves de cita sin candidata o sin página real: Woi.Syria.",
       "target": "traditionalUses[7]"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "El resumen de Wikipedia en español la da como natural del sur de China y de la India, pero WCVP registra como nativa solo México; se usó WCVP.",
+      "target": "origin"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
-      "efsa_botanic:686",
-      "efsa_botanic:687",
-      "efsa_botanic:688",
       "usda_use:37837",
       "usda_use:37840",
       "usda_use:37841",
       "usda_use:37842",
       "usda_use:81143",
-      "usda_use:28834"
+      "usda_use:28834",
+      "efsa_botanic:686",
+      "efsa_botanic:687",
+      "efsa_botanic:688"
     ],
-    "text": "EFSA registra atropina y escopolamina en la planta viva, y alcaloides tropánicos en la flor, dentro del grupo de venenos potentes. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales."
+    "text": "EFSA registra la atropina y la escopolamina en plantas vivas y los alcaloides tropánicos en la flor como venenos potentes. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -584,6 +584,7 @@
         }
       ],
       "countries": [
+        "Indias Orientales",
         "Egipto",
         "Guinea",
         "India",
@@ -637,6 +638,7 @@
       "countries": [
         "China",
         "Otros lugares",
+        "India (Santal)",
         "Malaya",
         "Turquía"
       ],
@@ -733,7 +735,9 @@
         }
       ],
       "countries": [
-        "Otros lugares"
+        "África (Suajili)",
+        "Otros lugares",
+        "India (Guyarat)"
       ],
       "n": 5,
       "pendingReview": false,
@@ -774,7 +778,8 @@
       ],
       "countries": [
         "China",
-        "India"
+        "India",
+        "India (Guyarat)"
       ],
       "n": 4,
       "pendingReview": false,
@@ -924,6 +929,7 @@
       ],
       "countries": [
         "China",
+        "India (Santal)",
         "Malaya"
       ],
       "n": 3,
@@ -981,6 +987,7 @@
         }
       ],
       "countries": [
+        "Mozambique (Tsonga)",
         "Transvaal"
       ],
       "n": 2,
@@ -1007,6 +1014,7 @@
         }
       ],
       "countries": [
+        "India (Santal)",
         "Malaya"
       ],
       "n": 2,
@@ -1118,6 +1126,7 @@
         }
       ],
       "countries": [
+        "India (Santal)",
         "Malaya"
       ],
       "n": 2,
@@ -1145,7 +1154,8 @@
         }
       ],
       "countries": [
-        "India"
+        "India",
+        "India (Santal)"
       ],
       "n": 2,
       "pendingReview": false,
@@ -1172,6 +1182,7 @@
         }
       ],
       "countries": [
+        "India (Santal)",
         "Malaya"
       ],
       "n": 2,
@@ -1213,7 +1224,9 @@
           "text": "Economic Botany 24: 251"
         }
       ],
-      "countries": [],
+      "countries": [
+        "India (Santal)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [

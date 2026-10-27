@@ -1,20 +1,20 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:6499caaf086311f3a284dd804bf2d4c0d4cd9699fc860ff96e7f10a543df74c1",
+  "bundleHash": "sha256:488c2568842217e5ca35a00ffa81fb4058bdd020aa89251a1b88a8662a0890ac",
   "commonNames": [
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Jatropha curcas"
       ],
-      "text": "piñón de tempate"
+      "text": "Piñón de tempate"
     },
     {
       "language": "es",
       "refs": [
         "wikipedia_es:Jatropha curcas"
       ],
-      "text": "jatrofa"
+      "text": "Jatrofa"
     },
     {
       "language": "en",
@@ -35,7 +35,7 @@
     "refs": [
       "wikipedia_es:Jatropha curcas"
     ],
-    "value": "Jatropha curcas, conocida como piñón de tempate o jatrofa, es una planta de la familia de las euforbiáceas."
+    "value": "Planta de la familia de las euforbiáceas, conocida como piñón de tempate o jatrofa."
   },
   "displayName": {
     "language": "es",
@@ -59,7 +59,7 @@
     "refs": [
       "wcvp:104552"
     ],
-    "value": "América tropical: Brasil, Caribe, América Central, México y varias regiones de Sudamérica."
+    "value": "Brasil, Caribe, América Central, México, norte de Sudamérica, sur de Sudamérica y oeste de Sudamérica."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -103,6 +103,11 @@
     "usda_reference:Burkill, 1966": {
       "dataset": "usda",
       "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
       "license": "CC0"
     },
     "usda_reference:EB": {
@@ -627,45 +632,9 @@
       "url": "https://es.wikipedia.org/wiki/Jatropha_curcas"
     }
   },
-  "reviewFlags": [
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Purgante» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[0]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Jabón» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[2]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Ictericia» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[5]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Piscicida» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[6]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Hemorroides» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[10]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Raticida» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[11]"
-    },
-    {
-      "code": "cita-sin-resolver",
-      "message": "El grupo «Quemadura» conserva claves de cita sin candidata: Duke,1972.",
-      "target": "traditionalUses[17]"
-    }
-  ],
+  "reviewFlags": [],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
       "efsa_botanic:1131",
       "usda_use:38009",
@@ -678,11 +647,11 @@
       "usda_use:58871",
       "usda_use:75061",
       "usda_use:75062",
+      "usda_use:221",
       "usda_use:28841",
-      "usda_use:28842",
-      "usda_use:221"
+      "usda_use:28842"
     ],
-    "text": "EFSA registra curcina, presente en la semilla, como sustancia de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
+    "text": "EFSA registra la curcina de la semilla como sustancia de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: registrada como veneno homicida en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -745,8 +714,8 @@
         },
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Eb25: 438",
@@ -800,6 +769,7 @@
         "India",
         "Java",
         "México",
+        "Panamá (cuna)",
         "Filipinas",
         "Sudán",
         "Trinidad",
@@ -827,6 +797,7 @@
         "usda_reference:Altschul",
         "usda_reference:Ayensu",
         "usda_reference:Broun",
+        "usda_reference:Duke",
         "usda_reference:EB",
         "usda_reference:Martinez",
         "usda_reference:Pittier",
@@ -874,6 +845,8 @@
       "countries": [
         "África",
         "Guatemala",
+        "India (santal)",
+        "Panamá (Chocó)",
         "Trinidad"
       ],
       "n": 6,
@@ -897,8 +870,8 @@
       "citations": [
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Liogier",
@@ -936,6 +909,7 @@
         "usda_use:76953",
         "usda_use:76954",
         "usda_use:81473",
+        "usda_reference:Duke",
         "usda_reference:Liogier",
         "usda_reference:Pittier",
         "usda_reference:Standley",
@@ -1037,8 +1011,8 @@
         },
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Eb24: 360",
@@ -1049,6 +1023,7 @@
       "countries": [
         "Otros lugares",
         "Nigeria",
+        "Panamá (Chocó)",
         "Alto Volta"
       ],
       "n": 4,
@@ -1059,6 +1034,7 @@
         "usda_use:30718",
         "usda_use:72826",
         "usda_reference:Ayensu",
+        "usda_reference:Duke",
         "usda_reference:EB"
       ]
     },
@@ -1073,8 +1049,8 @@
         },
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Standley",
@@ -1100,6 +1076,7 @@
         "usda_use:37187",
         "usda_use:81470",
         "usda_reference:Burkill, 1966",
+        "usda_reference:Duke",
         "usda_reference:Standley",
         "usda_reference:WOI"
       ]
@@ -1226,8 +1203,8 @@
       "citations": [
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Pittier",
@@ -1250,6 +1227,7 @@
         "usda_use:36761",
         "usda_use:74667",
         "usda_use:81469",
+        "usda_reference:Duke",
         "usda_reference:Pittier",
         "usda_reference:WOI"
       ]
@@ -1260,8 +1238,8 @@
       "citations": [
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Liogier",
@@ -1285,6 +1263,7 @@
         "usda_use:40232",
         "usda_use:58875",
         "usda_use:75736",
+        "usda_reference:Duke",
         "usda_reference:Liogier",
         "usda_reference:WOI"
       ]
@@ -1406,6 +1385,7 @@
         }
       ],
       "countries": [
+        "India (Travancore)",
         "Tonga"
       ],
       "n": 2,
@@ -1450,8 +1430,8 @@
       "citations": [
         {
           "key": "Duke,1972",
-          "ref": null,
-          "text": "Duke,1972 (sin resolver)"
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
         },
         {
           "key": "Pittier",
@@ -1468,6 +1448,7 @@
       "refs": [
         "usda_use:8554",
         "usda_use:81462",
+        "usda_reference:Duke",
         "usda_reference:Pittier"
       ]
     },
@@ -1487,7 +1468,8 @@
         }
       ],
       "countries": [
-        "África"
+        "África",
+        "India (santal)"
       ],
       "n": 2,
       "pendingReview": false,

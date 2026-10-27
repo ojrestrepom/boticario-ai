@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:d6d3e31b5cb7a908432fa88b06f26e082bf8851d0c1408f90242007bc9f28440",
+  "bundleHash": "sha256:e41f2cb868b470215ab404b2000581d2ca1a4f1b3bd4d426dc7d4ece1eedafe1",
   "commonNames": [
     {
       "language": "es",
@@ -59,6 +59,13 @@
       "text": "Buen varón de Jarava"
     },
     {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P685"
+      ],
+      "text": "Rainfarn"
+    },
+    {
       "language": "en",
       "refs": [
         "tppt_plant:P685"
@@ -71,20 +78,13 @@
         "usda_common_name:993-1"
       ],
       "text": "Tansy"
-    },
-    {
-      "language": "de",
-      "refs": [
-        "tppt_plant:P685"
-      ],
-      "text": "Rainfarn"
     }
   ],
   "description": {
     "refs": [
       "wikipedia_es:Tanacetum vulgare"
     ],
-    "value": "Planta herbácea perenne, conocida también como tanaceto, tansi, hierba lombriguera o menta romana."
+    "value": "Planta herbácea perenne, conocida también como tanaceto, tansi o hierba lombriguera."
   },
   "displayName": {
     "language": "es",
@@ -123,7 +123,7 @@
     "refs": [
       "wcvp:2929189"
     ],
-    "value": "Nativa de Europa, el Cáucaso, Asia occidental, central y oriental, Siberia y Mongolia."
+    "value": "Europa y gran parte de Asia, incluidas Siberia y Mongolia"
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -441,28 +441,28 @@
   "reviewFlags": [
     {
       "code": "aceite-por-compuesto-eo",
-      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
       "target": "oil"
     }
   ],
   "safety": {
-    "level": "medio",
+    "level": "alto",
     "refs": [
       "efsa_botanic:1733",
       "efsa_botanic:1731",
-      "efsa_botanic:1732",
       "efsa_botanic:1734",
+      "efsa_botanic:1732",
       "tppt_plant:P685",
-      "usda_use:287",
-      "usda_use:306",
-      "usda_use:307",
+      "usda_use:23710",
+      "usda_use:61988",
       "usda_use:38388",
       "usda_use:38389",
       "usda_use:38754",
-      "usda_use:23710",
-      "usda_use:61988"
+      "usda_use:287",
+      "usda_use:306",
+      "usda_use:307"
     ],
-    "text": "EFSA registra tuyona (alfa y beta) en la parte aérea como sustancia con límite de ingesta o toxicidad conocida, y alcanfor y 1,8-cineol como sustancias de evidencia. TPPT registra la planta como alergénica en la parte aérea (lactonas sesquiterpénicas alergénicas y aceite esencial irritante) y como tóxica para animales. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
+    "text": "EFSA registra alfa-tuyona y beta-tuyona como sustancias de preocupación (tóxicas con límite de ingesta) en la parte aérea, y 1,8-cineol y alcanfor como sustancias de evidencia. TPPT registra la planta como alergénica en la parte aérea (lactonas sesquiterpénicas alergénicas y aceite esencial irritante). Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
   },
   "scientificName": {
     "authors": "L.",
@@ -473,12 +473,16 @@
   },
   "sources": [
     {
-      "dataset": "commons",
-      "license": "CC BY-SA 3.0"
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
     },
     {
-      "dataset": "efsa",
-      "license": "CC BY 4.0"
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
     },
     {
       "dataset": "tppt",
@@ -489,16 +493,12 @@
       "license": "CC0"
     },
     {
-      "dataset": "wcvp",
-      "license": "CC BY 3.0"
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
     },
     {
-      "dataset": "wikidata",
-      "license": "CC0 1.0"
-    },
-    {
-      "dataset": "wikipedia_es",
-      "license": "CC BY-SA 4.0"
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
     }
   ],
   "synonyms": [
@@ -533,7 +533,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -615,7 +615,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -646,7 +646,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -674,7 +674,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -701,7 +701,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -729,7 +729,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -784,7 +784,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -829,7 +829,9 @@
           "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
         }
       ],
-      "countries": [],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
       "n": 1,
       "pendingReview": false,
       "refs": [
@@ -864,7 +866,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -924,7 +926,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [
@@ -1004,7 +1006,7 @@
         {
           "key": "Woi.10",
           "ref": "usda_reference:WOI",
-          "text": "The Wealth of India, vol. 10"
+          "text": "The Wealth of India raw materials, vol. 10"
         }
       ],
       "countries": [

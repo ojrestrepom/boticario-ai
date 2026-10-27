@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "bundleHash": "sha256:6dc1c7a65376d8292a13e340a97200f69642f6b0f0533823bdb8f503ef142c23",
+  "bundleHash": "sha256:50dde846c7cccd98d1cac6b4c7dcc7bd3c0f6d5c153163a7282799f643727a53",
   "commonNames": [
     {
       "language": "en",
@@ -21,7 +21,7 @@
     "refs": [
       "wikipedia_es:Lobelia inflata"
     ],
-    "value": "Planta de flores de la familia Campanulaceae, nativa del este de Norteamérica, desde el sudeste de Canadá hasta Alabama y el oeste de Kansas. Crece en terrenos secos e incultos, bordes de carreteras, prados y ribazos."
+    "value": "Especie de planta de flores de la familia Campanulaceae, nativa del este de Norteamérica, desde el sudeste de Canadá hacia el sur por el este de EE. UU. Crece en terrenos secos e incultos, bordes de carreteras, prados y ribazos."
   },
   "displayName": {
     "language": "la",
@@ -55,7 +55,7 @@
     "refs": [
       "wcvp:353345"
     ],
-    "value": "Este de Canadá y de Estados Unidos"
+    "value": "Este de Canadá y regiones centro-norte, noreste y sureste de Estados Unidos."
   },
   "partsUsed": [],
   "promptVersion": 7,
@@ -312,21 +312,21 @@
   "reviewFlags": [
     {
       "code": "sin-nombre-comun-es",
-      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
       "target": "displayName"
     }
   ],
   "safety": {
-    "level": null,
+    "level": "alto",
     "refs": [
+      "efsa_botanic:1526",
       "usda_use:38051",
       "usda_use:38052",
       "usda_use:38687",
       "usda_use:81578",
-      "usda_use:70651",
-      "efsa_botanic:1526"
+      "usda_use:70651"
     ],
-    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. El compendio de botánicos de la EFSA registra la sustancia lobelina en plantas vivas."
+    "text": "EFSA anota la lobelina como sustancia de evidencia en plantas vivas. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales."
   },
   "scientificName": {
     "authors": "L.",
@@ -594,7 +594,7 @@
       ]
     },
     {
-      "activity": "Antitabáquico",
+      "activity": "Antitabaco",
       "activitySource": "Antismoking",
       "citations": [
         {
@@ -694,7 +694,7 @@
       ]
     },
     {
-      "activity": "Ojos",
+      "activity": "Ojo",
       "activitySource": "Eye",
       "citations": [
         {

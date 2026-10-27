@@ -283,18 +283,18 @@ void main() {
   testWidgets('General muestra identidad, familia, nombres, partes y sin '
       'procedencia', (tester) async {
     await setCompactViewport(tester);
-    expect(find.text('English Lavender'), findsOneWidget);
+    expect(find.text('English Lavender'), findsNWidgets(2));
     expect(find.text('Lavandula angustifolia'), findsOneWidget);
     expect(find.text('Familia'), findsOneWidget);
     expect(find.text('Lamiaceae'), findsOneWidget);
-    expect(find.text('Nombres comunes'), findsOneWidget);
-    expect(find.text('English Lavender (en)'), findsOneWidget);
+    expect(find.text('Otros nombres comunes'), findsOneWidget);
+    // The older backend has no display name: the first common name is the
+    // `Nombre común` and is not repeated among the others.
+    expect(find.text('English Lavender (en)'), findsNothing);
     expect(find.text('Flower, Leaf, Plant, Seed'), findsOneWidget);
-    expect(find.text('No aplicable: ficha de planta'), findsOneWidget);
-    expect(find.text('No disponible en fuente'), findsNothing);
+    expect(find.text('Tipo de aceite'), findsOneWidget);
     for (final removed in [
-      'Origen',
-      'Descripción',
+      'No aplicable: ficha de planta',
       'Procedencia',
       'Licencia',
       'Versión',
@@ -321,8 +321,8 @@ void main() {
   ) async {
     await show(tester, _noFamily);
     expect(find.text('Familia'), findsOneWidget);
-    expect(find.text('No disponible en fuente'), findsOneWidget);
-    expect(find.text('Irish Moss (en)'), findsOneWidget);
+    // Familia, origen, tipo de aceite and descripción.
+    expect(find.text('No disponible en fuente'), findsNWidgets(4));
     expect(find.text('Referencias bibliográficas'), findsNothing);
   });
 
@@ -330,16 +330,17 @@ void main() {
       'only name', (tester) async {
     await show(tester, _noCommonNames);
     expect(find.text('Abies spectabilis'), findsOneWidget);
-    expect(find.text('Nombres comunes'), findsOneWidget);
+    expect(find.text('Otros nombres comunes'), findsOneWidget);
     expect(find.text('No hay nombres comunes registrados'), findsOneWidget);
     expect(find.text('Leaf, Plant, Wood'), findsOneWidget);
   });
 
   testWidgets('common names keep their text and language code', (tester) async {
     await show(tester, _noUses);
-    expect(find.text('Japanese Fir (en)'), findsOneWidget);
     expect(find.text('Shin-Yo-Yu (en)'), findsOneWidget);
-    expect(find.text('Japanese Fir'), findsOneWidget); // Header, primary.
+    // Header and `Nombre común`: the primary name is not repeated in the list.
+    expect(find.text('Japanese Fir'), findsNWidgets(2));
+    expect(find.text('Japanese Fir (en)'), findsNothing);
     expect(find.text('Abies sachalinensis'), findsOneWidget);
   });
 
@@ -352,7 +353,7 @@ void main() {
       findsOneWidget,
     );
     expect(
-      find.text('sin propiedades medicinales evaluadas en este catálogo'),
+      find.text('No hay objetivos registrados por la EMA para esta planta'),
       findsOneWidget,
     );
     expect(find.textContaining('eficaz'), findsNothing);
@@ -676,7 +677,7 @@ void main() {
       await tester.tap(find.text('Propiedades'));
       await tester.pumpAndSettle();
       expect(
-        find.text('sin propiedades medicinales evaluadas en este catálogo'),
+        find.text('No hay objetivos registrados por la EMA para esta planta'),
         findsOneWidget,
       );
     },
@@ -1026,18 +1027,21 @@ void main() {
             ?entry.value.$2,
             'Familia',
             plant.family ?? 'No disponible en fuente',
-            'Nombres comunes',
-            if (plant.commonNames.isEmpty)
+            'Otros nombres comunes',
+            if (plant.commonNames
+                .skip(plant.primaryName == plant.scientificName ? 0 : 1)
+                .isEmpty)
               'No hay nombres comunes registrados'
             else
-              for (final name in plant.commonNames)
+              for (final name in plant.commonNames.skip(
+                plant.primaryName == plant.scientificName ? 0 : 1,
+              ))
                 '${name.text} (${name.language})',
-            'Partes registradas en fuente',
+            'Parte utilizada',
             plant.parts.isEmpty
                 ? 'No hay partes registradas en fuente'
                 : plant.parts.join(', '),
             'Tipo de aceite',
-            'No aplicable: ficha de planta',
             if (plant.uses.isNotEmpty) 'Referencias bibliográficas',
           ]) {
             final target = find.text(text);
@@ -1054,7 +1058,9 @@ void main() {
           await selectTab(tester, 'Propiedades');
           await assertParagraphReadable(
             tester,
-            find.text('sin propiedades medicinales evaluadas en este catálogo'),
+            find.text(
+              'No hay objetivos registrados por la EMA para esta planta',
+            ),
           );
           await selectTab(tester, 'Usos');
           if (plant.uses.isEmpty) {

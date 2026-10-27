@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../catalog/domain/plant.dart';
+import '../../catalog/domain/plant_consolidated.dart';
 import 'passport_style.dart';
+import 'passport_texts.dart';
 
 /// `General` tab content.
 class PassportGeneralTab extends StatelessWidget {
@@ -11,27 +13,55 @@ class PassportGeneralTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final commonNames = plant.commonNames;
+    final primary = plant.primaryName;
+    // Without a Spanish common name the display name is the scientific name,
+    // which is not shown as a common name.
+    final hasCommonName = primary != plant.scientificName;
+    final others = _otherCommonNames(primary);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PassportField('Familia', plant.family ?? 'No disponible en fuente'),
-        if (commonNames.isEmpty)
+        if (plant.safety?.level == SafetyLevel.high) const _HighLevelNotice(),
+        PassportField(
+          PassportTexts.commonNameLabel,
+          hasCommonName ? primary : PassportTexts.noSpanishCommonName,
+        ),
+        if (plant.synonyms.isEmpty)
           const PassportField(
-            'Nombres comunes',
-            'No hay nombres comunes registrados',
+            PassportTexts.synonymsLabel,
+            PassportTexts.noSynonyms,
           )
         else
-          PassportFieldLines('Nombres comunes', [
-            for (final name in commonNames) '${name.text} (${name.language})',
-          ]),
+          PassportFieldLines(PassportTexts.synonymsLabel, plant.synonyms),
         PassportField(
-          'Partes registradas en fuente',
-          plant.parts.isEmpty
-              ? 'No hay partes registradas en fuente'
-              : plant.parts.join(', '),
+          PassportTexts.familyLabel,
+          plant.family ?? PassportTexts.notAvailable,
         ),
-        const PassportField('Tipo de aceite', 'No aplicable: ficha de planta'),
+        PassportField(
+          PassportTexts.originLabel,
+          plant.origin ?? PassportTexts.notAvailable,
+        ),
+        PassportField(
+          PassportTexts.partLabel,
+          plant.parts.isEmpty ? PassportTexts.noParts : plant.parts.join(', '),
+        ),
+        PassportField(
+          PassportTexts.oilLabel,
+          plant.oil?.type ?? PassportTexts.notAvailable,
+        ),
+        PassportField(
+          PassportTexts.descriptionLabel,
+          plant.description ?? PassportTexts.notAvailable,
+        ),
+        if (others.isEmpty)
+          const PassportField(
+            PassportTexts.otherCommonNamesLabel,
+            PassportTexts.noCommonNames,
+          )
+        else
+          PassportFieldLines(PassportTexts.otherCommonNamesLabel, [
+            for (final name in others) '${name.text} (${name.language})',
+          ]),
         if (plant.uses.isNotEmpty) ...[
           const SizedBox(height: 8),
           const PassportSectionTitle('Referencias bibliográficas'),
@@ -41,6 +71,14 @@ class PassportGeneralTab extends StatelessWidget {
     );
   }
 
+  /// Common names except the one shown as `Nombre común` (first match only).
+  List<PlantName> _otherCommonNames(String primary) {
+    final others = [...plant.commonNames];
+    final index = others.indexWhere((name) => name.text == primary);
+    if (index >= 0) others.removeAt(index);
+    return others;
+  }
+
   List<UseReference> _references() {
     final refs = <String, UseReference>{};
     for (final use in plant.uses) {
@@ -48,4 +86,39 @@ class PassportGeneralTab extends StatelessWidget {
     }
     return refs.values.toList();
   }
+}
+
+/// Notice for `safety.level == alto`. The level is text, not only color.
+class _HighLevelNotice extends StatelessWidget {
+  const _HighLevelNotice();
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    margin: const EdgeInsets.only(bottom: 14),
+    padding: const EdgeInsets.all(12),
+    decoration: BoxDecoration(
+      color: const Color(0xFFFFF1E6),
+      border: Border.all(color: const Color(0xFF8A3B00)),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          PassportTexts.highLevelNoticeTitle,
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            color: const Color(0xFF5C2600),
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          PassportTexts.highLevelNoticeBody,
+          style: Theme.of(context).textTheme.bodyMedium
+              ?.copyWith(color: passportInk),
+        ),
+      ],
+    ),
+  );
 }

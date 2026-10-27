@@ -48,6 +48,10 @@ La pestaña `General` SHALL mostrar solo campos entregados por la API: `Nombre c
 - **WHEN** la planta no tiene partes, sinónimos o nombres comunes registrados
 - **THEN** `General` indica explícitamente que no hay datos registrados en lugar de omitir el campo en silencio
 
+#### Scenario: Planta sin nombre en español
+- **WHEN** el `displayName` de la planta coincide con su nombre científico, por ejemplo `abutilon-theophrasti`, que solo tiene nombres comunes en otros idiomas
+- **THEN** `Nombre común` muestra `No hay nombre común en español registrado` y no el nombre científico, y los nombres comunes en otros idiomas siguen en los demás nombres comunes, cada uno con su idioma
+
 #### Scenario: Aviso de nivel alto
 - **WHEN** el nivel de precauciones de la planta es `alto`
 - **THEN** `General` muestra un aviso con el texto del nivel (no solo un color) y la indicación de ver `Propiedades`

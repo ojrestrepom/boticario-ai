@@ -196,6 +196,7 @@ Wikimedia pide un `User-Agent` identificable en sus peticiones y puede limitar l
 | Familia, origen, tipo de aceite, descripción | `No disponible en fuente` |
 | Partes | `No hay partes registradas en fuente` |
 | Sinónimos | `No hay sinónimos registrados` |
+| Nombre común (el `displayName` es el nombre científico) | `No hay nombre común en español registrado`; no se muestra el nombre científico como nombre común |
 | Nombres comunes (otros) | `No hay nombres comunes registrados` |
 | Objetivos | `No hay objetivos registrados por la EMA para esta planta` |
 | Precauciones | `No hay precauciones registradas en las fuentes consultadas. Esto no significa que la planta sea segura.` |
@@ -250,6 +251,11 @@ Riesgo: una consulta corta como `a` coincide con muchos alias; es el mismo compo
 
 - **[El cambio 1 no deja lo que este cambio lee]** `display_name`, `goal`, `goal_subarea`, `plant_goal.subarea_id` y `pending_review`, y la atribución con texto. → La tarea 1.1 comprueba la migración real antes de escribir consultas y detiene la implementación si falta algo, para ajustar el cambio 1 y no duplicarlo aquí.
 - **[Imágenes pesadas o limitadas por Wikimedia]** El `url` puede ser el original de varios MB, y Wikimedia limita a clientes anónimos con un agente genérico. → Medir tamaños y respuestas con la base real (tarea 6.4), pedir un ancho acotado si la URL lo admite y fijar un `User-Agent`; sin imagen la ficha sigue completa.
+- **[Imágenes pesadas: decisión pendiente sobre la miniatura]** La medición de la tarea 6.4 (`qa/image-sizes.md`, 20 plantas) arroja lo siguiente y la decisión es del usuario.
+  - Los originales van de 0,02 MB a 74,65 MB (`berberis-aquifolium`), con mediana de 1,28 MB.
+  - El 40 % (8 de 20) supera 2 MB y dos pasan de 7 MB; lavanda, menta y eucalipto son ligeras (menos de 200 KB).
+  - Wikimedia sirve miniaturas de 500 px (de 33 a 115 KB en la muestra), pero no de 640 px, y la app hoy carga `image.url` tal cual.
+  - Está pendiente decidir si se adopta una función pura que convierta la URL en la de la miniatura de 500 px.
 - **[El aviso fijo de `Usos` es provisional]** El texto lo ajustará el usuario en la app. → Vive en un solo lugar del código de la app, con una prueba que verifica que se muestra siempre al inicio y no contiene lenguaje de eficacia.
 - **[La planta tóxica no avisa suficiente]** El aviso de `General` solo aparece con nivel alto. → Los niveles se definen en la semilla desde TPPT y la EMA; la QA revisa tóxicas conocidas y una planta sin datos.
 - **[«Objetivos de la EMA» se lee como indicación]** → Aclaración fija junto a cada objetivo, nombres sin verbos de efecto, prueba que los textos fijos no contienen palabras de efecto, y el origen (EMA) nombrado.

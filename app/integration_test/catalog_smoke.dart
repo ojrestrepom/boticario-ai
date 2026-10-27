@@ -342,15 +342,11 @@ Future<void> _runCatalogSmoke(
     }
     expect(_selectedChip(tester, 'General'), isTrue);
     expect(find.text('Lamiaceae'), findsOneWidget);
-    expect(find.text('No aplicable: ficha de planta'), findsOneWidget);
+    expect(find.text('Tipo de aceite'), findsOneWidget);
     await _tapVisible(tester, find.text('Propiedades'));
     expect(_selectedChip(tester, 'Propiedades'), isTrue);
-    expect(
-      find.textContaining(
-        'sin propiedades medicinales evaluadas en este catálogo',
-      ),
-      findsOneWidget,
-    );
+    expect(find.text('Objetivos registrados por la EMA'), findsOneWidget);
+    expect(find.text('Precauciones'), findsOneWidget);
     await _tapVisible(tester, find.text('Usos'));
     expect(_selectedChip(tester, 'Usos'), isTrue);
     expect(find.text('Registros tradicionales'), findsOneWidget);

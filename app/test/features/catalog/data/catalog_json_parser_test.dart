@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:boticario_ai/features/catalog/data/catalog_client_exception.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
+import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../support/fake_catalog_api.dart';
@@ -18,6 +19,7 @@ Map<String, Object?> _detail() =>
         as Map<String, Object?>;
 
 void main() {
+  _consolidatedTests();
   group('parsePlantPage', () {
     test('parses a valid page', () {
       final page = parsePlantPage(apiFixture('list_lavandula.json'));
@@ -162,6 +164,175 @@ void main() {
     test('rejects invalid JSON and non-object JSON', () {
       expect(() => parsePlant('nope'), _invalid());
       expect(() => parsePlant('[]'), _invalid());
+    });
+  });
+}
+
+Map<String, Object?> _full() =>
+    jsonDecode(apiFixture('plant_consolidated_synthetic.json'))
+        as Map<String, Object?>;
+
+List<Object?> _at(Map<String, Object?> json, String key) =>
+    json[key]! as List<Object?>;
+
+void _consolidatedTests() {
+  group('parsePlant consolidated fields', () {
+    test('Detalle válido: parses every new field', () {
+      final plant = parsePlant(apiFixture('plant_consolidated_synthetic.json'));
+      expect(plant.displayName, 'Lavanda');
+      expect(plant.synonyms, ['Lavandula officinalis']);
+      expect(plant.description, isNotNull);
+      expect(plant.origin, 'Región mediterránea');
+      expect(plant.oil, const PlantOil(type: 'Esencial'));
+      final group = plant.useGroups.single;
+      expect(group.count, 12);
+      expect(group.activitySource, 'insomnia');
+      expect(group.countries, ['España', 'Francia', 'Italia']);
+      expect(group.references.first.citation, startsWith('Steinmetz'));
+      expect(plant.goals.single.subarea, 'Digestión');
+      expect(plant.goals.single.area, 'Digestión');
+      expect(plant.goals.single.references.single.id, 'ema-1');
+      expect(plant.safety!.level, SafetyLevel.high);
+      expect(plant.safety!.references, hasLength(1));
+      expect(plant.image!.author, isNull);
+      expect(plant.image!.attributionRequired, isTrue);
+      expect(plant.credits.single.url, isNull);
+      expect(plant.credits.single.licenseUrl, isNotNull);
+    });
+
+    test('Detalle válido: every safety level maps to the enum', () {
+      for (final (raw, level) in [
+        ('alto', SafetyLevel.high),
+        ('medio', SafetyLevel.medium),
+        ('bajo', SafetyLevel.low),
+      ]) {
+        final json = _full();
+        (json['safety']! as Map<String, Object?>)['level'] = raw;
+        expect(parsePlant(jsonEncode(json)).safety!.level, level);
+      }
+    });
+
+    test('Backend anterior sin los campos nuevos', () {
+      final plant = parsePlant(apiFixture('plant_lavandula-angustifolia.json'));
+      expect(plant.displayName, isNull);
+      expect(plant.synonyms, isEmpty);
+      expect(plant.description, isNull);
+      expect(plant.origin, isNull);
+      expect(plant.oil, isNull);
+      expect(plant.goals, isEmpty);
+      expect(plant.safety, isNull);
+      expect(plant.image, isNull);
+      expect(plant.credits, isEmpty);
+      // useGroups is derived from uses (task 6.3).
+      expect(plant.useGroups, isNotEmpty);
+    });
+
+    test('Backend anterior: explicit nulls behave like absent fields', () {
+      final json = _detail()
+        ..['oil'] = null
+        ..['safety'] = null
+        ..['image'] = null
+        ..['goals'] = null
+        ..['credits'] = null
+        ..['synonyms'] = null
+        ..['description'] = null;
+      final plant = parsePlant(jsonEncode(json));
+      expect(plant.safety, isNull);
+      expect(plant.goals, isEmpty);
+    });
+
+    test('an explicit empty useGroups is not replaced by the fallback', () {
+      final json = _detail()..['useGroups'] = <Object?>[];
+      expect(parsePlant(jsonEncode(json)).useGroups, isEmpty);
+    });
+
+    test('Precauciones sin nivel: level null is valid, safety is kept', () {
+      final json = _full();
+      (json['safety']! as Map<String, Object?>)['level'] = null;
+      final safety = parsePlant(jsonEncode(json)).safety;
+      expect(safety, isNotNull);
+      expect(safety!.level, isNull);
+      expect(safety.text, isNotEmpty);
+      expect(safety.references, hasLength(1));
+    });
+
+    test('Precauciones sin nivel: an absent level is also null', () {
+      final json = _full();
+      (json['safety']! as Map<String, Object?>).remove('level');
+      expect(parsePlant(jsonEncode(json)).safety!.level, isNull);
+    });
+
+    test('Cita sin resolver: keeps the unresolved mark', () {
+      final plant = parsePlant(apiFixture('plant_consolidated_synthetic.json'));
+      final refs = plant.useGroups.single.references;
+      expect(refs[0].resolved, isTrue);
+      expect(refs[1].id, isNull);
+      expect(refs[1].resolved, isFalse);
+      expect(refs[1].citation, 'dukeref99 (sin resolver)');
+    });
+
+    test('Campo nuevo con tipo erróneo: goals as text', () {
+      expect(
+        () => parsePlant(jsonEncode(_full()..['goals'] = 'x')),
+        _invalid(contains('goals')),
+      );
+    });
+
+    test('Campo nuevo con tipo erróneo: unknown safety level', () {
+      final json = _full();
+      (json['safety']! as Map<String, Object?>)['level'] = 'critico';
+      expect(() => parsePlant(jsonEncode(json)), _invalid(contains('level')));
+    });
+
+    test('Campo nuevo con tipo erróneo: resolved not boolean', () {
+      final json = _full();
+      final group = _at(json, 'useGroups').first! as Map<String, Object?>;
+      (_at(group, 'references').first! as Map<String, Object?>)['resolved'] =
+          'true';
+      expect(
+        () => parsePlant(jsonEncode(json)),
+        _invalid(contains('resolved')),
+      );
+    });
+
+    test('Campo nuevo con tipo erróneo: other fields', () {
+      for (final (key, value) in <(String, Object?)>[
+        ('displayName', 3),
+        ('description', 1),
+        ('oil', 'Esencial'),
+        ('image', []),
+        ('credits', {}),
+        ('synonyms', [1]),
+        ('safety', 'alto'),
+      ]) {
+        expect(
+          () => parsePlant(jsonEncode(_full()..[key] = value)),
+          _invalid(contains(key)),
+          reason: key,
+        );
+      }
+    });
+  });
+
+  group('parsePlantPage displayName', () {
+    test('reads displayName and tolerates its absence', () {
+      final page = parsePlantPage(
+        '{"items":[{"id":"a","scientificName":"A a","displayName":"Ala",'
+        '"commonNames":[]},{"id":"b","scientificName":"B b","commonNames":[]}],'
+        '"total":2,"limit":50,"offset":0}',
+      );
+      expect(page.items[0].displayName, 'Ala');
+      expect(page.items[1].displayName, isNull);
+    });
+
+    test('rejects a displayName of the wrong type', () {
+      expect(
+        () => parsePlantPage(
+          '{"items":[{"id":"a","scientificName":"A a","displayName":1,'
+          '"commonNames":[]}],"total":1,"limit":50,"offset":0}',
+        ),
+        _invalid(contains('displayName')),
+      );
     });
   });
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import '../domain/plant.dart';
+import '../domain/plant_consolidated.dart';
 import '../domain/plant_summary.dart';
 import 'catalog_client_exception.dart';
 
@@ -43,6 +44,112 @@ Plant parsePlant(String body) {
       for (var i = 0; i < uses.length; i++)
         _use(_asObject(uses[i], 'uses[$i]'), 'uses[$i]'),
     ],
+    displayName: _nullableString(json, 'displayName', where),
+    synonyms: [
+      for (final (i, value) in _optionalList(json, 'synonyms', where).indexed)
+        value is String
+            ? value
+            : throw _invalid('synonyms[$i] de $where debe ser texto'),
+    ],
+    description: _nullableString(json, 'description', where),
+    origin: _nullableString(json, 'origin', where),
+    oil: _optionalObject(json, 'oil', where, (o) {
+      return PlantOil(type: _string(o, 'type', 'oil'));
+    }),
+    // Absent (older backend) derives the groups from `uses`; present, even
+    // empty, is the API's own answer.
+    useGroups: json.containsKey('useGroups') && json['useGroups'] != null
+        ? [
+            for (final (i, v) in _list(json, 'useGroups', where).indexed)
+              _useGroup(_asObject(v, 'useGroups[$i]'), 'useGroups[$i]'),
+          ]
+        : null,
+    goals: [
+      for (final (i, v) in _optionalList(json, 'goals', where).indexed)
+        _goal(_asObject(v, 'goals[$i]'), 'goals[$i]'),
+    ],
+    safety: _optionalObject(json, 'safety', where, _safety),
+    image: _optionalObject(json, 'image', where, _image),
+    credits: [
+      for (final (i, v) in _optionalList(json, 'credits', where).indexed)
+        _credit(_asObject(v, 'credits[$i]'), 'credits[$i]'),
+    ],
+  );
+}
+
+UseGroup _useGroup(Map<String, Object?> json, String where) => UseGroup(
+  activity: _string(json, 'activity', where),
+  activitySource: _nullableString(json, 'activitySource', where),
+  count: _int(json, 'count', where),
+  countries: _stringList(json, 'countries', where),
+  references: _references(json, where),
+);
+
+PlantGoal _goal(Map<String, Object?> json, String where) => PlantGoal(
+  id: _string(json, 'id', where),
+  name: _string(json, 'name', where),
+  subarea: _nullableString(json, 'subarea', where),
+  area: _string(json, 'area', where),
+  evidence: _string(json, 'evidence', where),
+  references: _references(json, where),
+);
+
+PlantSafety _safety(Map<String, Object?> json) {
+  const where = 'safety';
+  final level = _nullableString(json, 'level', where);
+  return PlantSafety(
+    level: switch (level) {
+      null => null,
+      'alto' => SafetyLevel.high,
+      'medio' => SafetyLevel.medium,
+      'bajo' => SafetyLevel.low,
+      _ => throw _invalid('$where.level tiene un valor desconocido: "$level"'),
+    },
+    text: _string(json, 'text', where),
+    references: _references(json, where),
+  );
+}
+
+PlantImage _image(Map<String, Object?> json) {
+  const where = 'image';
+  return PlantImage(
+    url: _string(json, 'url', where),
+    pageUrl: _string(json, 'pageUrl', where),
+    author: _nullableString(json, 'author', where),
+    license: _string(json, 'license', where),
+    licenseUrl: _nullableString(json, 'licenseUrl', where),
+    attributionRequired: _bool(json, 'attributionRequired', where),
+  );
+}
+
+PlantCredit _credit(Map<String, Object?> json, String where) => PlantCredit(
+  name: _string(json, 'name', where),
+  license: _string(json, 'license', where),
+  licenseUrl: _nullableString(json, 'licenseUrl', where),
+  attribution: _string(json, 'attribution', where),
+  url: _nullableString(json, 'url', where),
+);
+
+/// `references` of a group, goal or safety: absent means none. A reference
+/// without `resolved` counts as resolved only when it has an `id`.
+List<CitedReference> _references(Map<String, Object?> json, String where) {
+  return [
+    for (final (i, v) in _optionalList(json, 'references', where).indexed)
+      _reference(
+        _asObject(v, '$where.references[$i]'),
+        '$where.references[$i]',
+      ),
+  ];
+}
+
+CitedReference _reference(Map<String, Object?> json, String where) {
+  final id = _nullableString(json, 'id', where);
+  return CitedReference(
+    id: id,
+    citation: _string(json, 'citation', where),
+    resolved: json['resolved'] == null && !json.containsKey('resolved')
+        ? id != null
+        : _bool(json, 'resolved', where),
   );
 }
 
@@ -68,6 +175,7 @@ PlantSummary _summary(Map<String, Object?> json) {
         ),
     ],
     family: _nullableString(json, 'family', where),
+    displayName: _nullableString(json, 'displayName', where),
   );
 }
 
@@ -155,4 +263,46 @@ int _int(Map<String, Object?> json, String key, String where) {
         ? 'el campo "$key" de $where debe ser un entero'
         : 'falta el campo "$key" en $where',
   );
+}
+
+bool _bool(Map<String, Object?> json, String key, String where) {
+  final value = json[key];
+  if (value is bool) return value;
+  throw _invalid(
+    json.containsKey(key)
+        ? 'el campo "$key" de $where debe ser verdadero o falso'
+        : 'falta el campo "$key" en $where',
+  );
+}
+
+/// A list that older backends omit: absent and `null` mean empty.
+List<Object?> _optionalList(
+  Map<String, Object?> json,
+  String key,
+  String where,
+) {
+  final value = json[key];
+  if (value == null) return const [];
+  if (value is List<Object?>) return value;
+  throw _invalid('el campo "$key" de $where debe ser una lista');
+}
+
+List<String> _stringList(Map<String, Object?> json, String key, String where) {
+  return [
+    for (final (i, v) in _optionalList(json, key, where).indexed)
+      v is String ? v : throw _invalid('$key[$i] de $where debe ser texto'),
+  ];
+}
+
+/// An object that older backends omit: absent and `null` mean none.
+T? _optionalObject<T>(
+  Map<String, Object?> json,
+  String key,
+  String where,
+  T Function(Map<String, Object?>) build,
+) {
+  final value = json[key];
+  if (value == null) return null;
+  if (value is Map<String, Object?>) return build(value);
+  throw _invalid('el campo "$key" de $where debe ser un objeto o nulo');
 }

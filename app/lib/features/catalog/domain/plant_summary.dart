@@ -1,18 +1,23 @@
 import 'package:flutter/foundation.dart';
 
-/// Display names for a plant: [primary] is the first common name as the API
-/// sent it (never translated) and [secondary] the scientific name. Without
-/// common names the scientific name is primary and there is no secondary.
+/// Display names for a plant: [primary] is the API `displayName`; without it,
+/// the first common name as the API sent it (never translated); without it,
+/// the scientific name. [secondary] is the scientific name unless it equals
+/// the primary one.
 typedef DisplayNames = ({String primary, String? secondary});
 
 DisplayNames displayNamesFor({
   required String scientificName,
   required List<String> commonNames,
+  String? displayName,
 }) {
-  if (commonNames.isEmpty) {
-    return (primary: scientificName, secondary: null);
-  }
-  return (primary: commonNames.first, secondary: scientificName);
+  final primary = (displayName != null && displayName.isNotEmpty)
+      ? displayName
+      : (commonNames.isNotEmpty ? commonNames.first : scientificName);
+  return (
+    primary: primary,
+    secondary: primary == scientificName ? null : scientificName,
+  );
 }
 
 /// A common name with the language tag the API reports (`en`, `und`, ...).
@@ -39,6 +44,7 @@ class PlantSummary {
     required this.scientificName,
     required List<CommonName> commonNames,
     this.family,
+    this.displayName,
   }) : commonNames = List.unmodifiable(commonNames);
 
   final String id;
@@ -46,8 +52,12 @@ class PlantSummary {
   final List<CommonName> commonNames;
   final String? family;
 
+  /// Display name from the API; `null` when the backend predates it.
+  final String? displayName;
+
   DisplayNames get displayNames => displayNamesFor(
     scientificName: scientificName,
+    displayName: displayName,
     commonNames: [for (final name in commonNames) name.text],
   );
 
@@ -60,11 +70,17 @@ class PlantSummary {
       other.id == id &&
       other.scientificName == scientificName &&
       other.family == family &&
+      other.displayName == displayName &&
       listEquals(other.commonNames, commonNames);
 
   @override
-  int get hashCode =>
-      Object.hash(id, scientificName, family, Object.hashAll(commonNames));
+  int get hashCode => Object.hash(
+    id,
+    scientificName,
+    family,
+    displayName,
+    Object.hashAll(commonNames),
+  );
 }
 
 /// A page of `GET /v1/plants`.

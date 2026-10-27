@@ -79,7 +79,7 @@ Nota: las tareas 1 a 6 y 11 usan las herramientas de `tools/catalog-seed/` (Pyth
 - [x] 9.1 Reescribir `docs/data/usda-catalog.md` como guía de la fuente USDA dentro de la semilla (procedencia, límites y el cruce por sinónimos resueltos en lugar del exacto) y crear `docs/data/fuentes-y-licencias.md` con cada fuente, versión, licencia, atribución, términos de la EMA y TPPT sin verificar, la nota de uso académico de TPPT y la nota de CC BY-SA de Wikipedia; verificar que todos los enlaces relativos resuelven y que el Markdown cumple la regla de una línea por párrafo.
 - [x] 9.2 Reescribir `docs/data/modelo-de-datos.md` (capas, tablas nuevas, mapeo de la semilla, reglas de consolidación, errores, versión de esquema, cómo se regenera la semilla y cómo añadir una fuente nueva a las herramientas) y retirar «Cómo añadir un dataset» del marco de adaptadores; verificar que cada tabla y comando documentado existe y que el recorrido «regenerar y reconstruir» se ejecuta tal cual sobre los fixtures.
 - [x] 9.3 Documentar el flujo de regeneración incremental, el versionado de prompt y modelo, y los `reviewFlags` (con la nota de que la capa de validación humana queda fuera de alcance); verificar leyendo el documento contra el comando `plan` de las herramientas.
-- [ ] 9.4 Al archivar el cambio, actualizar a mano el `Purpose` de `openspec/specs/catalog-ingest/spec.md`, que sigue hablando de adaptadores de fuente; verificar que el texto menciona la construcción desde la semilla.
+- [x] 9.4 Al archivar el cambio, actualizar a mano el `Purpose` de `openspec/specs/catalog-ingest/spec.md`, que sigue hablando de adaptadores de fuente; verificar que el texto menciona la construcción desde la semilla.
 
 ## 10. QA de la API
 

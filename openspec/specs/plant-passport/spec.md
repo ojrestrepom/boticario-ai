@@ -10,8 +10,8 @@ Define pasaportes locales de plantas que distinguen datos fuente, registros trad
 El pasaporte SHALL resolver la planta por su identificador contra la API del catálogo y mostrar navegación de regreso, arte local provisional, el nombre principal y el nombre científico según la regla de nombre para mostrar de `catalog-client`, y pestañas `General`, `Propiedades` y `Usos` con `General` inicial. SHALL NOT mostrar procedencia, fuente ni créditos de los datos. SHALL adaptar los campos del mockup a plantas y no presentar `Tipo de aceite: Esencial` como atributo universal.
 
 #### Scenario: Cabecera y pestañas iniciales
-- **WHEN** se abre el pasaporte de una planta existente, por ejemplo `lavandula-angustifolia`
-- **THEN** muestra el nombre principal (`English Lavender`) y el científico (`Lavandula angustifolia`), navegación de regreso y las tres pestañas con `General` seleccionada, sin procedencia
+- **WHEN** se abre el pasaporte de una planta existente, por ejemplo `lavandula-angustifolia`, cuyo primer nombre común en la API es el nombre para mostrar de la semilla
+- **THEN** muestra ese nombre como principal y el científico (`Lavandula angustifolia`) como secundario, navegación de regreso y las tres pestañas con `General` seleccionada, sin procedencia
 
 #### Scenario: Campo de aceite no aplicable
 - **WHEN** se consulta el campo de tipo de aceite en una ficha de planta
@@ -52,7 +52,7 @@ La pestaña `Propiedades` SHALL no inferir eficacia ni propiedades medicinales a
 - **THEN** la pestaña comunica explícitamente que no hay propiedades medicinales evaluadas en este catálogo
 
 ### Requirement: Usos como registros tradicionales trazables
-La pestaña `Usos` SHALL mostrar los usos que entrega la API, cada uno con su actividad, la etiqueta `Registro tradicional`, la aclaración de que es un registro y no un consejo, y la cita de su referencia. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, modelos generativos ni otras fuentes, ni presentar dosis o eficacia. Las listas largas SHALL permanecer desplazables y sin truncar.
+La pestaña `Usos` SHALL mostrar los usos que entrega la API, cada uno con su actividad, la etiqueta `Registro tradicional`, la aclaración de que es un registro y no un consejo, y la cita de su referencia. Los usos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia. Las listas largas SHALL permanecer desplazables y sin truncar.
 
 #### Scenario: Registro tradicional elegible
 - **WHEN** la planta tiene usos con referencia en la respuesta de la API

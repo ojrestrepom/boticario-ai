@@ -1,46 +1,12 @@
 # catalog-ingest Specification
 
 ## Purpose
-Define cómo se construye la base de datos del catálogo a partir de uno o varios datasets mediante adaptadores de fuente, con un esquema neutral, procedencia de cada dato y construcción determinista, de modo que el dataset sea intercambiable sin afectar a quien consume la base.
+Define cómo se construye `catalog.db` a partir de la semilla versionada del repositorio (`data/seed/`), sin red y sin LLM, con un esquema neutral, procedencia de cada dato, verificación de la semilla y construcción determinista, de modo que todos los entornos obtengan la misma base.
 
 ## Requirements
 
-### Requirement: Contrato de adaptador de fuente
-Cada dataset SHALL integrarse mediante un adaptador de fuente con dos responsabilidades: declarar cómo se importa el dataset crudo (archivos y codificación) y derivar, a partir de las tablas crudas importadas, registros normalizados de plantas, nombres, partes y usos con su referencia bibliográfica. El adaptador SHALL declarar los metadatos de su fuente (identificador, nombre, versión, licencia, cita, URL y checksum del insumo). El proceso de construcción SHALL consumir a los adaptadores solo a través de ese contrato y SHALL NOT requerir conocimiento específico de ninguna fuente fuera de su adaptador.
-
-#### Scenario: Adaptador conforme
-- **WHEN** un adaptador declara todos los metadatos de su fuente, su importación cruda y su derivación
-- **THEN** el proceso de construcción importa y consolida sus registros sin lógica específica de esa fuente
-
-#### Scenario: Derivación desde tablas crudas
-- **WHEN** un adaptador deriva sus registros normalizados
-- **THEN** lee únicamente las tablas crudas importadas de su fuente y no accede al insumo original
-
-#### Scenario: Metadatos de fuente incompletos
-- **WHEN** un adaptador omite alguno de los metadatos obligatorios de su fuente
-- **THEN** la construcción falla con un error que identifica la fuente y el metadato ausente, y no produce una base utilizable
-
-### Requirement: Capa cruda y rederivación
-La construcción SHALL conservar cada dataset importado tal como viene, separado de la base neutral. La base neutral SHALL poder reconstruirse desde la capa cruda sin descargar de nuevo el insumo. La base que consume la API SHALL contener solo el esquema neutral.
-
-#### Scenario: Rederivación sin red
-- **WHEN** la capa cruda ya contiene los datasets importados y se reconstruye la base neutral sin acceso a la red
-- **THEN** la reconstrucción termina correctamente con el mismo contenido lógico que la construcción original
-
-#### Scenario: Dataset conservado sin transformar
-- **WHEN** se importa un dataset
-- **THEN** la capa cruda conserva todas sus tablas, filas y columnas con los valores originales, sin normalizarlos ni descartarlos
-
-#### Scenario: Base de la API sin tablas de un dataset
-- **WHEN** se inspecciona la base que consume la API
-- **THEN** no contiene ninguna tabla propia de un dataset, solo las del esquema neutral
-
-#### Scenario: Esquema neutral ampliado
-- **WHEN** el esquema neutral incorpora un concepto nuevo y se reconstruye desde la capa cruda
-- **THEN** la base neutral lo incluye sin volver a descargar ni cruzar los datos a mano
-
 ### Requirement: Esquema neutral independiente de la fuente
-La base de datos del catálogo SHALL seguir un esquema neutral que contenga metadatos con la versión del esquema, fuentes, plantas, nombres de planta con su tipo (científico o común) e idioma, partes, referencias bibliográficas y usos con actividad, idioma y referencia. El esquema SHALL NOT contener tablas, campos ni identificadores propios de un dataset concreto; los identificadores propios de cada fuente SHALL guardarse solo como dato de procedencia.
+La base de datos del catálogo SHALL seguir un esquema neutral que contenga metadatos con la versión del esquema, fuentes, plantas, nombres de planta con su tipo (científico o común) e idioma, partes, referencias bibliográficas y usos con actividad, idioma y referencia, y, en tablas aparte, los datos consolidados de la semilla: perfil de la planta (nombre para mostrar, autores, origen, descripción, tipo de aceite), grupos de uso con actividad original, número de registros y países, el catálogo de objetivos y subáreas con su etiqueta y posición, los objetivos de cada planta con su subárea, área, evidencia y marca de revisión pendiente, seguridad, imagen con su licencia, alias de IDs anteriores y `reviewFlags`. El esquema SHALL NOT contener tablas, campos ni identificadores propios de un dataset concreto; los identificadores propios de cada fuente SHALL guardarse solo como dato de procedencia. La base que consume la API SHALL contener solo el esquema neutral.
 
 #### Scenario: Esquema sin términos de una fuente
 - **WHEN** se inspecciona el esquema neutral
@@ -50,79 +16,47 @@ La base de datos del catálogo SHALL seguir un esquema neutral que contenga meta
 - **WHEN** una planta proviene de una fuente que tiene su propio identificador
 - **THEN** ese identificador se conserva como dato de procedencia asociado a esa fuente y no como identificador público de la planta
 
-### Requirement: Consolidación multi-fuente con atribución
-La construcción SHALL unir los registros de todas las fuentes activas por identidad canónica de planta, definida como el nombre científico normalizado. Los datos multivalor (nombres, partes y usos) SHALL sumarse conservando la fuente de cada uno. Los datos repetidos aportados por varias fuentes SHALL conservar la atribución de cada fuente.
+#### Scenario: Base de la API sin tablas de un dataset
+- **WHEN** se inspecciona la base que consume la API
+- **THEN** no contiene ninguna tabla propia de un dataset, solo las del esquema neutral
 
-#### Scenario: Dos fuentes aportan a la misma planta
-- **WHEN** dos fuentes entregan registros de una planta con el mismo nombre científico normalizado
-- **THEN** la base contiene una sola planta con la unión de los nombres, partes y usos de ambas, y cada dato indica de qué fuente proviene
-
-#### Scenario: Dato idéntico en dos fuentes
-- **WHEN** dos fuentes aportan un mismo dato multivalor para una planta
-- **THEN** la atribución registra ambas fuentes y el dato no se interpreta como proveniente de una sola
-
-#### Scenario: Planta aportada por una sola fuente
-- **WHEN** una planta aparece solo en una de las fuentes
-- **THEN** la base la incluye con todos sus datos atribuidos a esa fuente
-
-### Requirement: Una planta por identidad dentro de cada fuente
-Un adaptador SHALL entregar como máximo una planta por identidad canónica. Una identidad repetida dentro de la misma fuente SHALL tratarse como error de construcción que identifica ambos registros.
-
-#### Scenario: Identidad repetida en una fuente
-- **WHEN** una fuente entrega dos registros de planta con la misma identidad canónica
-- **THEN** la construcción falla con un error que identifica ambos registros y no produce una base utilizable
-
-#### Scenario: Misma identidad en fuentes distintas
-- **WHEN** dos fuentes distintas entregan una planta con la misma identidad canónica
-- **THEN** no es un error y se consolidan como una sola planta
-
-### Requirement: Resolución de campos de valor único
-Cuando varias fuentes aporten un valor distinto para un campo de valor único de una planta, como la familia, la consolidación SHALL elegir el valor de la fuente de mayor prioridad según la configuración de fuentes y SHALL registrar cuál fuente fue la elegida. El resultado SHALL NOT depender del orden en que se procesen las fuentes.
-
-#### Scenario: Conflicto resuelto por prioridad
-- **WHEN** dos fuentes aportan familias distintas para la misma planta
-- **THEN** la base conserva la familia de la fuente de mayor prioridad y registra esa fuente como su origen
-
-#### Scenario: Un solo valor disponible
-- **WHEN** solo una fuente aporta valor para un campo de valor único
-- **THEN** la base conserva ese valor y lo atribuye a esa fuente, sin importar su prioridad
-
-#### Scenario: Valor ausente
-- **WHEN** ninguna fuente aporta valor para un campo de valor único
-- **THEN** el campo queda ausente y no se inventa ningún valor
-
-### Requirement: Configuración de fuentes activas
-La construcción SHALL tomar de una configuración explícita las fuentes activas y la prioridad de cada una. Añadir, quitar o reordenar fuentes SHALL lograrse editando esa configuración y reconstruyendo la base, sin cambiar el esquema ni la API.
-
-#### Scenario: Fuente intercambiada
-- **WHEN** la configuración activa una fuente distinta de la anterior y se reconstruye la base
-- **THEN** la base resultante cumple el mismo esquema neutral y contiene solo datos de la fuente activa
-
-#### Scenario: Fuente desconocida en la configuración
-- **WHEN** la configuración nombra una fuente para la que no existe adaptador
-- **THEN** la construcción falla con un error que identifica esa fuente
+#### Scenario: Esquema ampliado
+- **WHEN** se inspecciona la base construida desde la semilla
+- **THEN** contiene las tablas de perfil, grupos de uso, objetivos, seguridad, imagen, alias y `reviewFlags` estructurados, y la versión del esquema refleja la ampliación
 
 ### Requirement: Identificador público estable de planta
-Cada planta SHALL tener un identificador público en forma de slug derivado de su nombre científico canónico. Ese identificador SHALL NOT ser el de ninguna fuente. Los mismos insumos y la misma configuración SHALL producir los mismos identificadores. Una colisión de identificadores entre plantas distintas SHALL tratarse como error de construcción.
+Cada planta SHALL tener un identificador público en forma de slug que viene de la semilla, donde se generó una sola vez a partir del nombre aceptado de la planta (véase `catalog-seed`). Ese identificador SHALL NOT ser el de ninguna fuente y SHALL NOT recalcularse al construir la base. Los mismos insumos SHALL producir los mismos identificadores. Una colisión de identificadores entre plantas distintas, o entre un alias y el identificador de otra planta, SHALL tratarse como error de construcción.
 
 #### Scenario: Slug derivado del nombre científico
-- **WHEN** entra una planta con nombre científico `Lavandula angustifolia`
-- **THEN** su identificador público es `lavandula-angustifolia`
+- **WHEN** el registro de la semilla tiene `id` `salvia-rosmarinus` y nombre científico `Salvia rosmarinus`
+- **THEN** el identificador público de la planta es `salvia-rosmarinus`, el mismo que quedó fijado en la semilla al generarla
 
 #### Scenario: Reconstrucción conserva identificadores
-- **WHEN** la base se reconstruye con los mismos insumos y la misma configuración
+- **WHEN** la base se reconstruye con la misma semilla
 - **THEN** cada planta conserva el mismo identificador público
 
+#### Scenario: Nombre cambiado sin cambiar el ID
+- **WHEN** el registro cambia su nombre científico mostrado y conserva su `id`
+- **THEN** el identificador público no cambia
+
 #### Scenario: Colisión de identificadores
-- **WHEN** dos plantas distintas producirían el mismo identificador público
+- **WHEN** dos registros de la semilla producirían el mismo identificador público
 - **THEN** la construcción falla con un error que identifica ambas plantas y no produce una base utilizable
 
+#### Scenario: Alias que coincide con otra planta
+- **WHEN** un alias de una planta es igual al identificador de otra
+- **THEN** la construcción falla con un error que identifica ambas plantas
+
 ### Requirement: Procedencia de cada dato
-Todo dato del catálogo (nombre, parte, uso, referencia y campo de valor único) SHALL llevar la fuente de la que proviene. Las fuentes SHALL registrar su identificador, nombre, versión, licencia, cita, URL y checksum del insumo, de modo que cada dato sea trazable hasta su dataset.
+Todo dato del catálogo (nombre, parte, uso, referencia, objetivo, seguridad, imagen y campo de valor único) SHALL llevar el dataset del que proviene según los refs de la semilla. Las fuentes SHALL registrar su identificador, nombre, versión, licencia, atribución, cita, URL y checksum del insumo, tomados del manifiesto, de modo que cada dato sea trazable hasta su dataset.
 
 #### Scenario: Trazabilidad de un uso
 - **WHEN** se consulta un uso de una planta en la base construida
 - **THEN** es posible determinar su fuente, la licencia y la cita de esa fuente y la referencia bibliográfica del uso
+
+#### Scenario: Trazabilidad de un objetivo
+- **WHEN** se consulta un objetivo de una planta en la base construida
+- **THEN** es posible determinar el dataset de la EMA que lo respalda y su licencia
 
 #### Scenario: Dato sin fuente
 - **WHEN** se intenta construir la base con un dato que no tiene fuente asociada
@@ -136,64 +70,111 @@ La base de datos SHALL registrar la versión de su esquema en sus metadatos, de 
 - **THEN** sus metadatos contienen la versión del esquema con el que se construyó
 
 ### Requirement: Construcción determinista
-La construcción SHALL ser determinista: los mismos insumos y la misma configuración SHALL producir el mismo contenido lógico, sin marcas de tiempo de construcción. La igualdad se SHALL verificar mediante un hash del contenido lógico ordenado y no del archivo binario.
+La construcción SHALL ser determinista a partir de la semilla: la misma semilla SHALL producir el mismo contenido lógico, sin marcas de tiempo de construcción. La igualdad se SHALL verificar mediante un hash del contenido lógico ordenado y no del archivo binario.
 
 #### Scenario: Dos construcciones idénticas
-- **WHEN** la base se construye dos veces con los mismos insumos y la misma configuración
+- **WHEN** la base se construye dos veces con la misma semilla
 - **THEN** el hash del contenido lógico ordenado es idéntico
 
 #### Scenario: Cambio en el insumo
-- **WHEN** cambia algún dato del insumo
+- **WHEN** cambia algún dato de un registro de la semilla y se actualiza el manifiesto
 - **THEN** el hash del contenido lógico ordenado es distinto
 
 ### Requirement: Verificación del insumo
-Antes de leer un insumo descargado, la construcción SHALL verificar su tamaño y checksum contra los valores declarados por el adaptador y SHALL fallar si no coinciden. La descarga del insumo SHALL ser un paso explícito y separado de la construcción, y las verificaciones automáticas SHALL poder ejecutarse sin acceso a la red.
+Antes de leer la semilla, la construcción SHALL verificarla (véase «Verificación de la semilla») y SHALL fallar si no coincide con su manifiesto. La construcción SHALL NOT descargar ningún insumo, y las verificaciones automáticas SHALL poder ejecutarse sin acceso a la red. Las descargas de fuentes son un paso de las herramientas de generación de la semilla, separado de la construcción.
 
 #### Scenario: Insumo íntegro
-- **WHEN** el insumo coincide con el tamaño y el checksum declarados
+- **WHEN** la semilla coincide con su manifiesto
 - **THEN** la construcción continúa
 
 #### Scenario: Insumo alterado
-- **WHEN** el insumo no coincide con el checksum o el tamaño declarados
+- **WHEN** un registro no coincide con el hash del manifiesto
 - **THEN** la construcción falla con un error que lo indica y no produce una base utilizable
 
 #### Scenario: Insumo ausente
-- **WHEN** el insumo no ha sido descargado
-- **THEN** la construcción falla indicando el paso de descarga necesario y no accede a la red por su cuenta
+- **WHEN** la semilla no está presente
+- **THEN** la construcción falla indicando que falta la semilla y no accede a la red por su cuenta
+
+#### Scenario: Sin acceso a la red
+- **WHEN** la construcción se ejecuta sin acceso a la red
+- **THEN** termina correctamente y no intenta ninguna conexión
 
 ### Requirement: Fallo ante datos inconsistentes
-Ante datos inconsistentes, la construcción SHALL fallar con un error claro y SHALL NOT dejar una base parcial utilizable. Son inconsistencias, como mínimo, un uso cuya referencia no resuelve, una parte o un uso que apunta a una planta inexistente y una referencia duplicada con contenido distinto.
+Ante datos inconsistentes, la construcción SHALL fallar con un error claro y SHALL NOT dejar una base parcial utilizable. Son inconsistencias, como mínimo, un ref que no existe en el diccionario del registro, un registro con dos plantas del mismo identificador, un objetivo o subárea fuera del catálogo de objetivos de la semilla, un objetivo o grupo de uso con revisión pendiente sin `reviewFlag` asociado, un nivel de seguridad fuera de alto, medio y bajo, una imagen con una licencia no admitida, un dato sin dataset o licencia y un campo desconocido en el registro.
 
 #### Scenario: Referencia que no resuelve
-- **WHEN** un registro normalizado entrega un uso con una referencia bibliográfica inexistente
-- **THEN** la construcción falla con un error que identifica el registro y no deja una base utilizable
+- **WHEN** un registro cita un ref que no existe en su diccionario
+- **THEN** la construcción falla con un error que identifica el registro y el ref y no deja una base utilizable
+
+#### Scenario: Objetivo desconocido
+- **WHEN** un registro tiene un objetivo que no está en la lista de objetivos
+- **THEN** la construcción falla identificando el registro y el objetivo
 
 #### Scenario: Fallo no deja base parcial
 - **WHEN** la construcción falla
 - **THEN** no queda en la ubicación de salida una base que parezca válida
 
-### Requirement: Adaptador de USDA Dr. Duke
-El adaptador de USDA Dr. Duke SHALL declarar los metadatos del dataset archivado (versión, licencia CC0, cita, URL, tamaño y checksum del archivo) tomados de la guía de procedencia del repositorio. SHALL entregar todas las plantas del dataset con su nombre científico literal y los nombres comunes que trae el dataset marcados con su idioma, las etiquetas de parte y de actividad tal como aparecen, sin traducirlas, y SHALL aplicar los criterios de curación documentados: identidad exacta por género, especie y taxón, y referencia bibliográfica resoluble de forma inequívoca. SHALL NOT incluir traducciones ni nombres editoriales.
-
-#### Scenario: Planta con usos elegibles
-- **WHEN** una planta del dataset tiene registros de uso con identidad exacta y referencia resoluble
-- **THEN** la base contiene esos usos con la actividad literal en inglés y la cita completa de su referencia
-
-#### Scenario: Uso excluido
-- **WHEN** un registro de uso del dataset no coincide exactamente con la identidad de la planta o su referencia falta o no resuelve de forma inequívoca
-- **THEN** ese uso no se incluye en la base
-
-#### Scenario: Planta sin usos elegibles
-- **WHEN** una planta del dataset no tiene usos elegibles
-- **THEN** la base la incluye con una lista de usos vacía y sin inventar contenido
-
 ### Requirement: Datos sin interpretación clínica
-El catálogo SHALL entregar los usos y las etiquetas de actividad tal como los registra la fuente, como registros atribuidos y no como recomendaciones, dosis, consejo o afirmaciones de eficacia. SHALL NOT convertir registros de partes o sustancias en fichas de aceites esenciales.
+El catálogo SHALL entregar el contenido consolidado de la semilla (descripciones breves, nombres, usos tradicionales con su actividad traducida y su actividad original, objetivos y seguridad) siempre con las citas que lo respaldan, como registros atribuidos y no como recomendaciones. SHALL NOT contener dosis, posologías, indicaciones de tratamiento, consejo ni afirmaciones de eficacia, ni generar propiedades que sus fuentes no registren. El tipo de aceite SHALL poder ser `Esencial` cuando una fuente registra aceite esencial para la planta, y SHALL NOT inferirse de otros registros de partes o sustancias.
 
 #### Scenario: Etiquetas sensibles sin alterar
 - **WHEN** la fuente registra una etiqueta de actividad sensible
-- **THEN** la base la conserva literalmente, sin omitirla, reinterpretarla ni reetiquetarla
+- **THEN** el catálogo conserva la etiqueta original en el grupo de uso junto con su traducción, sin omitirla ni reinterpretarla
 
 #### Scenario: Sin recomendaciones inventadas
 - **WHEN** se construye la base
-- **THEN** no se generan dosis, recomendaciones ni propiedades que la fuente no registre
+- **THEN** no hay dosis, recomendaciones ni propiedades que las fuentes del paquete no registren
+
+#### Scenario: Aceite esencial registrado
+- **WHEN** el registro tiene `oil` con tipo `Esencial` respaldado por una fuente
+- **THEN** la base lo guarda en el perfil de la planta con su referencia
+
+#### Scenario: Aceite no inferido
+- **WHEN** una planta tiene una parte llamada «Essential Oil» pero ninguna fuente registra aceite esencial para ella
+- **THEN** el perfil no tiene tipo de aceite
+
+### Requirement: Construcción del catálogo desde la semilla
+La construcción SHALL leer la semilla versionada del repositorio (`data/seed/`) y escribir la base del catálogo sin acceso a la red y sin invocar a ningún LLM. La semilla SHALL ser la única entrada de datos de la construcción. La construcción SHALL conservar el contrato HTTP vigente: cada planta de la semilla se escribe en las tablas que la API ya lee, y los campos adicionales de la semilla se escriben en tablas nuevas que la API actual no consulta.
+
+#### Scenario: Construcción sin red
+- **WHEN** se construye la base con la semilla presente y sin acceso a la red
+- **THEN** la construcción termina correctamente y escribe la base del catálogo
+
+#### Scenario: Contenido mapeado a las tablas de la API
+- **WHEN** se construye la base desde un registro con nombres comunes, sinónimos, partes y grupos de uso con referencias resueltas
+- **THEN** los nombres comunes y los sinónimos científicos están en los nombres de la planta, las partes en sus partes y cada grupo de uso con cada referencia resuelta es un uso con actividad en español, idioma `es` y esa referencia
+
+#### Scenario: Nombre para mostrar explícito
+- **WHEN** el registro tiene `displayName` y otros nombres comunes
+- **THEN** la base guarda `displayName` en el perfil de la planta (`plant_profile.display_name`) y también como nombre común, sin depender del orden en que la API devuelve los nombres; la excepción es un `displayName` cuyo idioma es `la` (nombre científico), que no se guarda como nombre común
+
+#### Scenario: Catálogo de objetivos cargado
+- **WHEN** se construye la base con `data/seed/goals.json`
+- **THEN** la base contiene los objetivos con su etiqueta y posición y sus subáreas, y cada objetivo de una planta apunta a uno de ellos
+
+#### Scenario: Objetivo pendiente de revisión
+- **WHEN** un registro tiene un objetivo con `pendingReview` verdadero
+- **THEN** la base lo guarda con `pending_review` verdadero y el `reviewFlag` asociado con su `code`, `target` y `message`
+
+#### Scenario: Campos adicionales guardados
+- **WHEN** el registro tiene descripción, origen, tipo de aceite, objetivos, seguridad, imagen, alias y `reviewFlags`
+- **THEN** la base los conserva en tablas nuevas con su atribución, y las respuestas de `/v1` no cambian de forma
+
+#### Scenario: Uso sin cita resuelta
+- **WHEN** un grupo de uso tiene `pendingReview` porque alguna de sus citas está marcada «(sin resolver)» por el LLM
+- **THEN** el grupo se conserva en las tablas nuevas con `pending_review` verdadero y su `reviewFlag`, y no genera ningún uso de la API hasta que una revisión humana lo apruebe; esa revisión queda fuera de alcance
+
+### Requirement: Verificación de la semilla
+Antes de construir, la construcción SHALL verificar la semilla: que el manifiesto exista, que el hash del contenido de los registros coincida con el del manifiesto, que cada archivo se llame como el `id` de su registro y que el número de plantas coincida. La construcción SHALL fallar con un error que lo indica si alguna verificación no se cumple.
+
+#### Scenario: Semilla íntegra
+- **WHEN** el manifiesto y los registros coinciden
+- **THEN** la construcción continúa
+
+#### Scenario: Registro alterado
+- **WHEN** un registro cambia sin actualizar el manifiesto
+- **THEN** la construcción falla indicando que el hash del manifiesto no coincide y no produce una base utilizable
+
+#### Scenario: Semilla ausente
+- **WHEN** no existe `data/seed/manifest.json`
+- **THEN** la construcción falla indicando que falta la semilla y no accede a la red

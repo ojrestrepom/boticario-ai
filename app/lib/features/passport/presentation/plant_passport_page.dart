@@ -228,6 +228,7 @@ class PlantPassportPage extends StatefulWidget {
 
 class _PlantPassportPageState extends State<PlantPassportPage> {
   int _tab = 0;
+  final _tabsKey = GlobalKey();
 
   @override
   void didUpdateWidget(covariant PlantPassportPage oldWidget) {
@@ -241,7 +242,9 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     body: SafeArea(
       bottom: false,
       child: CustomScrollView(
-        key: PageStorageKey('passport-${widget.plant.id}-$_tab'),
+        // One position per plant, shared by the three tabs: switching tab
+        // must not send the sheet back to the top (DEF-01).
+        key: PageStorageKey('passport-${widget.plant.id}'),
         slivers: [
           SliverToBoxAdapter(
             child: PassportHeader(
@@ -286,7 +289,23 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     ),
   );
 
+  void _selectTab(int tab) {
+    setState(() => _tab = tab);
+    // The new tab can be shorter than the scroll offset, or the offset can
+    // leave the chips above the viewport: bring them back so the start of the
+    // content is right below them.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final context = _tabsKey.currentContext;
+      if (!mounted || context == null) return;
+      Scrollable.ensureVisible(
+        context,
+        alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtStart,
+      );
+    });
+  }
+
   Widget _tabs() => Wrap(
+    key: _tabsKey,
     spacing: 8,
     runSpacing: 4,
     children: [
@@ -294,7 +313,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
         ChoiceChip(
           label: Text(['General', 'Propiedades', 'Usos'][i]),
           selected: _tab == i,
-          onSelected: (_) => setState(() => _tab = i),
+          onSelected: (_) => _selectTab(i),
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),
     ],

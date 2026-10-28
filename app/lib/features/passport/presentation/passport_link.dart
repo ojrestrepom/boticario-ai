@@ -45,30 +45,35 @@ class PassportLink extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.labelMedium
-              ?.copyWith(color: passportGreen),
+        Wrap(
+          spacing: 8,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.labelMedium
+                  ?.copyWith(color: passportGreen),
+            ),
+            if (canOpen(url))
+              Tooltip(
+                message: PassportTexts.openLinkTooltip(label),
+                child: TextButton.icon(
+                  style: TextButton.styleFrom(
+                    foregroundColor: passportGreen,
+                    minimumSize: const Size(48, 48),
+                  ),
+                  onPressed: () => _open(context),
+                  icon: const Icon(Icons.open_in_new, size: 18),
+                  label: const Text(PassportTexts.openLink),
+                ),
+              ),
+          ],
         ),
         SelectableText(
           url,
           style: Theme.of(context).textTheme.bodyMedium
               ?.copyWith(color: passportInk),
         ),
-        if (canOpen(url))
-          Tooltip(
-            message: PassportTexts.openLinkTooltip(label),
-            child: TextButton.icon(
-              style: TextButton.styleFrom(
-                foregroundColor: passportGreen,
-                minimumSize: const Size(48, 48),
-                alignment: Alignment.centerLeft,
-              ),
-              onPressed: () => _open(context),
-              icon: const Icon(Icons.open_in_new, size: 18),
-              label: const Text(PassportTexts.openLink),
-            ),
-          ),
       ],
     ),
   );

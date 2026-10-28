@@ -605,6 +605,14 @@ Future<void> _expectPassportDisabled(
   List<String> homeLogs,
 ) async {
   final beforeLogs = homeLogs.length;
+  // The sheet keeps its scroll position across tabs, so the header (with the
+  // favorite stub) can be above the viewport: go back to the top first.
+  await tester.fling(
+    find.byType(CustomScrollView).last,
+    const Offset(0, 3000),
+    3000,
+  );
+  await _settle(tester);
   for (final label in [
     'Favorito no disponible',
     'Ver formulaciones relacionadas no disponible',

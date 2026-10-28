@@ -104,7 +104,7 @@ class _PlantPhoto extends StatelessWidget {
   final PlantImage image;
   final ImageProvider provider;
 
-  static const _height = 200.0;
+  static const _height = 160.0;
 
   @override
   Widget build(BuildContext context) => Padding(

@@ -7,7 +7,7 @@ Define cómo se construye, valida, versiona y regenera la semilla del catálogo:
 ## Requirements
 
 ### Requirement: Fuentes con versión fija, checksum y licencia
-Cada fuente que alimenta la semilla SHALL declararse con identificador, versión o snapshot, URL, licencia, atribución exigida y checksum del insumo. Las descargas SHALL ser un paso explícito, SHALL verificarse contra su checksum y SHALL cachearse en `data/.cache/`, ignorada por Git. Una fuente que cambia con el tiempo SHALL fijarse en un snapshot con su fecha. Las fuentes admitidas son USDA Dr. Duke, WCVP, WFO (solo respaldo), EMA (herbal medicines y PDF de seguridad), TPPT de Agroscope, EFSA Compendium of Botanicals, Wikidata, Wikipedia en español y Wikimedia Commons.
+Cada fuente que alimenta la semilla SHALL declararse con identificador, versión o snapshot, URL, licencia, URL de la licencia (opcional: una URL https, o `null` si la fuente no tiene una licencia con una URL única, como la licencia por archivo de Commons o los términos propios de la EMA y TPPT), atribución exigida y checksum del insumo. El manifiesto SHALL copiar la URL de la licencia de cada fuente que la declara. Las descargas SHALL ser un paso explícito, SHALL verificarse contra su checksum y SHALL cachearse en `data/.cache/`, ignorada por Git. Una fuente que cambia con el tiempo SHALL fijarse en un snapshot con su fecha. Las fuentes admitidas son USDA Dr. Duke, WCVP, WFO (solo respaldo), EMA (herbal medicines y PDF de seguridad), TPPT de Agroscope, EFSA Compendium of Botanicals, Wikidata, Wikipedia en español y Wikimedia Commons.
 
 #### Scenario: Insumo íntegro
 - **WHEN** un insumo cacheado coincide con el checksum declarado
@@ -28,6 +28,18 @@ Cada fuente que alimenta la semilla SHALL declararse con identificador, versión
 #### Scenario: Fuente fuera de la lista
 - **WHEN** se intenta añadir una fuente descartada, como DrugBank o iNaturalist
 - **THEN** el manifiesto y el validador de fuentes la rechazan por no estar en la lista de fuentes admitidas
+
+#### Scenario: URL de licencia de una fuente
+- **WHEN** `sources.json` declara para `wikipedia_es` la licencia CC BY-SA 4.0 y `licenseUrl` igual a `https://creativecommons.org/licenses/by-sa/4.0/`
+- **THEN** el manifiesto sellado incluye ese `licenseUrl` en la fuente `wikipedia_es`, y los registros de las plantas y el `seedHash` no cambian
+
+#### Scenario: Fuente sin URL de licencia
+- **WHEN** una fuente, como Commons, declara `licenseUrl` igual a `null`, o no lo declara
+- **THEN** la fuente se acepta y el manifiesto la lista con `licenseUrl` nulo o sin el campo, respectivamente
+
+#### Scenario: URL de licencia inválida
+- **WHEN** `licenseUrl` no es `null` ni una cadena que empiece por `https://`
+- **THEN** la validación de fuentes falla indicando la fuente y el campo
 
 ### Requirement: Límites de peticiones y reanudación
 Las descargas de servicios con límite de peticiones, como Wikidata, SHALL respetar la cabecera `Retry-After`, SHALL guardar cada respuesta en la caché y SHALL poder reanudarse sin repetir las consultas ya resueltas. Un límite agotado SHALL detener el paso con un mensaje que indica cuándo reintentar y SHALL NOT producir datos parciales marcados como completos.

@@ -22,7 +22,7 @@ P07 SHALL mostrar navegación de regreso, el título exacto `Recomendaciones`, e
 - **THEN** la barra muestra Inicio, Favoritos, Historial y Perfil con Inicio seleccionado, Inicio vuelve a la raíz con la pila limpia y las otras tres no tienen acción
 
 ### Requirement: Tarjetas derivadas del registro
-Cada tarjeta SHALL mostrar una miniatura, el `displayName` de la planta como nombre principal, el nombre científico como secundario si `displayName` es distinto de él, y la línea `La EMA la registra en: <áreas>` con los nombres en español de las áreas que la API entrega para la planta en ese objetivo o subárea. Si hay más de dos áreas SHALL mostrar dos seguidas de `y N más`. El texto de la tarjeta SHALL NOT incluir verbos ni frases de efecto o eficacia, dosis ni indicaciones, ni textos de ejemplo del mockup, y SHALL NOT completarse con contenido que la API no entregó.
+Cada tarjeta SHALL mostrar una miniatura, el `displayName` de la planta como nombre principal, el nombre científico como secundario si `displayName` es distinto de él, y la línea `La EMA la registra en: <áreas>` con los nombres en español de las áreas que la API entrega para la planta en ese objetivo o subárea, cada uno tal como llega, sin partirlo ni traducirlo. Si hay más de dos áreas SHALL mostrar dos seguidas de `y N más`. El texto de la tarjeta SHALL NOT incluir verbos ni frases de efecto o eficacia, dosis ni indicaciones, ni textos de ejemplo del mockup, y SHALL NOT completarse con contenido que la API no entregó.
 
 #### Scenario: Tarjeta con un área
 - **WHEN** la API devuelve una planta con `areas` igual a `["Estrés mental y trastornos del ánimo"]`
@@ -37,15 +37,19 @@ Cada tarjeta SHALL mostrar una miniatura, el `displayName` de la planta como nom
 - **THEN** su texto no contiene `Efecto calmante`, `Ayuda a reducir`, `Promueve` ni ninguna afirmación de efecto, y la única descripción es la línea de la EMA
 
 #### Scenario: Planta sin nombre común
-- **WHEN** el `displayName` de la planta es su nombre científico
-- **THEN** el nombre principal es el científico y no hay nombre secundario
+- **WHEN** el `displayName` de la planta es su nombre científico, tenga o no nombres comunes en otro idioma
+- **THEN** el nombre principal es el científico, aparece una sola vez y no hay nombre secundario ni nombre en otro idioma
+
+#### Scenario: Área con dos valores unidos
+- **WHEN** la API devuelve en `areas` un valor como `Estreñimiento; Trastornos gastrointestinales`
+- **THEN** la tarjeta lo muestra tal cual y lo cuenta como un área
 
 #### Scenario: Miniatura ausente o fallida
-- **WHEN** la planta no tiene `image`, su URL no es HTTPS de un host permitido o la imagen no carga
-- **THEN** la tarjeta muestra el arte local provisional, sin atribución de imagen, y la lista sigue siendo utilizable
+- **WHEN** la planta no tiene `image`, su URL no es HTTPS de un host permitido, no admite miniatura de 500 px o la imagen no carga
+- **THEN** la tarjeta muestra el arte local provisional, sin atribución de imagen y sin cargar el original, y la lista sigue siendo utilizable
 
 ### Requirement: Miniatura con atribución en la tarjeta
-Cuando la planta trae `image` y esta se carga, la tarjeta SHALL mostrarla como miniatura con, visibles junto a ella, el autor y la licencia como texto corto (por ejemplo `Foto: J. Pérez · CC BY-SA 4.0`), también cuando `attributionRequired` es falso. La imagen SHALL cargarse directamente desde el host de Wikimedia permitido por `catalog-client`, sin `Authorization`. El enlace a la página del archivo y el detalle de la licencia SHALL permanecer en el pasaporte (imagen de cabecera y sección `Fuentes`). Mientras carga o si falla, la tarjeta SHALL mostrar el arte local sin atribución.
+Cuando la planta trae `image` y su miniatura se carga, la tarjeta SHALL mostrarla con, visibles junto a ella, el autor y la licencia como texto corto (por ejemplo `Foto: J. Pérez · CC BY-SA 4.0`), también cuando `attributionRequired` es falso, y `Foto: autor no disponible · <licencia>` cuando el autor es `null`. La imagen SHALL ser la miniatura de 500 px de ancho que Wikimedia sirve para `image.url`, con la política de imágenes de `catalog-client` (HTTPS, host permitido, sin `Authorization` y solo con el `User-Agent` genérico), y SHALL NOT cargar nunca el archivo original. El autor y la licencia SHALL aparecer solo con la imagen cargada, como el pie del pasaporte. El enlace a la página del archivo y el detalle de la licencia SHALL permanecer en el pasaporte (imagen de cabecera y sección `Fuentes`). Mientras carga, si falla, si no hay miniatura derivable o si la planta no tiene imagen, la tarjeta SHALL mostrar el arte local sin atribución.
 
 #### Scenario: Imagen con licencia
 - **WHEN** una planta trae `image` con autor «J. Pérez» y licencia `CC BY-SA 4.0` y la imagen carga
@@ -55,8 +59,20 @@ Cuando la planta trae `image` y esta se carga, la tarjeta SHALL mostrarla como m
 - **WHEN** `attributionRequired` es falso
 - **THEN** la tarjeta igualmente muestra autor y licencia
 
-#### Scenario: Descarga fallida
-- **WHEN** la imagen no puede descargarse
+#### Scenario: Autor desconocido
+- **WHEN** la imagen carga y su `author` es `null`
+- **THEN** la tarjeta muestra `Foto: autor no disponible · <licencia>`
+
+#### Scenario: Miniatura de 500 px
+- **WHEN** una planta trae `image.url` de `upload.wikimedia.org` con un archivo `.jpg`
+- **THEN** la tarjeta pide la miniatura `500px-<archivo>` y no el archivo original
+
+#### Scenario: Sin miniatura derivable
+- **WHEN** `image.url` es de un formato sin miniatura (como TIFF o PDF) o de una ruta que no encaja
+- **THEN** la tarjeta muestra el arte local, no muestra autor ni licencia y no descarga el original
+
+#### Scenario: Descarga en curso o fallida
+- **WHEN** la miniatura aún no ha cargado o no puede descargarse
 - **THEN** la tarjeta muestra el arte local y no muestra autor ni licencia
 
 #### Scenario: Atribución accesible

@@ -30,7 +30,7 @@
 - **THEN** la API responde 401 con `application/problem+json`
 
 ### Requirement: Plantas por objetivo
-`GET /v1/goals/{goalId}/plants` SHALL devolver una página con `goal` (`id`, `name`), `subarea` (`id`, `name`, o `null`), `items`, `total`, `limit` y `offset`. Cada elemento SHALL incluir `id`, `displayName`, `scientificName`, `commonNames` con idioma y `family` (o `null`) como el listado, `areas` (nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea), `safetyLevel` (`alto`, `medio`, `bajo` o `null`; es `null` también cuando la planta tiene precauciones sin nivel) y `hasSafety` (booleano, verdadero cuando la planta tiene datos de precauciones aunque no tengan nivel) e `image`, el mismo objeto del detalle (`url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`) o `null`. Un objetivo desconocido SHALL responder 404. El parámetro opcional `subarea` SHALL filtrar por una subárea del objetivo; un valor que no pertenece al objetivo, o enviado a un objetivo sin subáreas, SHALL responder 400 con `param` igual a `subarea`. Sin `subarea` en un objetivo con subáreas, SHALL devolverse la unión sin repetir plantas.
+`GET /v1/goals/{goalId}/plants` SHALL devolver una página con `goal` (`id`, `name`), `subarea` (`id`, `name`, o `null`), `items`, `total`, `limit` y `offset`. Cada elemento SHALL incluir `id`, `displayName`, `scientificName`, `commonNames` con idioma y `family` (o `null`) como el listado, `areas` (nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea), `safetyLevel` (`alto`, `medio`, `bajo` o `null`; es `null` también cuando la planta tiene precauciones sin nivel) y `hasSafety` (booleano, verdadero cuando la planta tiene datos de precauciones aunque no tengan nivel) e `image`, el mismo objeto del detalle (`url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`) o `null`. El `image` SHALL ser el mismo `ImageDto` del detalle y la API SHALL NOT derivar miniaturas ni consultar la red. Un objetivo desconocido SHALL responder 404. El parámetro opcional `subarea` SHALL filtrar por una subárea del objetivo; un valor que no pertenece al objetivo, o enviado a un objetivo sin subáreas, SHALL responder 400 con `param` igual a `subarea`. Sin `subarea` en un objetivo con subáreas, SHALL devolverse la unión sin repetir plantas.
 
 #### Scenario: Plantas de un objetivo
 - **WHEN** un cliente pide `GET /v1/goals/mejorar-el-sueno/plants`
@@ -69,11 +69,15 @@
 - **THEN** la API responde 401 y 405 respectivamente, con `application/problem+json`
 
 ### Requirement: Orden y paginación de plantas por objetivo
-Las plantas de un objetivo SHALL ordenarse de forma total y estable por `displayName` normalizado (sin distinguir mayúsculas ni acentos), luego por nombre científico y luego por identificador. El orden SHALL NOT depender del tipo o la cantidad de respaldo de la EMA. La paginación SHALL aceptar `limit` (1 a 100, por defecto 20) y `offset` con las mismas reglas y errores que `GET /v1/plants`, y `total` SHALL ser independiente de la página.
+Las plantas de un objetivo SHALL ordenarse de forma total y estable por `displayName` normalizado (sin distinguir mayúsculas ni acentos, con la misma normalización de nombres que la búsqueda de `GET /v1/plants`), luego por nombre científico normalizado y luego por identificador. El `displayName` puede ser el nombre científico, y entonces se ordena entre los demás por ese texto. El orden SHALL NOT depender del tipo o la cantidad de respaldo de la EMA. La paginación SHALL aceptar `limit` (1 a 100, por defecto 20) y `offset` con las mismas reglas y errores que `GET /v1/plants`, y `total` SHALL ser independiente de la página.
 
 #### Scenario: Orden por nombre para mostrar
 - **WHEN** un cliente pide las plantas de un objetivo
 - **THEN** los elementos están ordenados por `displayName`, luego científico y luego identificador
+
+#### Scenario: Orden sin distinguir acentos ni mayúsculas
+- **WHEN** un objetivo tiene plantas con `displayName` «Árnica», «abedul», «Zarzaparrilla» y el científico `Abutilon theophrasti`
+- **THEN** salen en el orden «abedul», `Abutilon theophrasti`, «Árnica», «Zarzaparrilla»
 
 #### Scenario: Páginas sin repetición
 - **WHEN** un cliente recorre las páginas con `limit` 5
@@ -107,11 +111,11 @@ Una planta SHALL aparecer en un objetivo solo si el catálogo le asigna ese obje
 - **THEN** aparece en ambos, con en cada uno solo las áreas de ese objetivo
 
 ### Requirement: Contrato aditivo de objetivos
-Las rutas de objetivos SHALL estar bajo `/v1`, requerir el token de API como el resto, documentarse en el documento OpenAPI con el esquema Bearer, la respuesta 401 y los errores 400 y 404, usar nombres de campo en camelCase y representar lo ausente como `null` o lista vacía. Su incorporación SHALL ser un cambio compatible: SHALL NOT alterar las rutas, los parámetros ni los campos de `GET /v1/plants` y `GET /v1/plants/{id}` existentes.
+Las rutas de objetivos SHALL estar bajo `/v1`, requerir el token de API como el resto, documentarse en el documento OpenAPI con el esquema Bearer, la respuesta 401 y los errores 400, 404, 405 y 500 como `application/problem+json`, usar nombres de campo en camelCase y representar lo ausente como `null` o lista vacía. Su incorporación SHALL ser un cambio compatible: SHALL NOT alterar las rutas, los parámetros ni los campos de `GET /v1/plants` y `GET /v1/plants/{id}` existentes.
 
 #### Scenario: OpenAPI actualizado
 - **WHEN** se regenera el documento OpenAPI desde el código
-- **THEN** incluye `/v1/goals` y `/v1/goals/{goalId}/plants` con Bearer, 401, 400 y 404, y coincide con el versionado
+- **THEN** incluye `/v1/goals` y `/v1/goals/{goalId}/plants` con Bearer, 401, 400, 404, 405 y 500 según corresponda, y coincide con el versionado
 
 #### Scenario: Rutas existentes intactas
 - **WHEN** se compara la respuesta de `GET /v1/plants` y de `GET /v1/plants/{id}` antes y después del cambio

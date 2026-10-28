@@ -97,4 +97,29 @@ void main() {
     await tester.pump();
     expect(launcher.launched, [url]);
   });
+
+  testWidgets('muestra la URL decodificada y abre la original codificada', (
+    tester,
+  ) async {
+    const encoded =
+        'https://commons.wikimedia.org/wiki/File:K%C3%B6hler%E2%80%93s.jpg';
+    await _pump(tester, 'Página', encoded);
+    expect(
+      find.text('https://commons.wikimedia.org/wiki/File:Köhler–s.jpg'),
+      findsOneWidget,
+    );
+    expect(find.text(encoded), findsNothing);
+    await tester.tap(find.text(PassportTexts.openLink));
+    await tester.pump();
+    expect(launcher.launched, [encoded]);
+  });
+
+  testWidgets('una URL mal codificada no rompe y se muestra tal cual', (
+    tester,
+  ) async {
+    const bad = 'https://example.org/a%E0%A4%A';
+    await _pump(tester, 'Página', bad);
+    expect(find.text(bad), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }

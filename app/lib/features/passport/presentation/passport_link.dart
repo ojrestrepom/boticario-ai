@@ -21,6 +21,17 @@ class PassportLink extends StatelessWidget {
     return uri != null && uri.scheme == 'https' && uri.host.isNotEmpty;
   }
 
+  /// [url] for reading: percent-encoding decoded, or the original text when
+  /// it cannot be decoded. Only the display changes; the link that opens is
+  /// always the original URL.
+  static String readable(String url) {
+    try {
+      return Uri.decodeFull(url);
+    } on Object {
+      return url;
+    }
+  }
+
   Future<void> _open(BuildContext context) async {
     final messenger = ScaffoldMessenger.maybeOf(context);
     var opened = false;
@@ -70,7 +81,7 @@ class PassportLink extends StatelessWidget {
           ],
         ),
         SelectableText(
-          url,
+          readable(url),
           style: Theme.of(context).textTheme.bodyMedium
               ?.copyWith(color: passportInk),
         ),

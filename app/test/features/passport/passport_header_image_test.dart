@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_header.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -72,7 +73,7 @@ void main() {
     expect(_inHeader('Autor: ${image.author}'), findsOneWidget);
     expect(_inHeader('Licencia: CC BY-SA 4.0'), findsOneWidget);
     expect(_inHeader(PassportTexts.imageFilePageLabel), findsOneWidget);
-    expect(_inHeader(image.pageUrl), findsWidgets);
+    expect(_inHeader(PassportLink.readable(image.pageUrl)), findsWidgets);
   });
 
   testWidgets('Imagen sin atribución obligatoria', (tester) async {
@@ -83,7 +84,7 @@ void main() {
     await _settleImage(tester);
     expect(_inHeader('Autor: ${image.author}'), findsOneWidget);
     expect(_inHeader('Licencia: ${image.license}'), findsOneWidget);
-    expect(_inHeader(image.pageUrl), findsWidgets);
+    expect(_inHeader(PassportLink.readable(image.pageUrl)), findsWidgets);
   });
 
   testWidgets('Imagen descrita para tecnología de asistencia', (tester) async {
@@ -175,7 +176,10 @@ void main() {
     expect(launcher.launched, [plant.image!.pageUrl]);
     expect(launcher.modes, [PreferredLaunchMode.externalApplication]);
     // The URL stays visible and the page itself is not shown.
-    expect(find.text(plant.image!.pageUrl), findsWidgets);
+    expect(
+      find.text(PassportLink.readable(plant.image!.pageUrl)),
+      findsWidgets,
+    );
   });
 }
 

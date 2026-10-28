@@ -1,5 +1,6 @@
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_general_tab.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_properties_tab.dart';
@@ -28,7 +29,11 @@ void main() {
       expect(find.text('Licencia: ${credit.license}'), findsWidgets);
       expect(find.text('Atribución: ${credit.attribution}'), findsWidgets);
       if (credit.url != null) {
-        expect(find.text(credit.url!), findsWidgets, reason: credit.name);
+        expect(
+          find.text(PassportLink.readable(credit.url!)),
+          findsWidgets,
+          reason: credit.name,
+        );
       }
       if (credit.licenseUrl != null) {
         expect(find.text(credit.licenseUrl!), findsWidgets);
@@ -49,7 +54,7 @@ void main() {
     await showPassport(tester, plant);
     await _scrollToSources(tester);
     expect(find.byType(SelectableText), findsWidgets);
-    final url = plant.image!.pageUrl;
+    final url = PassportLink.readable(plant.image!.pageUrl);
     await tester.scrollUntilVisible(
       find.text(url),
       300,
@@ -93,7 +98,7 @@ void main() {
     );
     expect(find.text('Autor: ${image.author}'), findsOneWidget);
     expect(find.text('Licencia: ${image.license}'), findsWidgets);
-    expect(find.text(image.pageUrl), findsOneWidget);
+    expect(find.text(PassportLink.readable(image.pageUrl)), findsOneWidget);
     expect(find.text(image.licenseUrl!), findsOneWidget);
   });
 

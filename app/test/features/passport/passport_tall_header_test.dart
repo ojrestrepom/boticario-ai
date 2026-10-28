@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:boticario_ai/app/theme.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +80,10 @@ void main() {
     final plant = consolidatedPlant('lavandula-angustifolia');
     expect(find.text('Licencia: ${plant.image!.license}'), findsOneWidget);
     expect(find.text(PassportTexts.imageFilePageLabel), findsOneWidget);
-    expect(find.text(plant.image!.pageUrl), findsOneWidget);
+    expect(
+      find.text(PassportLink.readable(plant.image!.pageUrl)),
+      findsOneWidget,
+    );
     expect(find.text(PassportTexts.openLink), findsWidgets);
     expect(tester.takeException(), isNull);
   });

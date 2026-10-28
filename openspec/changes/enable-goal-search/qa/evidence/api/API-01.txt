@@ -1,0 +1,82 @@
+--- catalogo de objetivos
+GET /v1/goals
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "925"}
+[
+ {
+  "id": "relajacion-estres",
+  "name": "Relajación / Estrés",
+  "plantCount": 17,
+  "subareas": []
+ },
+ {
+  "id": "mejorar-el-sueno",
+  "name": "Mejorar el sueño",
+  "plantCount": 8,
+  "subareas": []
+ },
+ {
+  "id": "cuidado-de-la-piel",
+  "name": "Cuidado de la piel",
+  "plantCount": 32,
+  "subareas": []
+ },
+ {
+  "id": "alivio-respiratorio",
+  "name": "Alivio respiratorio",
+  "plantCount": 52,
+  "subareas": []
+ },
+ {
+  "id": "cansancio-y-fatiga",
+  "name": "Cansancio y fatiga",
+  "plantCount": 8,
+  "subareas": []
+ },
+ {
+  "id": "otros-objetivos",
+  "name": "Otros objetivos",
+  "plantCount": 135,
+  "subareas": [
+   {
+    "id": "digestion",
+    "name": "Digestión",
+    "plantCount": 68
+   },
+   {
+    "id": "vias-urinarias-y-genitales",
+    "name": "Vías urinarias y genitales",
+    "plantCount": 42
+   },
+   {
+    "id": "dolor-e-inflamacion",
+    "name": "Dolor e inflamación",
+    "plantCount": 22
+   },
+   {
+    "id": "boca-y-garganta",
+    "name": "Boca y garganta",
+    "plantCount": 20
+   },
+   {
+    "id": "circulacion",
+    "name": "Circulación",
+    "plantCount": 17
+   },
+   {
+    "id": "molestias-oculares",
+    "name": "Molestias oculares",
+    "plantCount": 1
+   }
+  ]
+ }
+]
+
+PASA  200, application/json y cumple el esquema de openapi.json 
+PASA  la raiz es un array (decision: array en la raiz) 
+PASA  los objetivos del catalogo en su orden, con id y nombre en espanol [('relajacion-estres', 'Relajación / Estrés'), ('mejorar-el-sueno', 'Mejorar el sueño'), ('cuidado-de-la-piel', 'Cuidado de la piel'), ('alivio-respiratorio', 'Alivio respiratorio'), ('cansancio-y-fatiga', 'Cansancio y fatiga'), ('otros-objetivos', 'Otros objetivos')]
+PASA  nombres exactos de P06 y sin 'Concentracion' 
+PASA  claves camelCase (id, name, plantCount, subareas) y nada mas 
+PASA  plantCount = plantas distintas visibles segun la base {'relajacion-estres': 17, 'mejorar-el-sueno': 8, 'cuidado-de-la-piel': 32, 'alivio-respiratorio': 52, 'cansancio-y-fatiga': 8, 'otros-objetivos': 135}
+PASA  conteos reales de design.md (17, 8, 32, 52, 8, 135) 
+PASA  solo otros-objetivos trae subareas; los demas, lista vacia (no null) 

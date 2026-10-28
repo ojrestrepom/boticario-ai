@@ -1,0 +1,286 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+enable-goal-search API
+
+Folder Objetivos
+Sub-folder OBJ-01 catalogo de objetivos
+
+  GET http://127.0.0.1:8080/v1/goals [200 OK, 1.01 KB, 10 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  array en la raiz con los seis objetivos en orden
+  Pass  nombres en espanol
+  Pass  conteos reales 17, 8, 32, 52, 8, 135
+  Pass  solo otros-objetivos trae subareas, las demas []
+  Pass  subareas en orden con conteos 68, 42, 22, 20, 17, 1
+
+Folder Plantas por objetivo
+Sub-folder PLA-01 mejorar-el-sueno, primera pagina
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants [200 OK, 6.99 KB, 3 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  goal, subarea null, total 8, limit 20, offset 0
+  Pass  campos de cada planta y nada de dosis ni descripcion
+  Pass  orden por displayName normalizado, cientifico normalizado e id
+  Pass  areas sin lenguaje de dosis o eficacia
+
+Sub-folder PLA-02 relajacion-estres sin el hiperico
+
+  GET http://127.0.0.1:8080/v1/goals/relajacion-estres/plants?limit=100 [200 OK, 12.63 KB, 2 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  total 17 y el hiperico ausente
+  Pass  orden por displayName normalizado, cientifico normalizado e id
+
+Sub-folder PLA-03 subarea digestion
+
+  GET http://127.0.0.1:8080/v1/goals/otros-objetivos/plants?subarea=digestion&limit=100 [200 OK, 55.08 KB, 4 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  subarea digestion, total 68
+  Pass  areas de digestion solamente
+  Pass  orden por displayName normalizado, cientifico normalizado e id
+  Pass  areas sin lenguaje de dosis o eficacia
+
+Sub-folder PLA-04 union de otros-objetivos sin repetir
+
+  GET http://127.0.0.1:8080/v1/goals/otros-objetivos/plants?limit=100 [200 OK, 83.89 KB, 4 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  subarea null, total 135, sin repetidas
+  Pass  orden por displayName normalizado, cientifico normalizado e id
+
+Sub-folder PLA-05 paginacion limit 5 offset 5
+
+  GET http://127.0.0.1:8080/v1/goals/alivio-respiratorio/plants?limit=5&offset=5 [200 OK, 4.82 KB, 2 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  cinco elementos, limit 5, offset 5, total 52
+
+Sub-folder PLA-06 offset mas alla del total
+
+  GET http://127.0.0.1:8080/v1/goals/alivio-respiratorio/plants?offset=1000 [200 OK, 237 B, 2 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  lista vacia y total conservado
+
+Sub-folder PLA-07 eucalipto: precauciones sin nivel
+
+  GET http://127.0.0.1:8080/v1/goals/alivio-respiratorio/plants?limit=100 [200 OK, 40.26 KB, 3 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  eucalyptus-globulus con safetyLevel null y hasSafety true
+  Pass  niveles validos y hasSafety verdadero en todas
+
+Sub-folder PLA-08 la lavanda en el sueno con su area
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants [200 OK, 6.99 KB, 2 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  lavandula-angustifolia con el area de sueno
+
+Sub-folder PLA-09 plantas toxicas ausentes
+
+  GET http://127.0.0.1:8080/v1/goals/otros-objetivos/plants?limit=100 [200 OK, 83.89 KB, 4 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  aconitum-napellus, ricinus-communis y abrus-precatorius no estan
+
+Sub-folder PLA-10 el hiperico sigue en el detalle
+
+  GET http://127.0.0.1:8080/v1/plants/hypericum-perforatum [200 OK, 17.5 KB, 3 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  detalle con id hypericum-perforatum
+
+Folder Errores
+Sub-folder ERR-01 objetivo desconocido
+
+  GET http://127.0.0.1:8080/v1/goals/no-existe/plants [404 Not Found, 274 B, 2 ms]
+  Pass  estado 404
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+
+Sub-folder ERR-02 subarea ajena
+
+  GET http://127.0.0.1:8080/v1/goals/relajacion-estres/plants?subarea=digestion [400 Bad Request, 301 B, 2 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = subarea
+
+Sub-folder ERR-03 subarea inexistente en otros-objetivos
+
+  GET http://127.0.0.1:8080/v1/goals/otros-objetivos/plants?subarea=no-existe [400 Bad Request, 299 B, 1 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = subarea
+
+Sub-folder ERR-04 subarea sobre un objetivo sin subareas
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants?subarea=x [400 Bad Request, 300 B, 2 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = subarea
+
+Sub-folder ERR-05 limit 0
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants?limit=0 [400 Bad Request, 288 B, 1 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = limit
+
+Sub-folder ERR-06 limit 101
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants?limit=101 [400 Bad Request, 288 B, 1 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = limit
+
+Sub-folder ERR-07 limit no numerico
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants?limit=abc [400 Bad Request, 282 B, 1 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = limit
+
+Sub-folder ERR-08 offset negativo
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants?offset=-1 [400 Bad Request, 287 B, 2 ms]
+  Pass  estado 400
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  param = offset
+
+Folder Autenticacion y metodos
+Sub-folder AUT-01 catalogo sin token
+
+  GET http://127.0.0.1:8080/v1/goals [401 Unauthorized, 281 B, 2 ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder AUT-02 plantas sin token
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants [401 Unauthorized, 305 B, 1 ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  problem+json con status, title y detail
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder AUT-03 objetivo desconocido sin token: 401 y no 404
+
+  GET http://127.0.0.1:8080/v1/goals/no-existe/plants [401 Unauthorized, 298 B, 2 ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder AUT-04 catalogo con token incorrecto
+
+  GET http://127.0.0.1:8080/v1/goals [401 Unauthorized, 281 B, 2 ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder AUT-05 plantas con token incorrecto
+
+  GET http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants [401 Unauthorized, 305 B, 2 ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  WWW-Authenticate: Bearer
+
+Sub-folder MET-01 POST al catalogo
+
+  POST http://127.0.0.1:8080/v1/goals [405 Method Not Allowed, 291 B, 2 ms]
+  Pass  estado 405
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  Allow: GET
+  Pass  problem+json con status, title y detail
+
+Sub-folder MET-02 DELETE a las plantas
+
+  DELETE http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants [405 Method Not Allowed, 315 B, 1 ms]
+  Pass  estado 405
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  Allow: GET
+
+Sub-folder MET-03 POST sin token: 401 antes que 405
+
+  POST http://127.0.0.1:8080/v1/goals [401 Unauthorized, 298 B, 1 ms]
+  Pass  estado 401
+  Pass  content-type application/problem+json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  WWW-Authenticate: Bearer
+
+Folder Rutas existentes
+Sub-folder REG-01 listado de plantas sigue igual
+
+  GET http://127.0.0.1:8080/v1/plants?limit=3 [200 OK, 1.66 KB, 2 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  total 2354 y limit 3
+
+Sub-folder REG-02 detalle de la lavanda sigue igual
+
+  GET http://127.0.0.1:8080/v1/plants/lavandula-angustifolia [200 OK, 10.14 KB, 2 ms]
+  Pass  estado 200
+  Pass  content-type application/json
+  Pass  cumple el esquema de backend/openapi.json
+  Pass  displayName Lavanda y objetivos
+
+-------------------------------------------------------------------
+|                         |          executed |            failed |
+--------------------------+-------------------+--------------------
+|              iterations |                 1 |                 0 |
+--------------------------+-------------------+--------------------
+|                requests |                29 |                 0 |
+--------------------------+-------------------+--------------------
+|            test-scripts |                29 |                 0 |
+--------------------------+-------------------+--------------------
+|      prerequest-scripts |                 0 |                 0 |
+--------------------------+-------------------+--------------------
+|              assertions |               138 |                 0 |
+-------------------------------------------------------------------
+| total run duration: 469 ms                                      |
+-------------------------------------------------------------------
+| total data received: 326.1 KB (approx)                          |
+-------------------------------------------------------------------
+| average response time: 2 ms [min: 1 ms, max: 10 ms, s.d.: 1 ms] |
+-------------------------------------------------------------------

@@ -1,0 +1,98 @@
+--- id inexistente
+GET /v1/goals/no-existe/plants
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "150"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/no-existe/plants"
+}
+
+PASA  id inexistente: 404 problem+json 404
+PASA  id inexistente: cuerpo cumple el esquema de error y no refleja el id 
+--- id con mayusculas
+GET /v1/goals/Mejorar-El-Sueno/plants
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "157"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/Mejorar-El-Sueno/plants"
+}
+
+PASA  id con mayusculas: 404 problem+json 404
+PASA  id con mayusculas: cuerpo cumple el esquema de error y no refleja el id 
+--- id con caracteres reservados
+GET /v1/goals/a%2Fb/plants
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "146"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/a%2Fb/plants"
+}
+
+PASA  id con caracteres reservados: 404 problem+json 404
+PASA  id con caracteres reservados: cuerpo cumple el esquema de error y no refleja el id 
+--- id con acento
+GET /v1/goals/mejorar-el-sue%C3%B1o/plants
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "162"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/mejorar-el-sue%C3%B1o/plants"
+}
+
+PASA  id con acento: 404 problem+json 404
+PASA  id con acento: cuerpo cumple el esquema de error y no refleja el id 
+--- id con punto y coma
+GET /v1/goals/a%3Bb%3Fc/plants
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "150"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/a%3Bb%3Fc/plants"
+}
+
+PASA  id con punto y coma: 404 problem+json 404
+PASA  id con punto y coma: cuerpo cumple el esquema de error y no refleja el id 
+--- id muy largo (300)
+GET /v1/goals/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "441"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+... (recortado, 457 caracteres)
+
+PASA  id muy largo (300): 404 problem+json 404
+PASA  id muy largo (300): cuerpo cumple el esquema de error y no refleja el id 
+--- inexistente con subarea
+GET /v1/goals/no-existe/plants?subarea=digestion
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "150"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe un objetivo con ese identificador",
+ "instance": "/v1/goals/no-existe/plants"
+}
+
+PASA  inexistente con subarea: 404 problem+json 404
+PASA  inexistente con subarea: cuerpo cumple el esquema de error y no refleja el id 

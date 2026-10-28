@@ -1,0 +1,67 @@
+--- POST con token
+POST /v1/goals
+Authorization: Bearer <token-app>
+-> 405 {"content-type": "application/problem+json", "allow": "GET", "content-length": "146"}
+{
+ "type": "about:blank",
+ "title": "Method Not Allowed",
+ "status": 405,
+ "detail": "método no permitido: la API es de solo lectura",
+ "instance": "/v1/goals"
+}
+
+PASA  POST /v1/goals con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  POST /v1/goals: el 405 cumple el esquema 
+PASA  PUT /v1/goals con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  PUT /v1/goals: el 405 cumple el esquema 
+PASA  PATCH /v1/goals con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  PATCH /v1/goals: el 405 cumple el esquema 
+PASA  DELETE /v1/goals con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  DELETE /v1/goals: el 405 cumple el esquema 
+PASA  POST /v1/goals sin token -> 401 (la autenticacion va antes que el metodo) 401
+--- POST con token
+POST /v1/goals/mejorar-el-sueno/plants
+Authorization: Bearer <token-app>
+-> 405 {"content-type": "application/problem+json", "allow": "GET", "content-length": "170"}
+{
+ "type": "about:blank",
+ "title": "Method Not Allowed",
+ "status": 405,
+ "detail": "método no permitido: la API es de solo lectura",
+ "instance": "/v1/goals/mejorar-el-sueno/plants"
+}
+
+PASA  POST /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  POST /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema 
+PASA  PUT /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  PUT /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema 
+PASA  PATCH /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  PATCH /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema 
+PASA  DELETE /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  DELETE /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema 
+PASA  POST /v1/goals/mejorar-el-sueno/plants sin token -> 401 (la autenticacion va antes que el metodo) 401
+--- POST con token
+POST /v1/goals/no-existe/plants
+Authorization: Bearer <token-app>
+-> 405 {"content-type": "application/problem+json", "allow": "GET", "content-length": "163"}
+{
+ "type": "about:blank",
+ "title": "Method Not Allowed",
+ "status": 405,
+ "detail": "método no permitido: la API es de solo lectura",
+ "instance": "/v1/goals/no-existe/plants"
+}
+
+PASA  POST /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  POST /v1/goals/no-existe/plants: el 405 cumple el esquema 
+PASA  PUT /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  PUT /v1/goals/no-existe/plants: el 405 cumple el esquema 
+PASA  PATCH /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  PATCH /v1/goals/no-existe/plants: el 405 cumple el esquema 
+PASA  DELETE /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET 405 allow=GET
+PASA  DELETE /v1/goals/no-existe/plants: el 405 cumple el esquema 
+PASA  POST /v1/goals/no-existe/plants sin token -> 401 (la autenticacion va antes que el metodo) 401
+OBS   HEAD /v1/goals con token -> 200 allow=None cuerpo=0 bytes
+OBS   HEAD /v1/goals/mejorar-el-sueno/plants con token -> 200 allow=None cuerpo=0 bytes
+OBS   OPTIONS /v1/goals con token -> 405 allow=GET cuerpo=145 bytes
+OBS   OPTIONS /v1/goals/mejorar-el-sueno/plants con token -> 405 allow=GET cuerpo=169 bytes

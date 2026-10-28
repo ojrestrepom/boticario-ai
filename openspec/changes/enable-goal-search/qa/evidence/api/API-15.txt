@@ -1,0 +1,14 @@
+PASA  eucalyptus-globulus: safetyLevel null y hasSafety true (precauciones sin nivel) 
+--- distribucion (nivel, hasSafety) de las 175 plantas
+GET censo
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "(None, True)": 111,
+ "('medio', True)": 30,
+ "('bajo', True)": 21,
+ "('alto', True)": 13
+}
+
+PASA  distribucion 13 alto, 30 medio, 21 bajo, 111 sin nivel; hasSafety verdadero en las 175 {(None, True): 111, ('medio', True): 30, ('bajo', True): 21, ('alto', True): 13}
+OBS   hasSafety=false no ocurre en ninguna planta real con objetivo: el caso se cubre solo con fixtures de la app (tarea 5.2); no hay forma de probarlo con la API real

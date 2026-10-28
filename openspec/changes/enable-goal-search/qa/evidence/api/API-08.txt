@@ -1,0 +1,269 @@
+PASA  limit=1: 200 con 1 elementos (el objetivo tiene 52) y limit=1 200
+PASA  limit=2: 200 con 2 elementos (el objetivo tiene 52) y limit=2 200
+PASA  limit=19: 200 con 19 elementos (el objetivo tiene 52) y limit=19 200
+PASA  limit=20: 200 con 20 elementos (el objetivo tiene 52) y limit=20 200
+PASA  limit=99: 200 con 52 elementos (el objetivo tiene 52) y limit=99 200
+PASA  limit=100: 200 con 52 elementos (el objetivo tiene 52) y limit=100 200
+--- limit='0'
+GET /v1/goals/alivio-respiratorio/plants?limit=0
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "165"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe estar entre 1 y 100",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='0': 400 problem+json con param=limit 400 limit
+--- limit='-1'
+GET /v1/goals/alivio-respiratorio/plants?limit=-1
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "165"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe estar entre 1 y 100",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='-1': 400 problem+json con param=limit 400 limit
+--- limit='101'
+GET /v1/goals/alivio-respiratorio/plants?limit=101
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "165"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe estar entre 1 y 100",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='101': 400 problem+json con param=limit 400 limit
+--- limit='1000'
+GET /v1/goals/alivio-respiratorio/plants?limit=1000
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "165"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe estar entre 1 y 100",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='1000': 400 problem+json con param=limit 400 limit
+--- limit='abc'
+GET /v1/goals/alivio-respiratorio/plants?limit=abc
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='abc': 400 problem+json con param=limit 400 limit
+--- limit='1.5'
+GET /v1/goals/alivio-respiratorio/plants?limit=1.5
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='1.5': 400 problem+json con param=limit 400 limit
+--- limit=''
+GET /v1/goals/alivio-respiratorio/plants?limit=
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='': 400 problem+json con param=limit 400 limit
+--- limit='%20'
+GET /v1/goals/alivio-respiratorio/plants?limit=%20
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='%20': 400 problem+json con param=limit 400 limit
+--- limit='9999999999999999999999'
+GET /v1/goals/alivio-respiratorio/plants?limit=9999999999999999999999
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='9999999999999999999999': 400 problem+json con param=limit 400 limit
+--- limit='1e2'
+GET /v1/goals/alivio-respiratorio/plants?limit=1e2
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+PASA  limit='1e2': 400 problem+json con param=limit 400 limit
+--- limit='+5'
+GET /v1/goals/alivio-respiratorio/plants?limit=+5
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "159"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "limit"
+}
+
+OBS   limit=+5 -> 400 (cadena '+5' se interpreta como invalida)
+PASA  offset=0: 200, 5 elementos y total 52 conservado 200 5
+PASA  offset=1: 200, 5 elementos y total 52 conservado 200 5
+PASA  offset=51: 200, 1 elementos y total 52 conservado 200 1
+PASA  offset=52: 200, 0 elementos y total 52 conservado 200 0
+PASA  offset=53: 200, 0 elementos y total 52 conservado 200 0
+PASA  offset=1000: 200, 0 elementos y total 52 conservado 200 0
+PASA  offset=2147483647: 200, 0 elementos y total 52 conservado 200 0
+--- offset='-1'
+GET /v1/goals/alivio-respiratorio/plants?offset=-1
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "164"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset no puede ser negativo",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='-1': 400 problem+json con param=offset 400 offset
+--- offset='abc'
+GET /v1/goals/alivio-respiratorio/plants?offset=abc
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "161"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='abc': 400 problem+json con param=offset 400 offset
+--- offset='1.5'
+GET /v1/goals/alivio-respiratorio/plants?offset=1.5
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "161"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='1.5': 400 problem+json con param=offset 400 offset
+--- offset=''
+GET /v1/goals/alivio-respiratorio/plants?offset=
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "161"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='': 400 problem+json con param=offset 400 offset
+--- offset='99999999999999999999999'
+GET /v1/goals/alivio-respiratorio/plants?offset=99999999999999999999999
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "161"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset debe ser un entero",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='99999999999999999999999': 400 problem+json con param=offset 400 offset
+--- offset='9223372036854775807'
+GET /v1/goals/alivio-respiratorio/plants?offset=9223372036854775807
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "162"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset es demasiado grande",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='9223372036854775807': 400 problem+json con param=offset 400 offset
+--- offset='4294967296'
+GET /v1/goals/alivio-respiratorio/plants?offset=4294967296
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "162"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset es demasiado grande",
+ "instance": "/v1/goals/alivio-respiratorio/plants",
+ "param": "offset"
+}
+
+PASA  offset='4294967296': 400 problem+json con param=offset 400 offset
+PASA  mismas reglas de limit/offset que GET /v1/plants (mismo estado para 10 entradas) []
+OBS   parametro repetido limit=5&limit=10 -> 200 (items 8); GET /v1/plants da 200
+OBS   parametro repetido limit=5&limit=abc -> 400 (items -); GET /v1/plants da 400
+OBS   parametro desconocido foo=bar -> 200

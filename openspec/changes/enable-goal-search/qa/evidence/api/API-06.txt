@@ -1,0 +1,105 @@
+--- subarea de otro objetivo en un objetivo con subareas? (sin subareas)
+GET /v1/goals/relajacion-estres/plants?subarea=digestion
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "175"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/relajacion-estres/plants",
+ "param": "subarea"
+}
+
+PASA  subarea de otro objetivo en un objetivo con subareas? (sin subareas): 400 problem+json con param=subarea 400 subarea
+PASA  subarea de otro objetivo en un objetivo con subareas? (sin subareas): cuerpo cumple el esquema de error 
+--- subarea inexistente en otros-objetivos
+GET /v1/goals/otros-objetivos/plants?subarea=no-existe
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "173"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/otros-objetivos/plants",
+ "param": "subarea"
+}
+
+PASA  subarea inexistente en otros-objetivos: 400 problem+json con param=subarea 400 subarea
+PASA  subarea inexistente en otros-objetivos: cuerpo cumple el esquema de error 
+--- subarea sobre un objetivo sin subareas
+GET /v1/goals/mejorar-el-sueno/plants?subarea=x
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "174"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/mejorar-el-sueno/plants",
+ "param": "subarea"
+}
+
+PASA  subarea sobre un objetivo sin subareas: 400 problem+json con param=subarea 400 subarea
+PASA  subarea sobre un objetivo sin subareas: cuerpo cumple el esquema de error 
+--- subarea vacia
+GET /v1/goals/otros-objetivos/plants?subarea=
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "173"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/otros-objetivos/plants",
+ "param": "subarea"
+}
+
+PASA  subarea vacia: 400 problem+json con param=subarea 400 subarea
+PASA  subarea vacia: cuerpo cumple el esquema de error 
+--- subarea con mayusculas
+GET /v1/goals/otros-objetivos/plants?subarea=DIGESTION
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "173"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/otros-objetivos/plants",
+ "param": "subarea"
+}
+
+PASA  subarea con mayusculas: 400 problem+json con param=subarea 400 subarea
+PASA  subarea con mayusculas: cuerpo cumple el esquema de error 
+--- subarea con espacio final
+GET /v1/goals/otros-objetivos/plants?subarea=digestion%20
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "173"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/otros-objetivos/plants",
+ "param": "subarea"
+}
+
+PASA  subarea con espacio final: 400 problem+json con param=subarea 400 subarea
+PASA  subarea con espacio final: cuerpo cumple el esquema de error 
+--- subarea con id de objetivo
+GET /v1/goals/otros-objetivos/plants?subarea=otros-objetivos
+Authorization: Bearer <token-app>
+-> 400 {"content-type": "application/problem+json", "content-length": "173"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "la subárea no pertenece a este objetivo",
+ "instance": "/v1/goals/otros-objetivos/plants",
+ "param": "subarea"
+}
+
+PASA  subarea con id de objetivo: 400 problem+json con param=subarea 400 subarea
+PASA  subarea con id de objetivo: cuerpo cumple el esquema de error 

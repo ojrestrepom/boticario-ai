@@ -1,0 +1,9 @@
+=== errors
+PASA  UI-10 P06 con la API detenida: error legible con Reintentar y sin filas ['Selecciona un objetivo principal', 'No se pudo conectar con el servidor. Revisa tu conexión e inténtalo de nuevo.', 'Favoritos no disponible']
+PASA  UI-10 P06: Reintentar con la API en marcha muestra las seis filas
+PASA  UI-10 subáreas con la API detenida tras haber cargado P06: la pantalla de subáreas usa el catálogo ya cargado abrió subáreas con datos en memoria
+PASA  UI-10 P07 con la API detenida: error legible con Reintentar, aviso y barra inferior visibles
+PASA  UI-10 P07: Reintentar con la API en marcha muestra las tarjetas
+PASA  UI-10 fallo al cargar la página siguiente: se conservan las tarjetas y el pie ofrece Reintentar
+PASA  UI-10 Reintentar en el pie: el pie de error desaparece y siguen las tarjetas
+OBS   el fallo de la API se simuló con docker stop/start del servicio de la QA

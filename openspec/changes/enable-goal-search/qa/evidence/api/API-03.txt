@@ -1,0 +1,96 @@
+PASA  relajacion-estres: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 17 status 200
+PASA  relajacion-estres: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion) 
+--- mejorar-el-sueno, primera pagina
+GET /v1/goals/mejorar-el-sueno/plants
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "7052"}
+{
+ "goal": {
+  "id": "mejorar-el-sueno",
+  "name": "Mejorar el sueño"
+ },
+ "subarea": null,
+ "items": [
+  {
+   "id": "eschscholzia-californica",
+   "scientificName": "Eschscholzia californica",
+   "displayName": "Amapola de California",
+   "commonNames": [
+    {
+     "text": "Amapola de California",
+     "language": "es"
+    },
+    {
+     "text": "California poppy",
+     "language": "en"
+    },
+    {
+     "text": "Goldmohn (Schlafmuetzchen)",
+     "language": "de"
+    }
+   ],
+   "family": "Papaveraceae",
+   "areas": [
+    "Trastornos del sueño e insomnio pasajero"
+   ],
+   "safetyLevel": "medio",
+   "hasSafety": true,
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/California_poppy.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:California_poppy.jpg",
+    "author": "Artslave",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "attributionRequired": true
+   }
+  },
+  {
+   "id": "avena-sativa",
+   "scientificName": "Avena sativa",
+   "displayName": "Avena",
+   "commonNames": [
+    {
+     "text": "Avena",
+     "language": "es"
+    },
+    {
+     "text": "avena",
+     "language": "es"
+    },
+    {
+     "text": "Oat",
+     "language": "en"
+    },
+    {
+     "text": "Oats",
+     "language": "en"
+    },
+    {
+     "text": "Saat-Hafer",
+     "language": "de"
+    }
+   ],
+   "family": "Poaceae",
+   "areas": [
+    "Trastornos del sueño e insomnio pasajero"
+   ],
+   "safetyLevel": null,
+   "hasSafety": true,
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Avena_sativa_L.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Avena_sativa_L.jpg",
+    "author": "Sendelbach ( talk )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/
+... (recortado, 9328 caracteres)
+
+PASA  mejorar-el-sueno: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 8 status 200
+PASA  mejorar-el-sueno: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion) 
+PASA  cuidado-de-la-piel: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 32 status 200
+PASA  cuidado-de-la-piel: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion) 
+PASA  alivio-respiratorio: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 52 status 200
+PASA  alivio-respiratorio: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion) 
+PASA  cansancio-y-fatiga: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 8 status 200
+PASA  cansancio-y-fatiga: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion) 
+PASA  otros-objetivos: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 135 status 200
+PASA  otros-objetivos: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion) 

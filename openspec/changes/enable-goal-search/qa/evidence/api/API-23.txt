@@ -1,0 +1,11 @@
+PASA el token no aparece en las        9 lineas del log (RUST_LOG=debug, 16 peticiones a las dos rutas con token valido, incorrecto, sin token y POST)
+PASA el log no contiene la palabra Bearer ni cabeceras Authorization
+--- ultimas 8 lineas del log (token sustituido)
+2026-10-28T02:24:02.898375Z DEBUG catalog_api::auth: petición no autorizada reason="no coincide" path="/v1/goals"
+2026-10-28T02:24:02.905495Z DEBUG catalog_api::auth: petición no autorizada reason="ausente" path="/v1/goals"
+2026-10-28T02:24:02.927252Z DEBUG catalog_api::auth: petición no autorizada reason="no coincide" path="/v1/goals/mejorar-el-sueno/plants"
+2026-10-28T02:24:02.934504Z DEBUG catalog_api::auth: petición no autorizada reason="ausente" path="/v1/goals/mejorar-el-sueno/plants"
+2026-10-28T02:24:02.952998Z DEBUG catalog_api::auth: petición no autorizada reason="no coincide" path="/v1/goals/otros-objetivos/plants"
+2026-10-28T02:24:02.958600Z DEBUG catalog_api::auth: petición no autorizada reason="ausente" path="/v1/goals/otros-objetivos/plants"
+2026-10-28T02:24:02.975452Z DEBUG catalog_api::auth: petición no autorizada reason="no coincide" path="/v1/goals/no-existe/plants"
+2026-10-28T02:24:02.980904Z DEBUG catalog_api::auth: petición no autorizada reason="ausente" path="/v1/goals/no-existe/plants"

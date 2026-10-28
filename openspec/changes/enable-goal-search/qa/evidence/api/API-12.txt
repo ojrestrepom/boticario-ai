@@ -1,0 +1,46 @@
+PASA  el hiperico no esta en relajacion-estres (17 de 18) 
+PASA  la unica fila pendiente en la base es la del hiperico en relajacion-estres 
+--- detalle del hiperico
+GET /v1/plants/hypericum-perforatum
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "17805"}
+{
+ "id": "hypericum-perforatum",
+ "displayName": "Hierba de San Juan",
+ "goals": [
+  {
+   "id": "cuidado-de-la-piel",
+   "name": "Cuidado de la piel",
+   "subarea": null,
+   "area": "Trastornos de la piel y heridas leves",
+   "evidence": "La EMA tiene una monografía en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:hyperici-herba-0",
+     "citation": "EMA: Hyperici herba"
+    }
+   ]
+  },
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Digestión",
+   "area": "Trastornos gastrointestinales",
+   "evidence": "La EMA tiene una monografía en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:hyperici-herba-0",
+     "citation": "EMA: Hyperici herba"
+    }
+   ]
+  }
+ ]
+}
+
+PASA  el detalle del hiperico responde 200 
+PASA  el detalle no lista relajacion-estres entre sus objetivos (misma regla) 
+PASA  el hiperico sigue en el listado GET /v1/plants?q=hypericum 
+PASA  el hiperico si aparece en cuidado-de-la-piel (su fila no esta pendiente) 
+PASA  el hiperico si aparece en otros-objetivos (su fila no esta pendiente) 
+PASA  hiperico en otros-objetivos/digestion 
+PASA  ningun reviewFlag distinto de la marca por objetivo oculta plantas: las de 'sin-datos-de-seguridad' con objetivos siguen visibles 0 plantas

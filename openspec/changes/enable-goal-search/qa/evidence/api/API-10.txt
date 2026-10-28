@@ -1,0 +1,24 @@
+PASA  relajacion-estres: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente) 
+PASA  relajacion-estres: displayName = plant_profile.display_name 
+PASA  mejorar-el-sueno: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente) 
+PASA  mejorar-el-sueno: displayName = plant_profile.display_name 
+PASA  cuidado-de-la-piel: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente) 
+PASA  cuidado-de-la-piel: displayName = plant_profile.display_name 
+PASA  alivio-respiratorio: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente) 
+PASA  alivio-respiratorio: displayName = plant_profile.display_name 
+PASA  cansancio-y-fatiga: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente) 
+PASA  cansancio-y-fatiga: displayName = plant_profile.display_name 
+PASA  otros-objetivos: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente) 
+PASA  otros-objetivos: displayName = plant_profile.display_name 
+PASA  otros-objetivos/digestion: mismo orden total 
+PASA  otros-objetivos/vias-urinarias-y-genitales: mismo orden total 
+PASA  otros-objetivos/dolor-e-inflamacion: mismo orden total 
+PASA  otros-objetivos/boca-y-garganta: mismo orden total 
+PASA  otros-objetivos/circulacion: mismo orden total 
+PASA  otros-objetivos/molestias-oculares: mismo orden total 
+PASA  otros-objetivos: el orden no es el binario (mayusculas y acentos no mueven la posicion) 
+OBS   en otros-objetivos 22 plantas tienen el cientifico como displayName y se mezclan en el orden; ejemplo: ['Actaea racemosa', 'Capsicum annuum var. aviculare', 'Crataegus pentagyna']
+OBS   cuidado-de-la-piel: empates de displayName normalizado resueltos por cientifico e id: ['ortiga']
+OBS   alivio-respiratorio: empates de displayName normalizado resueltos por cientifico e id: ['gordolobo', 'primavera', 'regaliz']
+OBS   otros-objetivos: empates de displayName normalizado resueltos por cientifico e id: ['gordolobo', 'manzanilla', 'ortiga', 'regaliz']
+PASA  orden estable: dos peticiones iguales devuelven el mismo cuerpo 

@@ -1,0 +1,48 @@
+--- subareas de otros-objetivos
+GET /v1/goals
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "id": "otros-objetivos",
+ "name": "Otros objetivos",
+ "plantCount": 135,
+ "subareas": [
+  {
+   "id": "digestion",
+   "name": "Digestión",
+   "plantCount": 68
+  },
+  {
+   "id": "vias-urinarias-y-genitales",
+   "name": "Vías urinarias y genitales",
+   "plantCount": 42
+  },
+  {
+   "id": "dolor-e-inflamacion",
+   "name": "Dolor e inflamación",
+   "plantCount": 22
+  },
+  {
+   "id": "boca-y-garganta",
+   "name": "Boca y garganta",
+   "plantCount": 20
+  },
+  {
+   "id": "circulacion",
+   "name": "Circulación",
+   "plantCount": 17
+  },
+  {
+   "id": "molestias-oculares",
+   "name": "Molestias oculares",
+   "plantCount": 1
+  }
+ ]
+}
+
+PASA  seis subareas en el orden del catalogo con nombre en espanol [('digestion', 'Digestión'), ('vias-urinarias-y-genitales', 'Vías urinarias y genitales'), ('dolor-e-inflamacion', 'Dolor e inflamación'), ('boca-y-garganta', 'Boca y garganta'), ('circulacion', 'Circulación'), ('molestias-oculares', 'Molestias oculares')]
+PASA  nombres de P06: Digestion, Vias urinarias y genitales, Dolor e inflamacion, Boca y garganta, Circulacion, Molestias oculares 
+PASA  plantCount de cada subarea segun la base (68, 42, 22, 20, 17, 1) 
+PASA  claves de subarea: id, name, plantCount 
+PASA  el conteo del objetivo es la union sin repetir (135 < suma de subareas 170) suma de subareas 170
+PASA  hay plantas en dos subareas y cuentan una vez (32 segun el diseno) 32 plantas, p. ej. ['achillea-millefolium', 'aesculus-hippocastanum', 'agrimonia-eupatoria']

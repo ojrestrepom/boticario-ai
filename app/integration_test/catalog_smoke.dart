@@ -25,8 +25,9 @@
 //         --dart-define=API_TOKEN=<token>
 //
 //   An application-level guard only lets `HttpClient` reach the host and port
-//   of that base URL; any other host fails the test with a clear error. It does
-//   not test device radios.
+//   of that base URL and, on port 443, the two Wikimedia hosts the plant
+//   photos come from (`PlantImagePolicy.allowedHosts`); any other host fails
+//   the test with a clear error. It does not test device radios.
 //
 // * `test/app/catalog_smoke_contract_test.dart` as a widget test, passing
 //   [overrides] with a fake HTTP client over fixtures: no network, no backend.
@@ -40,10 +41,12 @@ import 'dart:io';
 
 import 'package:boticario_ai/app/app.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_api_config.dart';
+import 'package:boticario_ai/features/catalog/data/plant_image_policy.dart';
 import 'package:boticario_ai/features/explore/application/explore_controller.dart';
 import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
+import 'package:boticario_ai/features/goal_search/presentation/goal_results_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_subareas_page.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
@@ -84,6 +87,12 @@ const _searchTerm = 'lavandula';
 const _lavenderCommon = 'Lavanda';
 const _lavenderScientific = 'Lavandula angustifolia';
 const _lavenderPath = '/explore/lavandula-angustifolia';
+
+/// The goal journey: `lavandula-angustifolia` is in the real catalog under
+/// `Relajación / Estrés` (the 8th of 17 plants) and in the test fixtures.
+const _goalLabel = 'Relajación / Estrés';
+const _goalPath = '/goals/relajacion-estres/plants';
+const _goalPlantId = 'lavandula-angustifolia';
 
 /// Shown when the real app runs without `API_TOKEN`. It names the define but
 /// never a token value.
@@ -228,6 +237,13 @@ Future<void> _runCatalogSmoke(
     await _tapVisible(tester, find.text('Inicio').last);
     _expectHomeAndCleanStack(tester, router);
 
+    // Goal journey: Inicio -> P06 -> a goal -> P07 -> a plant -> passport and
+    // back step by step, with P07 keeping its scroll position.
+    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
+    _expectGoalSearch(tester, router);
+    await _runGoalJourney(tester, router);
+    _expectHomeAndCleanStack(tester, router);
+
     // Explore activation #1 is explicitly distinct from the nine inert actions.
     // The first page comes from the API: only assert that it has rows.
     await _tapAndExpectHomeLog(
@@ -344,7 +360,11 @@ Future<void> _runCatalogSmoke(
       expect(find.widgetWithText(ChoiceChip, tab), findsOneWidget);
     }
     expect(_selectedChip(tester, 'General'), isTrue);
+    // The tab body is a lazy sliver child: with the photo loaded it may start
+    // below the built range of a short viewport, so scroll until it is built.
+    await _scrollUntilBuilt(tester, find.text('Lamiaceae'));
     expect(find.text('Lamiaceae'), findsOneWidget);
+    await _scrollUntilBuilt(tester, find.text('Tipo de aceite'));
     expect(find.text('Tipo de aceite'), findsOneWidget);
     await _tapVisible(tester, find.text('Propiedades'));
     expect(_selectedChip(tester, 'Propiedades'), isTrue);
@@ -449,6 +469,7 @@ Future<void> _runCatalogSmoke(
       _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.searchByGoal]!,
+      _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.explorePlantsAndOils]!,
       _messages[HomeAction.explorePlantsAndOils]!,
       _messages[HomeAction.explorePlantsAndOils]!,
@@ -510,6 +531,87 @@ Future<void> _checkGoalRowsAndDisabledFooter(
     router,
     expectedPath: '/goals',
   );
+}
+
+/// Scrolls the passport in steps until [finder] is built (lazy slivers
+/// do not build what is far from the viewport).
+Future<void> _scrollUntilBuilt(WidgetTester tester, Finder finder) async {
+  for (var step = 0; finder.evaluate().isEmpty && step < 60; step++) {
+    final position = tester
+        .state<ScrollableState>(
+          find
+              .descendant(
+                of: find.byType(PlantPassportPage),
+                matching: find.byType(Scrollable),
+              )
+              .first,
+        )
+        .position;
+    position.jumpTo(position.pixels + 150);
+    await tester.pump(const Duration(milliseconds: 50));
+  }
+  await _settle(tester);
+}
+
+Future<void> _runGoalJourney(WidgetTester tester, GoRouter router) async {
+  await _tapVisible(tester, find.text(_goalLabel));
+  _expectPath(router, _goalPath);
+  final card = find.byKey(const ValueKey('plant-card-$_goalPlantId'));
+  // Cards are built lazily: wait for the first ones, then scroll to the plant.
+  await _waitFor(
+    tester,
+    find.byWidgetPredicate((w) => w.key.toString().contains('plant-card-')),
+    reason: 'the first P07 cards',
+  );
+  expect(find.byType(GoalResultsPage), findsOneWidget);
+
+  // Lazy list: scroll in steps until the card of the plant is built.
+  final controller = _scrollController(tester);
+  for (var step = 0; card.evaluate().isEmpty && step < 60; step++) {
+    controller.jumpTo(controller.offset + 150);
+    await tester.pump(const Duration(milliseconds: 50));
+  }
+  await _ensureVisible(tester, card);
+  final offset = controller.offset;
+  debugPrint('[CatalogSmoke metrics] stage=P07.before-passport offset=$offset');
+  await _tapPrepared(tester, card);
+  await _waitForPassport(tester);
+  _expectPath(router, '$_goalPath/$_goalPlantId');
+  expect(find.byType(PlantPassportPage), findsOneWidget);
+  expect(find.text(_lavenderScientific), findsWidgets);
+  expect(find.byTooltip('Volver a Explorar'), findsNothing);
+
+  await _tapVisible(tester, find.byTooltip('Volver'));
+  expect(find.byType(GoalResultsPage), findsOneWidget);
+  _expectPath(router, _goalPath);
+  expect(card, findsOneWidget);
+  expect(_scrollController(tester).offset, offset);
+  debugPrint(
+    '[CatalogSmoke metrics] stage=P07.after-return '
+    'offset=${_scrollController(tester).offset}',
+  );
+
+  // The notice and «Ver más detalles» open a sheet without leaving P07.
+  final more = find.byKey(const ValueKey('results-more-details'));
+  for (var step = 0; more.evaluate().isEmpty && step < 60; step++) {
+    final list = _scrollController(tester);
+    list.jumpTo(list.offset + 300);
+    await tester.pump(const Duration(milliseconds: 50));
+  }
+  await _tapVisible(tester, more);
+  expect(find.text('Sobre estas recomendaciones'), findsOneWidget);
+  _expectPath(router, _goalPath);
+  await tester.binding.handlePopRoute();
+  await _settle(tester);
+  expect(find.text('Sobre estas recomendaciones'), findsNothing);
+  _expectPath(router, _goalPath);
+
+  await tester.binding.handlePopRoute();
+  await _settle(tester);
+  _expectGoalSearch(tester, router);
+  await tester.binding.handlePopRoute();
+  await _settle(tester);
+  _expectHomeAndCleanStack(tester, router);
 }
 
 void _expectPath(GoRouter router, String path) =>
@@ -879,19 +981,26 @@ class _AllowOnlyApiHostGuard {
   final Uri _base;
   final denied = <String>[];
 
-  String get allowed => '${_base.host}:${_base.port}';
+  String get allowed =>
+      '${_base.host}:${_base.port} and '
+      '${PlantImagePolicy.allowedHosts.join(', ')}:443';
+
+  bool _isAllowed(Uri uri) =>
+      (uri.host == _base.host && uri.port == _base.port) ||
+      (uri.port == 443 &&
+          PlantImagePolicy.allowedHosts.contains(uri.host.toLowerCase()));
 
   HttpClient create(SecurityContext? context) {
     // The root zone has no HttpOverrides, so this builds the real client
     // instead of recursing into this factory.
     final client = Zone.root.run(() => HttpClient(context: context));
     client.connectionFactory = (uri, proxyHost, proxyPort) async {
-      if (uri.host != _base.host || uri.port != _base.port) {
+      if (!_isAllowed(uri)) {
         final target = '${uri.host}:${uri.port}';
         denied.add(target);
         throw StateError(
           'HTTP to $target forbidden by the smoke harness: only $allowed '
-          '(API_BASE_URL) is allowed',
+          'are allowed (API_BASE_URL and photo hosts)',
         );
       }
       // For https the client upgrades this plain socket itself.

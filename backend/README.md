@@ -70,6 +70,8 @@ Endpoints, todos `GET`:
 - `/health`: estado del servicio (público).
 - `/v1/plants`: lista paginada, con búsqueda opcional por `q` en los nombres, los sinónimos y los identificadores anteriores (exige token).
 - `/v1/plants/{id}`: detalle de una planta; el `id` puede ser también un identificador anterior (exige token).
+- `/v1/goals`: los objetivos con sus subáreas y conteos, sin paginar (exige token); véase «Objetivos».
+- `/v1/goals/{goalId}/plants`: página de las plantas de un objetivo o de una subárea, sin las pendientes de revisión (exige token); véase «Objetivos».
 - `/openapi.json`: el contrato OpenAPI (público).
 
 Hay una colección de Postman con todos los endpoints y sus entornos en [`postman/`](postman/README.md).

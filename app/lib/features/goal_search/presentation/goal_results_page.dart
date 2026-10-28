@@ -97,7 +97,7 @@ class _GoalResultsPageState extends ConsumerState<GoalResultsPage> {
             ..._content(state),
             const SliverPadding(
               padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
-              sliver: SliverToBoxAdapter(child: _Notice()),
+              sliver: SliverToBoxAdapter(child: _NoticeWithDetails()),
             ),
           ],
         ),
@@ -209,6 +209,77 @@ class _GoalResultsPageState extends ConsumerState<GoalResultsPage> {
       key: ValueKey('results-footer-end'),
       padding: EdgeInsets.symmetric(vertical: 16),
       child: Text(GoalResultsTexts.endOfList, textAlign: TextAlign.center),
+    );
+  }
+}
+
+/// The notice with, right below it, the button that opens the sheet (the
+/// mockup order: notice, then «Ver más detalles»).
+class _NoticeWithDetails extends StatelessWidget {
+  const _NoticeWithDetails();
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      const _Notice(),
+      const SizedBox(height: 12),
+      OutlinedButton(
+        key: const ValueKey('results-more-details'),
+        style: OutlinedButton.styleFrom(
+          minimumSize: const Size.fromHeight(48),
+          foregroundColor: goalGreen,
+        ),
+        onPressed: () => showModalBottomSheet<void>(
+          context: context,
+          isScrollControlled: true,
+          showDragHandle: true,
+          useSafeArea: true,
+          builder: (_) => const _DetailsSheet(),
+        ),
+        child: const Text(GoalResultsTexts.moreDetails),
+      ),
+    ],
+  );
+}
+
+/// Static explanation of the basis and limits of the list. Closes with its
+/// button, by dragging down or with the system back; it navigates nowhere.
+class _DetailsSheet extends StatelessWidget {
+  const _DetailsSheet();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context).textTheme;
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      child: Column(
+        key: const ValueKey('results-details-sheet'),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Semantics(
+            header: true,
+            child: Text(
+              GoalResultsTexts.sheetTitle,
+              style: theme.titleLarge?.copyWith(color: goalInk),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            GoalResultsTexts.sheetBody,
+            style: theme.bodyLarge?.copyWith(color: goalInk),
+          ),
+          const SizedBox(height: 16),
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              minimumSize: const Size.fromHeight(48),
+              foregroundColor: goalGreen,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text(GoalResultsTexts.sheetClose),
+          ),
+        ],
+      ),
     );
   }
 }

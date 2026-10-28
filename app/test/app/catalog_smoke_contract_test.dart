@@ -14,6 +14,7 @@ void main() {
     (tester) async {
       final api = FakeCatalogApi(
         requiredToken: testApiToken,
+        goalPageFixtures: realGoalPageFixtures,
         listFixture: 'consolidated_list_lavand.json',
         detailFixtures: const {
           'lavandula-angustifolia': 'consolidated_lavandula-angustifolia.json',
@@ -31,7 +32,10 @@ void main() {
       expect(api.requests, isNotEmpty);
       expect(api.requests.any((r) => r.url.path == '/v1/goals'), isTrue);
       for (final request in api.requests) {
-        expect(request.url.path, anyOf(startsWith('/v1/plants'), '/v1/goals'));
+        expect(
+          request.url.path,
+          anyOf(startsWith('/v1/plants'), startsWith('/v1/goals')),
+        );
         expect(request.headers['Authorization'], 'Bearer $testApiToken');
       }
     },
@@ -53,6 +57,7 @@ void main() {
       tester.view.devicePixelRatio = 3;
       final api = FakeCatalogApi(
         requiredToken: testApiToken,
+        goalPageFixtures: realGoalPageFixtures,
         listFixture: 'consolidated_list_lavand.json',
         detailFixtures: const {
           'lavandula-angustifolia': 'consolidated_lavandula-angustifolia.json',

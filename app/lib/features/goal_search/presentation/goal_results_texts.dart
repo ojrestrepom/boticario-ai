@@ -8,6 +8,21 @@ abstract final class GoalResultsTexts {
       'Estas recomendaciones se basan en información especializada. '
       'Consulta detalles y precauciones.';
 
+  static const moreDetails = 'Ver más detalles';
+  static const sheetTitle = 'Sobre estas recomendaciones';
+  static const sheetClose = 'Cerrar';
+
+  /// Fixed body of the «Ver más detalles» sheet: the basis and the limits of
+  /// the list. It does not depend on the registry.
+  static const sheetBody =
+      'Las plantas que ves aquí son las que la Agencia Europea de '
+      'Medicamentos (EMA) registra en el área indicada en cada tarjeta. '
+      'Esta información no es un consejo médico ni una dosis. '
+      'La marca de precaución señala advertencias de seguridad del '
+      'registro. '
+      'El detalle y las citas están en el pasaporte de cada planta. '
+      'Consulta a un profesional de la salud antes de usar cualquier planta.';
+
   static const loading = 'Cargando recomendaciones';
   static const loadingMore = 'Cargando más resultados';
   static const endOfList = 'No hay más resultados';

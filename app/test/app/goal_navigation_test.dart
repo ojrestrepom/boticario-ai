@@ -113,6 +113,84 @@ void main() {
     });
   }
 
+  testWidgets('a card opens the passport and Atrás returns to the same '
+      'scroll position without reloading', (tester) async {
+    final api = await _mount(tester);
+    tester.view.physicalSize = const Size(360, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    final router = _router(tester);
+    await _openP06(tester);
+    await _tapText(tester, 'Relajación / Estrés');
+    expect(router.state.uri.path, '/goals/relajacion-estres/plants');
+
+    final card = find.byKey(
+      const ValueKey('plant-card-lavandula-angustifolia'),
+    );
+    final scrollable = find.byType(Scrollable).first;
+    await tester.scrollUntilVisible(card, 300, scrollable: scrollable);
+    await tester.pumpAndSettle();
+    double offset() =>
+        tester.state<ScrollableState>(scrollable).position.pixels;
+    final before = offset();
+    expect(before, greaterThan(0));
+    final listRequests = api.requests
+        .where((r) => r.url.path == '/v1/goals/relajacion-estres/plants')
+        .length;
+    expect(listRequests, 1);
+
+    await tester.tap(card);
+    await tester.pumpAndSettle();
+    expect(
+      router.state.uri.path,
+      '/goals/relajacion-estres/plants/lavandula-angustifolia',
+    );
+    expect(find.byType(PlantPassportPage), findsOneWidget);
+    expect(find.byTooltip('Volver a Explorar'), findsNothing);
+    expect(find.byTooltip('Volver'), findsOneWidget);
+    expect(
+      api.requests.map((r) => r.url.path),
+      contains('/v1/plants/lavandula-angustifolia'),
+    );
+
+    await _back(tester, system: false);
+    expect(find.byType(GoalResultsPage), findsOneWidget);
+    expect(router.state.uri.path, '/goals/relajacion-estres/plants');
+    expect(offset(), before);
+    expect(card, findsOneWidget);
+    // The first page was not requested again and nothing was recorded.
+    expect(
+      api.requests
+          .where((r) => r.url.path == '/v1/goals/relajacion-estres/plants')
+          .length,
+      listRequests,
+    );
+    expect(api.requests.map((r) => r.url.path).toSet(), {
+      '/v1/goals',
+      '/v1/goals/relajacion-estres/plants',
+      '/v1/plants/lavandula-angustifolia',
+    });
+    expect(api.requests.every((r) => r.method == 'GET'), isTrue);
+  });
+
+  testWidgets('Ver más detalles does not change the route', (tester) async {
+    final api = await _mount(tester);
+    final router = _router(tester);
+    await _openP06(tester);
+    await _tapText(tester, 'Mejorar el sueño');
+    final path = router.state.uri.toString();
+    final requests = api.requests.length;
+    await _tapText(tester, 'Ver más detalles');
+    expect(find.text('Sobre estas recomendaciones'), findsOneWidget);
+    expect(router.state.uri.toString(), path);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.text('Sobre estas recomendaciones'), findsNothing);
+    expect(router.state.uri.toString(), path);
+    expect(find.byType(GoalResultsPage), findsOneWidget);
+    expect(api.requests.length, requests);
+  });
+
   testWidgets('a goal without subareas opens P07 straight from P06', (
     tester,
   ) async {

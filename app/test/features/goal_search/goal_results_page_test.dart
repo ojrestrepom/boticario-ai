@@ -180,8 +180,7 @@ void main() {
       for (final tab in ['Inicio', 'Favoritos', 'Historial', 'Perfil']) {
         expect(find.text(tab), findsOneWidget);
       }
-      // «Ver más detalles» belongs to task 5.4.
-      expect(find.text('Ver más detalles'), findsNothing);
+      expect(find.text('Ver más detalles'), findsOneWidget);
     });
 
     testWidgets('the subarea gives the subtitle and the request', (
@@ -623,7 +622,7 @@ void main() {
       final api = FakeCatalogApi.real(failure: FakeApiFailure.serverError);
       await show(tester, api: api);
       expect(find.byKey(const ValueKey('results-error')), findsOneWidget);
-      expect(find.byType(OutlinedButton), findsOneWidget);
+      expect(find.widgetWithText(OutlinedButton, 'Reintentar'), findsOneWidget);
       expect(find.byKey(const ValueKey('results-notice')), findsOneWidget);
       api.failure = FakeApiFailure.none;
       await tester.tap(find.text('Reintentar'));
@@ -752,6 +751,98 @@ void main() {
     });
   });
 
+  group('Ver más detalles', () {
+    Future<void> openSheet(WidgetTester tester) async {
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('results-more-details')),
+        400,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('results-more-details')),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('results-more-details')));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('sits right below the notice and opens the fixed sheet', (
+      tester,
+    ) async {
+      final api = await show(tester);
+      final requests = api.requests.length;
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('results-more-details')),
+        400,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final notice = tester.getRect(
+        find.byKey(const ValueKey('results-notice')),
+      );
+      final button = tester.getRect(
+        find.byKey(const ValueKey('results-more-details')),
+      );
+      expect(button.top, greaterThan(notice.bottom));
+      expect(find.byType(BottomSheet), findsNothing);
+      await openSheet(tester);
+      expect(find.byType(BottomSheet), findsOneWidget);
+      expect(find.text('Sobre estas recomendaciones'), findsOneWidget);
+      expect(find.text(GoalResultsTexts.sheetBody), findsOneWidget);
+      final body = GoalResultsTexts.sheetBody;
+      for (final fragment in [
+        'Agencia Europea de Medicamentos (EMA)',
+        'no es un consejo médico ni una dosis',
+        'marca de precaución señala advertencias de seguridad',
+        'pasaporte de cada planta',
+        'profesional de la salud',
+      ]) {
+        expect(body, contains(fragment));
+      }
+      expect(api.requests.length, requests);
+    });
+
+    testWidgets('closes with its control', (tester) async {
+      final api = await show(tester);
+      final requests = api.requests.length;
+      await openSheet(tester);
+      await tester.tap(find.text('Cerrar'));
+      await tester.pumpAndSettle();
+      expect(find.byType(BottomSheet), findsNothing);
+      expect(
+        find.byKey(const ValueKey('results-more-details')),
+        findsOneWidget,
+      );
+      expect(api.requests.length, requests);
+    });
+
+    testWidgets('closes by dragging it down', (tester) async {
+      await show(tester);
+      await openSheet(tester);
+      await tester.drag(
+        find.text('Sobre estas recomendaciones'),
+        const Offset(0, 600),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byType(BottomSheet), findsNothing);
+    });
+
+    testWidgets('closes with the system back and keeps the page', (
+      tester,
+    ) async {
+      final back = <int>[];
+      final api = await show(tester, back: () => back.add(1));
+      final requests = api.requests.length;
+      await openSheet(tester);
+      await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+      expect(find.byType(BottomSheet), findsNothing);
+      expect(back, isEmpty);
+      expect(find.byType(GoalResultsPage), findsOneWidget);
+      expect(find.byKey(const ValueKey('results-notice')), findsOneWidget);
+      expect(api.requests.length, requests);
+    });
+  });
+
   group('accessibility', () {
     for (final scale in [1.0, 2.0]) {
       testWidgets('cards, marks and notice at 360x640 and ${scale * 100} %', (
@@ -783,6 +874,29 @@ void main() {
           scrollable: find.byType(Scrollable).first,
         );
         expect(tester.takeException(), isNull);
+        await tester.scrollUntilVisible(
+          find.byKey(const ValueKey('results-more-details')),
+          300,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          tester
+              .getSize(find.byKey(const ValueKey('results-more-details')))
+              .height,
+          greaterThanOrEqualTo(48),
+        );
+        await tester.ensureVisible(
+          find.byKey(const ValueKey('results-more-details')),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey('results-more-details')));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(find.text(GoalResultsTexts.sheetBody), findsOneWidget);
+        final close = find.widgetWithText(OutlinedButton, 'Cerrar');
+        await tester.ensureVisible(close);
+        expect(tester.getSize(close).height, greaterThanOrEqualTo(48));
+        expect(tester.takeException(), isNull);
       });
     }
 
@@ -792,7 +906,9 @@ void main() {
       final api = FakeCatalogApi.real(failure: FakeApiFailure.serverError);
       await show(tester, api: api);
       expect(
-        tester.getSize(find.byType(OutlinedButton)).height,
+        tester
+            .getSize(find.widgetWithText(OutlinedButton, 'Reintentar'))
+            .height,
         greaterThanOrEqualTo(48),
       );
       expect(

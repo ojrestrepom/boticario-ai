@@ -48,7 +48,13 @@ class GoalListShell extends StatelessWidget {
       bottom: false,
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: _header(context)),
+          SliverToBoxAdapter(
+            child: GoalHeaderBar(
+              title: title,
+              backLabel: backLabel,
+              onBack: onBack,
+            ),
+          ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
             sliver: SliverList.list(
@@ -68,10 +74,28 @@ class GoalListShell extends StatelessWidget {
         ],
       ),
     ),
-    bottomNavigationBar: SafeArea(top: false, child: _bottomBar(context)),
+    bottomNavigationBar: SafeArea(
+      top: false,
+      child: GoalBottomBar(onHome: onHome),
+    ),
   );
+}
 
-  Widget _header(BuildContext context) => Padding(
+/// Header of the goal screens: back button and centered title.
+class GoalHeaderBar extends StatelessWidget {
+  const GoalHeaderBar({
+    required this.title,
+    required this.backLabel,
+    required this.onBack,
+    super.key,
+  });
+
+  final String title;
+  final String backLabel;
+  final VoidCallback onBack;
+
+  @override
+  Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.fromLTRB(4, 4, 4, 4),
     child: Row(
       children: [
@@ -102,8 +126,16 @@ class GoalListShell extends StatelessWidget {
       ],
     ),
   );
+}
 
-  Widget _bottomBar(BuildContext context) {
+/// Shared bottom bar with Inicio selected; the other three have no action.
+class GoalBottomBar extends StatelessWidget {
+  const GoalBottomBar({required this.onHome, super.key});
+
+  final VoidCallback onHome;
+
+  @override
+  Widget build(BuildContext context) {
     final fontSize = Theme.of(context).textTheme.labelSmall?.fontSize ?? 12;
     final largeText =
         MediaQuery.textScalerOf(context).scale(fontSize) / fontSize >= 1.5;

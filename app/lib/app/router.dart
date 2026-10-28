@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/explore/presentation/explore_page.dart';
-import '../features/goal_search/presentation/goal_results_placeholder_page.dart';
+import '../features/goal_search/presentation/goal_results_page.dart';
 import '../features/goal_search/presentation/goal_search_page.dart';
 import '../features/goal_search/presentation/goal_subareas_page.dart';
 import '../features/home/presentation/home_page.dart';
@@ -50,12 +50,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               ),
               GoRoute(
                 path: ':goalId/plants',
-                // Group 5 replaces the placeholder with P07.
-                builder: (context, state) => GoalResultsPlaceholderPage(
+                builder: (context, state) => GoalResultsPage(
                   goalId: state.pathParameters['goalId']!,
                   subareaId: state.uri.queryParameters['subarea'],
                   onBack: () => context.pop(),
                   onHome: () => context.go('/'),
+                  onPlantSelected: (plantId) => context.push(
+                    '/goals/${Uri.encodeComponent(state.pathParameters['goalId']!)}'
+                    '/plants/${Uri.encodeComponent(plantId)}',
+                  ),
                 ),
                 routes: [
                   GoRoute(

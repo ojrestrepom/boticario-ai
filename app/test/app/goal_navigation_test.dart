@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:boticario_ai/app/app.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
-import 'package:boticario_ai/features/goal_search/presentation/goal_results_placeholder_page.dart';
+import 'package:boticario_ai/features/goal_search/presentation/goal_results_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_subareas_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
@@ -76,11 +76,11 @@ void main() {
       await _tapText(tester, 'Digestión');
       expect(router.state.uri.path, '/goals/otros-objetivos/plants');
       expect(router.state.uri.queryParameters, {'subarea': 'digestion'});
-      final placeholder = tester.widget<GoalResultsPlaceholderPage>(
-        find.byType(GoalResultsPlaceholderPage),
+      final results = tester.widget<GoalResultsPage>(
+        find.byType(GoalResultsPage),
       );
-      expect(placeholder.goalId, 'otros-objetivos');
-      expect(placeholder.subareaId, 'digestion');
+      expect(results.goalId, 'otros-objetivos');
+      expect(results.subareaId, 'digestion');
 
       unawaited(
         router.push('/goals/otros-objetivos/plants/lavandula-angustifolia'),
@@ -92,7 +92,7 @@ void main() {
       expect(find.byTooltip('Volver'), findsOneWidget);
 
       await _back(tester, system: system);
-      expect(find.byType(GoalResultsPlaceholderPage), findsOneWidget);
+      expect(find.byType(GoalResultsPage), findsOneWidget);
       expect(router.state.uri.path, '/goals/otros-objetivos/plants');
       expect(router.state.uri.queryParameters, {'subarea': 'digestion'});
 
@@ -123,11 +123,7 @@ void main() {
     expect(router.state.uri.path, '/goals/mejorar-el-sueno/plants');
     expect(router.state.uri.queryParameters, isEmpty);
     expect(
-      tester
-          .widget<GoalResultsPlaceholderPage>(
-            find.byType(GoalResultsPlaceholderPage),
-          )
-          .subareaId,
+      tester.widget<GoalResultsPage>(find.byType(GoalResultsPage)).subareaId,
       isNull,
     );
     expect(find.byType(GoalSubareasPage), findsNothing);
@@ -161,7 +157,7 @@ void main() {
     await _openP06(tester);
     await _tapText(tester, 'Otros objetivos');
     await _tapText(tester, 'Boca y garganta');
-    await homeFrom(GoalResultsPlaceholderPage);
+    await homeFrom(GoalResultsPage);
 
     await _openP06(tester);
     await _tapText(tester, 'Mejorar el sueño');
@@ -200,11 +196,7 @@ void main() {
     await _tapText(tester, 'Raro');
     expect(router.state.uri.path, '/goals/a%2Fb%20c%3Fd/plants');
     expect(
-      tester
-          .widget<GoalResultsPlaceholderPage>(
-            find.byType(GoalResultsPlaceholderPage),
-          )
-          .goalId,
+      tester.widget<GoalResultsPage>(find.byType(GoalResultsPage)).goalId,
       'a/b c?d',
     );
     await _back(tester, system: true);
@@ -214,11 +206,7 @@ void main() {
     await _tapText(tester, 'Subárea rara');
     expect(router.state.uri.queryParameters, {'subarea': 'x&y=z/ñ'});
     expect(
-      tester
-          .widget<GoalResultsPlaceholderPage>(
-            find.byType(GoalResultsPlaceholderPage),
-          )
-          .subareaId,
+      tester.widget<GoalResultsPage>(find.byType(GoalResultsPage)).subareaId,
       'x&y=z/ñ',
     );
 

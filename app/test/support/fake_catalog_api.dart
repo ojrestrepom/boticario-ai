@@ -15,12 +15,18 @@
 //   GET /v1/plants/{id}           -> `plant_{id}.json` for the ids in
 //                                    [FakeCatalogApi.plantIds]; any other id gets
 //                                    404 `application/problem+json`.
-//   GET /v1/goals                 -> [FakeCatalogApi.goals] (synthetic: the six
-//                                    goals of the seed with ids, names, order
-//                                    and subareas; real fixtures are task 3.3).
-//   GET /v1/goals/{id}/plants     -> a synthetic one-plant page for a goal of
-//                                    [FakeCatalogApi.goals] (`subarea` must
-//                                    belong to it, else 400); other ids 404.
+//   GET /v1/goals                 -> [FakeCatalogApi.goals]: synthetic by default
+//                                    (the six goals of the seed with made-up
+//                                    counts) or the real `goals_catalog.json`
+//                                    with `FakeCatalogApi.real()`.
+//   GET /v1/goals/{id}/plants     -> the fixture registered in
+//                                    [FakeCatalogApi.goalPageFixtures] under
+//                                    `goalId|subarea|offset` (real responses of
+//                                    the local API, see [realGoalPageFixtures]);
+//                                    otherwise a synthetic one-plant page for a
+//                                    goal of [FakeCatalogApi.goals] (`subarea`
+//                                    must belong to it, else 400); other ids
+//                                    404.
 //   anything else                 -> 404 (the app must not call other routes).
 //
 // Failures: set [FakeCatalogApi.failure] (and back to [FakeApiFailure.none] to
@@ -61,9 +67,34 @@ class FakeCatalogApi {
     this.listFixture = 'list_lavandula.json',
     this.detailFixtures = const {},
     List<Map<String, Object?>>? goals,
-  }) : goals = goals ?? syntheticGoals() {
+    Map<String, String>? goalPageFixtures,
+  }) : goals = goals ?? syntheticGoals(),
+       goalPageFixtures = goalPageFixtures ?? {} {
     client = MockClient(_handle);
   }
+
+  /// Fake backed by the real fixtures of the goal routes: the real catalog
+  /// and the pages of [realGoalPageFixtures]. Requests outside them fall back
+  /// to the synthetic page.
+  factory FakeCatalogApi.real({
+    FakeApiFailure failure = FakeApiFailure.none,
+    String? requiredToken = testApiToken,
+    Map<String, String> extraGoalPages = const {},
+  }) => FakeCatalogApi(
+    failure: failure,
+    requiredToken: requiredToken,
+    goals: (jsonDecode(apiFixture('goals_catalog.json')) as List<Object?>)
+        .cast<Map<String, Object?>>(),
+    goalPageFixtures: {...realGoalPageFixtures, ...extraGoalPages},
+  );
+
+  /// Raw response bodies by the same key as [goalPageFixtures], checked first.
+  final Map<String, String> goalPageBodies = {};
+
+  /// Fixture names by `goalId|subarea|offset` (empty subarea when absent) for
+  /// `GET /v1/goals/{goalId}/plants`; takes precedence over the synthetic
+  /// page. Tests may add entries before the request.
+  final Map<String, String> goalPageFixtures;
 
   /// Fixture served by the list when `q` is absent or contains "lavandula".
   final String listFixture;
@@ -171,6 +202,19 @@ class FakeCatalogApi {
   );
 
   http.Response? _goalPage(String goalId, Map<String, String> query) {
+    final key = '$goalId|${query['subarea'] ?? ''}|${query['offset'] ?? '0'}';
+    final body = goalPageBodies[key];
+    if (body != null) {
+      return http.Response.bytes(utf8.encode(body), 200, headers: _jsonHeaders);
+    }
+    final fixture = goalPageFixtures[key];
+    if (fixture != null) {
+      return http.Response.bytes(
+        utf8.encode(apiFixture(fixture)),
+        200,
+        headers: _jsonHeaders,
+      );
+    }
     final goal = goals.where((g) => g['id'] == goalId).firstOrNull;
     if (goal == null) return null;
     final subareaId = query['subarea'];
@@ -240,6 +284,31 @@ class FakeCatalogApi {
   }
 }
 
+/// Real pages of `GET /v1/goals/{goalId}/plants` (limit 20, or 1 for the
+/// single-plant ones), keyed by `goalId|subarea|offset`, captured from the
+/// local API on `data/build/catalog.db`:
+///
+/// - `relajacion-estres`, offset 0: 17 plants, the whole goal.
+/// - `relajacion-estres`, offset 1000: empty page with `total` 17.
+/// - `otros-objetivos`, offsets 0 and 20: pages 1 and 2 of 135 plants.
+/// - `otros-objetivos` with subarea `digestion`: first page of 68.
+///
+/// The single-plant pages (`goal_plants_no_image.json`,
+/// `goal_plants_safety_without_level.json`, `goal_plants_no_author.json`: real
+/// responses of `alivio-respiratorio` with `limit=1`, `total` 52) are not
+/// served; tests take their items and wrap them with [goalPageJson].
+///
+/// `goal_plants_no_safety_synthetic.json` is NOT real: the eucalyptus plant
+/// with `hasSafety` false (no seed plant with a goal lacks safety data). It is
+/// not registered here; tests ask for it explicitly.
+const realGoalPageFixtures = <String, String>{
+  'relajacion-estres||0': 'goal_plants_relajacion-estres.json',
+  'relajacion-estres||1000': 'goal_plants_empty_offset.json',
+  'otros-objetivos||0': 'goal_plants_otros-objetivos_page1.json',
+  'otros-objetivos||20': 'goal_plants_otros-objetivos_page2.json',
+  'otros-objetivos|digestion|0': 'goal_plants_subarea_digestion.json',
+};
+
 /// Synthetic `GET /v1/goals` body: ids, names and order of the seed, with the
 /// six subareas under `otros-objetivos`. The counts are made up.
 List<Map<String, Object?>> syntheticGoals() => [
@@ -269,3 +338,27 @@ Map<String, Object?> _goal(
   'plantCount': plantCount,
   'subareas': subareas ?? <Object?>[],
 };
+
+/// Items of a goal-page fixture, as decoded JSON.
+List<Map<String, Object?>> goalFixtureItems(String name) =>
+    ((jsonDecode(apiFixture(name)) as Map<String, Object?>)['items']!
+            as List<Object?>)
+        .cast<Map<String, Object?>>();
+
+/// Body of a goal page wrapping [items], for scenarios built from real items.
+String goalPageJson(
+  List<Map<String, Object?>> items, {
+  String goalId = 'relajacion-estres',
+  String goalName = 'Relajación / Estrés',
+  Map<String, Object?>? subarea,
+  int? total,
+  int limit = 20,
+  int offset = 0,
+}) => jsonEncode({
+  'goal': {'id': goalId, 'name': goalName},
+  'subarea': subarea,
+  'items': items,
+  'total': total ?? items.length,
+  'limit': limit,
+  'offset': offset,
+});

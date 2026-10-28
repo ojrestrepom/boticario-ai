@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../catalog/data/plant_image_policy.dart';
 import '../../catalog/domain/plant.dart';
 import '../../catalog/domain/plant_consolidated.dart';
+import '../../catalog/presentation/plant_photo.dart';
 import 'passport_link.dart';
 import 'passport_style.dart';
 import 'passport_texts.dart';
@@ -116,17 +117,12 @@ class _PlantPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Padding(
     padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-    child: Image(
-      image: provider,
-      width: double.infinity,
+    child: PlantPhotoImage(
+      provider: provider,
       height: _height,
-      fit: BoxFit.cover,
-      excludeFromSemantics: true,
-      frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-        if (frame == null) return const _ArtPlaceholder();
-        return _loaded(context, child);
-      },
-      errorBuilder: (context, error, stackTrace) => const SizedBox.shrink(),
+      placeholder: const PlantArtPlaceholder(height: _height),
+      failed: const SizedBox.shrink(),
+      loaded: (context, photo) => _loaded(context, photo),
     ),
   );
 
@@ -152,23 +148,5 @@ class _PlantPhoto extends StatelessWidget {
       ),
       PassportLink(label: PassportTexts.imageFilePageLabel, url: image.pageUrl),
     ],
-  );
-}
-
-/// The local art, shown while the photo downloads.
-class _ArtPlaceholder extends StatelessWidget {
-  const _ArtPlaceholder();
-
-  @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-    child: Container(
-      height: _PlantPhoto._height,
-      decoration: BoxDecoration(
-        color: passportGreen.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      alignment: Alignment.center,
-      child: const Icon(Icons.local_florist, color: passportGreen, size: 64),
-    ),
   );
 }

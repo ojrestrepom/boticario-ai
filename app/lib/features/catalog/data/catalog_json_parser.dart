@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../domain/goal.dart';
 import '../domain/plant.dart';
 import '../domain/plant_consolidated.dart';
 import '../domain/plant_summary.dart';
@@ -19,6 +20,118 @@ PlantPage parsePlantPage(String body) {
     total: _int(json, 'total', 'listado'),
     limit: _int(json, 'limit', 'listado'),
     offset: _int(json, 'offset', 'listado'),
+  );
+}
+
+List<Goal> parseGoals(String body) {
+  final decoded = _decodeAny(body, 'el catálogo de objetivos');
+  if (decoded is! List<Object?>) {
+    throw _invalid('se esperaba una lista en el catálogo de objetivos');
+  }
+  return [
+    for (var i = 0; i < decoded.length; i++)
+      _goalEntry(_asObject(decoded[i], 'goals[$i]'), 'goals[$i]'),
+  ];
+}
+
+Goal _goalEntry(Map<String, Object?> json, String where) {
+  final subareas = _list(json, 'subareas', where);
+  return Goal(
+    id: _string(json, 'id', where),
+    name: _string(json, 'name', where),
+    plantCount: _int(json, 'plantCount', where),
+    subareas: [
+      for (var i = 0; i < subareas.length; i++)
+        _subarea(
+          _asObject(subareas[i], '$where.subareas[$i]'),
+          '$where.subareas[$i]',
+        ),
+    ],
+  );
+}
+
+GoalSubarea _subarea(Map<String, Object?> json, String where) => GoalSubarea(
+  id: _string(json, 'id', where),
+  name: _string(json, 'name', where),
+  plantCount: _int(json, 'plantCount', where),
+);
+
+GoalPlantPage parseGoalPlantPage(String body) {
+  final json = _decodeObject(body, 'las plantas del objetivo');
+  const where = 'plantas del objetivo';
+  final items = _list(json, 'items', where);
+  if (!json.containsKey('subarea')) {
+    throw _invalid('falta el campo "subarea" en $where');
+  }
+  return GoalPlantPage(
+    goal: _goalRef(_asObject(json['goal'], 'goal'), 'goal'),
+    subarea: _optionalObject(
+      json,
+      'subarea',
+      where,
+      (o) => _goalRef(o, 'subarea'),
+    ),
+    items: [
+      for (var i = 0; i < items.length; i++)
+        _goalPlant(_asObject(items[i], 'items[$i]'), 'items[$i]'),
+    ],
+    total: _int(json, 'total', where),
+    limit: _int(json, 'limit', where),
+    offset: _int(json, 'offset', where),
+  );
+}
+
+GoalRef _goalRef(Map<String, Object?> json, String where) =>
+    GoalRef(id: _string(json, 'id', where), name: _string(json, 'name', where));
+
+GoalPlant _goalPlant(Map<String, Object?> json, String where) {
+  final names = _list(json, 'commonNames', where);
+  final areas = _list(json, 'areas', where);
+  if (!json.containsKey('safetyLevel')) {
+    throw _invalid('falta el campo "safetyLevel" en $where');
+  }
+  final level = _nullableString(json, 'safetyLevel', where);
+  final safetyLevel = switch (level) {
+    null => null,
+    'alto' => SafetyLevel.high,
+    'medio' => SafetyLevel.medium,
+    'bajo' => SafetyLevel.low,
+    _ => throw _invalid(
+      '$where.safetyLevel tiene un valor desconocido: "$level"',
+    ),
+  };
+  return GoalPlant(
+    id: _string(json, 'id', where),
+    scientificName: _string(json, 'scientificName', where),
+    commonNames: [
+      for (var i = 0; i < names.length; i++)
+        CommonName(
+          text: _string(
+            _asObject(names[i], '$where.commonNames[$i]'),
+            'text',
+            '$where.commonNames[$i]',
+          ),
+          language: _string(
+            names[i] as Map<String, Object?>,
+            'language',
+            '$where.commonNames[$i]',
+          ),
+        ),
+    ],
+    family: _nullableString(json, 'family', where),
+    displayName: _nullableString(json, 'displayName', where),
+    areas: [
+      for (var i = 0; i < areas.length; i++)
+        areas[i] is String
+            ? areas[i] as String
+            : throw _invalid('areas[$i] de $where debe ser texto'),
+    ],
+    safetyLevel: safetyLevel,
+    // Absent (older backend): a level implies precautions, no level does not.
+    hasSafety: json['hasSafety'] == null
+        ? safetyLevel != null
+        : _bool(json, 'hasSafety', where),
+    image: _optionalObject(json, 'image', where, _image),
   );
 }
 
@@ -209,7 +322,10 @@ CatalogClientException _invalid(String detail) => CatalogClientException(
   'La respuesta del servidor no es válida: $detail.',
 );
 
-Map<String, Object?> _decodeObject(String body, String what) {
+Map<String, Object?> _decodeObject(String body, String what) =>
+    _asObject(_decodeAny(body, what), what);
+
+Object? _decodeAny(String body, String what) {
   final Object? decoded;
   try {
     decoded = jsonDecode(body);
@@ -220,7 +336,7 @@ Map<String, Object?> _decodeObject(String body, String what) {
       cause: error,
     );
   }
-  return _asObject(decoded, what);
+  return decoded;
 }
 
 Map<String, Object?> _asObject(Object? value, String where) {

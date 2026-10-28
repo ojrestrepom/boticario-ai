@@ -4,14 +4,16 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
+import '../domain/goal.dart';
 import '../domain/plant.dart';
 import '../domain/plant_summary.dart';
 import 'catalog_api_config.dart';
 import 'catalog_client_exception.dart';
 import 'catalog_json_parser.dart';
 
-/// Read-only access to the catalog API (`GET /v1/plants` and
-/// `GET /v1/plants/{id}`).
+/// Read-only access to the catalog API (`GET /v1/plants`,
+/// `GET /v1/plants/{id}`, `GET /v1/goals` and
+/// `GET /v1/goals/{goalId}/plants`).
 abstract class CatalogRepository {
   Future<PlantPage> listPlants({
     String query = '',
@@ -21,6 +23,18 @@ abstract class CatalogRepository {
 
   /// Returns `null` when the API answers 404 (plant not found).
   Future<Plant?> getPlant(String id);
+
+  /// `GET /v1/goals`: every goal in the order the API presents it.
+  Future<List<Goal>> listGoals();
+
+  /// `GET /v1/goals/{goalId}/plants`. [subarea] is sent only when not `null`.
+  /// Returns `null` when the API answers 404 (goal not found).
+  Future<GoalPlantPage?> listGoalPlants(
+    String goalId, {
+    String? subarea,
+    int limit = 20,
+    int offset = 0,
+  });
 }
 
 class HttpCatalogRepository implements CatalogRepository {
@@ -70,6 +84,31 @@ class HttpCatalogRepository implements CatalogRepository {
     if (response.statusCode == 404) return null;
     _throwForStatus(response);
     return parsePlant(_body(response));
+  }
+
+  @override
+  Future<List<Goal>> listGoals() async {
+    final response = await _get(_uri(['v1', 'goals'], null));
+    _throwForStatus(response);
+    return parseGoals(_body(response));
+  }
+
+  @override
+  Future<GoalPlantPage?> listGoalPlants(
+    String goalId, {
+    String? subarea,
+    int limit = 20,
+    int offset = 0,
+  }) async {
+    final response = await _get(
+      _uri(
+        ['v1', 'goals', goalId, 'plants'],
+        {'subarea': ?subarea, 'limit': '$limit', 'offset': '$offset'},
+      ),
+    );
+    if (response.statusCode == 404) return null;
+    _throwForStatus(response);
+    return parseGoalPlantPage(_body(response));
   }
 
   Uri _uri(List<String> segments, Map<String, String>? query) => _base.replace(

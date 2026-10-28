@@ -323,6 +323,198 @@ void main() {
     });
   });
 
+  group('goal requests', () {
+    const goalsBody = '[{"id":"g","name":"G","plantCount":1,"subareas":[]}]';
+    const goalPageBody =
+        '{"goal":{"id":"g","name":"G"},"subarea":null,"items":[],'
+        '"total":0,"limit":20,"offset":0}';
+    http.Response goals(http.Request _) => http.Response(
+      goalsBody,
+      200,
+      headers: {'content-type': 'application/json'},
+    );
+    http.Response goalPage(http.Request _) => http.Response(
+      goalPageBody,
+      200,
+      headers: {'content-type': 'application/json'},
+    );
+    const token = 'tok-123';
+
+    test('listGoals sends exact URL and headers', () async {
+      final r = repo(goals, apiToken: token);
+      final list = await r.listGoals();
+      expect(list.single.id, 'g');
+      expect(requests.single.url.toString(), 'http://host:8080/v1/goals');
+      expect(requests.single.method, 'GET');
+      expect(requests.single.headers, {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
+    });
+
+    test('listGoalPlants sends subarea, limit and offset', () async {
+      final r = repo(goalPage, apiToken: token);
+      await r.listGoalPlants(
+        'otros-objetivos',
+        subarea: 'digestion',
+        limit: 20,
+        offset: 20,
+      );
+      expect(
+        requests.single.url.toString(),
+        'http://host:8080/v1/goals/otros-objetivos/plants'
+        '?subarea=digestion&limit=20&offset=20',
+      );
+      expect(requests.single.headers, {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
+    });
+
+    test('omits subarea when there is none and uses default paging', () async {
+      final r = repo(goalPage);
+      await r.listGoalPlants('mejorar-el-sueno');
+      expect(
+        requests.single.url.toString(),
+        'http://host:8080/v1/goals/mejorar-el-sueno/plants?limit=20&offset=0',
+      );
+      expect(
+        requests.single.url.queryParameters.containsKey('subarea'),
+        isFalse,
+      );
+      expect(requests.single.headers, {'Accept': 'application/json'});
+    });
+
+    test(
+      'encodes the goal id in the path and the subarea in the query',
+      () async {
+        final r = repo(goalPage);
+        await r.listGoalPlants('a/b c?#ñ', subarea: 'x&y z', limit: 5);
+        final url = requests.single.url;
+        expect(url.path, '/v1/goals/a%2Fb%20c%3F%23%C3%B1/plants');
+        expect(url.pathSegments, ['v1', 'goals', 'a/b c?#ñ', 'plants']);
+        expect(url.queryParameters['subarea'], 'x&y z');
+        expect(url.query, contains('%26'));
+        expect(url.fragment, isEmpty);
+      },
+    );
+
+    test('keeps a base URL path prefix', () async {
+      final r = repo(goals, baseUrl: 'http://host:8080/api/');
+      await r.listGoals();
+      expect(requests.single.url.toString(), 'http://host:8080/api/v1/goals');
+    });
+
+    test('404 on the plants of a goal is "goal not found" (null)', () async {
+      final r = repo((_) => http.Response('{"title":"x"}', 404));
+      expect(await r.listGoalPlants('nope'), isNull);
+    });
+
+    test('404 on the catalog is an invalid response, not null', () {
+      final r = repo((_) => http.Response('', 404));
+      expect(
+        r.listGoals(),
+        _clientError(CatalogClientErrorKind.invalidResponse),
+      );
+    });
+
+    test('401 is unauthorized and distinct from not found', () async {
+      final r = repo((_) => http.Response('', 401), apiToken: token);
+      await expectLater(
+        r.listGoals(),
+        _clientError(CatalogClientErrorKind.unauthorized),
+      );
+      await expectLater(
+        r.listGoalPlants('g'),
+        _clientError(CatalogClientErrorKind.unauthorized),
+      );
+      try {
+        await r.listGoals();
+      } on CatalogClientException catch (e) {
+        expect(e.message, isNot(contains(token)));
+      }
+    });
+
+    test('400 and 5xx are errors', () async {
+      final bad = repo((_) => http.Response('', 400));
+      await expectLater(
+        bad.listGoalPlants('g', subarea: 's'),
+        _clientError(CatalogClientErrorKind.badRequest),
+      );
+      await expectLater(
+        bad.listGoals(),
+        _clientError(CatalogClientErrorKind.badRequest),
+      );
+      final down = repo((_) => http.Response('', 503));
+      await expectLater(
+        down.listGoals(),
+        _clientError(CatalogClientErrorKind.server),
+      );
+      await expectLater(
+        down.listGoalPlants('g'),
+        _clientError(CatalogClientErrorKind.server),
+      );
+    });
+
+    test('invalid body on success is an invalid response', () async {
+      final r = repo((_) => http.Response('<html>', 200));
+      await expectLater(
+        r.listGoals(),
+        _clientError(CatalogClientErrorKind.invalidResponse),
+      );
+      await expectLater(
+        r.listGoalPlants('g'),
+        _clientError(CatalogClientErrorKind.invalidResponse),
+      );
+    });
+
+    test('connection failures become network errors', () async {
+      final socket = HttpCatalogRepository(
+        client: MockClient((_) async => throw const SocketException('down')),
+        baseUrl: 'http://host:8080',
+      );
+      await expectLater(
+        socket.listGoals(),
+        _clientError(CatalogClientErrorKind.network),
+      );
+      final client = HttpCatalogRepository(
+        client: MockClient((_) async => throw http.ClientException('down')),
+        baseUrl: 'http://host:8080',
+      );
+      await expectLater(
+        client.listGoalPlants('g'),
+        _clientError(CatalogClientErrorKind.network),
+      );
+    });
+
+    test('a request that never answers times out', () async {
+      final r = HttpCatalogRepository(
+        client: MockClient((_) => Completer<http.Response>().future),
+        baseUrl: 'http://host:8080',
+        timeout: const Duration(milliseconds: 20),
+      );
+      await expectLater(
+        r.listGoals(),
+        _clientError(CatalogClientErrorKind.timeout),
+      );
+      await expectLater(
+        r.listGoalPlants('g'),
+        _clientError(CatalogClientErrorKind.timeout),
+      );
+    });
+
+    test('a retry succeeds once the backend answers', () async {
+      var up = false;
+      final r = repo((request) => up ? goals(request) : http.Response('', 500));
+      await expectLater(
+        r.listGoals(),
+        _clientError(CatalogClientErrorKind.server),
+      );
+      up = true;
+      expect(await r.listGoals(), hasLength(1));
+    });
+  });
+
   group('providers and fake API', () {
     test('catalogRepositoryProvider uses the injected client', () async {
       final api = FakeCatalogApi();

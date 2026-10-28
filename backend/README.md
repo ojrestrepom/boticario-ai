@@ -72,6 +72,8 @@ Endpoints, todos `GET`:
 - `/v1/plants/{id}`: detalle de una planta; el `id` puede ser también un identificador anterior (exige token).
 - `/openapi.json`: el contrato OpenAPI (público).
 
+Hay una colección de Postman con todos los endpoints y sus entornos en [`postman/`](postman/README.md).
+
 Todo camino bajo `/v1`, también los inexistentes y los métodos no permitidos, exige `Authorization: Bearer <token>` (el nombre del esquema no distingue mayúsculas). Sin la cabecera, con otro esquema o con un token que no coincide con ninguno, la respuesta es 401 `application/problem+json` con `WWW-Authenticate: Bearer`, siempre igual para no revelar el motivo.
 
 ```bash

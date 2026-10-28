@@ -94,6 +94,17 @@ def norm(t):
 def slug(t):
     return re.sub(r"[^a-z0-9]+", " ", norm(t)).strip().replace(" ", "-")
 
+
+def commons_ok(got, entries, dn):
+    """got y entries son listas de (texto, idioma). Orden esperado tras la correccion de DEF-02: los nombres con el texto del displayName primero
+    (el de idioma es antes), y el resto sin distinguir mayusculas ni acentos, por texto normalizado e idioma. Devuelve (ok, motivo)."""
+    if sorted(got) != sorted(entries): return False, "conjunto distinto"
+    first = [x for x in got if x[0] == dn]; rest = [x for x in got if x[0] != dn]
+    if got != first + rest: return False, "displayName no va primero"
+    if first and first[0][1] != "es" and any(x[1] == "es" for x in first): return False, "el es no va antes en el empate del displayName"
+    if [(norm(t), l) for t, l in rest] != sorted((norm(t), l) for t, l in rest): return False, "resto no ordenado sin mayusculas ni acentos"
+    return True, ""
+
 db = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
 ids = [r[0] for r in db.execute("select id from plant order by scientific_name, id")]
 N = len(ids)
@@ -135,20 +146,16 @@ bad_order = []; sci_dn = 0; with_other = 0; dup_dn = []
 for i in seen:
     exp_set = sorted(commons[i["id"]])
     got = [(x["text"], x["language"]) for x in i["commonNames"]]
-    if sorted(got) != exp_set: bad_order.append((i["id"], "conjunto distinto")); continue
     dn = i["displayName"]
+    ok, why = commons_ok(got, exp_set, dn)
+    if not ok: bad_order.append((i["id"], why, got[:3]))
     if any(t == dn for t, _ in exp_set):
-        exp = [x for x in exp_set if x[0] == dn]
-        rest = [x for x in exp_set if x not in exp]
-        if len(exp) > 1: dup_dn.append((i["id"], exp))
-        if got != exp + rest: bad_order.append((i["id"], got[:3]))
+        if len([x for x in exp_set if x[0] == dn]) > 1: dup_dn.append((i["id"], [x for x in exp_set if x[0] == dn]))
     else:
         sci_dn += 1
         if exp_set: with_other += 1
-        if got != exp_set: bad_order.append((i["id"], got[:3]))
-rec(c, "commonNames: displayName primero (si es nombre comun) y el resto por texto e idioma (orden binario); sin destacado si displayName es cientifico", not bad_order, f"{len(bad_order)} desvios, p. ej. {bad_order[:3]}")
-obs(c, f"plantas cuyo displayName coincide en texto con mas de un nombre comun (p. ej. 'Sisal' en y es): {len(dup_dn)}; el de idioma en queda antes que el es en {sum(1 for _, e in dup_dn if e[0][1] != 'es')}; p. ej. {dup_dn[:2]}")
 obs(c, f"plantas cuyo displayName no es un nombre comun (nombre cientifico): {sci_dn}; de ellas con comunes en otros idiomas: {with_other}")
+rec(c, "commonNames: displayName primero (el es antes en un empate) y el resto sin distinguir mayusculas ni acentos, por texto e idioma; sin destacado si displayName es cientifico", not bad_order, f"{len(bad_order)} desvios, p. ej. {bad_order[:3]}")
 no_common_dn_sci = [i for i in seen if not i["commonNames"] and i["displayName"] != sci[i["id"]]]
 rec(c, "planta sin nombres comunes: displayName = nombre cientifico y commonNames vacio", not no_common_dn_sci, str([i["id"] for i in no_common_dn_sci[:5]]))
 log[c].append(f"tiempo del listado (limit=100): mediana {statistics.median(t_list):.1f} ms, max {max(t_list):.1f} ms, {len(t_list)} paginas")
@@ -203,11 +210,8 @@ for p, d in details.items():
     if kinds != sorted(kinds, key=lambda k: 0 if k == "scientific" else 1): bad.append((p, "cientificos no van antes"))
     got_c = [(n["text"], n["language"]) for n in d["names"] if n["kind"] == "common"]
     dn = d["displayName"]
-    exp = sorted(commons[p])
-    if any(t == dn for t, _ in exp):
-        first = [x for x in exp if x[0] == dn]
-        exp = first + [x for x in exp if x not in first]
-    if got_c != exp: bad.append((p, "comunes", got_c[:3], exp[:3]))
+    ok, why = commons_ok(got_c, sorted(commons[p]), dn)
+    if not ok: bad.append((p, "comunes", why, got_c[:3]))
     if sorted((n["text"], n["language"]) for n in d["names"] if n["kind"] == "scientific") != sorted(scn[p]): bad.append((p, "cientificos distintos"))
 rec(c, "names: cientificos antes que comunes; comunes con displayName primero y el resto por texto e idioma", not bad, f"{len(bad)} desvios {bad[:2]}")
 syn_bad = [p for p, d in details.items() if d["scientificName"] in d["synonyms"] or d["synonyms"] != sorted(d["synonyms"])]
@@ -250,11 +254,11 @@ bad_set = []; bad_ord = []; bad_ref = []; bad_unres = []; bad_uses = []; pend_se
 for p, d in details.items():
     served = [g for g in grp[p] if not g["pending"]]
     served_total += len(served)
-    exp = sorted(served, key=lambda g: (-g["count"], g["activity"]))
+    exp = sorted(served, key=lambda g: (-g["count"], norm(g["activity"])))
     got = d["useGroups"]
     if sorted((g["activity"], g["activitySource"], g["count"]) for g in got) != sorted((g["activity"], g["activitySource"], g["count"]) for g in served):
         bad_set.append(p); continue
-    if [(g["activity"], g["count"]) for g in got] != [(g["activity"], g["count"]) for g in exp]: bad_ord.append(p)
+    if [(norm(g["activity"]), g["count"]) for g in got] != [(norm(g["activity"]), g["count"]) for g in exp]: bad_ord.append(p)
     byact = {(g["activity"], g["activitySource"], g["count"]): g for g in served}
     for g in got:
         s = byact[(g["activity"], g["activitySource"], g["count"])]
@@ -274,7 +278,7 @@ for p, d in details.items():
     got_uses = sorted((u["activity"], u["reference"]["id"], u["reference"]["citation"]) for u in d["uses"])
     if got_uses != exp_uses: bad_uses.append((p, len(got_uses), len(exp_uses)))
 rec(c, "useGroups: solo los grupos con pending_review = 0 (actividad y count), 17.160 aprox.", not bad_set, f"{len(bad_set)} plantas con conjunto distinto {bad_set[:3]}; servidos={served_total}")
-rec(c, "useGroups ordenados por count descendente y luego actividad", not bad_ord, f"{len(bad_ord)} {bad_ord[:3]}")
+rec(c, "useGroups ordenados por count descendente y luego actividad sin distinguir mayusculas ni acentos", not bad_ord, f"{len(bad_ord)} {bad_ord[:3]}")
 rec(c, "useGroups: activitySource, paises y referencias (texto completo en citation, orden de la semilla)", not bad_ref, f"{len(bad_ref)} {bad_ref[:3]}")
 rec(c, "referencias sin resolver: id nulo, resolved falso y cita '<clave> (sin resolver)'; ninguna cita resuelta es la etiqueta corta", not bad_unres, f"{len(bad_unres)} {bad_unres[:2]}; sin resolver servidas={unres_served}")
 rec(c, "uses = una fila por actividad y referencia resuelta de los grupos servidos (sin repetir), con la etiqueta en citation (compatibilidad)", not bad_uses, f"{len(bad_uses)} {bad_uses[:3]}")

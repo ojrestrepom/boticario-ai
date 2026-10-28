@@ -14,31 +14,11 @@ Authorization: Bearer <token-app>
      "language": "es"
     },
     {
-     "text": "Bolondrón",
-     "language": "es"
-    },
-    {
-     "text": "Gambo",
-     "language": "es"
-    },
-    {
-     "text": "Naju",
-     "language": "es"
-    },
-    {
-     "text": "Okra",
-     "language": "en"
-    },
-    {
-     "text": "Yambo",
-     "language": "es"
-    },
-    {
-     "text": "Yerba de culebra",
-     "language": "es"
-    },
-    {
      "text": "abelmosco",
+     "language": "es"
+    },
+    {
+     "text": "Bolondrón",
      "language": "es"
     },
     {
@@ -47,6 +27,10 @@ Authorization: Bearer <token-app>
     },
     {
      "text": "chingambó",
+     "language": "es"
+    },
+    {
+     "text": "Gambo",
      "language": "es"
     },
     {
@@ -62,12 +46,24 @@ Authorization: Bearer <token-app>
      "language": "es"
     },
     {
+     "text": "Naju",
+     "language": "es"
+    },
+    {
+     "text": "ñajú",
+     "language": "es"
+    },
+    {
      "text": "ocra",
      "language": "es"
     },
     {
      "text": "ocro",
      "language": "es"
+    },
+    {
+     "text": "Okra",
+     "language": "en"
     },
     {
      "text": "okra",
@@ -82,7 +78,11 @@ Authorization: Bearer <token-app>
      "language": "es"
     },
     {
-     "text": "ñajú",
+     "text": "Yambo",
+     "language": "es"
+    },
+    {
+     "text": "Yerba de culebra",
      "language": "es"
     }
    ],
@@ -124,8 +124,7 @@ PASA  familia presente como texto o null en cada elemento
 PASA  recorrido completo (limit=100) sin errores de contrato 
 PASA  2354 ids unicos en el orden de nombre cientifico e id 2354 elementos
 PASA  displayName = plant_profile.display_name en las 2.354 plantas []
-PASA  commonNames: displayName primero (si es nombre comun) y el resto por texto e idioma (orden binario); sin destacado si displayName es cientifico 0 desvios, p. ej. []
-OBS   plantas cuyo displayName coincide en texto con mas de un nombre comun (p. ej. 'Sisal' en y es): 39; el de idioma en queda antes que el es en 39; p. ej. [('agathosma-betulina', [('Buchu', 'en'), ('Buchu', 'es')]), ('agave-sisalana', [('Sisal', 'en'), ('Sisal', 'es')])]
 OBS   plantas cuyo displayName no es un nombre comun (nombre cientifico): 1195; de ellas con comunes en otros idiomas: 571
+PASA  commonNames: displayName primero (el es antes en un empate) y el resto sin distinguir mayusculas ni acentos, por texto e idioma; sin destacado si displayName es cientifico 0 desvios, p. ej. []
 PASA  planta sin nombres comunes: displayName = nombre cientifico y commonNames vacio []
-tiempo del listado (limit=100): mediana 1.9 ms, max 2.9 ms, 24 paginas
+tiempo del listado (limit=100): mediana 1.8 ms, max 3.3 ms, 24 paginas

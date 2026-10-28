@@ -5,9 +5,9 @@ Alcance: tareas 11.1 a 11.4. Plan, casos y trazabilidad en [`test-plan.md`](test
 ## Resumen
 
 - API: 0 fallos. Las 122 comprobaciones del censo de las 2.354 plantas contra la base, las 22 peticiones y 115 aserciones de Postman y las pruebas del producto (Rust 145 y suite de la semilla 559) pasan. Los tiempos del detalle con la base real son de 1,2 ms de mediana y 5,6 ms como máximo.
-- App en el emulador: el smoke de `integration_test` **falla** contra el backend local (DEF-01, severidad alta). El resto de los recorridos (Explorar, pasaportes de lavanda, tóxica, eucalipto, planta vacía, sin nombre en español, citas sin resolver, enlaces, imagen sin conexión, backend anterior, texto al 200 %) cumple lo especificado, con la salvedad de DEF-01.
+- App en el emulador: en la primera ejecución el smoke de `integration_test` **fallaba** contra el backend local (DEF-01, severidad alta); tras la corrección pasa (ver «Reverificación»). El resto de los recorridos (Explorar, pasaportes de lavanda, tóxica, eucalipto, planta vacía, sin nombre en español, citas sin resolver, enlaces, imagen sin conexión, backend anterior, texto al 200 %) cumple lo especificado, con la salvedad de DEF-01.
 - Muestra de 30 plantas: sin lenguaje de efecto, dosis ni imágenes CC sin autor o sin enlace; 1 defecto de contenido de baja gravedad en textos de seguridad «no tóxica» (DEF-03) y observaciones.
-- Defectos: DEF-01 (alta), DEF-02 (baja), DEF-03 (media, contenido de la semilla del cambio 1, no una regresión de este cambio).
+- Defectos: DEF-01 (alta), DEF-02 (baja), DEF-03 (media, contenido de la semilla del cambio 1, no una regresión de este cambio). Los tres están corregidos y reverificados (sección «Reverificación de los defectos corregidos»).
 - Token: ninguna evidencia lo contiene (barrido al final).
 
 ## Resultado por tarea
@@ -16,7 +16,7 @@ Alcance: tareas 11.1 a 11.4. Plan, casos y trazabilidad en [`test-plan.md`](test
 |---|---|---|
 | 11.1 Plan de pruebas | Cumplida | `test-plan.md` con particiones por tipo de planta, casos con ID, pasos y resultados esperados, y tabla de trazabilidad de los 139 escenarios de los seis deltas; verificado con `check-md-lines.py` (0 hallazgos) |
 | 11.2 API con Postman | Cumplida | Postman CLI 1.74 ejecuta la colección local sin sesión (la sesión solo hace falta para publicar en la nube), así que no hizo falta `curl`; además un script de Python con un oráculo SQL independiente (censo de 2.354 plantas, 650 alias y 357 nombres anteriores) |
-| 11.3 Interfaz en el emulador | **No cumplida**: el smoke falla (DEF-01) | Todo lo demás se ejecutó. Playwright no aplica. Logcat sin el token |
+| 11.3 Interfaz en el emulador | Cumplida tras la reverificación (en la primera ejecución el smoke fallaba por DEF-01) | Todo se ejecutó. Playwright no aplica. Logcat sin el token. Limitación residual RES-01 en la sección de reverificación |
 | 11.4 Revisión de 30 plantas y este informe | Cumplida | Muestra revisada en la API (30) y en la app (4 de la muestra más 6 más); cada criterio del plan tiene resultado, evidencia y estado (tabla final) |
 
 
@@ -66,7 +66,7 @@ Alcance: tareas 11.1 a 11.4. Plan, casos y trazabilidad en [`test-plan.md`](test
 - OBS-11: el backend anterior se emuló con un proxy que quita los campos nuevos, pero no reproduce el orden alfabético anterior de los nombres; la prueba de compatibilidad cubre los campos ausentes, no el orden.
 - OBS-12: `Tipo de documento` en `Objetivos` muestra la frase completa de `evidence` («La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.»), no un tipo corto.
 - OBS-13: textos de la base que tocan el barrido de efecto, todos aceptables: tres de seguridad con «beneficio-riesgo», «beneficios no superan sus riesgos» y «no garantiza su ausencia» (negaciones de la EMA), y «no recomendado» en dos hinojos. No hay dosis ni cantidades (0 coincidencias).
-- OBS-14: el APK de depuración que compilé queda en `app/build/app/outputs/flutter-apk/app-debug.apk` (carpeta ignorada por git) con el token de prueba embebido; el token es inválido al bajar la API. No lo borré por estar fuera de `qa/`.
+- OBS-14: el APK de depuración que compilé quedó en `app/build/app/outputs/flutter-apk/app-debug.apk` con el token de prueba embebido; se borró en la reverificación por indicación del coordinador.
 - OBS-15: la colección de Postman se regeneró después de ejecutarla solo para cambiar el valor del token incorrecto de `AUT-04` por un texto corto (sin cambio de lógica); no se volvió a ejecutar porque la API ya estaba detenida.
 
 ## Resultado por caso
@@ -98,7 +98,7 @@ Alcance: tareas 11.1 a 11.4. Plan, casos y trazabilidad en [`test-plan.md`](test
 | ING-02 | Manifiesto con licenseUrl inválida | PASA | `evidence/api/ingest-license-url.txt` |
 | ING-03 | Pruebas del producto catalog-ingest | PASA | `evidence/api/ING-03-cargo-test-catalog-ingest.txt` |
 | IND-01 | Independencia de la fuente (3 pruebas) | PASA | `evidence/api/IND-01-source-independence.txt` |
-| APP-01 | Smoke integration_test | FALLA | `evidence/app/APP-01-smoke-output.txt` |
+| APP-01 | Smoke integration_test | FALLA en la primera ejecución; PASA en la reverificación | `evidence/app/APP-01-smoke-output.txt` |
 | APP-02 | Explorar | PASA | `evidence/app/APP-02-explorar-filas.txt` |
 | APP-03 | Pasaporte de lavanda | PASA | `evidence/app/passport-lavanda.txt` |
 | APP-04 | Pasaporte de planta tóxica | PASA | `evidence/app/passport-aconitum-napellus.txt` |
@@ -284,9 +284,72 @@ Cada escenario de los deltas tiene casos, resultado, evidencia y estado. Las rut
 | `catalog-ingest` | URL de licencia de una fuente | SED-01 ING-01 | SED-01: PASA, ING-01: PASA | `api/ingest-license-url.txt`, `api/seed-ingest-checks.txt` | PASA |
 | `catalog-ingest` | URL de licencia inválida en el manifiesto | ING-02 | ING-02: PASA | `api/ingest-license-url.txt` | PASA |
 
+## Reverificación de los defectos corregidos
+
+Fecha: 2026-10-28 (UTC), rama `consolidate-catalog-seed` en `ee276ca` (correcciones `13cc7f5` DEF-02, `1e2fb3c` DEF-03 y `ee276ca` DEF-01). Misma estrategia y restricciones que la primera ejecución: API del `docker compose up --build -d` con la semilla actual, token nuevo solo por variable de entorno, emulador `boticario_catalog_api36`, sin teléfono físico. Las evidencias de la reverificación llevan el sufijo `reverificacion` o el prefijo `RV-`; los archivos `evidence/api/results.tsv` y `API-*.txt` se regeneraron con esta segunda ejecución (la primera quedó descrita en las secciones anteriores).
+
+### Estado por defecto
+
+| Defecto | Estado | Evidencia |
+|---|---|---|
+| DEF-01 (alta) | **Corregido** en lo que bloqueaba (smoke y cambio de pestaña). Queda una limitación residual (RES-01) | `evidence/app/APP-01-smoke-output-reverificacion.txt`, `RV-01` a `RV-04` y `RV-02-medicion-pestanas-primera-pantalla-100.txt` |
+| DEF-02 (baja) | **Corregido** | `evidence/api/DEF-02-reverificacion.txt`, `API-03.txt` |
+| DEF-03 (media) | **Corregido** | `evidence/api/DEF-03-barrido-reverificacion.txt`, `seed-ingest-checks.txt` |
+
+### DEF-01: smoke y pasaporte
+
+- Smoke: `flutter test integration_test/app_test.dart -d emulator-5554` contra la API local pasa (`All tests passed!`), dos veces seguidas en mi ejecución y una más en la del equipo (`APP-01-smoke-output-fix.txt`). Antes fallaba en `catalog_smoke.dart:348`.
+- Cambio de pestaña con la imagen real de la lavanda a 360x640 dp al 100 %: las pestañas permanecen en pantalla tras tocar `Propiedades`, `Usos` y `General` (en el mismo sitio, sin volver al inicio de la ficha), y tras un deslizamiento se ven enteras con el contenido elegido debajo (`RV-03-*`). Antes, la ficha volvía arriba y las pestañas salían del árbol de widgets.
+- Cambio de pestaña al 200 %: tras desplazarse hasta las pestañas, tocar cada una las deja visibles en la misma posición y el contenido está debajo, alcanzable por desplazamiento (`RV-04-*`).
+- Medición pedida, «¿caben las pestañas en la primera pantalla a 360x640 al 100 % con la imagen real?» (`RV-02-medicion-pestanas-primera-pantalla-100.txt`):
+  - Sí caben enteras (y=1240 a 1384 px, el área desplazable termina en 1488) con autor corto o sin autor: `aconitum-napellus`, `abelmoschus-manihot`, `matricaria-chamomilla` y `aethusa-cynapium`.
+  - No caben con el caso más largo, la lavanda (autor de dos líneas y URL de cuatro): empiezan en y=1435 y solo se ven unos 53 de 144 px (`RV-01-lavanda-primera-pantalla-100.png`).
+  - Al 200 % no caben en ningún caso: hay que desplazarse.
+- RES-01 (limitación residual, baja, no bloquea el smoke): con el autor y la URL largos de la lavanda, la primera pantalla sigue mostrando las pestañas cortadas y nada del contenido, y tras tocar una pestaña la ficha no baja a su contenido; basta un deslizamiento. No lo registro como defecto nuevo porque lo corregido era que el cambio de pestaña perdiera la posición y que el smoke fallara; lo dejo a criterio del coordinador.
+
+### DEF-02: orden de nombres comunes
+
+- `acorus-calamus` sale como `Cálamo aromático`, `Ácoro`, `ácoro aromático`, `ácoro dulce`, `ácoro verdadero`, `cálamo acuático`, `cálamo aromático`, `Calamus`, `Flagroot`, ...; `aleurites-moluccanus` como `Nuez de la India`, `Árbol candil`, `Candleberry`, `Candlenut`, ..., `Kukui`, `Lumbangtree`: alfabético sin distinguir mayúsculas ni acentos.
+- Mi oráculo (`commons_ok` en `api_checks.py`) se actualizó al nuevo contrato y pasa en las 2.354 plantas, en el listado y en el detalle: el `displayName` primero, en un empate de texto va primero el de idioma `es`, y el resto por texto normalizado e idioma. Las actividades de los grupos con el mismo `count` también salen sin distinguir mayúsculas ni acentos (API-05).
+- El ejemplo de la spec, «Lavanda», «Árnica», «Espliego», lo cubre la prueba del producto `repository.rs` (línea 1332), que pasa. Con la base real no hay una planta con esos tres nombres.
+- Planta tipo «Sisal»: `agave-sisalana` y `agathosma-betulina` ponen `('Sisal', 'es')` antes de `('Sisal', 'en')`.
+- Diferencia 39 contra 37: son 39 plantas cuyo `displayName` se repite como texto en dos nombres comunes; en 37 son los idiomas `es` y `en` (mi OBS-01, que solo mencionaba «inglés» como ejemplo) y en 2 son `es` y `de` (`helianthus-tuberosus`, «Topinambur», y `solanum-lycopersicum`, «Tomate»). En las 39 el `es` va primero.
+
+### DEF-03: cláusula «este dato no la hace segura»
+
+- Los 10 registros (los 6 míos más `quercus-petraea`, `quercus-pubescens`, `quercus-robur` y `valeriana-locusta`) llevan la cláusula en la API: 10 de 10.
+- Barrido de `plant_safety.text` (coincide con la API, verificado por el censo): ninguna afirmación de no toxicidad o seguridad («no tóxica», «nontoxic», «no registra toxicidad», «no son tóxicas», «segura», etc.) queda sin la cláusula.
+- Desde el cambio 1 solo cambian el manifiesto (10 líneas `licenseUrl` y el sello `seedHash`) y exactamente esos 10 registros, y en ellos solo cambia la clave `safety` (`evidence/api/seed-ingest-checks.txt`). Mi comprobación anterior («solo cambió el manifiesto») se actualizó a ese contrato.
+- La reconstrucción con `catalog-ingest build` sobre una copia de la semilla da la misma tabla `plant_safety` que la base del servicio (`evidence/api/ingest-license-url.txt`).
+
+### Regresión
+
+| Comprobación | Resultado |
+|---|---|
+| Oráculo SQL de 11.2 (`api_checks.py`): detalle de las 2.354 plantas, 650 alias, 357 nombres anteriores, 32 consultas contra el oráculo, auth, OpenAPI, créditos, imágenes | 122 PASA, 0 FALLA, 4 OBS |
+| Postman (`postman-run-reverificacion.txt`) | 22 peticiones, 115 aserciones, 0 fallos |
+| Muestra de 30 plantas (`sample_view.py`) | sin lenguaje de efecto, dosis ni CC sin autor o sin enlace |
+| `flutter test` | 367 pasan (antes 360) |
+| `cargo test -p catalog-api` | 158 pasan (antes 145) |
+| `cargo test -p catalog-ingest` | 39 pasan, 0 fallan |
+| Suite de `tools/catalog-seed` | 560 pruebas OK (11 omitidas; antes 559) |
+
+No hay defectos nuevos. La observación de los textos `API-14` pasó de 10 a 14 coincidencias de «seguridad» porque ahora aparece la palabra «segura» en las cláusulas añadidas.
+
+### Lo no verificado
+
+- No se repitió el recorrido completo de cada pasaporte de la primera ejecución en la app; solo el smoke, la lavanda (100 % y 200 %), cuatro plantas para la medición de las pestañas y la regresión automática.
+- El contenido de los pasaportes no cambió salvo los 10 textos de DEF-03, que se verificaron en la API; no se abrieron en el emulador.
+- OBS-14 (APK con el token) quedó resuelta: borré con `rm` los dos archivos concretos de `app/build/app/outputs/flutter-apk/`. El resto de `app/build` y `app/.dart_tool` (ignorados por git) no contiene el token en claro ni el define en base64.
+
+### Estado de la tarea 11.3
+
+Cumplida: el smoke pasa contra la API local con la base actual y los recorridos del emulador de la primera ejecución cumplían lo especificado. La limitación RES-01 queda anotada.
+
 ## Herramientas, delegación y limpieza
 
 - Herramientas: no se instaló nada. Se usaron `postman` CLI 1.74 (ya instalado), `docker compose`, `sqlite3`, `adb` y `uiautomator` del SDK de Android, `flutter`, `cargo` (vía `mise`) y `python3` con la librería estándar.
 - Delegación: no se delegó nada en el Junior-Worker; todo se hizo directamente.
 - Lo que se creó y se retiró: el contenedor del compose, la red `qa-sin-red` y el contenedor `qa-api-sin-red` (eliminados), la imagen `boticario-backend:latest` construida hoy (eliminada), el proxy de backend anterior (detenido) y el emulador `boticario_catalog_api36` (apagado, con la app desinstalada y las reglas de `iptables` retiradas).
-- Barrido de tokens: `grep -rEn '[0-9a-f]{32,}' openspec/changes/serve-consolidated-plants/qa/` no devuelve coincidencias, ni la búsqueda del valor exacto del token, ni de cabeceras `Bearer` con valor. El logcat completo del emulador (116.429 líneas) no contiene el token; en `evidence/app/logcat-app.txt` solo quedan las líneas de la app.
+- Reverificación: se levantaron de nuevo la API y el emulador y se retiraron al terminar (contenedor, red, imagen `boticario-backend:latest`, emulador apagado, `font_scale` en 1,0, procesos `flutter_tester` huérfanos detenidos, APK de depuración borrado).
+- Barrido de tokens (primera ejecución y reverificación): `grep -rEn '[0-9a-f]{32,}' openspec/changes/serve-consolidated-plants/qa/` no devuelve coincidencias, ni la búsqueda del valor exacto del token, ni de cabeceras `Bearer` con valor. El logcat completo del emulador (116.429 líneas) no contiene el token; en `evidence/app/logcat-app.txt` solo quedan las líneas de la app.

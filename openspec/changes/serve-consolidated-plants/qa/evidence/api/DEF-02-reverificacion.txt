@@ -1,0 +1,32 @@
+DEF-02 reverificacion: orden de nombres comunes sin distinguir mayusculas ni acentos, displayName primero (el es antes en un empate)
+
+GET /v1/plants/acorus-calamus
+  displayName: Cálamo aromático
+  comunes: [('Cálamo aromático', 'es'), ('Ácoro', 'es'), ('ácoro aromático', 'es'), ('ácoro dulce', 'es'), ('ácoro verdadero', 'es'), ('cálamo acuático', 'es'), ('cálamo aromático', 'es'), ('Calamus', 'en'), ('Flagroot', 'en'), ('Kalmus', 'de'), ('Myrtle Flag', 'en'), ('Sweet Calamus', 'en'), ('Sweet flag', 'en'), ('Sweetflag', 'en'), ('Sweetroot', 'en')]
+
+GET /v1/plants/aleurites-moluccanus
+  displayName: Nuez de la India
+  comunes: [('Nuez de la India', 'es'), ('Árbol candil', 'es'), ('Candleberry', 'en'), ('Candlenut', 'en'), ('Candlenut Tree', 'en'), ('Indian Walnut', 'en'), ('Kukui', 'es'), ('Lumbangtree', 'en'), ('Varnishtree', 'en')]
+
+GET /v1/plants/agave-sisalana
+  displayName: Sisal
+  comunes: [('Sisal', 'es'), ('Sisal', 'en'), ('Cabuya', 'es'), ('Hemp Plant', 'en'), ('Henequén', 'es'), ('Mescal', 'en'), ('Sisal Agave', 'en'), ('Sisal Hemp', 'en')]
+
+GET /v1/plants/agathosma-betulina
+  displayName: Buchu
+  comunes: [('Buchu', 'es'), ('Buchu', 'en'), ('Honey Buchu', 'en'), ('Mountain Buchu', 'en')]
+
+GET /v1/plants/helianthus-tuberosus
+  displayName: Topinambur
+  comunes: [('Topinambur', 'es'), ('Topinambur', 'de'), ('Aguaturma', 'es'), ('alcachofa de Jerusalén', 'es'), ('girasol de Canadá', 'es'), ('Jerusalem artichoke', 'en'), ('Papa de Jerusalén', 'es'), ('pataca', 'es'), ('topinambur', 'es'), ('tupinambo', 'es'), ('tupinambó', 'es'), ('Tupinambur', 'es')]
+
+GET /v1/plants/solanum-lycopersicum
+  displayName: Tomate
+  comunes: [('Tomate', 'es'), ('Tomate', 'de'), ('Jitomate', 'es'), ('Tomatera', 'es'), ('Tomato', 'en')]
+
+GET /v1/plants/lavandula-angustifolia
+  displayName: Lavanda
+  comunes: [('Lavanda', 'es'), ('Echter Lavendel', 'de'), ('English Lavender', 'en'), ('lavanda', 'es'), ('True lavender', 'en')]
+
+Listado: q=sisal
+  agave-sisalana [('Sisal', 'es'), ('Sisal', 'en'), ('Cabuya', 'es'), ('Hemp Plant', 'en')]

@@ -15,5 +15,6 @@ PASA URL de licencia invalida ' https://x/' rechazada nombrando fuente y campo f
 PASA licenseUrl None aceptada 
 PASA licenseUrl 'https://creativecommons.org/licenses/by-sa/4.0/' aceptada 
 PASA fuente sin licenseUrl aceptada 
-PASA desde el cambio 1 solo cambio data/seed/manifest.json (ningun registro de planta) ['data/seed/manifest.json']
-PASA el diff del manifiesto son solo lineas licenseUrl (seedHash intacto) 10 lineas
+PASA desde el cambio 1 solo cambian el manifiesto y los 10 registros de DEF-03 11 archivos
+PASA el diff del manifiesto son las 10 lineas licenseUrl y el sello (seedHash) regenerado por DEF-03 10 licenseUrl, otras: 2
+PASA en los 10 registros solo cambian estas claves de nivel superior ['safety']

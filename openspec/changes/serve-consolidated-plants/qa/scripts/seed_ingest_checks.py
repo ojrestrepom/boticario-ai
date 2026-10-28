@@ -35,10 +35,22 @@ for okv in (None, "https://creativecommons.org/licenses/by-sa/4.0/"):
 d = copy.deepcopy(base); d.pop("licenseUrl", None)
 try: validate_source(d); rec("fuente sin licenseUrl aceptada", True)
 except SourceError as e: rec("fuente sin licenseUrl aceptada", False, str(e))
-# registros y seedHash sin cambios respecto al cambio 1: solo manifest.json cambio en data/seed desde 7e6cbfe
+# Tras las correcciones de QA (DEF-03) cambian el manifiesto y exactamente 10 registros de planta; el resto de la semilla no cambia desde el cambio 1.
+DEF03 = {"brassica-cretica-subsp-cretica", "brassica-oleracea-var-capitata", "brassica-oleracea-var-gemmifera", "brassica-oleracea-var-gongylodes", "brassica-oleracea-var-italica",
+         "quercus-petraea", "quercus-pubescens", "quercus-robur", "reynoutria-japonica", "valeriana-locusta"}
 r = subprocess.run(["git", "-C", str(ROOT), "diff", "--name-only", "7e6cbfe..HEAD", "--", "data/seed"], capture_output=True, text=True).stdout.split()
-rec("desde el cambio 1 solo cambio data/seed/manifest.json (ningun registro de planta)", r == ["data/seed/manifest.json"], str(r))
+exp_files = {"data/seed/manifest.json"} | {f"data/seed/plants/{i}.json" for i in DEF03}
+rec("desde el cambio 1 solo cambian el manifiesto y los 10 registros de DEF-03", set(r) == exp_files, f"{len(r)} archivos")
 d = subprocess.run(["git", "-C", str(ROOT), "diff", "7e6cbfe..HEAD", "--", "data/seed/manifest.json"], capture_output=True, text=True).stdout
 changed = [l for l in d.splitlines() if l[:1] in "+-" and not l.startswith(("+++", "---"))]
-rec("el diff del manifiesto son solo lineas licenseUrl (seedHash intacto)", changed and all('"licenseUrl"' in l and l.startswith("+") for l in changed), f"{len(changed)} lineas")
+lic = [l for l in changed if '"licenseUrl"' in l and l.startswith("+")]
+other = [l for l in changed if l not in lic]
+rec("el diff del manifiesto son las 10 lineas licenseUrl y el sello (seedHash) regenerado por DEF-03", len(lic) == 10 and len(other) == 2 and all("seedHash" in l or "hash" in l.lower() for l in other), f"{len(lic)} licenseUrl, otras: {len(other)}")
+import json as _j
+keys = set()
+for i in DEF03:
+    old = _j.loads(subprocess.run(["git", "-C", str(ROOT), "show", f"7e6cbfe:data/seed/plants/{i}.json"], capture_output=True, text=True).stdout)
+    new = _j.load(open(ROOT / f"data/seed/plants/{i}.json"))
+    keys |= {k for k in set(old) | set(new) if old.get(k) != new.get(k)}
+rec("en los 10 registros solo cambian estas claves de nivel superior", True, str(sorted(keys)))
 if any(o[0] == "FALLA" for o in out): sys.exit(1)

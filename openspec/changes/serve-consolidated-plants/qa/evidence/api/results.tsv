@@ -6,9 +6,8 @@ API-01	familia presente como texto o null en cada elemento	PASA
 API-01	recorrido completo (limit=100) sin errores de contrato	PASA	
 API-01	2354 ids unicos en el orden de nombre cientifico e id	PASA	2354 elementos
 API-01	displayName = plant_profile.display_name en las 2.354 plantas	PASA	[]
-API-01	commonNames: displayName primero (si es nombre comun) y el resto por texto e idioma (orden binario); sin destacado si displayName es cientifico	PASA	0 desvios, p. ej. []
-API-01	plantas cuyo displayName coincide en texto con mas de un nombre comun (p. ej. 'Sisal' en y es): 39; el de idioma en queda antes que el es en 39; p. ej. [('agathosma-betulina', [('Buchu', 'en'), ('Buchu', 'es')]), ('agave-sisalana', [('Sisal', 'en'), ('Sisal', 'es')])]	OBS	
 API-01	plantas cuyo displayName no es un nombre comun (nombre cientifico): 1195; de ellas con comunes en otros idiomas: 571	OBS	
+API-01	commonNames: displayName primero (el es antes en un empate) y el resto sin distinguir mayusculas ni acentos, por texto e idioma; sin destacado si displayName es cientifico	PASA	0 desvios, p. ej. []
 API-01	planta sin nombres comunes: displayName = nombre cientifico y commonNames vacio	PASA	[]
 API-02	GET /v1/plants/{id} responde 200 y cumple PlantDto en las 2354 plantas	PASA	0 fallos []
 API-02	ningun id canonico lleva Content-Location	PASA	
@@ -28,7 +27,7 @@ API-04	description <= 400 caracteres	PASA	307
 API-04	family = plant.family	PASA	
 API-04	parts = plant_part	PASA	[]
 API-05	useGroups: solo los grupos con pending_review = 0 (actividad y count), 17.160 aprox.	PASA	0 plantas con conjunto distinto []; servidos=17160
-API-05	useGroups ordenados por count descendente y luego actividad	PASA	0 []
+API-05	useGroups ordenados por count descendente y luego actividad sin distinguir mayusculas ni acentos	PASA	0 []
 API-05	useGroups: activitySource, paises y referencias (texto completo en citation, orden de la semilla)	PASA	0 []
 API-05	referencias sin resolver: id nulo, resolved falso y cita '<clave> (sin resolver)'; ninguna cita resuelta es la etiqueta corta	PASA	0 []; sin resolver servidas=993
 API-05	uses = una fila por actividad y referencia resuelta de los grupos servidos (sin repetir), con la etiqueta en citation (compatibilidad)	PASA	0 []
@@ -125,4 +124,4 @@ API-13	planta sin datos (angelica-laxiflora): 200 con useGroups, goals, uses, pa
 API-13	abutilon-theophrasti: displayName cientifico y Velvetleaf entre los comunes sin destacar	PASA	
 API-13	unas 1.195 plantas con displayName = nombre cientifico	PASA	1195
 API-14	efecto en safety.text: 3 coincidencias; p. ej. chelidonium-majus [beneficio] ...s por motivos de seguridad, la relación beneficio-riesgo del uso oral es negativa para es...; salvia-officinalis [beneficios] ...re el aceite de salvia concluye que sus beneficios no superan sus riesgos. EFSA marca la a...; taraxacum-officinale [garantiza] ...MA no registra interacciones, lo que no garantiza su ausencia....	OBS	
-API-14	seguridad en safety.text: 10 coincidencias; p. ej. abutilon-theophrasti [segura] ...goría «nontoxic»); este dato no la hace segura....; brassica-cretica-subsp-cretica [no tóxica] ...PPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; l...; brassica-oleracea-var-capitata [no tóxica] ...PPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica» en...	OBS	
+API-14	seguridad en safety.text: 14 coincidencias; p. ej. abutilon-theophrasti [segura] ...goría «nontoxic»); este dato no la hace segura....; brassica-cretica-subsp-cretica [no tóxica] ...PPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; l...; brassica-oleracea-var-capitata [no tóxica] ...PPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica» en...	OBS	

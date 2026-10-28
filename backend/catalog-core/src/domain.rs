@@ -264,6 +264,84 @@ pub struct PlantSummary {
     pub family: Option<String>,
 }
 
+/// Objetivo o subárea identificados por su id y su nombre en español.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct IdName {
+    /// Identificador público.
+    pub id: String,
+    /// Nombre para mostrar, en español.
+    pub name: String,
+}
+
+/// Subárea de un objetivo con sus plantas visibles.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SubareaSummary {
+    /// Identificador de la subárea.
+    pub id: String,
+    /// Nombre para mostrar.
+    pub name: String,
+    /// Plantas distintas visibles en la subárea.
+    pub plant_count: u64,
+}
+
+/// Objetivo del catálogo con sus plantas visibles y sus subáreas con plantas.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct GoalSummary {
+    /// Identificador del objetivo.
+    pub id: String,
+    /// Nombre para mostrar.
+    pub name: String,
+    /// Plantas distintas visibles (la unión sin repetir de sus subáreas, si las tiene).
+    pub plant_count: u64,
+    /// Subáreas con al menos una planta visible, en su orden de presentación.
+    pub subareas: Vec<SubareaSummary>,
+}
+
+/// Planta de un objetivo, con lo que necesita una tarjeta de resultados.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct GoalPlant {
+    /// Identificador público.
+    pub id: PlantId,
+    /// Nombre científico canónico.
+    pub scientific_name: String,
+    /// Nombre para mostrar (véase [`Plant::display_name`]).
+    pub display_name: String,
+    /// Nombres comunes con su idioma, como en el listado.
+    pub common_names: Vec<PlantName>,
+    /// Familia, si existe.
+    pub family: Option<String>,
+    /// Áreas de la EMA que respaldan a la planta en ese objetivo o subárea, sin repetir.
+    pub areas: Vec<String>,
+    /// Nivel de precaución; `None` también cuando hay precauciones sin nivel.
+    pub safety_level: Option<SafetyLevel>,
+    /// Si la planta tiene datos de precauciones, aunque no tengan nivel.
+    pub has_safety: bool,
+    /// Imagen con su licencia, la misma del detalle.
+    pub image: Option<Image>,
+}
+
+/// Página de plantas de un objetivo.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct GoalPlants {
+    /// Objetivo pedido.
+    pub goal: IdName,
+    /// Subárea pedida, si se filtró por una.
+    pub subarea: Option<IdName>,
+    /// Plantas de la página y total.
+    pub page: Page<GoalPlant>,
+}
+
+/// Resultado de pedir las plantas de un objetivo.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum GoalPlantsOutcome {
+    /// El objetivo no existe.
+    UnknownGoal,
+    /// La subárea no pertenece al objetivo, o el objetivo no tiene subáreas.
+    UnknownSubarea,
+    /// La página pedida.
+    Found(GoalPlants),
+}
+
 /// Límite de página por defecto.
 pub const DEFAULT_LIMIT: u32 = 20;
 /// Límite de página máximo.

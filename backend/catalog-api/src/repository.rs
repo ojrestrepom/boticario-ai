@@ -3,15 +3,16 @@
 //! Lee únicamente el esquema neutral, siempre con el DSL de Diesel: aquí no hay SQL escrito a mano.
 //! La base se abre en solo lectura y se comprueba su versión de esquema antes de servir nada.
 
-use std::collections::{BTreeSet, HashMap};
+use std::collections::{BTreeSet, HashMap, HashSet};
 use std::error::Error;
 use std::fmt;
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 use catalog_core::domain::{
-    Credit, Goal, Image, ListQuery, NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary,
-    Reference, Safety, SafetyLevel, Use, UseGroup, UseGroupReference,
+    Credit, Goal, GoalPlant, GoalPlants, GoalPlantsOutcome, GoalSummary, IdName, Image, ListQuery,
+    NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary, Reference, Safety, SafetyLevel,
+    SubareaSummary, Use, UseGroup, UseGroupReference,
 };
 use catalog_core::normalize::{normalize_name, slug};
 use catalog_core::repository::{CatalogRepository, RepositoryError};
@@ -397,6 +398,306 @@ impl CatalogRepository for SqliteCatalogRepository {
             credits: load_credits(conn, &id.0)?,
         }))
     }
+
+    fn list_goals(&self) -> Result<Vec<GoalSummary>, RepositoryError> {
+        let mut conn = self.conn()?;
+        let conn = &mut *conn;
+
+        let goals: Vec<GoalRow> = goal::table
+            .order_by((goal::position.asc(), goal::id.asc()))
+            .select(GoalRow::as_select())
+            .load(conn)
+            .map_err(storage)?;
+        let subareas: Vec<GoalSubareaRow> = goal_subarea::table
+            .order_by((goal_subarea::position.asc(), goal_subarea::id.asc()))
+            .select(GoalSubareaRow::as_select())
+            .load(conn)
+            .map_err(storage)?;
+        // Solo las filas visibles cuentan: las pendientes de revisión no existen para la búsqueda.
+        let links: Vec<(String, Option<String>, String)> = plant_goal::table
+            .filter(plant_goal::pending_review.eq(false))
+            .select((
+                plant_goal::goal_id,
+                plant_goal::subarea_id,
+                plant_goal::plant_id,
+            ))
+            .load(conn)
+            .map_err(storage)?;
+
+        // Plantas distintas por objetivo y por subárea: una planta en dos subáreas cuenta una vez en el objetivo.
+        let mut by_goal: HashMap<&str, HashSet<&str>> = HashMap::new();
+        let mut by_subarea: HashMap<&str, HashSet<&str>> = HashMap::new();
+        for (goal_id, subarea_id, plant_id) in &links {
+            by_goal.entry(goal_id).or_default().insert(plant_id);
+            if let Some(subarea_id) = subarea_id {
+                by_subarea.entry(subarea_id).or_default().insert(plant_id);
+            }
+        }
+        let count = |set: Option<&HashSet<&str>>| set.map_or(0, HashSet::len) as u64;
+
+        Ok(goals
+            .into_iter()
+            .map(|g| {
+                let subareas = subareas
+                    .iter()
+                    .filter(|s| s.goal_id == g.id)
+                    .map(|s| SubareaSummary {
+                        id: s.id.clone(),
+                        name: s.label.clone(),
+                        plant_count: count(by_subarea.get(s.id.as_str())),
+                    })
+                    // Las subáreas sin plantas visibles se omiten.
+                    .filter(|s| s.plant_count > 0)
+                    .collect();
+                GoalSummary {
+                    plant_count: count(by_goal.get(g.id.as_str())),
+                    id: g.id,
+                    name: g.label,
+                    subareas,
+                }
+            })
+            .collect())
+    }
+
+    /// Precondición: `limit` y `offset` ya están validados por quien llama.
+    fn list_goal_plants(
+        &self,
+        goal_id: &str,
+        subarea_id: Option<&str>,
+        limit: u32,
+        offset: u32,
+    ) -> Result<GoalPlantsOutcome, RepositoryError> {
+        let mut conn = self.conn()?;
+        let conn = &mut *conn;
+
+        let Some(goal_row) = goal::table
+            .find(goal_id)
+            .select(GoalRow::as_select())
+            .first(conn)
+            .optional()
+            .map_err(storage)?
+        else {
+            return Ok(GoalPlantsOutcome::UnknownGoal);
+        };
+        // Una subárea pedida debe ser de este objetivo; si el objetivo no tiene ninguna, cualquier valor es ajeno.
+        let subarea = match subarea_id {
+            None => None,
+            Some(id) => {
+                let row: Option<GoalSubareaRow> = goal_subarea::table
+                    .find(id)
+                    .filter(goal_subarea::goal_id.eq(goal_id))
+                    .select(GoalSubareaRow::as_select())
+                    .first(conn)
+                    .optional()
+                    .map_err(storage)?;
+                match row {
+                    Some(row) => Some(IdName {
+                        id: row.id,
+                        name: row.label,
+                    }),
+                    None => return Ok(GoalPlantsOutcome::UnknownSubarea),
+                }
+            }
+        };
+
+        let mut links = plant_goal::table
+            .filter(plant_goal::goal_id.eq(goal_id))
+            .filter(plant_goal::pending_review.eq(false))
+            .into_boxed();
+        if let Some(subarea) = &subarea {
+            links = links.filter(plant_goal::subarea_id.eq(subarea.id.clone()));
+        }
+        let link_rows: Vec<(String, String)> = links
+            .order_by((plant_goal::position.asc(), plant_goal::id.asc()))
+            .select((plant_goal::plant_id, plant_goal::area))
+            .load(conn)
+            .map_err(storage)?;
+        // Áreas por planta, sin repetir y en el orden del registro (una planta puede estar en varias subáreas).
+        let mut areas: HashMap<String, Vec<String>> = HashMap::new();
+        for (plant_id, area) in link_rows {
+            let list = areas.entry(plant_id).or_default();
+            if !list.contains(&area) {
+                list.push(area);
+            }
+        }
+
+        let ids: Vec<&str> = areas.keys().map(String::as_str).collect();
+        let plants: Vec<PlantRow> = if ids.is_empty() {
+            Vec::new()
+        } else {
+            plant::table
+                .filter(plant::id.eq_any(&ids))
+                .select(PlantRow::as_select())
+                .load(conn)
+                .map_err(storage)?
+        };
+        let mut display_names = display_names_of(conn, &ids)?;
+
+        // Orden total en Rust: `plant_profile.display_name` no tiene columna normalizada. Con unas 135 plantas por objetivo basta ordenar en memoria.
+        let mut keyed: Vec<(PlantRow, String, (String, String, String))> = plants
+            .into_iter()
+            .map(|p| {
+                let display_name = display_names
+                    .remove(&p.id)
+                    .unwrap_or_else(|| p.scientific_name.clone());
+                let key = (
+                    normalize_name(&display_name),
+                    normalize_name(&p.scientific_name),
+                    p.id.clone(),
+                );
+                (p, display_name, key)
+            })
+            .collect();
+        keyed.sort_by(|a, b| a.2.cmp(&b.2));
+
+        let total = keyed.len() as u64;
+        let page: Vec<(PlantRow, String)> = keyed
+            .into_iter()
+            .skip(offset as usize)
+            .take(limit as usize)
+            .map(|(p, display_name, _)| (p, display_name))
+            .collect();
+
+        // Consultas por lote solo para la página: nombres comunes, precauciones e imágenes.
+        let page_ids: Vec<&str> = page.iter().map(|(p, _)| p.id.as_str()).collect();
+        let mut commons = common_names_of(conn, &page_ids)?;
+        let safety = safety_levels_of(conn, &page_ids)?;
+        let mut images = images_of(conn, &page_ids)?;
+
+        let items = page
+            .into_iter()
+            .map(|(p, display_name)| {
+                let mut common_names = commons.remove(&p.id).unwrap_or_default();
+                sort_common_names(&mut common_names, &display_name);
+                let level = safety.get(&p.id);
+                GoalPlant {
+                    areas: areas.remove(&p.id).unwrap_or_default(),
+                    safety_level: level.copied().flatten(),
+                    has_safety: level.is_some(),
+                    image: images.remove(&p.id),
+                    id: PlantId(p.id),
+                    scientific_name: p.scientific_name,
+                    display_name,
+                    common_names,
+                    family: p.family,
+                }
+            })
+            .collect();
+
+        Ok(GoalPlantsOutcome::Found(GoalPlants {
+            goal: IdName {
+                id: goal_row.id,
+                name: goal_row.label,
+            },
+            subarea,
+            page: Page { items, total },
+        }))
+    }
+}
+
+/// Nombres para mostrar de un conjunto de plantas; las que no tienen perfil o lo tienen nulo no aparecen.
+fn display_names_of(
+    conn: &mut SqliteConnection,
+    ids: &[&str],
+) -> Result<HashMap<String, String>, RepositoryError> {
+    if ids.is_empty() {
+        return Ok(HashMap::new());
+    }
+    let rows: Vec<(String, Option<String>)> = plant_profile::table
+        .filter(plant_profile::plant_id.eq_any(ids))
+        .select((plant_profile::plant_id, plant_profile::display_name))
+        .load(conn)
+        .map_err(storage)?;
+    Ok(rows
+        .into_iter()
+        .filter_map(|(id, name)| name.map(|name| (id, name)))
+        .collect())
+}
+
+/// Nombres comunes de un conjunto de plantas, en una sola consulta; sin ordenar entre sí (lo hace `sort_common_names`).
+fn common_names_of(
+    conn: &mut SqliteConnection,
+    ids: &[&str],
+) -> Result<HashMap<String, Vec<PlantName>>, RepositoryError> {
+    let mut out: HashMap<String, Vec<PlantName>> = HashMap::new();
+    if ids.is_empty() {
+        return Ok(out);
+    }
+    let rows: Vec<PlantNameRow> = plant_name::table
+        .filter(plant_name::kind.eq("common"))
+        .filter(plant_name::plant_id.eq_any(ids))
+        .order_by((
+            plant_name::text.asc(),
+            plant_name::language.asc(),
+            plant_name::id.asc(),
+        ))
+        .select(PlantNameRow::as_select())
+        .load(conn)
+        .map_err(storage)?;
+    for row in &rows {
+        out.entry(row.plant_id.clone())
+            .or_default()
+            .push(to_plant_name(row)?);
+    }
+    Ok(out)
+}
+
+/// Nivel de precaución de las plantas que tienen una fila de seguridad: `Some(None)` es una precaución sin nivel, y las plantas sin fila no aparecen.
+fn safety_levels_of(
+    conn: &mut SqliteConnection,
+    ids: &[&str],
+) -> Result<HashMap<String, Option<SafetyLevel>>, RepositoryError> {
+    if ids.is_empty() {
+        return Ok(HashMap::new());
+    }
+    let rows: Vec<(String, Option<String>)> = plant_safety::table
+        .filter(plant_safety::plant_id.eq_any(ids))
+        .select((plant_safety::plant_id, plant_safety::level))
+        .load(conn)
+        .map_err(storage)?;
+    rows.into_iter()
+        .map(|(id, level)| {
+            let level =
+                match level.as_deref() {
+                    None => None,
+                    Some(text) => Some(SafetyLevel::parse(text).ok_or_else(|| {
+                        storage(format!("nivel de seguridad desconocido: {text:?}"))
+                    })?),
+                };
+            Ok((id, level))
+        })
+        .collect()
+}
+
+/// Imágenes de un conjunto de plantas, las mismas que sirve el detalle.
+fn images_of(
+    conn: &mut SqliteConnection,
+    ids: &[&str],
+) -> Result<HashMap<String, Image>, RepositoryError> {
+    if ids.is_empty() {
+        return Ok(HashMap::new());
+    }
+    let rows: Vec<PlantImageRow> = plant_image::table
+        .filter(plant_image::plant_id.eq_any(ids))
+        .select(PlantImageRow::as_select())
+        .load(conn)
+        .map_err(storage)?;
+    Ok(rows
+        .into_iter()
+        .map(|r| {
+            (
+                r.plant_id,
+                Image {
+                    url: r.url,
+                    page_url: r.page_url,
+                    author: r.author,
+                    license: r.license,
+                    license_url: r.license_url,
+                    attribution_required: r.attribution_required,
+                },
+            )
+        })
+        .collect())
 }
 
 /// Ordena los nombres comunes: primero los que coinciden con el nombre para mostrar (el de idioma `es` antes que los demás), y luego el resto por texto normalizado (sin mayúsculas ni acentos), texto original e idioma, de modo que el orden es total y estable.
@@ -2109,6 +2410,345 @@ mod tests {
                 "twin-a",
                 "twin-b"
             ]
+        );
+    }
+
+    // ---- búsqueda por objetivo ----
+
+    fn goal_repo() -> (Fixture, SqliteCatalogRepository) {
+        let fixture = Fixture::with_goal_search();
+        let repo = fixture.repo();
+        (fixture, repo)
+    }
+
+    fn goal_plants(
+        repo: &SqliteCatalogRepository,
+        goal: &str,
+        subarea: Option<&str>,
+        limit: u32,
+        offset: u32,
+    ) -> GoalPlants {
+        match repo.list_goal_plants(goal, subarea, limit, offset).unwrap() {
+            GoalPlantsOutcome::Found(found) => found,
+            other => panic!("{goal}/{subarea:?}: {other:?}"),
+        }
+    }
+
+    fn goal_ids(found: &GoalPlants) -> Vec<&str> {
+        found.page.items.iter().map(|p| p.id.0.as_str()).collect()
+    }
+
+    fn goal_plant<'a>(found: &'a GoalPlants, id: &str) -> &'a GoalPlant {
+        found
+            .page
+            .items
+            .iter()
+            .find(|p| p.id.0 == id)
+            .unwrap_or_else(|| panic!("{id} no está en {:?}", goal_ids(found)))
+    }
+
+    #[test]
+    fn goals_come_in_catalog_order_with_visible_counts_and_subareas() {
+        // Escenarios «Lista de objetivos», «Objetivo con subáreas», «Subárea sin plantas» y «Objetivo sin plantas».
+        let (_fixture, repo) = goal_repo();
+        let goals = repo.list_goals().unwrap();
+        let summary: Vec<(&str, u64)> = goals
+            .iter()
+            .map(|g| (g.id.as_str(), g.plant_count))
+            .collect();
+        assert_eq!(
+            summary,
+            [
+                ("cuidado-de-la-piel", 2),
+                ("otros-objetivos", 2),
+                ("relajacion-estres", 1),
+                ("mejorar-el-sueno", 7),
+                ("cansancio-y-fatiga", 0),
+            ]
+        );
+        assert_eq!(goals[3].name, "Mejorar el sueño");
+        // `mentha-x-piperita` está en dos subáreas pero cuenta una vez en el objetivo; la subárea sin plantas se omite.
+        let other = &goals[1];
+        let subareas: Vec<(&str, &str, u64)> = other
+            .subareas
+            .iter()
+            .map(|s| (s.id.as_str(), s.name.as_str(), s.plant_count))
+            .collect();
+        assert_eq!(
+            subareas,
+            [
+                ("digestion", "Digestión", 2),
+                ("vias-urinarias", "Vías urinarias", 1)
+            ]
+        );
+        assert!(goals[0].subareas.is_empty() && goals[4].subareas.is_empty());
+    }
+
+    #[test]
+    fn counts_match_the_totals_of_the_results() {
+        // Escenario «Coherencia con los resultados».
+        let (_fixture, repo) = goal_repo();
+        for goal in repo.list_goals().unwrap() {
+            let found = goal_plants(&repo, &goal.id, None, 100, 0);
+            assert_eq!(found.page.total, goal.plant_count, "{}", goal.id);
+            assert_eq!(
+                found.page.items.len() as u64,
+                goal.plant_count,
+                "{}",
+                goal.id
+            );
+            for subarea in &goal.subareas {
+                let found = goal_plants(&repo, &goal.id, Some(&subarea.id), 100, 0);
+                assert_eq!(found.page.total, subarea.plant_count, "{}", subarea.id);
+            }
+        }
+    }
+
+    #[test]
+    fn goal_results_carry_the_goal_and_no_subarea_without_a_filter() {
+        // Escenario «Plantas de un objetivo».
+        let (_fixture, repo) = goal_repo();
+        let found = goal_plants(&repo, "mejorar-el-sueno", None, 20, 0);
+        assert_eq!(
+            found.goal,
+            IdName {
+                id: "mejorar-el-sueno".into(),
+                name: "Mejorar el sueño".into()
+            }
+        );
+        assert_eq!(found.subarea, None);
+        assert_eq!(found.page.total, 7);
+        let arnica = goal_plant(&found, "arnica-montana");
+        assert_eq!(arnica.display_name, "Árnica");
+        assert_eq!(arnica.areas, ["Trastornos del sueño"]);
+    }
+
+    #[test]
+    fn a_subarea_filters_plants_and_areas() {
+        // Escenario «Subárea».
+        let (_fixture, repo) = goal_repo();
+        let found = goal_plants(&repo, "otros-objetivos", Some("digestion"), 20, 0);
+        assert_eq!(
+            found.subarea,
+            Some(IdName {
+                id: "digestion".into(),
+                name: "Digestión".into()
+            })
+        );
+        assert_eq!(
+            goal_ids(&found),
+            ["lavandula-angustifolia", "mentha-x-piperita"]
+        );
+        assert_eq!(goal_plant(&found, "mentha-x-piperita").areas, ["Gases"]);
+        let urinary = goal_plants(&repo, "otros-objetivos", Some("vias-urinarias"), 20, 0);
+        assert_eq!(goal_ids(&urinary), ["mentha-x-piperita"]);
+        assert_eq!(goal_plant(&urinary, "mentha-x-piperita").areas, ["Vejiga"]);
+    }
+
+    #[test]
+    fn the_union_of_subareas_lists_a_plant_once_with_all_its_areas() {
+        // Escenario «Unión sin subárea».
+        let (_fixture, repo) = goal_repo();
+        let found = goal_plants(&repo, "otros-objetivos", None, 20, 0);
+        assert_eq!(
+            goal_ids(&found),
+            ["lavandula-angustifolia", "mentha-x-piperita"]
+        );
+        assert_eq!(found.page.total, 2);
+        assert_eq!(
+            goal_plant(&found, "mentha-x-piperita").areas,
+            ["Gases", "Vejiga"]
+        );
+    }
+
+    #[test]
+    fn a_plant_in_two_goals_has_only_the_areas_of_each() {
+        // Escenario «Planta en dos objetivos».
+        let (_fixture, repo) = goal_repo();
+        let skin = goal_plants(&repo, "cuidado-de-la-piel", None, 20, 0);
+        let sleep = goal_plants(&repo, "mejorar-el-sueno", None, 20, 0);
+        assert_eq!(goal_plant(&skin, "arnica-montana").areas, ["Heridas leves"]);
+        assert_eq!(
+            goal_plant(&sleep, "arnica-montana").areas,
+            ["Trastornos del sueño"]
+        );
+    }
+
+    #[test]
+    fn unknown_goal_and_foreign_subareas_are_told_apart() {
+        // Escenarios «Objetivo desconocido» y «Subárea ajena» (a nivel de repositorio).
+        let (_fixture, repo) = goal_repo();
+        assert_eq!(
+            repo.list_goal_plants("no-existe", None, 20, 0).unwrap(),
+            GoalPlantsOutcome::UnknownGoal
+        );
+        // Un `subarea` válido de otro objetivo, uno inexistente, uno vacío y uno enviado a un objetivo sin subáreas.
+        for (goal, subarea) in [
+            ("mejorar-el-sueno", "digestion"),
+            ("otros-objetivos", "inexistente"),
+            ("otros-objetivos", ""),
+            ("cuidado-de-la-piel", "digestion"),
+        ] {
+            assert_eq!(
+                repo.list_goal_plants(goal, Some(subarea), 20, 0).unwrap(),
+                GoalPlantsOutcome::UnknownSubarea,
+                "{goal}/{subarea}"
+            );
+        }
+        // Una subárea sin plantas existe: devuelve una lista vacía.
+        let empty = goal_plants(&repo, "otros-objetivos", Some("molestias-oculares"), 20, 0);
+        assert_eq!((empty.page.items.len(), empty.page.total), (0, 0));
+    }
+
+    #[test]
+    fn a_goal_without_visible_plants_is_an_empty_page() {
+        // Escenario «Objetivo sin plantas».
+        let (_fixture, repo) = goal_repo();
+        let found = goal_plants(&repo, "cansancio-y-fatiga", None, 20, 0);
+        assert!(found.page.items.is_empty());
+        assert_eq!(found.page.total, 0);
+        assert_eq!(found.goal.id, "cansancio-y-fatiga");
+    }
+
+    #[test]
+    fn plants_without_goals_never_appear() {
+        // Escenario «Planta sin objetivos»: `conium-maculatum` es la tóxica sin objetivos.
+        let (_fixture, repo) = goal_repo();
+        for goal in repo.list_goals().unwrap() {
+            let found = goal_plants(&repo, &goal.id, None, 100, 0);
+            assert!(
+                !goal_ids(&found).contains(&"conium-maculatum"),
+                "{}",
+                goal.id
+            );
+        }
+    }
+
+    #[test]
+    fn a_goal_pending_review_hides_the_plant_there_only() {
+        // Escenarios «Planta condicionada por revisión» y «Flag sin marca de revisión del objetivo».
+        let (_fixture, repo) = goal_repo();
+        let stress = goal_plants(&repo, "relajacion-estres", None, 100, 0);
+        assert_eq!(goal_ids(&stress), ["zea-mays"]);
+        assert_eq!(stress.page.total, 1);
+        // El eucalipto sigue visible en el sueño, donde no está pendiente.
+        let sleep = goal_plants(&repo, "mejorar-el-sueno", None, 100, 0);
+        assert!(goal_ids(&sleep).contains(&"eucalyptus-globulus"));
+        // La planta sigue existiendo por el detalle.
+        assert!(
+            repo.get_plant(&pid("eucalyptus-globulus"))
+                .unwrap()
+                .is_some()
+        );
+        // `mentha-x-piperita` tiene una marca de revisión de identidad, pero ningún objetivo pendiente: aparece.
+        let other = goal_plants(&repo, "otros-objetivos", None, 100, 0);
+        assert!(goal_ids(&other).contains(&"mentha-x-piperita"));
+        // `zea-mays` tiene una marca de revisión sin datos de seguridad, sin `pending_review`: aparece.
+        assert!(goal_ids(&stress).contains(&"zea-mays"));
+    }
+
+    #[test]
+    fn plants_are_ordered_by_display_name_ignoring_case_and_accents() {
+        // Escenarios «Orden por nombre para mostrar» y «Orden sin distinguir acentos ni mayúsculas».
+        let (_fixture, repo) = goal_repo();
+        let found = goal_plants(&repo, "mejorar-el-sueno", None, 100, 0);
+        // «abedul», el científico «Abutilon theophrasti», «Árnica», «Eucalipto», las dos «Twin plant» empatadas (por identificador) y «Zarzaparrilla».
+        assert_eq!(
+            goal_ids(&found),
+            [
+                "betula-pendula",
+                "abutilon-theophrasti",
+                "arnica-montana",
+                "eucalyptus-globulus",
+                "twin-a",
+                "twin-b",
+                "smilax-aspera"
+            ]
+        );
+        let names: Vec<&str> = found
+            .page
+            .items
+            .iter()
+            .map(|p| p.display_name.as_str())
+            .collect();
+        assert_eq!(names[..3], ["abedul", "Abutilon theophrasti", "Árnica"]);
+    }
+
+    #[test]
+    fn pages_do_not_repeat_plants_and_total_is_independent() {
+        // Escenarios «Páginas sin repetición» y «Desplazamiento más allá del total».
+        let (_fixture, repo) = goal_repo();
+        let all: Vec<String> = goal_ids(&goal_plants(&repo, "mejorar-el-sueno", None, 100, 0))
+            .into_iter()
+            .map(str::to_string)
+            .collect();
+        let mut walked: Vec<String> = Vec::new();
+        for offset in (0..10).step_by(3) {
+            let page = goal_plants(&repo, "mejorar-el-sueno", None, 3, offset);
+            assert_eq!(page.page.total, 7);
+            walked.extend(goal_ids(&page).into_iter().map(str::to_string));
+        }
+        assert_eq!(walked, all);
+        let past = goal_plants(&repo, "mejorar-el-sueno", None, 3, 500);
+        assert!(past.page.items.is_empty());
+        assert_eq!(past.page.total, 7);
+    }
+
+    #[test]
+    fn cards_carry_safety_level_flag_and_image() {
+        // Escenarios «Precauciones sin nivel» y «Datos ausentes».
+        let (_fixture, repo) = goal_repo();
+        let skin = goal_plants(&repo, "cuidado-de-la-piel", None, 100, 0);
+        let lavender = goal_plant(&skin, "lavandula-angustifolia");
+        assert_eq!(lavender.safety_level, Some(SafetyLevel::Medium));
+        assert!(lavender.has_safety);
+        // La imagen es la misma del detalle.
+        let detail = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(lavender.image, detail.image);
+        assert!(lavender.image.is_some());
+        assert_eq!(lavender.family.as_deref(), Some("Lamiaceae"));
+        assert_eq!(
+            lavender
+                .common_names
+                .iter()
+                .map(|n| n.text.as_str())
+                .collect::<Vec<_>>(),
+            ["Lavanda", "Espliego", "Lavender"]
+        );
+
+        let sleep = goal_plants(&repo, "mejorar-el-sueno", None, 100, 0);
+        // Precauciones sin nivel: nivel nulo y `hasSafety` verdadero.
+        let eucalyptus = goal_plant(&sleep, "eucalyptus-globulus");
+        assert_eq!(
+            (eucalyptus.safety_level, eucalyptus.has_safety),
+            (None, true)
+        );
+        // Sin imagen ni seguridad.
+        let stress = goal_plants(&repo, "relajacion-estres", None, 100, 0);
+        let corn = goal_plant(&stress, "zea-mays");
+        assert_eq!(
+            (corn.safety_level, corn.has_safety, corn.image.as_ref()),
+            (None, false, None)
+        );
+    }
+
+    #[test]
+    fn a_scientific_display_name_keeps_foreign_common_names() {
+        // Un `displayName` científico con nombres comunes en otro idioma.
+        let (_fixture, repo) = goal_repo();
+        let found = goal_plants(&repo, "mejorar-el-sueno", None, 100, 0);
+        let velvet = goal_plant(&found, "abutilon-theophrasti");
+        assert_eq!(velvet.display_name, "Abutilon theophrasti");
+        assert_eq!(
+            velvet
+                .common_names
+                .iter()
+                .map(|n| (n.text.as_str(), n.language.as_str()))
+                .collect::<Vec<_>>(),
+            [("Butterprint", "en"), ("Velvetleaf", "en")]
         );
     }
 }

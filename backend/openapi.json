@@ -67,6 +67,203 @@
         }
       }
     },
+    "/v1/goals": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Lista los objetivos del catálogo.",
+        "operationId": "list_goals",
+        "responses": {
+          "200": {
+            "description": "Todos los objetivos en su orden de presentación, sin paginar, con el conteo de plantas visibles y sus subáreas con plantas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GoalSummaryDto"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Falta el token de API o no es válido",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Siempre `Bearer`"
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Fallo interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/v1/goals/{goalId}/plants": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Plantas de un objetivo o de una de sus subáreas.",
+        "description": "Las plantas cuya asignación al objetivo espera una revisión no aparecen ni cuentan, aunque su detalle sigue disponible en `/v1/plants/{id}`.",
+        "operationId": "list_goal_plants",
+        "parameters": [
+          {
+            "name": "goalId",
+            "in": "path",
+            "description": "Identificador del objetivo, por ejemplo `mejorar-el-sueno`, tal como lo devuelve `GET /v1/goals`.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subarea",
+            "in": "query",
+            "description": "Identificador de una subárea del objetivo, por ejemplo `digestion`. Un valor que no es de este objetivo, o cualquier valor en un objetivo sin subáreas, responde 400. Sin él, un objetivo con subáreas devuelve la unión sin repetir plantas. No admite caracteres de control.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 200
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Elementos por página (1 a 100, por defecto 20).",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "maximum": 100,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Elementos a saltar (por defecto 0).",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "maximum": 2147483647,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Página de plantas ordenadas por nombre para mostrar (sin distinguir mayúsculas ni acentos), nombre científico e identificador",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GoalPlantsPageDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Parámetro inválido, incluida una subárea que no es del objetivo",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Falta el token de API o no es válido",
+            "headers": {
+              "WWW-Authenticate": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Siempre `Bearer`"
+              }
+            },
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "El objetivo no existe",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método no permitido; la respuesta incluye `Allow: GET`",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Fallo interno",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/v1/plants": {
       "get": {
         "tags": [
@@ -382,6 +579,186 @@
               "null"
             ],
             "description": "Subárea (solo en «otros objetivos»), o `null`."
+          }
+        }
+      },
+      "GoalPlantDto": {
+        "type": "object",
+        "description": "Planta de un objetivo, con lo que necesita una tarjeta de resultados.",
+        "required": [
+          "id",
+          "scientificName",
+          "displayName",
+          "commonNames",
+          "areas",
+          "safetyLevel",
+          "hasSafety",
+          "image"
+        ],
+        "properties": {
+          "areas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea. Algunas unen dos áreas con «; » y se muestran tal cual."
+          },
+          "commonNames": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CommonNameDto"
+            },
+            "description": "Nombres comunes con su idioma, como en el listado."
+          },
+          "displayName": {
+            "type": "string",
+            "description": "Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico."
+          },
+          "family": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Familia, o `null` si ninguna fuente la aporta."
+          },
+          "hasSafety": {
+            "type": "boolean",
+            "description": "Si la planta tiene datos de precauciones, aunque no tengan nivel."
+          },
+          "id": {
+            "type": "string",
+            "description": "Identificador público."
+          },
+          "image": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageDto",
+                "description": "Imagen con su licencia, el mismo objeto del detalle, o `null`."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "safetyLevel": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SafetyLevelDto",
+                "description": "Nivel de precaución (`alto`, `medio` o `bajo`), o `null` si no hay datos o si las precauciones no tienen nivel."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "scientificName": {
+            "type": "string",
+            "description": "Nombre científico canónico."
+          }
+        }
+      },
+      "GoalPlantsPageDto": {
+        "type": "object",
+        "description": "Página de plantas de un objetivo.",
+        "required": [
+          "goal",
+          "subarea",
+          "items",
+          "total",
+          "limit",
+          "offset"
+        ],
+        "properties": {
+          "goal": {
+            "$ref": "#/components/schemas/GoalRefDto",
+            "description": "Objetivo pedido."
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GoalPlantDto"
+            },
+            "description": "Plantas de la página."
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Límite aplicado.",
+            "minimum": 0
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Desplazamiento aplicado.",
+            "minimum": 0
+          },
+          "subarea": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SubareaRefDto",
+                "description": "Subárea pedida, o `null` si no se filtró por una."
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Total de plantas visibles, independiente de la página.",
+            "minimum": 0
+          }
+        }
+      },
+      "GoalRefDto": {
+        "type": "object",
+        "description": "Objetivo al que pertenecen los resultados.",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador del objetivo."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre en español."
+          }
+        }
+      },
+      "GoalSummaryDto": {
+        "type": "object",
+        "description": "Objetivo del catálogo con su conteo de plantas visibles.",
+        "required": [
+          "id",
+          "name",
+          "plantCount",
+          "subareas"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador del objetivo, por ejemplo `mejorar-el-sueno`."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre en español."
+          },
+          "plantCount": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Plantas distintas visibles; coincide con el `total` de sus resultados y, si hay subáreas, es la unión sin repetir plantas.",
+            "minimum": 0
+          },
+          "subareas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubareaSummaryDto"
+            },
+            "description": "Subáreas con plantas visibles, en su orden de presentación; vacía si el objetivo no tiene."
           }
         }
       },
@@ -850,6 +1227,49 @@
           "medio",
           "bajo"
         ]
+      },
+      "SubareaRefDto": {
+        "type": "object",
+        "description": "Subárea por la que se filtraron los resultados.",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador de la subárea."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre en español."
+          }
+        }
+      },
+      "SubareaSummaryDto": {
+        "type": "object",
+        "description": "Subárea de un objetivo con sus plantas visibles.",
+        "required": [
+          "id",
+          "name",
+          "plantCount"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador de la subárea, por ejemplo `digestion`."
+          },
+          "name": {
+            "type": "string",
+            "description": "Nombre en español."
+          },
+          "plantCount": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Plantas distintas visibles en la subárea; coincide con el `total` de sus resultados.",
+            "minimum": 0
+          }
+        }
       },
       "UseDto": {
         "type": "object",

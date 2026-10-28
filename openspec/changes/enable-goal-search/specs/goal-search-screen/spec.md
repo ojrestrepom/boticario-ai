@@ -40,10 +40,12 @@ P06 SHALL mantener el contenido esencial legible en 360x640 dp con texto al 100%
 ## REMOVED Requirements
 
 ### Requirement: Filas de objetivos sin acción ni selección
-**Reason**: Las filas de P06 pasan a ser controles que abren los resultados de su objetivo. **Migration**: Véase «Filas de objetivos con acción» y «Navegación a resultados» en esta capacidad.
+**Reason**: Las filas de P06 pasan a ser controles que abren los resultados de su objetivo.
+**Migration**: Véase «Filas de objetivos con acción» y «Navegación a resultados» en esta capacidad.
 
 ### Requirement: Sin resultados ni comportamiento de producto
-**Reason**: P06 ya lleva a los resultados de P07 (capacidad `goal-results-screen`) y consume la API del catálogo; la prohibición de resultados, backend y API deja de ser cierta. **Migration**: Véanse «Catálogo de objetivos desde la API», «Navegación a resultados» y la capacidad `goal-results-screen`. Siguen prohibidos la búsqueda de texto, las dosis, las promesas de eficacia, la persistencia y el registro de datos de usuario.
+**Reason**: P06 ya lleva a los resultados de P07 (capacidad `goal-results-screen`) y consume la API del catálogo; la prohibición de resultados, backend y API deja de ser cierta.
+**Migration**: Véanse «Catálogo de objetivos desde la API», «Navegación a resultados» y la capacidad `goal-results-screen`. Siguen prohibidos la búsqueda de texto, las dosis, las promesas de eficacia, la persistencia y el registro de datos de usuario.
 
 ## ADDED Requirements
 

@@ -5,8 +5,9 @@
 //! Todos los DTOs viven en este módulo y derivan `ToSchema`: de ellos sale el documento OpenAPI, así que el contrato HTTP se define en un solo sitio.
 
 use catalog_core::domain::{
-    Credit, Goal, Image, NameKind, Page, Part, Plant, PlantName, PlantSummary, Reference, Safety,
-    SafetyLevel, Use, UseGroup, UseGroupReference,
+    Credit, Goal, GoalPlant, GoalPlants, GoalSummary, IdName, Image, NameKind, Page, Part, Plant,
+    PlantName, PlantSummary, Reference, Safety, SafetyLevel, SubareaSummary, Use, UseGroup,
+    UseGroupReference,
 };
 use serde::Serialize;
 use utoipa::ToSchema;
@@ -454,6 +455,173 @@ impl From<Plant> for PlantDto {
             safety: p.safety.map(Into::into),
             image: p.image.map(Into::into),
             credits: p.credits.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
+/// Subárea de un objetivo con sus plantas visibles.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct SubareaSummaryDto {
+    /// Identificador de la subárea, por ejemplo `digestion`.
+    pub id: String,
+    /// Nombre en español.
+    pub name: String,
+    /// Plantas distintas visibles en la subárea; coincide con el `total` de sus resultados.
+    pub plant_count: u64,
+}
+
+impl From<SubareaSummary> for SubareaSummaryDto {
+    fn from(s: SubareaSummary) -> Self {
+        Self {
+            id: s.id,
+            name: s.name,
+            plant_count: s.plant_count,
+        }
+    }
+}
+
+/// Objetivo del catálogo con su conteo de plantas visibles.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct GoalSummaryDto {
+    /// Identificador del objetivo, por ejemplo `mejorar-el-sueno`.
+    pub id: String,
+    /// Nombre en español.
+    pub name: String,
+    /// Plantas distintas visibles; coincide con el `total` de sus resultados y, si hay subáreas, es la unión sin repetir plantas.
+    pub plant_count: u64,
+    /// Subáreas con plantas visibles, en su orden de presentación; vacía si el objetivo no tiene.
+    pub subareas: Vec<SubareaSummaryDto>,
+}
+
+impl From<GoalSummary> for GoalSummaryDto {
+    fn from(g: GoalSummary) -> Self {
+        Self {
+            id: g.id,
+            name: g.name,
+            plant_count: g.plant_count,
+            subareas: g.subareas.into_iter().map(Into::into).collect(),
+        }
+    }
+}
+
+/// Objetivo al que pertenecen los resultados.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct GoalRefDto {
+    /// Identificador del objetivo.
+    pub id: String,
+    /// Nombre en español.
+    pub name: String,
+}
+
+impl From<IdName> for GoalRefDto {
+    fn from(g: IdName) -> Self {
+        Self {
+            id: g.id,
+            name: g.name,
+        }
+    }
+}
+
+/// Subárea por la que se filtraron los resultados.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct SubareaRefDto {
+    /// Identificador de la subárea.
+    pub id: String,
+    /// Nombre en español.
+    pub name: String,
+}
+
+impl From<IdName> for SubareaRefDto {
+    fn from(s: IdName) -> Self {
+        Self {
+            id: s.id,
+            name: s.name,
+        }
+    }
+}
+
+/// Planta de un objetivo, con lo que necesita una tarjeta de resultados.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct GoalPlantDto {
+    /// Identificador público.
+    pub id: String,
+    /// Nombre científico canónico.
+    pub scientific_name: String,
+    /// Nombre para mostrar: un nombre común en español o, si la planta no tiene ninguno, el nombre científico.
+    pub display_name: String,
+    /// Nombres comunes con su idioma, como en el listado.
+    pub common_names: Vec<CommonNameDto>,
+    /// Familia, o `null` si ninguna fuente la aporta.
+    pub family: Option<String>,
+    /// Nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea. Algunas unen dos áreas con «; » y se muestran tal cual.
+    pub areas: Vec<String>,
+    /// Nivel de precaución (`alto`, `medio` o `bajo`), o `null` si no hay datos o si las precauciones no tienen nivel.
+    #[schema(required = true)]
+    pub safety_level: Option<SafetyLevelDto>,
+    /// Si la planta tiene datos de precauciones, aunque no tengan nivel.
+    pub has_safety: bool,
+    /// Imagen con su licencia, el mismo objeto del detalle, o `null`.
+    #[schema(required = true)]
+    pub image: Option<ImageDto>,
+}
+
+impl From<GoalPlant> for GoalPlantDto {
+    fn from(p: GoalPlant) -> Self {
+        Self {
+            id: p.id.0,
+            scientific_name: p.scientific_name,
+            display_name: p.display_name,
+            common_names: p
+                .common_names
+                .into_iter()
+                .map(|n| CommonNameDto {
+                    text: n.text,
+                    language: n.language,
+                })
+                .collect(),
+            family: p.family,
+            areas: p.areas,
+            safety_level: p.safety_level.map(Into::into),
+            has_safety: p.has_safety,
+            image: p.image.map(Into::into),
+        }
+    }
+}
+
+/// Página de plantas de un objetivo.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct GoalPlantsPageDto {
+    /// Objetivo pedido.
+    pub goal: GoalRefDto,
+    /// Subárea pedida, o `null` si no se filtró por una.
+    #[schema(required = true)]
+    pub subarea: Option<SubareaRefDto>,
+    /// Plantas de la página.
+    pub items: Vec<GoalPlantDto>,
+    /// Total de plantas visibles, independiente de la página.
+    pub total: u64,
+    /// Límite aplicado.
+    pub limit: u32,
+    /// Desplazamiento aplicado.
+    pub offset: u32,
+}
+
+impl GoalPlantsPageDto {
+    /// Convierte la página del dominio, anotando el `limit` y el `offset` con que se pidió.
+    pub fn from_domain(plants: GoalPlants, limit: u32, offset: u32) -> Self {
+        Self {
+            goal: plants.goal.into(),
+            subarea: plants.subarea.map(Into::into),
+            items: plants.page.items.into_iter().map(Into::into).collect(),
+            total: plants.page.total,
+            limit,
+            offset,
         }
     }
 }

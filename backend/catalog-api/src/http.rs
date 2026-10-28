@@ -12,11 +12,13 @@ use axum::http::{HeaderValue, header};
 use axum::response::{IntoResponse, Response};
 use axum::routing::get;
 use axum::{Json, Router, middleware};
-use catalog_core::domain::{DEFAULT_LIMIT, ListQuery, MAX_LIMIT, PlantId};
+use catalog_core::domain::{DEFAULT_LIMIT, GoalPlantsOutcome, ListQuery, MAX_LIMIT, PlantId};
 
 use crate::async_catalog::AsyncCatalog;
 use crate::auth::{ApiTokens, require_token};
-use crate::dto::{HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto};
+use crate::dto::{
+    GoalPlantsPageDto, GoalSummaryDto, HealthDto, PageDto, PlantDto, PlantSummaryDto, ProblemDto,
+};
 use crate::error::ApiError;
 use crate::openapi::openapi;
 
@@ -26,7 +28,9 @@ use crate::openapi::openapi;
 pub fn router(catalog: AsyncCatalog, tokens: ApiTokens) -> Router {
     let v1 = Router::new()
         .route("/plants", get(list_plants))
-        .route("/plants/{id}", get(get_plant));
+        .route("/plants/{id}", get(get_plant))
+        .route("/goals", get(list_goals))
+        .route("/goals/{goalId}/plants", get(list_goal_plants));
     Router::new()
         .route("/health", get(health))
         .route("/openapi.json", get(openapi_json))
@@ -91,7 +95,9 @@ pub(crate) async fn health() -> Json<HealthDto> {
 const MAX_QUERY_CHARS: usize = 200;
 
 /// Lee `limit` y `offset` del mapa de parámetros, validándolos a mano para controlar el formato del error.
-fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiError> {
+///
+/// Lo comparten `GET /v1/plants` y `GET /v1/goals/{goalId}/plants`, así que las reglas y los errores son los mismos.
+fn parse_pagination(params: &HashMap<String, String>) -> Result<(u32, u32), ApiError> {
     let limit = match params.get("limit") {
         None => DEFAULT_LIMIT,
         Some(text) => match text.parse::<i64>() {
@@ -126,6 +132,12 @@ fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiEr
             }
         },
     };
+    Ok((limit, offset))
+}
+
+/// Lee `limit`, `offset` y `q` del mapa de parámetros.
+fn parse_list_query(params: &HashMap<String, String>) -> Result<ListQuery, ApiError> {
+    let (limit, offset) = parse_pagination(params)?;
     let q = params.get("q").cloned();
     // SQLite trunca el patrón de `LIKE` en un NUL y la búsqueda cambiaría en silencio; se rechaza cualquier carácter de control.
     if q.as_ref().is_some_and(|q| q.chars().any(char::is_control)) {
@@ -241,13 +253,125 @@ pub(crate) async fn get_plant(
     }
 }
 
+/// Longitud máxima de `subarea`, en caracteres: ningún identificador de subárea se le acerca.
+const MAX_SUBAREA_CHARS: usize = 200;
+
+/// Lee `subarea` con la misma validación de `q`: sin caracteres de control y con una longitud acotada.
+fn parse_subarea(params: &HashMap<String, String>) -> Result<Option<String>, ApiError> {
+    let Some(subarea) = params.get("subarea") else {
+        return Ok(None);
+    };
+    if subarea.chars().any(char::is_control) {
+        return Err(ApiError::bad_request(
+            "subarea",
+            "subarea no puede contener caracteres de control",
+        ));
+    }
+    if subarea.chars().count() > MAX_SUBAREA_CHARS {
+        return Err(ApiError::bad_request(
+            "subarea",
+            format!("subarea no puede superar {MAX_SUBAREA_CHARS} caracteres"),
+        ));
+    }
+    Ok(Some(subarea.clone()))
+}
+
+/// Lista los objetivos del catálogo.
+#[utoipa::path(
+    get,
+    path = "/v1/goals",
+    tag = "catalog",
+    security(("bearerAuth" = [])),
+    responses(
+        (status = 200, description = "Todos los objetivos en su orden de presentación, sin paginar, con el conteo de plantas visibles y sus subáreas con plantas", body = Vec<GoalSummaryDto>),
+        (status = 401, description = "Falta el token de API o no es válido", body = ProblemDto, content_type = "application/problem+json", headers(("WWW-Authenticate" = String, description = "Siempre `Bearer`"))),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
+    )
+)]
+pub(crate) async fn list_goals(
+    State(catalog): State<AsyncCatalog>,
+    OriginalUri(uri): OriginalUri,
+) -> Response {
+    match catalog.list_goals().await {
+        Ok(goals) => Json(
+            goals
+                .into_iter()
+                .map(GoalSummaryDto::from)
+                .collect::<Vec<_>>(),
+        )
+        .into_response(),
+        Err(err) => ApiError::from(err).into_response_at(&uri),
+    }
+}
+
+/// Plantas de un objetivo o de una de sus subáreas.
+///
+/// Las plantas cuya asignación al objetivo espera una revisión no aparecen ni cuentan, aunque su detalle sigue disponible en `/v1/plants/{id}`.
+#[utoipa::path(
+    get,
+    path = "/v1/goals/{goalId}/plants",
+    tag = "catalog",
+    params(
+        ("goalId" = String, Path, description = "Identificador del objetivo, por ejemplo `mejorar-el-sueno`, tal como lo devuelve `GET /v1/goals`."),
+        ("subarea" = Option<String>, Query, max_length = 200, description = "Identificador de una subárea del objetivo, por ejemplo `digestion`. Un valor que no es de este objetivo, o cualquier valor en un objetivo sin subáreas, responde 400. Sin él, un objetivo con subáreas devuelve la unión sin repetir plantas. No admite caracteres de control."),
+        // Los literales de `limit` reflejan `MAX_LIMIT` y `DEFAULT_LIMIT` de catalog-core; el test de `openapi.rs` avisa si divergen.
+        ("limit" = Option<u32>, Query, minimum = 1, maximum = 100, description = "Elementos por página (1 a 100, por defecto 20)."),
+        ("offset" = Option<u32>, Query, minimum = 0, maximum = 2147483647, description = "Elementos a saltar (por defecto 0)."),
+    ),
+    security(("bearerAuth" = [])),
+    responses(
+        (status = 200, description = "Página de plantas ordenadas por nombre para mostrar (sin distinguir mayúsculas ni acentos), nombre científico e identificador", body = GoalPlantsPageDto),
+        (status = 400, description = "Parámetro inválido, incluida una subárea que no es del objetivo", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 401, description = "Falta el token de API o no es válido", body = ProblemDto, content_type = "application/problem+json", headers(("WWW-Authenticate" = String, description = "Siempre `Bearer`"))),
+        (status = 404, description = "El objetivo no existe", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 405, description = "Método no permitido; la respuesta incluye `Allow: GET`", body = ProblemDto, content_type = "application/problem+json"),
+        (status = 500, description = "Fallo interno", body = ProblemDto, content_type = "application/problem+json"),
+    )
+)]
+pub(crate) async fn list_goal_plants(
+    State(catalog): State<AsyncCatalog>,
+    OriginalUri(uri): OriginalUri,
+    goal: Result<Path<String>, PathRejection>,
+    params: Result<Query<HashMap<String, String>>, QueryRejection>,
+) -> Response {
+    let result = async {
+        let Path(goal) =
+            goal.map_err(|_| ApiError::bad_request("goalId", "el identificador no es válido"))?;
+        let Query(params) = params
+            .map_err(|_| ApiError::bad_request("query", "la cadena de consulta es inválida"))?;
+        let (limit, offset) = parse_pagination(&params)?;
+        let subarea = parse_subarea(&params)?;
+        match catalog
+            .list_goal_plants(goal, subarea, limit, offset)
+            .await?
+        {
+            GoalPlantsOutcome::Found(plants) => {
+                Ok(Json(GoalPlantsPageDto::from_domain(plants, limit, offset)))
+            }
+            GoalPlantsOutcome::UnknownGoal => Err(ApiError::NotFound {
+                detail: "no existe un objetivo con ese identificador".to_string(),
+            }),
+            GoalPlantsOutcome::UnknownSubarea => Err(ApiError::bad_request(
+                "subarea",
+                "la subárea no pertenece a este objetivo",
+            )),
+        }
+    }
+    .await;
+    match result {
+        Ok(json) => json.into_response(),
+        Err(err) => err.into_response_at(&uri),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use std::sync::Arc;
 
     use axum::body::Body;
     use axum::http::{HeaderMap, Method, Request, StatusCode, header};
-    use catalog_core::domain::{Page, Plant, PlantSummary};
+    use catalog_core::domain::{GoalPlantsOutcome, GoalSummary, Page, Plant, PlantSummary};
     use catalog_core::repository::{CatalogRepository, RepositoryError};
     use http_body_util::BodyExt;
     use serde_json::Value;
@@ -868,6 +992,18 @@ mod tests {
         fn get_plant(&self, _: &PlantId) -> Result<Option<Plant>, RepositoryError> {
             Err(RepositoryError::Storage(SECRET.to_string()))
         }
+        fn list_goals(&self) -> Result<Vec<GoalSummary>, RepositoryError> {
+            Err(RepositoryError::Storage(SECRET.to_string()))
+        }
+        fn list_goal_plants(
+            &self,
+            _: &str,
+            _: Option<&str>,
+            _: u32,
+            _: u32,
+        ) -> Result<GoalPlantsOutcome, RepositoryError> {
+            Err(RepositoryError::Storage(SECRET.to_string()))
+        }
     }
 
     #[tokio::test]
@@ -876,7 +1012,12 @@ mod tests {
             AsyncCatalog::new(Arc::new(FailingRepository)),
             test_tokens(),
         );
-        for uri in ["/v1/plants", "/v1/plants/x"] {
+        for uri in [
+            "/v1/plants",
+            "/v1/plants/x",
+            "/v1/goals",
+            "/v1/goals/x/plants",
+        ] {
             let (status, headers, body) = send(&app, Method::GET, uri).await;
             assert_eq!(status, StatusCode::INTERNAL_SERVER_ERROR, "{uri}");
             assert_eq!(headers[header::CONTENT_TYPE], "application/problem+json");
@@ -884,6 +1025,254 @@ mod tests {
             let json: Value = serde_json::from_str(&body).unwrap();
             assert_eq!(json["detail"], "error interno");
         }
+    }
+
+    // ---- objetivos ----
+
+    /// Router sobre la fixture ampliada para la búsqueda por objetivo.
+    fn goal_app() -> (Fixture, Router) {
+        let fixture = Fixture::with_goal_search();
+        let router = router(AsyncCatalog::new(Arc::new(fixture.repo())), test_tokens());
+        (fixture, router)
+    }
+
+    #[tokio::test]
+    async fn goals_are_a_root_array_in_catalog_order() {
+        // Escenarios «Lista de objetivos», «Objetivo con subáreas», «Subárea sin plantas» y «Objetivo sin plantas».
+        let (_fixture, app) = goal_app();
+        let (status, json) = get_json(&app, "/v1/goals").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_camel_case(&json);
+        let goals = json.as_array().expect("el cuerpo es un array en la raíz");
+        let order: Vec<&str> = goals.iter().map(|g| g["id"].as_str().unwrap()).collect();
+        assert_eq!(
+            order,
+            [
+                "cuidado-de-la-piel",
+                "otros-objetivos",
+                "relajacion-estres",
+                "mejorar-el-sueno",
+                "cansancio-y-fatiga"
+            ]
+        );
+        assert_eq!(
+            goals[1],
+            serde_json::json!({
+                "id": "otros-objetivos",
+                "name": "Otros objetivos",
+                "plantCount": 2,
+                "subareas": [
+                    {"id": "digestion", "name": "Digestión", "plantCount": 2},
+                    {"id": "vias-urinarias", "name": "Vías urinarias", "plantCount": 1}
+                ]
+            })
+        );
+        assert_eq!(goals[4]["plantCount"], 0);
+        assert_eq!(goals[4]["subareas"], serde_json::json!([]));
+    }
+
+    #[tokio::test]
+    async fn goal_plants_have_the_card_fields_and_counts_match() {
+        // Escenarios «Plantas de un objetivo», «Datos ausentes» y «Coherencia con los resultados».
+        let (_fixture, app) = goal_app();
+        let (status, json) = get_json(&app, "/v1/goals/mejorar-el-sueno/plants").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_camel_case(&json);
+        assert_eq!(
+            json["goal"],
+            serde_json::json!({"id": "mejorar-el-sueno", "name": "Mejorar el sueño"})
+        );
+        assert_eq!(json["subarea"], Value::Null);
+        assert_eq!(
+            (json["limit"].as_u64(), json["offset"].as_u64()),
+            (Some(20), Some(0))
+        );
+        let (_, goals) = get_json(&app, "/v1/goals").await;
+        let count = goals
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|g| g["id"] == "mejorar-el-sueno")
+            .unwrap()["plantCount"]
+            .clone();
+        assert_eq!(json["total"], count);
+        let arnica = &json["items"][2];
+        assert_eq!(
+            arnica["image"],
+            serde_json::json!({
+                "url": "https://imagenes.invalid/arnica-montana.jpg",
+                "pageUrl": "https://commons.wikimedia.org/wiki/File:arnica-montana.jpg",
+                "author": "Autor",
+                "license": "CC BY 4.0",
+                "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+                "attributionRequired": true
+            })
+        );
+        assert_eq!(arnica["displayName"], "Árnica");
+        assert_eq!(arnica["areas"], serde_json::json!(["Trastornos del sueño"]));
+        // Sin imagen ni nivel: `null`, y `hasSafety` falso o verdadero según haya datos.
+        let (_, stress) = get_json(&app, "/v1/goals/relajacion-estres/plants").await;
+        let corn = &stress["items"][0];
+        assert_eq!(corn["id"], "zea-mays");
+        assert_eq!(
+            (&corn["image"], &corn["safetyLevel"], &corn["hasSafety"]),
+            (&Value::Null, &Value::Null, &Value::Bool(false))
+        );
+        let eucalyptus = &json["items"][3];
+        assert_eq!(eucalyptus["id"], "eucalyptus-globulus");
+        assert_eq!(eucalyptus["safetyLevel"], Value::Null);
+        assert_eq!(eucalyptus["hasSafety"], true);
+        let (_, skin) = get_json(&app, "/v1/goals/cuidado-de-la-piel/plants").await;
+        assert_eq!(skin["items"][1]["id"], "lavandula-angustifolia");
+        assert_eq!(skin["items"][1]["safetyLevel"], "medio");
+    }
+
+    #[tokio::test]
+    async fn goal_subarea_and_union_over_http() {
+        // Escenarios «Subárea» y «Unión sin subárea».
+        let (_fixture, app) = goal_app();
+        let (status, sub) =
+            get_json(&app, "/v1/goals/otros-objetivos/plants?subarea=digestion").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(
+            sub["subarea"],
+            serde_json::json!({"id": "digestion", "name": "Digestión"})
+        );
+        assert_eq!(ids(&sub), ["lavandula-angustifolia", "mentha-x-piperita"]);
+        assert_eq!(sub["items"][1]["areas"], serde_json::json!(["Gases"]));
+        let (_, union) = get_json(&app, "/v1/goals/otros-objetivos/plants").await;
+        assert_eq!(union["subarea"], Value::Null);
+        assert_eq!(ids(&union), ["lavandula-angustifolia", "mentha-x-piperita"]);
+        assert_eq!(
+            union["items"][1]["areas"],
+            serde_json::json!(["Gases", "Vejiga"])
+        );
+    }
+
+    #[tokio::test]
+    async fn goal_errors_are_problem_json() {
+        // Escenarios «Objetivo desconocido», «Subárea ajena» y «Límite fuera de rango».
+        let (_fixture, app) = goal_app();
+        let unknown = expect_problem(
+            &app,
+            Method::GET,
+            "/v1/goals/no-existe/plants",
+            StatusCode::NOT_FOUND,
+        )
+        .await;
+        assert_eq!(unknown["instance"], "/v1/goals/no-existe/plants");
+        for uri in [
+            "/v1/goals/mejorar-el-sueno/plants?subarea=digestion",
+            "/v1/goals/otros-objetivos/plants?subarea=inexistente",
+            "/v1/goals/cuidado-de-la-piel/plants?subarea=digestion",
+            "/v1/goals/otros-objetivos/plants?subarea=%00",
+        ] {
+            let json = expect_problem(&app, Method::GET, uri, StatusCode::BAD_REQUEST).await;
+            assert_eq!(json["param"], "subarea", "{uri}");
+        }
+        for (query, param) in [
+            ("limit=0", "limit"),
+            ("limit=-1", "limit"),
+            ("limit=abc", "limit"),
+            ("limit=101", "limit"),
+            ("offset=-1", "offset"),
+        ] {
+            let uri = format!("/v1/goals/mejorar-el-sueno/plants?{query}");
+            let json = expect_problem(&app, Method::GET, &uri, StatusCode::BAD_REQUEST).await;
+            assert_eq!(json["param"], param, "{uri}");
+        }
+    }
+
+    #[tokio::test]
+    async fn goal_order_and_pagination_over_http() {
+        // Escenarios «Orden por nombre para mostrar», «Páginas sin repetición» y «Desplazamiento más allá del total».
+        let (_fixture, app) = goal_app();
+        let (_, all) = get_json(&app, "/v1/goals/mejorar-el-sueno/plants?limit=100").await;
+        assert_eq!(
+            ids(&all),
+            [
+                "betula-pendula",
+                "abutilon-theophrasti",
+                "arnica-montana",
+                "eucalyptus-globulus",
+                "twin-a",
+                "twin-b",
+                "smilax-aspera"
+            ]
+        );
+        let mut walked: Vec<String> = Vec::new();
+        for offset in [0, 5] {
+            let uri = format!("/v1/goals/mejorar-el-sueno/plants?limit=5&offset={offset}");
+            let (_, page) = get_json(&app, &uri).await;
+            assert_eq!(page["total"], 7);
+            walked.extend(ids(&page).into_iter().map(str::to_string));
+        }
+        assert_eq!(walked, ids(&all));
+        let (status, past) = get_json(&app, "/v1/goals/mejorar-el-sueno/plants?offset=500").await;
+        assert_eq!(status, StatusCode::OK);
+        assert_eq!(
+            (past["items"].as_array().unwrap().len(), &past["total"]),
+            (0, &Value::from(7))
+        );
+        let (_, empty) = get_json(&app, "/v1/goals/cansancio-y-fatiga/plants").await;
+        assert_eq!(
+            (empty["items"].as_array().unwrap().len(), &empty["total"]),
+            (0, &Value::from(0))
+        );
+    }
+
+    #[tokio::test]
+    async fn pending_review_hides_the_plant_from_the_goal_but_not_the_detail() {
+        // Escenario «Planta condicionada por revisión» y «Planta sin objetivos».
+        let (_fixture, app) = goal_app();
+        let (_, stress) = get_json(&app, "/v1/goals/relajacion-estres/plants").await;
+        assert_eq!(ids(&stress), ["zea-mays"]);
+        let (status, _) = get_json(&app, "/v1/plants/eucalyptus-globulus").await;
+        assert_eq!(status, StatusCode::OK);
+        let (_, goals) = get_json(&app, "/v1/goals").await;
+        for goal in goals.as_array().unwrap() {
+            let uri = format!(
+                "/v1/goals/{}/plants?limit=100",
+                goal["id"].as_str().unwrap()
+            );
+            let (_, page) = get_json(&app, &uri).await;
+            assert!(!ids(&page).contains(&"conium-maculatum"), "{uri}");
+        }
+    }
+
+    #[tokio::test]
+    async fn goal_routes_require_a_valid_token_and_only_allow_get() {
+        // Escenarios «Sin token» y «Token y método».
+        let (_fixture, app) = goal_app();
+        for uri in ["/v1/goals", "/v1/goals/mejorar-el-sueno/plants"] {
+            for authorization in [None, Some("Bearer token-incorrecto-0000000000000000")] {
+                let (status, headers, _) = send_with(&app, Method::GET, uri, authorization).await;
+                assert_eq!(status, StatusCode::UNAUTHORIZED, "{uri}");
+                assert_eq!(headers[header::CONTENT_TYPE], "application/problem+json");
+                assert_eq!(headers[header::WWW_AUTHENTICATE], "Bearer");
+            }
+            let (status, headers, _) = send(&app, Method::POST, uri).await;
+            assert_eq!(status, StatusCode::METHOD_NOT_ALLOWED, "{uri}");
+            assert_eq!(headers[header::ALLOW], "GET");
+            assert_eq!(headers[header::CONTENT_TYPE], "application/problem+json");
+        }
+    }
+
+    #[tokio::test]
+    async fn plant_routes_are_unchanged_by_the_goal_routes() {
+        // Escenario «Rutas existentes intactas»: la fixture ampliada solo añade datos de objetivos.
+        let (_fixture, app) = app();
+        let (_, list) = get_json(&app, "/v1/plants?limit=3").await;
+        assert_eq!(
+            ids(&list),
+            [
+                "abutilon-theophrasti",
+                "conium-maculatum",
+                "eucalyptus-globulus"
+            ]
+        );
+        let (_, detail) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(detail["goals"].as_array().unwrap().len(), 2);
     }
 
     // ---- autorización por token ----

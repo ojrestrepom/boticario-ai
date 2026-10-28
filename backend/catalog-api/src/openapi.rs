@@ -7,9 +7,10 @@ use utoipa::openapi::security::{HttpAuthScheme, HttpBuilder, SecurityScheme};
 use utoipa::{Modify, OpenApi};
 
 use crate::dto::{
-    CommonNameDto, CreditDto, GoalDto, HealthDto, ImageDto, NameDto, NameKindDto, OilDto, PageDto,
-    PartDto, PlantDto, PlantSummaryDto, ProblemDto, ReferenceDto, SafetyDto, SafetyLevelDto,
-    UseDto, UseGroupDto, UseGroupReferenceDto,
+    CommonNameDto, CreditDto, GoalDto, GoalPlantDto, GoalPlantsPageDto, GoalRefDto, GoalSummaryDto,
+    HealthDto, ImageDto, NameDto, NameKindDto, OilDto, PageDto, PartDto, PlantDto, PlantSummaryDto,
+    ProblemDto, ReferenceDto, SafetyDto, SafetyLevelDto, SubareaRefDto, SubareaSummaryDto, UseDto,
+    UseGroupDto, UseGroupReferenceDto,
 };
 use crate::http;
 
@@ -21,7 +22,14 @@ use crate::http;
         version = "1",
         description = "API de solo lectura del catálogo de plantas. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`."
     ),
-    paths(http::health, http::openapi_json, http::list_plants, http::get_plant),
+    paths(
+        http::health,
+        http::openapi_json,
+        http::list_plants,
+        http::get_plant,
+        http::list_goals,
+        http::list_goal_plants
+    ),
     components(schemas(
         HealthDto,
         CommonNameDto,
@@ -41,6 +49,12 @@ use crate::http;
         ImageDto,
         CreditDto,
         PlantDto,
+        GoalSummaryDto,
+        SubareaSummaryDto,
+        GoalRefDto,
+        SubareaRefDto,
+        GoalPlantDto,
+        GoalPlantsPageDto,
         ProblemDto,
     )),
     modifiers(&BearerAuth)
@@ -108,7 +122,14 @@ mod tests {
         let paths: Vec<&str> = doc.paths.paths.keys().map(String::as_str).collect();
         assert_eq!(
             paths,
-            ["/health", "/openapi.json", "/v1/plants", "/v1/plants/{id}"]
+            [
+                "/health",
+                "/openapi.json",
+                "/v1/goals",
+                "/v1/goals/{goalId}/plants",
+                "/v1/plants",
+                "/v1/plants/{id}"
+            ]
         );
     }
 
@@ -202,6 +223,33 @@ mod tests {
                 "{field} no es obligatorio"
             );
         }
+    }
+
+    #[test]
+    fn goal_routes_document_their_responses_and_parameters() {
+        // Escenario «OpenAPI actualizado».
+        let doc = serde_json::to_value(openapi()).unwrap();
+        let goals = &doc["paths"]["/v1/goals"]["get"]["responses"];
+        assert_eq!(
+            goals["200"]["content"]["application/json"]["schema"]["type"],
+            "array"
+        );
+        let plants = &doc["paths"]["/v1/goals/{goalId}/plants"]["get"];
+        for status in ["400", "401", "404", "405", "500"] {
+            assert!(
+                plants["responses"][status]["content"]["application/problem+json"].is_object(),
+                "falta el {status} de plantas por objetivo"
+            );
+        }
+        let names: Vec<&str> = plants["parameters"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|p| p["name"].as_str().unwrap())
+            .collect();
+        assert_eq!(names, ["goalId", "subarea", "limit", "offset"]);
+        let limit = plants["parameters"][2].clone();
+        assert_eq!(limit["schema"]["maximum"], u64::from(MAX_LIMIT));
     }
 
     #[test]

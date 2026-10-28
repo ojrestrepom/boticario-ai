@@ -32,6 +32,24 @@ impl CatalogRepository for EmptyRepo {
     {
         Ok(None)
     }
+
+    fn list_goals(
+        &self,
+    ) -> Result<Vec<catalog_core::domain::GoalSummary>, catalog_core::repository::RepositoryError>
+    {
+        unreachable!("el test solo pide /health")
+    }
+
+    fn list_goal_plants(
+        &self,
+        _goal: &str,
+        _subarea: Option<&str>,
+        _limit: u32,
+        _offset: u32,
+    ) -> Result<catalog_core::domain::GoalPlantsOutcome, catalog_core::repository::RepositoryError>
+    {
+        unreachable!("el test solo pide /health")
+    }
 }
 
 /// Arranca `serve` en una tarea y devuelve su dirección, el disparador de la señal y la tarea.

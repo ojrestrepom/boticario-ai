@@ -14,6 +14,8 @@
 //!
 //! Alias: `lavandula-vera` (cuyo nombre coincide con un sinónimo de la planta), `matricaria-recutita` y `mentha-x-piperita-subsp-nothosubsp-piperita` (con puntuación al pasar de la consulta al alias).
 //!
+//! La fixture ampliada de `Fixture::with_goal_search` añade, para la búsqueda por objetivo, los objetivos `mejorar-el-sueno` y `cansancio-y-fatiga` (sin plantas), las subáreas `vias-urinarias` y `molestias-oculares` (sin plantas) de `otros-objetivos`, y los objetivos de las plantas descritos en `add_goal_search_data`.
+//!
 //! Fuentes `a` y `b` (sin URL de licencia), `wiki` (con URL de licencia), `ema` (sin ella) y `pend` (solo respalda contenido pendiente de revisión).
 
 use std::path::PathBuf;
@@ -102,6 +104,14 @@ impl Fixture {
             false,
         );
         add_use_group_ref(&mut conn, group, "k", 0, "Smith 1990", Some("ref-1"));
+    }
+
+    /// Base estándar ampliada para la búsqueda por objetivo (véase [`add_goal_search_data`]).
+    pub fn with_goal_search() -> Self {
+        let fixture = Self::standard();
+        let mut conn = SqliteConnection::establish(fixture.path.to_str().unwrap()).unwrap();
+        add_goal_search_data(&mut conn);
+        fixture
     }
 
     /// Abre el repositorio sobre la fixture.
@@ -873,4 +883,123 @@ fn populate(conn: &mut SqliteConnection) {
         );
         add_name(conn, &id, &format!("Filler {n:02}"), "common", "en", &["a"]);
     }
+}
+
+/// Datos de objetivos para las pruebas de la búsqueda por objetivo, sobre la fixture estándar.
+///
+/// Resultado visible por objetivo (las filas `pending_review` no cuentan):
+/// - `cuidado-de-la-piel`: `lavandula-angustifolia` y `arnica-montana` (planta en dos objetivos).
+/// - `otros-objetivos`: `lavandula-angustifolia` (`digestion`) y `mentha-x-piperita` (en `digestion` y `vias-urinarias`, una planta en dos subáreas con una marca de revisión sin `pending_review`); `molestias-oculares` queda sin plantas.
+/// - `relajacion-estres`: solo `zea-mays` (sin imagen ni seguridad); `lavandula-angustifolia` y `eucalyptus-globulus` están pendientes de revisión aquí.
+/// - `mejorar-el-sueno`: siete plantas con nombres que prueban el orden (`abedul`, el científico `Abutilon theophrasti` con nombres comunes en inglés, `Árnica`, `Eucalipto` con seguridad sin nivel, dos «Twin plant» empatadas y `Zarzaparrilla`).
+/// - `cansancio-y-fatiga`: sin plantas.
+///
+/// `conium-maculatum` (tóxica) no tiene objetivos.
+fn add_goal_search_data(conn: &mut SqliteConnection) {
+    for (position, (id, label)) in [
+        ("mejorar-el-sueno", "Mejorar el sueño"),
+        ("cansancio-y-fatiga", "Cansancio y fatiga"),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        diesel::insert_into(goal::table)
+            .values(GoalRow {
+                id: id.to_string(),
+                label: label.to_string(),
+                position: 3 + position as i32,
+            })
+            .execute(conn)
+            .unwrap();
+    }
+    for (position, (id, label)) in [
+        ("vias-urinarias", "Vías urinarias"),
+        ("molestias-oculares", "Molestias oculares"),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        diesel::insert_into(goal_subarea::table)
+            .values(GoalSubareaRow {
+                id: id.to_string(),
+                goal_id: "otros-objetivos".to_string(),
+                label: label.to_string(),
+                position: 1 + position as i32,
+            })
+            .execute(conn)
+            .unwrap();
+    }
+
+    // Plantas nuevas con un nombre para mostrar que prueba el orden sin acentos ni mayúsculas.
+    for (id, scientific, display) in [
+        ("betula-pendula", "Betula pendula", "abedul"),
+        ("arnica-montana", "Arnica montana", "Árnica"),
+        ("smilax-aspera", "Smilax aspera", "Zarzaparrilla"),
+    ] {
+        add_plant(conn, id, scientific, Some(("Familia", "a")), &["a"]);
+        add_name(conn, id, display, "common", "es", &["a"]);
+        add_profile(conn, id, Some(display), None, None, None);
+    }
+
+    let goal_row = |conn: &mut SqliteConnection, plant: &str, goal: &str, area: &str| {
+        add_plant_goal(conn, plant, goal, None, area, "Evidencia.", false, &[]);
+    };
+    let subarea_row = |conn: &mut SqliteConnection, plant: &str, subarea: &str, area: &str| {
+        add_plant_goal(
+            conn,
+            plant,
+            "otros-objetivos",
+            Some(subarea),
+            area,
+            "Evidencia.",
+            false,
+            &[],
+        );
+    };
+
+    // Piel: la lavanda ya está; la árnica está además en el sueño con otra área.
+    goal_row(
+        conn,
+        "arnica-montana",
+        "cuidado-de-la-piel",
+        "Heridas leves",
+    );
+    // Otros objetivos: la menta está en dos subáreas, cada una con su área.
+    subarea_row(conn, "mentha-x-piperita", "digestion", "Gases");
+    subarea_row(conn, "mentha-x-piperita", "vias-urinarias", "Vejiga");
+    // Relajación: solo `zea-mays` es visible, con una marca de revisión que no oculta nada.
+    goal_row(conn, "zea-mays", "relajacion-estres", "Estrés mental");
+    add_review_flag(conn, "zea-mays", "sin-datos-de-seguridad", "safety");
+    // El eucalipto está pendiente de revisión en relajación y visible en el sueño.
+    add_plant_goal(
+        conn,
+        "eucalyptus-globulus",
+        "relajacion-estres",
+        None,
+        "Estrés mental",
+        "Evidencia.",
+        true,
+        &[],
+    );
+    // Sueño.
+    for plant in [
+        "betula-pendula",
+        "abutilon-theophrasti",
+        "arnica-montana",
+        "eucalyptus-globulus",
+        "twin-a",
+        "twin-b",
+        "smilax-aspera",
+    ] {
+        goal_row(conn, plant, "mejorar-el-sueno", "Trastornos del sueño");
+    }
+    // La árnica tiene imagen; el resto de las plantas del sueño no.
+    add_image(
+        conn,
+        "arnica-montana",
+        Some("Autor"),
+        "CC BY 4.0",
+        Some("https://creativecommons.org/licenses/by/4.0/"),
+        true,
+    );
 }

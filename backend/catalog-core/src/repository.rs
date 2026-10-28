@@ -3,7 +3,9 @@
 use std::error::Error;
 use std::fmt;
 
-use crate::domain::{ListQuery, Page, Plant, PlantId, PlantSummary};
+use crate::domain::{
+    GoalPlantsOutcome, GoalSummary, ListQuery, Page, Plant, PlantId, PlantSummary,
+};
 
 /// Errores que puede devolver un repositorio.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -43,4 +45,18 @@ pub trait CatalogRepository: Send + Sync {
 
     /// Devuelve el detalle de una planta, o `None` si no existe.
     fn get_plant(&self, id: &PlantId) -> Result<Option<Plant>, RepositoryError>;
+
+    /// Lista todos los objetivos en su orden de presentación, con sus conteos de plantas visibles y sus subáreas con plantas.
+    fn list_goals(&self) -> Result<Vec<GoalSummary>, RepositoryError>;
+
+    /// Lista las plantas visibles de un objetivo (y de una subárea suya, si se indica) en orden total: nombre para mostrar normalizado, nombre científico normalizado e identificador.
+    ///
+    /// Precondición: `limit` y `offset` ya están validados por quien llama.
+    fn list_goal_plants(
+        &self,
+        goal: &str,
+        subarea: Option<&str>,
+        limit: u32,
+        offset: u32,
+    ) -> Result<GoalPlantsOutcome, RepositoryError>;
 }

@@ -161,6 +161,95 @@ curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants/lavandul
 
 Los créditos de la lavanda son EFSA, las dos fuentes de la EMA, TPPT, USDA, Wikipedia en español y WCVP; los del eucalipto cambian TPPT por Wikidata. El crédito de Wikipedia enlaza al artículo de la planta porque la descripción lo resume.
 
+### Objetivos
+
+`GET /v1/goals` devuelve, sin paginar y en el orden de presentación del catálogo (`goal.position`), un array JSON en la raíz con los objetivos: `id`, `name` (en español), `plantCount` y `subareas` (lista vacía si no tiene; cada subárea con `id`, `name` y `plantCount`). Los nombres, el orden y las subáreas salen de `goal` y `goal_subarea`, y las subáreas sin plantas visibles se omiten. Los conteos son de plantas distintas visibles, así que el de «Otros objetivos» es la unión sin repetir de sus subáreas y coincide con el `total` de sus resultados.
+
+`GET /v1/goals/{goalId}/plants` devuelve una página `{goal, subarea, items, total, limit, offset}`:
+
+| Parámetro | Uso |
+|---|---|
+| `limit` | 1 a 100, por defecto 20, con las mismas reglas y errores que `GET /v1/plants`. |
+| `offset` | Desde 0, por defecto 0; si supera el total devuelve una lista vacía y conserva el `total`. |
+| `subarea` | Id de una subárea del objetivo. Sin él, un objetivo con subáreas devuelve la unión sin repetir plantas. |
+
+Cada elemento lleva `id`, `scientificName`, `displayName`, `commonNames` y `family` como el listado, y además `areas` (nombres en español de las áreas de la EMA que respaldan a la planta en ese objetivo o subárea; 11 filas reales unen dos áreas con «; » y se muestran tal cual), `safetyLevel` (`alto`, `medio`, `bajo` o `null`, también `null` cuando hay precauciones sin nivel), `hasSafety` (verdadero si la planta tiene datos de precauciones aunque no tengan nivel) e `image`, el mismo objeto del detalle o `null`. La API no deriva miniaturas ni consulta la red.
+
+Las plantas salen ordenadas por `displayName` normalizado (sin distinguir mayúsculas ni acentos, con la normalización de nombres de la búsqueda), luego por nombre científico normalizado y por último por id; el orden no depende del respaldo de la EMA. Solo aparecen las plantas con ese objetivo en `plant_goal`: las tóxicas que la semilla deja sin objetivos no salen, y las filas con `plant_goal.pending_review` no aparecen ni cuentan (hoy, el hipérico no sale en `relajacion-estres`, pero `GET /v1/plants/hypericum-perforatum` sigue respondiendo 200). Ningún otro `reviewFlag` oculta una planta.
+
+| Caso | Respuesta |
+|---|---|
+| Sin token o con un token incorrecto | 401 con `WWW-Authenticate: Bearer`. |
+| Objetivo desconocido | 404. |
+| `subarea` que no es del objetivo, o sobre un objetivo sin subáreas | 400 con `param` igual a `subarea`. |
+| `limit` u `offset` inválidos | 400 con `param` igual al parámetro. |
+| Método distinto de `GET` | 405 con `Allow: GET`. |
+
+Todos los errores son `application/problem+json`. Con la API en marcha (la variable `TOKEN` debe tener un token válido, nunca se escribe en archivos):
+
+```bash
+curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/goals'
+curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/goals/relajacion-estres/plants?limit=1'
+curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/goals/otros-objetivos/plants?subarea=molestias-oculares'
+curl -i -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/goals/mejorar-el-sueno/plants?subarea=digestion'
+```
+
+Fragmento real de la primera respuesta (se omiten los demás objetivos y subáreas):
+
+```json
+[
+  {"id": "relajacion-estres", "name": "Relajación / Estrés", "plantCount": 17, "subareas": []},
+  {
+    "id": "otros-objetivos",
+    "name": "Otros objetivos",
+    "plantCount": 135,
+    "subareas": [
+      {"id": "digestion", "name": "Digestión", "plantCount": 68},
+      {"id": "molestias-oculares", "name": "Molestias oculares", "plantCount": 1}
+    ]
+  }
+]
+```
+
+Respuesta real de la tercera petición:
+
+```json
+{
+  "goal": {"id": "otros-objetivos", "name": "Otros objetivos"},
+  "subarea": {"id": "molestias-oculares", "name": "Molestias oculares"},
+  "items": [
+    {
+      "id": "hamamelis-virginiana",
+      "scientificName": "Hamamelis virginiana",
+      "displayName": "Avellano de bruja",
+      "commonNames": [
+        {"text": "Avellano de bruja", "language": "es"},
+        {"text": "avellana que se rompe", "language": "es"},
+        {"text": "escoba de bruja", "language": "es"},
+        {"text": "Witch Hazel", "language": "en"}
+      ],
+      "family": "Hamamelidaceae",
+      "areas": ["Molestias oculares"],
+      "safetyLevel": null,
+      "hasSafety": true,
+      "image": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg",
+        "pageUrl": "https://commons.wikimedia.org/wiki/File:Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg",
+        "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+        "license": "Public domain",
+        "licenseUrl": null,
+        "attributionRequired": false
+      }
+    }
+  ],
+  "total": 1,
+  "limit": 20,
+  "offset": 0
+}
+```
+
+Con la base real hay 6 objetivos: `relajacion-estres` (17), `mejorar-el-sueno` (8), `cuidado-de-la-piel` (32), `alivio-respiratorio` (52), `cansancio-y-fatiga` (8) y `otros-objetivos` (135, con las subáreas `digestion` 68, `vias-urinarias-y-genitales` 42, `dolor-e-inflamacion` 22, `boca-y-garganta` 20, `circulacion` 17 y `molestias-oculares` 1).
+
 ### Identificadores anteriores
 
 El ID de una planta es el slug de su nombre aceptado, y los anteriores se guardan como alias. `GET /v1/plants/{id}` busca primero el ID de planta (siempre gana) y luego el alias. Con un alias responde 200 con el detalle de la planta canónica, su `id` canónico en el cuerpo y la cabecera `Content-Location`, sin redirección; con un ID canónico no lleva esa cabecera, y con uno desconocido responde 404. Es la misma ruta, con el mismo token:

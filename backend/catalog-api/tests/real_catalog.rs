@@ -260,3 +260,150 @@ fn common_names_are_alphabetical_and_spanish_goes_first_on_a_display_name_tie() 
     println!("plantas con empate en/es: {ties}");
     assert!(ties > 0);
 }
+
+/// Todas las plantas de un objetivo o subárea, recorriendo las páginas de 100.
+fn all_goal_plants(
+    repo: &SqliteCatalogRepository,
+    goal: &str,
+    subarea: Option<&str>,
+) -> Vec<catalog_core::domain::GoalPlant> {
+    use catalog_core::domain::GoalPlantsOutcome;
+    let mut items = Vec::new();
+    loop {
+        let GoalPlantsOutcome::Found(found) = repo
+            .list_goal_plants(goal, subarea, 100, items.len() as u32)
+            .unwrap()
+        else {
+            panic!("{goal}/{subarea:?} debería existir");
+        };
+        let total = found.page.total as usize;
+        let empty = found.page.items.is_empty();
+        items.extend(found.page.items);
+        if items.len() >= total || empty {
+            assert_eq!(items.len(), total, "{goal}/{subarea:?}");
+            return items;
+        }
+    }
+}
+
+#[test]
+#[ignore = "necesita data/build/catalog.db (se genera con `catalog-ingest build`)"]
+fn every_goal_returns_plants_and_hides_toxic_and_pending_ones() {
+    use diesel::prelude::*;
+
+    let repo = open_real();
+    // Plantas que la semilla excluye por toxicidad y filas de `plant_goal` pendientes de revisión, leídas de la base.
+    let mut conn = diesel::SqliteConnection::establish(
+        repo_root().join("data/build/catalog.db").to_str().unwrap(),
+    )
+    .unwrap();
+    let toxic: Vec<String> = catalog_core::schema::plant_review_flag::table
+        .filter(
+            catalog_core::schema::plant_review_flag::code.eq("objetivos-omitidos-por-toxicidad"),
+        )
+        .select(catalog_core::schema::plant_review_flag::plant_id)
+        .load(&mut conn)
+        .unwrap();
+    assert!(!toxic.is_empty());
+    let pending: Vec<(String, String)> = catalog_core::schema::plant_goal::table
+        .filter(catalog_core::schema::plant_goal::pending_review.eq(true))
+        .select((
+            catalog_core::schema::plant_goal::goal_id,
+            catalog_core::schema::plant_goal::plant_id,
+        ))
+        .load(&mut conn)
+        .unwrap();
+    assert!(!pending.is_empty());
+
+    let forbidden = [
+        "dosis",
+        " mg",
+        "mg/",
+        "eficaz",
+        "eficacia",
+        "cura ",
+        "curar",
+        "garantiza",
+    ];
+    let goals = repo.list_goals().unwrap();
+    assert_eq!(goals.len(), 6);
+    for goal in &goals {
+        let plants = all_goal_plants(&repo, &goal.id, None);
+        assert!(!plants.is_empty(), "{} no tiene plantas", goal.id);
+        assert_eq!(plants.len() as u64, goal.plant_count, "{}", goal.id);
+        println!(
+            "objetivo {}: {} plantas, {} subáreas",
+            goal.id,
+            goal.plant_count,
+            goal.subareas.len()
+        );
+        for plant in &plants {
+            assert!(!toxic.contains(&plant.id.0), "{}: {}", goal.id, plant.id.0);
+            assert!(
+                !pending.contains(&(goal.id.clone(), plant.id.0.clone())),
+                "{}: {} está pendiente de revisión",
+                goal.id,
+                plant.id.0
+            );
+            assert!(!plant.areas.is_empty(), "{}: {}", goal.id, plant.id.0);
+            for area in &plant.areas {
+                let lower = area.to_lowercase();
+                assert!(
+                    forbidden.iter().all(|w| !lower.contains(w)),
+                    "{}: {area}",
+                    plant.id.0
+                );
+            }
+        }
+        for subarea in &goal.subareas {
+            let in_subarea = all_goal_plants(&repo, &goal.id, Some(&subarea.id));
+            assert_eq!(
+                in_subarea.len() as u64,
+                subarea.plant_count,
+                "{}",
+                subarea.id
+            );
+            println!("  subárea {}: {} plantas", subarea.id, subarea.plant_count);
+        }
+    }
+}
+
+#[test]
+#[ignore = "necesita data/build/catalog.db (se genera con `catalog-ingest build`)"]
+fn st_johns_wort_is_not_in_stress_but_its_detail_is_served() {
+    let repo = open_real();
+    let stress = all_goal_plants(&repo, "relajacion-estres", None);
+    assert!(stress.iter().all(|p| p.id.0 != "hypericum-perforatum"));
+    let hypericum = plant(&repo, "hypericum-perforatum");
+    assert_eq!(hypericum.id.0, "hypericum-perforatum");
+    // Sigue en el listado de plantas.
+    assert!(ids(&search(&repo, "hypericum perforatum")).contains(&"hypericum-perforatum"));
+}
+
+#[test]
+#[ignore = "necesita data/build/catalog.db (se genera con `catalog-ingest build`)"]
+fn real_goal_results_are_totally_ordered_and_union_counts_once() {
+    let repo = open_real();
+    let other = all_goal_plants(&repo, "otros-objetivos", None);
+    let mut seen: Vec<&str> = other.iter().map(|p| p.id.0.as_str()).collect();
+    let before = seen.len();
+    seen.sort_unstable();
+    seen.dedup();
+    assert_eq!(seen.len(), before, "la unión repite plantas");
+    for goal in repo.list_goals().unwrap() {
+        let plants = all_goal_plants(&repo, &goal.id, None);
+        let keys: Vec<(String, String, String)> = plants
+            .iter()
+            .map(|p| {
+                (
+                    catalog_core::normalize::normalize_name(&p.display_name),
+                    catalog_core::normalize::normalize_name(&p.scientific_name),
+                    p.id.0.clone(),
+                )
+            })
+            .collect();
+        let mut sorted = keys.clone();
+        sorted.sort();
+        assert_eq!(keys, sorted, "{}", goal.id);
+    }
+}

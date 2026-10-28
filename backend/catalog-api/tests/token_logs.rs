@@ -106,6 +106,13 @@ fn trace_logs_never_contain_tokens() {
     assert!(status(Some(&invalid)).contains("401"));
     assert!(status(Some(&basic)).contains("401"));
     assert!(status(None).contains("401"));
+    // Las rutas de objetivos exigen el mismo token y tampoco lo registran.
+    for path in ["/v1/goals", "/v1/goals/mejorar-el-sueno/plants"] {
+        let goal_status = |auth: Option<&str>| request(port, path, auth).unwrap_or_default();
+        assert!(!goal_status(Some(&valid)).contains("401"), "{path}");
+        assert!(goal_status(Some(&invalid)).contains("401"), "{path}");
+        assert!(goal_status(None).contains("401"), "{path}");
+    }
     assert!(
         request(port, "/v1/no-existe", Some(&invalid))
             .unwrap_or_default()

@@ -194,3 +194,10 @@ Diferencias con lo supuesto (ninguna bloquea las tareas siguientes):
 - `plant_profile` no tiene columna normalizada del nombre para mostrar, por lo que el orden de D6 se hace en Rust con `normalize_name` y no en SQL.
 - Los conteos reales difieren de los de referencia de la EMA del contexto (por ejemplo, 17 en estrés frente a 18 fichas, 8 en sueño frente a 13): es esperable por las exclusiones de la semilla y se registran aquí.
 - `area` puede traer dos áreas unidas con «; » (véase Open Questions).
+
+## Conteos reales de la API
+
+Resultado de la tarea 2.3: `GET /v1/goals` y las pruebas ignoradas de `tests/real_catalog.rs` con `data/build/catalog.db` devuelven los mismos conteos que la consulta SQL de la tarea 1.1, así que `plantCount` y `total` coinciden en los seis objetivos y las seis subáreas: `relajacion-estres` 17, `mejorar-el-sueno` 8, `cuidado-de-la-piel` 32, `alivio-respiratorio` 52, `cansancio-y-fatiga` 8 y `otros-objetivos` 135 (unión sin repetir), con `digestion` 68, `vias-urinarias-y-genitales` 42, `dolor-e-inflamacion` 22, `boca-y-garganta` 20, `circulacion` 17 y `molestias-oculares` 1. Ningún objetivo ni subárea queda vacío; ninguna planta de `objetivos-omitidos-por-toxicidad` ni la fila pendiente del hipérico aparece (el detalle del hipérico responde 200), las páginas de 100 recorren cada objetivo sin repetir y el orden total se cumple en los seis. Ningún `areas` contiene lenguaje de dosis o eficacia.
+
+Los DTOs nuevos se llaman `GoalSummaryDto`, `SubareaSummaryDto`, `GoalRefDto`, `SubareaRefDto`, `GoalPlantDto` y `GoalPlantsPageDto` porque `GoalDto` ya es el objetivo del detalle de la planta; `GET /v1/goals` devuelve un array JSON en la raíz.
+

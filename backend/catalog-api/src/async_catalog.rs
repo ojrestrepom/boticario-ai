@@ -4,7 +4,9 @@
 
 use std::sync::Arc;
 
-use catalog_core::domain::{ListQuery, Page, Plant, PlantId, PlantSummary};
+use catalog_core::domain::{
+    GoalPlantsOutcome, GoalSummary, ListQuery, Page, Plant, PlantId, PlantSummary,
+};
 use catalog_core::repository::{CatalogRepository, RepositoryError};
 use tokio::task::{JoinError, spawn_blocking};
 
@@ -41,6 +43,28 @@ impl AsyncCatalog {
     pub async fn get_plant(&self, id: PlantId) -> Result<Option<Plant>, RepositoryError> {
         let repo = Arc::clone(&self.repo);
         spawn_blocking(move || repo.get_plant(&id))
+            .await
+            .map_err(join_error)?
+    }
+
+    /// Versión asíncrona de [`CatalogRepository::list_goals`].
+    pub async fn list_goals(&self) -> Result<Vec<GoalSummary>, RepositoryError> {
+        let repo = Arc::clone(&self.repo);
+        spawn_blocking(move || repo.list_goals())
+            .await
+            .map_err(join_error)?
+    }
+
+    /// Versión asíncrona de [`CatalogRepository::list_goal_plants`].
+    pub async fn list_goal_plants(
+        &self,
+        goal: String,
+        subarea: Option<String>,
+        limit: u32,
+        offset: u32,
+    ) -> Result<GoalPlantsOutcome, RepositoryError> {
+        let repo = Arc::clone(&self.repo);
+        spawn_blocking(move || repo.list_goal_plants(&goal, subarea.as_deref(), limit, offset))
             .await
             .map_err(join_error)?
     }
@@ -91,6 +115,20 @@ mod tests {
                 credits: Vec::new(),
             }))
         }
+
+        fn list_goals(&self) -> Result<Vec<GoalSummary>, RepositoryError> {
+            Ok(Vec::new())
+        }
+
+        fn list_goal_plants(
+            &self,
+            _: &str,
+            _: Option<&str>,
+            _: u32,
+            _: u32,
+        ) -> Result<GoalPlantsOutcome, RepositoryError> {
+            Ok(GoalPlantsOutcome::UnknownGoal)
+        }
     }
 
     /// Repositorio que entra en pánico: comprueba que el pánico se informa como error y no tumba al llamador.
@@ -101,6 +139,18 @@ mod tests {
             panic!("boom")
         }
         fn get_plant(&self, _: &PlantId) -> Result<Option<Plant>, RepositoryError> {
+            panic!("boom")
+        }
+        fn list_goals(&self) -> Result<Vec<GoalSummary>, RepositoryError> {
+            panic!("boom")
+        }
+        fn list_goal_plants(
+            &self,
+            _: &str,
+            _: Option<&str>,
+            _: u32,
+            _: u32,
+        ) -> Result<GoalPlantsOutcome, RepositoryError> {
             panic!("boom")
         }
     }

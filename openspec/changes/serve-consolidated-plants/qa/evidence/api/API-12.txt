@@ -1,0 +1,208 @@
+PASA  q='rosmarinus officinalis' encuentra salvia-rosmarinus total=3 ids=['salvia-jordanii', 'salvia-rosmarinus', 'salvia-x-lavandulacea']
+--- q='rosmarinus officinalis'
+GET /v1/plants?q=rosmarinus officinalis
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 3,
+ "ids": [
+  "salvia-jordanii",
+  "salvia-rosmarinus",
+  "salvia-x-lavandulacea"
+ ]
+}
+
+PASA  q='matricaria recutita' encuentra matricaria-chamomilla total=1 ids=['matricaria-chamomilla']
+--- q='matricaria recutita'
+GET /v1/plants?q=matricaria recutita
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 1,
+ "ids": [
+  "matricaria-chamomilla"
+ ]
+}
+
+PASA  q='Matricaria  Recutita ' encuentra matricaria-chamomilla total=1 ids=['matricaria-chamomilla']
+--- q='Matricaria  Recutita '
+GET /v1/plants?q=Matricaria  Recutita 
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 1,
+ "ids": [
+  "matricaria-chamomilla"
+ ]
+}
+
+PASA  q='MATRICARIA RECUTITA' encuentra matricaria-chamomilla total=1 ids=['matricaria-chamomilla']
+--- q='MATRICARIA RECUTITA'
+GET /v1/plants?q=MATRICARIA RECUTITA
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 1,
+ "ids": [
+  "matricaria-chamomilla"
+ ]
+}
+
+PASA  q='Mentha x piperita subsp. nothosubsp. piperita' encuentra mentha-x-piperita total=1 ids=['mentha-x-piperita']
+--- q='Mentha x piperita subsp. nothosubsp. piperita'
+GET /v1/plants?q=Mentha x piperita subsp. nothosubsp. piperita
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 1,
+ "ids": [
+  "mentha-x-piperita"
+ ]
+}
+
+PASA  q='mentha x piperita' encuentra mentha-x-piperita total=1 ids=['mentha-x-piperita']
+--- q='mentha x piperita'
+GET /v1/plants?q=mentha x piperita
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 1,
+ "ids": [
+  "mentha-x-piperita"
+ ]
+}
+
+PASA  q='lavandula' encuentra lavandula-angustifolia total=7 ids=['lavandula-angustifolia', 'lavandula-latifolia', 'lavandula-sp', 'lavandula-spica']
+--- q='lavandula'
+GET /v1/plants?q=lavandula
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 7,
+ "ids": [
+  "lavandula-angustifolia",
+  "lavandula-latifolia",
+  "lavandula-sp",
+  "lavandula-spica",
+  "lavandula-x-heterophylla",
+  "lavandula-x-intermedia",
+  "salvia-x-lavandulacea"
+ ]
+}
+
+PASA  q='manzanilla' encuentra matricaria-chamomilla total=3 ids=['chamaemelum-nobile', 'hippomane-mancinella', 'matricaria-chamomilla']
+--- q='manzanilla'
+GET /v1/plants?q=manzanilla
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 3,
+ "ids": [
+  "chamaemelum-nobile",
+  "hippomane-mancinella",
+  "matricaria-chamomilla"
+ ]
+}
+
+PASA  q='menta' encuentra mentha-x-piperita total=20 ids=['aframomum-melegueta', 'agastache-rugosa', 'ageratum-conyzoides', 'coleus-amboinicus']
+--- q='menta'
+GET /v1/plants?q=menta
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 20,
+ "ids": [
+  "aframomum-melegueta",
+  "agastache-rugosa",
+  "ageratum-conyzoides",
+  "coleus-amboinicus",
+  "elsholtzia-ciliata",
+  "eucalyptus-nova-anglica",
+  "galeopsis-tetrahit",
+  "lycopus-europaeus"
+ ]
+}
+
+PASA  q='romero' encuentra salvia-rosmarinus total=3 ids=['salvia-granatensis', 'salvia-jordanii', 'salvia-rosmarinus']
+--- q='romero'
+GET /v1/plants?q=romero
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 3,
+ "ids": [
+  "salvia-granatensis",
+  "salvia-jordanii",
+  "salvia-rosmarinus"
+ ]
+}
+
+PASA  q='eucalipto' encuentra eucalyptus-globulus total=15 ids=['corymbia-citriodora', 'eucalyptus-blakelyi', 'eucalyptus-camaldulensis', 'eucalyptus-cladocalyx']
+--- q='eucalipto'
+GET /v1/plants?q=eucalipto
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 15,
+ "ids": [
+  "corymbia-citriodora",
+  "eucalyptus-blakelyi",
+  "eucalyptus-camaldulensis",
+  "eucalyptus-cladocalyx",
+  "eucalyptus-dives",
+  "eucalyptus-globulus",
+  "eucalyptus-grandis",
+  "eucalyptus-maidenii"
+ ]
+}
+
+PASA  q='Espliego' encuentra None total=2 ids=['lavandula-sp', 'teucrium-montanum']
+--- q='Espliego'
+GET /v1/plants?q=Espliego
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "total": 2,
+ "ids": [
+  "lavandula-sp",
+  "teucrium-montanum"
+ ]
+}
+
+PASA  matricaria recutita: el alias no aparece como nombre (ni 'matricaria-recutita' ni 'Matricaria recutita' en el resultado) 
+PASA  limite conocido: 'mentha piperita' (sin la x) da 0 resultados total=0
+PASA  rosmarinus officinalis: salvia-rosmarinus una sola vez y total coherente ['salvia-jordanii', 'salvia-rosmarinus', 'salvia-x-lavandulacea']
+PASA  los 357 nombres anteriores de API-04 (cambio 1) encuentran su planta nueva 0 sin resultado []
+PASA  sin duplicados ni total incoherente en esas busquedas []
+PASA  el alias (id anterior) nunca aparece como id de un elemento []
+tiempo de la busqueda por nombre anterior: mediana 1.9 ms, max 3.8 ms
+PASA  32 consultas variadas: total y conjunto = oraculo SQL (nombres normalizados + alias con slug) 0 []
+PASA  q='%': literal, sin comodin (total = nombres que contienen el caracter) total=0 esperado=0
+PASA  q='_': literal, sin comodin (total = nombres que contienen el caracter) total=1 esperado=1
+PASA  q='%%': literal, sin comodin (total = nombres que contienen el caracter) total=0 esperado=0
+PASA  q='_a': 200 sin error total=577
+PASA  q='a%': 200 sin error total=577
+PASA  q='100%': 200 sin error total=0
+PASA  q='\\': literal, sin comodin (total = nombres que contienen el caracter) total=0 esperado=0
+PASA  q vacio: igual que sin q 
+PASA  q solo espacios: igual que sin q 
+--- sin coincidencias
+GET /v1/plants?q=zzzzzzzz
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "44"}
+{
+ "items": [],
+ "total": 0,
+ "limit": 20,
+ "offset": 0
+}
+
+PASA  sin coincidencias: 200, lista vacia y total 0 
+PASA  consulta de 200 caracteres: 200 200
+PASA  consulta de 201 caracteres: 400 problem+json (limite de q, sin cambios) 400
+PASA  consulta de 5000 caracteres: 400 problem+json (limite de q, sin cambios) 400
+PASA  limit=0: 400 problem+json 400
+PASA  limit=101: 400 problem+json 400
+PASA  limit=abc: 400 problem+json 400
+PASA  offset=-1: 400 problem+json 400
+PASA  orden por nombre cientifico y luego id tambien en una busqueda amplia 

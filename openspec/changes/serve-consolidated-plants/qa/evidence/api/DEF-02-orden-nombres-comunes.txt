@@ -1,0 +1,15 @@
+Orden de nombres comunes (API-03): el orden es binario (UTF-8), no alfabetico: mayusculas antes que minusculas y letras acentuadas al final.
+El escenario 'Nombre para mostrar primero' del delta de catalog-api da como resultado esperado «Lavanda», «Árnica», «Espliego» (alfabetico).
+Con el orden binario, «Espliego» (E) iria antes que «Árnica» (Á).
+
+GET /v1/plants/acorus-calamus -> displayName y comunes en el orden servido:
+  displayName: Cálamo aromático
+  comunes: ['Cálamo aromático', 'Calamus', 'Flagroot', 'Kalmus', 'Myrtle Flag', 'Sweet Calamus', 'Sweet flag', 'Sweetflag', 'Sweetroot', 'cálamo acuático', 'cálamo aromático', 'Ácoro', 'ácoro aromático', 'ácoro dulce', 'ácoro verdadero']
+GET /v1/plants/aleurites-moluccanus -> displayName y comunes en el orden servido:
+  displayName: Nuez de la India
+  comunes: ['Nuez de la India', 'Candleberry', 'Candlenut', 'Candlenut Tree', 'Indian Walnut', 'Kukui', 'Lumbangtree', 'Varnishtree', 'Árbol candil']
+GET /v1/plants/abies-balsamea -> displayName y comunes en el orden servido:
+  displayName: Abeto balsámico
+  comunes: ['Abeto balsámico', 'Balsam Fir', 'abeto balsámico', 'abeto de Navidad']
+
+Plantas con nombres comunes en la base: 1730; en 406 el orden binario difiere del alfabetico sin distinguir mayusculas ni acentos (calculado sobre plant_name sin el displayName).

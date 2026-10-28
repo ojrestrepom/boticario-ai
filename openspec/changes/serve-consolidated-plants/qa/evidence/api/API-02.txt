@@ -1,0 +1,11 @@
+PASA  GET /v1/plants/{id} responde 200 y cumple PlantDto en las 2354 plantas 0 fallos []
+PASA  ningun id canonico lleva Content-Location 
+PASA  campos requeridos siempre presentes (aunque vacios o null) []
+PASA  family siempre presente (texto o null) 0 sin la clave, p. ej. []
+PASA  ninguna respuesta contiene 'reviewFlags' 
+PASA  ninguna respuesta contiene un codigo de reviewFlag []
+PASA  ningun nombre de campo es de fuente/dataset/flag (source, dataset, flags...) ['activity', 'activitySource', 'area', 'attribution', 'attributionRequired', 'author', 'citation', 'count', 'countries', 'credits', 'description', 'displayName', 'evidence', 'family', 'goals', 'id', 'image', 'kind', 'label', 'language', 'level', 'license', 'licenseUrl', 'name', 'names', 'oil', 'origin', 'pageUrl', 'parts', 'reference', 'references', 'resolved', 'safety', 'scientificName', 'subarea', 'synonyms', 'text', 'type', 'url', 'useGroups', 'uses']
+campos usados en el detalle: activity, activitySource, area, attribution, attributionRequired, author, citation, count, countries, credits, description, displayName, evidence, family, goals, id, image, kind, label, language, level, license, licenseUrl, name, names, oil, origin, pageUrl, parts, reference, references, resolved, safety, scientificName, subarea, synonyms, text, type, url, useGroups, uses
+tiempos del detalle (una peticion secuencial por planta, 2354 plantas, base real, API en contenedor local): mediana 1.2 ms, p95 1.8 ms, p99 2.4 ms, max 5.6 ms
+las 5 mas lentas: prunus-domestica 6 ms (10877 B), metrosideros-excelsa 5 ms (3227 B), solanum-melongena 5 ms (13212 B), heptapleurum-heptaphyllum 4 ms (1487 B), larrea-tridentata 3 ms (13005 B)
+las 5 de mayor tamano: allium-sativum 32245 B, senna-occidentalis 31334 B, ricinus-communis 28782 B, zingiber-officinale 28059 B, aloe-vera 26492 B; mediana 3740 B

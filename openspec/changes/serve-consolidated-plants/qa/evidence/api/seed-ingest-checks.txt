@@ -1,0 +1,19 @@
+PASA fuentes del manifiesto = fuentes de la base 10 fuentes
+PASA manifiesto.licenseUrl = source.license_url para cada fuente (null donde no hay) []
+PASA URL de licencia por fuente = las oficiales de Creative Commons (y null para Commons, EMA y TPPT) {}
+PASA sources.json declara el mismo licenseUrl que el manifiesto 10 fuentes comparadas
+PASA URL de licencia invalida 'http://creativecommons.org/licenses/by-sa/4.0/' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida '' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida '   ' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida 'https://' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida 'https://a b/' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida 'ftp://x' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida 3 rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida True rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida ['https://x/'] rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA URL de licencia invalida ' https://x/' rechazada nombrando fuente y campo fuente 'wikipedia_es': 'licenseUrl' debe ser una URL https o null
+PASA licenseUrl None aceptada 
+PASA licenseUrl 'https://creativecommons.org/licenses/by-sa/4.0/' aceptada 
+PASA fuente sin licenseUrl aceptada 
+PASA desde el cambio 1 solo cambio data/seed/manifest.json (ningun registro de planta) ['data/seed/manifest.json']
+PASA el diff del manifiesto son solo lineas licenseUrl (seedHash intacto) 10 lineas

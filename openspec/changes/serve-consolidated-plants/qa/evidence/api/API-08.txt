@@ -1,0 +1,9 @@
+PASA  image = plant_image; null solo si no hay fila 0 []
+con imagen: 1860; sin imagen: 494
+PASA  image presente => licencia y pageUrl no vacios 
+PASA  todas las image.url son https y de upload.wikimedia.org 
+PASA  todas las image.pageUrl son https 
+licencias de imagen: {'CC BY 2.0': 118, 'CC BY-SA 3.0': 540, 'Public domain': 419, 'CC BY-SA 4.0': 337, 'CC BY-SA 2.0': 71, 'CC BY 3.0': 105, 'CC BY 2.5': 46, 'CC BY-SA 2.5': 38, 'CC BY-SA 2.5 ar': 1, 'CC0': 71, 'CC BY 4.0': 72, 'CC BY-SA 3.0 de': 3, 'CC BY-SA 2.0 de': 3, 'CC BY-SA 3.0 ee': 1, 'CC BY 3.0 au': 13, 'CC BY-SA 1.0': 3, 'CC BY 2.5 si': 2, 'CC BY 3.0 us': 6, 'CC BY-SA 3.0 au': 1, 'CC BY 1.0': 3, 'CC BY 2.0 de': 1, 'CC BY 2.5 au': 3, 'CC BY-SA 2.5 nl': 1, 'CC BY-SA 2.1 es': 2}
+PASA  imagenes con atribucion obligatoria llevan autor (CC BY / CC BY-SA sin autor seria atribucion faltante) 0 sin autor: []
+PASA  licencias CC BY* marcan attributionRequired verdadero []
+PASA  licencias CC BY* llevan licenseUrl 0 []

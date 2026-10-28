@@ -231,6 +231,17 @@ class ScenarioTests(ValidatorCase):
         record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"]
         self.assertNoErrors(record)
 
+    def test_afirmar_no_toxicidad_sin_la_clausula_es_error_y_con_ella_pasa(self):
+        record = fx.record()
+        record["safety"] = {"level": None, "text": "TPPT la clasifica como no tóxica para los humanos.", "refs": ["ema_herbal:matricariae-flos"]}
+        record["reviewFlags"] = [f for f in record["reviewFlags"] if f["code"] != "sin-datos-de-seguridad"]
+        self.assertError(record, "sin la cláusula «este dato no la hace segura»")
+        for text in ("La planta no es tóxica.", "Sin toxicidad conocida.", "Categoría «nontoxic» en TPPT."):
+            record["safety"]["text"] = text
+            self.assertError(record, "sin la cláusula")
+        record["safety"]["text"] = "TPPT la clasifica como no tóxica para los humanos; este dato no la hace segura."
+        self.assertNoErrors(record)
+
     def test_safety_con_nivel_nulo_y_sin_texto_es_invalido(self):
         record = fx.record()
         record["safety"] = {"level": None, "text": "", "refs": ["ema_herbal:matricariae-flos"]}

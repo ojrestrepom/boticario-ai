@@ -99,6 +99,12 @@ def image_license_kind(license_text):
     return None
 
 
+# Afirmación de no toxicidad en safety.text («no tóxica», «no es tóxica», «sin toxicidad», «nontoxic», «atóxica»...).
+# El prompt v7 dice que «nontoxic» no hace segura a la planta pero no fija redacción; se usa la de abutilon-theophrasti.
+NON_TOXIC_CLAIM = re.compile(r"\b(?:no\s+(?:es\s+|son\s+|resulta\s+)?(?:t[oó]xic[oa]s?|venenos[oa]s?)|sin\s+(?:toxicidad|veneno)|at[oó]xic[oa]s?|non-?toxic|ausencia\s+de\s+toxicidad)", re.IGNORECASE)
+NOT_SAFE_CLAUSE = re.compile(r"este\s+dato\s+no\s+(?:la|lo)\s+hace\s+segur[oa]", re.IGNORECASE)
+
+
 def toxic_categories(value):
     """Categorías de TPPT: separa por ', ' y toma el prefijo antes del paréntesis."""
     if not isinstance(value, str):
@@ -353,6 +359,10 @@ def validate_record(record, bundle, schema, goals_map, catalog, flag_codes=None,
         if safety["level"] is not None and safety["level"] != expected_level:
             errors.append("safety.level: es '%s' pero el más alto entre las entradas de safety del paquete es %s" % (
                 safety["level"], "'%s'" % expected_level if expected_level else "nulo (ninguna fija nivel)"))
+
+    # Una afirmación de no toxicidad en safety.text lleva siempre la cláusula de que ese dato no hace segura a la planta.
+    if safety is not None and NON_TOXIC_CLAIM.search(safety["text"] or "") and not NOT_SAFE_CLAUSE.search(safety["text"]):
+        errors.append("safety.text: afirma que la planta no es tóxica sin la cláusula «este dato no la hace segura»")
 
     # Señales de riesgo del paquete: van a safety con los refs usda_use:* de sus filas.
     risk_refs = {ref for use in bundle.get("sections", {}).get("uses", []) if activity_category(use.get("activity"), sensitive) == RISK_SIGNAL

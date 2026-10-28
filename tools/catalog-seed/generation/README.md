@@ -79,6 +79,7 @@ En la regeneración `fix2` los agentes recibieron estas aclaraciones de la QA en
 - Nombres de USDA con anotación de idioma entre paréntesis («(Sp.)», «(Ger.)», «(Fr.)», «(Jap.)», etc.): se quita la anotación del texto del nombre y se usa solo para fijar `language`.
 - Origen: «Malesia» es la región biogeográfica de WCVP, no el país Malasia, y se escribe «Malesia».
 - Señales letales de USDA: una entrada de `sections.safety` con `source` igual a `usda` (señal letal) fija nivel alto como cualquier otra entrada, según la regla del máximo. La frase del prompt v7 «Las señales de riesgo no fijan nivel por sí solas» se refiere a las señales no letales, que van solo en el texto; esa frase debe precisarse en la próxima versión del prompt.
+- Afirmación de no toxicidad: una afirmación de que la planta no es tóxica en `safety.text` («no tóxica», «nontoxic», «sin toxicidad») lleva siempre la cláusula «este dato no la hace segura». El validador lo exige desde `fix4` (DEF-03 del cambio 2); el prompt debe precisarlo en su próxima versión, porque la v7 solo dice que «nontoxic» no hace segura a la planta, sin fijar la redacción.
 
 ## Cómo se hizo la corrida de control
 

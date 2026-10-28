@@ -45,6 +45,7 @@ import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_action.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
+import 'package:boticario_ai/features/goal_search/presentation/goal_subareas_page.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:boticario_ai/main.dart' as app;
@@ -205,24 +206,25 @@ Future<void> _runCatalogSmoke(
       expect(find.byType(Drawer), findsNothing);
     }
 
-    // P06 is visited three times to exercise each return mechanism. Goal rows
-    // and the three unavailable footer tabs remain inert on every visit.
+    // P06 is visited three times to exercise each return mechanism. Its rows
+    // come from the API; `Otros objetivos` opens the subareas screen and back
+    // returns, and the three unavailable footer tabs remain inert.
     await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
     _expectGoalSearch(tester, router);
-    await _tapGoalRowsAndDisabledFooter(tester, router);
+    await _checkGoalRowsAndDisabledFooter(tester, router);
     await _tapVisible(tester, find.byTooltip('Volver a Inicio'));
     _expectHomeAndCleanStack(tester, router);
 
     await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
     _expectGoalSearch(tester, router);
-    await _tapGoalRowsAndDisabledFooter(tester, router);
+    await _checkGoalRowsAndDisabledFooter(tester, router);
     await tester.binding.handlePopRoute();
     await _settle(tester);
     _expectHomeAndCleanStack(tester, router);
 
     await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.searchByGoal);
     _expectGoalSearch(tester, router);
-    await _tapGoalRowsAndDisabledFooter(tester, router);
+    await _checkGoalRowsAndDisabledFooter(tester, router);
     await _tapVisible(tester, find.text('Inicio').last);
     _expectHomeAndCleanStack(tester, router);
 
@@ -473,7 +475,7 @@ const _goalLabels = <String>[
   'Mejorar el sueño',
   'Cuidado de la piel',
   'Alivio respiratorio',
-  'Concentración',
+  'Cansancio y fatiga',
   'Otros objetivos',
 ];
 
@@ -487,18 +489,21 @@ void _expectGoalSearch(WidgetTester tester, GoRouter router) {
   }
 }
 
-Future<void> _tapGoalRowsAndDisabledFooter(
+Future<void> _checkGoalRowsAndDisabledFooter(
   WidgetTester tester,
   GoRouter router,
 ) async {
   for (final label in _goalLabels) {
-    await _tapVisible(tester, find.text(label));
-    expect(find.byType(GoalSearchPage), findsOneWidget);
-    _expectPath(router, '/goals');
+    await tester.ensureVisible(find.text(label));
+    await tester.pumpAndSettle();
     expect(find.text(label), findsOneWidget);
-    expect(find.byType(SnackBar), findsNothing);
-    expect(find.byType(Dialog), findsNothing);
   }
+  // A goal with subareas opens their screen; Atrás returns to P06.
+  await _tapVisible(tester, find.text('Otros objetivos'));
+  expect(find.byType(GoalSubareasPage), findsOneWidget);
+  _expectPath(router, '/goals/otros-objetivos/subareas');
+  await _tapVisible(tester, find.byTooltip('Volver a objetivos'));
+  _expectGoalSearch(tester, router);
   await _expectCatalogFooterDisabled(
     tester,
     GoalSearchPage,

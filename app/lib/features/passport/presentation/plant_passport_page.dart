@@ -19,6 +19,7 @@ class PlantPassportRoutePage extends ConsumerWidget {
     required this.plantId,
     required this.onBack,
     required this.onHome,
+    this.backLabel = defaultPassportBackLabel,
     super.key,
   });
 
@@ -26,18 +27,23 @@ class PlantPassportRoutePage extends ConsumerWidget {
   final VoidCallback onBack;
   final VoidCallback onHome;
 
+  /// Label of the back button; Explorar by default, neutral from P07.
+  final String backLabel;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final plant = ref.watch(plantDetailProvider(plantId));
     return plant.when(
       loading: () => _PassportStatusPage(
         title: 'Cargando planta...',
+        backLabel: backLabel,
         onBack: onBack,
         onHome: onHome,
       ),
       error: (error, _) => _PassportStatusPage(
         title: 'No se pudo cargar la planta',
         message: error is CatalogClientException ? error.message : null,
+        backLabel: backLabel,
         onBack: onBack,
         onHome: onHome,
         action: OutlinedButton(
@@ -49,11 +55,17 @@ class PlantPassportRoutePage extends ConsumerWidget {
         if (value == null) {
           return _PassportStatusPage(
             title: 'Planta no encontrada',
+            backLabel: backLabel,
             onBack: onBack,
             onHome: onHome,
           );
         }
-        return PlantPassportPage(plant: value, onBack: onBack, onHome: onHome);
+        return PlantPassportPage(
+          plant: value,
+          backLabel: backLabel,
+          onBack: onBack,
+          onHome: onHome,
+        );
       },
       skipLoadingOnRefresh: false,
     );
@@ -65,10 +77,12 @@ class _PassportStatusPage extends StatelessWidget {
     required this.title,
     required this.onBack,
     required this.onHome,
+    required this.backLabel,
     this.message,
     this.action,
   });
   final String title;
+  final String backLabel;
   final String? message;
   final VoidCallback onBack;
   final VoidCallback onHome;
@@ -86,7 +100,7 @@ class _PassportStatusPage extends StatelessWidget {
               width: 48,
               height: 48,
               child: IconButton(
-                tooltip: 'Volver a Explorar',
+                tooltip: backLabel,
                 onPressed: onBack,
                 icon: const Icon(Icons.chevron_left, color: passportGreen),
               ),
@@ -210,6 +224,7 @@ class PlantPassportPage extends StatefulWidget {
     required this.plant,
     required this.onBack,
     required this.onHome,
+    this.backLabel = defaultPassportBackLabel,
     this.imageProviderFor = PlantImagePolicy.thumbnailProviderFor,
     super.key,
   });
@@ -217,6 +232,7 @@ class PlantPassportPage extends StatefulWidget {
   final Plant plant;
   final VoidCallback onBack;
   final VoidCallback onHome;
+  final String backLabel;
 
   /// Resolves the header image from `image.url`. Tests replace it to simulate
   /// a download without the network.
@@ -250,6 +266,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
             child: PassportHeader(
               plant: widget.plant,
               onBack: widget.onBack,
+              backLabel: widget.backLabel,
               imageProviderFor: widget.imageProviderFor,
             ),
           ),

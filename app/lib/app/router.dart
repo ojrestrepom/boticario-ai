@@ -2,11 +2,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/explore/presentation/explore_page.dart';
+import '../features/goal_search/presentation/goal_results_placeholder_page.dart';
 import '../features/goal_search/presentation/goal_search_page.dart';
+import '../features/goal_search/presentation/goal_subareas_page.dart';
 import '../features/home/presentation/home_page.dart';
 import '../features/passport/presentation/plant_passport_page.dart';
 
 /// Router de la app: Home contiene Explorar y P06; Explorar contiene el pasaporte.
+/// P06 contiene las subáreas, P07 y, bajo P07, el pasaporte.
 ///
 /// Se construye una instancia por scope (`ProviderScope` de app o test) y se
 /// libera con `router.dispose` al descartarse el provider.
@@ -26,7 +29,47 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             builder: (context, state) => GoalSearchPage(
               onBack: () => context.pop(),
               onHome: () => context.go('/'),
+              onOpenSubareas: (goalId) => context.push(
+                '/goals/${Uri.encodeComponent(goalId)}/subareas',
+              ),
+              onOpenPlants: (goalId) =>
+                  context.push('/goals/${Uri.encodeComponent(goalId)}/plants'),
             ),
+            routes: [
+              GoRoute(
+                path: ':goalId/subareas',
+                builder: (context, state) => GoalSubareasPage(
+                  goalId: state.pathParameters['goalId']!,
+                  onBack: () => context.pop(),
+                  onHome: () => context.go('/'),
+                  onOpenPlants: (goalId, subareaId) => context.push(
+                    '/goals/${Uri.encodeComponent(goalId)}/plants'
+                    '?subarea=${Uri.encodeQueryComponent(subareaId)}',
+                  ),
+                ),
+              ),
+              GoRoute(
+                path: ':goalId/plants',
+                // Group 5 replaces the placeholder with P07.
+                builder: (context, state) => GoalResultsPlaceholderPage(
+                  goalId: state.pathParameters['goalId']!,
+                  subareaId: state.uri.queryParameters['subarea'],
+                  onBack: () => context.pop(),
+                  onHome: () => context.go('/'),
+                ),
+                routes: [
+                  GoRoute(
+                    path: ':plantId',
+                    builder: (context, state) => PlantPassportRoutePage(
+                      plantId: state.pathParameters['plantId']!,
+                      backLabel: 'Volver',
+                      onBack: () => context.pop(),
+                      onHome: () => context.go('/'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
           GoRoute(
             path: 'explore',

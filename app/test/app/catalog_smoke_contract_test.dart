@@ -29,8 +29,9 @@ void main() {
         requestCount: () => api.requests.length,
       );
       expect(api.requests, isNotEmpty);
+      expect(api.requests.any((r) => r.url.path == '/v1/goals'), isTrue);
       for (final request in api.requests) {
-        expect(request.url.path, startsWith('/v1/plants'));
+        expect(request.url.path, anyOf(startsWith('/v1/plants'), '/v1/goals'));
         expect(request.headers['Authorization'], 'Bearer $testApiToken');
       }
     },

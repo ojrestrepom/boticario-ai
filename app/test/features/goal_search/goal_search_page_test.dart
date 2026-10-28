@@ -2,20 +2,27 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:boticario_ai/app/theme.dart';
+import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../../support/fake_catalog_api.dart';
 
 const _labels = <String>[
   'Relajación / Estrés',
   'Mejorar el sueño',
   'Cuidado de la piel',
   'Alivio respiratorio',
-  'Concentración',
+  'Cansancio y fatiga',
   'Otros objetivos',
 ];
+
+const _unauthorizedMessage =
+    'La app no está autorizada para usar el servidor. Inténtalo de nuevo más tarde.';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -34,111 +41,269 @@ void main() {
     await loader.load();
   });
 
-  Future<void> show(
+  Future<FakeCatalogApi> show(
     WidgetTester tester, {
-    required double scale,
-    required EdgeInsets insets,
-    required VoidCallback back,
-    required VoidCallback home,
-    NavigatorObserver? observer,
+    double scale = 1,
+    EdgeInsets insets = EdgeInsets.zero,
+    FakeCatalogApi? api,
+    bool withToken = true,
+    VoidCallback? back,
+    VoidCallback? home,
+    ValueChanged<String>? onSubareas,
+    ValueChanged<String>? onPlants,
+    bool settle = true,
   }) async {
+    final fake = api ?? FakeCatalogApi(requiredToken: testApiToken);
     tester.view.physicalSize = const Size(360, 640);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.reset);
     await tester.pumpWidget(
-      MaterialApp(
-        theme: buildBoticarioTheme(),
-        navigatorObservers: observer == null ? [] : [observer],
-        builder: (context, child) => MediaQuery(
-          data: MediaQuery.of(context).copyWith(
-            textScaler: TextScaler.linear(scale),
-            padding: insets,
-            viewPadding: insets,
+      ProviderScope(
+        overrides: [
+          httpClientProvider.overrideWithValue(fake.client),
+          if (withToken) apiTokenProvider.overrideWithValue(testApiToken),
+        ],
+        child: MaterialApp(
+          theme: buildBoticarioTheme(),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: TextScaler.linear(scale),
+              padding: insets,
+              viewPadding: insets,
+            ),
+            child: child!,
           ),
-          child: child!,
+          home: GoalSearchPage(
+            onBack: back ?? () {},
+            onHome: home ?? () {},
+            onOpenSubareas: onSubareas ?? (_) {},
+            onOpenPlants: onPlants ?? (_) {},
+          ),
         ),
-        home: GoalSearchPage(onBack: back, onHome: home),
       ),
     );
-    await tester.pumpAndSettle();
+    if (settle) {
+      await tester.pumpAndSettle();
+    } else {
+      await tester.pump();
+    }
+    return fake;
   }
 
-  testWidgets(
-    'renders exact ordered content and inert, single-announcement rows',
-    (tester) async {
-      var backCalls = 0;
-      var homeCalls = 0;
-      await show(
-        tester,
-        scale: 1,
-        insets: EdgeInsets.zero,
-        back: () => backCalls++,
-        home: () => homeCalls++,
-      );
-      expect(find.text('¿Qué deseas lograr?'), findsOneWidget);
-      expect(find.text('Selecciona un objetivo principal'), findsOneWidget);
+  testWidgets('shows the goals of the API in order, without counts or '
+      'Concentración', (tester) async {
+    final api = await show(tester);
+    expect(find.text('¿Qué deseas lograr?'), findsOneWidget);
+    expect(find.text('Selecciona un objetivo principal'), findsOneWidget);
+    expect(api.requests.map((r) => r.url.path), ['/v1/goals']);
 
-      final positions = <double>[];
-      final scrollable = tester.state<ScrollableState>(
-        find.byType(Scrollable).first,
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    final viewport = tester.getRect(find.byType(Viewport).first);
+    final positions = <double>[];
+    for (final label in _labels) {
+      final finder = find.text(label);
+      await tester.scrollUntilVisible(
+        finder,
+        180,
+        scrollable: find.byType(Scrollable).first,
       );
-      final viewport = tester.getRect(find.byType(Viewport).first);
-      for (final label in _labels) {
-        expect(find.bySemanticsLabel(label), findsOneWidget);
-        final finder = find.text(label);
-        await tester.scrollUntilVisible(
-          finder,
-          180,
-          scrollable: find.byType(Scrollable).first,
-        );
-        expect(finder, findsOneWidget);
-        final semantics = tester.getSemantics(finder);
-        expect(semantics.label, label);
-        expect(
-          semantics.getSemanticsData().hasAction(SemanticsAction.tap),
-          isFalse,
-        );
-        expect(semantics.flagsCollection.isButton, isNot(true));
-        expect(semantics.flagsCollection.isSelected, isNot(true));
-        final rect = tester.getRect(finder);
-        expect(rect.left, greaterThanOrEqualTo(0));
-        expect(rect.right, lessThanOrEqualTo(360));
-        positions.add(rect.top - viewport.top + scrollable.position.pixels);
-        await tester.tap(finder);
-        await tester.pumpAndSettle();
-        expect(find.text(label), findsOneWidget);
-        expect(backCalls, 0);
-        expect(homeCalls, 0);
-      }
-      expect(positions, orderedEquals([...positions]..sort()));
-      expect(find.byType(TextField), findsNothing);
-      expect(find.text('¿Qué deseas lograr?'), findsOneWidget);
-    },
-  );
+      expect(finder, findsOneWidget);
+      positions.add(
+        tester.getRect(finder).top - viewport.top + scrollable.position.pixels,
+      );
+    }
+    expect(positions, orderedEquals([...positions]..sort()));
+    expect(find.text('Concentración'), findsNothing);
+    expect(find.byType(TextField), findsNothing);
+    // plantCount (17, 8, 32, 52, 135) never reaches the rows.
+    for (final count in ['17', '8', '32', '52', '135']) {
+      expect(find.textContaining(count), findsNothing);
+    }
+  });
+
+  testWidgets('takes names and order from the API without code changes', (
+    tester,
+  ) async {
+    final goals = syntheticGoals().reversed.toList();
+    goals[0] = {...goals[0], 'name': 'Otros asuntos'};
+    await show(
+      tester,
+      api: FakeCatalogApi(requiredToken: testApiToken, goals: goals),
+    );
+    expect(find.text('Otros asuntos'), findsOneWidget);
+    expect(find.text('Otros objetivos'), findsNothing);
+    expect(
+      tester.getRect(find.text('Otros asuntos')).top,
+      lessThan(tester.getRect(find.text('Relajación / Estrés')).top),
+    );
+  });
+
+  testWidgets('a goal with an unknown id gets the generic icon and works', (
+    tester,
+  ) async {
+    final opened = <String>[];
+    await show(
+      tester,
+      api: FakeCatalogApi(
+        requiredToken: testApiToken,
+        goals: [
+          {
+            'id': 'meta-nueva',
+            'name': 'Meta nueva',
+            'plantCount': 3,
+            'subareas': <Object?>[],
+          },
+        ],
+      ),
+      onPlants: opened.add,
+    );
+    final row = find.byKey(const ValueKey('goal-meta-nueva'));
+    expect(
+      find.descendant(of: row, matching: find.byIcon(Icons.eco_outlined)),
+      findsOneWidget,
+    );
+    await tester.tap(find.text('Meta nueva'));
+    expect(opened, ['meta-nueva']);
+  });
+
+  testWidgets('each row is one 48 dp button announced once, icons excluded', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    await show(tester);
+    for (final label in _labels) {
+      final finder = find.bySemanticsLabel(label);
+      await tester.ensureVisible(finder);
+      await tester.pumpAndSettle();
+      expect(finder, findsOneWidget);
+      final data = tester.getSemantics(finder).getSemanticsData();
+      expect(data.label, label);
+      expect(data.flagsCollection.isButton, isTrue);
+      expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
+      expect(data.flagsCollection.isSelected, isNot(ui.Tristate.isTrue));
+      final rect = tester.getRect(find.text(label));
+      expect(tester.getRect(finder).height, greaterThanOrEqualTo(48));
+      expect(rect.left, greaterThanOrEqualTo(0));
+      expect(rect.right, lessThanOrEqualTo(360));
+    }
+    handle.dispose();
+  });
+
+  testWidgets('a row with subareas opens subareas, the others open plants, '
+      'and nothing stays selected', (tester) async {
+    final subareas = <String>[];
+    final plants = <String>[];
+    await show(tester, onSubareas: subareas.add, onPlants: plants.add);
+    await tester.tap(find.text('Mejorar el sueño'));
+    await tester.pumpAndSettle();
+    expect(plants, ['mejorar-el-sueno']);
+    expect(subareas, isEmpty);
+
+    final other = find.text('Otros objetivos');
+    await tester.ensureVisible(other);
+    await tester.pumpAndSettle();
+    await tester.tap(other);
+    await tester.pumpAndSettle();
+    expect(subareas, ['otros-objetivos']);
+    expect(plants, ['mejorar-el-sueno']);
+
+    final handle = tester.ensureSemantics();
+    for (final label in _labels) {
+      final finder = find.bySemanticsLabel(label);
+      await tester.ensureVisible(finder);
+      await tester.pumpAndSettle();
+      final data = tester.getSemantics(finder).getSemanticsData();
+      expect(data.flagsCollection.isSelected, isNot(ui.Tristate.isTrue));
+    }
+    handle.dispose();
+  });
+
+  testWidgets('shows a labelled loading indicator, the header and no rows', (
+    tester,
+  ) async {
+    final api = FakeCatalogApi(
+      requiredToken: testApiToken,
+      failure: FakeApiFailure.timeout,
+    );
+    await show(tester, api: api, settle: false);
+    expect(find.byKey(const ValueKey('goals-loading')), findsOneWidget);
+    expect(find.bySemanticsLabel('Cargando objetivos'), findsOneWidget);
+    expect(find.text('¿Qué deseas lograr?'), findsOneWidget);
+    for (final label in _labels) {
+      expect(find.text(label), findsNothing);
+    }
+    // The 10 s timeout ends the request: no timer is left pending.
+    await tester.pump(const Duration(seconds: 11));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('goals-error')), findsOneWidget);
+  });
+
+  testWidgets('a server error shows Reintentar and a retry shows the rows', (
+    tester,
+  ) async {
+    final api = FakeCatalogApi(
+      requiredToken: testApiToken,
+      failure: FakeApiFailure.serverError,
+    );
+    await show(tester, api: api);
+    expect(find.byKey(const ValueKey('goals-error')), findsOneWidget);
+    expect(find.textContaining('HTTP 500'), findsOneWidget);
+    expect(find.text('Mejorar el sueño'), findsNothing);
+
+    api.failure = FakeApiFailure.none;
+    await tester.tap(find.text('Reintentar'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('goals-error')), findsNothing);
+    expect(find.text('Mejorar el sueño'), findsOneWidget);
+    expect(api.requests, hasLength(2));
+  });
+
+  testWidgets('a connection failure is retryable too', (tester) async {
+    final api = FakeCatalogApi(
+      requiredToken: testApiToken,
+      failure: FakeApiFailure.connection,
+    );
+    await show(tester, api: api);
+    expect(find.text('Reintentar'), findsOneWidget);
+    api.failure = FakeApiFailure.none;
+    await tester.tap(find.text('Reintentar'));
+    await tester.pumpAndSettle();
+    expect(find.text('Relajación / Estrés'), findsOneWidget);
+  });
+
+  testWidgets('a 401 shows the unauthorized error without any token', (
+    tester,
+  ) async {
+    await show(tester, withToken: false);
+    expect(find.text(_unauthorizedMessage), findsOneWidget);
+    expect(find.textContaining(testApiToken), findsNothing);
+    expect(find.text('Reintentar'), findsOneWidget);
+    expect(find.text('Mejorar el sueño'), findsNothing);
+  });
 
   for (final scale in [1.0, 2.0]) {
     testWidgets('fits and scrolls at ${scale * 100}% with system insets', (
       tester,
     ) async {
+      const safe = Rect.fromLTRB(8, 24, 348, 616);
       await show(
         tester,
         scale: scale,
         insets: const EdgeInsets.fromLTRB(8, 24, 12, 24),
-        back: () {},
-        home: () {},
       );
       expect(tester.takeException(), isNull);
       final scrollable = tester.state<ScrollableState>(
         find.byType(Scrollable).first,
       );
       final viewport = tester.getRect(find.byType(Viewport).first);
-      final bodyTexts = [
+      final documentPositions = <double>[];
+      for (final text in [
         '¿Qué deseas lograr?',
         'Selecciona un objetivo principal',
         ..._labels,
-      ];
-      final documentPositions = <double>[];
-      for (final text in bodyTexts) {
+      ]) {
         final finder = find.text(text);
         await tester.ensureVisible(finder);
         await tester.pumpAndSettle();
@@ -148,7 +313,7 @@ void main() {
           finder,
           text,
           tester.getRect(find.byType(Viewport).first),
-          const Rect.fromLTRB(8, 24, 348, 616),
+          safe,
         );
         if (_labels.contains(text)) {
           documentPositions.add(
@@ -156,10 +321,15 @@ void main() {
                 viewport.top +
                 scrollable.position.pixels,
           );
+          final row = tester.getRect(
+            find.ancestor(of: finder, matching: find.byType(InkWell)).first,
+          );
+          expect(row.height, greaterThanOrEqualTo(48));
+          expect(row.left, greaterThanOrEqualTo(safe.left));
+          expect(row.right, lessThanOrEqualTo(safe.right));
         }
         expect(tester.takeException(), isNull);
       }
-      // Verify the live document order, independent of the current scroll offset.
       expect(documentPositions, orderedEquals([...documentPositions]..sort()));
 
       for (final label in ['Inicio', 'Favoritos', 'Historial', 'Perfil']) {
@@ -172,24 +342,19 @@ void main() {
           find.text(label).last,
           label,
           tester.getRect(find.byType(Scaffold)),
-          const Rect.fromLTRB(8, 24, 348, 616),
+          safe,
         );
       }
       await tester.drag(find.byType(Scrollable).first, const Offset(0, 2000));
       await tester.pumpAndSettle();
-      final back = find.byTooltip('Volver a Inicio');
       _expectControlInSafeBounds(
         tester,
-        back,
-        const Rect.fromLTRB(8, 24, 348, 616),
+        find.byTooltip('Volver a Inicio'),
+        safe,
       );
       expect(find.bySemanticsLabel('Volver a Inicio'), findsOneWidget);
       final home = find.bySemanticsLabel('Inicio');
-      _expectControlInSafeBounds(
-        tester,
-        home,
-        const Rect.fromLTRB(8, 24, 348, 616),
-      );
+      _expectControlInSafeBounds(tester, home, safe);
 
       final homeData = tester.getSemantics(home).getSemanticsData();
       expect(homeData.flagsCollection.isSelected, ui.Tristate.isTrue);
@@ -205,76 +370,31 @@ void main() {
     });
   }
 
-  testWidgets(
-    'goal and inactive-tab taps emit no logs or UI/navigation/overlay changes',
-    (tester) async {
-      var backCalls = 0;
-      var homeCalls = 0;
-      final observer = _RecordingNavigatorObserver();
-      final logs = <String?>[];
-      final originalDebugPrint = debugPrint;
-      debugPrint = (message, {wrapWidth}) => logs.add(message);
-      try {
-        await show(
-          tester,
-          scale: 1,
-          insets: EdgeInsets.zero,
-          back: () => backCalls++,
-          home: () => homeCalls++,
-          observer: observer,
-        );
-        final pushesAtRest = observer.pushes;
-        final popsAtRest = observer.pops;
-        expect(logs, isEmpty, reason: 'no log while rendering');
-        final contentBefore = _contentSnapshot(tester);
-        final modalBarriersAtRest = find.byType(ModalBarrier).evaluate().length;
-        await tester.pump(); // Explicit no-input rebuild must remain silent.
-        expect(logs, isEmpty, reason: 'no log on rebuild');
-        for (final label in _labels) {
-          final row = find.text(label);
-          await tester.ensureVisible(row);
-          await tester.pumpAndSettle();
-          await tester.tap(row);
-          await tester.pumpAndSettle();
-          expect(_contentSnapshot(tester), contentBefore);
-          final rowData = tester.getSemantics(row).getSemanticsData();
-          expect(rowData.hasAction(ui.SemanticsAction.tap), isFalse);
-          expect(rowData.flagsCollection.isSelected, isNot(ui.Tristate.isTrue));
-          _expectNoUnexpectedUi(tester, modalBarriersAtRest);
-          expect(observer.pushes, pushesAtRest);
-          expect(observer.pops, popsAtRest);
-          expect(backCalls, 0);
-          expect(homeCalls, 0);
-          expect(logs, isEmpty, reason: 'tap/rebuild for $label');
-        }
-        for (final tab in ['Favoritos', 'Historial', 'Perfil']) {
-          await tester.tap(find.bySemanticsLabel('$tab no disponible'));
-          await tester.pumpAndSettle();
-          expect(_contentSnapshot(tester), contentBefore);
-          _expectNoUnexpectedUi(tester, modalBarriersAtRest);
-          expect(observer.pushes, pushesAtRest);
-          expect(observer.pops, popsAtRest);
-          expect(backCalls, 0);
-          expect(homeCalls, 0);
-          expect(logs, isEmpty, reason: 'inert tab $tab');
-        }
-        expect(backCalls, 0);
-      } finally {
-        debugPrint = originalDebugPrint;
-      }
-    },
-  );
+  testWidgets('the other tabs do nothing and the bottom bar stays intact', (
+    tester,
+  ) async {
+    var calls = 0;
+    await show(
+      tester,
+      back: () => calls++,
+      home: () => calls++,
+      onSubareas: (_) => calls++,
+      onPlants: (_) => calls++,
+    );
+    for (final tab in ['Favoritos', 'Historial', 'Perfil']) {
+      await tester.tap(find.bySemanticsLabel('$tab no disponible'));
+      await tester.pumpAndSettle();
+      expect(calls, 0);
+      expect(find.byType(Dialog), findsNothing);
+      expect(find.byType(SnackBar), findsNothing);
+    }
+    expect(find.text('Relajación / Estrés'), findsOneWidget);
+  });
 
   testWidgets('back and home callbacks run once each', (tester) async {
     var backCalls = 0;
     var homeCalls = 0;
-    await show(
-      tester,
-      scale: 1,
-      insets: EdgeInsets.zero,
-      back: () => backCalls++,
-      home: () => homeCalls++,
-    );
+    await show(tester, back: () => backCalls++, home: () => homeCalls++);
     await tester.tap(find.byTooltip('Volver a Inicio'));
     await tester.tap(find.bySemanticsLabel('Inicio'));
     expect(backCalls, 1);
@@ -345,40 +465,4 @@ void _expectControlInSafeBounds(
   expect(rect.right, lessThanOrEqualTo(safeRect.right));
   expect(rect.top, greaterThanOrEqualTo(safeRect.top));
   expect(rect.bottom, lessThanOrEqualTo(safeRect.bottom));
-}
-
-List<String> _contentSnapshot(WidgetTester tester) => [
-  for (final text in [
-    '¿Qué deseas lograr?',
-    'Selecciona un objetivo principal',
-    ..._labels,
-  ])
-    '$text:${find.text(text).evaluate().length}',
-  'selectedHome:${tester.getSemantics(find.bySemanticsLabel('Inicio')).getSemanticsData().flagsCollection.isSelected}',
-  for (final label in ['Favoritos', 'Historial', 'Perfil'])
-    'inactive:$label:${tester.getSemantics(find.bySemanticsLabel('$label no disponible')).getSemanticsData().flagsCollection.isEnabled}',
-];
-
-void _expectNoUnexpectedUi(WidgetTester tester, int modalBarriersAtRest) {
-  expect(find.byType(Dialog), findsNothing);
-  expect(find.byType(SnackBar), findsNothing);
-  expect(find.byType(Drawer), findsNothing);
-  expect(find.byType(ModalBarrier).evaluate().length, modalBarriersAtRest);
-}
-
-class _RecordingNavigatorObserver extends NavigatorObserver {
-  int pushes = 0;
-  int pops = 0;
-
-  @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    pushes++;
-    super.didPush(route, previousRoute);
-  }
-
-  @override
-  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    pops++;
-    super.didPop(route, previousRoute);
-  }
 }

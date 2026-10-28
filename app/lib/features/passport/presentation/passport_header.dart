@@ -7,6 +7,9 @@ import 'passport_link.dart';
 import 'passport_style.dart';
 import 'passport_texts.dart';
 
+/// Back label when the passport is opened from Explorar.
+const defaultPassportBackLabel = 'Volver a Explorar';
+
 /// Passport header: back button, plant icon, names and the favorite stub,
 /// plus the plant photo with its attribution when there is one.
 ///
@@ -17,12 +20,16 @@ class PassportHeader extends StatelessWidget {
   const PassportHeader({
     required this.plant,
     required this.onBack,
+    this.backLabel = defaultPassportBackLabel,
     this.imageProviderFor = PlantImagePolicy.thumbnailProviderFor,
     super.key,
   });
 
   final Plant plant;
   final VoidCallback onBack;
+
+  /// Label of the back button: it names the screen the passport came from.
+  final String backLabel;
   final ImageProvider? Function(String? url) imageProviderFor;
 
   @override
@@ -50,7 +57,7 @@ class PassportHeader extends StatelessWidget {
           width: 48,
           height: 48,
           child: IconButton(
-            tooltip: 'Volver a Explorar',
+            tooltip: backLabel,
             onPressed: onBack,
             icon: const Icon(Icons.chevron_left),
             color: passportGreen,

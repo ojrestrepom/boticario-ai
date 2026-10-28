@@ -217,3 +217,46 @@ fn the_357_previous_names_find_their_new_plant() {
         "{recovered} de {total}; faltan {missing:#?}"
     );
 }
+
+#[test]
+#[ignore = "necesita data/build/catalog.db (se genera con `catalog-ingest build`)"]
+fn common_names_are_alphabetical_and_spanish_goes_first_on_a_display_name_tie() {
+    let repo = open_real();
+    for id in ["acorus-calamus", "aleurites-moluccanus"] {
+        let plant = plant(&repo, id);
+        let rest: Vec<&str> = plant
+            .names
+            .iter()
+            .filter(|n| {
+                n.kind == catalog_core::domain::NameKind::Common && n.text != plant.display_name
+            })
+            .map(|n| n.text.as_str())
+            .collect();
+        let mut sorted = rest.clone();
+        sorted.sort_by_cached_key(|t| catalog_core::normalize::normalize_name(t));
+        assert_eq!(rest, sorted, "{id}");
+    }
+    // Todas las plantas tipo «Sisal»: el `displayName` aparece en `en` y en `es` y el `es` va delante.
+    let page = repo
+        .list_plants(&ListQuery {
+            q: None,
+            limit: 5000,
+            offset: 0,
+        })
+        .unwrap();
+    let mut ties = 0;
+    for p in &page.items {
+        let langs: Vec<&str> = p
+            .common_names
+            .iter()
+            .filter(|n| n.text == p.display_name)
+            .map(|n| n.language.as_str())
+            .collect();
+        if langs.contains(&"en") && langs.contains(&"es") {
+            ties += 1;
+            assert_eq!(p.common_names[0].language, "es", "{}", p.id.0);
+        }
+    }
+    println!("plantas con empate en/es: {ties}");
+    assert!(ties > 0);
+}

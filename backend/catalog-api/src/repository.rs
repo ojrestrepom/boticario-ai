@@ -298,8 +298,7 @@ impl CatalogRepository for SqliteCatalogRepository {
                     .remove(&p.id)
                     .unwrap_or_else(|| p.scientific_name.clone());
                 let mut common_names = commons.remove(p.id.as_str()).unwrap_or_default();
-                // Orden estable: la consulta ya dejó los nombres por texto, idioma e id; solo sube el nombre para mostrar.
-                common_names.sort_by_key(|n| n.text != display_name);
+                sort_common_names(&mut common_names, &display_name);
                 PlantSummary {
                     id: PlantId(p.id.clone()),
                     scientific_name: p.scientific_name.clone(),
@@ -400,6 +399,20 @@ impl CatalogRepository for SqliteCatalogRepository {
     }
 }
 
+/// Ordena los nombres comunes: primero los que coinciden con el nombre para mostrar (el de idioma `es` antes que los demás), y luego el resto por texto normalizado (sin mayúsculas ni acentos), texto original e idioma, de modo que el orden es total y estable.
+fn sort_common_names(names: &mut [PlantName], display_name: &str) {
+    names.sort_by_cached_key(|n| {
+        let is_display = n.text == display_name;
+        (
+            !is_display,
+            is_display && n.language != "es",
+            normalize_name(&n.text),
+            n.text.clone(),
+            n.language.clone(),
+        )
+    });
+}
+
 /// Nombres de la planta: científicos primero y luego los comunes, con el nombre para mostrar a la cabeza de estos si es uno de ellos; el resto, por texto e idioma.
 fn load_names(
     conn: &mut SqliteConnection,
@@ -411,24 +424,17 @@ fn load_names(
         .select(PlantNameRow::as_select())
         .load(conn)
         .map_err(storage)?;
-    let mut names = rows
+    let names = rows
         .iter()
         .map(to_plant_name)
         .collect::<Result<Vec<_>, RepositoryError>>()?;
-    // `NameKind` no implementa `Ord`, así que se ordena por un rango explícito: científico antes que común.
-    // Entre los comunes, el que coincide con el nombre para mostrar va primero; entre los científicos nunca se destaca ninguno.
-    names.sort_by(|a, b| {
-        let key = |n: &PlantName| {
-            let common = n.kind == NameKind::Common;
-            (
-                u8::from(common),
-                common && n.text != display_name,
-                n.text.clone(),
-                n.language.clone(),
-            )
-        };
-        key(a).cmp(&key(b))
-    });
+    // `NameKind` no implementa `Ord`, así que se separa por un rango explícito: científico antes que común.
+    // Los científicos conservan su orden por texto e idioma; los comunes siguen `sort_common_names`.
+    let (mut commons, mut names): (Vec<PlantName>, Vec<PlantName>) =
+        names.into_iter().partition(|n| n.kind == NameKind::Common);
+    names.sort_by(|a, b| (&a.text, &a.language).cmp(&(&b.text, &b.language)));
+    sort_common_names(&mut commons, display_name);
+    names.extend(commons);
     Ok(names)
 }
 
@@ -564,6 +570,7 @@ fn load_use_groups(
     out.sort_by(|(ia, a), (ib, b)| {
         b.count
             .cmp(&a.count)
+            .then_with(|| normalize_name(&a.activity).cmp(&normalize_name(&b.activity)))
             .then_with(|| a.activity.cmp(&b.activity))
             .then_with(|| ia.cmp(ib))
     });
@@ -1309,6 +1316,101 @@ mod tests {
         assert_eq!(
             texts(&plant.names[2..]),
             ["Lavanda", "Espliego", "Lavender"]
+        );
+    }
+
+    fn language_of<'a>(names: &'a [PlantName], text: &str) -> Vec<&'a str> {
+        names
+            .iter()
+            .filter(|n| n.text == text)
+            .map(|n| n.language.as_str())
+            .collect()
+    }
+
+    #[test]
+    fn common_names_sort_ignoring_case_and_accents_after_the_display_name() {
+        // Escenario «Nombre para mostrar primero» con «Árnica»: el orden binario daría «Espliego» antes.
+        let fixture = Fixture::standard();
+        fixture.insert_name("lavandula-angustifolia", "Árnica", "common", "es");
+        let repo = fixture.repo();
+        let lavender = summary_of(&repo, "lavandula angustifolia");
+        assert_eq!(
+            texts(&lavender.common_names),
+            ["Lavanda", "Árnica", "Espliego", "Lavender"]
+        );
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            texts(&plant.names[2..]),
+            ["Lavanda", "Árnica", "Espliego", "Lavender"]
+        );
+    }
+
+    #[test]
+    fn common_names_mix_upper_and_lower_case_and_start_with_accented_letters() {
+        let fixture = Fixture::standard();
+        for text in ["cálamo acuático", "Ácoro", "Zarza", "bálsamo", "Cálamo"] {
+            fixture.insert_name("lavandula-angustifolia", text, "common", "es");
+        }
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            texts(&plant.names[2..]),
+            [
+                "Lavanda",
+                "Ácoro",
+                "bálsamo",
+                "Cálamo",
+                "cálamo acuático",
+                "Espliego",
+                "Lavender",
+                "Zarza"
+            ]
+        );
+    }
+
+    #[test]
+    fn spanish_name_goes_first_when_english_and_spanish_equal_the_display_name() {
+        // Caso «Sisal»: el mismo texto en `en` y en `es`; el `es` va primero, también si el `en` se insertó antes.
+        let fixture = Fixture::standard();
+        fixture.insert_name("lavandula-angustifolia", "Lavanda", "common", "en");
+        let repo = fixture.repo();
+        let summary = summary_of(&repo, "lavandula angustifolia");
+        assert_eq!(summary.display_name, "Lavanda");
+        assert_eq!(language_of(&summary.common_names, "Lavanda"), ["es", "en"]);
+        assert_eq!(summary.common_names[0].language, "es");
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(plant.names[2].language, "es");
+        assert_eq!(language_of(&plant.names, "Lavanda"), ["es", "en"]);
+    }
+
+    #[test]
+    fn use_groups_with_equal_count_sort_activities_ignoring_accents() {
+        let fixture = Fixture::standard();
+        fixture.insert_use_group("lavandula-angustifolia", "Zumbido", 91, 5);
+        fixture.insert_use_group("lavandula-angustifolia", "Úlcera", 92, 5);
+        fixture.insert_use_group("lavandula-angustifolia", "alivio", 93, 5);
+        let repo = fixture.repo();
+        let plant = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        let activities: Vec<&str> = plant
+            .use_groups
+            .iter()
+            .map(|g| g.activity.as_str())
+            .collect();
+        assert_eq!(
+            activities,
+            ["Sedante", "alivio", "Úlcera", "Zumbido", "Antiséptico"]
         );
     }
 

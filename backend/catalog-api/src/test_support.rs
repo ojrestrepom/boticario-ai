@@ -82,6 +82,28 @@ impl Fixture {
         add_review_flag(&mut conn, plant_id, code, target);
     }
 
+    /// Añade un nombre a la base ya creada, como `insert_alias`.
+    pub fn insert_name(&self, plant_id: &str, text: &str, kind: &str, language: &str) {
+        let mut conn = SqliteConnection::establish(self.path.to_str().unwrap()).unwrap();
+        add_name(&mut conn, plant_id, text, kind, language, &["a"]);
+    }
+
+    /// Añade un grupo de uso resuelto (con una cita) a la base ya creada, como `insert_alias`.
+    pub fn insert_use_group(&self, plant_id: &str, activity: &str, position: i32, n: i32) {
+        let mut conn = SqliteConnection::establish(self.path.to_str().unwrap()).unwrap();
+        let group = add_use_group(
+            &mut conn,
+            plant_id,
+            position,
+            activity,
+            activity,
+            n,
+            &[],
+            false,
+        );
+        add_use_group_ref(&mut conn, group, "k", 0, "Smith 1990", Some("ref-1"));
+    }
+
     /// Abre el repositorio sobre la fixture.
     pub fn repo(&self) -> SqliteCatalogRepository {
         SqliteCatalogRepository::open(&self.path).unwrap()

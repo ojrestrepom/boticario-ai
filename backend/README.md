@@ -81,12 +81,12 @@ curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants?q=lavand
 
 ### Qué devuelve la API
 
-Cada elemento del listado lleva `id`, `scientificName`, `displayName` (el nombre para mostrar que guarda la semilla: un nombre común en español o, si no hay, el científico), `commonNames` (con `displayName` primero si es un nombre común y el resto por texto e idioma) y `family`.
+Cada elemento del listado lleva `id`, `scientificName`, `displayName` (el nombre para mostrar que guarda la semilla: un nombre común en español o, si no hay, el científico), `commonNames` (con `displayName` primero si es un nombre común, el de idioma `es` antes si varios coinciden con él, y el resto por texto sin distinguir mayúsculas ni acentos, con el texto original y el idioma como desempate; el detalle usa el mismo orden en `names`) y `family`.
 
 El detalle suma `names`, `parts` y `uses` (una fila por referencia resuelta, con la etiqueta de la referencia como cita) y los campos consolidados, siempre presentes (`null` o lista vacía si la planta no tiene el dato):
 
 - `synonyms`, `description`, `origin` y `oil` (`{"type": "Esencial"}`).
-- `useGroups`: grupos de uso tradicional por número de registros descendente y actividad, con `activity`, `activitySource`, `count`, `countries` y `references`; la `citation` de cada referencia es el texto completo de la cita y una cita sin obra identificada lleva `id` nulo, `resolved` falso y «<clave> (sin resolver)».
+- `useGroups`: grupos de uso tradicional por número de registros descendente y actividad (sin distinguir mayúsculas ni acentos), con `activity`, `activitySource`, `count`, `countries` y `references`; la `citation` de cada referencia es el texto completo de la cita y una cita sin obra identificada lleva `id` nulo, `resolved` falso y «<clave> (sin resolver)».
 - `goals`: objetivos por nombre, con `id`, `name`, `subarea` (solo en «otros objetivos»), `area`, `evidence` y `references`.
 - `safety`: `level` (`alto`, `medio`, `bajo` o `null` si las fuentes traen advertencias pero ninguna fija un nivel, como el eucalipto), `text` y `references`; es `null` solo cuando no hay ningún dato, lo que no significa que la planta sea segura.
 - `image`: `url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`, o `null`. La API solo entrega los datos del registro: no descarga ni sirve la imagen.

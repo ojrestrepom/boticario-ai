@@ -114,18 +114,52 @@ class GoalHeaderBar extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleLarge
-                ?.copyWith(color: goalInk),
-          ),
-        ),
+        Expanded(child: _HeaderTitle(title)),
         const SizedBox(width: 48),
       ],
     ),
   );
+}
+
+/// Centered title that may wrap between words but never inside one: if the
+/// longest word does not fit the width left between the side controls, the
+/// text scale of the title is reduced just enough for that word to fit.
+class _HeaderTitle extends StatelessWidget {
+  const _HeaderTitle(this.title);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.titleLarge
+        ?.copyWith(color: goalInk);
+    final scaler = MediaQuery.textScalerOf(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        var widest = 0.0;
+        for (final word in title.split(RegExp(r'\s+'))) {
+          final painter = TextPainter(
+            text: TextSpan(text: word, style: style),
+            textDirection: Directionality.of(context),
+            textScaler: scaler,
+          )..layout();
+          if (painter.width > widest) widest = painter.width;
+          painter.dispose();
+        }
+        final fits = widest <= constraints.maxWidth;
+        return Text(
+          title,
+          textAlign: TextAlign.center,
+          textScaler: fits
+              ? null
+              : TextScaler.linear(
+                  scaler.scale(1) * constraints.maxWidth / widest,
+                ),
+          style: style,
+        );
+      },
+    );
+  }
 }
 
 /// Shared bottom bar with Inicio selected; the other three have no action.

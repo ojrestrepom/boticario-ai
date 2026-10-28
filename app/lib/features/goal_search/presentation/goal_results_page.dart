@@ -388,7 +388,13 @@ class _PlantCard extends StatelessWidget {
       content = PlantPhotoImage(
         provider: provider,
         height: _photoHeight,
-        placeholder: art,
+        placeholder: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            art,
+            SizedBox(height: _creditLineHeight(context)),
+          ],
+        ),
         failed: art,
         loaded: (context, photo) => Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -406,6 +412,20 @@ class _PlantCard extends StatelessWidget {
     }
     return Padding(padding: const EdgeInsets.only(bottom: 8), child: content);
   }
+}
+
+/// Height of the credit line (gap plus one line of text) that a card with a
+/// derivable thumbnail keeps free while the image loads, so the card does not
+/// grow when the credit appears. No text is shown until the image loads.
+double _creditLineHeight(BuildContext context) {
+  final painter = TextPainter(
+    text: TextSpan(text: 'Foto', style: Theme.of(context).textTheme.bodySmall),
+    textDirection: Directionality.of(context),
+    textScaler: MediaQuery.textScalerOf(context),
+  )..layout();
+  final height = painter.height;
+  painter.dispose();
+  return 4 + height;
 }
 
 bool _isCaution(GoalPlant plant) =>

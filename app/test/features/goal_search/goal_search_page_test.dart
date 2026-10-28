@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
+import 'package:boticario_ai/features/goal_search/presentation/goal_list_shell.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -399,6 +400,23 @@ void main() {
     await tester.tap(find.bySemanticsLabel('Inicio'));
     expect(backCalls, 1);
     expect(homeCalls, 1);
+  });
+
+  testWidgets('the last row ends above the bottom bar at the end of the scroll '
+      '(360x640, 100 %)', (tester) async {
+    await show(tester);
+    await tester.scrollUntilVisible(
+      find.bySemanticsLabel('Otros objetivos'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.drag(find.byType(Scrollable).first, const Offset(0, -2000));
+    await tester.pumpAndSettle();
+    final row = tester.getRect(
+      find.byKey(const ValueKey('goal-otros-objetivos')),
+    );
+    final bar = tester.getRect(find.byType(GoalBottomBar));
+    expect(row.bottom, lessThanOrEqualTo(bar.top - 16));
   });
 }
 

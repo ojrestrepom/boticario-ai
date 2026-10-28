@@ -372,6 +372,43 @@ void main() {
       expect(find.byType(Image), findsOneWidget);
     });
 
+    testWidgets('the card keeps its height when the photo arrives', (
+      tester,
+    ) async {
+      final item = _item('goal_plants_relajacion-estres.json');
+      var loaded = false;
+      await show(
+        tester,
+        items: [item],
+        imageProviderFor: (url) => loaded ? _loads(url) : _never(url),
+      );
+      final loading = tester.getSize(_card('crataegus-azarolus')).height;
+      expect(find.textContaining('Foto:'), findsNothing);
+      loaded = true;
+      await tester.pumpWidget(const SizedBox());
+      await show(tester, items: [item], imageProviderFor: _loads);
+      await _settleImage(tester);
+      expect(find.textContaining('Foto:'), findsOneWidget);
+      expect(
+        tester.getSize(_card('crataegus-azarolus')).height,
+        closeTo(loading, 0.5),
+      );
+    });
+
+    testWidgets('a card without a derivable thumbnail reserves nothing', (
+      tester,
+    ) async {
+      final item = _item('goal_plants_relajacion-estres.json');
+      await show(tester, items: [item], imageProviderFor: _never);
+      final withSlot = tester.getSize(_card('crataegus-azarolus')).height;
+      await tester.pumpWidget(const SizedBox());
+      await show(tester, items: [item], imageProviderFor: (_) => null);
+      expect(
+        tester.getSize(_card('crataegus-azarolus')).height,
+        lessThan(withSlot),
+      );
+    });
+
     testWidgets('credit is shown also without attributionRequired', (
       tester,
     ) async {
@@ -826,6 +863,17 @@ void main() {
       expect(find.byType(BottomSheet), findsNothing);
     });
 
+    testWidgets('closes by dragging the body text down', (tester) async {
+      await show(tester);
+      await openSheet(tester);
+      await tester.drag(
+        find.text(GoalResultsTexts.sheetBody),
+        const Offset(0, 600),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byType(BottomSheet), findsNothing);
+    });
+
     testWidgets('closes with the system back and keeps the page', (
       tester,
     ) async {
@@ -844,6 +892,24 @@ void main() {
   });
 
   group('accessibility', () {
+    testWidgets('title is not split mid-word at 200 % on 360x640', (
+      tester,
+    ) async {
+      await show(tester, scale: 2);
+      final title = find.text(GoalResultsTexts.title);
+      expect(title, findsOneWidget);
+      final style = tester.widget<Text>(title).style!;
+      final scaler = MediaQuery.textScalerOf(tester.element(title));
+      final oneLine = TextPainter(
+        text: TextSpan(text: 'R', style: style),
+        textDirection: TextDirection.ltr,
+        textScaler: scaler,
+      )..layout();
+      // One word: a single line of the (possibly reduced) title.
+      expect(tester.getSize(title).height, lessThanOrEqualTo(oneLine.height));
+      expect(tester.takeException(), isNull);
+    });
+
     for (final scale in [1.0, 2.0]) {
       testWidgets('cards, marks and notice at 360x640 and ${scale * 100} %', (
         tester,

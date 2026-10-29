@@ -35,6 +35,28 @@ class PassportSourcesTab extends StatelessWidget {
   }
 }
 
+final _urlPattern = RegExp(r'https?://\S+', caseSensitive: false);
+
+/// [attribution] for display: URLs removed, because the source is linked on
+/// its name. Whatever the removal leaves hanging is tidied: empty brackets,
+/// repeated spaces, a space before punctuation and a doubled full stop. The
+/// data itself is not changed.
+String attributionWithoutUrls(String attribution) {
+  var text = attribution.replaceAllMapped(_urlPattern, (match) {
+    // Closing punctuation after the URL belongs to the sentence, not to it.
+    final url = match[0]!;
+    final end =
+        url.length - url.replaceFirst(RegExp(r'[.,;:!?)\]]+$'), '').length;
+    return url.substring(url.length - end);
+  });
+  text = text
+      .replaceAll(RegExp(r'\(\s*\)|\[\s*\]'), '')
+      .replaceAll(RegExp(r'\s+'), ' ')
+      .replaceAllMapped(RegExp(r'\s+([.,;:])'), (m) => m[1]!)
+      .replaceAll(RegExp(r'(?<!\.)\.\.(?!\.)'), '.');
+  return text.trim();
+}
+
 TextStyle? _titleStyle(BuildContext context) =>
     Theme.of(context).textTheme.titleSmall
         ?.copyWith(color: passportInk, fontWeight: FontWeight.w700);
@@ -79,7 +101,8 @@ class _CreditEntry extends StatelessWidget {
         ),
         _LicenseRow(license: credit.license, licenseUrl: credit.licenseUrl),
         Text(
-          '${PassportTexts.attributionPrefix}: ${credit.attribution}',
+          '${PassportTexts.attributionPrefix}: '
+          '${attributionWithoutUrls(credit.attribution)}',
           style: Theme.of(context).textTheme.bodySmall
               ?.copyWith(color: passportMuted),
         ),

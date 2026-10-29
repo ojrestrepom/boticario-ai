@@ -68,7 +68,10 @@ void main() {
     for (final credit in plant.credits) {
       expect(find.text(credit.name), findsOneWidget, reason: credit.name);
       expect(find.text('Licencia: ${credit.license}'), findsWidgets);
-      expect(find.text('Atribución: ${credit.attribution}'), findsWidgets);
+      expect(
+        find.text('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
+        findsWidgets,
+      );
       // The name is a link only when the credit has a page.
       expect(
         _active(credit.name),
@@ -99,20 +102,15 @@ void main() {
     for (final id in ['lavandula-angustifolia', 'eucalyptus-globulus']) {
       final plant = consolidatedPlant(id);
       await _openSources(tester, plant);
-      // Required attributions are verbatim data and may quote a DOI; nothing
-      // else on the tab is a URL (see the design notes on this difference).
-      final shown =
-          [
-            for (final t in tester.widgetList<Text>(
-              find.descendant(
-                of: find.byType(PassportSourcesTab),
-                matching: find.byType(Text),
-              ),
-            ))
-              t.data ?? t.textSpan?.toPlainText() ?? '',
-          ].where(
-            (text) => !text.startsWith('${PassportTexts.attributionPrefix}:'),
-          );
+      final shown = [
+        for (final t in tester.widgetList<Text>(
+          find.descendant(
+            of: find.byType(PassportSourcesTab),
+            matching: find.byType(Text),
+          ),
+        ))
+          t.data ?? t.textSpan?.toPlainText() ?? '',
+      ];
       for (final text in shown) {
         expect(text, isNot(contains('http')), reason: '$id: $text');
         expect(text, isNot(contains('www.')), reason: '$id: $text');
@@ -121,6 +119,73 @@ void main() {
       expect(find.byType(TextButton), findsNothing, reason: id);
       expect(find.byIcon(Icons.open_in_new), findsNothing, reason: id);
     }
+  });
+
+  testWidgets('la atribución se muestra sin URL y el dato no cambia', (
+    tester,
+  ) async {
+    final plant = consolidatedPlant('lavandula-angustifolia');
+    final withUrl = plant.credits.where((c) => c.attribution.contains('http'));
+    expect(withUrl, isNotEmpty);
+    await _openSources(tester, plant);
+    for (final credit in withUrl) {
+      final shown = attributionWithoutUrls(credit.attribution);
+      expect(shown, isNot(contains('http')), reason: credit.name);
+      expect(find.text('Atribución: $shown'), findsOneWidget);
+    }
+  });
+
+  group('attributionWithoutUrls', () {
+    test('URL al final (EFSA)', () {
+      expect(
+        attributionWithoutUrls(
+          "EFSA (2016). EFSA's compendium of botanicals. Zenodo. "
+          'https://doi.org/10.5281/zenodo.996024',
+        ),
+        "EFSA (2016). EFSA's compendium of botanicals. Zenodo.",
+      );
+    });
+
+    test('URL entre paréntesis (Wikipedia)', () {
+      expect(
+        attributionWithoutUrls(
+          'Colaboradores de Wikipedia en español (https://es.wikipedia.org). '
+          'Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a '
+          'sus autores.',
+        ),
+        'Colaboradores de Wikipedia en español. Texto bajo CC BY-SA 4.0; '
+        'el historial de cada artículo lista a sus autores.',
+      );
+      expect(
+        attributionWithoutUrls(
+          'Colaboradores de Wikidata (https://www.wikidata.org). Datos '
+          'estructurados bajo CC0 1.0.',
+        ),
+        'Colaboradores de Wikidata. Datos estructurados bajo CC0 1.0.',
+      );
+    });
+
+    test('sin URL no cambia', () {
+      const text = 'Autores de la obra (2020). Título. Editorial... Fin.';
+      expect(attributionWithoutUrls(text), text);
+    });
+
+    test('URL a mitad de frase', () {
+      expect(
+        attributionWithoutUrls('Datos de http://a.org/x, versión 2 y más.'),
+        'Datos de, versión 2 y más.',
+      );
+      expect(
+        attributionWithoutUrls('Ver https://a.org/x. Después sigue.'),
+        'Ver. Después sigue.',
+      );
+    });
+
+    test('punto duplicado, dobles espacios y solo URL', () {
+      expect(attributionWithoutUrls('Obra.  https://a.org/.'), 'Obra.');
+      expect(attributionWithoutUrls('Obra   (  ) fin'), 'Obra fin');
+      expect(attributionWithoutUrls('https://a.org'), '');
+    });
   });
 
   testWidgets('la pestaña no lleva título ni separador propios', (
@@ -156,7 +221,7 @@ void main() {
     await _openSources(tester, plant);
     final credit = plant.credits.first;
     final attribution = tester.widget<Text>(
-      find.text('Atribución: ${credit.attribution}'),
+      find.text('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
     );
     final license = tester.widget<RichText>(
       find
@@ -178,7 +243,9 @@ void main() {
     // No link on the attribution.
     expect(
       find.ancestor(
-        of: find.text('Atribución: ${credit.attribution}'),
+        of: find.text(
+          'Atribución: ${attributionWithoutUrls(credit.attribution)}',
+        ),
         matching: find.byType(PassportInlineLink),
       ),
       findsNothing,

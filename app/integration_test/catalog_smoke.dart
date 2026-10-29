@@ -795,12 +795,10 @@ void _expectPhotoFooterLinks(WidgetTester tester) {
   _expectNoUrlText(tester);
 }
 
-/// No `Text` on screen shows a URL. Required attributions are verbatim data
-/// and may quote a DOI, so `Atribución:` lines are left out.
+/// No `Text` on screen shows a URL (attributions are shown without them).
 void _expectNoUrlText(WidgetTester tester) {
   for (final text in tester.widgetList<Text>(find.byType(Text))) {
     final shown = text.data ?? text.textSpan?.toPlainText() ?? '';
-    if (shown.startsWith('${PassportTexts.attributionPrefix}:')) continue;
     expect(shown, isNot(contains('http')), reason: shown);
   }
   expect(find.byType(SelectableText), findsNothing);

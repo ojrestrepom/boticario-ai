@@ -25,11 +25,11 @@ Cada grupo es una columna con tres elementos: la actividad (`titleSmall`, negrit
 
 ### D2. Control de citas
 
-Un `TextButton`-like (`InkWell` o `TextButton` con `minimumSize` 48x48) alineado a la izquierda, con el texto «Ver N citas» / «Ver 1 cita» plegado y «Ocultar citas» desplegado, y un icono de flecha (`▸` o `expand_more`/`expand_less`) que no es lo único que indica el estado. El texto de «Ver N citas» sale de `PassportTexts.showCitations(count)` y el de plegar de `PassportTexts.hideCitations`. N es `references.length`, que es lo que se despliega (puede diferir de `count` si hay registros sin referencia propia; el control cuenta citas, la línea de datos cuenta registros). Las citas desplegadas usan el widget `_Citation` actual sin cambios, dentro del mismo grupo y antes del `Divider`.
+Un `TextButton`-like (`InkWell` o `TextButton` con `minimumSize` 48x48) alineado a la izquierda, con el texto «Ver N citas» / «Ver 1 cita» plegado y «Ocultar citas» desplegado, y un icono de Material (`expand_more` plegado, `expand_less` desplegado) que no es lo único que indica el estado (decisión del usuario, antes Q2). El texto de «Ver N citas» sale de `PassportTexts.showCitations(count)` y el de plegar de `PassportTexts.hideCitations`. N es `references.length`, que es lo que se despliega (puede diferir de `count` si hay registros sin referencia propia; el control cuenta citas, la línea de datos cuenta registros). Las citas desplegadas usan el widget `_Citation` actual sin cambios, dentro del mismo grupo y antes del `Divider`.
 
 ### D3. Estado del plegado
 
-El estado vive en `_PlantPassportPageState` como un `Set<String>` de claves de grupo desplegadas, que se pasa a `PassportUsesTab` junto con un callback para alternar (o se encapsula en un pequeño `ChangeNotifier`/`ValueNotifier` propiedad de la página). La clave del grupo es su actividad: es única por grupo en los datos consolidados y en los grupos derivados de `uses`, que se agrupan por actividad.
+El estado vive en `_PlantPassportPageState` como un `Set<String>` de claves de grupo desplegadas, que se pasa a `PassportUsesTab` junto con un callback para alternar. La clave del grupo NO puede ser solo la actividad: en la base real, 17 plantas tienen dos grupos con la misma actividad y distinta actividad original (por ejemplo, «Hidropesía» viene de dos términos de USDA), y desplegar uno desplegaría el otro. La clave es `<posición>|<actividad>|<actividad original>` (función `useGroupKey`): la posición en la lista es estable dentro de una planta porque el orden de los grupos no cambia, y los otros dos componentes la hacen legible. Una prueba con dos grupos de igual actividad comprueba que se pliegan y despliegan por separado.
 
 - **Cambio de pestaña y vuelta:** cada grupo recuerda su estado, porque el conjunto vive en la página y no en el widget de la pestaña, que se destruye.
 - **Cambio de planta** (`didUpdateWidget` con otro `plant.id`, donde ya se reinicia `_tab`): el conjunto se vacía.
@@ -66,5 +66,5 @@ No cambia nada: `plant.useGroups` ya deriva los grupos desde `uses` con un backe
 
 ## Open Questions
 
-- Q1. La etiqueta semántica con la actividad («Ver 5 citas de Demulcente») es una propuesta; si se prefiere que el lector diga solo «Ver 5 citas», se cambia en `PassportTexts` sin afectar al resto del diseño.
-- Q2. El icono de flecha (`▸`) es de la captura del usuario; se propone `expand_more`/`expand_less` de Material, que además indican el estado. Confirmar al revisar la QA.
+- Q1 (resuelta). La etiqueta semántica incluye la actividad («Ver 5 citas de Demulcente»), según la decisión del usuario.
+- Q2 (resuelta). Se usan los iconos de Material `expand_more` y `expand_less`, de modo que el estado no depende solo del texto.

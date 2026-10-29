@@ -152,6 +152,23 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  /// Opens the citations of the `Usos` group titled [activity].
+  Future<void> openCitations(WidgetTester tester, String activity) async {
+    await reach(tester, find.text(activity).first);
+    final control = find.descendant(
+      of: find
+          .ancestor(
+            of: find.text(activity).first,
+            matching: find.byType(Column),
+          )
+          .first,
+      matching: find.byType(TextButton),
+    );
+    await reach(tester, control);
+    await tester.tap(control);
+    await tester.pumpAndSettle();
+  }
+
   Future<void> selectTab(WidgetTester tester, String name) async {
     await scrollTop(tester);
     final target = find.widgetWithText(ChoiceChip, name);
@@ -380,9 +397,28 @@ void main() {
     expect(find.text('Bare plant'), findsOneWidget);
   });
 
-  testWidgets('Usos conserva actividad, etiqueta y cita en cada registro', (
+  /// Opens every `Ver N citas` control, tapping the first one still closed.
+  Future<void> expandAllCitations(WidgetTester tester) async {
+    final closed = find.byWidgetPredicate(
+      (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+    );
+    while (closed.evaluate().isNotEmpty) {
+      await tester.tap(closed.first);
+      await tester.pumpAndSettle();
+    }
+  }
+
+  void useTallViewport(WidgetTester tester, double height) {
+    tester.view.physicalSize = Size(360, height);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+  }
+
+  testWidgets('Usos conserva actividad y cita de cada registro al desplegar', (
     tester,
   ) async {
+    useTallViewport(tester, 4000);
     await show(tester, _lavender);
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
@@ -390,7 +426,16 @@ void main() {
     expect(find.text('Carminative'), findsOneWidget);
     final lavender = plants[_lavender]!;
     expect(lavender.uses, hasLength(10));
-    expect(find.text('Registro tradicional'), findsNWidgets(10));
+    expect(find.text('Registro tradicional'), findsNothing);
+    final controls = find.byWidgetPredicate(
+      (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+    );
+    expect(controls, findsNWidgets(lavender.useGroups.length));
+    // Closed by default: no citation is in the tree.
+    for (final use in lavender.uses) {
+      expect(find.text(use.reference.citation), findsNothing);
+    }
+    await expandAllCitations(tester);
     for (final use in lavender.uses) {
       expect(find.text(use.activity), findsWidgets);
       expect(find.text(use.reference.citation), findsWidgets);
@@ -407,30 +452,86 @@ void main() {
     expect(rosemary.uses, hasLength(59));
     // The older backend sends `uses` only: one derived group per activity.
     expect(rosemary.useGroups, hasLength(46));
-    expect(find.text('Registro tradicional'), findsNWidgets(46));
+    expect(find.text('Registro tradicional'), findsNothing);
     expect(
       find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
       findsOneWidget,
     );
-    // The last use is reachable by scrolling.
-    final last = rosemary.uses.last;
-    await tester.scrollUntilVisible(
-      find.text(last.reference.citation).last,
-      200,
+    // The last group is reachable by scrolling and opens its citations.
+    final last = rosemary.useGroups.last;
+    await tester.scrollUntilVisible(find.text(last.activity), 200);
+    final control = find.descendant(
+      of: find
+          .ancestor(of: find.text(last.activity), matching: find.byType(Column))
+          .first,
+      matching: find.byType(TextButton),
     );
-    expect(find.text(last.reference.citation), findsWidgets);
+    await tester.ensureVisible(control);
+    await tester.pump();
+    await tester.tap(control);
+    await tester.pumpAndSettle();
+    for (final reference in last.references) {
+      await tester.ensureVisible(find.text(reference.citation).last);
+      expect(find.text(reference.citation), findsWidgets);
+    }
 
     for (final id in [_noUses, _noFamily]) {
       await show(tester, id);
       await tester.tap(find.text('Usos'));
       await tester.pumpAndSettle();
       expect(find.text(emptyUses), findsOneWidget, reason: id);
-      expect(find.text('Registro tradicional'), findsNothing);
+      expect(find.byType(TextButton), findsNothing);
       expect(
         find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
         findsOneWidget,
       );
     }
+  });
+
+  testWidgets('el plegado de Usos sobrevive al cambio de pestaña y se '
+      'reinicia con otra planta o al reabrir', (tester) async {
+    useTallViewport(tester, 4000);
+    final lavender = plants[_lavender]!;
+    final groups = lavender.useGroups;
+    expect(groups.length, greaterThan(2));
+    await tester.pumpWidget(
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_lavender)),
+    );
+    await tester.tap(find.text('Usos'));
+    await tester.pumpAndSettle();
+    await tester.tap(
+      find.text('Ocultar citas').evaluate().isEmpty
+          ? find.byType(TextButton).at(1)
+          : find.text('Ocultar citas'),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Ocultar citas'), findsOneWidget);
+    await tester.tap(find.text('General'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Usos'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ocultar citas'), findsOneWidget);
+    expect(
+      find.byWidgetPredicate(
+        (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+      ),
+      findsNWidgets(groups.length - 1),
+    );
+    // Another plant: everything closed.
+    await tester.pumpWidget(
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_rosemary)),
+    );
+    await tester.tap(find.text('Usos'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ocultar citas'), findsNothing);
+    // Back to the first one with a new page: still closed.
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pumpWidget(
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_lavender)),
+    );
+    await tester.tap(find.text('Usos'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ocultar citas'), findsNothing);
   });
 
   testWidgets('Back/Home callbacks and unavailable actions are inert', (
@@ -1157,7 +1258,11 @@ void main() {
               tester,
               find.text(PassportTexts.usesNotice),
             );
+            final opened = <String>{};
             for (final use in plant.uses) {
+              if (opened.add(use.activity)) {
+                await openCitations(tester, use.activity);
+              }
               await assertParagraphReadable(
                 tester,
                 find.text(use.activity).first,
@@ -1224,6 +1329,8 @@ void main() {
         // `General` has no reference list: the citation is in `Usos` only.
         expect(find.text(citation), findsNothing);
         await selectTab(tester, 'Usos');
+        expect(find.text(citation), findsNothing);
+        await openCitations(tester, 'QA uso tradicional');
         await assertParagraphReadable(tester, find.text(citation));
         expect(
           tester.getSize(find.text(citation)).height,

@@ -47,14 +47,30 @@ abstract final class PassportTexts {
       'se pudieron identificar y se muestran como «sin resolver».';
   static const noUses =
       'No hay usos tradicionales con referencia verificable disponibles';
-  static const traditionalRecord = 'Registro tradicional';
-  static const useGroupClarification = 'Es un registro, no un consejo de uso.';
-  static const countriesLabel = 'Países';
+  static const hideCitations = 'Ocultar citas';
   static const unresolvedSuffix = '(sin resolver)';
 
   /// Record count of a use group (`1 registro`, `12 registros`).
   static String recordCount(int count) =>
       count == 1 ? '1 registro' : '$count registros';
+
+  /// Data line of a use group: the record count, then the countries after
+  /// ` · ` when there are any (`5 registros · China, Trinidad`).
+  static String useGroupSummary(int count, List<String> countries) =>
+      countries.isEmpty
+      ? recordCount(count)
+      : '${recordCount(count)} · ${countries.join(', ')}';
+
+  /// Visible label of the collapsed citations control.
+  static String showCitations(int count) =>
+      count == 1 ? 'Ver 1 cita' : 'Ver $count citas';
+
+  /// Semantic labels of the citations control: the visible text plus the
+  /// activity, so repeated controls can be told apart.
+  static String showCitationsSemantics(int count, String activity) =>
+      '${showCitations(count)} de $activity';
+  static String hideCitationsSemantics(String activity) =>
+      '$hideCitations de $activity';
 
   // Fuentes.
   static const sourcesTitle = 'Fuentes';
@@ -121,9 +137,7 @@ abstract final class PassportTexts {
     levelLow,
     usesNotice,
     noUses,
-    traditionalRecord,
-    useGroupClarification,
-    countriesLabel,
+    hideCitations,
     unresolvedSuffix,
     sourcesTitle,
     sourcesIntro,

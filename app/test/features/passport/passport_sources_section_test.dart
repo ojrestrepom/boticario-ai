@@ -375,7 +375,6 @@ void main() {
       PassportTexts.descriptionLabel,
       PassportTexts.goalsTitle,
       PassportTexts.safetyTitle,
-      PassportTexts.countriesLabel,
     ];
     await _openSources(tester, plant);
     final texts = [
@@ -403,7 +402,11 @@ void main() {
               children: [
                 PassportGeneralTab(plant: plant),
                 PassportPropertiesTab(plant: plant),
-                PassportUsesTab(plant: plant),
+                PassportUsesTab(
+                  plant: plant,
+                  expandedGroups: const {},
+                  onToggleGroup: (_) {},
+                ),
               ],
             ),
           ),

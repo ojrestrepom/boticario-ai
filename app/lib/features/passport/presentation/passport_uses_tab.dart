@@ -9,11 +9,26 @@ import 'passport_texts.dart';
 /// so it does not depend on color alone.
 const _dimmedInk = Color(0xFF5B665F);
 
+/// Key of a use group within its plant. The activity alone is not unique
+/// (two source terms can map to the same activity), so the position and the
+/// source activity are part of it.
+String useGroupKey(int index, UseGroup group) =>
+    '$index|${group.activity}|${group.activitySource}';
+
 /// `Usos` tab content: the fixed notice, then the use groups.
 class PassportUsesTab extends StatelessWidget {
-  const PassportUsesTab({required this.plant, super.key});
+  const PassportUsesTab({
+    required this.plant,
+    required this.expandedGroups,
+    required this.onToggleGroup,
+    super.key,
+  });
 
   final Plant plant;
+
+  /// Keys (see [useGroupKey]) of the groups whose citations are open.
+  final Set<String> expandedGroups;
+  final ValueChanged<String> onToggleGroup;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -23,7 +38,14 @@ class PassportUsesTab extends StatelessWidget {
       if (plant.useGroups.isEmpty)
         const Text(PassportTexts.noUses)
       else
-        for (final group in plant.useGroups) _UseGroupCard(group: group),
+        for (var i = 0; i < plant.useGroups.length; i++)
+          _UseGroupCard(
+            group: plant.useGroups[i],
+            expanded: expandedGroups.contains(
+              useGroupKey(i, plant.useGroups[i]),
+            ),
+            onToggle: () => onToggleGroup(useGroupKey(i, plant.useGroups[i])),
+          ),
     ],
   );
 }
@@ -50,9 +72,15 @@ class _UsesNotice extends StatelessWidget {
 }
 
 class _UseGroupCard extends StatelessWidget {
-  const _UseGroupCard({required this.group});
+  const _UseGroupCard({
+    required this.group,
+    required this.expanded,
+    required this.onToggle,
+  });
 
   final UseGroup group;
+  final bool expanded;
+  final VoidCallback onToggle;
 
   @override
   Widget build(BuildContext context) {
@@ -71,32 +99,67 @@ class _UseGroupCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            PassportTexts.traditionalRecord,
-            style: theme.labelLarge?.copyWith(color: passportGreen),
-          ),
-          Text(
-            PassportTexts.recordCount(group.count),
+            PassportTexts.useGroupSummary(group.count, group.countries),
             style: theme.bodyMedium?.copyWith(color: passportInk),
           ),
-          if (group.countries.isNotEmpty) ...[
-            const SizedBox(height: 6),
-            PassportField(
-              PassportTexts.countriesLabel,
-              group.countries.join(', '),
-            ),
-          ],
-          Text(
-            PassportTexts.useGroupClarification,
-            style: theme.bodySmall?.copyWith(color: passportInk),
+          _CitationsToggle(
+            activity: group.activity,
+            count: group.references.length,
+            expanded: expanded,
+            onToggle: onToggle,
           ),
-          const SizedBox(height: 8),
-          for (final reference in group.references)
-            _Citation(reference: reference),
+          if (expanded)
+            for (final reference in group.references)
+              _Citation(reference: reference),
           const Divider(height: 20),
         ],
       ),
     );
   }
+}
+
+/// Button that opens and closes the citations of a group. The state shows in
+/// the text, the icon and the semantics.
+class _CitationsToggle extends StatelessWidget {
+  const _CitationsToggle({
+    required this.activity,
+    required this.count,
+    required this.expanded,
+    required this.onToggle,
+  });
+
+  final String activity;
+  final int count;
+  final bool expanded;
+  final VoidCallback onToggle;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    container: true,
+    button: true,
+    expanded: expanded,
+    label: expanded
+        ? PassportTexts.hideCitationsSemantics(activity)
+        : PassportTexts.showCitationsSemantics(count, activity),
+    onTap: onToggle,
+    excludeSemantics: true,
+    child: TextButton.icon(
+      onPressed: onToggle,
+      style: TextButton.styleFrom(
+        foregroundColor: passportGreen,
+        minimumSize: const Size(48, 48),
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.only(right: 12),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      icon: Icon(expanded ? Icons.expand_less : Icons.expand_more),
+      label: Text(
+        expanded
+            ? PassportTexts.hideCitations
+            : PassportTexts.showCitations(count),
+      ),
+    ),
+  );
 }
 
 class _Citation extends StatelessWidget {

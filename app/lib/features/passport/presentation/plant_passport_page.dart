@@ -252,12 +252,19 @@ const _tabLabels = [
 
 class _PlantPassportPageState extends State<PlantPassportPage> {
   int _tab = 0;
+
+  /// Keys of the `Usos` groups whose citations are open. They live here, not
+  /// in the tab, because the tab is rebuilt each time it is selected.
+  final _expandedGroups = <String>{};
   final _tabsKey = GlobalKey();
 
   @override
   void didUpdateWidget(covariant PlantPassportPage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.plant.id != widget.plant.id) _tab = 0;
+    if (oldWidget.plant.id != widget.plant.id) {
+      _tab = 0;
+      _expandedGroups.clear();
+    }
   }
 
   @override
@@ -289,7 +296,11 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
                 else if (_tab == 1)
                   PassportPropertiesTab(plant: widget.plant)
                 else if (_tab == 2)
-                  PassportUsesTab(plant: widget.plant)
+                  PassportUsesTab(
+                    plant: widget.plant,
+                    expandedGroups: _expandedGroups,
+                    onToggleGroup: _toggleGroup,
+                  )
                 else
                   PassportSourcesTab(plant: widget.plant),
               ],
@@ -314,6 +325,10 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
       ),
     ),
   );
+
+  void _toggleGroup(String key) => setState(() {
+    if (!_expandedGroups.remove(key)) _expandedGroups.add(key);
+  });
 
   void _selectTab(int tab) {
     setState(() => _tab = tab);

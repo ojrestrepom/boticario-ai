@@ -379,6 +379,7 @@ Future<void> _runCatalogSmoke(
     await _tapVisible(tester, find.text('Usos'));
     expect(_selectedChip(tester, 'Usos'), isTrue);
     expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    await _expectCitationsFold(tester);
     _expectSourcesHidden();
     await _tapVisible(tester, find.text('Fuentes'));
     expect(_selectedChip(tester, 'Fuentes'), isTrue);
@@ -545,6 +546,44 @@ Future<void> _checkGoalRowsAndDisabledFooter(
     router,
     expectedPath: '/goals',
   );
+}
+
+/// `Usos`: the groups show `Ver N citas` controls and no per-group label;
+/// one opens to show its citations in place and closes again.
+Future<void> _expectCitationsFold(WidgetTester tester) async {
+  final closed = find.byWidgetPredicate(
+    (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+  );
+  // The groups are lazy slivers: scroll until the first control is built.
+  await _scrollUntilBuilt(tester, closed.first);
+  expect(closed, findsWidgets);
+  expect(find.text('Registro tradicional'), findsNothing);
+  final label = tester.widget<Text>(closed.first).data!;
+  await _tapVisible(tester, closed.first);
+  final hide = find.text(PassportTexts.hideCitations);
+  expect(hide, findsOneWidget);
+  final group = find.ancestor(of: hide, matching: find.byType(Column)).first;
+  // Activity, data line and control, plus at least one citation.
+  expect(
+    find.descendant(of: group, matching: find.byType(Text)).evaluate().length,
+    greaterThanOrEqualTo(4),
+  );
+  await _tapVisible(tester, hide);
+  expect(find.text(PassportTexts.hideCitations), findsNothing);
+  expect(find.text(label), findsWidgets);
+  // Back to the top, where the tabs are, for the next step of the flow.
+  tester
+      .state<ScrollableState>(
+        find
+            .descendant(
+              of: find.byType(PlantPassportPage),
+              matching: find.byType(Scrollable),
+            )
+            .first,
+      )
+      .position
+      .jumpTo(0);
+  await _settle(tester);
 }
 
 /// Scrolls the passport in steps until [finder] is built (lazy slivers

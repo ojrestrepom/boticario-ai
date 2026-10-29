@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
+import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_header.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
@@ -337,6 +338,87 @@ void main() {
       await tester.tap(find.text('Fuentes'));
       await tester.pumpAndSettle();
       await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      handle.dispose();
+    });
+  }
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('Control de citas accesible, plegado y desplegado, al '
+        '${scale * 100}%', (tester) async {
+      final handle = tester.ensureSemantics();
+      const activity =
+          'Actividad tradicional con un nombre muy largo que ocupa varias '
+          'líneas en una pantalla estrecha de 360 dp';
+      final plant = Plant(
+        id: 'planta-sintetica',
+        scientificName: 'Planta sintetica',
+        family: null,
+        names: const [],
+        parts: const [],
+        uses: const [],
+        useGroups: [
+          UseGroup(
+            activity: activity,
+            activitySource: null,
+            count: 12,
+            countries: const ['China', 'Otros lugares', 'Trinidad y Tobago'],
+            references: [
+              for (var i = 1; i <= 5; i++)
+                CitedReference(
+                  id: i == 5 ? null : 'ref:$i',
+                  citation: i == 5
+                      ? 'Clave larga $i (sin resolver)'
+                      : 'Cita sintetica $i, con un título bastante largo '
+                            'para que ocupe varias líneas.',
+                  resolved: i != 5,
+                ),
+            ],
+          ),
+        ],
+      );
+      await _pump(tester, plant, scale, 'Usos');
+      final control = find.widgetWithText(TextButton, 'Ver 5 citas');
+      await _scrollTo(tester, control);
+
+      final closedData = tester.getSemantics(control).getSemanticsData();
+      expect(closedData.label, 'Ver 5 citas de $activity');
+      expect(closedData.flagsCollection.isButton, isTrue);
+      expect(closedData.flagsCollection.isExpanded, ui.Tristate.isFalse);
+      expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
+      expect(tester.getSize(control).width, greaterThanOrEqualTo(48));
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+
+      await tester.tap(control);
+      await tester.pumpAndSettle();
+      final opened = find.widgetWithText(TextButton, 'Ocultar citas');
+      await _scrollTo(tester, opened);
+      expect(tester.getSemantics(opened).label, 'Ocultar citas de $activity');
+      final openData = tester.getSemantics(opened).getSemanticsData();
+      expect(openData.flagsCollection.isButton, isTrue);
+      expect(openData.flagsCollection.isExpanded, ui.Tristate.isTrue);
+      expect(tester.getSize(opened).height, greaterThanOrEqualTo(48));
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+
+      // Nothing is truncated: data line, control and citations.
+      for (final text in [
+        'Cita sintetica 1, con un título bastante largo para que ocupe '
+            'varias líneas.',
+        'Clave larga 5 (sin resolver)',
+        activity,
+        '12 registros · China, Otros lugares, Trinidad y Tobago',
+        'Ocultar citas',
+      ]) {
+        await _scrollTo(tester, find.text(text));
+        final widget = tester.widget<Text>(find.text(text));
+        expect(widget.maxLines, isNull, reason: text);
+        expect(widget.overflow, isNot(TextOverflow.ellipsis), reason: text);
+        final rect = tester.getRect(find.text(text));
+        expect(rect.left, greaterThanOrEqualTo(0));
+        expect(rect.right, lessThanOrEqualTo(360));
+      }
+      expect(tester.takeException(), isNull);
       handle.dispose();
     });
   }

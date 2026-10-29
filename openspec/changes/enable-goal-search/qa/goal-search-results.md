@@ -267,3 +267,32 @@ postman collection run openspec/changes/enable-goal-search/qa/postman/enable-goa
 - Instalado: Pillow, con `pip install --target` en una carpeta temporal fuera del proyecto. Se usó el CLI de Postman que ya estaba instalado. No se agregó nada al proyecto ni a esta carpeta.
 - Se creó la imagen `boticario-backend`, los contenedores `qa-goal-search-api-1` y `qa-goal-search-mod`, y la red de `docker compose -p qa-goal-search`; se borraron al terminar. Se apagó el emulador `boticario_catalog_api36` y se borraron `app-debug.apk` y `app-debug.apk.sha1` de `app/build/app/outputs/flutter-apk/`.
 - No se tocó el emulador `DADM_GraphicsSound_API35` ni el teléfono físico.
+
+## Revisión con el usuario (6.5)
+
+Decisiones del usuario del 2026-10-28:
+
+- Los nombres de los objetivos y de las subáreas quedan como están por ahora.
+- El texto de `Ver más detalles` queda aprobado.
+- La marca `Precaución` sigue solo con nivel alto y medio, como está.
+- Los nombres de plantas mejorables (OBS-06) se corrigen con la regeneración `fix5` de la semilla, que cambia solo `displayName` y el orden de `commonNames` (el nombre elegido pasa al frente), sin tocar la app ni el prompt.
+
+Cambios de `fix5` (el nombre sale siempre de los candidatos en español del paquete de cada planta):
+
+| Planta | Nombre anterior | Nombre nuevo | Origen del candidato |
+| --- | --- | --- | --- |
+| `chamaemelum-nobile` | Manzanilla | Manzanilla romana | Resumen de Wikipedia en español («manzanilla romana») |
+| `urtica-urens` | Ortiga | Ortiga menor | Resumen de Wikipedia en español y alias de Wikidata (`Q157175`) |
+| `verbascum-thapsus` | Gordolobo | Verbasco | Resumen de Wikipedia en español («popularmente llamado verbasco») |
+| `primula-elatior` | Primavera | Bellorita encarnada | Nombres en español de Wikidata (`Q157842`) |
+
+Sin cambio, con el motivo:
+
+- `silybum-marianum` («Cardo de maria»): el paquete solo trae esa forma sin tilde, y el prompt v7 permite normalizar tildes de un nombre solo si la forma con tilde aparece también en el paquete. Queda a decisión del usuario.
+- `arnica-montana` («Hierba de las caídas»): el paquete no trae «Árnica» en español; «Arnica» solo está como nombre en inglés. El prompt no permite usar nombres de otro idioma.
+- `capsella-bursa-pastoris` («Mostaza salvaje»): el paquete no trae «Bolsa de pastor»; sus nombres en español son «Mostaza salvaje» y «Cucliyo».
+- Las cuatro *Grindelia* con objetivo (`grindelia-camporum`, `grindelia-humilis`, `grindelia-robusta`, `grindelia-squarrosa`) siguen con el nombre científico. `grindelia-robusta` trae «grindelia», pero es el nombre del género en latín, que el prompt v7 prohíbe como nombre común (el caso de «Melissa»). Las otras tres no traen ningún nombre en español.
+- `matricaria-chamomilla` sigue como «Manzanilla», `urtica-dioica` como «Ortiga», `verbascum-densiflorum` como «Gordolobo» y `primula-veris` como «Primavera».
+- `glycyrrhiza-glabra` y `glycyrrhiza-uralensis` siguen ambas como «Regaliz»: el paquete de *G. uralensis* solo trae «regaliz» como nombre en español.
+
+Tras `fix5` queda un solo nombre principal repetido entre plantas con objetivo, «Regaliz».

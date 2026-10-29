@@ -339,6 +339,15 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
         ChoiceChip(
           label: Text(_tabLabels[i]),
           selected: _tab == i,
+          // The check mark would widen the selected chip and shift the rest.
+          // The border keeps the same width (it counts in the chip size); the
+          // selection shows as a green border and fill, and in semantics.
+          showCheckmark: false,
+          selectedColor: passportSelectedChip,
+          side: BorderSide(
+            color: _tab == i ? passportGreen : Colors.black12,
+            width: 2,
+          ),
           onSelected: (_) => _selectTab(i),
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),

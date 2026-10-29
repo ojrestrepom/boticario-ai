@@ -80,6 +80,14 @@ El arreglo de DEF-01 sigue valiendo sin cambios de diseño: el scroll es uno por
 
 Ambos avisos son `SnackBar` del `ScaffoldMessenger` más cercano, como el de fallo actual. «Enlace copiado» es el texto de confirmación. La copia usa `Clipboard.setData` con la URL original recortada, no la decodificada. Android 13 o posterior muestra además su propio aviso del portapapeles; es normal y no se intenta suprimir.
 
+### D8. Enlaces dentro del texto, sin mínimo de 48 dp (corrige D2, D3, D4 y D5)
+
+La primera implementación hizo de cada enlace una caja de 48 dp (`InkWell` con `minHeight` y `minWidth`). En el emulador (DEF-01 de la QA) el pie de la foto ocupaba de tres a cuatro filas, con «Foto:» aislado y el separador colgando, y en `Fuentes` quedaba una banda vacía entre el nombre y la licencia. Era justo lo que el usuario quería evitar: que las fuentes ocupen más que el contenido. Se decide:
+- Los enlaces son tramos de un `Text.rich` (`PassportLinkedText` con partes `PassportLinkPart`): el pie se lee como texto corrido, «Foto: autor · licencia», y cada entrada de `Fuentes` son líneas consecutivas.
+- Los enlaces en línea quedan exentos del mínimo de 48 dp por la excepción de WCAG 2.5.8 para enlaces dentro de una frase. Los chips y los botones conservan los 48 dp. Siguen anunciándose como enlace (Flutter lo deriva del reconocedor de toque del tramo), con el destino en la etiqueta («texto. Abre [destino]») y subrayados.
+- El toque abre y la pulsación larga copia con un reconocedor propio, `_LinkRecognizer`, que extiende `TapGestureRecognizer` (para conservar la semántica de enlace) y añade un temporizador de pulsación larga; una pulsación larga suprime el toque que la sigue. Límite: Flutter solo traslada a la semántica el toque del tramo, así que la pulsación larga no se ofrece como acción de accesibilidad y el aviso de la etiqueta ya no la menciona. Los usuarios de lector de pantalla abren el enlace; copiarlo es un atajo táctil.
+- Los chips ya no llevan marca de verificación (`showCheckmark: false`), porque ensanchaba el chip elegido y movía los demás. El borde mide siempre 2 dp para no alterar el tamaño; el elegido lo tiene verde y relleno verde claro, y conserva la semántica de seleccionado. Las pruebas comprueban que las posiciones no cambian a 100 % y 200 %.
+
 ## Risks / Trade-offs
 
 - [Pie de la foto más alto que hoy con 48 dp de toque por enlace] → medir en el emulador a 100 % y 200 %; el pie reemplaza tres líneas, así que el impacto esperado es pequeño.
@@ -106,8 +114,8 @@ Resueltas por el usuario antes de implementar (2026-10-28):
 Diferencias y decisiones de implementación respecto del plan:
 
 - `passport_sources_section.dart` pasó a `passport_sources_tab.dart` y la clase a `PassportSourcesTab` (D1 dejaba la decisión abierta). `PassportInlineLink` vive en `passport_link.dart`, que reemplaza a `PassportLink`.
-- El pie de la foto es un `Wrap` con cuatro hijos: el texto «Foto: », el enlace del autor (o «Wikimedia Commons»), « · » y el enlace de la licencia. El texto «Foto: » y el separador no son parte de ningún enlace.
-- Los textos de destino para lectores de pantalla son «la página de la fuente», «el texto de la licencia» y «la página del archivo en Wikimedia Commons»; el aviso queda como «Abre [destino]. Mantén pulsado para copiar el enlace».
+- El pie de la foto es un solo `Text.rich` («Foto: », el enlace del autor o de «Wikimedia Commons», « · » y el enlace de la licencia); el texto «Foto: » y el separador no son parte de ningún enlace. La versión inicial con un `Wrap` de cuatro hijos de 48 dp se sustituyó por D8.
+- Los textos de destino para lectores de pantalla son «la página de la fuente», «el texto de la licencia» y «la página del archivo en Wikimedia Commons»; la etiqueta del tramo enlazado queda como «[texto]. Abre [destino]» (véase D8).
 - La atribución conserva el prefijo «Atribución: » y usa `bodySmall` en `passportMuted` (`0xFF58635B`), con contraste superior a 4,5:1 sobre el fondo del pasaporte, comprobado en una prueba.
 - Las atribuciones de la semilla citan a veces una URL o un DOI dentro de su propio texto (por ejemplo, la de EFSA o la de Wikipedia). Por decisión del usuario, `Fuentes` muestra la atribución sin URL, porque la fuente ya queda enlazada sobre su nombre: la función pura `attributionWithoutUrls` (en `passport_sources_tab.dart`) quita `http://` y `https://` hasta el siguiente espacio, sin la puntuación final, y limpia paréntesis vacíos, dobles espacios, espacios antes de la puntuación y puntos duplicados. El dato de la API y de la semilla no cambia.
 - `_selectTab` no cambió: con cuatro pestañas, `ensureVisible` mantuvo las cuatro a la vista en 360x640 al 100 % y al 200 % (incluido el `Wrap` en varias filas y el paso de `Usos` a `Fuentes`), comprobado en `passport_tall_header_test.dart`.

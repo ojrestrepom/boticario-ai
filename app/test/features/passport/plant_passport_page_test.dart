@@ -17,7 +17,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
 import '../../support/fake_catalog_api.dart';
-import 'passport_test_support.dart' show consolidatedPlant;
+import 'passport_test_support.dart' show consolidatedPlant, plainText;
 
 const _tabNames = ['General', 'Propiedades', 'Usos', 'Fuentes'];
 const _lavender = 'lavandula-angustifolia';
@@ -462,6 +462,48 @@ void main() {
     );
   });
 
+  testWidgets('las pestañas no se mueven ni cambian de tamaño al elegir una', (
+    tester,
+  ) async {
+    for (final scale in [1.0, 2.0]) {
+      await setCompactViewport(tester, scale: scale);
+      await scrollTop(tester);
+      Map<String, Rect> rects() => {
+        for (final tab in _tabNames)
+          tab: tester.getRect(find.widgetWithText(ChoiceChip, tab)),
+      };
+      final before = rects();
+      for (final tab in [..._tabNames, ..._tabNames.reversed]) {
+        await selectTab(tester, tab);
+        await scrollTop(tester);
+        expect(rects(), before, reason: 'tras elegir $tab al $scale');
+        final chip = tester.widget<ChoiceChip>(
+          find.widgetWithText(ChoiceChip, tab),
+        );
+        expect(chip.selected, isTrue);
+        expect(chip.showCheckmark, isFalse);
+        // The selection is not only a fill: the border turns green.
+        expect((chip.side as BorderSide).color, const Color(0xFF236335));
+        expect(
+          tester
+              .getSemantics(find.widgetWithText(ChoiceChip, tab))
+              .flagsCollection
+              .isSelected,
+          ui.Tristate.isTrue,
+        );
+      }
+      // Selected and not selected chips are told apart by border and fill.
+      final others = tester.widgetList<ChoiceChip>(find.byType(ChoiceChip));
+      expect(others.where((c) => c.selected), hasLength(1));
+      expect(
+        others
+            .where((c) => !c.selected)
+            .every((c) => c.side!.color != const Color(0xFF236335)),
+        isTrue,
+      );
+    }
+  });
+
   testWidgets('Fuentes solo aparece con su pestaña y no bajo las otras tres', (
     tester,
   ) async {
@@ -481,7 +523,7 @@ void main() {
           findsNothing,
           reason: tab,
         );
-        expect(find.text(credit.name), findsNothing, reason: tab);
+        expect(plainText(credit.name), findsNothing, reason: tab);
         expect(find.text('Licencia: ${credit.license}'), findsNothing);
         expect(find.text(PassportTexts.imageSourceTitle), findsNothing);
         if (position.pixels >= position.maxScrollExtent) break;
@@ -497,7 +539,7 @@ void main() {
     }
     await selectTab(tester, 'Fuentes');
     expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
-    expect(find.text(credit.name), findsOneWidget);
+    expect(plainText(credit.name), findsOneWidget);
   });
 
   testWidgets('identity change resets selected tab to General', (tester) async {

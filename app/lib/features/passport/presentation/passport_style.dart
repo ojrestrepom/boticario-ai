@@ -5,6 +5,9 @@ const passportInk = Color(0xFF172A1F);
 
 /// Secondary text (attributions); 4.5:1 or better on [passportBackground].
 const passportMuted = Color(0xFF58635B);
+
+/// Fill of the selected tab chip.
+const passportSelectedChip = Color(0xFFD7EBDD);
 const passportBackground = Color(0xFFF9FAF7);
 
 /// Label and value pair shared by the passport tabs.

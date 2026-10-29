@@ -151,22 +151,20 @@ class _Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final style = Theme.of(context).textTheme.bodyMedium
         ?.copyWith(color: passportInk);
-    return Wrap(
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        Text('${PassportTexts.photoPrefix}: ', style: style),
-        PassportInlineLink(
-          text: image.author ?? PassportTexts.commonsName,
+    return PassportLinkedText(
+      style: style,
+      parts: [
+        const PassportLinkPart('${PassportTexts.photoPrefix}: '),
+        PassportLinkPart(
+          image.author ?? PassportTexts.commonsName,
           url: image.pageUrl,
           destination: PassportTexts.imageFileDestination,
-          style: style,
         ),
-        Text(' · ', style: style),
-        PassportInlineLink(
-          text: image.license,
+        const PassportLinkPart(' · '),
+        PassportLinkPart(
+          image.license,
           url: image.licenseUrl,
           destination: PassportTexts.licenseTextDestination,
-          style: style,
         ),
       ],
     );

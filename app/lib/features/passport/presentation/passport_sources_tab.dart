@@ -75,11 +75,15 @@ class _LicenseRow extends StatelessWidget {
   final String? licenseUrl;
 
   @override
-  Widget build(BuildContext context) => PassportInlineLink(
-    prefix: '${PassportTexts.licensePrefix}: ',
-    text: license,
-    url: licenseUrl,
-    destination: PassportTexts.licenseTextDestination,
+  Widget build(BuildContext context) => PassportLinkedText(
+    parts: [
+      const PassportLinkPart('${PassportTexts.licensePrefix}: '),
+      PassportLinkPart(
+        license,
+        url: licenseUrl,
+        destination: PassportTexts.licenseTextDestination,
+      ),
+    ],
   );
 }
 
@@ -93,11 +97,15 @@ class _CreditEntry extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PassportInlineLink(
-          text: credit.name,
-          url: credit.url,
-          destination: PassportTexts.sourcePageDestination,
+        PassportLinkedText(
           style: _titleStyle(context),
+          parts: [
+            PassportLinkPart(
+              credit.name,
+              url: credit.url,
+              destination: PassportTexts.sourcePageDestination,
+            ),
+          ],
         ),
         _LicenseRow(license: credit.license, licenseUrl: credit.licenseUrl),
         Text(
@@ -127,10 +135,14 @@ class _ImageEntry extends StatelessWidget {
           '${image.author ?? PassportTexts.notAvailable}',
         ),
         _LicenseRow(license: image.license, licenseUrl: image.licenseUrl),
-        PassportInlineLink(
-          text: PassportTexts.imageFileLinkLabel,
-          url: image.pageUrl,
-          destination: PassportTexts.imageFileDestination,
+        PassportLinkedText(
+          parts: [
+            PassportLinkPart(
+              PassportTexts.imageFileLinkLabel,
+              url: image.pageUrl,
+              destination: PassportTexts.imageFileDestination,
+            ),
+          ],
         ),
       ],
     ),

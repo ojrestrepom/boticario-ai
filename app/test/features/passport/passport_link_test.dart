@@ -21,17 +21,23 @@ Future<void> _pump(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          PassportInlineLink(
-            text: text,
-            url: url,
-            prefix: prefix,
-            destination: PassportTexts.licenseTextDestination,
+          PassportLinkedText(
+            parts: [
+              if (prefix.isNotEmpty) PassportLinkPart(prefix),
+              PassportLinkPart(
+                text,
+                url: url,
+                destination: PassportTexts.licenseTextDestination,
+              ),
+            ],
           ),
         ],
       ),
     ),
   ),
 );
+
+final _root = find.byType(PassportLinkedText);
 
 /// Replaces the platform clipboard; returns what was copied.
 List<String?> _mockClipboard(WidgetTester tester, {bool fails = false}) {
@@ -65,10 +71,12 @@ void main() {
 
   setUp(() => install(FakeUrlLauncher()));
 
-  testWidgets('abre una URL https en el navegador externo', (tester) async {
+  testWidgets('un toque abre una URL https en el navegador externo', (
+    tester,
+  ) async {
+    _mockClipboard(tester);
     await _pump(tester, 'https://creativecommons.org/publicdomain/zero/1.0/');
-    await tester.tap(find.text('CC0'));
-    await tester.pump();
+    await tapSpan(tester, _root, 'CC0');
     expect(launcher.launched, [
       'https://creativecommons.org/publicdomain/zero/1.0/',
     ]);
@@ -76,30 +84,25 @@ void main() {
     expect(find.byType(SnackBar), findsNothing);
   });
 
-  testWidgets('el texto enlazado va subrayado y el prefijo no', (tester) async {
+  testWidgets('solo el texto enlazado va subrayado y es un enlace', (
+    tester,
+  ) async {
     await _pump(tester, 'https://example.org/a', prefix: 'Licencia: ');
-    final rich = tester.widget<RichText>(
-      find.descendant(
-        of: find.byType(PassportInlineLink),
-        matching: find.byType(RichText),
-      ),
-    );
-    final spans = <TextSpan>[];
-    rich.text.visitChildren((span) {
-      if (span is TextSpan && span.text != null) spans.add(span);
-      return true;
-    });
-    final prefixSpan = spans.firstWhere((s) => s.text == 'Licencia: ');
-    final linkSpan = spans.firstWhere((s) => s.text == 'CC0');
-    expect(linkSpan.style?.decoration, TextDecoration.underline);
-    expect(prefixSpan.style?.decoration, isNot(TextDecoration.underline));
+    final links = linkSpansOf(tester, _root);
+    expect(links.map((s) => s.text), ['CC0']);
+    expect(links.single.style?.decoration, TextDecoration.underline);
+    final prefix = textSpansOf(
+      tester,
+      _root,
+    ).firstWhere((s) => s.text == 'Licencia: ');
+    expect(prefix.recognizer, isNull);
+    expect(prefix.style?.decoration, isNot(TextDecoration.underline));
   });
 
   testWidgets('pulsación larga copia la URL, avisa y no abre', (tester) async {
     final copied = _mockClipboard(tester);
     await _pump(tester, '  https://example.org/a%20b  ');
-    await tester.longPress(find.text('CC0'));
-    await tester.pump();
+    await longPressSpan(tester, _root, 'CC0');
     expect(copied, ['https://example.org/a%20b']);
     expect(find.text(PassportTexts.linkCopied), findsOneWidget);
     expect(launcher.launched, isEmpty);
@@ -110,10 +113,10 @@ void main() {
   ) async {
     _mockClipboard(tester, fails: true);
     await _pump(tester, 'https://example.org/a');
-    await tester.longPress(find.text('CC0'));
-    await tester.pump();
+    await longPressSpan(tester, _root, 'CC0');
     expect(tester.takeException(), isNull);
     expect(find.text(PassportTexts.linkCopied), findsNothing);
+    expect(launcher.launched, isEmpty);
   });
 
   testWidgets('una URL que no es https es texto plano sin acciones', (
@@ -129,11 +132,9 @@ void main() {
       null,
     ]) {
       await _pump(tester, bad);
-      expect(find.text('CC0'), findsOneWidget, reason: '$bad');
-      expect(find.byType(InkWell), findsNothing, reason: '$bad');
-      await tester.tap(find.text('CC0'));
-      await tester.longPress(find.text('CC0'));
-      await tester.pump();
+      expect(linkSpansOf(tester, _root), isEmpty, reason: '$bad');
+      await tapSpan(tester, _root, 'CC0');
+      await longPressSpan(tester, _root, 'CC0');
     }
     expect(launcher.launched, isEmpty);
     expect(copied, isEmpty);
@@ -145,13 +146,10 @@ void main() {
   ) async {
     final handle = tester.ensureSemantics();
     await _pump(tester, null);
-    final rich = tester.widget<RichText>(
-      find.descendant(
-        of: find.byType(PassportInlineLink),
-        matching: find.byType(RichText),
-      ),
+    expect(
+      textSpansOf(tester, _root).single.style?.decoration,
+      isNot(TextDecoration.underline),
     );
-    expect(rich.text.style?.decoration, isNot(TextDecoration.underline));
     final data = tester.getSemantics(find.text('CC0')).getSemanticsData();
     expect(data.flagsCollection.isLink, isFalse);
     handle.dispose();
@@ -164,12 +162,11 @@ void main() {
     ]) {
       install(l);
       await _pump(tester, 'https://example.org/a');
-      await tester.tap(find.text('CC0'));
-      await tester.pump();
+      await tapSpan(tester, _root, 'CC0');
       expect(l.launched, ['https://example.org/a']);
       expect(tester.takeException(), isNull);
       expect(find.text(PassportTexts.linkNotOpened), findsOneWidget);
-      expect(find.text('https://example.org/a'), findsNothing);
+      expect(find.textContaining('https://example.org/a'), findsNothing);
     }
   });
 
@@ -181,14 +178,13 @@ void main() {
     expect(find.byType(SelectableText), findsNothing);
     expect(find.byType(TextButton), findsNothing);
     // And it opens as given, without decoding.
-    await tester.tap(find.text('CC0'));
-    await tester.pump();
+    await tapSpan(tester, _root, 'CC0');
     expect(launcher.launched, [url]);
   });
 
   testWidgets('canOpen solo acepta https con host', (tester) async {
-    expect(PassportInlineLink.canOpen('https://example.org'), isTrue);
-    expect(PassportInlineLink.canOpen(' https://example.org/a '), isTrue);
+    expect(PassportLinkedText.canOpen('https://example.org'), isTrue);
+    expect(PassportLinkedText.canOpen(' https://example.org/a '), isTrue);
     for (final bad in [
       'http://example.org',
       'https://',
@@ -196,61 +192,51 @@ void main() {
       '',
       null,
     ]) {
-      expect(PassportInlineLink.canOpen(bad), isFalse, reason: '$bad');
+      expect(PassportLinkedText.canOpen(bad), isFalse, reason: '$bad');
     }
   });
 
-  group('semántica y áreas de toque', () {
-    testWidgets('se anuncia como enlace con texto, destino y gestos', (
-      tester,
-    ) async {
-      final handle = tester.ensureSemantics();
-      await _pump(tester, 'https://example.org/a', prefix: 'Licencia: ');
-      final node = tester.getSemantics(find.bySemanticsLabel('Licencia: CC0'));
-      final data = node.getSemanticsData();
-      expect(data.flagsCollection.isLink, isTrue);
-      expect(data.label, 'Licencia: CC0');
-      expect(data.hint, PassportTexts.linkHint('el texto de la licencia'));
-      expect(data.hint, contains('copiar'));
-      expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
-      expect(data.hasAction(ui.SemanticsAction.longPress), isTrue);
-      // The URL is not read, and the visible text is not read twice.
-      expect(data.label, isNot(contains('https')));
-      expect(data.hint, isNot(contains('https')));
-      expect(find.bySemanticsLabel(RegExp('CC0')), findsOneWidget);
-      handle.dispose();
-    });
+  testWidgets('el enlace va en el texto corrido: sin mínimo de 48 dp', (
+    tester,
+  ) async {
+    await _pump(tester, 'https://example.org/a', text: 'A');
+    expect(find.byType(InkWell), findsNothing);
+    expect(tester.getSize(_root).height, lessThan(48));
+  });
 
-    testWidgets('un nombre corto mide al menos 48 dp de alto y de ancho', (
-      tester,
-    ) async {
-      await _pump(tester, 'https://example.org/a', text: 'A');
-      final size = tester.getSize(find.byType(InkWell));
-      expect(size.height, greaterThanOrEqualTo(48));
-      expect(size.width, greaterThanOrEqualTo(48));
-    });
+  testWidgets('se anuncia como enlace con su texto y destino, sin URL', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    await _pump(tester, 'https://example.org/a', prefix: 'Licencia: ');
+    final links = linkSemantics(tester);
+    expect(links, hasLength(1));
+    final data = links.single;
+    expect(data.flagsCollection.isLink, isTrue);
+    expect(
+      data.label,
+      PassportTexts.linkSemantics('CC0', 'el texto de la licencia'),
+    );
+    expect(data.label, isNot(contains('https')));
+    expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
+    handle.dispose();
+  });
 
-    testWidgets('cumple las guías de toque y de etiquetas', (tester) async {
-      final handle = tester.ensureSemantics();
-      await _pump(tester, 'https://example.org/a', prefix: 'Licencia: ');
-      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
-      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
-      handle.dispose();
-    });
+  testWidgets('el texto enlazado y el plano se leen en el mismo párrafo', (
+    tester,
+  ) async {
+    await _pump(tester, 'https://example.org/a', prefix: 'Licencia: ');
+    expect(plainText('Licencia: CC0'), findsOneWidget);
   });
 
   testWidgets('un enlace de licencia de Fuentes se abre', (tester) async {
     final plant = consolidatedPlant('eucalyptus-globulus');
     final url = plant.image!.licenseUrl!;
     await showPassport(tester, plant, tab: 'Fuentes');
-    final link = find.widgetWithText(
-      PassportInlineLink,
-      'Licencia: ${plant.image!.license}',
-    );
-    await tester.ensureVisible(link);
+    final row = plainText('Licencia: ${plant.image!.license}');
+    await tester.ensureVisible(row);
     await tester.pump();
-    await tester.tap(link);
-    await tester.pump();
+    await tapSpan(tester, row, plant.image!.license);
     expect(launcher.launched, [url]);
   });
 }

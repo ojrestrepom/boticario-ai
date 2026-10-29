@@ -386,13 +386,7 @@ Future<void> _runCatalogSmoke(
     expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
     _expectNoUrlText(tester);
     // Links sit on the names: at least one source or license is a link.
-    expect(
-      find.descendant(
-        of: find.byType(PassportInlineLink),
-        matching: find.byType(InkWell),
-      ),
-      findsWidgets,
-    );
+    expect(_linkSpans(tester), isNotEmpty);
     await _expectPassportDisabled(tester, router, homeLogs);
 
     // First real P05 return: its chevron restores the captured P04 state.
@@ -781,17 +775,35 @@ void _expectSourcesHidden() {
   expect(find.text(PassportTexts.imageFileLinkLabel), findsNothing);
 }
 
-/// The photo footer reads "Foto: autor · licencia" with linked names. The
-/// photo may not have loaded (then there is no footer, by design).
+/// The link spans (underlined, with a recognizer) under [root].
+List<TextSpan> _linkSpans(WidgetTester tester, [Finder? root]) => [
+  for (final text
+      in find
+          .descendant(
+            of: root ?? find.byType(PassportLinkedText),
+            matching: find.byType(RichText),
+          )
+          .evaluate())
+    ...() {
+      final spans = <TextSpan>[];
+      (text.widget as RichText).text.visitChildren((span) {
+        if (span is TextSpan && span.recognizer != null) spans.add(span);
+        return true;
+      });
+      return spans;
+    }(),
+];
+
+/// The photo footer reads "Foto: autor · licencia" as running text with linked
+/// names. The photo may not have loaded (then there is no footer, by design).
 void _expectPhotoFooterLinks(WidgetTester tester) {
-  if (find.text('${PassportTexts.photoPrefix}: ').evaluate().isEmpty) return;
-  expect(
-    find.descendant(
-      of: find.byType(PassportHeader),
-      matching: find.byType(PassportInlineLink),
-    ),
-    findsNWidgets(2),
+  final footer = find.descendant(
+    of: find.byType(PassportHeader),
+    matching: find.byType(PassportLinkedText),
   );
+  if (footer.evaluate().isEmpty) return;
+  // The author (or Wikimedia Commons) always links to the file page.
+  expect(_linkSpans(tester, footer), isNotEmpty);
   _expectNoUrlText(tester);
 }
 

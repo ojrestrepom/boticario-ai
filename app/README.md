@@ -9,10 +9,10 @@ El Pasaporte se alimenta del detalle consolidado que sirve `GET /v1/plants/{id}`
 - Campos nuevos: `displayName`, `synonyms`, `description`, `origin`, `oil`, `useGroups`, `goals`, `safety`, `image` y `credits`.
 - Cabecera: la imagen es la miniatura de 500 px de Wikimedia (`PlantImagePolicy`, solo HTTPS y los hosts `commons.wikimedia.org` y `upload.wikimedia.org`, sin `Authorization`) con el pie de atribución «Foto: autor · licencia», con el autor enlazado a la página del archivo y la licencia a su texto. Mientras carga, si falla o si la planta no tiene imagen se ve el arte local de respaldo, sin pie y sin error.
 - Pestañas: `General`, `Propiedades`, `Usos` y `Fuentes` (créditos, entrada de la imagen y licencias mixtas).
-- Enlaces: van sobre el nombre de la fuente, de la licencia y del autor, sin URL visible ni botón aparte (`PassportInlineLink`). Solo se abren las `https`, en el navegador del sistema con `url_launcher` (versión fijada en `pubspec.lock`); una pulsación larga copia la URL al portapapeles (`Clipboard` de Flutter) con el aviso «Enlace copiado».
+- Enlaces: van sobre el nombre de la fuente, de la licencia y del autor, sin URL visible ni botón aparte (`PassportLinkedText`). Solo se abren las `https`, en el navegador del sistema con `url_launcher` (versión fijada en `pubspec.lock`); una pulsación larga copia la URL al portapapeles (`Clipboard` de Flutter) con el aviso «Enlace copiado».
 - Estados sin datos: cada campo vacío, los objetivos, las precauciones, los usos y las fuentes tienen un texto explícito; ninguna planta se presenta como segura por no tener datos.
 - Backend anterior: si faltan los campos nuevos, el Pasaporte usa `uses` para derivar los grupos de uso y el primer nombre común como nombre para mostrar, y muestra los estados sin datos.
-- Accesibilidad: las pruebas de `test/features/passport/passport_accessibility_test.dart` comprueban a 360x640 dp, con texto al 100 % y al 200 %, que no hay desbordes, que los enlaces miden al menos 48 dp, que el nivel de precauciones se ve como texto y que la imagen tiene descripción.
+- Accesibilidad: las pruebas de `test/features/passport/passport_accessibility_test.dart` comprueban a 360x640 dp, con texto al 100 % y al 200 %, que no hay desbordes, que las pestañas miden al menos 48 dp y los enlaces, que van dentro del texto, se anuncian como enlace con su destino, que el nivel de precauciones se ve como texto y que la imagen tiene descripción.
 
 ## Buscar por objetivo y Recomendaciones
 

@@ -21,11 +21,9 @@ Future<void> _openSources(WidgetTester tester, Plant plant) async {
   await showPassport(tester, plant, tab: 'Fuentes');
 }
 
-Finder _link(String text) => find.widgetWithText(PassportInlineLink, text);
-
-/// [text] when it is a real link (it has a touch target), not plain text.
-Finder _active(String text) =>
-    find.descendant(of: _link(text), matching: find.byType(InkWell));
+/// Whether [text] is a link inside the visible line [row].
+bool _isLink(WidgetTester tester, String row, String text) =>
+    linkSpansOf(tester, plainText(row)).any((s) => s.text == text);
 
 Plant _synthetic({List<PlantCredit> credits = const [], PlantImage? image}) =>
     Plant(
@@ -64,22 +62,25 @@ void main() {
   ) async {
     final plant = consolidatedPlant('lavandula-angustifolia');
     await _openSources(tester, plant);
-    expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
+    expect(plainText(PassportTexts.sourcesIntro), findsOneWidget);
     for (final credit in plant.credits) {
-      expect(find.text(credit.name), findsOneWidget, reason: credit.name);
-      expect(find.text('Licencia: ${credit.license}'), findsWidgets);
+      expect(plainText(credit.name), findsOneWidget, reason: credit.name);
+      expect(plainText('Licencia: ${credit.license}'), findsWidgets);
       expect(
-        find.text('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
+        plainText('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
         findsWidgets,
       );
       // The name is a link only when the credit has a page.
       expect(
-        _active(credit.name),
-        credit.url != null ? findsOneWidget : findsNothing,
+        _isLink(tester, credit.name, credit.name),
+        credit.url != null,
         reason: credit.name,
       );
       if (credit.licenseUrl != null) {
-        expect(_link('Licencia: ${credit.license}'), findsWidgets);
+        expect(
+          _isLink(tester, 'Licencia: ${credit.license}', credit.license),
+          isTrue,
+        );
       }
     }
     final wikipedia = plant.credits.firstWhere(
@@ -88,12 +89,10 @@ void main() {
     expect(wikipedia.license, 'CC BY-SA 4.0');
     expect(wikipedia.url, isNotNull);
     expect(wikipedia.licenseUrl, isNotNull);
-    await tester.tap(_link('Wikipedia en español'));
-    await tester.pump();
-    await tester.tap(_link('Licencia: CC BY-SA 4.0').first);
-    await tester.pump();
+    await tapSpan(tester, plainText('Wikipedia en español'), 'Wikipedia');
+    await tapSpan(tester, plainText('Licencia: CC BY-SA 4.0').first, 'CC BY');
     expect(launcher.launched, [wikipedia.url, wikipedia.licenseUrl]);
-    expect(find.text(PassportTexts.noSources), findsNothing);
+    expect(plainText(PassportTexts.noSources), findsNothing);
   });
 
   testWidgets('Fuentes no muestra ninguna URL ni el botón retirado', (
@@ -131,7 +130,7 @@ void main() {
     for (final credit in withUrl) {
       final shown = attributionWithoutUrls(credit.attribution);
       expect(shown, isNot(contains('http')), reason: credit.name);
-      expect(find.text('Atribución: $shown'), findsOneWidget);
+      expect(plainText('Atribución: $shown'), findsOneWidget);
     }
   });
 
@@ -188,12 +187,26 @@ void main() {
     });
   });
 
+  testWidgets('las entradas son compactas: nombre, licencia y atribución '
+      'seguidos, sin bandas vacías', (tester) async {
+    final plant = consolidatedPlant('lavandula-angustifolia');
+    await _openSources(tester, plant);
+    final credit = plant.credits.first;
+    final name = tester.getRect(plainText(credit.name));
+    final license = tester.getRect(plainText('Licencia: ${credit.license}'));
+    final attribution = tester.getRect(
+      plainText('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
+    );
+    expect(license.top - name.bottom, lessThanOrEqualTo(8));
+    expect(attribution.top - license.bottom, lessThanOrEqualTo(8));
+  });
+
   testWidgets('la pestaña no lleva título ni separador propios', (
     tester,
   ) async {
     await _openSources(tester, consolidatedPlant('lavandula-angustifolia'));
     // `Fuentes` only names the chip.
-    expect(find.text(PassportTexts.sourcesTitle), findsOneWidget);
+    expect(plainText(PassportTexts.sourcesTitle), findsOneWidget);
     expect(find.byType(Divider), findsNothing);
   });
 
@@ -201,17 +214,17 @@ void main() {
     final plant = consolidatedPlant('eucalyptus-globulus');
     for (final tab in ['General', 'Propiedades', 'Usos']) {
       await showPassport(tester, plant, tab: tab);
-      expect(find.text(PassportTexts.sourcesIntro), findsNothing, reason: tab);
-      expect(find.text(plant.credits.first.name), findsNothing, reason: tab);
-      expect(find.text(PassportTexts.imageSourceTitle), findsNothing);
+      expect(plainText(PassportTexts.sourcesIntro), findsNothing, reason: tab);
+      expect(plainText(plant.credits.first.name), findsNothing, reason: tab);
+      expect(plainText(PassportTexts.imageSourceTitle), findsNothing);
       expect(
-        find.text('Atribución: ${plant.credits.first.attribution}'),
+        plainText('Atribución: ${plant.credits.first.attribution}'),
         findsNothing,
       );
     }
     await showPassport(tester, plant, tab: 'Fuentes');
-    expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
-    expect(find.text(plant.credits.first.name), findsOneWidget);
+    expect(plainText(PassportTexts.sourcesIntro), findsOneWidget);
+    expect(plainText(plant.credits.first.name), findsOneWidget);
   });
 
   testWidgets('la atribución es texto secundario, más pequeño y gris', (
@@ -221,12 +234,12 @@ void main() {
     await _openSources(tester, plant);
     final credit = plant.credits.first;
     final attribution = tester.widget<Text>(
-      find.text('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
+      plainText('Atribución: ${attributionWithoutUrls(credit.attribution)}'),
     );
     final license = tester.widget<RichText>(
       find
           .descendant(
-            of: _link('Licencia: ${credit.license}'),
+            of: plainText('Licencia: ${credit.license}'),
             matching: find.byType(RichText),
           )
           .first,
@@ -243,10 +256,10 @@ void main() {
     // No link on the attribution.
     expect(
       find.ancestor(
-        of: find.text(
+        of: plainText(
           'Atribución: ${attributionWithoutUrls(credit.attribution)}',
         ),
-        matching: find.byType(PassportInlineLink),
+        matching: find.byType(PassportLinkedText),
       ),
       findsNothing,
     );
@@ -259,17 +272,27 @@ void main() {
     final image = plant.image!;
     await _openSources(tester, plant);
     await tester.scrollUntilVisible(
-      find.text(PassportTexts.imageSourceTitle),
+      plainText(PassportTexts.imageSourceTitle),
       300,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.text('Autor: ${image.author}'), findsOneWidget);
-    expect(_link('Licencia: ${image.license}'), findsOneWidget);
-    expect(_link(PassportTexts.imageFileLinkLabel), findsOneWidget);
-    await tester.ensureVisible(_link(PassportTexts.imageFileLinkLabel));
+    expect(plainText('Autor: ${image.author}'), findsOneWidget);
+    expect(
+      _isLink(tester, 'Licencia: ${image.license}', image.license),
+      image.licenseUrl != null,
+    );
+    final file = plainText(PassportTexts.imageFileLinkLabel);
+    expect(
+      _isLink(
+        tester,
+        PassportTexts.imageFileLinkLabel,
+        PassportTexts.imageFileLinkLabel,
+      ),
+      isTrue,
+    );
+    await tester.ensureVisible(file);
     await tester.pump();
-    await tester.tap(_link(PassportTexts.imageFileLinkLabel));
-    await tester.pump();
+    await tapSpan(tester, file, 'Archivo');
     expect(launcher.launched, [image.pageUrl]);
   });
 
@@ -280,15 +303,24 @@ void main() {
     expect(plant.image!.licenseUrl, isNull);
     await _openSources(tester, plant);
     await tester.scrollUntilVisible(
-      find.text('Licencia: Public domain'),
+      plainText('Licencia: Public domain'),
       300,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(_active('Licencia: Public domain'), findsNothing);
-    expect(_link('Licencia: Public domain'), findsOneWidget);
-    expect(find.text(PassportTexts.imageSourceTitle), findsOneWidget);
+    expect(
+      _isLink(tester, 'Licencia: Public domain', 'Public domain'),
+      isFalse,
+    );
+    expect(plainText(PassportTexts.imageSourceTitle), findsOneWidget);
     // The file link stays.
-    expect(_link(PassportTexts.imageFileLinkLabel), findsOneWidget);
+    expect(
+      _isLink(
+        tester,
+        PassportTexts.imageFileLinkLabel,
+        PassportTexts.imageFileLinkLabel,
+      ),
+      isTrue,
+    );
   });
 
   testWidgets('imagen sin autor: no disponible en fuente y archivo enlazado', (
@@ -303,16 +335,23 @@ void main() {
       attributionRequired: false,
     );
     await _openSources(tester, _synthetic(image: image));
-    expect(find.text('Autor: ${PassportTexts.notAvailable}'), findsOneWidget);
-    expect(_link(PassportTexts.imageFileLinkLabel), findsOneWidget);
-    expect(find.text(PassportTexts.noSources), findsNothing);
+    expect(plainText('Autor: ${PassportTexts.notAvailable}'), findsOneWidget);
+    expect(
+      _isLink(
+        tester,
+        PassportTexts.imageFileLinkLabel,
+        PassportTexts.imageFileLinkLabel,
+      ),
+      isTrue,
+    );
+    expect(plainText(PassportTexts.noSources), findsNothing);
   });
 
   testWidgets('Sin créditos ni imagen', (tester) async {
     await _openSources(tester, _synthetic());
-    expect(find.text(PassportTexts.noSources), findsOneWidget);
-    expect(find.text(PassportTexts.sourcesIntro), findsNothing);
-    expect(find.text(PassportTexts.imageSourceTitle), findsNothing);
+    expect(plainText(PassportTexts.noSources), findsOneWidget);
+    expect(plainText(PassportTexts.sourcesIntro), findsNothing);
+    expect(plainText(PassportTexts.imageSourceTitle), findsNothing);
   });
 
   testWidgets('una planta con imagen y sin créditos muestra solo la imagen', (
@@ -320,8 +359,8 @@ void main() {
   ) async {
     final base = consolidatedPlant('blighia-sapida');
     await _openSources(tester, _synthetic(image: base.image));
-    expect(find.text(PassportTexts.noSources), findsNothing);
-    expect(find.text('Autor: Jerome Walker'), findsOneWidget);
+    expect(plainText(PassportTexts.noSources), findsNothing);
+    expect(plainText('Autor: Jerome Walker'), findsOneWidget);
   });
 
   testWidgets('Sin procedencia por campo', (tester) async {
@@ -380,7 +419,7 @@ void main() {
     }
     expect(shown, isNot(contains(PassportTexts.attributionPrefix)));
     expect(shown, isNot(contains(PassportTexts.licensePrefix)));
-    expect(find.text(PassportTexts.sourcesIntro), findsNothing);
+    expect(plainText(PassportTexts.sourcesIntro), findsNothing);
   });
 
   testWidgets('los textos fijos de Fuentes no tienen lenguaje de eficacia', (
@@ -415,15 +454,11 @@ void main() {
       url: null,
     );
     await _openSources(tester, _synthetic(credits: const [credit]));
-    expect(find.text('Fuente sintetica'), findsOneWidget);
-    expect(find.text('Licencia: Licencia propia'), findsOneWidget);
-    expect(find.text('Atribución: Atribucion sintetica'), findsOneWidget);
-    expect(
-      find.descendant(
-        of: find.byType(PassportSourcesTab),
-        matching: find.byType(InkWell),
-      ),
-      findsNothing,
-    );
+    expect(plainText('Fuente sintetica'), findsOneWidget);
+    expect(plainText('Licencia: Licencia propia'), findsOneWidget);
+    expect(plainText('Atribución: Atribucion sintetica'), findsOneWidget);
+    for (final row in ['Fuente sintetica', 'Licencia: Licencia propia']) {
+      expect(linkSpansOf(tester, plainText(row)), isEmpty, reason: row);
+    }
   });
 }

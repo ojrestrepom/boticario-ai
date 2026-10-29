@@ -33,7 +33,7 @@ El pasaporte SHALL resolver la planta por su identificador contra la API del cat
 - **THEN** ninguna de las tres muestra créditos, licencias ni entradas de fuentes bajo su contenido
 
 ### Requirement: Accesibilidad del pasaporte
-El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%, también con las cuatro pestañas. Los controles, incluidos los enlaces en línea, SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp de alto y de ancho. Un enlace en línea SHALL anunciarse como enlace, con el texto visible y el destino al que lleva (por ejemplo, la página de la fuente o el texto de la licencia), y SHALL distinguirse del texto que lo rodea por algo más que el color. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de precauciones SHALL expresarse con texto y no solo con color.
+El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%, también con las cuatro pestañas. Los controles, como las pestañas y los botones, SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp de alto y de ancho, y la selección de una pestaña SHALL expresarse también en la semántica y en el borde, no solo en el relleno. Un enlace en línea, que va dentro de una frase o de una línea de texto, SHALL anunciarse como enlace, con el texto visible y el destino al que lleva (por ejemplo, la página de la fuente o el texto de la licencia), y SHALL distinguirse del texto que lo rodea por algo más que el color. Los enlaces en línea quedan exentos del mínimo de 48 dp, según la excepción de WCAG 2.5.8 para enlaces dentro de una frase. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de precauciones SHALL expresarse con texto y no solo con color.
 
 #### Scenario: Ficha accesible con texto aumentado
 - **WHEN** se recorre el pasaporte mediante tecnología de asistencia a 100% o 200% en 360x640 dp
@@ -47,12 +47,16 @@ El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, de
 - **WHEN** se muestra el nivel de precauciones `alto`, `medio` o `bajo`
 - **THEN** el nivel se presenta como texto, además de cualquier color
 
+#### Scenario: Pestañas estables al seleccionar
+- **WHEN** el usuario elige una pestaña distinta
+- **THEN** las cuatro pestañas conservan su posición y su tamaño, y la pestaña elegida se distingue por su relleno, su borde y su semántica de seleccionada
+
 #### Scenario: Enlace en línea accesible
 - **WHEN** se inspecciona con tecnología de asistencia un enlace de `Fuentes` o del pie de la imagen
-- **THEN** se anuncia como enlace con su texto visible y su destino, su área de toque mide al menos 48 dp de alto y de ancho, y no depende solo del color para distinguirse del texto que lo rodea
+- **THEN** se anuncia como enlace con su texto visible y su destino, sin leer la URL, y no depende solo del color para distinguirse del texto que lo rodea; al ir dentro del texto, no se le exige un área de toque de 48 dp
 
 ### Requirement: Imagen de cabecera con atribución
-Cuando el detalle trae `image`, el pasaporte SHALL mostrar en la cabecera la miniatura de 500 px de ancho que Wikimedia sirve para `image.url`, no el original, y, visible junto a ella, un pie con la forma «Foto: [autor] · [licencia]», también cuando `attributionRequired` es falso. El autor SHALL enlazar a la página del archivo (`image.pageUrl`) y la licencia a su texto (`image.licenseUrl`) cuando existe, según «Enlaces en línea sin URL visible». Cuando el autor no está disponible, el pie SHALL conservar un enlace a la página del archivo, nombrando su origen (`Wikimedia Commons`) en lugar del autor. El pie SHALL NOT mostrar la URL como texto. Mientras la imagen carga, si falla la descarga, si no puede construirse la miniatura o si la planta no tiene imagen, el pasaporte SHALL mostrar el arte local provisional, sin recurrir al original, sin atribución de imagen y sin tratarlo como un error de la ficha.
+Cuando el detalle trae `image`, el pasaporte SHALL mostrar en la cabecera la miniatura de 500 px de ancho que Wikimedia sirve para `image.url`, no el original, y, visible junto a ella, un pie con la forma «Foto: [autor] · [licencia]», escrito como texto corrido que ocupa a lo sumo dos líneas a 360 dp con texto al 100 %, también cuando `attributionRequired` es falso. El autor SHALL enlazar a la página del archivo (`image.pageUrl`) y la licencia a su texto (`image.licenseUrl`) cuando existe, según «Enlaces en línea sin URL visible». Cuando el autor no está disponible, el pie SHALL conservar un enlace a la página del archivo, nombrando su origen (`Wikimedia Commons`) en lugar del autor. El pie SHALL NOT mostrar la URL como texto. Mientras la imagen carga, si falla la descarga, si no puede construirse la miniatura o si la planta no tiene imagen, el pasaporte SHALL mostrar el arte local provisional, sin recurrir al original, sin atribución de imagen y sin tratarlo como un error de la ficha.
 
 #### Scenario: Imagen con licencia CC BY-SA
 - **WHEN** la planta tiene una imagen con autor «J. Pérez», licencia CC BY-SA 4.0 con `licenseUrl` y página en Commons
@@ -92,6 +96,10 @@ El pasaporte SHALL mostrar una pestaña `Fuentes` que indique que los datos se r
 #### Scenario: Crédito sin enlaces
 - **WHEN** un crédito tiene `url` y `licenseUrl` nulos, como los de la EMA
 - **THEN** su nombre y su licencia se muestran como texto sin enlace y su atribución como texto secundario
+
+#### Scenario: Entradas compactas
+- **WHEN** se muestra un crédito
+- **THEN** el nombre, la licencia y la atribución van en líneas consecutivas, con una separación de a lo sumo 8 dp entre ellas, sin bandas vacías dentro de la entrada
 
 #### Scenario: Atribución como texto secundario
 - **WHEN** se muestra un crédito con atribución

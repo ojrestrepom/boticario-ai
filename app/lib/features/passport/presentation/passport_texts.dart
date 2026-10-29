@@ -79,8 +79,8 @@ abstract final class PassportTexts {
   static const licenseTextDestination = 'el texto de la licencia';
   static const imageFileDestination =
       'la página del archivo en Wikimedia Commons';
-  static String linkHint(String destination) =>
-      'Abre $destination. Mantén pulsado para copiar el enlace';
+  static String linkSemantics(String text, String destination) =>
+      '$text. Abre $destination';
   static String imageDescription(String plantName) =>
       'Fotografía de $plantName';
 

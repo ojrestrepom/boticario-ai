@@ -7,6 +7,7 @@ import 'package:boticario_ai/features/passport/presentation/passport_header.dart
 import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
@@ -55,32 +56,21 @@ Future<void> _settleImage(WidgetTester tester) async {
 Finder _inHeader(String text) =>
     find.descendant(of: find.byType(PassportHeader), matching: find.text(text));
 
-Finder _footerLink(String text) => find.descendant(
+Finder _footer() => find.descendant(
   of: find.byType(PassportHeader),
-  matching: find.widgetWithText(PassportInlineLink, text),
+  matching: find.byType(PassportLinkedText),
 );
 
 /// The footer as the user reads it: "Foto: " + author + " · " + license.
-Finder _footerInkWells() => find.descendant(
-  of: find.descendant(
-    of: find.byType(PassportHeader),
-    matching: find.byType(Wrap),
-  ),
-  matching: find.byType(InkWell),
-);
+String _footerText(WidgetTester tester) => tester
+    .widget<Text>(find.descendant(of: _footer(), matching: find.byType(Text)))
+    .textSpan!
+    .toPlainText(includeSemanticsLabels: false);
 
-String _footerText(WidgetTester tester) => [
-  for (final t in tester.widgetList<Text>(
-    find.descendant(
-      of: find.descendant(
-        of: find.byType(PassportHeader),
-        matching: find.byType(Wrap),
-      ),
-      matching: find.byType(Text),
-    ),
-  ))
-    t.textSpan?.toPlainText() ?? t.data ?? '',
-].join();
+/// The texts of the footer that are links.
+List<String?> _footerLinks(WidgetTester tester) => [
+  for (final span in linkSpansOf(tester, _footer())) span.text,
+];
 
 PlantImage _image({String? author, String? licenseUrl, String? pageUrl}) =>
     PlantImage(
@@ -106,6 +96,8 @@ Plant _withImage(Plant base, PlantImage image) => Plant(
 void main() {
   late FakeUrlLauncher launcher;
 
+  setUpAll(loadRobotoForLayout);
+
   setUp(() {
     launcher = FakeUrlLauncher();
     UrlLauncherPlatform.instance = launcher;
@@ -122,12 +114,33 @@ void main() {
     await _settleImage(tester);
     expect(find.byType(Image), findsOneWidget);
     expect(_footerText(tester), 'Foto: ${image.author} · CC BY-SA 4.0');
-    expect(_footerLink(image.author!), findsOneWidget);
-    expect(_footerLink('CC BY-SA 4.0'), findsOneWidget);
+    expect(_footerLinks(tester), contains(image.author));
+    expect(_footerLinks(tester), contains('CC BY-SA 4.0'));
     _expectNoUrlText(tester, image);
     // The old three-line footer is gone.
     expect(find.text('Autor: ${image.author}'), findsNothing);
     expect(find.text('Licencia: CC BY-SA 4.0'), findsNothing);
+  });
+
+  testWidgets('El pie de la lavanda es texto corrido de a lo sumo 2 líneas', (
+    tester,
+  ) async {
+    final plant = consolidatedPlant('lavandula-angustifolia');
+    final image = plant.image!;
+    await showPassport(tester, plant, imageProviderFor: _loads);
+    await _settleImage(tester);
+    expect(_footerText(tester), 'Foto: ${image.author} · ${image.license}');
+    final paragraph = tester.renderObject<RenderParagraph>(
+      find.descendant(of: _footer(), matching: find.byType(RichText)),
+    );
+    final lines = paragraphLines(paragraph);
+    expect(lines.length, lessThanOrEqualTo(2), reason: '$lines');
+    // "Foto:" is not left alone, and no line starts or ends on the separator.
+    for (final line in lines) {
+      expect(line.trim(), isNot('Foto:'), reason: '$lines');
+      expect(line.trimRight().endsWith('·'), isFalse, reason: '$lines');
+      expect(line.trimLeft().startsWith('·'), isFalse, reason: '$lines');
+    }
   });
 
   testWidgets('Imagen sin atribución obligatoria muestra el mismo pie', (
@@ -139,7 +152,7 @@ void main() {
     await showPassport(tester, plant, imageProviderFor: _loads);
     await _settleImage(tester);
     expect(_footerText(tester), 'Foto: ${image.author} · ${image.license}');
-    expect(_footerLink(image.author!), findsOneWidget);
+    expect(_footerLinks(tester), contains(image.author));
   });
 
   testWidgets('Licencia sin URL: texto plano y autor enlazado', (tester) async {
@@ -149,10 +162,9 @@ void main() {
     await showPassport(tester, plant, imageProviderFor: _loads);
     await _settleImage(tester);
     expect(_footerText(tester), 'Foto: ${image.author} · ${image.license}');
-    expect(_footerLink(image.author!), findsOneWidget);
-    expect(_footerInkWells(), findsOneWidget);
-    await tester.tap(find.text(image.license));
-    await tester.pump();
+    expect(_footerLinks(tester), contains(image.author));
+    expect(_footerLinks(tester), [image.author]);
+    await tapSpan(tester, _footer(), image.license);
     expect(launcher.launched, isEmpty);
   });
 
@@ -170,10 +182,9 @@ void main() {
     );
     await _settleImage(tester);
     expect(_footerText(tester), 'Foto: Wikimedia Commons · CC BY-SA 4.0');
-    expect(_footerLink(PassportTexts.commonsName), findsOneWidget);
+    expect(_footerLinks(tester), contains(PassportTexts.commonsName));
     expect(_inHeader('No disponible en fuente'), findsNothing);
-    await tester.tap(find.text(PassportTexts.commonsName));
-    await tester.pump();
+    await tapSpan(tester, _footer(), PassportTexts.commonsName);
     expect(launcher.launched, [image.pageUrl]);
   });
 
@@ -188,7 +199,7 @@ void main() {
     );
     await _settleImage(tester);
     expect(_footerText(tester), 'Foto: J. Pérez · CC BY-SA 4.0');
-    expect(_footerInkWells(), findsNothing);
+    expect(_footerLinks(tester), isEmpty);
   });
 
   testWidgets('Imagen descrita para tecnología de asistencia', (tester) async {
@@ -271,8 +282,7 @@ void main() {
     final plant = consolidatedPlant('agrimonia-eupatoria');
     await showPassport(tester, plant, imageProviderFor: _loads);
     await _settleImage(tester);
-    await tester.tap(find.text(plant.image!.author!));
-    await tester.pump();
+    await tapSpan(tester, _footer(), plant.image!.author!);
     expect(launcher.launched, [plant.image!.pageUrl]);
     expect(launcher.modes, [PreferredLaunchMode.externalApplication]);
     // Only the footer shows it: the page itself is not shown, nor its URL.
@@ -283,8 +293,7 @@ void main() {
     final plant = consolidatedPlant('agrimonia-eupatoria');
     await showPassport(tester, plant, imageProviderFor: _loads);
     await _settleImage(tester);
-    await tester.tap(find.text(plant.image!.license));
-    await tester.pump();
+    await tapSpan(tester, _footer(), plant.image!.license);
     expect(launcher.launched, [plant.image!.licenseUrl]);
   });
 }

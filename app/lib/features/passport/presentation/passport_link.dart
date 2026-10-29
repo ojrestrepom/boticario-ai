@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -5,30 +9,88 @@ import 'package:url_launcher/url_launcher.dart';
 import 'passport_style.dart';
 import 'passport_texts.dart';
 
-/// Text that links to a URL, without showing the URL (design D2).
-///
-/// When [url] is a well-formed `https` URL the text is underlined and green,
-/// a tap opens it in the system browser and a long press copies it to the
-/// clipboard. Otherwise (no URL, or not `https`) it is plain text with no link
-/// semantics. The app never loads or shows the target page itself.
-///
-/// [prefix] ("Licencia: ") sits inside the touch target but outside the
-/// underline. [destination] describes where the link goes for screen readers
-/// ("el texto de la licencia"); the URL itself is never read.
-class PassportInlineLink extends StatelessWidget {
-  const PassportInlineLink({
-    required this.text,
-    required this.url,
-    required this.destination,
-    this.prefix = '',
-    this.style,
-    super.key,
-  });
+/// One piece of a [PassportLinkedText]: plain text, or a link when [url] is a
+/// well-formed `https` URL (design D2).
+@immutable
+class PassportLinkPart {
+  const PassportLinkPart(this.text, {this.url, this.destination = ''});
 
   final String text;
   final String? url;
+
+  /// Where the link goes, for screen readers ("el texto de la licencia").
   final String destination;
-  final String prefix;
+
+  bool get isLink => PassportLinkedText.canOpen(url);
+}
+
+/// A tap recognizer that also reports a long press.
+///
+/// It stays a [TapGestureRecognizer] so the text keeps the link semantics
+/// Flutter derives from it. A long press suppresses the tap that follows it.
+class _LinkRecognizer extends TapGestureRecognizer {
+  _LinkRecognizer({required VoidCallback onOpen, required this.onLongPress}) {
+    onTap = onOpen;
+  }
+
+  final VoidCallback onLongPress;
+  Timer? _timer;
+  bool _longPressed = false;
+
+  @override
+  void handleTapDown({required PointerDownEvent down}) {
+    super.handleTapDown(down: down);
+    _longPressed = false;
+    _timer?.cancel();
+    _timer = Timer(kLongPressTimeout - kPressTimeout, () {
+      _longPressed = true;
+      onLongPress();
+    });
+  }
+
+  @override
+  void handleTapUp({
+    required PointerDownEvent down,
+    required PointerUpEvent up,
+  }) {
+    _timer?.cancel();
+    if (_longPressed) {
+      _longPressed = false;
+      return;
+    }
+    super.handleTapUp(down: down, up: up);
+  }
+
+  @override
+  void handleTapCancel({
+    required PointerDownEvent down,
+    PointerCancelEvent? cancel,
+    required String reason,
+  }) {
+    _timer?.cancel();
+    _longPressed = false;
+    super.handleTapCancel(down: down, cancel: cancel, reason: reason);
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+}
+
+/// Running text whose [parts] may be links, without showing any URL.
+///
+/// A link part is underlined and green; a tap opens it in the system browser
+/// and a long press copies the URL to the clipboard. Other parts, and parts
+/// whose URL is missing or not `https`, are plain text with no link semantics.
+/// Links sit inside the sentence, so they follow the inline-link exception of
+/// WCAG 2.5.8 and do not need a 48 dp target (design D5). The app never loads
+/// or shows the target page itself.
+class PassportLinkedText extends StatefulWidget {
+  const PassportLinkedText({required this.parts, this.style, super.key});
+
+  final List<PassportLinkPart> parts;
 
   /// Base style of the text; the context text style when null.
   final TextStyle? style;
@@ -40,12 +102,60 @@ class PassportInlineLink extends StatelessWidget {
     return uri != null && uri.scheme == 'https' && uri.host.isNotEmpty;
   }
 
-  Future<void> _open(BuildContext context) async {
+  @override
+  State<PassportLinkedText> createState() => _PassportLinkedTextState();
+}
+
+class _PassportLinkedTextState extends State<PassportLinkedText> {
+  var _recognizers = <GestureRecognizer?>[];
+
+  @override
+  void initState() {
+    super.initState();
+    _recognizers = _build();
+  }
+
+  @override
+  void didUpdateWidget(covariant PassportLinkedText oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!listEquals(
+      [for (final p in oldWidget.parts) (p.text, p.url)],
+      [for (final p in widget.parts) (p.text, p.url)],
+    )) {
+      _disposeRecognizers();
+      _recognizers = _build();
+    }
+  }
+
+  @override
+  void dispose() {
+    _disposeRecognizers();
+    super.dispose();
+  }
+
+  void _disposeRecognizers() {
+    for (final recognizer in _recognizers) {
+      recognizer?.dispose();
+    }
+  }
+
+  List<GestureRecognizer?> _build() => [
+    for (final part in widget.parts)
+      if (part.isLink)
+        _LinkRecognizer(
+          onOpen: () => _open(part.url!),
+          onLongPress: () => _copy(part.url!),
+        )
+      else
+        null,
+  ];
+
+  Future<void> _open(String url) async {
     final messenger = ScaffoldMessenger.maybeOf(context);
     var opened = false;
     try {
       opened = await launchUrl(
-        Uri.parse(url!.trim()),
+        Uri.parse(url.trim()),
         mode: LaunchMode.externalApplication,
       );
     } on Object {
@@ -58,10 +168,10 @@ class PassportInlineLink extends StatelessWidget {
     }
   }
 
-  Future<void> _copy(BuildContext context) async {
+  Future<void> _copy(String url) async {
     final messenger = ScaffoldMessenger.maybeOf(context);
     try {
-      await Clipboard.setData(ClipboardData(text: url!.trim()));
+      await Clipboard.setData(ClipboardData(text: url.trim()));
       messenger?.showSnackBar(
         const SnackBar(content: Text(PassportTexts.linkCopied)),
       );
@@ -72,44 +182,31 @@ class PassportInlineLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base = DefaultTextStyle.of(context).style.merge(style);
-    if (!canOpen(url)) {
-      return Text.rich(TextSpan(text: '$prefix$text', style: base));
-    }
+    final base = DefaultTextStyle.of(context).style.merge(widget.style);
     final linkStyle = base.copyWith(
       color: passportGreen,
       decoration: TextDecoration.underline,
       decorationColor: passportGreen,
     );
-    return Semantics(
-      link: true,
-      label: '$prefix$text',
-      hint: PassportTexts.linkHint(destination),
-      onTap: () => _open(context),
-      onLongPress: () => _copy(context),
-      excludeSemantics: true,
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
-        child: InkWell(
-          onTap: () => _open(context),
-          onLongPress: () => _copy(context),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              widthFactor: 1,
-              child: Text.rich(
-                TextSpan(
-                  style: base,
-                  children: [
-                    if (prefix.isNotEmpty) TextSpan(text: prefix),
-                    TextSpan(text: text, style: linkStyle),
-                  ],
+    return Text.rich(
+      TextSpan(
+        style: base,
+        children: [
+          for (var i = 0; i < widget.parts.length; i++)
+            if (widget.parts[i].isLink)
+              TextSpan(
+                text: widget.parts[i].text,
+                style: linkStyle,
+                recognizer: _recognizers[i],
+                // The destination is announced, never the URL.
+                semanticsLabel: PassportTexts.linkSemantics(
+                  widget.parts[i].text,
+                  widget.parts[i].destination,
                 ),
-              ),
-            ),
-          ),
-        ),
+              )
+            else
+              TextSpan(text: widget.parts[i].text),
+        ],
       ),
     );
   }

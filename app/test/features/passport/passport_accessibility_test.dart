@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_header.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
@@ -76,31 +77,20 @@ Future<void> _pump(
   }
 }
 
-/// The touch target of each link on screen (links draw an `InkWell`).
-Iterable<RenderBox> _linkTargets(WidgetTester tester) => [
-  for (final link in find.byType(PassportInlineLink).evaluate())
-    for (final ink
-        in find
-            .descendant(
-              of: find.byWidget(link.widget),
-              matching: find.byType(InkWell),
-            )
-            .evaluate())
-      ink.renderObject! as RenderBox,
-];
-
-/// Scrolls the sheet from top to bottom in steps. At each step it checks that
-/// nothing overflowed and that every visible link is at least 48 dp high and
-/// wide. Returns how many link targets it measured.
+/// Scrolls the sheet from top to bottom in steps and checks at each step that
+/// nothing overflowed and that the tabs keep their 48 dp (links are inline in
+/// the text and have no minimum). Returns how many link spans it saw.
 Future<int> _scrollThrough(WidgetTester tester) async {
   final scrollable = _sheet();
   var links = 0;
   for (var i = 0; i < 80; i++) {
     expect(tester.takeException(), isNull);
-    for (final box in _linkTargets(tester)) {
+    for (final text in find.byType(PassportLinkedText).evaluate()) {
+      links += linkSpansOf(tester, find.byWidget(text.widget)).length;
+    }
+    for (final chip in find.byType(ChoiceChip).evaluate()) {
+      final box = chip.renderObject! as RenderBox;
       expect(box.size.height, greaterThanOrEqualTo(48));
-      expect(box.size.width, greaterThanOrEqualTo(48));
-      links++;
     }
     final position = tester.state<ScrollableState>(scrollable).position;
     if (position.pixels >= position.maxScrollExtent) break;
@@ -122,7 +112,7 @@ void main() {
     ]) {
       for (final tab in _tabs) {
         testWidgets('$id, $tab a 360x640 con texto al ${scale * 100}%: '
-            'sin desbordes y con enlaces de 48 dp', (tester) async {
+            'sin desbordes y con pestañas de 48 dp', (tester) async {
           await _pump(tester, consolidatedPlant(id), scale, tab);
           final measured = await _scrollThrough(tester);
           // The photo footer is always in the header; `Fuentes` has more.
@@ -138,22 +128,27 @@ void main() {
           final plant = consolidatedPlant(id);
           final image = plant.image!;
           await _pump(tester, plant, scale, 'General');
-          expect(find.text('${PassportTexts.photoPrefix}: '), findsOneWidget);
-          expect(
-            find.text(image.author ?? PassportTexts.commonsName),
-            findsOneWidget,
+          final footer = find.descendant(
+            of: find.byType(PassportHeader),
+            matching: find.byType(PassportLinkedText),
           );
-          expect(find.text(image.license), findsOneWidget);
-          expect(find.textContaining('https'), findsNothing);
-          for (final rich in tester.widgetList<RichText>(
-            find.descendant(
-              of: find.byType(PassportInlineLink),
-              matching: find.byType(RichText),
-            ),
-          )) {
-            expect(rich.maxLines, isNull);
-            expect(rich.overflow, isNot(TextOverflow.ellipsis));
-          }
+          final text = tester
+              .widget<Text>(
+                find.descendant(of: footer, matching: find.byType(Text)),
+              )
+              .textSpan!
+              .toPlainText(includeSemanticsLabels: false);
+          expect(
+            text,
+            'Foto: ${image.author ?? PassportTexts.commonsName} · '
+            '${image.license}',
+          );
+          expect(text, isNot(contains('http')));
+          final rich = tester.widget<RichText>(
+            find.descendant(of: footer, matching: find.byType(RichText)),
+          );
+          expect(rich.maxLines, isNull);
+          expect(rich.overflow, isNot(TextOverflow.ellipsis));
           expect(tester.takeException(), isNull);
         },
       );
@@ -164,10 +159,10 @@ void main() {
           final plant = consolidatedPlant(id);
           await _pump(tester, plant, scale, 'Fuentes');
           expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
-          await _scrollTo(tester, find.text(plant.credits.first.name));
-          expect(find.text(plant.credits.first.name), findsOneWidget);
+          await _scrollTo(tester, plainText(plant.credits.first.name));
+          expect(plainText(plant.credits.first.name), findsOneWidget);
           await _scrollTo(tester, find.text(PassportTexts.imageSourceTitle));
-          await _scrollTo(tester, find.text(PassportTexts.imageFileLinkLabel));
+          await _scrollTo(tester, plainText(PassportTexts.imageFileLinkLabel));
           for (final text in tester.widgetList<RichText>(
             find.byType(RichText),
           )) {
@@ -252,39 +247,68 @@ void main() {
       final image = plant.image!;
       await _pump(tester, plant, scale, 'General');
       // Footer: author -> file page, license -> license text.
+      await _scrollTo(
+        tester,
+        find.descendant(
+          of: find.byType(PassportHeader),
+          matching: find.byType(PassportLinkedText),
+        ),
+      );
+      // Footer: author -> file page, license -> license text.
+      await _scrollTo(
+        tester,
+        find.descendant(
+          of: find.byType(PassportHeader),
+          matching: find.byType(PassportLinkedText),
+        ),
+      );
+      final announced = {
+        for (final data in linkSemantics(tester)) data.label: data,
+      };
       for (final entry in {
-        image.author!: PassportTexts.imageFileDestination,
-        image.license: PassportTexts.licenseTextDestination,
+        image.author ?? PassportTexts.commonsName:
+            PassportTexts.imageFileDestination,
+        if (image.licenseUrl != null)
+          image.license: PassportTexts.licenseTextDestination,
       }.entries) {
-        final node = tester.getSemantics(find.bySemanticsLabel(entry.key));
-        final data = node.getSemanticsData();
-        expect(data.flagsCollection.isLink, isTrue, reason: entry.key);
-        expect(data.hint, PassportTexts.linkHint(entry.value));
+        final data =
+            announced[PassportTexts.linkSemantics(entry.key, entry.value)];
+        expect(data, isNotNull, reason: '${entry.key}: ${announced.keys}');
+        expect(data!.flagsCollection.isLink, isTrue);
         expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
-        expect(data.hasAction(ui.SemanticsAction.longPress), isTrue);
       }
-      // Sources tab: credit name -> source page, "Licencia: ..." -> license.
+      // Sources tab: credit name -> source page, license -> license text.
       await _scrollTo(tester, find.text('Fuentes'));
       await tester.tap(find.text('Fuentes'));
       await tester.pumpAndSettle();
-      final credit = plant.credits.firstWhere((c) => c.url != null);
-      await _scrollTo(tester, find.text(credit.name));
-      final named = tester
-          .getSemantics(find.bySemanticsLabel(credit.name))
-          .getSemanticsData();
-      expect(named.flagsCollection.isLink, isTrue);
-      expect(
-        named.hint,
-        PassportTexts.linkHint(PassportTexts.sourcePageDestination),
+      final credit = plant.credits.firstWhere(
+        (c) => c.url != null && c.licenseUrl != null,
       );
-      final licensed = find.bySemanticsLabel('Licencia: ${credit.license}');
-      await _scrollTo(tester, licensed.first);
-      final licenseData = tester
-          .getSemantics(licensed.first)
-          .getSemanticsData();
-      expect(licenseData.flagsCollection.isLink, credit.licenseUrl != null);
+      await _scrollTo(tester, plainText(credit.name));
+      final labels = [for (final data in linkSemantics(tester)) data.label];
+      expect(
+        labels,
+        contains(
+          PassportTexts.linkSemantics(
+            credit.name,
+            PassportTexts.sourcePageDestination,
+          ),
+        ),
+      );
+      await _scrollTo(tester, plainText('Licencia: ${credit.license}'));
+      expect(
+        [for (final data in linkSemantics(tester)) data.label],
+        contains(
+          PassportTexts.linkSemantics(
+            credit.license,
+            PassportTexts.licenseTextDestination,
+          ),
+        ),
+      );
       // No URL is announced.
-      expect(named.label + named.hint, isNot(contains('http')));
+      for (final label in labels) {
+        expect(label, isNot(contains('http')));
+      }
       handle.dispose();
     });
 
@@ -292,38 +316,27 @@ void main() {
         'color, al ${scale * 100}%', (tester) async {
       final plant = consolidatedPlant('eucalyptus-globulus');
       await _pump(tester, plant, scale, 'Fuentes');
-      await _scrollTo(tester, find.text(plant.credits.first.name));
-      var underlined = 0;
-      for (final rich in tester.widgetList<RichText>(
-        find.descendant(
-          of: find.byType(PassportInlineLink),
-          matching: find.byType(RichText),
-        ),
-      )) {
-        final spans = <TextSpan>[];
-        rich.text.visitChildren((span) {
-          if (span is TextSpan && span.text != null) spans.add(span);
-          return true;
-        });
-        underlined += spans
-            .where((s) => s.style?.decoration == TextDecoration.underline)
-            .length;
+      await _scrollTo(tester, plainText(plant.credits.first.name));
+      var links = 0;
+      for (final text in find.byType(PassportLinkedText).evaluate()) {
+        for (final span in linkSpansOf(tester, find.byWidget(text.widget))) {
+          links++;
+          expect(span.style?.decoration, TextDecoration.underline);
+        }
       }
-      expect(underlined, greaterThan(0));
+      expect(links, greaterThan(0));
     });
 
-    testWidgets('Guías de toque y de etiquetas en el pie y en Fuentes al '
-        '${scale * 100}%', (tester) async {
+    testWidgets('Guía de etiquetas en el pie y en Fuentes, y pestañas de 48 dp '
+        'al ${scale * 100}%', (tester) async {
       final handle = tester.ensureSemantics();
       final plant = consolidatedPlant('eucalyptus-globulus');
       await _pump(tester, plant, scale, 'General');
       await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
-      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
       await _scrollTo(tester, find.text('Fuentes'));
       await tester.tap(find.text('Fuentes'));
       await tester.pumpAndSettle();
       await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
-      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
       handle.dispose();
     });
   }

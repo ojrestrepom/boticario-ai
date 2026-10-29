@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:boticario_ai/app/theme.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_header.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
@@ -84,11 +86,21 @@ void main() {
     await _pump(tester, 1);
     final plant = consolidatedPlant('lavandula-angustifolia');
     final image = plant.image!;
-    expect(find.text(image.author!), findsOneWidget);
-    expect(find.text(image.license), findsOneWidget);
+    final footer = find.descendant(
+      of: find.byType(PassportHeader),
+      matching: find.byType(PassportLinkedText),
+    );
+    expect(
+      tester
+          .widget<Text>(
+            find.descendant(of: footer, matching: find.byType(Text)),
+          )
+          .textSpan!
+          .toPlainText(includeSemanticsLabels: false),
+      'Foto: ${image.author} · ${image.license}',
+    );
     expect(find.textContaining('https'), findsNothing);
-    await tester.tap(find.text(image.author!));
-    await tester.pump();
+    await tapSpan(tester, footer, image.author!);
     expect(launcher.launched, [image.pageUrl]);
     expect(tester.takeException(), isNull);
   });

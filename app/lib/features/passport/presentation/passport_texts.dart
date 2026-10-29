@@ -1,4 +1,4 @@
-/// Fixed texts of the passport tabs and the `Fuentes` section. They live
+/// Fixed texts of the passport tabs, including `Fuentes`. They live
 /// here, in one place, so a test can scan them for effect language.
 abstract final class PassportTexts {
   static const notAvailable = 'No disponible en fuente';
@@ -66,14 +66,21 @@ abstract final class PassportTexts {
   static const licensePrefix = 'Licencia';
   static const attributionPrefix = 'Atribución';
   static const authorPrefix = 'Autor';
-  static const licenseUrlPrefix = 'Enlace de la licencia';
-  static const pageUrlPrefix = 'Página';
+  static const imageFileLinkLabel = 'Archivo en Wikimedia Commons';
 
   // Enlaces y pie de la imagen.
-  static const imageFilePageLabel = 'Página del archivo';
-  static const openLink = 'Abrir en el navegador';
-  static String openLinkTooltip(String label) => 'Abrir $label';
+  static const photoPrefix = 'Foto';
+  static const commonsName = 'Wikimedia Commons';
   static const linkNotOpened = 'No se pudo abrir el enlace';
+  static const linkCopied = 'Enlace copiado';
+
+  // Destinos de los enlaces, para lectores de pantalla (nunca la URL).
+  static const sourcePageDestination = 'la página de la fuente';
+  static const licenseTextDestination = 'el texto de la licencia';
+  static const imageFileDestination =
+      'la página del archivo en Wikimedia Commons';
+  static String linkHint(String destination) =>
+      'Abre $destination. Mantén pulsado para copiar el enlace';
   static String imageDescription(String plantName) =>
       'Fotografía de $plantName';
 
@@ -125,10 +132,13 @@ abstract final class PassportTexts {
     licensePrefix,
     attributionPrefix,
     authorPrefix,
-    licenseUrlPrefix,
-    pageUrlPrefix,
-    imageFilePageLabel,
-    openLink,
+    imageFileLinkLabel,
+    photoPrefix,
+    commonsName,
     linkNotOpened,
+    linkCopied,
+    sourcePageDestination,
+    licenseTextDestination,
+    imageFileDestination,
   ];
 }

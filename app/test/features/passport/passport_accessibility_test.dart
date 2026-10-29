@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ final Uint8List _png = base64Decode(
   '60e6kgAAAABJRU5ErkJggg==',
 );
 
-const _tabs = ['General', 'Propiedades', 'Usos'];
+const _tabs = ['General', 'Propiedades', 'Usos', 'Fuentes'];
 
 /// The vertical scrollable of the sheet (the selectable URLs have their own).
 Finder _sheet() => find
@@ -75,19 +76,31 @@ Future<void> _pump(
   }
 }
 
+/// The touch target of each link on screen (links draw an `InkWell`).
+Iterable<RenderBox> _linkTargets(WidgetTester tester) => [
+  for (final link in find.byType(PassportInlineLink).evaluate())
+    for (final ink
+        in find
+            .descendant(
+              of: find.byWidget(link.widget),
+              matching: find.byType(InkWell),
+            )
+            .evaluate())
+      ink.renderObject! as RenderBox,
+];
+
 /// Scrolls the sheet from top to bottom in steps. At each step it checks that
-/// nothing overflowed and that every visible "open" button is at least 48 dp.
-/// Returns how many buttons it measured.
+/// nothing overflowed and that every visible link is at least 48 dp high and
+/// wide. Returns how many link targets it measured.
 Future<int> _scrollThrough(WidgetTester tester) async {
   final scrollable = _sheet();
-  var buttons = 0;
+  var links = 0;
   for (var i = 0; i < 80; i++) {
     expect(tester.takeException(), isNull);
-    for (final button in find.byType(TextButton).evaluate()) {
-      final box = button.renderObject! as RenderBox;
+    for (final box in _linkTargets(tester)) {
       expect(box.size.height, greaterThanOrEqualTo(48));
       expect(box.size.width, greaterThanOrEqualTo(48));
-      buttons++;
+      links++;
     }
     final position = tester.state<ScrollableState>(scrollable).position;
     if (position.pixels >= position.maxScrollExtent) break;
@@ -95,7 +108,7 @@ Future<int> _scrollThrough(WidgetTester tester) async {
     await tester.pump();
   }
   expect(tester.takeException(), isNull);
-  return buttons;
+  return links;
 }
 
 void main() {
@@ -109,26 +122,73 @@ void main() {
     ]) {
       for (final tab in _tabs) {
         testWidgets('$id, $tab a 360x640 con texto al ${scale * 100}%: '
-            'sin desbordes y con botones de 48 dp', (tester) async {
+            'sin desbordes y con enlaces de 48 dp', (tester) async {
           await _pump(tester, consolidatedPlant(id), scale, tab);
           final measured = await _scrollThrough(tester);
-          if (tab == 'General') expect(measured, greaterThan(0));
+          // The photo footer is always in the header; `Fuentes` has more.
+          if (tab == 'General' || tab == 'Fuentes') {
+            expect(measured, greaterThan(0));
+          }
         });
       }
 
-      testWidgets('$id: Fuentes y pie de imagen visibles al ${scale * 100}%', (
-        tester,
-      ) async {
-        final plant = consolidatedPlant(id);
-        await _pump(tester, plant, scale, 'General');
-        // Image footer is in the header, at the top.
-        expect(find.text('Licencia: ${plant.image!.license}'), findsOneWidget);
-        expect(find.text(PassportTexts.imageFilePageLabel), findsOneWidget);
-        expect(find.text(PassportTexts.openLink), findsWidgets);
-        await _scrollTo(tester, find.text(PassportTexts.sourcesTitle));
-        expect(find.text(PassportTexts.sourcesTitle), findsOneWidget);
-        expect(find.text(plant.credits.first.name), findsWidgets);
-        expect(tester.takeException(), isNull);
+      testWidgets(
+        '$id: pie de imagen sin truncar y sin URL al ${scale * 100}%',
+        (tester) async {
+          final plant = consolidatedPlant(id);
+          final image = plant.image!;
+          await _pump(tester, plant, scale, 'General');
+          expect(find.text('${PassportTexts.photoPrefix}: '), findsOneWidget);
+          expect(
+            find.text(image.author ?? PassportTexts.commonsName),
+            findsOneWidget,
+          );
+          expect(find.text(image.license), findsOneWidget);
+          expect(find.textContaining('https'), findsNothing);
+          for (final rich in tester.widgetList<RichText>(
+            find.descendant(
+              of: find.byType(PassportInlineLink),
+              matching: find.byType(RichText),
+            ),
+          )) {
+            expect(rich.maxLines, isNull);
+            expect(rich.overflow, isNot(TextOverflow.ellipsis));
+          }
+          expect(tester.takeException(), isNull);
+        },
+      );
+
+      testWidgets(
+        '$id: pestaña Fuentes completa y legible al ${scale * 100}%',
+        (tester) async {
+          final plant = consolidatedPlant(id);
+          await _pump(tester, plant, scale, 'Fuentes');
+          expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
+          await _scrollTo(tester, find.text(plant.credits.first.name));
+          expect(find.text(plant.credits.first.name), findsOneWidget);
+          await _scrollTo(tester, find.text(PassportTexts.imageSourceTitle));
+          await _scrollTo(tester, find.text(PassportTexts.imageFileLinkLabel));
+          for (final text in tester.widgetList<RichText>(
+            find.byType(RichText),
+          )) {
+            expect(text.maxLines, isNull);
+            expect(text.overflow, isNot(TextOverflow.ellipsis));
+          }
+          expect(tester.takeException(), isNull);
+        },
+      );
+
+      testWidgets('$id: las cuatro pestañas miden 48 dp y tienen etiqueta '
+          'al ${scale * 100}%', (tester) async {
+        final handle = tester.ensureSemantics();
+        await _pump(tester, consolidatedPlant(id), scale, 'General');
+        for (final tab in _tabs) {
+          final chip = find.widgetWithText(ChoiceChip, tab);
+          await _scrollTo(tester, chip);
+          expect(tester.getRect(chip).height, greaterThanOrEqualTo(48));
+          expect(tester.getSemantics(chip).label, tab);
+        }
+        handle.dispose();
       });
     }
 
@@ -184,21 +244,87 @@ void main() {
     },
   );
 
-  testWidgets('El botón Abrir en el navegador expone semántica de botón', (
-    tester,
-  ) async {
-    final handle = tester.ensureSemantics();
-    await _pump(
-      tester,
-      consolidatedPlant('lavandula-angustifolia'),
-      2,
-      'General',
-    );
-    final button = find.widgetWithText(TextButton, PassportTexts.openLink);
-    expect(button, findsWidgets);
-    final data = tester.getSemantics(button.first).getSemanticsData();
-    expect(data.flagsCollection.isButton, isTrue);
-    expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
-    handle.dispose();
-  });
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('Los enlaces del pie y de Fuentes se anuncian como enlace con '
+        'destino al ${scale * 100}%', (tester) async {
+      final handle = tester.ensureSemantics();
+      final plant = consolidatedPlant('eucalyptus-globulus');
+      final image = plant.image!;
+      await _pump(tester, plant, scale, 'General');
+      // Footer: author -> file page, license -> license text.
+      for (final entry in {
+        image.author!: PassportTexts.imageFileDestination,
+        image.license: PassportTexts.licenseTextDestination,
+      }.entries) {
+        final node = tester.getSemantics(find.bySemanticsLabel(entry.key));
+        final data = node.getSemanticsData();
+        expect(data.flagsCollection.isLink, isTrue, reason: entry.key);
+        expect(data.hint, PassportTexts.linkHint(entry.value));
+        expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
+        expect(data.hasAction(ui.SemanticsAction.longPress), isTrue);
+      }
+      // Sources tab: credit name -> source page, "Licencia: ..." -> license.
+      await _scrollTo(tester, find.text('Fuentes'));
+      await tester.tap(find.text('Fuentes'));
+      await tester.pumpAndSettle();
+      final credit = plant.credits.firstWhere((c) => c.url != null);
+      await _scrollTo(tester, find.text(credit.name));
+      final named = tester
+          .getSemantics(find.bySemanticsLabel(credit.name))
+          .getSemanticsData();
+      expect(named.flagsCollection.isLink, isTrue);
+      expect(
+        named.hint,
+        PassportTexts.linkHint(PassportTexts.sourcePageDestination),
+      );
+      final licensed = find.bySemanticsLabel('Licencia: ${credit.license}');
+      await _scrollTo(tester, licensed.first);
+      final licenseData = tester
+          .getSemantics(licensed.first)
+          .getSemanticsData();
+      expect(licenseData.flagsCollection.isLink, credit.licenseUrl != null);
+      // No URL is announced.
+      expect(named.label + named.hint, isNot(contains('http')));
+      handle.dispose();
+    });
+
+    testWidgets('Los enlaces se distinguen por el subrayado, no solo por el '
+        'color, al ${scale * 100}%', (tester) async {
+      final plant = consolidatedPlant('eucalyptus-globulus');
+      await _pump(tester, plant, scale, 'Fuentes');
+      await _scrollTo(tester, find.text(plant.credits.first.name));
+      var underlined = 0;
+      for (final rich in tester.widgetList<RichText>(
+        find.descendant(
+          of: find.byType(PassportInlineLink),
+          matching: find.byType(RichText),
+        ),
+      )) {
+        final spans = <TextSpan>[];
+        rich.text.visitChildren((span) {
+          if (span is TextSpan && span.text != null) spans.add(span);
+          return true;
+        });
+        underlined += spans
+            .where((s) => s.style?.decoration == TextDecoration.underline)
+            .length;
+      }
+      expect(underlined, greaterThan(0));
+    });
+
+    testWidgets('Guías de toque y de etiquetas en el pie y en Fuentes al '
+        '${scale * 100}%', (tester) async {
+      final handle = tester.ensureSemantics();
+      final plant = consolidatedPlant('eucalyptus-globulus');
+      await _pump(tester, plant, scale, 'General');
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await _scrollTo(tester, find.text('Fuentes'));
+      await tester.tap(find.text('Fuentes'));
+      await tester.pumpAndSettle();
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      handle.dispose();
+    });
+  }
 }

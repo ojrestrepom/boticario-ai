@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:boticario_ai/app/theme.dart';
-import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +18,12 @@ final Uint8List _png = base64Decode(
   '60e6kgAAAABJRU5ErkJggg==',
 );
 
-const _tabs = ['General', 'Propiedades', 'Usos'];
+const _tabs = ['General', 'Propiedades', 'Usos', 'Fuentes'];
 const _firstContent = {
   'General': 'Tipo de aceite',
   'Propiedades': 'Objetivos registrados por la EMA',
   'Usos': PassportTexts.usesNotice,
+  'Fuentes': PassportTexts.sourcesIntro,
 };
 
 Finder _sheet() => find
@@ -72,19 +72,24 @@ bool _inViewport(WidgetTester tester, Finder finder) {
 }
 
 void main() {
-  setUp(() => UrlLauncherPlatform.instance = FakeUrlLauncher());
+  late FakeUrlLauncher launcher;
 
-  testWidgets('Con imagen y pie completos, la cabecera conserva autor, '
-      'licencia y página del archivo visibles y abrible', (tester) async {
+  setUp(() {
+    launcher = FakeUrlLauncher();
+    UrlLauncherPlatform.instance = launcher;
+  });
+
+  testWidgets('Con imagen, el pie «Foto: autor · licencia» tiene enlaces '
+      'abribles y sin URL visible', (tester) async {
     await _pump(tester, 1);
     final plant = consolidatedPlant('lavandula-angustifolia');
-    expect(find.text('Licencia: ${plant.image!.license}'), findsOneWidget);
-    expect(find.text(PassportTexts.imageFilePageLabel), findsOneWidget);
-    expect(
-      find.text(PassportLink.readable(plant.image!.pageUrl)),
-      findsOneWidget,
-    );
-    expect(find.text(PassportTexts.openLink), findsWidgets);
+    final image = plant.image!;
+    expect(find.text(image.author!), findsOneWidget);
+    expect(find.text(image.license), findsOneWidget);
+    expect(find.textContaining('https'), findsNothing);
+    await tester.tap(find.text(image.author!));
+    await tester.pump();
+    expect(launcher.launched, [image.pageUrl]);
     expect(tester.takeException(), isNull);
   });
 
@@ -118,7 +123,14 @@ void main() {
     testWidgets('Cambios sucesivos de pestaña al ${scale * 100}%: siempre a '
         'la vista, sin desbordes', (tester) async {
       await _pump(tester, scale);
-      for (final tab in ['Usos', 'Propiedades', 'General', 'Usos']) {
+      for (final tab in [
+        'Usos',
+        'Fuentes',
+        'Propiedades',
+        'General',
+        'Fuentes',
+        'Usos',
+      ]) {
         await tester.scrollUntilVisible(_chip(tab), 100, scrollable: _sheet());
         await tester.ensureVisible(_chip(tab));
         await tester.pump();
@@ -127,6 +139,61 @@ void main() {
         for (final other in _tabs) {
           expect(_inViewport(tester, _chip(other)), isTrue, reason: other);
         }
+        expect(tester.takeException(), isNull);
+      }
+    });
+
+    testWidgets('De Usos (larga) a Fuentes (corta) al ${scale * 100}%: la hoja '
+        'no queda en blanco y las cuatro pestañas siguen a la vista', (
+      tester,
+    ) async {
+      await _pump(tester, scale);
+      await tester.scrollUntilVisible(_chip('Usos'), 100, scrollable: _sheet());
+      await tester.ensureVisible(_chip('Usos'));
+      await tester.pump();
+      await tester.tap(_chip('Usos'));
+      await tester.pumpAndSettle();
+      // Go to the end of the long tab, then back up to the chips.
+      final position = tester.state<ScrollableState>(_sheet()).position;
+      position.jumpTo(position.maxScrollExtent);
+      await tester.pumpAndSettle();
+      expect(position.pixels, greaterThan(0));
+      for (var i = 0; i < 80 && !_inViewport(tester, _chip('Fuentes')); i++) {
+        await tester.drag(_sheet(), const Offset(0, 120));
+        await tester.pump();
+      }
+      await tester.ensureVisible(_chip('Fuentes'));
+      await tester.pump();
+      await tester.tap(_chip('Fuentes'));
+      await tester.pumpAndSettle();
+
+      for (final other in _tabs) {
+        expect(_inViewport(tester, _chip(other)), isTrue, reason: other);
+      }
+      final intro = find.text(PassportTexts.sourcesIntro);
+      expect(intro, findsOneWidget);
+      final viewport = tester.getRect(_sheet());
+      expect(tester.getRect(intro).top, lessThan(viewport.bottom));
+      expect(tester.getRect(intro).top, greaterThan(viewport.top));
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('Recorrer las cuatro pestañas en ambos sentidos al '
+        '${scale * 100}%', (tester) async {
+      await _pump(tester, scale);
+      for (final tab in [..._tabs, ..._tabs.reversed]) {
+        await tester.scrollUntilVisible(_chip(tab), 100, scrollable: _sheet());
+        await tester.ensureVisible(_chip(tab));
+        await tester.pump();
+        await tester.tap(_chip(tab));
+        await tester.pumpAndSettle();
+        expect(tester.widget<ChoiceChip>(_chip(tab)).selected, isTrue);
+        for (final other in _tabs) {
+          expect(_inViewport(tester, _chip(other)), isTrue, reason: other);
+        }
+        final start = find.text(_firstContent[tab]!);
+        await tester.scrollUntilVisible(start, 100, scrollable: _sheet());
+        expect(start, findsOneWidget);
         expect(tester.takeException(), isNull);
       }
     });

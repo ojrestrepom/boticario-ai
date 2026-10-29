@@ -17,7 +17,9 @@ import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
 import '../../support/fake_catalog_api.dart';
+import 'passport_test_support.dart' show consolidatedPlant;
 
+const _tabNames = ['General', 'Propiedades', 'Usos', 'Fuentes'];
 const _lavender = 'lavandula-angustifolia';
 const _rosemary = 'rosmarinus-officinalis';
 const _noCommonNames = 'abies-spectabilis';
@@ -448,6 +450,56 @@ void main() {
     expect(homes, 1);
   });
 
+  testWidgets('cuatro pestañas con General inicial y Fuentes como cuarta', (
+    tester,
+  ) async {
+    await show(tester, _lavender);
+    final chips = tester.widgetList<ChoiceChip>(find.byType(ChoiceChip));
+    expect([for (final chip in chips) (chip.label as Text).data], _tabNames);
+    expect(
+      [for (final chip in chips) chip.selected],
+      [true, false, false, false],
+    );
+  });
+
+  testWidgets('Fuentes solo aparece con su pestaña y no bajo las otras tres', (
+    tester,
+  ) async {
+    // The `plant_*` fixtures predate credits: use a consolidated plant.
+    final plant = consolidatedPlant(_lavender);
+    final credit = plant.credits.first;
+    await tester.pumpWidget(
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(plant)),
+    );
+    Future<void> expectSourcesAbsent(String tab) async {
+      // Scroll the whole tab so lazily built rows cannot hide a section.
+      final scroll = passportScroll();
+      final position = tester.state<ScrollableState>(scroll).position;
+      for (var i = 0; i < 60; i++) {
+        expect(
+          find.text(PassportTexts.sourcesIntro),
+          findsNothing,
+          reason: tab,
+        );
+        expect(find.text(credit.name), findsNothing, reason: tab);
+        expect(find.text('Licencia: ${credit.license}'), findsNothing);
+        expect(find.text(PassportTexts.imageSourceTitle), findsNothing);
+        if (position.pixels >= position.maxScrollExtent) break;
+        await tester.drag(scroll, const Offset(0, -300));
+        await tester.pump();
+      }
+    }
+
+    await expectSourcesAbsent('General');
+    for (final tab in ['Propiedades', 'Usos']) {
+      await selectTab(tester, tab);
+      await expectSourcesAbsent(tab);
+    }
+    await selectTab(tester, 'Fuentes');
+    expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
+    expect(find.text(credit.name), findsOneWidget);
+  });
+
   testWidgets('identity change resets selected tab to General', (tester) async {
     await tester.pumpWidget(
       MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_lavender)),
@@ -634,7 +686,7 @@ void main() {
         onBack: () => backs++,
         onHome: () => homes++,
       );
-      for (final tab in ['General', 'Propiedades', 'Usos']) {
+      for (final tab in _tabNames) {
         await tester.tap(find.text(tab));
         await tester.pumpAndSettle();
         Finder chip() => find
@@ -890,7 +942,7 @@ void main() {
         await tester.tap(back);
         expect(backCount, 1);
 
-        for (final tabName in ['General', 'Propiedades', 'Usos']) {
+        for (final tabName in _tabNames) {
           await selectTab(tester, tabName);
           final tab = find.widgetWithText(ChoiceChip, tabName);
           final tabSemantics = tester.getSemantics(tab);
@@ -954,10 +1006,7 @@ void main() {
           expect(tester.getRect(home).shortestSide, greaterThanOrEqualTo(48));
           expect(home.hitTestable(), findsOneWidget);
           await tester.tap(home);
-          expect(
-            homeCount,
-            ['General', 'Propiedades', 'Usos'].indexOf(tabName) + 1,
-          );
+          expect(homeCount, _tabNames.indexOf(tabName) + 1);
         }
         expect(tester.takeException(), isNull);
       },
@@ -983,7 +1032,7 @@ void main() {
               home: pageFor(plant),
             ),
           );
-          for (final tabName in ['General', 'Propiedades', 'Usos']) {
+          for (final tabName in _tabNames) {
             await selectTab(tester, tabName);
             final chip = find.widgetWithText(ChoiceChip, tabName);
             final renderedLabel = find.descendant(

@@ -135,18 +135,40 @@ class _PlantPhoto extends StatelessWidget {
         child: ClipRRect(borderRadius: BorderRadius.circular(12), child: photo),
       ),
       const SizedBox(height: 4),
-      Text(
-        '${PassportTexts.authorPrefix}: '
-        '${image.author ?? PassportTexts.notAvailable}',
-        style: Theme.of(context).textTheme.bodyMedium
-            ?.copyWith(color: passportInk),
-      ),
-      Text(
-        '${PassportTexts.licensePrefix}: ${image.license}',
-        style: Theme.of(context).textTheme.bodyMedium
-            ?.copyWith(color: passportInk),
-      ),
-      PassportLink(label: PassportTexts.imageFilePageLabel, url: image.pageUrl),
+      _Footer(image: image),
     ],
   );
+}
+
+/// "Foto: [autor] · [licencia]": author linked to the file page and license
+/// to its text. Without an author, "Wikimedia Commons" takes its place so the
+/// link to the file page is kept (design D4, option A).
+class _Footer extends StatelessWidget {
+  const _Footer({required this.image});
+  final PlantImage image;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.bodyMedium
+        ?.copyWith(color: passportInk);
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Text('${PassportTexts.photoPrefix}: ', style: style),
+        PassportInlineLink(
+          text: image.author ?? PassportTexts.commonsName,
+          url: image.pageUrl,
+          destination: PassportTexts.imageFileDestination,
+          style: style,
+        ),
+        Text(' · ', style: style),
+        PassportInlineLink(
+          text: image.license,
+          url: image.licenseUrl,
+          destination: PassportTexts.licenseTextDestination,
+          style: style,
+        ),
+      ],
+    );
+  }
 }

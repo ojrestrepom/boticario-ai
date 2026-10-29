@@ -96,5 +96,18 @@ Solo cambia la app. No hay migración de datos ni de despliegue: se recompila el
 
 ## Open Questions
 
-- Q1: ¿«Foto: [Wikimedia Commons] · [licencia]» (A) para el autor desconocido, o prefieres B o C de D4? Cambia un escenario de la spec y una prueba, no la estructura.
-- Q2: ¿El gesto de copiar (pulsación larga) debe anunciarse visualmente de algún modo, o basta el aviso al copiar? Se asume que basta.
+Resueltas por el usuario antes de implementar (2026-10-28):
+
+- Q1: con autor desconocido el pie dice «Foto: [Wikimedia Commons] · [licencia]», con «Wikimedia Commons» enlazado a `pageUrl` (opción A de D4). Las opciones B y C quedan descartadas.
+- Q2: la pulsación larga solo muestra el aviso «Enlace copiado», sin otra señal visual del gesto.
+
+## Implementation Notes
+
+Diferencias y decisiones de implementación respecto del plan:
+
+- `passport_sources_section.dart` pasó a `passport_sources_tab.dart` y la clase a `PassportSourcesTab` (D1 dejaba la decisión abierta). `PassportInlineLink` vive en `passport_link.dart`, que reemplaza a `PassportLink`.
+- El pie de la foto es un `Wrap` con cuatro hijos: el texto «Foto: », el enlace del autor (o «Wikimedia Commons»), « · » y el enlace de la licencia. El texto «Foto: » y el separador no son parte de ningún enlace.
+- Los textos de destino para lectores de pantalla son «la página de la fuente», «el texto de la licencia» y «la página del archivo en Wikimedia Commons»; el aviso queda como «Abre [destino]. Mantén pulsado para copiar el enlace».
+- La atribución conserva el prefijo «Atribución: » y usa `bodySmall` en `passportMuted` (`0xFF58635B`), con contraste superior a 4,5:1 sobre el fondo del pasaporte, comprobado en una prueba.
+- Las atribuciones de la semilla citan a veces una URL o un DOI dentro de su propio texto (por ejemplo, la de EFSA cita un DOI `https://doi.org/...`). Se muestran verbatim, porque son la atribución exigida por la licencia, así que «ninguna URL como texto» se cumple para los nombres, las licencias, el autor y los enlaces, pero no para esa cita textual. Si se quiere ocultarlas hay que decidir qué atribución se recorta; no se tocó la semilla ni el contrato.
+- `_selectTab` no cambió: con cuatro pestañas, `ensureVisible` mantuvo las cuatro a la vista en 360x640 al 100 % y al 200 % (incluido el `Wrap` en varias filas y el paso de `Usos` a `Fuentes`), comprobado en `passport_tall_header_test.dart`.

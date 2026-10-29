@@ -8,8 +8,9 @@ import '../application/plant_detail_provider.dart';
 import 'passport_general_tab.dart';
 import 'passport_header.dart';
 import 'passport_properties_tab.dart';
-import 'passport_sources_section.dart';
+import 'passport_sources_tab.dart';
 import 'passport_style.dart';
+import 'passport_texts.dart';
 import 'passport_uses_tab.dart';
 
 /// Route-facing entry point. It resolves the API id (slug) of the route
@@ -242,6 +243,13 @@ class PlantPassportPage extends StatefulWidget {
   State<PlantPassportPage> createState() => _PlantPassportPageState();
 }
 
+const _tabLabels = [
+  'General',
+  'Propiedades',
+  'Usos',
+  PassportTexts.sourcesTitle,
+];
+
 class _PlantPassportPageState extends State<PlantPassportPage> {
   int _tab = 0;
   final _tabsKey = GlobalKey();
@@ -258,7 +266,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     body: SafeArea(
       bottom: false,
       child: CustomScrollView(
-        // One position per plant, shared by the three tabs: switching tab
+        // One position per plant, shared by the four tabs: switching tab
         // must not send the sheet back to the top (DEF-01).
         key: PageStorageKey('passport-${widget.plant.id}'),
         slivers: [
@@ -280,9 +288,10 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
                   PassportGeneralTab(plant: widget.plant)
                 else if (_tab == 1)
                   PassportPropertiesTab(plant: widget.plant)
+                else if (_tab == 2)
+                  PassportUsesTab(plant: widget.plant)
                 else
-                  PassportUsesTab(plant: widget.plant),
-                PassportSourcesSection(plant: widget.plant),
+                  PassportSourcesTab(plant: widget.plant),
               ],
             ),
           ),
@@ -326,9 +335,9 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     spacing: 8,
     runSpacing: 4,
     children: [
-      for (var i = 0; i < 3; i++)
+      for (var i = 0; i < _tabLabels.length; i++)
         ChoiceChip(
-          label: Text(['General', 'Propiedades', 'Usos'][i]),
+          label: Text(_tabLabels[i]),
           selected: _tab == i,
           onSelected: (_) => _selectTab(i),
           materialTapTargetSize: MaterialTapTargetSize.padded,

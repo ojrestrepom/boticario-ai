@@ -49,7 +49,9 @@ import 'package:boticario_ai/features/home/presentation/home_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_results_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_subareas_page.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_header.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:boticario_ai/main.dart' as app;
 import 'package:flutter/material.dart';
@@ -356,7 +358,7 @@ Future<void> _runCatalogSmoke(
     expect(find.byType(PlantPassportPage), findsOneWidget);
     expect(find.text(_lavenderCommon), findsWidgets);
     expect(find.text(_lavenderScientific), findsWidgets);
-    for (final tab in ['General', 'Propiedades', 'Usos']) {
+    for (final tab in ['General', 'Propiedades', 'Usos', 'Fuentes']) {
       expect(find.widgetWithText(ChoiceChip, tab), findsOneWidget);
     }
     expect(_selectedChip(tester, 'General'), isTrue);
@@ -366,13 +368,31 @@ Future<void> _runCatalogSmoke(
     expect(find.text('Lamiaceae'), findsOneWidget);
     await _scrollUntilBuilt(tester, find.text('Tipo de aceite'));
     expect(find.text('Tipo de aceite'), findsOneWidget);
+    // `Fuentes` is its own tab: nothing of it shows under `General`.
+    _expectSourcesHidden();
+    _expectPhotoFooterLinks(tester);
     await _tapVisible(tester, find.text('Propiedades'));
     expect(_selectedChip(tester, 'Propiedades'), isTrue);
     expect(find.text('Objetivos registrados por la EMA'), findsOneWidget);
     expect(find.text('Precauciones'), findsOneWidget);
+    _expectSourcesHidden();
     await _tapVisible(tester, find.text('Usos'));
     expect(_selectedChip(tester, 'Usos'), isTrue);
     expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    _expectSourcesHidden();
+    await _tapVisible(tester, find.text('Fuentes'));
+    expect(_selectedChip(tester, 'Fuentes'), isTrue);
+    await _scrollUntilBuilt(tester, find.text(PassportTexts.sourcesIntro));
+    expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
+    _expectNoUrlText(tester);
+    // Links sit on the names: at least one source or license is a link.
+    expect(
+      find.descendant(
+        of: find.byType(PassportInlineLink),
+        matching: find.byType(InkWell),
+      ),
+      findsWidgets,
+    );
     await _expectPassportDisabled(tester, router, homeLogs);
 
     // First real P05 return: its chevron restores the captured P04 state.
@@ -752,6 +772,38 @@ Finder _catalogHome(Type pageType) => find
 Future<void> _tapCatalogHome(WidgetTester tester, Type pageType) async {
   final home = _catalogHome(pageType);
   await _tapVisible(tester, home);
+}
+
+/// `Fuentes` content must not show under the other three tabs.
+void _expectSourcesHidden() {
+  expect(find.text(PassportTexts.sourcesIntro), findsNothing);
+  expect(find.text(PassportTexts.imageSourceTitle), findsNothing);
+  expect(find.text(PassportTexts.imageFileLinkLabel), findsNothing);
+}
+
+/// The photo footer reads "Foto: autor · licencia" with linked names. The
+/// photo may not have loaded (then there is no footer, by design).
+void _expectPhotoFooterLinks(WidgetTester tester) {
+  if (find.text('${PassportTexts.photoPrefix}: ').evaluate().isEmpty) return;
+  expect(
+    find.descendant(
+      of: find.byType(PassportHeader),
+      matching: find.byType(PassportInlineLink),
+    ),
+    findsNWidgets(2),
+  );
+  _expectNoUrlText(tester);
+}
+
+/// No `Text` on screen shows a URL. Required attributions are verbatim data
+/// and may quote a DOI, so `Atribución:` lines are left out.
+void _expectNoUrlText(WidgetTester tester) {
+  for (final text in tester.widgetList<Text>(find.byType(Text))) {
+    final shown = text.data ?? text.textSpan?.toPlainText() ?? '';
+    if (shown.startsWith('${PassportTexts.attributionPrefix}:')) continue;
+    expect(shown, isNot(contains('http')), reason: shown);
+  }
+  expect(find.byType(SelectableText), findsNothing);
 }
 
 Finder _lavenderRow() =>

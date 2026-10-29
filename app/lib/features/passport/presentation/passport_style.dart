@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 const passportGreen = Color(0xFF236335);
 const passportInk = Color(0xFF172A1F);
+
+/// Secondary text (attributions); 4.5:1 or better on [passportBackground].
+const passportMuted = Color(0xFF58635B);
 const passportBackground = Color(0xFFF9FAF7);
 
 /// Label and value pair shared by the passport tabs.

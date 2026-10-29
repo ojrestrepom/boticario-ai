@@ -23,7 +23,7 @@
 
 ## 5. Smoke
 
-- [ ] 5.1 Ajustar `app/integration_test/catalog_smoke.dart`: recorrer las cuatro pestañas, comprobar que `Fuentes` solo se ve en su pestaña, que no aparece una URL como texto y que el pie de la foto tiene los enlaces. Verificación: el smoke pasa en el emulador (misma invocación que los cambios anteriores) y se anota la salida.
+- [x] 5.1 Ajustar `app/integration_test/catalog_smoke.dart`: recorrer las cuatro pestañas, comprobar que `Fuentes` solo se ve en su pestaña, que no aparece una URL como texto y que el pie de la foto tiene los enlaces. Verificación: el smoke pasa en el emulador (misma invocación que los cambios anteriores) y se anota la salida.
 
 ## 6. Documentación
 
@@ -37,4 +37,5 @@
 
 ## 8. QA corta en el emulador
 
-- [ ] 8.1 Con el APK en el emulador (sin el teléfono físico), recorrer: una planta con créditos con y sin enlaces, una con imagen sin autor, y una sin créditos ni imagen si existe; las cuatro pestañas al 100 % y 200 %; abrir un enlace, copiar con pulsación larga y provocar el aviso de fallo (por ejemplo sin navegador o en modo avión). Verificación: capturas en `qa/evidence/` del cambio y un informe breve `qa/passport-sources-tab-results.md` con los casos, resultados y defectos.
+- [x] 8.1 Con el APK en el emulador (sin el teléfono físico), recorrer: una planta con créditos con y sin enlaces, una con imagen sin autor, y una sin créditos ni imagen si existe; las cuatro pestañas al 100 % y 200 %; abrir un enlace, copiar con pulsación larga y provocar el aviso de fallo (por ejemplo sin navegador o en modo avión). Verificación: capturas en `qa/evidence/` del cambio y un informe breve `qa/passport-sources-tab-results.md` con los casos, resultados y defectos.
+  - Nota: el caso de una planta sin créditos ni imagen no se pudo ejecutar porque no existe en la base; queda cubierto por la prueba de widget.

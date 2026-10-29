@@ -26,3 +26,7 @@ P06, la pantalla de subáreas y P07 leen `GET /v1/goals` y `GET /v1/goals/{goalI
 - Pruebas: `test/features/goal_search/`, `test/app/goal_navigation_test.dart` (pila completa, posición del scroll al volver del pasaporte y hoja sin cambio de ruta) y el smoke de `integration_test/catalog_smoke.dart`.
 
 Las pruebas usan las fixtures reales de [`test/fixtures/api/`](test/fixtures/api/) y un lanzador de URL simulado; no usan red. El quick start y los comandos de calidad están en el [README de la raíz](../README.md).
+
+## Ícono de la app
+
+El logo fuente son las hojas de `assets/branding/boticario-logo.svg`, y `assets/branding/boticario-icon.svg` es su variante de ícono con las hojas dentro de la zona segura de 66 dp. En Android el ícono es adaptativo (`mipmap-anydpi-v26/ic_launcher.xml`, con capa monocromática para los íconos temáticos) y los PNG heredados de `res/mipmap-*` se regeneran rasterizando el SVG con `qlmanage -t -s 1024` (macOS), con las hojas ampliadas 1,3 veces sobre un fondo `#EEF4E8` de esquinas redondeadas, y reduciendo el resultado con `sips -z <px> <px>` a 48, 72, 96, 144 y 192 px.

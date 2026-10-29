@@ -1,5 +1,7 @@
 # QA del cambio passport-sources-tab: resultados
 
+La primera ronda (commit `6e90e9b`) está abajo, hasta «Cómo repetir». La sección «Reverificación» al final recoge la segunda ronda sobre el commit `d9102f8`, que corrige el DEF-01; las capturas de `evidence/review/` y `evidence/smoke-output.txt` son las de esa segunda ronda.
+
 Entorno: API local nativa (binario `catalog-api` compilado con `--target-dir` en una carpeta auxiliar, sobre `data/build/catalog.db`, 2354 plantas), emulador `boticario_catalog_api36` (1080x1920, 420 dpi, Android 36), APK debug compilado con `API_TOKEN` aleatorio solo en la línea de comandos (`<token-app>`). No se usó el teléfono físico.
 
 ## Resumen
@@ -21,10 +23,10 @@ Sin defectos funcionales. Un defecto bajo de maquetación del pie de la foto y v
 | M8 | Pie de la foto de la lavanda: «Foto: [Franz Eugen Köhler, Köhler's Medizinal-Pflanzen] · Public domain», autor enlazado, licencia como texto (`licenseUrl` nula) | Imagen con atribución; licencia sin URL | Pasa en contenido; ver DEF-01 por la maquetación | `evidence/review/lav-general-top.png` |
 | M9 | Pie con dos enlaces (Quimbombó, `abelmoschus-esculentus`): «Foto: [Kristine Paulus from New York, United States] · [CC BY 2.0]», ambos subrayados; en el árbol de accesibilidad son enlaces con destino y aviso de pulsación larga | Imagen con licencia CC; Enlace en línea accesible | Pasa en contenido; ver DEF-01 | `evidence/review/footer-two-links-quimbombo.png` |
 | M10 | Autor desconocido (`actaea-cimicifuga`): «Foto: [Wikimedia Commons] · Public domain», enlace a `commons.wikimedia.org` (`dat=https://commons.wikimedia.org/...`); en `Fuentes`, «Autor: No disponible en fuente» y «Archivo en Wikimedia Commons» | Autor desconocido; Imagen sin autor | Pasa | `evidence/review/wikimedia-commons-footer.png`, `commons-fuentes-image-entry.png` |
-| M11 | Planta con muy pocos datos (`aeolanthus-myriantha`: un crédito y sin imagen): sin pie ni imagen, `Fuentes` con la intro y una entrada con nombre y licencia enlazados | Sin imagen; Pestaña Fuentes | Pasa | `evidence/review/min-data-aeolanthus-general.png`, `min-data-aeolanthus-fuentes.png` |
+| M11 | Planta con muy pocos datos (`aeolanthus-myriantha`: un crédito y sin imagen): sin pie ni imagen, `Fuentes` con la intro y una entrada con nombre y licencia enlazados | Sin imagen; Pestaña Fuentes | Pasa | (captura de la primera ronda retirada) |
 | M12 | Planta sin créditos ni imagen | Sin créditos | No ejecutado: no existe. En la base, el mínimo es un crédito (219 plantas con un crédito y sin imagen). El estado vacío queda cubierto solo por las pruebas de widget | n/a |
 | M13 | Cambio entre pestañas al 100 %: de `Usos` (larga, hasta el final) a `Fuentes`, con las pestañas visibles al volver a subir y el contenido de `Fuentes` alcanzable sin hoja en blanco | DEF-01 del cambio 2 con cuatro pestañas | Pasa | `evidence/review/usos-to-fuentes.png` |
-| M14 | Texto al 200 %: lavanda con las cuatro pestañas en un `Wrap` de dos o tres filas, sin truncado ni desbordes, cada pestaña con 165 px (63 dp) de alto, recorridas en ambos sentidos; `Fuentes` y su final alcanzables; de `Usos` a `Fuentes` las pestañas siguen visibles | Accesibilidad con texto aumentado | Pasa | `evidence/review/lav-200-footer-and-tabs.png`, `lav-200-propiedades.png`, `lav-200-usos.png`, `lav-200-fuentes.png`, `lav-200-fuentes-mid.png`, `lav-200-fuentes-final.png`, `lav-200-usos-end.png`, `lav-200-usos-to-fuentes.png` |
+| M14 | Texto al 200 %: lavanda con las cuatro pestañas en un `Wrap` de dos o tres filas, sin truncado ni desbordes, cada pestaña con 165 px (63 dp) de alto, recorridas en ambos sentidos; `Fuentes` y su final alcanzables; de `Usos` a `Fuentes` las pestañas siguen visibles | Accesibilidad con texto aumentado | Pasa | (capturas de la primera ronda reemplazadas por las de la reverificación) |
 
 ## Defectos
 
@@ -69,3 +71,44 @@ Sin defectos funcionales. Un defecto bajo de maquetación del pie de la foto y v
 Compilar la API con `cargo build --release --manifest-path backend/Cargo.toml -p catalog-api --target-dir <carpeta-auxiliar>` y arrancarla con `API_TOKENS=<token-app>` sobre `data/build/catalog.db`. Desde `app/`: `flutter test integration_test/app_test.dart -d emulator-5554 --dart-define=API_TOKEN=<token-app>`. Para el recorrido a mano, `flutter build apk --debug --dart-define=API_TOKEN=<token-app>`, instalar con `adb install -r` y navegar con `adb shell input`. Al terminar: `adb shell settings put system font_scale 1.0`.
 
 No se instaló ninguna herramienta ni dependencia. No se delegó en el Junior-Worker.
+
+## Reverificación (commit d9102f8)
+
+Mismo entorno que la primera ronda: API local nativa con un token aleatorio nuevo (`<token-app>`), emulador `boticario_catalog_api36`, APK debug recompilado desde `d9102f8`.
+
+| ID | Caso | Resultado | Evidencia |
+|---|---|---|---|
+| R-S1 | Smoke `flutter test integration_test/app_test.dart` en el emulador | Pasa: `All tests passed!` (+1), 40 s de prueba | `evidence/smoke-output.txt` |
+| R-M8 | Pie de la lavanda al 100 %: un solo texto corrido «Foto: [autor] · Public domain» de 2 líneas (el autor, largo, ocupa la primera y parte de la segunda); sin «Foto:» suelto ni «·» huérfano; el autor se abre (`dat=https://commons.wikimedia.org/...`) | Pasa | `evidence/review/lav-general-top.png` |
+| R-M9 | Pie de Quimbombó al 100 %: «Foto: [Kristine Paulus from New York, United States]» y en la segunda línea «· [CC BY 2.0]», ambos enlaces se abren (`creativecommons.org` y `commons.wikimedia.org`). Al 200 %: tres líneas de texto corrido, con el « ·» al final de la segunda; sin «Foto:» suelto | Pasa | `evidence/review/footer-two-links-quimbombo.png`, `quimbombo-200-footer-and-tabs.png` |
+| R-M10 | Autor desconocido (`actaea-cimicifuga`): «Foto: [Wikimedia Commons] · Public domain» en una línea, el enlace se abre | Pasa | `evidence/review/wikimedia-commons-footer.png` |
+| R-M13 | Del final de `Usos` a `Fuentes` al 100 %: las pestañas siguen visibles y el contenido de `Fuentes` empieza bajo ellas | Pasa | `evidence/review/usos-to-fuentes.png` |
+| R-M14 | Lavanda al 200 %: pie de tres líneas sin truncar, cuatro pestañas en dos filas, `Fuentes` y su final alcanzables, y de `Usos` a `Fuentes` las pestañas siguen visibles | Pasa | `evidence/review/lav-200-footer-and-tabs.png`, `lav-200-fuentes.png`, `lav-200-fuentes-mid.png`, `lav-200-fuentes-final.png`, `lav-200-usos-to-fuentes.png` |
+| R-F1 | `Fuentes` de la lavanda al 100 %: entradas compactas (nombre, «Licencia: …» y atribución consecutivos, sin las bandas vacías de 48 dp de la primera ronda); en `lav-fuentes-2.png` caben cuatro créditos en una pantalla | Pasa | `evidence/review/lav-fuentes-1.png`, `lav-fuentes-2.png`, `lav-fuentes-final.png` |
+| R-F2 | Toque en el nombre «Wikipedia en español» y en «CC BY-SA 4.0»: abre Chrome con `https://es.wikipedia.org/...` y `https://creativecommons.org/...` | Pasa | logcat (sin guardar) |
+| R-F3 | Pulsación larga sobre «Wikipedia en español»: aviso «Enlace copiado», portapapeles con la URL, no se abre el navegador (0 `START`, foco en la app) | Pasa | `evidence/review/longpress-copied.png` |
+| R-F4 | Con Chrome deshabilitado (y luego reactivado): «No se pudo abrir el enlace», pantalla usable | Pasa | `evidence/review/open-failed-snackbar.png` |
+| R-T1 | Pestañas al 100 %: recorrí `General`, `Propiedades`, `Usos`, `Fuentes` y de vuelta; los límites de los cuatro chips no cambian ni un píxel entre toques (General 48,904 a 303,1048; Propiedades 327,904 a 674,1048; Usos 698,904 a 901,1048; Fuentes 48,1060 a 308,1204) | Pasa | volcados de `uiautomator` (sin guardar) |
+| R-T2 | Pestañas al 200 %: el mismo recorrido; límites fijos (General 48,273 a 406,444; Propiedades 430,273 a 958,444; Usos 48,456 a 312,627; Fuentes 336,456 a 704,627), la altura de cada chip es de 171 px (65 dp) | Pasa | volcados de `uiautomator` (sin guardar), `evidence/review/lav-200-footer-and-tabs.png` |
+| R-T3 | Se distingue la pestaña activa: borde verde de 2 dp con relleno verde claro, las demás con borde gris; sin marca de verificación. En `uiautomator`, `selected="true"` solo en la activa en cada selección, tanto al 100 % como al 200 % | Pasa | `evidence/review/lav-general-top.png`, `lav-200-fuentes.png` |
+| R-A1 | Árbol de accesibilidad de los enlaces (`uiautomator`): etiqueta «texto. Abre [destino]» sin la frase de pulsación larga, que ya no se anuncia | Pasa | volcados (sin guardar) |
+| R-A2 | Ninguna URL como texto: en las capturas de `Fuentes`, del pie y de la lista de la reverificación no se ve ninguna URL ni DOI. No repetí el volcado completo con búsqueda de `http` de la primera ronda | Pasa (visual) | capturas de `evidence/review/` |
+
+### DEF-01: cerrado
+
+El pie ya no se parte en filas independientes: la lavanda ocupa 2 líneas al 100 % y Quimbombó 2 líneas, con el « · » unido a la licencia. No quedan «Foto:» aislados ni separadores huérfanos. La observación de las pestañas que se movían al seleccionarlas también queda cerrada (R-T1 a R-T3).
+
+### Defectos nuevos
+
+Ninguno.
+
+### Observaciones de la reverificación
+
+- Con textos largos, el « · » puede quedar al principio de una línea (Quimbombó al 100 %: «· CC BY 2.0») o al final de otra (Quimbombó al 200 %), siempre pegado a la licencia o al autor. Es el comportamiento normal de un texto corrido y no se considera defecto.
+- Las áreas de toque de los enlaces en línea son ahora de la altura del texto (unos 30 dp en las filas de `Fuentes`, sobre 78 px), por la excepción de WCAG 2.5.8 que documentan el delta y D8. En el emulador los toques en el texto abrieron el enlace sin fallos; no se midió con un dedo real.
+- El botón fijo «Ver formulaciones relacionadas» y la barra 2x2 a 200 % siguen tapando el inicio de `Fuentes` hasta desplazar (diseño previo).
+- Retiré de `evidence/review/` las capturas de la primera ronda que mostraban la interfaz anterior (pestañas con marca, pie de tres filas, entradas con bandas) y que ya no representan el producto: `lav-200-general-top`, `lav-200-propiedades`, `lav-200-usos`, `lav-200-usos-end`, `min-data-aeolanthus-general`, `min-data-aeolanthus-fuentes` y `commons-fuentes-image-entry`. Los casos M10 y M11 de la primera ronda se revalidaron con el producto anterior; M11 (planta con pocos datos) no se repitió con la corrección.
+
+### Cobertura de la reverificación
+
+No se repitió M11 (planta con un crédito y sin imagen), ni la copia por pulsación larga al 200 %, ni TalkBack real. Limpieza: API detenida, emulador apagado, app desinstalada, `font_scale` en 1.0, `app-debug.apk` y `app-debug.apk.sha1` borrados.

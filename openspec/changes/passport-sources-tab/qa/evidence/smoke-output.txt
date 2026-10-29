@@ -20,7 +20,7 @@ WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.i
 WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
 WARNING: Restricted methods will be blocked in a future release unless native access is enabled
 
-Running Gradle task 'assembleDebug'...                              8,8s
+Running Gradle task 'assembleDebug'...                              8,5s
 ✓ Built build/app/outputs/flutter-apk/app-debug.apk
 Installing build/app/outputs/flutter-apk/app-debug.apk...          338ms
 00:00 +0: real app against the catalog API: Home, Explore, passport and returns
@@ -41,15 +41,14 @@ Installing build/app/outputs/flutter-apk/app-debug.apk...          338ms
 [CatalogSmoke metrics] stage=P07.after-return offset=1920.0
 [Home] Explorar plantas y aceites
 [Home] Explorar plantas y aceites
-[CatalogSmoke metrics] stage=P04.before-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
-[CatalogSmoke metrics] stage=P05.after-navigation inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
-[CatalogSmoke metrics] stage=P05.before-chevron-return inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
-[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
-[CatalogSmoke metrics] stage=P04.before-framework-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
-[CatalogSmoke metrics] stage=P05.after-framework-navigation inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
-[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P04.before-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
+[CatalogSmoke metrics] stage=P05.after-navigation inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
+[CatalogSmoke metrics] stage=P05.before-chevron-return inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
+[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
+[CatalogSmoke metrics] stage=P04.before-framework-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
+[CatalogSmoke metrics] stage=P05.after-framework-navigation inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
+[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=908247509 queryController=767190984 query=lavandula
 [Home] Explorar plantas y aceites
 [Home] Explorar plantas y aceites
 00:40 +1: (tearDownAll)
 00:40 +1: All tests passed!
-flutter test integration_test/app_test.dart -d emulator-5554   2.23s user 0.46s system 5% cpu 53.132 total

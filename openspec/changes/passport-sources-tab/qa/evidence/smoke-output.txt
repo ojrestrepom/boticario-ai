@@ -1,0 +1,55 @@
+Resolving dependencies...
+Downloading packages...
+  crypto 3.0.7 (3.0.8 available)
+  cupertino_ui 1.1.1 (1.1.4 available)
+  go_router 18.0.2 (18.1.1 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  material_ui 1.5.0 (1.8.0 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  vector_math 2.4.0 (2.4.4 available)
+  vm_service 15.3.0 (15.4.0 available)
+  web 1.1.1 (1.1.2 available)
+Got dependencies!
+10 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart
+Running Gradle task 'assembleDebug'...                          
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/Users/jsrc1115/.gradle/wrapper/dists/gradle-9.3.1-all/9ot9r568e8zfvvd4mn8rbu1j0/gradle-9.3.1/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Running Gradle task 'assembleDebug'...                              8,8s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...          338ms
+00:00 +0: real app against the catalog API: Home, Explore, passport and returns
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Identificar con cámara
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Historial
+[Home] Pestaña: Perfil
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[CatalogSmoke metrics] stage=P07.before-passport offset=1920.0
+[CatalogSmoke metrics] stage=P07.after-return offset=1920.0
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+[CatalogSmoke metrics] stage=P04.before-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P05.after-navigation inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P05.before-chevron-return inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P04.before-framework-tap.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P05.after-framework-navigation inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[CatalogSmoke metrics] stage=P04.after-return.stable-viewport inset=0.0 viewport=514.6666666666666 maxExtent=253.33333333333337 offset=216.0 scrollController=669596972 queryController=348729836 query=lavandula
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+00:40 +1: (tearDownAll)
+00:40 +1: All tests passed!
+flutter test integration_test/app_test.dart -d emulator-5554   2.23s user 0.46s system 5% cpu 53.132 total

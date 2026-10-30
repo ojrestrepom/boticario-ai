@@ -404,6 +404,81 @@
           }
         },
         {
+          "name": "Detalle con glosario de actividades",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "const group = (a) => j.useGroups.find(g => g.activity === a);",
+                  "pm.test(\"glossary siempre presente en cada grupo, objeto o null con sus cinco campos\", () => { pm.expect(j.useGroups).to.be.an(\"array\").and.not.empty; j.useGroups.forEach(g => { pm.expect(g, g.activity).to.have.property(\"glossary\"); if (g.glossary !== null) { pm.expect(Object.keys(g.glossary).sort(), g.activity).to.eql([\"adapted\",\"sourceName\",\"term\",\"text\",\"url\"]); pm.expect(g.glossary.term).to.be.a(\"string\").and.not.empty; pm.expect(g.glossary.text).to.be.a(\"string\").and.not.empty; pm.expect(g.glossary.url).to.match(/^https:\\/\\//); pm.expect(g.glossary.adapted).to.be.a(\"boolean\"); pm.expect([\"Wikcionario\",\"Wikipedia\"]).to.include(g.glossary.sourceName); } }); });",
+                  "pm.test(\"Diurético trae la definición literal de Wikcionario\", () => { const g = group(\"Diurético\"); pm.expect(g, \"grupo Diurético\").to.exist; pm.expect(g.glossary.term).to.eql(\"Diurético\"); pm.expect(g.glossary.text).to.eql(\"Que aumenta o facilita la producción y excreción de orina.\"); pm.expect(g.glossary.sourceName).to.eql(\"Wikcionario\"); pm.expect(g.glossary.adapted).to.be.false; pm.expect(g.glossary.url).to.include(\"es.wiktionary.org\").and.include(\"oldid=\"); });",
+                  "pm.test(\"Estimulante trae una paráfrasis adaptada de Wikipedia\", () => { const g = group(\"Estimulante\"); pm.expect(g, \"grupo Estimulante\").to.exist; pm.expect(g.glossary.sourceName).to.eql(\"Wikipedia\"); pm.expect(g.glossary.adapted).to.be.true; pm.expect(g.glossary.url).to.include(\"es.wikipedia.org\").and.include(\"oldid=\"); });",
+                  "pm.test(\"una actividad sin término tiene glossary null\", () => { const g = group(\"Espasmo\"); pm.expect(g, \"grupo Espasmo\").to.exist; pm.expect(g.glossary).to.be.null; });",
+                  "pm.test(\"los demás campos del grupo no cambian\", () => { j.useGroups.forEach(g => { [\"activity\",\"activitySource\",\"count\",\"countries\",\"references\"].forEach(k => pm.expect(g, g.activity).to.have.property(k)); }); pm.expect(j.uses).to.be.an(\"array\").and.not.empty; });",
+                  "pm.test(\"credits incluye Wikcionario con CC BY-SA 4.0 y su licenseUrl, una sola vez\", () => { const w = j.credits.filter(c => c.name === \"Wikcionario en español\"); pm.expect(w.length).to.eql(1); pm.expect(w[0].license).to.eql(\"CC BY-SA 4.0\"); pm.expect(w[0].licenseUrl).to.eql(\"https://creativecommons.org/licenses/by-sa/4.0/\"); pm.expect(w[0].attribution).to.include(\"Wikcionario\").and.include(\"primera oración\"); });",
+                  "pm.test(\"credits incluye Wikipedia una sola vez aunque también acredite la descripción\", () => { pm.expect(j.credits.filter(c => c.name === \"Wikipedia en español\").length).to.eql(1); const names = j.credits.map(c => c.name); pm.expect(new Set(names).size).to.eql(names.length); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants/lavandula-angustifolia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants",
+                "lavandula-angustifolia"
+              ]
+            },
+            "description": "Detalle de la lavanda: cada grupo de uso trae glossary (objeto o null), con la definición de Diurético (Wikcionario), la paráfrasis de Estimulante (Wikipedia, adaptada) y los créditos de Wikcionario y Wikipedia."
+          }
+        },
+        {
+          "name": "Detalle con fórmula de enfermedad grave sin glosario",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "const group = (a) => j.useGroups.find(g => g.activity === a);",
+                  "pm.test(\"la fórmula de enfermedad grave no tiene explicación\", () => { const g = j.useGroups.filter(x => x.activity.startsWith(\"Uso tradicional, sin eficacia demostrada: \")); pm.expect(g.length).to.be.above(0); g.forEach(x => pm.expect(x.glossary, x.activity).to.be.null); });",
+                  "pm.test(\"un término con explicación sigue ahí en la misma planta\", () => { const g = group(\"Diurético\"); pm.expect(g.glossary).to.be.an(\"object\"); pm.expect(g.glossary.term).to.eql(\"Diurético\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants/salvia-rosmarinus",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants",
+                "salvia-rosmarinus"
+              ]
+            },
+            "description": "Detalle del romero: los grupos con la fórmula «Uso tradicional, sin eficacia demostrada: …» llevan glossary null."
+          }
+        },
+        {
           "name": "Detalle inexistente (404)",
           "event": [
             {

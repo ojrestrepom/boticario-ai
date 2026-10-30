@@ -1,6 +1,19 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
+    activity_glossary (key) {
+        key -> Text,
+        term -> Text,
+        text -> Text,
+        entry_url -> Text,
+        revision_date -> Text,
+        source_id -> Text,
+        source_name -> Text,
+        adapted -> Bool,
+    }
+}
+
+diesel::table! {
     goal (id) {
         id -> Text,
         label -> Text,
@@ -181,6 +194,7 @@ diesel::table! {
         n -> Integer,
         countries -> Text,
         pending_review -> Bool,
+        glossary_key -> Nullable<Text>,
     }
 }
 
@@ -232,6 +246,7 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(activity_glossary -> source (source_id));
 diesel::joinable!(goal_subarea -> goal (goal_id));
 diesel::joinable!(plant -> source (family_source_id));
 diesel::joinable!(plant_alias -> plant (plant_id));
@@ -257,6 +272,7 @@ diesel::joinable!(plant_source_id -> plant (plant_id));
 diesel::joinable!(plant_source_id -> source (source_id));
 diesel::joinable!(plant_use -> plant (plant_id));
 diesel::joinable!(plant_use -> reference (reference_id));
+diesel::joinable!(plant_use_group -> activity_glossary (glossary_key));
 diesel::joinable!(plant_use_group -> plant (plant_id));
 diesel::joinable!(plant_use_group_ref -> plant_use_group (use_group_id));
 diesel::joinable!(plant_use_group_ref -> reference (reference_id));
@@ -266,6 +282,7 @@ diesel::joinable!(reference_source -> reference (reference_id));
 diesel::joinable!(reference_source -> source (source_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
+    activity_glossary,
     goal,
     goal_subarea,
     metadata,

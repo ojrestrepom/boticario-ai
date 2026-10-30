@@ -241,3 +241,13 @@ Las siete preguntas abiertas del plan inicial quedaron resueltas:
 - **Q7.** Las definiciones con verbos vigilados de Antiséptico, Bactericida, Vulnerario, Antidiarreico, Fungicida y Parasiticida se incluyen, con aprobación explícita por término (D10).
 
 Queda pendiente la revisión del usuario de la tabla completa de textos (tarea 3.4) antes de sellar.
+
+## Diferencias observadas al implementar el backend (grupos 5 y 6)
+
+- `activity_glossary.revision_date` guarda la fecha AAAA-MM-DD (el prefijo de `revisionTimestamp` de la semilla), no la hora completa; la hora completa sigue en `glossary.json`.
+- La tabla añade `CHECK` de claves, términos, textos y nombres no vacíos, de `entry_url` con `https://` y de `adapted` en 0 y 1, y un índice por `source_id`; la columna `plant_use_group.glossary_key` tiene su índice.
+- El lector de Rust también exige que cada `key` del glosario ya esté en forma base, además de única y no vacía, para que el enlace no dependa de claves mal formadas.
+- La regla de la forma base vive en `catalog-core` (`activity_base_key`, `activity_can_link_glossary`) y la prueban Rust (`catalog-ingest/tests/seed_build.rs`) y Python con el mismo `glossary-key-cases.json`. El archivo marca `links` según la clave exacta: Rust lo prueba con las claves acentuadas en el glosario.
+- Con la lista aprobada (53 términos, 16 de Wikipedia, con `Anticonceptivo`) la construcción enlaza 5.278 grupos, 5.172 de ellos visibles y 106 pendientes de revisión (que la API no sirve). La cifra de 5.240 de D8 era la estimación para los 57 términos con entrada de Wikcionario y no es un tope.
+- La fixture de `catalog-ingest` (`tests/fixtures/seed`) trae ahora un glosario de cinco filas copiadas del real y sus dos fuentes en el manifiesto; el `seedHash` de la fixture no cambió.
+

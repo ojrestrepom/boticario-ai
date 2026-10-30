@@ -11,10 +11,11 @@
 use diesel::prelude::*;
 
 use crate::schema::{
-    goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
-    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
-    plant_review_flag, plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
-    plant_use_group_ref, plant_use_source, reference, reference_source, source,
+    activity_glossary, goal, goal_subarea, metadata, plant, plant_alias, plant_goal,
+    plant_goal_ref, plant_image, plant_name, plant_name_source, plant_part, plant_part_source,
+    plant_profile, plant_profile_ref, plant_review_flag, plant_safety, plant_safety_ref,
+    plant_source_id, plant_use, plant_use_group, plant_use_group_ref, plant_use_source, reference,
+    reference_source, source,
 };
 
 /// Fila de `metadata`.
@@ -275,6 +276,8 @@ pub struct PlantUseGroupRow {
     pub countries: String,
     /// Verdadero si ninguna cita del grupo está resuelta.
     pub pending_review: bool,
+    /// Clave del término del glosario que explica la actividad; `None` si no tiene término.
+    pub glossary_key: Option<String>,
 }
 
 /// Fila nueva de `plant_use_group`: sin id.
@@ -295,6 +298,30 @@ pub struct NewPlantUseGroup<'a> {
     pub countries: &'a str,
     /// Verdadero si ninguna cita del grupo está resuelta.
     pub pending_review: bool,
+    /// Clave del término del glosario que explica la actividad; `None` si no tiene término.
+    pub glossary_key: Option<&'a str>,
+}
+
+/// Fila de `activity_glossary`: una explicación de un término de actividad.
+#[derive(Debug, Clone, PartialEq, Eq, Queryable, Selectable, Insertable)]
+#[diesel(table_name = activity_glossary)]
+pub struct ActivityGlossaryRow {
+    /// Forma base normalizada del término (llave).
+    pub key: String,
+    /// Término para mostrar.
+    pub term: String,
+    /// Explicación, tal como la guarda la semilla.
+    pub text: String,
+    /// URL permanente de la revisión de la entrada o del artículo.
+    pub entry_url: String,
+    /// Fecha (AAAA-MM-DD) de la revisión.
+    pub revision_date: String,
+    /// Fuente del texto (`source.id`).
+    pub source_id: String,
+    /// Nombre corto de la fuente para mostrar.
+    pub source_name: String,
+    /// Verdadero si el texto es una paráfrasis y no el literal de la fuente.
+    pub adapted: bool,
 }
 
 /// Fila de `plant_use_group_ref`: una cita de un grupo, resuelta o no.

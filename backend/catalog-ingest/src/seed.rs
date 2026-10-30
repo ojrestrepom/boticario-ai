@@ -70,6 +70,27 @@ pub enum SeedError {
         /// Descripción del problema, con el valor.
         message: String,
     },
+    /// El manifiesto declara un glosario pero falta `glossary.json`.
+    GlossaryMissing {
+        /// Directorio de la semilla.
+        dir: PathBuf,
+    },
+    /// El `glossaryHash` recalculado no coincide con el del manifiesto.
+    GlossaryHashMismatch {
+        /// Directorio de la semilla.
+        dir: PathBuf,
+        /// Hash declarado en el manifiesto.
+        expected: String,
+        /// Hash recalculado.
+        found: String,
+    },
+    /// El glosario no cumple las reglas (conteo, claves únicas, URL `https`, formato).
+    GlossaryInvalid {
+        /// Archivo implicado.
+        file: PathBuf,
+        /// Descripción del problema.
+        message: String,
+    },
     /// El `seedHash` recalculado no coincide con el del manifiesto.
     HashMismatch {
         /// Directorio de la semilla.
@@ -130,6 +151,24 @@ impl fmt::Display for SeedError {
                 "objetivo inválido en {} (planta {plant}): {message}",
                 file.display()
             ),
+            Self::GlossaryMissing { dir } => write!(
+                f,
+                "el manifiesto de {} declara un glosario (glossaryHash) pero falta glossary.json; restaura data/seed/ desde el repositorio",
+                dir.display()
+            ),
+            Self::GlossaryHashMismatch {
+                dir,
+                expected,
+                found,
+            } => write!(
+                f,
+                "el glosario de {} fue alterado: el glossaryHash del manifiesto es {expected} pero el contenido da {found}; vuelve a sellar la semilla con `python3 -I tools/catalog-seed/cli.py seal --seed {}` si el cambio es intencional",
+                dir.display(),
+                dir.display()
+            ),
+            Self::GlossaryInvalid { file, message } => {
+                write!(f, "glosario inválido en {}: {message}", file.display())
+            }
             Self::HashMismatch {
                 dir,
                 expected,
@@ -220,6 +259,60 @@ pub struct Manifest {
     pub review_flags: BTreeMap<String, u32>,
     /// Hash de integridad de la semilla (`sha256:<hex>`).
     pub seed_hash: String,
+    /// Hash del glosario (`sha256:<hex>`); ausente en una semilla sin glosario.
+    #[serde(default)]
+    pub glossary_hash: Option<String>,
+    /// Número de filas del glosario; ausente en una semilla sin glosario.
+    #[serde(default)]
+    pub glossary_count: Option<usize>,
+}
+
+/// Versión del formato del glosario que este lector entiende.
+pub const GLOSSARY_FORMAT: &str = "catalog-glossary/1";
+
+/// Fila del glosario de actividades (`glossary.json`).
+#[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
+#[serde(deny_unknown_fields, rename_all = "camelCase")]
+pub struct GlossaryRow {
+    /// Si el texto es una paráfrasis y no el literal de la fuente.
+    pub adapted: bool,
+    /// URL permanente de la revisión de la entrada o del artículo.
+    pub entry_url: String,
+    /// Forma base normalizada del término.
+    pub key: String,
+    /// Fecha de descarga.
+    pub retrieved_at: String,
+    /// Identificador de la revisión.
+    pub revision_id: u64,
+    /// Hora de la revisión (ISO 8601).
+    pub revision_timestamp: String,
+    /// Número de acepción (nulo en Wikipedia).
+    #[serde(deserialize_with = "nullable")]
+    pub sense: Option<u32>,
+    /// Fuente (`source.id` del manifiesto).
+    pub source_id: String,
+    /// Nombre corto de la fuente para mostrar.
+    pub source_name: String,
+    /// Término para mostrar.
+    pub term: String,
+    /// Explicación.
+    pub text: String,
+}
+
+/// Glosario de actividades (`glossary.json`).
+#[derive(Debug, Clone, PartialEq, Eq, Deserialize)]
+#[serde(deny_unknown_fields, rename_all = "camelCase")]
+pub struct Glossary {
+    /// Cambios que declara la atribución.
+    pub changes: String,
+    /// Versión del formato.
+    pub format: String,
+    /// Licencia.
+    pub license: String,
+    /// URL de la licencia.
+    pub license_url: String,
+    /// Filas, ordenadas por clave.
+    pub rows: Vec<GlossaryRow>,
 }
 
 /// Objetivo del catálogo de objetivos.
@@ -518,6 +611,8 @@ pub struct Seed {
     pub goals: GoalCatalog,
     /// Registros ordenados por `id`.
     pub plants: Vec<PlantRecord>,
+    /// Glosario de actividades; `None` si el manifiesto no lo declara.
+    pub glossary: Option<Glossary>,
 }
 
 fn io_error(path: &Path, err: &std::io::Error) -> SeedError {
@@ -705,11 +800,104 @@ pub fn load_seed(dir: &Path) -> Result<Seed, SeedError> {
         });
     }
 
+    let glossary = load_glossary(dir, &manifest)?;
+
     Ok(Seed {
         manifest,
         goals,
         plants: records.into_iter().map(|(r, _)| r).collect(),
+        glossary,
     })
+}
+
+fn is_https_url(url: &str) -> bool {
+    url.starts_with("https://")
+        && url.len() > "https://".len()
+        && !url.chars().any(char::is_whitespace)
+}
+
+/// Lee y verifica `glossary.json` cuando el manifiesto declara `glossaryHash`.
+///
+/// Comprueba el hash del JSON canónico, el conteo, el formato, que las claves sean únicas y no vacías y que la URL de la licencia y la de cada revisión sean `https`. No accede a la red.
+fn load_glossary(dir: &Path, manifest: &Manifest) -> Result<Option<Glossary>, SeedError> {
+    let path = dir.join("glossary.json");
+    let invalid = |message: String| SeedError::GlossaryInvalid {
+        file: path.clone(),
+        message,
+    };
+    let Some(expected) = &manifest.glossary_hash else {
+        if manifest.glossary_count.is_some() {
+            return Err(invalid(
+                "el manifiesto declara glossaryCount sin glossaryHash".to_string(),
+            ));
+        }
+        return Ok(None);
+    };
+    if !path.is_file() {
+        return Err(SeedError::GlossaryMissing {
+            dir: dir.to_path_buf(),
+        });
+    }
+    let value = read_json(&path)?;
+    let found = format!(
+        "sha256:{}",
+        hex(&Sha256::digest(canonical(&value, &path, None)?.as_bytes()))
+    );
+    if &found != expected {
+        return Err(SeedError::GlossaryHashMismatch {
+            dir: dir.to_path_buf(),
+            expected: expected.clone(),
+            found,
+        });
+    }
+    let glossary: Glossary = serde_json::from_value(value).map_err(|e| SeedError::Parse {
+        file: path.clone(),
+        plant: None,
+        message: e.to_string(),
+    })?;
+    if glossary.format != GLOSSARY_FORMAT {
+        return Err(SeedError::UnsupportedVersion {
+            file: path.clone(),
+            message: format!("format {} (se espera {GLOSSARY_FORMAT})", glossary.format),
+        });
+    }
+    if manifest.glossary_count != Some(glossary.rows.len()) {
+        return Err(invalid(format!(
+            "el manifiesto declara {} filas (glossaryCount) pero el glosario tiene {}",
+            manifest
+                .glossary_count
+                .map_or_else(|| "ninguna".to_string(), |n| n.to_string()),
+            glossary.rows.len()
+        )));
+    }
+    if !is_https_url(&glossary.license_url) {
+        return Err(invalid("licenseUrl no es una URL https".to_string()));
+    }
+    let mut keys = std::collections::BTreeSet::new();
+    for row in &glossary.rows {
+        if row.key.is_empty() || row.term.is_empty() || row.text.is_empty() {
+            return Err(invalid(format!(
+                "la fila `{}` tiene clave, término o texto vacío",
+                row.key
+            )));
+        }
+        if catalog_core::normalize::activity_base_key(&row.key) != row.key {
+            return Err(invalid(format!(
+                "la clave `{}` no está en forma base (minúsculas NFC, sin calificador entre paréntesis)",
+                row.key
+            )));
+        }
+        if !keys.insert(row.key.as_str()) {
+            return Err(invalid(format!("la clave `{}` está repetida", row.key)));
+        }
+        if !is_https_url(&row.entry_url) {
+            return Err(invalid(format!(
+                "la fila `{}` tiene una entryUrl que no es una URL https",
+                row.key
+            )));
+        }
+    }
+    Ok(Some(glossary))
 }
 
 fn check_goals(record: &PlantRecord, catalog: &GoalCatalog, file: &Path) -> Result<(), SeedError> {

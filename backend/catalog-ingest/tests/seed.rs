@@ -4,6 +4,7 @@ use std::fs;
 use std::path::{Path, PathBuf};
 
 use catalog_ingest::seed::{SafetyLevel, SeedError, load_seed};
+use sha2::{Digest, Sha256};
 
 fn fixture() -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/seed")
@@ -264,4 +265,173 @@ fn unknown_subarea_and_foreign_subarea_fail() {
         msg.contains("digestion") && msg.contains("relajacion-estres"),
         "{msg}"
     );
+}
+
+// ---- Glosario de actividades (tarea 5.2) ----
+
+/// Hash canónico del glosario: `serde_json` ordena las claves y no escapa el texto no ASCII, como la herramienta.
+fn glossary_hash_of(value: &serde_json::Value) -> String {
+    let canon = serde_json::to_string(value).unwrap();
+    let digest: String = Sha256::digest(canon.as_bytes())
+        .iter()
+        .map(|b| format!("{b:02x}"))
+        .collect();
+    format!("sha256:{digest}")
+}
+
+/// Reescribe `glossary.json` con `mutate` y vuelve a declarar su hash y su conteo en el manifiesto.
+fn reseal_glossary(dir: &Path, mutate: impl FnOnce(&mut serde_json::Value)) {
+    let path = dir.join("glossary.json");
+    let mut glossary: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(&path).unwrap()).unwrap();
+    mutate(&mut glossary);
+    fs::write(&path, serde_json::to_string(&glossary).unwrap()).unwrap();
+    let manifest_path = dir.join("manifest.json");
+    let mut manifest: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(&manifest_path).unwrap()).unwrap();
+    manifest["glossaryHash"] = glossary_hash_of(&glossary).into();
+    manifest["glossaryCount"] = glossary["rows"].as_array().unwrap().len().into();
+    fs::write(&manifest_path, serde_json::to_string(&manifest).unwrap()).unwrap();
+}
+
+#[test]
+fn intact_glossary_loads_with_its_rows() {
+    let seed = load_seed(&fixture()).unwrap();
+    let glossary = seed.glossary.expect("la fixture trae glosario");
+    assert_eq!(glossary.rows.len(), 5);
+    assert_eq!(seed.manifest.glossary_count, Some(5));
+    let keys: Vec<&str> = glossary.rows.iter().map(|r| r.key.as_str()).collect();
+    assert_eq!(
+        keys,
+        [
+            "antídoto",
+            "carminativo",
+            "diurético",
+            "emenagogo",
+            "estimulante"
+        ]
+    );
+    assert!(glossary.rows.iter().any(|r| r.adapted));
+    assert!(
+        glossary
+            .rows
+            .iter()
+            .all(|r| r.entry_url.starts_with("https://"))
+    );
+}
+
+#[test]
+fn altered_glossary_fails_naming_the_glossary_hash() {
+    let tmp = copy_fixture();
+    let path = tmp.path().join("glossary.json");
+    let text = fs::read_to_string(&path).unwrap();
+    assert!(text.contains("producción y excreción de orina"));
+    fs::write(
+        &path,
+        text.replacen("producción y excreción", "producción o excreción", 1),
+    )
+    .unwrap();
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(
+        matches!(err, SeedError::GlossaryHashMismatch { .. }),
+        "{err}"
+    );
+    assert!(err.to_string().contains("glossaryHash"), "{err}");
+}
+
+#[test]
+fn missing_glossary_with_declaring_manifest_fails() {
+    let tmp = copy_fixture();
+    fs::remove_file(tmp.path().join("glossary.json")).unwrap();
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(matches!(err, SeedError::GlossaryMissing { .. }), "{err}");
+    assert!(err.to_string().contains("falta glossary.json"), "{err}");
+}
+
+#[test]
+fn seed_without_glossary_loads_with_none() {
+    let tmp = copy_fixture();
+    fs::remove_file(tmp.path().join("glossary.json")).unwrap();
+    let manifest_path = tmp.path().join("manifest.json");
+    let mut manifest: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(&manifest_path).unwrap()).unwrap();
+    let object = manifest.as_object_mut().unwrap();
+    object.remove("glossaryHash");
+    object.remove("glossaryCount");
+    fs::write(&manifest_path, serde_json::to_string(&manifest).unwrap()).unwrap();
+    let seed = load_seed(tmp.path()).unwrap();
+    assert!(seed.glossary.is_none());
+    assert!(seed.manifest.glossary_hash.is_none());
+}
+
+#[test]
+fn glossary_count_must_match_the_manifest() {
+    let tmp = copy_fixture();
+    let path = tmp.path().join("manifest.json");
+    let text = fs::read_to_string(&path).unwrap();
+    fs::write(
+        &path,
+        text.replace("\"glossaryCount\": 5", "\"glossaryCount\": 6"),
+    )
+    .unwrap();
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(matches!(err, SeedError::GlossaryInvalid { .. }), "{err}");
+    assert!(err.to_string().contains("glossaryCount"), "{err}");
+}
+
+#[test]
+fn duplicate_glossary_keys_fail() {
+    let tmp = copy_fixture();
+    reseal_glossary(tmp.path(), |g| {
+        let rows = g["rows"].as_array_mut().unwrap();
+        let first = rows[0].clone();
+        rows.push(first);
+    });
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(matches!(err, SeedError::GlossaryInvalid { .. }), "{err}");
+    assert!(err.to_string().contains("repetida"), "{err}");
+}
+
+#[test]
+fn glossary_urls_must_be_https() {
+    for (field, row) in [("entryUrl", true), ("licenseUrl", false)] {
+        let tmp = copy_fixture();
+        reseal_glossary(tmp.path(), |g| {
+            if row {
+                g["rows"][0][field] = "http://es.wiktionary.org/x".into();
+            } else {
+                g[field] = "ftp://creativecommons.org/".into();
+            }
+        });
+        let err = load_seed(tmp.path()).unwrap_err();
+        assert!(matches!(err, SeedError::GlossaryInvalid { .. }), "{err}");
+        assert!(err.to_string().contains(field), "{err}");
+    }
+}
+
+#[test]
+fn glossary_key_must_be_a_base_form() {
+    let tmp = copy_fixture();
+    reseal_glossary(tmp.path(), |g| {
+        g["rows"][0]["key"] = "Antídoto (escorpión)".into();
+    });
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(err.to_string().contains("forma base"), "{err}");
+}
+
+#[test]
+fn glossary_with_unknown_field_or_format_fails() {
+    let tmp = copy_fixture();
+    reseal_glossary(tmp.path(), |g| {
+        g["rows"][0]["extra"] = 1.into();
+    });
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(matches!(err, SeedError::Parse { .. }), "{err}");
+
+    let tmp = copy_fixture();
+    reseal_glossary(tmp.path(), |g| {
+        g["format"] = "catalog-glossary/2".into();
+    });
+    let err = load_seed(tmp.path()).unwrap_err();
+    assert!(matches!(err, SeedError::UnsupportedVersion { .. }), "{err}");
 }

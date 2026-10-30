@@ -114,6 +114,84 @@ async fn api_serves_a_catalog_built_from_the_fixture_seed() {
     assert!(body["displayName"].is_string());
     assert!(body.get("reviewFlags").is_none() && !body.to_string().contains("reviewFlags"));
 
+    // El glosario de la fixture llega hasta la API: Carminativo (Wikcionario, literal) y Estimulante (Wikipedia, adaptado) llevan su explicación.
+    let group = |body: &Value, activity: &str| -> Value {
+        body["useGroups"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|g| g["activity"] == activity)
+            .unwrap_or_else(|| panic!("falta el grupo {activity}: {body}"))
+            .clone()
+    };
+    let carminative = group(&body, "Carminativo");
+    assert_eq!(carminative["glossary"]["term"], "Carminativo");
+    assert_eq!(carminative["glossary"]["sourceName"], "Wikcionario");
+    assert_eq!(carminative["glossary"]["adapted"], false);
+    assert!(
+        carminative["glossary"]["url"]
+            .as_str()
+            .unwrap()
+            .starts_with("https://es.wiktionary.org/"),
+        "{carminative}"
+    );
+    let stimulant = group(&body, "Estimulante");
+    assert_eq!(stimulant["glossary"]["sourceName"], "Wikipedia");
+    assert_eq!(stimulant["glossary"]["adapted"], true);
+    // Sin término: `glossary` está y es `null`.
+    let spasm = group(&body, "Espasmo");
+    assert!(spasm.get("glossary").is_some() && spasm["glossary"].is_null());
+    // Créditos del glosario: Wikcionario una vez, y Wikipedia una sola vez aunque también acredite la descripción.
+    assert_eq!(
+        names
+            .iter()
+            .filter(|n| n.starts_with("Wikcionario"))
+            .count(),
+        1,
+        "{names:?}"
+    );
+    assert_eq!(
+        names.iter().filter(|n| n.starts_with("Wikipedia")).count(),
+        1,
+        "{names:?}"
+    );
+    let wiktionary = credits
+        .iter()
+        .find(|c| c["name"] == "Wikcionario en español")
+        .unwrap();
+    assert_eq!(wiktionary["license"], "CC BY-SA 4.0");
+    assert_eq!(
+        wiktionary["licenseUrl"],
+        "https://creativecommons.org/licenses/by-sa/4.0/"
+    );
+    // La fórmula de enfermedad grave no se enlaza, y una planta sin términos del glosario no acredita Wikcionario.
+    let (_, calendula) = get(&app, "/v1/plants/calendula-officinalis").await;
+    let formula = group(
+        &calendula,
+        "Uso tradicional, sin eficacia demostrada: cáncer",
+    );
+    assert!(formula["glossary"].is_null(), "{formula}");
+    assert_eq!(
+        group(&calendula, "Diurético")["glossary"]["term"],
+        "Diurético"
+    );
+    assert!(group(&calendula, "Fiebre")["glossary"].is_null());
+    let (_, conium) = get(&app, "/v1/plants/conium-maculatum").await;
+    assert!(
+        conium["useGroups"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|g| g["glossary"].is_null()),
+        "{conium}"
+    );
+    assert!(
+        !labels(&conium["credits"], "name")
+            .iter()
+            .any(|n| n.starts_with("Wikcionario")),
+        "{conium}"
+    );
+
     // Un identificador que no es de planta ni alias es un 404.
     let (status, _) = get(&app, "/v1/plants/no-existe").await;
     assert_eq!(status, StatusCode::NOT_FOUND);

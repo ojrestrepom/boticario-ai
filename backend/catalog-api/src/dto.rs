@@ -6,8 +6,8 @@
 
 use catalog_core::domain::{
     Credit, Goal, GoalPlant, GoalPlants, GoalSummary, IdName, Image, NameKind, Page, Part, Plant,
-    PlantName, PlantSummary, Reference, Safety, SafetyLevel, SubareaSummary, Use, UseGroup,
-    UseGroupReference,
+    PlantName, PlantSummary, Reference, Safety, SafetyLevel, SubareaSummary, Use, UseGlossary,
+    UseGroup, UseGroupReference,
 };
 use serde::Serialize;
 use utoipa::ToSchema;
@@ -209,6 +209,34 @@ impl From<UseGroupReference> for UseGroupReferenceDto {
     }
 }
 
+/// Explicación breve de un término de la actividad, tomada de una fuente abierta citada.
+#[derive(Debug, Clone, Serialize, ToSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct UseGlossaryDto {
+    /// Término explicado, sin el calificador de la actividad del grupo.
+    pub term: String,
+    /// Explicación tal como la guarda la semilla; describe la palabra, no la planta.
+    pub text: String,
+    /// Nombre corto de la fuente: `Wikcionario` o `Wikipedia`.
+    pub source_name: String,
+    /// URL permanente de la revisión de la entrada o del artículo de la que sale el texto.
+    pub url: String,
+    /// Verdadero si el texto es una paráfrasis de Wikipedia y falso si es el texto literal de la fuente.
+    pub adapted: bool,
+}
+
+impl From<UseGlossary> for UseGlossaryDto {
+    fn from(g: UseGlossary) -> Self {
+        Self {
+            term: g.term,
+            text: g.text,
+            source_name: g.source_name,
+            url: g.url,
+            adapted: g.adapted,
+        }
+    }
+}
+
 /// Grupo de uso tradicional: una actividad con el número de registros, los países y sus citas.
 #[derive(Debug, Clone, Serialize, ToSchema)]
 #[serde(rename_all = "camelCase")]
@@ -223,6 +251,9 @@ pub struct UseGroupDto {
     pub countries: Vec<String>,
     /// Citas del grupo, resueltas o no.
     pub references: Vec<UseGroupReferenceDto>,
+    /// Explicación del término de la actividad, o `null` si la actividad no tiene término en el glosario. Siempre presente.
+    #[schema(required = true)]
+    pub glossary: Option<UseGlossaryDto>,
 }
 
 impl From<UseGroup> for UseGroupDto {
@@ -233,6 +264,7 @@ impl From<UseGroup> for UseGroupDto {
             count: g.count,
             countries: g.countries,
             references: g.references.into_iter().map(Into::into).collect(),
+            glossary: g.glossary.map(Into::into),
         }
     }
 }

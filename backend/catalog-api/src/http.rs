@@ -720,7 +720,8 @@ mod tests {
                 "references": [
                     {"id": "ref-2", "citation": "Jones, A. 2001. Plantas medicinales. Editorial Ejemplo, Madrid.", "resolved": true},
                     {"id": null, "citation": "Woi.6 (sin resolver)", "resolved": false}
-                ]
+                ],
+                "glossary": null
             })
         );
         assert_eq!(
@@ -1454,6 +1455,127 @@ mod tests {
         assert_eq!(json["credits"], serde_json::json!([]));
         let (_, empty) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
         assert!(empty["credits"].is_array());
+    }
+
+    // ---- glosario de actividades ----
+
+    fn glossary_app() -> (Fixture, Router) {
+        let fixture = Fixture::with_glossary();
+        let router = router(AsyncCatalog::new(Arc::new(fixture.repo())), test_tokens());
+        (fixture, router)
+    }
+
+    #[tokio::test]
+    async fn use_groups_always_carry_glossary_as_object_or_null() {
+        // Escenarios «Grupo con término», «Grupo con texto adaptado de Wikipedia» y «Grupo sin término».
+        let (_fixture, app) = glossary_app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_camel_case(&json);
+        let groups = json["useGroups"].as_array().unwrap();
+        assert_eq!(groups.len(), 2, "el pendiente no se sirve");
+        assert_eq!(
+            groups[0]["glossary"],
+            serde_json::json!({
+                "term": "Sedante",
+                "text": "Sustancia que calma la excitación nerviosa.",
+                "sourceName": "Wikipedia",
+                "url": "https://es.example.test/w/index.php?title=Sedante&oldid=11",
+                "adapted": true
+            })
+        );
+        assert_eq!(
+            groups[1]["glossary"],
+            serde_json::json!({
+                "term": "Antiséptico",
+                "text": "Capaz de prevenir las infecciones microbianas.",
+                "sourceName": "Wikcionario",
+                "url": "https://wikt.example.test/w/index.php?title=antis%C3%A9ptico&oldid=22",
+                "adapted": false
+            })
+        );
+        // Sin término: el campo está presente y es `null`.
+        let (_, mint) = get_json(&app, "/v1/plants/mentha-x-piperita").await;
+        let fever = &mint["useGroups"][0];
+        assert_eq!(fever["activity"], "Fiebre");
+        assert!(fever.as_object().unwrap().contains_key("glossary"));
+        assert_eq!(fever["glossary"], Value::Null);
+    }
+
+    #[tokio::test]
+    async fn a_qualified_activity_keeps_its_title_and_the_glossary_term_has_none() {
+        // Escenario «Actividad con calificador».
+        let (_fixture, app) = glossary_app();
+        let (_, json) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+        let group = &json["useGroups"][0];
+        assert_eq!(group["activity"], "Antídoto (escorpión)");
+        assert_eq!(group["glossary"]["term"], "Antídoto");
+        // Los demás campos del grupo y `uses` no cambian.
+        let mut keys: Vec<&str> = group
+            .as_object()
+            .unwrap()
+            .keys()
+            .map(String::as_str)
+            .collect();
+        keys.sort_unstable();
+        assert_eq!(
+            keys,
+            [
+                "activity",
+                "activitySource",
+                "count",
+                "countries",
+                "glossary",
+                "references"
+            ]
+        );
+        assert_eq!(json["uses"], serde_json::json!([]));
+    }
+
+    #[tokio::test]
+    async fn glossary_credits_appear_only_for_served_explanations() {
+        // Escenarios de créditos del glosario.
+        let (_fixture, app) = glossary_app();
+        let names = |json: &Value| -> Vec<String> {
+            json["credits"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .map(|c| c["name"].as_str().unwrap().to_string())
+                .collect()
+        };
+        // Wikcionario y Wikipedia (esta ya acreditada por la descripción, una sola vez).
+        let (_, lavender) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+        assert_eq!(
+            names(&lavender),
+            [
+                "Agencia reguladora",
+                "Enciclopedia libre",
+                "Fuente a",
+                "Fuente b",
+                "Wikcionario en español"
+            ]
+        );
+        let wikt = lavender["credits"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|c| c["name"] == "Wikcionario en español")
+            .unwrap();
+        assert_eq!(wikt["license"], "CC BY-SA 4.0");
+        assert_eq!(
+            wikt["licenseUrl"],
+            "https://creativecommons.org/licenses/by-sa/4.0/"
+        );
+        // Wikcionario, por el único grupo de la planta (sin citas), además de la fuente de sus nombres.
+        let (_, latifolia) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+        assert_eq!(names(&latifolia), ["Fuente a", "Wikcionario en español"]);
+        // El grupo pendiente enlazado a Wikipedia no se sirve y no acredita.
+        let (_, conium) = get_json(&app, "/v1/plants/conium-maculatum").await;
+        assert_eq!(conium["useGroups"], serde_json::json!([]));
+        assert_eq!(names(&conium), ["Agencia reguladora", "Fuente a"]);
+        // Sin explicaciones, sin créditos del glosario.
+        let (_, mint) = get_json(&app, "/v1/plants/mentha-x-piperita").await;
+        assert!(!names(&mint).iter().any(|n| n.starts_with("Wikcionario")));
     }
 
     // ---- 3.5 contenido pendiente y flags ----

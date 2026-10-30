@@ -22,17 +22,17 @@ use std::path::PathBuf;
 
 use catalog_core::normalize::normalize_name;
 use catalog_core::rows::{
-    GoalRow, GoalSubareaRow, MetadataRow, NewPlantGoal, NewPlantName, NewPlantPart,
-    NewPlantReviewFlag, NewPlantUse, NewPlantUseGroup, PlantAliasRow, PlantGoalRefRow,
-    PlantImageRow, PlantNameSourceRow, PlantPartSourceRow, PlantProfileRefRow, PlantProfileRow,
-    PlantRow, PlantSafetyRefRow, PlantSafetyRow, PlantUseGroupRefRow, PlantUseSourceRow,
-    ReferenceProvenanceRow, ReferenceSourceRow, SourceRow,
+    ActivityGlossaryRow, GoalRow, GoalSubareaRow, MetadataRow, NewPlantGoal, NewPlantName,
+    NewPlantPart, NewPlantReviewFlag, NewPlantUse, NewPlantUseGroup, PlantAliasRow,
+    PlantGoalRefRow, PlantImageRow, PlantNameSourceRow, PlantPartSourceRow, PlantProfileRefRow,
+    PlantProfileRow, PlantRow, PlantSafetyRefRow, PlantSafetyRow, PlantUseGroupRefRow,
+    PlantUseSourceRow, ReferenceProvenanceRow, ReferenceSourceRow, SourceRow,
 };
 use catalog_core::schema::{
-    goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
-    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
-    plant_review_flag, plant_safety, plant_safety_ref, plant_use, plant_use_group,
-    plant_use_group_ref, plant_use_source, reference, reference_source, source,
+    activity_glossary, goal, goal_subarea, metadata, plant, plant_alias, plant_goal,
+    plant_goal_ref, plant_image, plant_name, plant_name_source, plant_part, plant_part_source,
+    plant_profile, plant_profile_ref, plant_review_flag, plant_safety, plant_safety_ref, plant_use,
+    plant_use_group, plant_use_group_ref, plant_use_source, reference, reference_source, source,
 };
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY, apply_schema};
 use diesel::prelude::*;
@@ -102,8 +102,22 @@ impl Fixture {
             n,
             &[],
             false,
+            None,
         );
         add_use_group_ref(&mut conn, group, "k", 0, "Smith 1990", Some("ref-1"));
+    }
+
+    /// Enlaza el grupo de uso de `activity` de la planta con un término del glosario, como `insert_alias`.
+    pub fn link_glossary(&self, plant_id: &str, activity: &str, key: &str) {
+        let mut conn = SqliteConnection::establish(self.path.to_str().unwrap()).unwrap();
+        diesel::update(
+            plant_use_group::table
+                .filter(plant_use_group::plant_id.eq(plant_id))
+                .filter(plant_use_group::activity.eq(activity)),
+        )
+        .set(plant_use_group::glossary_key.eq(key))
+        .execute(&mut conn)
+        .unwrap();
     }
 
     /// Base estándar ampliada para la búsqueda por objetivo (véase [`add_goal_search_data`]).
@@ -111,6 +125,14 @@ impl Fixture {
         let fixture = Self::standard();
         let mut conn = SqliteConnection::establish(fixture.path.to_str().unwrap()).unwrap();
         add_goal_search_data(&mut conn);
+        fixture
+    }
+
+    /// Base estándar ampliada con el glosario de actividades (véase [`add_glossary_data`]).
+    pub fn with_glossary() -> Self {
+        let fixture = Self::standard();
+        let mut conn = SqliteConnection::establish(fixture.path.to_str().unwrap()).unwrap();
+        add_glossary_data(&mut conn);
         fixture
     }
 
@@ -342,6 +364,7 @@ fn add_use_group(
     n: i32,
     countries: &[&str],
     pending_review: bool,
+    glossary_key: Option<&str>,
 ) -> i32 {
     let countries = serde_json::to_string(countries).unwrap();
     diesel::insert_into(plant_use_group::table)
@@ -353,10 +376,137 @@ fn add_use_group(
             n,
             countries: &countries,
             pending_review,
+            glossary_key,
         })
         .returning(plant_use_group::id)
         .get_result(conn)
         .unwrap()
+}
+
+/// Término del glosario de actividades con su fuente (que ya debe existir).
+#[allow(clippy::too_many_arguments)]
+fn add_glossary_term(
+    conn: &mut SqliteConnection,
+    key: &str,
+    term: &str,
+    text: &str,
+    entry_url: &str,
+    source_id: &str,
+    source_name: &str,
+    adapted: bool,
+) {
+    diesel::insert_into(activity_glossary::table)
+        .values(ActivityGlossaryRow {
+            key: key.to_string(),
+            term: term.to_string(),
+            text: text.to_string(),
+            entry_url: entry_url.to_string(),
+            revision_date: "2026-08-16".to_string(),
+            source_id: source_id.to_string(),
+            source_name: source_name.to_string(),
+            adapted,
+        })
+        .execute(conn)
+        .unwrap();
+}
+
+/// Amplía la fixture estándar con el glosario de actividades.
+///
+/// - Fuente `wikt` (Wikcionario, CC BY-SA 4.0). La fuente `wiki` de la fixture hace de Wikipedia.
+/// - Términos: `sedante` (Wikipedia, adaptado), `antiséptico` (Wikcionario, literal) y `antídoto` (Wikcionario, literal).
+/// - `lavandula-angustifolia`: `Sedante` y `Antiséptico` enlazados; `Actividad pendiente` (pendiente de revisión) enlazada a `antídoto`. Su descripción ya sale de `wiki`, así que Wikipedia acredita una sola vez.
+/// - `lavandula-latifolia`: un grupo `Antídoto (escorpión)` sin citas, enlazado a `antídoto`; solo acredita a Wikcionario.
+/// - `conium-maculatum`: un grupo pendiente `Sedante` enlazado a `sedante`: no se sirve y no acredita a Wikipedia.
+/// - `mentha-x-piperita`: un grupo `Fiebre` sin término.
+fn add_glossary_data(conn: &mut SqliteConnection) {
+    add_source_with_license(
+        conn,
+        "wikt",
+        "Wikcionario en español",
+        "CC BY-SA 4.0",
+        Some("https://creativecommons.org/licenses/by-sa/4.0/"),
+    );
+    add_glossary_term(
+        conn,
+        "sedante",
+        "Sedante",
+        "Sustancia que calma la excitación nerviosa.",
+        "https://es.example.test/w/index.php?title=Sedante&oldid=11",
+        "wiki",
+        "Wikipedia",
+        true,
+    );
+    add_glossary_term(
+        conn,
+        "antiséptico",
+        "Antiséptico",
+        "Capaz de prevenir las infecciones microbianas.",
+        "https://wikt.example.test/w/index.php?title=antis%C3%A9ptico&oldid=22",
+        "wikt",
+        "Wikcionario",
+        false,
+    );
+    add_glossary_term(
+        conn,
+        "antídoto",
+        "Antídoto",
+        "Sustancia que contrarresta los efectos de un veneno.",
+        "https://wikt.example.test/w/index.php?title=ant%C3%ADdoto&oldid=33",
+        "wikt",
+        "Wikcionario",
+        false,
+    );
+    for (activity, key) in [("Sedante", "sedante"), ("Antiséptico", "antiséptico")] {
+        diesel::update(
+            plant_use_group::table
+                .filter(plant_use_group::plant_id.eq("lavandula-angustifolia"))
+                .filter(plant_use_group::activity.eq(activity)),
+        )
+        .set(plant_use_group::glossary_key.eq(key))
+        .execute(conn)
+        .unwrap();
+    }
+    diesel::update(
+        plant_use_group::table
+            .filter(plant_use_group::plant_id.eq("lavandula-angustifolia"))
+            .filter(plant_use_group::activity.eq("Actividad pendiente")),
+    )
+    .set(plant_use_group::glossary_key.eq("antídoto"))
+    .execute(conn)
+    .unwrap();
+    add_use_group(
+        conn,
+        "lavandula-latifolia",
+        0,
+        "Antídoto (escorpión)",
+        "Antidote(Scorpion)",
+        1,
+        &[],
+        false,
+        Some("antídoto"),
+    );
+    add_use_group(
+        conn,
+        "conium-maculatum",
+        0,
+        "Sedante",
+        "Sedative",
+        1,
+        &[],
+        true,
+        Some("sedante"),
+    );
+    add_use_group(
+        conn,
+        "mentha-x-piperita",
+        0,
+        "Fiebre",
+        "Fever",
+        1,
+        &[],
+        false,
+        None,
+    );
 }
 
 /// Cita de un grupo: con `reference_id` está resuelta; sin él, es una cita «(sin resolver)».
@@ -620,6 +770,7 @@ fn populate(conn: &mut SqliteConnection) {
         12,
         &["Turquía", "Francia", "Otros lugares"],
         false,
+        None,
     );
     add_use_group_ref(
         conn,
@@ -640,6 +791,7 @@ fn populate(conn: &mut SqliteConnection) {
         2,
         &["Estados Unidos"],
         false,
+        None,
     );
     add_use_group_ref(
         conn,
@@ -659,6 +811,7 @@ fn populate(conn: &mut SqliteConnection) {
         30,
         &[],
         true,
+        None,
     );
     add_use_group_ref(conn, pending, "Xyz.1", 0, "Xyz.1 (sin resolver)", None);
     add_plant_goal(

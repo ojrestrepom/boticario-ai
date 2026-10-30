@@ -9,19 +9,20 @@ use std::ffi::OsString;
 use std::fmt;
 use std::path::{Path, PathBuf};
 
-use catalog_core::normalize::normalize_name;
+use catalog_core::normalize::{activity_base_key, activity_can_link_glossary, normalize_name};
 use catalog_core::rows::{
-    GoalRow, GoalSubareaRow, MetadataRow, NewPlantGoal, NewPlantName, NewPlantPart,
-    NewPlantReviewFlag, NewPlantUse, NewPlantUseGroup, PlantAliasRow, PlantGoalRefRow,
-    PlantImageRow, PlantNameSourceRow, PlantPartSourceRow, PlantProfileRefRow, PlantProfileRow,
-    PlantRow, PlantSafetyRefRow, PlantSafetyRow, PlantSourceIdRow, PlantUseGroupRefRow,
-    PlantUseSourceRow, ReferenceProvenanceRow, ReferenceSourceRow, SourceRow,
+    ActivityGlossaryRow, GoalRow, GoalSubareaRow, MetadataRow, NewPlantGoal, NewPlantName,
+    NewPlantPart, NewPlantReviewFlag, NewPlantUse, NewPlantUseGroup, PlantAliasRow,
+    PlantGoalRefRow, PlantImageRow, PlantNameSourceRow, PlantPartSourceRow, PlantProfileRefRow,
+    PlantProfileRow, PlantRow, PlantSafetyRefRow, PlantSafetyRow, PlantSourceIdRow,
+    PlantUseGroupRefRow, PlantUseSourceRow, ReferenceProvenanceRow, ReferenceSourceRow, SourceRow,
 };
 use catalog_core::schema::{
-    goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
-    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
-    plant_review_flag, plant_safety, plant_safety_ref, plant_source_id, plant_use, plant_use_group,
-    plant_use_group_ref, plant_use_source, reference, reference_source, source,
+    activity_glossary, goal, goal_subarea, metadata, plant, plant_alias, plant_goal,
+    plant_goal_ref, plant_image, plant_name, plant_name_source, plant_part, plant_part_source,
+    plant_profile, plant_profile_ref, plant_review_flag, plant_safety, plant_safety_ref,
+    plant_source_id, plant_use, plant_use_group, plant_use_group_ref, plant_use_source, reference,
+    reference_source, source,
 };
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY, apply_schema};
 use diesel::prelude::*;
@@ -31,7 +32,7 @@ use sha2::{Digest, Sha256};
 use crate::error::IngestError;
 use crate::hash::content_hash;
 use crate::seed::{
-    GoalCatalog, Manifest, PlantRecord, RefEntry, SafetyLevel, Seed, SeedError, load_seed,
+    Glossary, GoalCatalog, Manifest, PlantRecord, RefEntry, SafetyLevel, Seed, SeedError, load_seed,
 };
 
 /// Errores de la construcción desde la semilla. Todos nombran la planta implicada cuando la hay.
@@ -148,6 +149,13 @@ pub enum BuildError {
         /// Área repetida.
         area: String,
     },
+    /// Una fila del glosario cita una fuente que no figura en el manifiesto.
+    GlossarySourceUnknown {
+        /// Clave de la fila del glosario.
+        key: String,
+        /// Fuente no declarada.
+        source: String,
+    },
     /// Fallo del almacenamiento SQLite; `plant` es la planta que se escribía, si se sabe.
     Storage {
         /// Planta que se escribía.
@@ -254,6 +262,10 @@ impl fmt::Display for BuildError {
                 f,
                 "planta {plant}: el objetivo «{goal}» está repetido con el área «{area}»"
             ),
+            Self::GlossarySourceUnknown { key, source } => write!(
+                f,
+                "glosario: la fila «{key}» es de la fuente «{source}», que no figura entre las fuentes del manifiesto"
+            ),
             Self::Storage { plant, message } => match plant {
                 Some(plant) => write!(f, "planta {plant}: fallo al escribir la base: {message}"),
                 None => write!(f, "fallo al escribir la base: {message}"),
@@ -336,6 +348,10 @@ pub struct SeedBuildReport {
     pub aliases: u64,
     /// Avisos de revisión.
     pub review_flags: u64,
+    /// Filas del glosario de actividades (`activity_glossary`).
+    pub glossary_terms: u64,
+    /// Grupos de uso enlazados a un término del glosario.
+    pub glossary_linked_groups: u64,
 }
 
 /// Lee la semilla de `seed_dir` (verificándola) y escribe la base en `out`.
@@ -365,7 +381,14 @@ pub fn build_seed(seed: &Seed, out: &Path) -> Result<SeedBuildReport, BuildError
     // Un temporal previo es resto de una ejecución interrumpida: se descarta.
     let _ = std::fs::remove_file(&tmp);
 
-    let result = write_db(&seed.manifest, &seed.goals, &plants, &tmp).and_then(|()| {
+    let result = write_db(
+        &seed.manifest,
+        &seed.goals,
+        seed.glossary.as_ref(),
+        &plants,
+        &tmp,
+    )
+    .and_then(|()| {
         let report = report_of(&tmp)?;
         std::fs::rename(&tmp, out).map_err(|e| io_error(out, e))?;
         Ok(report)
@@ -432,6 +455,7 @@ fn check_global(plants: &[&PlantRecord]) -> Result<(), BuildError> {
 fn write_db(
     manifest: &Manifest,
     goals: &GoalCatalog,
+    glossary: Option<&Glossary>,
     plants: &[&PlantRecord],
     path: &Path,
 ) -> Result<(), BuildError> {
@@ -445,13 +469,16 @@ fn write_db(
     // Configuración de la conexión, fuera de la transacción (dentro, SQLite ignora este PRAGMA).
     diesel::sql_query("PRAGMA foreign_keys = ON").execute(&mut conn)?;
     apply_schema(&mut conn)?;
-    conn.transaction::<(), BuildError, _>(|conn| insert_all(conn, manifest, goals, plants))
+    conn.transaction::<(), BuildError, _>(|conn| {
+        insert_all(conn, manifest, goals, glossary, plants)
+    })
 }
 
 fn insert_all(
     conn: &mut SqliteConnection,
     manifest: &Manifest,
     goals: &GoalCatalog,
+    glossary: Option<&Glossary>,
     plants: &[&PlantRecord],
 ) -> Result<(), BuildError> {
     diesel::insert_into(metadata::table)
@@ -498,12 +525,62 @@ fn insert_all(
             .execute(conn)?;
     }
 
+    let glossary_keys = insert_glossary(conn, glossary, &datasets)?;
+
     insert_references(conn, plants, &datasets)?;
 
     for record in plants {
-        insert_plant(conn, record).map_err(|e| e.in_plant(&record.id))?;
+        insert_plant(conn, record, &glossary_keys).map_err(|e| e.in_plant(&record.id))?;
     }
     Ok(())
+}
+
+/// Escribe `activity_glossary` y devuelve sus claves, para enlazar los grupos de uso.
+///
+/// Cada fila debe citar una fuente del manifiesto. Sin glosario, la tabla queda vacía.
+fn insert_glossary(
+    conn: &mut SqliteConnection,
+    glossary: Option<&Glossary>,
+    datasets: &BTreeSet<&str>,
+) -> Result<BTreeSet<String>, BuildError> {
+    let mut keys = BTreeSet::new();
+    let Some(glossary) = glossary else {
+        return Ok(keys);
+    };
+    for row in &glossary.rows {
+        if !datasets.contains(row.source_id.as_str()) {
+            return Err(BuildError::GlossarySourceUnknown {
+                key: row.key.clone(),
+                source: row.source_id.clone(),
+            });
+        }
+        // La fecha (AAAA-MM-DD) es el prefijo de la hora ISO 8601 de la revisión.
+        let revision_date: String = row.revision_timestamp.chars().take(10).collect();
+        diesel::insert_into(activity_glossary::table)
+            .values(ActivityGlossaryRow {
+                key: row.key.clone(),
+                term: row.term.clone(),
+                text: row.text.clone(),
+                entry_url: row.entry_url.clone(),
+                revision_date,
+                source_id: row.source_id.clone(),
+                source_name: row.source_name.clone(),
+                adapted: row.adapted,
+            })
+            .execute(conn)?;
+        keys.insert(row.key.clone());
+    }
+    Ok(keys)
+}
+
+/// Clave del término del glosario que explica una actividad, si la hay.
+///
+/// Es la forma base de la actividad cuando existe en el glosario; la fórmula de enfermedad grave nunca se enlaza.
+pub fn glossary_key_for<'a>(activity: &str, keys: &'a BTreeSet<String>) -> Option<&'a str> {
+    if !activity_can_link_glossary(activity) {
+        return None;
+    }
+    keys.get(&activity_base_key(activity)).map(String::as_str)
 }
 
 fn to_i32(n: usize) -> i32 {
@@ -673,7 +750,11 @@ fn add_name(
     }
 }
 
-fn insert_plant(conn: &mut SqliteConnection, rec: &PlantRecord) -> Result<(), BuildError> {
+fn insert_plant(
+    conn: &mut SqliteConnection,
+    rec: &PlantRecord,
+    glossary_keys: &BTreeSet<String>,
+) -> Result<(), BuildError> {
     let id = rec.id.as_str();
     let refs = Refs { record: rec };
 
@@ -865,7 +946,7 @@ fn insert_plant(conn: &mut SqliteConnection, rec: &PlantRecord) -> Result<(), Bu
     }
 
     let flag_targets: BTreeSet<&str> = rec.review_flags.iter().map(|f| f.target.as_str()).collect();
-    insert_uses(conn, rec, &refs, &flag_targets)?;
+    insert_uses(conn, rec, &refs, &flag_targets, glossary_keys)?;
     insert_goals(conn, rec, &refs, &flag_targets)?;
 
     // Seguridad (sin fila si el registro no trae `safety`).
@@ -945,6 +1026,7 @@ fn insert_uses(
     rec: &PlantRecord,
     refs: &Refs<'_>,
     flag_targets: &BTreeSet<&str>,
+    glossary_keys: &BTreeSet<String>,
 ) -> Result<(), BuildError> {
     let id = rec.id.as_str();
     // (actividad, referencia) -> datasets; la API tiene una fila por par, aunque dos grupos lo repitan.
@@ -972,6 +1054,7 @@ fn insert_uses(
                 n: to_i32(group.n as usize),
                 countries: &countries,
                 pending_review: group.pending_review,
+                glossary_key: glossary_key_for(&group.activity, glossary_keys),
             })
             .returning(plant_use_group::id)
             .get_result(conn)?;
@@ -1170,6 +1253,10 @@ fn report_of(db: &Path) -> Result<SeedBuildReport, BuildError> {
         sources: count("SELECT COUNT(*) FROM source")?,
         aliases: count("SELECT COUNT(*) FROM plant_alias")?,
         review_flags: count("SELECT COUNT(*) FROM plant_review_flag")?,
+        glossary_terms: count("SELECT COUNT(*) FROM activity_glossary")?,
+        glossary_linked_groups: count(
+            "SELECT COUNT(*) FROM plant_use_group WHERE glossary_key IS NOT NULL",
+        )?,
     })
 }
 

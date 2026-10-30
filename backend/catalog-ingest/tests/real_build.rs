@@ -6,7 +6,10 @@
 
 use std::path::{Path, PathBuf};
 
-use catalog_core::schema::{plant, plant_name, plant_part, plant_use, reference};
+use catalog_core::normalize::{SERIOUS_DISEASE_PREFIX, activity_base_key};
+use catalog_core::schema::{
+    activity_glossary, plant, plant_name, plant_part, plant_use, plant_use_group, reference,
+};
 use catalog_ingest::seed::load_seed;
 use diesel::prelude::*;
 
@@ -64,4 +67,54 @@ fn real_catalog_reflects_the_seed() {
         .unwrap();
     assert!(uses > 0, "la lavanda debe tener usos");
     assert!(parts > 0, "la lavanda debe tener partes");
+}
+
+#[test]
+#[ignore = "necesita data/build/catalog.db construido con `build`"]
+fn real_glossary_rows_and_links_reflect_the_seed() {
+    let seed = load_seed(&data_dir().join("seed")).unwrap();
+    let glossary = seed
+        .glossary
+        .as_ref()
+        .expect("la semilla real trae glosario");
+    let mut catalog = open_read_only(&data_dir().join("build/catalog.db"));
+
+    // La tabla tiene tantas filas como el glosario sellado.
+    let rows: i64 = activity_glossary::table
+        .count()
+        .get_result(&mut catalog)
+        .unwrap();
+    assert_eq!(rows as usize, glossary.rows.len());
+    assert_eq!(Some(glossary.rows.len()), seed.manifest.glossary_count);
+
+    // Los grupos enlazados son exactamente los que tienen la forma base de un término, sin la fórmula de enfermedad grave.
+    let keys: std::collections::BTreeSet<&str> =
+        glossary.rows.iter().map(|r| r.key.as_str()).collect();
+    let mut expected = 0usize;
+    for record in &seed.plants {
+        for group in &record.traditional_uses {
+            if !group.activity.starts_with(SERIOUS_DISEASE_PREFIX)
+                && keys.contains(activity_base_key(&group.activity).as_str())
+            {
+                expected += 1;
+            }
+        }
+    }
+    let linked: i64 = plant_use_group::table
+        .filter(plant_use_group::glossary_key.is_not_null())
+        .count()
+        .get_result(&mut catalog)
+        .unwrap();
+    println!("términos={rows} grupos enlazados={linked}");
+    assert_eq!(linked as usize, expected);
+    assert!(linked > 0);
+
+    // Ningún grupo con la fórmula de enfermedad grave queda enlazado.
+    let formula: Vec<(String, Option<String>)> = plant_use_group::table
+        .filter(plant_use_group::activity.like(format!("{SERIOUS_DISEASE_PREFIX}%")))
+        .select((plant_use_group::activity, plant_use_group::glossary_key))
+        .load(&mut catalog)
+        .unwrap();
+    assert!(!formula.is_empty());
+    assert!(formula.iter().all(|(_, key)| key.is_none()));
 }

@@ -1294,6 +1294,39 @@
           }
         }
       },
+      "UseGlossaryDto": {
+        "type": "object",
+        "description": "Explicación breve de un término de la actividad, tomada de una fuente abierta citada.",
+        "required": [
+          "term",
+          "text",
+          "sourceName",
+          "url",
+          "adapted"
+        ],
+        "properties": {
+          "adapted": {
+            "type": "boolean",
+            "description": "Verdadero si el texto es una paráfrasis de Wikipedia y falso si es el texto literal de la fuente."
+          },
+          "sourceName": {
+            "type": "string",
+            "description": "Nombre corto de la fuente: `Wikcionario` o `Wikipedia`."
+          },
+          "term": {
+            "type": "string",
+            "description": "Término explicado, sin el calificador de la actividad del grupo."
+          },
+          "text": {
+            "type": "string",
+            "description": "Explicación tal como la guarda la semilla; describe la palabra, no la planta."
+          },
+          "url": {
+            "type": "string",
+            "description": "URL permanente de la revisión de la entrada o del artículo de la que sale el texto."
+          }
+        }
+      },
       "UseGroupDto": {
         "type": "object",
         "description": "Grupo de uso tradicional: una actividad con el número de registros, los países y sus citas.",
@@ -1302,7 +1335,8 @@
           "activitySource",
           "count",
           "countries",
-          "references"
+          "references",
+          "glossary"
         ],
         "properties": {
           "activity": {
@@ -1325,6 +1359,17 @@
               "type": "string"
             },
             "description": "Países, en español."
+          },
+          "glossary": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UseGlossaryDto",
+                "description": "Explicación del término de la actividad, o `null` si la actividad no tiene término en el glosario. Siempre presente."
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "references": {
             "type": "array",

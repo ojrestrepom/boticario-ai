@@ -4,7 +4,7 @@ Esta carpeta tiene una colección de Postman con todos los endpoints de la API d
 
 ## Archivos
 
-- `boticario-api.postman_collection.json`: la colección (formato v2.1), con las carpetas Público, Plantas, Objetivos y Errores. Cada petición lleva aserciones sobre el código de estado, el `Content-Type` y la forma mínima del cuerpo.
+- `boticario-api.postman_collection.json`: la colección (formato v2.1), con las carpetas Público, Plantas, Objetivos y Errores. Cada petición lleva aserciones sobre el código de estado, el `Content-Type` y la forma mínima del cuerpo. En Plantas, `Detalle con glosario de actividades` (la lavanda) comprueba que cada grupo de `useGroups` trae `glossary` (objeto con `term`, `text`, `sourceName`, `url` y `adapted`, o `null`), la definición literal de Diurético (Wikcionario), la paráfrasis adaptada de Estimulante (Wikipedia), un grupo sin término con `null`, que los demás campos del grupo no cambian y los créditos de Wikcionario y de Wikipedia (CC BY-SA 4.0, con su `licenseUrl` y sin repetirse); `Detalle con fórmula de enfermedad grave sin glosario` (el romero) comprueba que la fórmula «Uso tradicional, sin eficacia demostrada: …» lleva `glossary` `null`.
 - `local.postman_environment.json`: `baseUrl` igual a `http://localhost:8080`, el puerto por defecto de `docker compose` y del binario.
 - `cloud-run.postman_environment.json`: `baseUrl` igual a `https://boticario-api-d3xv5q3iaa-pv.a.run.app`.
 
@@ -50,4 +50,4 @@ Para Cloud Run se cambia el entorno por `cloud-run.postman_environment.json` y s
 
 ## Cloud Run aún no tiene los endpoints nuevos
 
-El servicio de Cloud Run todavía no tiene los endpoints de objetivos (`/v1/goals` y `/v1/goals/{goalId}/plants`) ni los campos nuevos del detalle de planta hasta que se desplieguen los cambios en curso. Mientras tanto, esas peticiones y las aserciones sobre esos campos fallan contra Cloud Run (404 o campos ausentes). Contra la API local, construida desde este repositorio, pasan todas.
+El servicio de Cloud Run todavía no tiene los endpoints de objetivos (`/v1/goals` y `/v1/goals/{goalId}/plants`) ni los campos nuevos del detalle de planta hasta que se desplieguen los cambios en curso. Mientras tanto, esas peticiones y las aserciones sobre esos campos fallan contra Cloud Run (404 o campos ausentes). Lo mismo ocurre con `glossary` y los créditos de Wikcionario hasta que se despliegue el cambio `activity-glossary`. Contra la API local, construida desde este repositorio, pasan todas.

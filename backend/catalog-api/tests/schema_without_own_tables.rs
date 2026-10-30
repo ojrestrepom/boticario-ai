@@ -31,9 +31,9 @@ fn table_names(conn: &mut SqliteConnection) -> BTreeSet<String> {
 }
 
 #[test]
-fn api_opens_a_fixture_seed_database_at_schema_v2_without_own_tables() {
-    // Este cambio no sube la versión del esquema ni añade migraciones: si cambia, hay que revisarlo.
-    assert_eq!(SCHEMA_VERSION, 2);
+fn api_opens_a_fixture_seed_database_at_schema_v3_without_own_tables() {
+    // La versión 3 añade el glosario de actividades; si la versión cambia, hay que revisar este test.
+    assert_eq!(SCHEMA_VERSION, 3);
 
     let dir = tempfile::tempdir().unwrap();
     let out = dir.path().join("build").join("catalog.db");

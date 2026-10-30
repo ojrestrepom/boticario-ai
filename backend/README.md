@@ -90,11 +90,11 @@ Cada elemento del listado lleva `id`, `scientificName`, `displayName` (el nombre
 El detalle suma `names`, `parts` y `uses` (una fila por referencia resuelta, con la etiqueta de la referencia como cita) y los campos consolidados, siempre presentes (`null` o lista vacía si la planta no tiene el dato):
 
 - `synonyms`, `description`, `origin` y `oil` (`{"type": "Esencial"}`).
-- `useGroups`: grupos de uso tradicional por número de registros descendente y actividad (sin distinguir mayúsculas ni acentos), con `activity`, `activitySource`, `count`, `countries` y `references`; la `citation` de cada referencia es el texto completo de la cita y una cita sin obra identificada lleva `id` nulo, `resolved` falso y «<clave> (sin resolver)».
+- `useGroups`: grupos de uso tradicional por número de registros descendente y actividad (sin distinguir mayúsculas ni acentos), con `activity`, `activitySource`, `count`, `countries`, `references` y `glossary`; la `citation` de cada referencia es el texto completo de la cita y una cita sin obra identificada lleva `id` nulo, `resolved` falso y «<clave> (sin resolver)». `glossary` está siempre presente: es `null` si la actividad no tiene término en el glosario y, si lo tiene, un objeto con `term` (el término, sin el calificador de la actividad), `text` (la explicación tal como la guarda la semilla), `sourceName` (`Wikcionario` o `Wikipedia`), `url` (la URL permanente de la revisión de la entrada o del artículo) y `adapted` (verdadero si el texto es una paráfrasis de Wikipedia). El enlace se hace al construir la base, por la forma base de la actividad (el texto antes del primer paréntesis, en minúsculas NFC y sin quitar acentos), así que `Antídoto (escorpión)` hereda la explicación de `Antídoto`; la fórmula «Uso tradicional, sin eficacia demostrada: …» nunca se enlaza. La explicación describe la palabra, no la planta.
 - `goals`: objetivos por nombre, con `id`, `name`, `subarea` (solo en «otros objetivos»), `area`, `evidence` y `references`.
 - `safety`: `level` (`alto`, `medio`, `bajo` o `null` si las fuentes traen advertencias pero ninguna fija un nivel, como el eucalipto), `text` y `references`; es `null` solo cuando no hay ningún dato, lo que no significa que la planta sea segura.
 - `image`: `url`, `pageUrl`, `author`, `license`, `licenseUrl` y `attributionRequired`, o `null`. La API solo entrega los datos del registro: no descarga ni sirve la imagen.
-- `credits`: los datasets que respaldan los datos de la planta, sin repeticiones y ordenados por nombre, cada uno con `name`, `license`, `licenseUrl` (de `source.license_url`, `null` si la fuente no la tiene), `attribution` y `url`. Es neutral: no dice qué campo viene de qué dataset. Si la descripción resume un artículo, la `url` del crédito de ese dataset es la del artículo.
+- `credits`: los datasets que respaldan los datos de la planta, sin repeticiones y ordenados por nombre, cada uno con `name`, `license`, `licenseUrl` (de `source.license_url`, `null` si la fuente no la tiene), `attribution` y `url`. Es neutral: no dice qué campo viene de qué dataset. Si la descripción resume un artículo, la `url` del crédito de ese dataset es la del artículo. Los créditos suman Wikcionario en español, Wikipedia en español o ambas si algún grupo servido de la planta tiene `glossary` de esa fuente, y el de Wikipedia sale una sola vez aunque también acredite la descripción.
 
 Una planta con `reviewFlags` se sirve igual, y la API no los expone. Solo omite lo que la semilla marca como pendiente de revisión: los objetivos con `plant_goal.pending_review` (hoy `relajacion-estres` del hipérico) y los grupos de uso con `plant_use_group.pending_review` (sin ninguna cita resuelta), que tampoco generan filas en `uses`. Un grupo con al menos una cita resuelta se sirve con todas sus citas. La regla depende solo de esas columnas; la API no interpreta códigos de flags.
 
@@ -127,7 +127,14 @@ curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants/lavandul
       "citation": "The Wealth of India, vol. 6",
       "resolved": true
     }
-  ]
+  ],
+  "glossary": {
+    "term": "Carminativo",
+    "text": "Se dice de las sustancias que propician la expulsión de los gases intestinales.",
+    "sourceName": "Wikcionario",
+    "url": "https://es.wiktionary.org/w/index.php?title=carminativo&oldid=5967250",
+    "adapted": false
+  }
 },
 "goals[0]": {
   "id": "mejorar-el-sueno",
@@ -154,7 +161,7 @@ curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants/lavandul
   "licenseUrl": null,
   "attributionRequired": false
 },
-"credits[5]": {
+"credits[6]": {
   "name": "Wikipedia en español",
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
@@ -163,7 +170,7 @@ curl -H "Authorization: Bearer $TOKEN" 'http://127.0.0.1:8080/v1/plants/lavandul
 }
 ```
 
-Los créditos de la lavanda son EFSA, las dos fuentes de la EMA, TPPT, USDA, Wikipedia en español y WCVP; los del eucalipto cambian TPPT por Wikidata. El crédito de Wikipedia enlaza al artículo de la planta porque la descripción lo resume.
+Los créditos de la lavanda son EFSA, las dos fuentes de la EMA, TPPT, USDA, Wikcionario en español, Wikipedia en español y WCVP; Wikcionario está porque algunos grupos de la lavanda tienen explicación de esa fuente. Los del eucalipto cambian TPPT por Wikidata. El crédito de Wikipedia enlaza al artículo de la planta porque la descripción lo resume; el de Wikcionario enlaza al sitio.
 
 ### Objetivos
 
@@ -326,7 +333,7 @@ mise exec -- cargo fmt --check && mise exec -- cargo clippy --workspace --all-ta
 ## 6. Cambiar el esquema
 
 1. Editar la migración de [`data/migrations/`](../data/migrations/).
-2. Subir `SCHEMA_VERSION` en [`catalog-core/src/version.rs`](catalog-core/src/version.rs).
+2. Subir `SCHEMA_VERSION` en [`catalog-core/src/version.rs`](catalog-core/src/version.rs) (hoy 3).
 3. Regenerar [`catalog-core/src/schema.rs`](catalog-core/src/schema.rs) con Diesel, desde `backend/`, sobre una base temporal; [`diesel.toml`](diesel.toml) fija la carpeta de migraciones y la ruta del archivo generado: `DATABASE_URL=/tmp/esquema.db mise exec -- diesel migration run`.
 4. Reconstruir el catálogo con `build` (sección 2).
 

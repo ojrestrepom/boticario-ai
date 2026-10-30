@@ -91,8 +91,9 @@ fn lavender_is_found_and_has_the_consolidated_content() {
     let wiki = lavender
         .credits
         .iter()
-        .find(|c| c.license == "CC BY-SA 4.0")
+        .find(|c| c.name == "Wikipedia en español")
         .expect("la descripción de la lavanda resume Wikipedia");
+    assert_eq!(wiki.license, "CC BY-SA 4.0");
     assert_eq!(
         wiki.license_url.as_deref(),
         Some("https://creativecommons.org/licenses/by-sa/4.0/")
@@ -406,4 +407,114 @@ fn real_goal_results_are_totally_ordered_and_union_counts_once() {
         sorted.sort();
         assert_eq!(keys, sorted, "{}", goal.id);
     }
+}
+
+#[test]
+#[ignore = "necesita data/build/catalog.db (se genera con `catalog-ingest build`)"]
+fn real_glossary_explains_terms_and_credits_their_sources() {
+    let repo = open_real();
+    let mut explained = 0usize;
+    let mut with_wiktionary = 0usize;
+    let mut diuretic_checked = false;
+    let mut serious_checked = false;
+    let mut no_term_checked = false;
+    let mut qualified_checked = false;
+    let page = repo
+        .list_plants(&ListQuery {
+            q: None,
+            limit: 100,
+            offset: 0,
+        })
+        .unwrap();
+    let mut all: Vec<PlantId> = page.items.iter().map(|p| p.id.clone()).collect();
+    let mut offset = 100;
+    while all.len() < page.total as usize {
+        let next = repo
+            .list_plants(&ListQuery {
+                q: None,
+                limit: 100,
+                offset,
+            })
+            .unwrap();
+        all.extend(next.items.iter().map(|p| p.id.clone()));
+        offset += 100;
+    }
+    for id in &all {
+        let plant = plant(&repo, &id.0);
+        let mut served_sources: std::collections::BTreeSet<&str> = Default::default();
+        for group in &plant.use_groups {
+            if let Some(g) = &group.glossary {
+                explained += 1;
+                served_sources.insert(g.source_name.as_str());
+                assert!(g.url.starts_with("https://") && !g.text.is_empty(), "{g:?}");
+                assert!(
+                    !group
+                        .activity
+                        .starts_with("Uso tradicional, sin eficacia demostrada: "),
+                    "{group:?}"
+                );
+                if group.activity == "Diurético" {
+                    assert_eq!(g.term, "Diurético");
+                    assert_eq!(g.source_name, "Wikcionario");
+                    assert!(!g.adapted);
+                    assert_eq!(
+                        g.text,
+                        "Que aumenta o facilita la producción y excreción de orina."
+                    );
+                    diuretic_checked = true;
+                }
+                if group.activity.starts_with("Antídoto (") && !qualified_checked {
+                    assert_eq!(g.term, "Antídoto");
+                    qualified_checked = true;
+                }
+            } else if group.activity == "Fiebre" && !no_term_checked {
+                no_term_checked = true;
+            } else if group
+                .activity
+                .starts_with("Uso tradicional, sin eficacia demostrada: ")
+            {
+                serious_checked = true;
+            }
+        }
+        // Los créditos del glosario salen solo de explicaciones servidas, y Wikipedia no se repite.
+        let has_wiktionary = plant
+            .credits
+            .iter()
+            .any(|c| c.name == "Wikcionario en español");
+        assert_eq!(
+            has_wiktionary,
+            served_sources.contains("Wikcionario"),
+            "{}: {:?}",
+            plant.id.0,
+            plant.credits.iter().map(|c| &c.name).collect::<Vec<_>>()
+        );
+        if has_wiktionary {
+            with_wiktionary += 1;
+        }
+        if served_sources.contains("Wikipedia") {
+            assert_eq!(
+                plant
+                    .credits
+                    .iter()
+                    .filter(|c| c.name == "Wikipedia en español")
+                    .count(),
+                1,
+                "{}",
+                plant.id.0
+            );
+        }
+        let names: Vec<&str> = plant.credits.iter().map(|c| c.name.as_str()).collect();
+        let mut unique = names.clone();
+        unique.sort();
+        unique.dedup();
+        assert_eq!(names.len(), unique.len(), "{}: {names:?}", plant.id.0);
+    }
+    println!(
+        "grupos con explicación={explained} plantas con crédito de Wikcionario={with_wiktionary}"
+    );
+    assert!(diuretic_checked && no_term_checked && serious_checked && qualified_checked);
+    assert!(explained > 0 && with_wiktionary > 0);
+    // La lavanda ya trae explicaciones servidas.
+    let lavender = plant(&repo, "lavandula-angustifolia");
+    assert!(lavender.use_groups.iter().any(|g| g.glossary.is_some()));
 }

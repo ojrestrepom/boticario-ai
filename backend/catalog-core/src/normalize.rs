@@ -19,6 +19,27 @@ pub fn normalize_name(input: &str) -> String {
     stripped.split_whitespace().collect::<Vec<_>>().join(" ")
 }
 
+/// Fórmula con que la consolidación nombra una actividad de enfermedad grave; esas actividades no se enlazan al glosario.
+pub const SERIOUS_DISEASE_PREFIX: &str = "Uso tradicional, sin eficacia demostrada: ";
+
+/// Forma base de una actividad para enlazarla con el glosario (D8).
+///
+/// Es el texto antes del primer paréntesis, en NFC, con los espacios colapsados y en minúsculas, sin quitar acentos. Es la misma regla que `base_key` de `tools/catalog-seed` (Python); ambas se prueban con `glossary-key-cases.json`.
+pub fn activity_base_key(activity: &str) -> String {
+    let nfc: String = activity.nfc().collect();
+    let before_paren = nfc.split('(').next().unwrap_or("");
+    before_paren
+        .split_whitespace()
+        .collect::<Vec<_>>()
+        .join(" ")
+        .to_lowercase()
+}
+
+/// Indica si una actividad se enlaza al glosario: no empieza por la fórmula de enfermedad grave.
+pub fn activity_can_link_glossary(activity: &str) -> bool {
+    !activity.starts_with(SERIOUS_DISEASE_PREFIX)
+}
+
 /// Convierte un nombre en slug: minúsculas sin acentos y cada secuencia de caracteres no alfanuméricos ASCII reducida a un guion, sin guiones en los extremos.
 pub fn slug(input: &str) -> String {
     let mut out = String::new();
@@ -76,6 +97,26 @@ pub const SLUG_CASES: &[(&str, &str)] = &[
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn activity_base_key_follows_the_glossary_rule() {
+        // Los casos compartidos con Python viven en `glossary-key-cases.json`, que prueba `catalog-ingest`.
+        for (activity, key) in [
+            ("Diurético", "diurético"),
+            ("Antídoto (escorpión)", "antídoto"),
+            ("  Tónico   ", "tónico"),
+            ("TÓNICO", "tónico"),
+            ("Tonico", "tonico"),
+            ("To\u{0301}nico", "tónico"),
+            ("", ""),
+        ] {
+            assert_eq!(activity_base_key(activity), key, "{activity:?}");
+        }
+        assert!(activity_can_link_glossary("Fiebre"));
+        assert!(!activity_can_link_glossary(
+            "Uso tradicional, sin eficacia demostrada: cáncer"
+        ));
+    }
 
     #[test]
     fn normalizes_shared_cases() {

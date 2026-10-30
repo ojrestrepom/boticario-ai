@@ -110,6 +110,10 @@ fn run_build(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     println!("fuentes: {}", report.sources);
     println!("alias: {}", report.aliases);
     println!("avisos de revisión: {}", report.review_flags);
+    println!(
+        "glosario: {} términos, {} grupos de uso enlazados",
+        report.glossary_terms, report.glossary_linked_groups
+    );
     println!("hash: {}", report.content_hash);
     println!("tiempo: {:.2?}", started.elapsed());
     Ok(())

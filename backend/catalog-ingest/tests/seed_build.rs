@@ -7,9 +7,10 @@ use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
+use catalog_core::normalize::activity_base_key;
 use catalog_ingest::hash::content_hash;
 use catalog_ingest::seed::{Seed, load_seed};
-use catalog_ingest::seed_build::{BuildError, build_from_dir, build_seed};
+use catalog_ingest::seed_build::{BuildError, build_from_dir, build_seed, glossary_key_for};
 use rusqlite::{Connection, OpenFlags};
 
 fn fixture() -> PathBuf {
@@ -86,7 +87,7 @@ fn builds_without_network_and_maps_the_api_tables() {
             &conn,
             "SELECT value FROM metadata WHERE key = 'schema_version'"
         ),
-        ["2"]
+        ["3"]
     );
 
     // Científico y sinónimos en `la`; comunes con su idioma.
@@ -875,4 +876,200 @@ fn cli_build_fails_without_seed_and_leaves_no_database() {
     assert!(!output.status.success());
     assert!(String::from_utf8_lossy(&output.stderr).contains("semilla"));
     assert!(!out.exists());
+}
+
+// ---- Glosario de actividades (tareas 5.1 y 5.3) ----
+
+fn glossary_of(conn: &Connection, activity: &str) -> Option<String> {
+    conn.query_row(
+        "SELECT glossary_key FROM plant_use_group WHERE plant_id = 'lavandula-angustifolia' AND activity = ?1",
+        [activity],
+        |r| r.get::<_, Option<String>>(0),
+    )
+    .unwrap()
+}
+
+#[test]
+fn glossary_rows_are_written_with_their_source_and_flags() {
+    let seed = seed();
+    let (_dir, _out, conn) = built(&seed);
+    assert_eq!(count(&conn, "SELECT COUNT(*) FROM activity_glossary"), 5);
+    assert_eq!(
+        strings(
+            &conn,
+            "SELECT key || '|' || term || '|' || source_id || '|' || source_name || '|' || adapted || '|' || revision_date FROM activity_glossary WHERE key IN ('diurético', 'estimulante', 'antídoto') ORDER BY key"
+        ),
+        [
+            "antídoto|Antídoto|wikipedia_es|Wikipedia|0|2026-10-08",
+            "diurético|Diurético|wiktionary_es|Wikcionario|0|2026-08-16",
+            "estimulante|Estimulante|wikipedia_es|Wikipedia|1|2026-08-17",
+        ]
+    );
+}
+
+#[test]
+fn glossary_rows_point_to_the_manifest_sources() {
+    let seed = seed();
+    let (_dir, _out, conn) = built(&seed);
+    assert_eq!(
+        count(
+            &conn,
+            "SELECT COUNT(*) FROM activity_glossary g JOIN source s ON s.id = g.source_id WHERE s.license = 'CC BY-SA 4.0' AND s.license_url = 'https://creativecommons.org/licenses/by-sa/4.0/' AND s.citation LIKE '%CC BY-SA 4.0%'"
+        ),
+        5
+    );
+    assert_eq!(
+        strings(
+            &conn,
+            "SELECT DISTINCT source_id FROM activity_glossary ORDER BY 1"
+        ),
+        ["wikipedia_es", "wiktionary_es"]
+    );
+}
+
+#[test]
+fn groups_link_to_the_glossary_by_base_form() {
+    let mut seed = seed();
+    let lav = plant(&mut seed, "lavandula-angustifolia");
+    let mut group = lav.traditional_uses[3].clone();
+    group.activity = "Antídoto (escorpión)".to_string();
+    group.activity_source = "Antidote(Scorpion)".to_string();
+    lav.traditional_uses.push(group);
+    let (_dir, _out, conn) = built(&seed);
+    // Coincidencia exacta y con calificador (la actividad conserva el calificador).
+    assert_eq!(
+        glossary_of(&conn, "Diurético").as_deref(),
+        Some("diurético")
+    );
+    assert_eq!(
+        glossary_of(&conn, "Carminativo").as_deref(),
+        Some("carminativo")
+    );
+    assert_eq!(
+        glossary_of(&conn, "Antídoto (escorpión)").as_deref(),
+        Some("antídoto")
+    );
+    // Sin término: la columna queda nula.
+    assert_eq!(glossary_of(&conn, "Colagogo"), None);
+    assert_eq!(glossary_of(&conn, "Perfume"), None);
+    // Un término más largo no coincide con la forma base de otro.
+    assert_eq!(
+        count(
+            &conn,
+            "SELECT COUNT(*) FROM plant_use_group WHERE activity = 'Sedante del sistema nervioso central' AND glossary_key IS NOT NULL"
+        ),
+        0
+    );
+    // Los enlazados son exactamente los grupos cuya forma base está en el glosario.
+    assert_eq!(
+        count(
+            &conn,
+            "SELECT COUNT(*) FROM plant_use_group WHERE glossary_key IS NOT NULL AND glossary_key NOT IN (SELECT key FROM activity_glossary)"
+        ),
+        0
+    );
+}
+
+#[test]
+fn serious_disease_formula_and_unaccented_activity_are_not_linked() {
+    let mut seed = seed();
+    // Aunque el glosario tuviera las claves, la fórmula no se enlaza, y sin acento no coincide.
+    let glossary = seed.glossary.as_mut().unwrap();
+    let mut row = glossary.rows[0].clone();
+    row.key = "uso tradicional, sin eficacia demostrada: cáncer".to_string();
+    row.term = "Cáncer".to_string();
+    glossary.rows.push(row);
+    let lav = plant(&mut seed, "lavandula-angustifolia");
+    let mut formula = lav.traditional_uses[0].clone();
+    formula.activity = "Uso tradicional, sin eficacia demostrada: cáncer".to_string();
+    let mut no_accent = lav.traditional_uses[0].clone();
+    no_accent.activity = "Antidoto".to_string();
+    lav.traditional_uses.extend([formula, no_accent]);
+    let (_dir, _out, conn) = built(&seed);
+    assert_eq!(
+        glossary_of(&conn, "Uso tradicional, sin eficacia demostrada: cáncer"),
+        None
+    );
+    assert_eq!(glossary_of(&conn, "Antidoto"), None);
+}
+
+#[test]
+fn shared_key_cases_agree_with_the_rust_rule() {
+    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../../tools/catalog-seed/tests/fixtures/glossary-key-cases.json");
+    let cases: serde_json::Value =
+        serde_json::from_str(&fs::read_to_string(path).unwrap()).unwrap();
+    let cases = cases["cases"].as_array().unwrap();
+    assert!(cases.len() >= 8);
+    let keys: BTreeSet<String> = cases
+        .iter()
+        .filter(|c| c["links"].as_bool().unwrap())
+        .map(|c| c["key"].as_str().unwrap().to_string())
+        // La fórmula de enfermedad grave tiene clave aunque no se enlace: se prueba que el prefijo la bloquea.
+        .chain(
+            cases
+                .iter()
+                .filter(|c| {
+                    c["activity"]
+                        .as_str()
+                        .unwrap()
+                        .starts_with("Uso tradicional")
+                })
+                .map(|c| c["key"].as_str().unwrap().to_string()),
+        )
+        .collect();
+    for case in cases {
+        let activity = case["activity"].as_str().unwrap();
+        assert_eq!(
+            activity_base_key(activity),
+            case["key"].as_str().unwrap(),
+            "{activity}"
+        );
+        assert_eq!(
+            glossary_key_for(activity, &keys).is_some(),
+            case["links"].as_bool().unwrap(),
+            "{activity}"
+        );
+    }
+}
+
+#[test]
+fn glossary_row_with_unknown_source_fails() {
+    let mut seed = seed();
+    seed.glossary.as_mut().unwrap().rows[0].source_id = "otra_fuente".to_string();
+    let dir = tempfile::tempdir().unwrap();
+    let out = dir.path().join("catalog.db");
+    let err = build_seed(&seed, &out).unwrap_err();
+    assert!(
+        matches!(err, BuildError::GlossarySourceUnknown { .. }),
+        "{err}"
+    );
+    assert!(err.to_string().contains("otra_fuente"), "{err}");
+    assert!(!out.exists());
+    assert!(!dir.path().join("catalog.db.tmp").exists());
+}
+
+#[test]
+fn seed_without_glossary_builds_an_empty_table_and_no_links() {
+    let mut seed = seed();
+    seed.glossary = None;
+    let (_dir, _out, conn) = built(&seed);
+    assert_eq!(count(&conn, "SELECT COUNT(*) FROM activity_glossary"), 0);
+    assert_eq!(
+        count(
+            &conn,
+            "SELECT COUNT(*) FROM plant_use_group WHERE glossary_key IS NOT NULL"
+        ),
+        0
+    );
+}
+
+#[test]
+fn glossary_changes_the_database_hash() {
+    let with = seed();
+    let mut without = seed();
+    without.glossary = None;
+    let (_d1, out1, _c1) = built(&with);
+    let (_d2, out2, _c2) = built(&without);
+    assert_ne!(content_hash(&out1).unwrap(), content_hash(&out2).unwrap());
 }

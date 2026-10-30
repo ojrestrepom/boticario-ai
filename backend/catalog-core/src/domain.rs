@@ -105,6 +105,21 @@ impl UseGroupReference {
     }
 }
 
+/// Explicación de un término de actividad, tomada del glosario de la semilla.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct UseGlossary {
+    /// Término del glosario, sin el calificador de la actividad del grupo.
+    pub term: String,
+    /// Explicación, tal como la guarda la semilla.
+    pub text: String,
+    /// Nombre corto de la fuente (`Wikcionario` o `Wikipedia`).
+    pub source_name: String,
+    /// URL permanente de la revisión de la entrada o del artículo.
+    pub url: String,
+    /// Si el texto es una paráfrasis de Wikipedia y no el literal de la fuente.
+    pub adapted: bool,
+}
+
 /// Grupo de uso tradicional: una actividad con el número de registros, los países y sus citas.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct UseGroup {
@@ -118,6 +133,8 @@ pub struct UseGroup {
     pub countries: Vec<String>,
     /// Citas del grupo, resueltas o no.
     pub references: Vec<UseGroupReference>,
+    /// Explicación del término de la actividad, si el glosario lo tiene.
+    pub glossary: Option<UseGlossary>,
 }
 
 /// Objetivo de una planta registrado en la semilla.

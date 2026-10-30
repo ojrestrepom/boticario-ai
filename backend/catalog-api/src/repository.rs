@@ -12,20 +12,20 @@ use std::time::Duration;
 use catalog_core::domain::{
     Credit, Goal, GoalPlant, GoalPlants, GoalPlantsOutcome, GoalSummary, IdName, Image, ListQuery,
     NameKind, Page, Part, Plant, PlantId, PlantName, PlantSummary, Reference, Safety, SafetyLevel,
-    SubareaSummary, Use, UseGroup, UseGroupReference,
+    SubareaSummary, Use, UseGlossary, UseGroup, UseGroupReference,
 };
 use catalog_core::normalize::{normalize_name, slug};
 use catalog_core::repository::{CatalogRepository, RepositoryError};
 use catalog_core::rows::{
-    GoalRow, GoalSubareaRow, PlantGoalRefRow, PlantGoalRow, PlantImageRow, PlantNameRow,
-    PlantPartRow, PlantProfileRow, PlantRow, PlantSafetyRefRow, PlantSafetyRow,
+    ActivityGlossaryRow, GoalRow, GoalSubareaRow, PlantGoalRefRow, PlantGoalRow, PlantImageRow,
+    PlantNameRow, PlantPartRow, PlantProfileRow, PlantRow, PlantSafetyRefRow, PlantSafetyRow,
     PlantUseGroupRefRow, PlantUseGroupRow, PlantUseRow, ReferenceRow, SourceRow,
 };
 use catalog_core::schema::{
-    goal, goal_subarea, metadata, plant, plant_alias, plant_goal, plant_goal_ref, plant_image,
-    plant_name, plant_name_source, plant_part, plant_part_source, plant_profile, plant_profile_ref,
-    plant_safety, plant_safety_ref, plant_use, plant_use_group, plant_use_group_ref,
-    plant_use_source, reference, source,
+    activity_glossary, goal, goal_subarea, metadata, plant, plant_alias, plant_goal,
+    plant_goal_ref, plant_image, plant_name, plant_name_source, plant_part, plant_part_source,
+    plant_profile, plant_profile_ref, plant_safety, plant_safety_ref, plant_use, plant_use_group,
+    plant_use_group_ref, plant_use_source, reference, source,
 };
 use catalog_core::sqlite::{InvalidPath, read_only_url};
 use catalog_core::version::{SCHEMA_VERSION, SCHEMA_VERSION_KEY};
@@ -835,6 +835,34 @@ fn load_use_groups(
         .select(PlantUseGroupRefRow::as_select())
         .load(conn)
         .map_err(storage)?;
+    // Explicaciones de los términos a los que se enlazan los grupos servidos.
+    let glossary_keys: Vec<&str> = groups
+        .iter()
+        .filter_map(|g| g.glossary_key.as_deref())
+        .collect();
+    let glossary: HashMap<String, UseGlossary> = if glossary_keys.is_empty() {
+        HashMap::new()
+    } else {
+        activity_glossary::table
+            .filter(activity_glossary::key.eq_any(&glossary_keys))
+            .select(ActivityGlossaryRow::as_select())
+            .load(conn)
+            .map_err(storage)?
+            .into_iter()
+            .map(|r| {
+                (
+                    r.key,
+                    UseGlossary {
+                        term: r.term,
+                        text: r.text,
+                        source_name: r.source_name,
+                        url: r.entry_url,
+                        adapted: r.adapted,
+                    },
+                )
+            })
+            .collect()
+    };
     let mut refs: HashMap<i32, Vec<UseGroupReference>> = HashMap::new();
     for r in ref_rows {
         refs.entry(r.use_group_id)
@@ -856,6 +884,15 @@ fn load_use_groups(
             })?;
             let count = u32::try_from(g.n)
                 .map_err(|_| storage(format!("n inválido en el grupo de uso {}: {}", g.id, g.n)))?;
+            let explanation = match &g.glossary_key {
+                Some(key) => Some(glossary.get(key).cloned().ok_or_else(|| {
+                    storage(format!(
+                        "el grupo de uso {} enlaza al término {key:?}, que no está en el glosario",
+                        g.id
+                    ))
+                })?),
+                None => None,
+            };
             Ok((
                 g.id,
                 UseGroup {
@@ -864,6 +901,7 @@ fn load_use_groups(
                     count,
                     countries,
                     references: refs.remove(&g.id).unwrap_or_default(),
+                    glossary: explanation,
                 },
             ))
         })
@@ -1174,6 +1212,23 @@ fn load_credits(
             .map_err(storage)?,
     ];
     source_ids.extend(datasets.into_iter().flatten().flatten());
+
+    // Fuentes de las explicaciones del glosario de los grupos servidos (los pendientes no se sirven, así que no acreditan).
+    source_ids.extend(
+        activity_glossary::table
+            .filter(
+                activity_glossary::key.nullable().eq_any(
+                    plant_use_group::table
+                        .filter(plant_use_group::plant_id.eq(plant_id))
+                        .filter(plant_use_group::pending_review.eq(false))
+                        .select(plant_use_group::glossary_key),
+                ),
+            )
+            .select(activity_glossary::source_id)
+            .distinct()
+            .load::<String>(conn)
+            .map_err(storage)?,
+    );
 
     if source_ids.is_empty() {
         return Ok(Vec::new());
@@ -2195,6 +2250,120 @@ mod tests {
             .unwrap()
             .unwrap();
         assert!(plant.credits.is_empty());
+    }
+
+    // ---- glosario de actividades ----
+
+    #[test]
+    fn use_groups_carry_the_glossary_explanation_or_none() {
+        let fixture = Fixture::with_glossary();
+        let repo = fixture.repo();
+        let lavender = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        // Wikipedia adaptado.
+        assert_eq!(
+            lavender.use_groups[0].glossary,
+            Some(UseGlossary {
+                term: "Sedante".to_string(),
+                text: "Sustancia que calma la excitación nerviosa.".to_string(),
+                source_name: "Wikipedia".to_string(),
+                url: "https://es.example.test/w/index.php?title=Sedante&oldid=11".to_string(),
+                adapted: true,
+            })
+        );
+        // Wikcionario literal.
+        let antiseptic = lavender.use_groups[1].glossary.as_ref().unwrap();
+        assert_eq!(antiseptic.source_name, "Wikcionario");
+        assert!(!antiseptic.adapted);
+        // Calificador: el término no lo lleva y la actividad sí.
+        let latifolia = repo
+            .get_plant(&pid("lavandula-latifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(latifolia.use_groups[0].activity, "Antídoto (escorpión)");
+        assert_eq!(
+            latifolia.use_groups[0].glossary.as_ref().unwrap().term,
+            "Antídoto"
+        );
+        // Sin término.
+        let mint = repo.get_plant(&pid("mentha-x-piperita")).unwrap().unwrap();
+        assert_eq!(mint.use_groups[0].glossary, None);
+        // La fixture estándar no trae glosario: todos los grupos quedan sin explicación.
+        let plain = Fixture::standard();
+        let plant = plain
+            .repo()
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert!(plant.use_groups.iter().all(|g| g.glossary.is_none()));
+    }
+
+    #[test]
+    fn glossary_credits_come_from_served_groups_and_never_repeat() {
+        let fixture = Fixture::with_glossary();
+        let repo = fixture.repo();
+        // Wikcionario por los grupos servidos; Wikipedia una sola vez (también acredita la descripción) y con el enlace del artículo.
+        let lavender = repo
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            credit_names(&lavender),
+            [
+                "Agencia reguladora",
+                "Enciclopedia libre",
+                "Fuente a",
+                "Fuente b",
+                "Wikcionario en español"
+            ]
+        );
+        let wikt = credit(&lavender, "Wikcionario en español");
+        assert_eq!(wikt.license, "CC BY-SA 4.0");
+        assert_eq!(
+            wikt.license_url.as_deref(),
+            Some("https://creativecommons.org/licenses/by-sa/4.0/")
+        );
+        assert_eq!(wikt.url.as_deref(), Some("https://example.test/wikt"));
+        assert_eq!(
+            credit(&lavender, "Enciclopedia libre").url.as_deref(),
+            Some("https://es.example.test/wiki/Lavandula_angustifolia")
+        );
+        // Un grupo pendiente enlazado a una fuente no la acredita.
+        let conium = repo.get_plant(&pid("conium-maculatum")).unwrap().unwrap();
+        assert_eq!(credit_names(&conium), ["Agencia reguladora", "Fuente a"]);
+        // Sin explicaciones no hay crédito del glosario.
+        let mint = repo.get_plant(&pid("mentha-x-piperita")).unwrap().unwrap();
+        assert!(!credit_names(&mint).contains(&"Wikcionario en español"));
+        // Sin glosario en la base, nada cambia respecto de la fixture estándar.
+        let plain = Fixture::standard();
+        let plant = plain
+            .repo()
+            .get_plant(&pid("lavandula-angustifolia"))
+            .unwrap()
+            .unwrap();
+        assert!(!credit_names(&plant).contains(&"Wikcionario en español"));
+    }
+
+    #[test]
+    fn wikipedia_glossary_alone_credits_wikipedia_once_with_the_site_url() {
+        // La planta no tiene descripción de Wikipedia: el crédito sale solo del glosario y enlaza al sitio.
+        let fixture = Fixture::with_glossary();
+        fixture.insert_use_group("matricaria-chamomilla", "Sedante", 0, 1);
+        fixture.link_glossary("matricaria-chamomilla", "Sedante", "sedante");
+        let plant = fixture
+            .repo()
+            .get_plant(&pid("matricaria-chamomilla"))
+            .unwrap()
+            .unwrap();
+        let wiki: Vec<&Credit> = plant
+            .credits
+            .iter()
+            .filter(|c| c.name == "Enciclopedia libre")
+            .collect();
+        assert_eq!(wiki.len(), 1);
+        assert_eq!(wiki[0].url.as_deref(), Some("https://example.test/wiki"));
     }
 
     // ---- 3.5 contenido pendiente de revisión ----

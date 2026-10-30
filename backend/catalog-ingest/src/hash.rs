@@ -20,7 +20,7 @@ fn quote_ident(name: &str) -> String {
 /// Tablas del esquema neutral, en el orden fijo en que se vuelcan.
 ///
 /// Un test comprueba que coincide con las tablas que crea `apply_schema`.
-pub const NEUTRAL_TABLES: [&str; 25] = [
+pub const NEUTRAL_TABLES: [&str; 26] = [
     "metadata",
     "source",
     "plant",
@@ -46,6 +46,7 @@ pub const NEUTRAL_TABLES: [&str; 25] = [
     "plant_image",
     "plant_alias",
     "plant_review_flag",
+    "activity_glossary",
 ];
 
 /// Calcula el SHA-256 (hexadecimal) del contenido lógico de la base `db`.

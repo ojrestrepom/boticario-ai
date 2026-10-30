@@ -1,6 +1,6 @@
 # Modelo de datos del catálogo
 
-Esta guía describe cómo se obtiene el catálogo que sirve la API: las fuentes abiertas se descargan y se consolidan offline en una semilla versionada (`data/seed/`), y el backend (`backend/catalog-ingest`) convierte esa semilla en `catalog.db` sin red ni LLM. Cubre las capas, las tablas (incluidas las del esquema v2), el mapeo de la semilla, las reglas de consolidación, los errores de construcción, la versión de esquema, cómo se regenera la semilla y cómo añadir una fuente nueva a las herramientas.
+Esta guía describe cómo se obtiene el catálogo que sirve la API: las fuentes abiertas se descargan y se consolidan offline en una semilla versionada (`data/seed/`), y el backend (`backend/catalog-ingest`) convierte esa semilla en `catalog.db` sin red ni LLM. Cubre las capas, las tablas (incluidas las del esquema v2 y el glosario de actividades de la v3), el mapeo de la semilla, las reglas de consolidación, los errores de construcción, la versión de esquema, cómo se regenera la semilla y cómo añadir una fuente nueva a las herramientas.
 
 Documentos relacionados:
 
@@ -17,7 +17,7 @@ Los datos pasan por cuatro capas. Solo la tercera y la cuarta llegan al backend 
 
 1. **Fuentes** (`data/.cache/`, ignorada por Git). Los insumos descargados con versión y checksum: USDA, WCVP, WFO, EMA (JSON y PDF), TPPT, EFSA y las respuestas guardadas de Wikidata, Wikipedia en español y Commons. `sources.json` los declara y `download` los verifica; un insumo alterado o ausente detiene el paso e indica qué descargar. No va en la imagen de Docker.
 2. **Trabajo** (`data/work/`, ignorada por Git). Productos intermedios deterministas de las herramientas: `sources.db` (filas normalizadas de todas las fuentes), `taxonomy.db` y `universe/` (resolución taxonómica y universo de plantas), `wiki/` (asignación de Wikidata, Wikipedia y Commons), `bundles/` (un paquete JSON por planta, la entrada del LLM) y los directorios de registros recién generados antes de sellar.
-3. **Semilla** (`data/seed/`, versionada). Un registro JSON por planta en `plants/<id>.json`, `goals.json` (catálogo de objetivos y subáreas) y `manifest.json`. Es el único insumo del build y el resultado de la consolidación con el LLM.
+3. **Semilla** (`data/seed/`, versionada). Un registro JSON por planta en `plants/<id>.json`, `goals.json` (catálogo de objetivos y subáreas), `glossary.json` (glosario de actividades, opcional) y `manifest.json`. Es el único insumo del build y el resultado de la consolidación con el LLM.
 4. **Base neutral** (`data/build/catalog.db`, derivada). La construye `catalog-ingest build` desde la semilla. Su esquema no contiene nombres ni estructuras de ningún dataset, y la API la lee en modo de solo lectura; un test (`backend/catalog-api/tests/source_independence.rs`) lo comprueba.
 
 Ya no existen la descarga de figshare, la capa cruda `raw.db`, `data/sources.toml` ni el marco de adaptadores (`SourceAdapter`, `default_registry`).
@@ -26,12 +26,13 @@ Ya no existen la descarga de figshare, la capa cruda `raw.db`, `data/sources.tom
 
 - `plants/<id>.json`: el registro de una planta con el nombre científico y sus sinónimos, la familia, el nombre para mostrar, los nombres comunes, el origen, la descripción, las partes usadas, el aceite, los grupos de usos tradicionales con sus citas, los objetivos, la seguridad, la imagen, los alias, el subconjunto de `refs` que usa (cada una con `dataset`, `label`, `license` y, a veces, `url`) y los `reviewFlags`. Cada dato cita sus refs. Guarda además `recordVersion`, `bundleHash`, `promptVersion` y `model`. El esquema es `tools/catalog-seed/schema/record.schema.json`, fuente única de la forma del registro: el validador de Python lo aplica y el lector de Rust usa tipos estrictos (`deny_unknown_fields`).
 - Los archivos tienen claves ordenadas, sangría de 2 espacios y salto de línea final, sin marcas de tiempo, así que un cambio en una planta es el diff de un archivo.
-- `manifest.json`: `formatVersion`, las fuentes activas (id, nombre, URL de la página, versión, licencia, atribución y checksum de sus archivos), `promptVersion`, `recordVersion`, `models`, `plantCount`, el conteo de `reviewFlags` por código y el `seedHash`.
+- `manifest.json`: `formatVersion`, las fuentes activas (id, nombre, URL de la página, versión, licencia, atribución y checksum de sus archivos), `promptVersion`, `recordVersion`, `models`, `plantCount`, el conteo de `reviewFlags` por código, el `seedHash` y, si hay glosario, `glossaryHash` y `glossaryCount`.
 - `seedHash`: `sha256:` del contenido canónico de los registros ordenados por `id` más el de `goals.json`. No depende de la sangría de los archivos. El build lo recalcula y rechaza una semilla alterada.
+- `glossary.json`: el glosario de actividades (`catalog-glossary/1`), con su licencia (CC BY-SA 4.0) y una fila por término: `key` (forma base), `term`, `text`, `sourceId`, `sourceName`, `adapted`, `sense`, `entryUrl`, `revisionId`, `revisionTimestamp` y `retrievedAt`. No entra en el `seedHash`: el manifiesto lo declara con `glossaryHash` (sha256 del JSON canónico) y `glossaryCount`. Si el manifiesto los declara, el build comprueba que el archivo exista, que el hash y el conteo coincidan, que las claves sean únicas y estén en forma base y que las URL sean `https`; sin ellos, la semilla no tiene glosario y la tabla queda vacía.
 
 ## 2. Las tablas de `catalog.db`
 
-La base tiene 25 tablas: las 12 del esquema v1 (las que lee la API) y 13 nuevas del esquema v2. Las 25 forman el hash de contenido.
+La base tiene 26 tablas: las 12 del esquema v1 (las que lee la API), 13 nuevas del esquema v2 y 1 nueva del esquema v3. Las 26 forman el hash de contenido.
 
 ### Esquema v1 (lo que lee la API)
 
@@ -55,7 +56,7 @@ La migración está en `data/migrations/2026-10-26-000000_catalog_v2/up.sql`. La
 | --- | --- |
 | `plant_profile` | Una fila por planta: `display_name` (la fuente de verdad del nombre para mostrar), `authors`, `origin`, `description`, `oil_type`, `record_version`, `bundle_hash` y `prompt_version`. |
 | `plant_profile_ref` | Referencias de los campos del perfil, para saber de qué dataset sale cada uno. `field` es una lista cerrada: `scientificName`, `family`, `displayName`, `origin`, `description`, `oil` y `partsUsed`. |
-| `plant_use_group` | Grupos de uso tradicional: `activity` en español, `activity_source` (la etiqueta original), `n`, `countries` (arreglo JSON de textos en español) y `pending_review`. |
+| `plant_use_group` | Grupos de uso tradicional: `activity` en español, `activity_source` (la etiqueta original), `n`, `countries` (arreglo JSON de textos en español), `pending_review` y, desde la v3, `glossary_key`. |
 | `plant_use_group_ref` | Citas de cada grupo, resueltas o no. Una cita sin resolver no tiene `reference_id` y su `text` termina en «(sin resolver)»; un `CHECK` exige que `resolved` sea verdadero si y solo si hay `reference_id`. |
 | `goal`, `goal_subarea` | Catálogo de objetivos y subáreas, cargado de `data/seed/goals.json`. |
 | `plant_goal` | Objetivos de cada planta con subárea (opcional), `area`, `evidence` y `pending_review`. Una clave foránea compuesta exige que la subárea sea del objetivo, y un índice único evita repetir objetivo, subárea y área. |
@@ -65,6 +66,17 @@ La migración está en `data/migrations/2026-10-26-000000_catalog_v2/up.sql`. La
 | `plant_image` | A lo sumo una imagen por planta con URL, página, autor (nulable), licencia, URL de la licencia (nulable) y si la atribución es obligatoria. |
 | `plant_alias` | IDs anteriores de la planta. El alias es único en toda la base. |
 | `plant_review_flag` | `reviewFlags` del registro: código, `target` y mensaje. |
+
+### Esquema v3 (glosario de actividades)
+
+La migración está en `data/migrations/2026-10-30-000000_catalog_v3/up.sql`. Añade una tabla y una columna; las demás tablas no cambian.
+
+| Elemento | Contenido |
+| --- | --- |
+| `activity_glossary` | Una fila por término del glosario: `key` (llave: la forma base normalizada), `term` (para mostrar), `text` (la explicación, tal como la guarda la semilla), `entry_url` (la URL permanente de la revisión de la entrada o del artículo, siempre `https`), `revision_date` (AAAA-MM-DD, el prefijo de la hora de la revisión), `source_id` (clave foránea a `source`: `wiktionary_es` o `wikipedia_es`, con su licencia y atribución del manifiesto), `source_name` (el nombre corto para mostrar: `Wikcionario` o `Wikipedia`) y `adapted` (`BOOLEAN`: verdadero si el texto es una paráfrasis de Wikipedia). `CHECK` rechaza claves, términos, textos o nombres vacíos, URL que no sean `https` y valores de `adapted` fuera de 0 y 1. |
+| `plant_use_group.glossary_key` | Nula, o la clave del término que explica la actividad del grupo (clave foránea a `activity_glossary(key)`). |
+
+La regla de la forma base: el texto de `plant_use_group.activity` antes del primer paréntesis, en NFC, con los espacios colapsados y en minúsculas, sin quitar acentos. Un grupo se enlaza si esa forma es la clave de un término, así que `Antídoto (escorpión)` queda enlazado a `antídoto` y conserva su actividad completa; `Tonico` no se enlaza a `tónico`. Un grupo cuya actividad empieza por «Uso tradicional, sin eficacia demostrada: » nunca se enlaza. Se calcula una vez, al construir, en `catalog-core/src/normalize.rs` (`activity_base_key`); `tools/catalog-seed` implementa la misma regla en Python (`base_key`) y ambas se prueban con `tools/catalog-seed/tests/fixtures/glossary-key-cases.json`. Se enlaza por la actividad traducida que ve el usuario y no por `activity_source`, y los grupos pendientes de revisión también guardan su enlace (la API no los sirve). El enlace depende solo de la semilla, así que la construcción sigue siendo determinista. Una fila del glosario con una fuente que el manifiesto no declara hace fallar la construcción.
 
 ### Procedencia y atribución
 
@@ -80,16 +92,16 @@ El listado de `GET /v1/plants` suma `displayName` (el `plant_profile.display_nam
 | --- | --- |
 | `displayName`, `description`, `origin`, `oil` | `plant_profile` (`display_name`, `description`, `origin`, `oil_type`). |
 | `synonyms` | Los demás nombres científicos de `plant_name`, sin repetir. |
-| `useGroups` | `plant_use_group` y `plant_use_group_ref`, por `n` descendente y actividad. La `citation` de cada referencia es `plant_use_group_ref.text` (la cita completa) y no la etiqueta de `reference`; una cita sin resolver lleva `id` nulo y `resolved` falso. |
+| `useGroups` | `plant_use_group` y `plant_use_group_ref`, por `n` descendente y actividad. La `citation` de cada referencia es `plant_use_group_ref.text` (la cita completa) y no la etiqueta de `reference`; una cita sin resolver lleva `id` nulo y `resolved` falso. `glossary` sale de `activity_glossary` por `plant_use_group.glossary_key`: `null` sin enlace o, si lo hay, `{term, text, sourceName, url, adapted}` con `entry_url` como `url`; es siempre un campo presente. |
 | `goals` | `plant_goal` con `goal.label` como nombre y `goal_subarea.label` como subárea, por nombre. |
 | `safety` | `plant_safety` y `plant_safety_ref`; `level` es `alto`, `medio`, `bajo` o `null`, y todo el objeto es `null` solo sin fila. |
 | `image` | `plant_image`; la API no descarga ni sirve la imagen. |
-| `credits` | La unión sin repeticiones de las fuentes de la planta, ordenada por nombre: `source` por las tablas `plant_name_source`, `plant_part_source` y `plant_use_source`, por `plant.family_source_id` y por el `reference.dataset` de las referencias del perfil, de los objetivos, de las precauciones y de los grupos de uso servidos. `name`, `license`, `licenseUrl` (`source.license_url`), `attribution` (`source.citation`) y `url` salen de `source`, no de `reference`. Si la descripción cita un artículo, la `url` de ese dataset es la `reference.url` del artículo. No indica qué campo viene de qué dataset. |
+| `credits` | La unión sin repeticiones de las fuentes de la planta, ordenada por nombre: `source` por las tablas `plant_name_source`, `plant_part_source` y `plant_use_source`, por `plant.family_source_id` y por el `reference.dataset` de las referencias del perfil, de los objetivos, de las precauciones y de los grupos de uso servidos, más `activity_glossary.source_id` de las explicaciones de los grupos servidos (Wikcionario, Wikipedia o ambas). `name`, `license`, `licenseUrl` (`source.license_url`), `attribution` (`source.citation`) y `url` salen de `source`, no de `reference`. Si la descripción cita un artículo, la `url` de ese dataset es la `reference.url` del artículo. No indica qué campo viene de qué dataset. |
 
 Reglas de lo que no se sirve:
 
 - La API omite los objetivos con `plant_goal.pending_review` y los grupos de uso con `plant_use_group.pending_review` (ninguna cita resuelta); estos últimos tampoco generan filas en `uses`. Un grupo con al menos una cita resuelta se sirve con todas sus citas. La regla depende solo de esas columnas, sin tabla de reglas en la API, y no indica que algo se omitió.
-- Los `reviewFlags` (`plant_review_flag`) no salen en ninguna respuesta ni en el documento OpenAPI, y una planta con flags se sirve completa. Lo omitido por `pending_review` tampoco acredita su fuente en `credits`.
+- Los `reviewFlags` (`plant_review_flag`) no salen en ninguna respuesta ni en el documento OpenAPI, y una planta con flags se sirve completa. Lo omitido por `pending_review` tampoco acredita su fuente en `credits`, y tampoco la acredita la explicación de un grupo pendiente.
 
 Los alias de `plant_alias` se usan en dos sitios. En `GET /v1/plants/{id}`, un ID que no es el de una planta pero sí un alias responde 200 con el detalle de la planta canónica y la cabecera `Content-Location: /v1/plants/<canónico>`, sin redirección; un ID de planta gana siempre a un alias igual. En `q`, la consulta reducida con `slug` se compara por subcadena con el alias, y la planta se une al resultado de la búsqueda por nombres sin duplicarla ni devolver el alias como nombre. El listado nunca incluye alias como plantas. Con la base real, los 357 nombres anteriores que la QA del cambio `consolidate-catalog-seed` no encontraba (API-04) encuentran su planta nueva; `mentha piperita` sigue sin resultado porque no es subcadena de ningún nombre ni alias (`mentha x piperita` sí lo encuentra).
 
@@ -110,9 +122,10 @@ Los textos de ejemplo y el detalle de los campos están en el [README del backen
 | `scientificName` y `synonyms` | `plant_name` con `kind = scientific` e idioma `la`; los sinónimos mantienen la búsqueda por nombres antiguos sin cambiar el contrato |
 | `displayName` y `commonNames` | `plant_name` con `kind = common` y el idioma de cada nombre; `displayName` además va a `plant_profile.display_name`. No se confía en el orden de `plant_name`: la API ordena los nombres comunes alfabéticamente |
 | `partsUsed` | `plant_part` (una fila por etiqueta distinta) |
-| `traditionalUses` | `plant_use_group` y `plant_use_group_ref` para todos los grupos; `plant_use` solo para los grupos no pendientes: un uso por cada cita con referencia resuelta, con `activity` en español e idioma `es`. Un grupo con `pendingReview` no genera ningún uso de la API |
+| `traditionalUses` | `plant_use_group` (con `glossary_key`, por la forma base de la actividad) y `plant_use_group_ref` para todos los grupos; `plant_use` solo para los grupos no pendientes: un uso por cada cita con referencia resuelta, con `activity` en español e idioma `es`. Un grupo con `pendingReview` no genera ningún uso de la API |
 | `origin`, `description`, `oil`, autores, versiones | `plant_profile` y `plant_profile_ref` |
 | `data/seed/goals.json` | `goal` y `goal_subarea` |
+| `data/seed/glossary.json` | `activity_glossary`: una fila por término, con `entryUrl`, el prefijo de fecha de `revisionTimestamp` como `revision_date`, `sourceId`, `sourceName` y `adapted`. Sin glosario, la tabla queda vacía |
 | `goals` | `plant_goal` y `plant_goal_ref` |
 | `safety` | `plant_safety` y `plant_safety_ref` |
 | `image` | `plant_image` |
@@ -190,10 +203,10 @@ El CLI solo tiene el subcomando `build`, con las opciones `--data-dir`, `--seed`
 
 Hay dos versiones que no deben confundirse:
 
-- **`SCHEMA_VERSION`** (en `backend/catalog-core/src/version.rs`, hoy 2) es la versión del esquema de `catalog.db`. Se guarda en `metadata` y la API la comprueba al arrancar.
+- **`SCHEMA_VERSION`** (en `backend/catalog-core/src/version.rs`, hoy 3) es la versión del esquema de `catalog.db`. Se guarda en `metadata` y la API la comprueba al arrancar.
 - **`recordVersion`** (hoy 1) es la versión del registro de la semilla, y es la que comparan `plan`, `seal` y el lector de Rust.
 
-El esquema es un conjunto de migraciones de Diesel en `data/migrations/` (`2026-10-12-000000_catalog_v1` y `2026-10-26-000000_catalog_v2`). `catalog-core` las embebe (`MIGRATIONS`) y `apply_schema` ejecuta el `up.sql` de cada una, en orden, sobre una base nueva. No se usa el arnés de migraciones de Diesel: la base no evoluciona, se regenera entera en cada construcción. `backend/catalog-core/src/schema.rs` lo genera Diesel y no se edita a mano.
+El esquema es un conjunto de migraciones de Diesel en `data/migrations/` (`2026-10-12-000000_catalog_v1`, `2026-10-26-000000_catalog_v2` y `2026-10-30-000000_catalog_v3`). `catalog-core` las embebe (`MIGRATIONS`) y `apply_schema` ejecuta el `up.sql` de cada una, en orden, sobre una base nueva. No se usa el arnés de migraciones de Diesel: la base no evoluciona, se regenera entera en cada construcción. `backend/catalog-core/src/schema.rs` lo genera Diesel y no se edita a mano.
 
 Para cambiar el esquema: añadir una migración, subir `SCHEMA_VERSION`, regenerar `schema.rs` con `diesel migration run` sobre una base temporal (véase [`backend/README.md`](../../backend/README.md)), ajustar las filas de `catalog-core/src/rows.rs` y el mapeo de `seed_build.rs`, añadir la tabla a `NEUTRAL_TABLES` si es nueva y reconstruir. Un test comprueba que el esquema no contiene términos de ningún dataset.
 
@@ -266,6 +279,7 @@ Una fuente cuya licencia no permita redistribuir su contenido no puede entrar en
 - **La API no indica el origen por dato.** El detalle de una planta no dice qué fuente aportó cada dato; solo entrega los créditos de la planta (`credits`), sin campos. La procedencia por dato queda en la base y no sale por el contrato HTTP.
 - **Los IDs cambiaron.** El ID es el slug del nombre aceptado de WCVP, no el literal de USDA, y 629 de los 2.376 IDs anteriores cambian (el piloto estimaba unos 500), por ejemplo `rosmarinus-officinalis` es ahora `salvia-rosmarinus`. Los alias anteriores se guardan en `plant_alias` y la API los resuelve en el detalle y los encuentra con `q`; la búsqueda es por subcadena, así que `mentha piperita` no encuentra `mentha-x-piperita`.
 - **No es reproducible desde cero.** Wikidata, Wikipedia, Commons y la EMA cambian, y el LLM puede dar textos distintos. La reproducibilidad está en la semilla versionada.
+- **El glosario explica la palabra, no la planta.** `glossary` solo existe para los términos aprobados de la lista (53 hoy) y se enlaza por la forma base de la actividad traducida: variantes sin traducir (como `Aperient`) o con otra ortografía no se enlazan, y las actividades de enfermedad grave no tienen explicación. Los textos son de Wikcionario y Wikipedia (CC BY-SA 4.0), algunos adaptados; véase [fuentes y licencias](fuentes-y-licencias.md).
 - **Los pendientes no se sirven.** Los grupos de usos y los objetivos con `pendingReview` se guardan pero la API no los sirve y los grupos no generan `plant_use`; la capa de validación humana está fuera de alcance.
 - **Términos sin verificar.** Los términos de reutilización de la EMA y de TPPT no se verificaron contra el texto legal, y TPPT se usa con fines académicos (véase [fuentes y licencias](fuentes-y-licencias.md)).
 - **Semilla completa.** `data/seed/` contiene la semilla completa, con 2.354 plantas (`plantCount` del manifiesto).

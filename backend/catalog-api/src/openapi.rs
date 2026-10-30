@@ -10,7 +10,7 @@ use crate::dto::{
     CommonNameDto, CreditDto, GoalDto, GoalPlantDto, GoalPlantsPageDto, GoalRefDto, GoalSummaryDto,
     HealthDto, ImageDto, NameDto, NameKindDto, OilDto, PageDto, PartDto, PlantDto, PlantSummaryDto,
     ProblemDto, ReferenceDto, SafetyDto, SafetyLevelDto, SubareaRefDto, SubareaSummaryDto, UseDto,
-    UseGroupDto, UseGroupReferenceDto,
+    UseGlossaryDto, UseGroupDto, UseGroupReferenceDto,
 };
 use crate::http;
 
@@ -42,6 +42,7 @@ use crate::http;
         UseDto,
         OilDto,
         UseGroupReferenceDto,
+        UseGlossaryDto,
         UseGroupDto,
         GoalDto,
         SafetyLevelDto,
@@ -198,6 +199,33 @@ mod tests {
             }
         }
     }
+    #[test]
+    fn use_group_documents_glossary_as_required_object_or_null() {
+        // Escenario «Documento OpenAPI» del glosario de actividades.
+        let doc = serde_json::to_value(openapi()).unwrap();
+        let group = &doc["components"]["schemas"]["UseGroupDto"];
+        let required = group["required"].as_array().unwrap();
+        assert!(required.iter().any(|r| r == "glossary"), "{group}");
+        let options = group["properties"]["glossary"]["oneOf"].as_array().unwrap();
+        assert!(
+            options
+                .iter()
+                .any(|o| o["$ref"] == "#/components/schemas/UseGlossaryDto"),
+            "{group}"
+        );
+        assert!(options.iter().any(|o| o["type"] == "null"), "{group}");
+        let glossary = &doc["components"]["schemas"]["UseGlossaryDto"];
+        let mut fields: Vec<&str> = glossary["required"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|r| r.as_str().unwrap())
+            .collect();
+        fields.sort_unstable();
+        assert_eq!(fields, ["adapted", "sourceName", "term", "text", "url"]);
+        assert_eq!(glossary["properties"]["adapted"]["type"], "boolean");
+    }
+
     #[test]
     fn plant_detail_documents_credits_and_the_content_location_header() {
         let doc = serde_json::to_value(openapi()).unwrap();

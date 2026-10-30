@@ -254,6 +254,19 @@ void main() {
     expect(find.text(PassportTexts.usesNotice), findsNothing);
   });
 
+  testWidgets('el aviso fijo aclara que las explicaciones son generales', (
+    tester,
+  ) async {
+    expect(
+      PassportTexts.usesNotice,
+      endsWith(
+        'Las explicaciones de términos son definiciones generales de '
+        'diccionario o enciclopedia, no afirmaciones sobre esta planta.',
+      ),
+    );
+    expect(PassportTexts.glossaryLabel, 'Significado general del término');
+  });
+
   testWidgets('el aviso fijo y los textos de grupo no tienen lenguaje de '
       'eficacia', (tester) async {
     final pattern = RegExp(
@@ -264,6 +277,7 @@ void main() {
     );
     for (final text in [
       PassportTexts.usesNotice,
+      PassportTexts.glossaryLabel,
       PassportTexts.hideCitations,
       PassportTexts.showCitations(1),
       PassportTexts.showCitations(5),
@@ -501,7 +515,7 @@ void main() {
           glossary: glossary,
         ),
       ]);
-      expect(find.text(PassportTexts.glossaryLabel), findsOneWidget);
+      expect(find.text('Significado general del término'), findsOneWidget);
       const row =
           'Diurético: «Que aumenta o facilita la producción y excreción de '
           'orina.» (Wikcionario)';
@@ -511,14 +525,16 @@ void main() {
       ]);
       // Above the data line, below the title.
       final title = tester.getTopLeft(find.text('Diurético')).dy;
-      final label = tester.getTopLeft(find.text('Significado del término')).dy;
+      final label = tester
+          .getTopLeft(find.text('Significado general del término'))
+          .dy;
       final data = tester.getTopLeft(find.text('2 registros · China')).dy;
       expect(title, lessThan(label));
       expect(label, lessThan(tester.getTopLeft(line(row)).dy));
       expect(tester.getTopLeft(line(row)).dy, lessThan(data));
       // The label is secondary text, smaller and gray.
       final labelText = tester.widget<Text>(
-        find.text('Significado del término'),
+        find.text('Significado general del término'),
       );
       expect(labelText.style!.color, passportMuted);
       expect(
@@ -577,7 +593,7 @@ void main() {
       await show(tester, [
         _group(activity: 'Fiebre', countries: const ['China']),
       ]);
-      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+      expect(find.text('Significado general del término'), findsNothing);
       expect(find.textContaining(': «'), findsNothing);
       final title = tester.getBottomLeft(find.text('Fiebre')).dy;
       final data = tester.getTopLeft(find.text('1 registro · China')).dy;
@@ -588,7 +604,7 @@ void main() {
       const sensitive = 'Uso tradicional, sin eficacia demostrada: cáncer';
       await show(tester, [_group(activity: sensitive)]);
       expect(find.text(sensitive), findsOneWidget);
-      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+      expect(find.text('Significado general del término'), findsNothing);
     });
 
     testWidgets('el enlace se abre solo si es https y no se ve la URL', (
@@ -638,7 +654,7 @@ void main() {
     ) async {
       final plant = parsePlant(apiFixture('plant_lavandula-angustifolia.json'));
       await showPassport(tester, plant, tab: 'Usos');
-      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+      expect(find.text('Significado general del término'), findsNothing);
     });
 
     testWidgets(
@@ -653,7 +669,7 @@ void main() {
         final withText = plant.useGroups.where((g) => g.glossary != null);
         expect(withText, hasLength(3));
         expect(
-          find.text(PassportTexts.glossaryLabel, skipOffstage: false),
+          find.text('Significado general del término', skipOffstage: false),
           findsNWidgets(3),
         );
       },

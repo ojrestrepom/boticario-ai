@@ -44,15 +44,17 @@ abstract final class PassportTexts {
   static const usesNotice =
       'Usos registrados en fuentes etnobotánicas históricas. No son '
       'recomendaciones ni están comprobados clínicamente. Algunas citas no '
-      'se pudieron identificar y se muestran como «sin resolver».';
+      'se pudieron identificar y se muestran como «sin resolver». Las '
+      'explicaciones de términos son definiciones generales de diccionario o '
+      'enciclopedia, no afirmaciones sobre esta planta.';
   static const noUses =
       'No hay usos tradicionales con referencia verificable disponibles';
   static const hideCitations = 'Ocultar citas';
   static const unresolvedSuffix = '(sin resolver)';
 
   /// Gray label above the explanation of a use group's term. It says the word
-  /// is explained, not what the plant does.
-  static const glossaryLabel = 'Significado del término';
+  /// is explained in general, not what the plant does.
+  static const glossaryLabel = 'Significado general del término';
   static const glossaryOpenQuote = '«';
   static const glossaryCloseQuote = '»';
 

@@ -182,7 +182,7 @@ def build_review(document, cache_dir, conn, today):
 
     out = ["# Revisión del glosario de actividades", "",
            "Tabla de la tarea 3.4 de `activity-glossary`, generada el %s con `glossary-review` desde la caché de descargas y `data/build/catalog.db`, sin red. Nada está sellado: `data/seed/` no se ha tocado." % today, "",
-           "Cada fila muestra el texto exacto que la app mostraría bajo el título del grupo, con el formato `<Término>: «<texto>» (<fuente>)` y la etiqueta gris «Significado del término». «Literal» es texto de la fuente recortado a la primera oración; «adaptado» es una paráfrasis hecha solo con el extracto del artículo de Wikipedia y se muestra como «(adaptado de Wikipedia)».", "",
+           "Cada fila muestra el texto exacto que la app mostraría bajo el título del grupo, con el formato `<Término>: «<texto>» (<fuente>)` y la etiqueta gris «Significado general del término». «Literal» es texto de la fuente recortado a la primera oración; «adaptado» es una paráfrasis hecha solo con el extracto del artículo de Wikipedia y se muestra como «(adaptado de Wikipedia)».", "",
            "La columna «Aprobado» registra la aprobación del usuario. Los patrones vigilados de Antiséptico, Bactericida, Vulnerario, Antidiarreico, Fungicida y Parasiticida ya fueron aprobados por usted el %s; cualquier otra alerta sin aprobar bloquearía la validación." % APPROVAL_DATE, "",
            "## Términos con explicación", "",
            "| Término | Grupos que cubre | Fuente | Acepción o artículo | Texto que se mostraría | Modo | Revisión | Alertas del validador | Aprobado |",

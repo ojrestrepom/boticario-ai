@@ -128,6 +128,7 @@ Widget _buildHomeHarness({
   EdgeInsets padding = EdgeInsets.zero,
   VoidCallback onExplore = _noop,
   VoidCallback onSearchByGoal = _noop,
+  VoidCallback onIdentifyPlant = _noop,
 }) {
   return MaterialApp(
     theme: buildBoticarioTheme(),
@@ -138,7 +139,11 @@ Widget _buildHomeHarness({
           padding: padding,
           viewPadding: padding,
         ),
-        child: HomePage(onExplore: onExplore, onSearchByGoal: onSearchByGoal),
+        child: HomePage(
+          onExplore: onExplore,
+          onSearchByGoal: onSearchByGoal,
+          onIdentifyPlant: onIdentifyPlant,
+        ),
       ),
     ),
   );
@@ -157,8 +162,11 @@ GoRouter _createHomeRouter() {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) =>
-            HomePage(onExplore: () {}, onSearchByGoal: () {}),
+        builder: (context, state) => HomePage(
+          onExplore: () {},
+          onSearchByGoal: () {},
+          onIdentifyPlant: () {},
+        ),
       ),
     ],
   );
@@ -342,7 +350,7 @@ void main() {
   });
 
   group('4.3 no mutación y sin logs automáticos', () {
-    testWidgets('solo Explorar y Buscar por objetivo permiten navegación', (
+    testWidgets('solo las tres tarjetas habilitadas permiten navegación', (
       tester,
     ) async {
       _usePhoneViewport(tester);
@@ -363,7 +371,8 @@ void main() {
           for (final action in _expectedMessages.keys.where(
             (action) =>
                 action != HomeAction.explorePlantsAndOils &&
-                action != HomeAction.searchByGoal,
+                action != HomeAction.searchByGoal &&
+                action != HomeAction.identifyWithCamera,
           )) {
             await _tapAction(tester, action);
             expect(
@@ -372,7 +381,7 @@ void main() {
             );
           }
 
-          expect(logs, hasLength(_expectedMessages.length - 1));
+          expect(logs, hasLength(_expectedMessages.length - 2));
           expect(find.byType(HomePage), findsOneWidget);
           expect(find.byType(SnackBar), findsNothing);
           expect(find.byType(Dialog), findsNothing);
@@ -393,37 +402,42 @@ void main() {
       }
     });
 
-    testWidgets(
-      'Explorar y Buscar llaman una vez a sus callbacks; otras nueve no',
-      (tester) async {
-        _usePhoneViewport(tester);
-        var exploreCalls = 0;
-        var searchCalls = 0;
-        await tester.pumpWidget(
-          _buildHomeHarness(
-            onExplore: () => exploreCalls++,
-            onSearchByGoal: () => searchCalls++,
-          ),
-        );
-        await tester.pumpAndSettle();
+    testWidgets('tres tarjetas llaman una vez a sus callbacks; otras ocho no', (
+      tester,
+    ) async {
+      _usePhoneViewport(tester);
+      var exploreCalls = 0;
+      var searchCalls = 0;
+      var identifyCalls = 0;
+      await tester.pumpWidget(
+        _buildHomeHarness(
+          onExplore: () => exploreCalls++,
+          onSearchByGoal: () => searchCalls++,
+          onIdentifyPlant: () => identifyCalls++,
+        ),
+      );
+      await tester.pumpAndSettle();
 
-        await _tapAction(tester, HomeAction.explorePlantsAndOils);
-        expect(exploreCalls, 1);
-        expect(searchCalls, 0);
-        await _tapAction(tester, HomeAction.searchByGoal);
-        expect(exploreCalls, 1);
-        expect(searchCalls, 1);
-        for (final action in HomeAction.values.where(
-          (action) =>
-              action != HomeAction.explorePlantsAndOils &&
-              action != HomeAction.searchByGoal,
-        )) {
-          await _tapAction(tester, action);
-        }
-        expect(exploreCalls, 1);
-        expect(searchCalls, 1);
-      },
-    );
+      await _tapAction(tester, HomeAction.explorePlantsAndOils);
+      expect(exploreCalls, 1);
+      expect(searchCalls, 0);
+      await _tapAction(tester, HomeAction.searchByGoal);
+      expect(exploreCalls, 1);
+      expect(searchCalls, 1);
+      await _tapAction(tester, HomeAction.identifyWithCamera);
+      expect(identifyCalls, 1);
+      for (final action in HomeAction.values.where(
+        (action) =>
+            action != HomeAction.explorePlantsAndOils &&
+            action != HomeAction.searchByGoal &&
+            action != HomeAction.identifyWithCamera,
+      )) {
+        await _tapAction(tester, action);
+      }
+      expect(exploreCalls, 1);
+      expect(searchCalls, 1);
+      expect(identifyCalls, 1);
+    });
 
     testWidgets('rebuild y reassemble no emiten logs', (tester) async {
       _usePhoneViewport(tester);

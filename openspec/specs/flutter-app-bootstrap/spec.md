@@ -7,7 +7,7 @@ Establece el andamiaje Android mínimo de Boticario AI: una pantalla inicial con
 ## Requirements
 
 ### Requirement: Arranque Android y pantalla inicial única
-El proyecto SHALL poder compilarse y ejecutarse como aplicación Android con una pantalla inicial accesible en la ruta `/`, con los recorridos permitidos Inicio (P03) → Explorar → Pasaporte y sus retornos, e Inicio → P06 Buscar por objetivo y retorno a Inicio; SHALL NOT ofrecer navegación adicional. La pantalla inicial es la estructura Inicio (P03).
+El proyecto SHALL poder compilarse y ejecutarse como aplicación Android con una pantalla inicial accesible en la ruta `/`, con los recorridos permitidos Inicio (P03) → Explorar → Pasaporte y sus retornos, e Inicio → P06 Buscar por objetivo y retorno a Inicio, e Inicio → /identify y retorno a Inicio; SHALL NOT ofrecer navegación adicional. La pantalla inicial es la estructura Inicio (P03).
 
 #### Scenario: Arranque en frío
 - **WHEN** la aplicación se inicia en un dispositivo o emulador Android
@@ -26,7 +26,7 @@ El proyecto SHALL poder compilarse y ejecutarse como aplicación Android con una
 - **THEN** se muestra P06 y cada retorno vuelve a la raíz Inicio sin abrir otras pantallas ni rutas
 
 #### Scenario: Ninguna otra ruta desde Inicio
-- **WHEN** se activan las otras nueve acciones de Inicio o las pestañas inertes
+- **WHEN** se activan las otras ocho acciones de Inicio o las pestañas inertes
 - **THEN** no se abre una ruta o pantalla adicional
 
 ### Requirement: Funcionamiento local sin autenticación ni servicios remotos
@@ -112,3 +112,12 @@ El proyecto SHALL ofrecer verificaciones reproducibles de formato, análisis y p
 #### Scenario: Smoke Android sin dispositivo
 - **WHEN** no hay dispositivo o emulador Android disponible, o el backend no está en marcha
 - **THEN** el resultado del smoke test se reporta explícitamente como no ejecutado o no exitoso
+
+### Requirement: Recorrido local de identificación
+
+La aplicación SHALL permitir Inicio → /identify y retorno mediante Atrás de app, Atrás del sistema o Inicio, también desde acceso directo. El recorrido SHALL funcionar sin conectividad ni autenticación y sin peticiones remotas. Las verificaciones automatizadas SHALL cubrir entrada, retornos, ausencia de HTTP y controles deshabilitados.
+
+#### Scenario: Identificación sin servicios
+
+- **WHEN** se abre /identify desde Inicio o directamente y se regresa
+- **THEN** se muestra la pantalla local con cámara y galería deshabilitadas y se vuelve a / sin peticiones remotas

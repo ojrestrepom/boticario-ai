@@ -56,7 +56,7 @@ Cada uno de los 11 controles de Inicio SHALL invocar su callback y, bajo `kDebug
 - pestaña `Historial` -> `[Home] Pestaña: Historial`
 - pestaña `Perfil` -> `[Home] Pestaña: Perfil`
 
-Las otras nueve acciones distintas de las tarjetas Explorar y Buscar por objetivo SHALL NOT mutar la UI (salvo el feedback táctil nativo ripple/focus) ni navegar. Explorar SHALL navegar a Explorar y Buscar por objetivo SHALL navegar a P06 en todos los modos de ejecución. Ninguna de las once acciones SHALL registrar ni persistir datos de usuario. El mensaje de cada activación SHALL emitirse únicamente bajo `kDebugMode`; en profile o release la navegación de Explorar y P06 continúa funcionando sin emitir mensajes. SHALL NOT emitir logs por build, rebuild o hot reload sin pulsación. Los prefijos del runtime Flutter quedan fuera del mensaje contratado.
+Las otras ocho acciones distintas de las tarjetas Explorar, Buscar por objetivo e Identificar con cámara SHALL NOT mutar la UI (salvo el feedback táctil nativo ripple/focus) ni navegar. Explorar SHALL navegar a Explorar, Buscar por objetivo SHALL navegar a P06 e Identificar con cámara SHALL navegar a /identify en todos los modos de ejecución. Ninguna de las once acciones SHALL registrar ni persistir datos de usuario. El mensaje de cada activación SHALL emitirse únicamente bajo `kDebugMode`; en profile o release la navegación de Explorar, P06 e Identificar planta continúa funcionando sin emitir mensajes. SHALL NOT emitir logs por build, rebuild o hot reload sin pulsación. Los prefijos del runtime Flutter quedan fuera del mensaje contratado.
 
 #### Scenario: Cobertura de los 11 controles
 - **WHEN** con `kDebugMode` activo se activa cualquiera de los 11 controles listados
@@ -79,7 +79,7 @@ Las otras nueve acciones distintas de las tarjetas Explorar y Buscar por objetiv
 - **THEN** se emite `[Home] Pestaña: Inicio` y la selección visible no cambia
 
 #### Scenario: Sin mutación de UI ni datos
-- **WHEN** se activa cualquiera de las nueve acciones distintas de Explorar y Buscar por objetivo
+- **WHEN** se activa cualquiera de las ocho acciones distintas de Explorar, Buscar por objetivo e Identificar con cámara
 - **THEN** la UI no cambia salvo el feedback táctil nativo, no se navega y no se registra ni persiste ningún dato de usuario
 
 #### Scenario: Explorar en depuración
@@ -99,10 +99,10 @@ Las otras nueve acciones distintas de las tarjetas Explorar y Buscar por objetiv
 - **THEN** se navega a P06 sin emitir el mensaje ni registrar o persistir datos de usuario
 
 ### Requirement: Barra inferior inmóvil sin navegación funcional
-La barra inferior SHALL ser la única barra visual de pestañas de Inicio, sin navegación funcional: `Inicio` SHALL permanecer siempre seleccionado y la ruta SHALL continuar siendo `/`, salvo que las tarjetas `Explorar plantas y aceites` o `Buscar por objetivo` abran sus respectivos recorridos permitidos. Activar cualquier otro control o pestaña de Inicio SHALL NOT cambiar la ruta ni la pestaña seleccionada, ni abrir pantallas, rutas, overlays, SnackBars, diálogos, drawers, permisos, cámara, API, backend, persistencia ni chat real.
+La barra inferior SHALL ser la única barra visual de pestañas de Inicio, sin navegación funcional: `Inicio` SHALL permanecer siempre seleccionado y la ruta SHALL continuar siendo `/`, salvo que las tarjetas `Explorar plantas y aceites` o `Buscar por objetivo` o `Identificar con cámara` abran sus respectivos recorridos permitidos. Activar cualquier otro control o pestaña de Inicio SHALL NOT cambiar la ruta ni la pestaña seleccionada, ni abrir pantallas, rutas, overlays, SnackBars, diálogos, drawers, permisos, cámara, API, backend, persistencia ni chat real.
 
 #### Scenario: Ruta sin cambios
-- **WHEN** se activa cualquier control o pestaña de Inicio excepto las tarjetas Explorar y Buscar por objetivo
+- **WHEN** se activa cualquier control o pestaña de Inicio excepto las tarjetas Explorar, Buscar por objetivo e Identificar con cámara
 - **THEN** la ruta actual permanece `/` sin cambios
 
 #### Scenario: Explorar abre P04
@@ -119,7 +119,7 @@ La barra inferior SHALL ser la única barra visual de pestañas de Inicio, sin n
 
 #### Scenario: Sin navegación ni overlays
 - **WHEN** el usuario interactúa con Inicio
-- **THEN** no se abre ninguna pantalla o ruta ajena a los recorridos Explorar y Pasaporte y Buscar por objetivo/P06, ni overlay, SnackBar, diálogo o drawer
+- **THEN** no se abre ninguna pantalla o ruta ajena a los recorridos Explorar y Pasaporte, Buscar por objetivo/P06 e Identificar planta, ni overlay, SnackBar, diálogo o drawer
 
 #### Scenario: Sin operaciones de producto
 - **WHEN** el usuario interactúa con Inicio
@@ -143,3 +143,12 @@ La pantalla Inicio SHALL ser legible en una referencia de 360x640 dp al 100% y a
 #### Scenario: Zonas seguras
 - **WHEN** el dispositivo presenta notch o insets del sistema
 - **THEN** la cabecera y la barra inferior no quedan solapadas por el sistema
+
+### Requirement: Acceso al reconocimiento
+
+La tarjeta «Identificar con cámara» SHALL abrir /identify en todos los modos y emitir exactamente una vez su mensaje contratado únicamente bajo kDebugMode, sin registrar datos de usuario.
+
+#### Scenario: Abrir identificación
+
+- **WHEN** se activa la tarjeta «Identificar con cámara»
+- **THEN** se muestra la pantalla inicial de reconocimiento; en depuración se emite [Home] Identificar con cámara una vez y fuera de depuración no se emite

@@ -196,11 +196,10 @@ Future<void> _runCatalogSmoke(
     expect(homeLogs, isEmpty, reason: 'build must not emit Home action logs');
     _expectHomeSelected(tester);
 
-    // The nine inert P03 controls stay on / and each emits its exact literal.
+    // The eight inert P03 controls stay on / and each emits its exact literal.
     for (final action in <HomeAction>[
       HomeAction.headerMenu,
       HomeAction.headerProfile,
-      HomeAction.identifyWithCamera,
       HomeAction.formulateBlends,
       HomeAction.askTheBoticario,
       HomeAction.tabHome,
@@ -216,6 +215,26 @@ Future<void> _runCatalogSmoke(
       expect(find.byType(Dialog), findsNothing);
       expect(find.byType(Drawer), findsNothing);
     }
+
+    final requestsBeforeIdentify = requestCount?.call();
+    await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.identifyWithCamera);
+    _expectPath(router, '/identify');
+    expect(find.text('Identificar planta'), findsOneWidget);
+    expect(
+      find.text('Cámara y galería no disponibles por ahora.'),
+      findsOneWidget,
+    );
+    for (final button in tester.widgetList<OutlinedButton>(
+      find.byType(OutlinedButton),
+    )) {
+      expect(button.onPressed, isNull);
+    }
+    if (requestsBeforeIdentify != null) {
+      expect(requestCount!(), requestsBeforeIdentify);
+    }
+    await tester.tap(find.byTooltip('Volver a Inicio'));
+    await _settle(tester);
+    _expectHomeAndCleanStack(tester, router);
 
     // P06 is visited three times to exercise each return mechanism. Its rows
     // come from the API; `Otros objetivos` opens the subareas screen and back
@@ -473,13 +492,13 @@ Future<void> _runCatalogSmoke(
     expect(homeLogs, <String>[
       _messages[HomeAction.headerMenu]!,
       _messages[HomeAction.headerProfile]!,
-      _messages[HomeAction.identifyWithCamera]!,
       _messages[HomeAction.formulateBlends]!,
       _messages[HomeAction.askTheBoticario]!,
       _messages[HomeAction.tabHome]!,
       _messages[HomeAction.tabFavorites]!,
       _messages[HomeAction.tabHistory]!,
       _messages[HomeAction.tabProfile]!,
+      _messages[HomeAction.identifyWithCamera]!,
       _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.searchByGoal]!,
       _messages[HomeAction.searchByGoal]!,

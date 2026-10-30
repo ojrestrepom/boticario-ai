@@ -8,6 +8,8 @@ Proyecto en desarrollo. La app es una aplicación Flutter para Android y vive en
 
 Implementado:
 
+La pantalla inicial de reconocimiento de plantas está disponible en `/identify`, desde «Identificar con cámara» de Inicio. Muestra un espacio reservado para la imagen y «Tomar fotografía» y «Seleccionar de galería» deshabilitados, con un aviso visible. Atrás de app, Atrás del sistema y la pestaña Inicio regresan a Inicio; Favoritos, Historial y Perfil permanecen inertes. Esta etapa funciona sin backend y no incluye cámara, galería ni inferencia.
+
 - Pantallas Inicio, Explorar plantas, Pasaporte de planta, Buscar por objetivo (P06), la pantalla de subáreas de «Otros objetivos» y Recomendaciones (P07), con las rutas `/`, `/explore`, `/explore/:plantId`, `/goals`, `/goals/:goalId/subareas`, `/goals/:goalId/plants` (con `?subarea=` para una subárea) y `/goals/:goalId/plants/:plantId`.
 - Buscar por objetivo (P06) es funcional: una fila por objetivo de `GET /v1/goals`, en el orden de la API, con el nombre que entrega la API (los nombres y el orden salen de la semilla, no de la app) y un icono local por identificador (un icono genérico si el identificador es nuevo); no muestra conteos. Mientras carga muestra un indicador y, si falla (incluido un 401, sin mostrar el token), un error con «Reintentar».
 - Un objetivo sin subáreas abre Recomendaciones (P07) directamente. «Otros objetivos» abre antes una pantalla con una fila por subárea que tenga plantas visibles (las vacías se omiten) y cada subárea abre P07 con `?subarea=`.

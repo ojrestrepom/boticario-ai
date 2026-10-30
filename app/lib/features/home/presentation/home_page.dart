@@ -35,19 +35,21 @@ void _emitHomeAction(HomeAction action) {
 
 /// Pantalla Inicio (P03): estructura visual de partida de la ruta `/`.
 ///
-/// Sin estado ni providers: cada control emite su acción de depuración; Explorar
-/// y Buscar por objetivo delegan su navegación a callbacks requeridos. Compone
-/// cabecera, banner, cuadrícula 2x2, CTA y barra inferior con `Inicio` siempre
-/// seleccionado.
+/// Sin estado ni providers: cada control emite su acción de depuración.
+/// Explorar, Buscar por objetivo e Identificar planta delegan su navegación
+/// a callbacks requeridos. Compone cabecera, banner, cuadrícula 2x2, CTA
+/// y barra inferior con `Inicio` siempre seleccionado.
 class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
     required this.onExplore,
     required this.onSearchByGoal,
+    required this.onIdentifyPlant,
   });
 
   final VoidCallback onExplore;
   final VoidCallback onSearchByGoal;
+  final VoidCallback onIdentifyPlant;
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +114,10 @@ class HomePage extends StatelessWidget {
         action: HomeAction.identifyWithCamera,
         icon: Icons.photo_camera,
         label: 'Identificar con cámara',
-        onPressed: () => _emitHomeAction(HomeAction.identifyWithCamera),
+        onPressed: () {
+          _emitHomeAction(HomeAction.identifyWithCamera);
+          onIdentifyPlant();
+        },
       ),
       _FeatureCard(
         action: HomeAction.formulateBlends,

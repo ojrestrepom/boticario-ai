@@ -23,7 +23,7 @@
 
 ## 5. Smoke
 
-- [ ] 5.1 Ajustar `app/integration_test/catalog_smoke.dart`: en `Usos`, comprobar que hay controles `Ver N citas`, que no aparece «Registro tradicional», desplegar uno y ver una cita, y plegarlo. Verificación: el smoke pasa en el emulador `boticario_catalog_api36` (misma invocación que los cambios anteriores) y se anota la salida. Si el sandbox impide compilar el APK, no se fuerza: se anota el motivo y se detiene el daemon de Gradle con `JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew --stop` desde `app/android`.
+- [x] 5.1 Ajustar `app/integration_test/catalog_smoke.dart`: en `Usos`, comprobar que hay controles `Ver N citas`, que no aparece «Registro tradicional», desplegar uno y ver una cita, y plegarlo. Verificación: el smoke pasa en el emulador `boticario_catalog_api36` (misma invocación que los cambios anteriores) y se anota la salida. Si el sandbox impide compilar el APK, no se fuerza: se anota el motivo y se detiene el daemon de Gradle con `JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home" ./gradlew --stop` desde `app/android`.
 
 ## 6. Documentación
 
@@ -36,4 +36,4 @@
 
 ## 8. QA corta en el emulador
 
-- [ ] 8.1 Con el APK en el emulador `boticario_catalog_api36` (sin el teléfono físico `R5CR70M9GEE`), recorrer `Usos` de una planta con muchos grupos (Romero), una con citas sin resolver, una con un grupo de una sola cita, una con un grupo sin países y una sin usos: citas plegadas al abrir, desplegar y plegar en el mismo sitio, estado conservado al cambiar de pestaña y volver, 100 % y 200 % de texto. Verificación: capturas en `qa/evidence/` del cambio y un informe breve `qa/compact-passport-uses-results.md` con los casos, resultados y defectos. Al terminar, detener el daemon de Gradle si quedó vivo.
+- [x] 8.1 Con el APK en el emulador `boticario_catalog_api36` (sin el teléfono físico `R5CR70M9GEE`), recorrer `Usos` de una planta con muchos grupos (Romero), una con citas sin resolver, una con un grupo de una sola cita, una con un grupo sin países y una sin usos: citas plegadas al abrir, desplegar y plegar en el mismo sitio, estado conservado al cambiar de pestaña y volver, 100 % y 200 % de texto. Verificación: capturas en `qa/evidence/` del cambio y un informe breve `qa/compact-passport-uses-results.md` con los casos, resultados y defectos. Al terminar, detener el daemon de Gradle si quedó vivo.

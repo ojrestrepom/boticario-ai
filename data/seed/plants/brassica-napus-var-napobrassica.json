@@ -1,0 +1,147 @@
+{
+  "aliases": [
+    "brassica-napus-var-napobrassica-var-napobrassica"
+  ],
+  "bundleHash": "sha256:3b39efb66bdbda12a729443fdd85989425004e3ae75b05fc3e93fb94640ed5ea",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:172-1"
+      ],
+      "text": "Rutabaga"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:172-2"
+      ],
+      "text": "Swede"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:172-3"
+      ],
+      "text": "Swedish Turnip"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2682399"
+    ],
+    "value": "Brassica napus var. napobrassica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2682399"
+    ],
+    "value": "Brassicaceae"
+  },
+  "goals": [],
+  "id": "brassica-napus-var-napobrassica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:172-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Rutabaga»",
+      "license": "CC0"
+    },
+    "usda_common_name:172-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Swede»",
+      "license": "CC0"
+    },
+    "usda_common_name:172-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Swedish Turnip»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:8895": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8895",
+      "license": "CC0"
+    },
+    "wcvp:2682399": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brassica napus var. napobrassica (L.) Rchb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Rchb.",
+    "name": "Brassica napus var. napobrassica",
+    "refs": [
+      "wcvp:2682399"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "URSS"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8895",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+DEF-03: textos de precauciones que afirman 'no toxica' sin la clausula 'este dato no la hace segura' (servidos tal cual por la API, origen: semilla del cambio 1)
+
+GET /v1/plants/reynoutria-japonica -> safety
+  level: None
+  text: Advertencia: registrada como veneno en usos tradicionales. TPPT la clasifica como no tóxica para los humanos y anota que las especies de Reynoutria suelen ser no tóxicas.
+
+GET /v1/plants/brassica-oleracea-var-capitata -> safety
+  level: None
+  text: TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica» en las dos formas que registra (col blanca y col lombarda); la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (glucobrasicina, sinigrina y glucorafanina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos.
+
+GET /v1/plants/brassica-oleracea-var-italica -> safety
+  level: None
+  text: TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (glucobrasicanapina, glucobrasicina, glucorafanina y progoitrina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos.
+
+GET /v1/plants/brassica-oleracea-var-gemmifera -> safety
+  level: None
+  text: TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (glucobrasicina, glucoiberina, gluconapina, neoglucobrasicina, progoitrina y sinigrina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos.
+
+GET /v1/plants/brassica-oleracea-var-gongylodes -> safety
+  level: None
+  text: TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (glucoerucina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos.
+
+GET /v1/plants/brassica-cretica-subsp-cretica -> safety
+  level: None
+  text: TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (butil-glucosinolato, glucolepidina y gluconapoleiferina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos.
+
+Textos con 'no toxica' en la base (plant_safety): 6; con la clausula 'no la hace segura': 0 de esos 6 (las de abutilon-theophrasti y helianthus-tuberosus usan 'nontoxic' y si la llevan).

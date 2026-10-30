@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1059ccf6f855b13b2ce9903abb10717121af3150e66cdb602bf78bbc05b5d053",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Alyxia buxifolia"
+    ],
+    "value": "Especie de arbusto perteneciente a la familia Apocynaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:7220"
+    ],
+    "value": "Alyxia buxifolia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:7220"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "alyxia-buxifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Melburnian",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Alyxia_buxifolia_Loch_Ard.jpg",
+    "refs": [
+      "commons:File:Alyxia buxifolia Loch Ard.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Alyxia_buxifolia_Loch_Ard.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:7220"
+    ],
+    "value": "Australia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Alyxia buxifolia Loch Ard.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Alyxia buxifolia Loch Ard.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Alyxia_buxifolia_Loch_Ard.jpg"
+    },
+    "wcvp:170937": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pulassarium buxifolium (R.Br.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:7220": {
+      "dataset": "wcvp",
+      "label": "WCVP: Alyxia buxifolia R.Br.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:93960": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gynopogon buxifolius (R.Br.) K.Schum.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Alyxia buxifolia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Alyxia buxifolia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Alyxia_buxifolia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.Br.",
+    "name": "Alyxia buxifolia",
+    "refs": [
+      "wcvp:7220"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(R.Br.) K.Schum.",
+      "name": "Gynopogon buxifolius",
+      "refs": [
+        "wcvp:93960"
+      ]
+    },
+    {
+      "authors": "(R.Br.) Kuntze",
+      "name": "Pulassarium buxifolium",
+      "refs": [
+        "wcvp:170937"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

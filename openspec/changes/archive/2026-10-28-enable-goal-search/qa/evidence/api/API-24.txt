@@ -1,0 +1,29 @@
+GET /v1/goals -> [["relajacion-estres", 17, []], ["mejorar-el-sueno", 7, []], ["cuidado-de-la-piel", 32, []], ["alivio-respiratorio", 52, []], ["cansancio-y-fatiga", 0, []], ["otros-objetivos", 134, [["digestion", 68], ["vias-urinarias-y-genitales", 42], ["dolor-e-inflamacion", 22], ["boca-y-garganta", 20], ["circulacion", 16]]]]
+PASA  M-01 el objetivo sin plantas visibles sigue en la lista con plantCount 0 y subareas [] 
+PASA  M-01 el orden y los otros cinco objetivos no cambian 
+GET /v1/goals/cansancio-y-fatiga/plants -> 200 {"goal": {"id": "cansancio-y-fatiga", "name": "Cansancio y fatiga"}, "subarea": null, "items": [], "total": 0, "limit": 20, "offset": 0}
+PASA  M-01 las plantas del objetivo vacio: 200, items [], total 0, no es un error 
+PASA  M-02 la subarea sin plantas visibles (molestias-oculares) se omite de subareas ['digestion', 'vias-urinarias-y-genitales', 'dolor-e-inflamacion', 'boca-y-garganta', 'circulacion']
+GET ...?subarea=molestias-oculares -> 200 {"goal": {"id": "otros-objetivos", "name": "Otros objetivos"}, "subarea": {"id": "molestias-oculares", "name": "Molestias oculares"}, "items": [], "total": 0, "limit": 20, "offset": 0}
+PASA  M-02 pedir la subarea omitida directamente: 200 con lista vacia y total 0 (o 400) 200
+PASA  M-02 circulacion cuenta 16 (ginkgo oculto) y la union de otros-objetivos coincide con la base union 134 base 134
+PASA  M-02 ginkgo-biloba (todas sus filas pendientes) no aparece en la union; hamamelis (pendiente en una subarea, visible en otra) si 
+PASA  M-02 hamamelis-virginiana solo trae el area de circulacion (no la de molestias oculares pendiente) 
+PASA  M-02 plantCount de digestion = total 
+PASA  M-02 plantCount de vias-urinarias-y-genitales = total 
+PASA  M-02 plantCount de dolor-e-inflamacion = total 
+PASA  M-02 plantCount de boca-y-garganta = total 
+PASA  M-02 plantCount de circulacion = total 
+lavandula-angustifolia en relajacion-estres -> {"id": "lavandula-angustifolia", "areas": ["Estrés mental y trastornos del ánimo"], "safetyLevel": null, "hasSafety": false, "image": null}
+PASA  M-03 planta sin imagen ni seguridad: image null, safetyLevel null, hasSafety false 
+PASA  M-04 la lavanda (pendiente en sueno) no aparece en mejorar-el-sueno y el objetivo cuenta 7 
+PASA  M-04 la lavanda sigue en relajacion-estres (su fila no esta pendiente) y se puede pedir por GET /v1/plants/{id} 
+orden en mejorar-el-sueno -> ["abedul", "Abutilon theophrasti", "Árnica", "Pasiflora", "Toronjil", "Valeriana común", "Zarzaparrilla"]
+PASA  M-05 abedul, Abutilon theophrasti, Arnica, Zarzaparrilla salen en ese orden (sin distinguir mayusculas ni acentos) y entre ellos el resto ['abedul', 'Abutilon theophrasti', 'Árnica', 'Pasiflora', 'Toronjil', 'Valeriana común', 'Zarzaparrilla']
+PASA  M-05 el orden binario seria distinto (la prueba discrimina) 
+PASA  M-06 relajacion-estres: plantCount (17) = total (17) = base (17) 
+PASA  M-06 mejorar-el-sueno: plantCount (7) = total (7) = base (7) 
+PASA  M-06 cuidado-de-la-piel: plantCount (32) = total (32) = base (32) 
+PASA  M-06 alivio-respiratorio: plantCount (52) = total (52) = base (52) 
+PASA  M-06 cansancio-y-fatiga: plantCount (0) = total (0) = base (0) 
+PASA  M-06 otros-objetivos: plantCount (134) = total (134) = base (134) 

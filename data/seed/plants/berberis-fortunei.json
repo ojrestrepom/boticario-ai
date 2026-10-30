@@ -1,0 +1,138 @@
+{
+  "aliases": [
+    "mahonia-fortunei"
+  ],
+  "bundleHash": "sha256:6c2d4296c693da15847164adba70b3b248d7a7c88ac248a59997d2001548ce38",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2673792"
+    ],
+    "value": "Berberis fortunei"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2673792"
+    ],
+    "value": "Berberidaceae"
+  },
+  "goals": [],
+  "id": "berberis-fortunei",
+  "image": {
+    "attributionRequired": true,
+    "author": "peganum from Small Dole, England",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mahonia_fortunei_-_Flickr_-_peganum.jpg",
+    "refs": [
+      "commons:File:Mahonia fortunei - Flickr - peganum.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Mahonia_fortunei_-_Flickr_-_peganum.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2673792"
+    ],
+    "value": "China (centro-sur y sureste) y Taiwán"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Mahonia fortunei - Flickr - peganum.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Mahonia fortunei - Flickr - peganum.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mahonia_fortunei_-_Flickr_-_peganum.jpg"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:28615": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28615",
+      "license": "CC0"
+    },
+    "wcvp:2358498": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mahonia fortunei (Lindl.) Fedde",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2673792": {
+      "dataset": "wcvp",
+      "label": "WCVP: Berberis fortunei Lindl.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lindl.",
+    "name": "Berberis fortunei",
+    "refs": [
+      "wcvp:2673792"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lindl.) Fedde",
+      "name": "Mahonia fortunei",
+      "refs": [
+        "wcvp:2358498"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatoma",
+      "activitySource": "Hepatoma",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28615",
+        "usda_reference:Yeh"
+      ]
+    }
+  ]
+}

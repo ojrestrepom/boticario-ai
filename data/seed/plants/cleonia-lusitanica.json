@@ -1,0 +1,148 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0eb470b17dfe5c442df2bd80878e418275cbcd304cc9f2af2ad33fbb6f5aefe2",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1988-1"
+      ],
+      "text": "Spanish Heal-All"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cleonia lusitanica"
+    ],
+    "value": "Cleonia es un género monotípico de plantas con flores de la familia Lamiaceae. Su única especie es originaria de la península ibérica y del norte de África."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:42347"
+    ],
+    "value": "Cleonia lusitanica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:42347"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "cleonia-lusitanica",
+  "image": {
+    "attributionRequired": false,
+    "author": "Javier martin",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cleonia_lusitanica_EnfoqueFrontal_2010-6-15_DehesaBoyaldePuertollano.jpg",
+    "refs": [
+      "commons:File:Cleonia lusitanica EnfoqueFrontal 2010-6-15 DehesaBoyaldePuertollano.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Cleonia_lusitanica_EnfoqueFrontal_2010-6-15_DehesaBoyaldePuertollano.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1988-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:42347"
+    ],
+    "value": "Nativa del norte de África y el suroeste de Europa"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cleonia lusitanica EnfoqueFrontal 2010-6-15 DehesaBoyaldePuertollano.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cleonia lusitanica EnfoqueFrontal 2010-6-15 DehesaBoyaldePuertollano.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Cleonia_lusitanica_EnfoqueFrontal_2010-6-15_DehesaBoyaldePuertollano.jpg"
+    },
+    "usda_common_name:1988-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Spanish Heal-All»",
+      "license": "CC0"
+    },
+    "usda_part:1988-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:165982": {
+      "dataset": "wcvp",
+      "label": "WCVP: Prunella lusitanica L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:42347": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cleonia lusitanica (L.) L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Cleonia lusitanica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cleonia lusitanica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cleonia_lusitanica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) L.",
+    "name": "Cleonia lusitanica",
+    "refs": [
+      "wcvp:42347"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Prunella lusitanica",
+      "refs": [
+        "wcvp:165982"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

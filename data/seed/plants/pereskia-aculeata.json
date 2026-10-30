@@ -1,0 +1,152 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bd790abc38e4d759bce0452fcde7dc34214bed75aee9d12d35d9dbef36ed6b29",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1247-2"
+      ],
+      "text": "Grosela Americana"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pereskia aculeata"
+      ],
+      "text": "cacto Rosa"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1247-1"
+      ],
+      "text": "Barbados Gooseberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pereskia aculeata"
+    ],
+    "value": "Planta suculenta del género Pereskia, de la familia Cactaceae, que se distribuye por Panamá y Sudamérica tropical."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1247-2"
+    ],
+    "value": "Grosela Americana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2414656"
+    ],
+    "value": "Cactaceae"
+  },
+  "goals": [],
+  "id": "pereskia-aculeata",
+  "image": {
+    "attributionRequired": true,
+    "author": "scott.zona from Miami, Florida, USA",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pereskia_aculeata_(7204602300).jpg",
+    "refs": [
+      "commons:File:Pereskia aculeata (7204602300).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Pereskia_aculeata_%287204602300%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2414656"
+    ],
+    "value": "Brasil, América Central y Sudamérica (norte, oeste y sur)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pereskia aculeata (7204602300).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pereskia aculeata (7204602300).jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pereskia_aculeata_(7204602300).jpg"
+    },
+    "usda_common_name:1247-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Barbados Gooseberry»",
+      "license": "CC0"
+    },
+    "usda_common_name:1247-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Grosela Americana»",
+      "license": "CC0"
+    },
+    "wcvp:2414656": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pereskia aculeata Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2689399": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cactus pereskia L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pereskia aculeata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pereskia aculeata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pereskia_aculeata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA etiqueta como inglés el nombre «Grosela Americana», que parece español; se registra como español por su forma.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Mill.",
+    "name": "Pereskia aculeata",
+    "refs": [
+      "wcvp:2414656"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Cactus pereskia",
+      "refs": [
+        "wcvp:2689399"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

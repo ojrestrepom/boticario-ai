@@ -1,0 +1,49 @@
+# AUT-19 Token por canales no admitidos (objetivo: cloud)
+
+### GET /v1/plants?token=<token-incorrecto>   [token en la query (válido solo en local)]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: f0d0e642bc5d9e5bf7f9a218529edd56
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [X-Api-Key]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 76622b9f7e6358c571ea48f81bd6c7ef
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Proxy-Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 8200b8367a18e832dd5390ea5e666da6
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Cookie]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 32fd9fba5f41157e384405239cbe6ae1
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

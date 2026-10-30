@@ -1,0 +1,58 @@
+Resolving dependencies...
+Downloading packages...
+Got dependencies!
+9 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart
+00:00 +0: real app against the catalog API: Home, Explore, passport and returns
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Identificar con cámara
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Historial
+[Home] Pestaña: Perfil
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[Home] Buscar por objetivo
+[Home] Explorar plantas y aceites
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "English Lavender": []>
+   Which: means none were found but some were expected
+timed out waiting for the "English Lavender" row for "lavandula"; loading=0, error=0,
+passportLoading=0
+
+When the exception was thrown, this was the stack:
+#4      _waitFor (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart:778:3)
+<asynchronous suspension>
+#5      _waitForLavenderRow (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart:805:3)
+<asynchronous suspension>
+#6      _runCatalogSmoke (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart:242:5)
+<asynchronous suspension>
+#7      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart:15:7)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/app/integration_test/catalog_smoke.dart line 778
+The test description was:
+  real app against the catalog API: Home, Explore, passport and returns
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:50 +0 -1: real app against the catalog API: Home, Explore, passport and returns [E]
+  Test failed. See exception logs above.
+  The test description was: real app against the catalog API: Home, Explore, passport and returns
+  
+00:50 +0 -1: (tearDownAll)
+00:50 +0 -1: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/app/integration_test/app_test.dart: real app against the catalog API: Home, Explore, passport and returns

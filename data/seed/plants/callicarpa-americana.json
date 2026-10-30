@@ -1,0 +1,200 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:14a0151e329d45dd21e018e020564d607a5ae7968875c6ca6771c623f4a747cf",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2372-1"
+      ],
+      "text": "American Beauty Berry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2372-2"
+      ],
+      "text": "Beauty Berry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2372-3"
+      ],
+      "text": "French Mulberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Callicarpa americana"
+    ],
+    "value": "Arbusto de la familia de las verbenáceas, nativo del sur de Estados Unidos, que a menudo se cultiva como planta ornamental en jardines y patios."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:30660"
+    ],
+    "value": "Callicarpa americana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:30660"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "callicarpa-americana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Callicarpa_americana_infructescence.jpg",
+    "refs": [
+      "commons:File:Callicarpa americana infructescence.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Callicarpa_americana_infructescence.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:30660"
+    ],
+    "value": "Nativa del Caribe y del centro y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Callicarpa americana infructescence.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Callicarpa americana infructescence.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Callicarpa_americana_infructescence.jpg"
+    },
+    "usda_common_name:2372-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «American Beauty Berry»",
+      "license": "CC0"
+    },
+    "usda_common_name:2372-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Beauty Berry»",
+      "license": "CC0"
+    },
+    "usda_common_name:2372-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «French Mulberry»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:9761": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9761",
+      "license": "CC0"
+    },
+    "wcvp:105090": {
+      "dataset": "wcvp",
+      "label": "WCVP: Johnsonia americana (L.) Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:28032": {
+      "dataset": "wcvp",
+      "label": "WCVP: Burchardia americana (L.) Duhamel",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:30660": {
+      "dataset": "wcvp",
+      "label": "WCVP: Callicarpa americana L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Callicarpa americana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Callicarpa americana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Callicarpa_americana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Callicarpa americana",
+    "refs": [
+      "wcvp:30660"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Duhamel",
+      "name": "Burchardia americana",
+      "refs": [
+        "wcvp:28032"
+      ]
+    },
+    {
+      "authors": "(L.) Mill.",
+      "name": "Johnsonia americana",
+      "refs": [
+        "wcvp:105090"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de piel",
+      "activitySource": "Cancer(Skin)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9761",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

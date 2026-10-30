@@ -1,0 +1,179 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c3bfc0dd47899dfaa4dfede0d6cc1d7ff728d1092ecdcb24ad17449fcd10fb0c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:917-1"
+      ],
+      "text": "Discolor Skullcap"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:189059"
+    ],
+    "value": "Scutellaria discolor"
+  },
+  "family": {
+    "refs": [
+      "wcvp:189059"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "scutellaria-discolor",
+  "image": {
+    "attributionRequired": true,
+    "author": "Franz Xaver",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Scutellaria_discolor_1.jpg",
+    "refs": [
+      "commons:File:Scutellaria discolor 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Scutellaria_discolor_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:189059"
+    ],
+    "value": "Nativa de China, el subcontinente indio, Indochina, Malesia y Papuasia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Scutellaria discolor 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Scutellaria discolor 1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Scutellaria_discolor_1.jpg"
+    },
+    "usda_common_name:917-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Discolor Skullcap»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:2772": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2772",
+      "license": "CC0"
+    },
+    "usda_use:2773": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2773",
+      "license": "CC0"
+    },
+    "usda_use:41609": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41609",
+      "license": "CC0"
+    },
+    "wcvp:189059": {
+      "dataset": "wcvp",
+      "label": "WCVP: Scutellaria discolor Wall. ex Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Wall. ex Benth.",
+    "name": "Scutellaria discolor",
+    "refs": [
+      "wcvp:189059"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2772",
+        "usda_use:2773",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41609",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

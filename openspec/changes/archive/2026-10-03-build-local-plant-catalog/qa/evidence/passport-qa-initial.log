@@ -1,0 +1,447 @@
+2026-10-02T03:18:39Z
+$ flutter test --no-pub --reporter expanded ../openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+00:00 +0: PQA01-544 General identity, absences, provenance and tabs
+00:00 +1: PQA02-544 every eligible row has exact activity and resolved LONGREF
+00:00 +2: PQA01-401 General identity, absences, provenance and tabs
+00:00 +3: PQA02-401 every eligible row has exact activity and resolved LONGREF
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <312.1>
+  Actual: <313.75>
+   Which: is not a value less than or equal to <312.1>
+Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y.
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:136:7)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:300:11)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 136
+The test description was:
+  PQA02-401 every eligible row has exact activity and resolved LONGREF
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +3 -1: PQA02-401 every eligible row has exact activity and resolved LONGREF [E]
+  Test failed. See exception logs above.
+  The test description was: PQA02-401 every eligible row has exact activity and resolved LONGREF
+  
+00:00 +3 -1: PQA01-873 General identity, absences, provenance and tabs
+00:00 +4 -1: PQA02-873 every eligible row has exact activity and resolved LONGREF
+00:00 +5 -1: PQA01-605 General identity, absences, provenance and tabs
+00:01 +6 -1: PQA02-605 every eligible row has exact activity and resolved LONGREF
+00:01 +7 -1: PQA01-619 General identity, absences, provenance and tabs
+00:01 +8 -1: PQA02-619 every eligible row has exact activity and resolved LONGREF
+00:01 +9 -1: PQA03 identity update resets General but same identity retains tab
+00:01 +10 -1: PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _ElementPredicateWidgetFinder:<Found 0 widgets with a semantics label named "Favorito no
+disponible": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:357:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 357
+The test description was:
+  PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -2: PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks [E]
+  Test failed. See exception logs above.
+  The test description was: PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks
+  
+00:01 +10 -2: PQA05-544-1.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <115.6>
+  Actual: <115.75>
+   Which: is not a value less than or equal to <115.6>
+Lavanda
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:136:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:194:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:448:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 136
+The test description was:
+  PQA05-544-1.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -3: PQA05-544-1.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-544-1.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +10 -3: PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <148.6>
+  Actual: <148.75>
+   Which: is not a value less than or equal to <148.6>
+Eucalipto
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:136:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:194:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:448:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 136
+The test description was:
+  PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -4: PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +10 -4: PQA05-873-1.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <99.1>
+  Actual: <99.25>
+   Which: is not a value less than or equal to <99.1>
+Romero
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:136:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:194:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:448:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 136
+The test description was:
+  PQA05-873-1.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -5: PQA05-873-1.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-873-1.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +10 -5: PQA05-605-1.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <165.1>
+  Actual: <165.25>
+   Which: is not a value less than or equal to <165.1>
+Manzanilla
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:136:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:194:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:448:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 136
+The test description was:
+  PQA05-605-1.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -6: PQA05-605-1.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-605-1.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +10 -6: PQA05-619-1.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <82.6>
+  Actual: <82.75>
+   Which: is not a value less than or equal to <82.6>
+Menta
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:136:7)
+<asynchronous suspension>
+#5      main.readScroll (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:194:7)
+<asynchronous suspension>
+#6      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:448:15)
+<asynchronous suspension>
+#7      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#8      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 136
+The test description was:
+  PQA05-619-1.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +10 -7: PQA05-619-1.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-619-1.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +10 -7: PQA06-1.0 unusually long citation readable in scroll segments, absent parts explicit
+00:01 +11 -7: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:96:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:354:13)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -8: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks [E]
+  Test failed. See exception logs above.
+  The test description was: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+  
+00:01 +11 -8: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:96:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:439:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -9: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +11 -9: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:96:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:439:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -10: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +11 -10: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:96:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:439:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -11: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +11 -11: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:96:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:439:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -12: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +11 -12: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.element (package:flutter_test/src/controller.dart:888:30)
+#2      WidgetController.ensureVisible (package:flutter_test/src/controller.dart:2389:32)
+#3      main.tab (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:96:18)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:439:15)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -13: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+  
+00:01 +11 -13: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "No hay partes registradas en fuente": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:515:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 515
+The test description was:
+  PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -14: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit [E]
+  Test failed. See exception logs above.
+  The test description was: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+  
+00:01 +11 -14: PQA07 all five local passports and tabs with HTTP denied, provisional icons only
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _IconWidgetFinder:<Found 0 widgets with icon "IconData(U+0E393)": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:550:11)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 550
+The test description was:
+  PQA07 all five local passports and tabs with HTTP denied, provisional icons only
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +11 -15: PQA07 all five local passports and tabs with HTTP denied, provisional icons only [E]
+  Test failed. See exception logs above.
+  The test description was: PQA07 all five local passports and tabs with HTTP denied, provisional icons only
+  
+00:02 +11 -15: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA02-401 every eligible row has exact activity and resolved LONGREF
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs
+  ... and 11 more

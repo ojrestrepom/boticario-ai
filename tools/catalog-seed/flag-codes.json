@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "description": "Catálogo cerrado de códigos de reviewFlags. Lo leen el validador (advertencia ante un código fuera del catálogo) y la prueba que comprueba que prompt/consolidate.md lista exactamente estos códigos. Cada código lleva el target que usa y su origen: 'paquete' si viene en identity.flags o sections.safety del paquete y se copia, 'registro' si lo escribe el consolidador.",
+  "codes": {
+    "identidad-ambigua": {"origin": "paquete", "target": "scientificName", "meaning": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente."},
+    "solo-genero": {"origin": "paquete", "target": "scientificName", "meaning": "La entrada solo nombra el género."},
+    "sin-resolucion": {"origin": "paquete", "target": "scientificName", "meaning": "El nombre no resuelve a un aceptado en ningún backbone."},
+    "respaldo-wfo": {"origin": "paquete", "target": "scientificName", "meaning": "El aceptado viene del respaldo de WFO, no de WCVP."},
+    "coincidencia-aproximada": {"origin": "paquete", "target": "scientificName", "meaning": "El nombre resolvió por coincidencia aproximada (errata probable)."},
+    "aceptado-superior-a-especie": {"origin": "paquete", "target": "scientificName", "meaning": "El aceptado es de rango superior a especie; la planta conserva el nombre de la fuente."},
+    "variante-ortografica": {"origin": "paquete", "target": "scientificName", "meaning": "El nombre resolvió por una variante ortográfica del epíteto."},
+    "backbones-discrepan": {"origin": "paquete", "target": "scientificName", "meaning": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP."},
+    "grupo-partido": {"origin": "paquete", "target": "scientificName", "meaning": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas."},
+    "fusion-heterotipica": {"origin": "paquete", "target": "scientificName", "meaning": "Se fusionaron sinónimos heterotípicos sin artículo propio en Wikipedia en español; requiere revisión humana."},
+    "filas-sin-asignar": {"origin": "paquete", "target": "scientificName", "meaning": "Hay filas del grupo que no se pudieron asignar a ninguna planta."},
+    "wikidata-sin-respuesta": {"origin": "paquete", "target": "wikidata", "meaning": "Wikidata no respondió para esta planta o está desactivada."},
+    "wikidata-sin-item": {"origin": "paquete", "target": "wikidata", "meaning": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos."},
+    "wikidata-no-consultada": {"origin": "paquete", "target": "wikidata", "meaning": "La planta no tiene nombre aceptado, así que no se consultó Wikidata."},
+    "extraccion-seguridad-fallida": {"origin": "paquete", "target": "safety", "meaning": "La extracción de los PDF de la EMA falló para esta planta."},
+    "cita-sin-resolver": {"origin": "registro", "target": "traditionalUses[<índice>]", "meaning": "Un grupo de usos tiene una clave de cita sin candidata en el paquete; el flag se registra aunque el grupo se muestre (queda pendiente solo si ninguna de sus citas se resolvió)."},
+    "interacciones-graves-estres": {"origin": "registro", "target": "goals.relajacion-estres", "meaning": "La EMA registra interacciones graves y el área de estrés y ánimo; el objetivo queda pendiente de revisión."},
+    "sin-datos-de-seguridad": {"origin": "registro", "target": "safety", "meaning": "El paquete no trae ninguna información de seguridad (`safety` es nulo); la planta no se presenta como segura."},
+    "objetivos-omitidos-por-toxicidad": {"origin": "registro", "target": "goals", "meaning": "TPPT marca la planta como muy tóxica o tóxica fuerte y se omiten los objetivos que la EMA le asigna."},
+    "sin-nombre-comun-es": {"origin": "registro", "target": "displayName", "meaning": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico."},
+    "idioma-de-nombre-dudoso": {"origin": "registro", "target": "commonNames", "meaning": "No es seguro que un nombre del paquete sea español o de otro idioma."},
+    "aceite-por-compuesto-eo": {"origin": "registro", "target": "oil", "meaning": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura."},
+    "conflicto-entre-fuentes": {"origin": "registro", "target": "<campo afectado>", "meaning": "Dos fuentes se contradicen en un campo y se usó la más autorizada."}
+  }
+}

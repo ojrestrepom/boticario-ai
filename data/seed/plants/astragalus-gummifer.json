@@ -1,0 +1,233 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f7416410754d23f2a79df4ea521b0eefbe5e700f1e89320a7c84911d00ef1dea",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:139-1"
+      ],
+      "text": "Gum Tragacanth"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:139-2"
+      ],
+      "text": "Tragacanth"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Astracantha gummifer"
+    ],
+    "value": "Planta herbácea de la familia de las leguminosas que se encuentra en Asia y Medio Oriente."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2659706"
+    ],
+    "value": "Astragalus gummifer"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2659706"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "astragalus-gummifer",
+  "image": {
+    "attributionRequired": false,
+    "author": "Paul Taubert",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Astracantha_gummifera_Taub120.png",
+    "refs": [
+      "commons:File:Astracantha gummifera Taub120.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Astracantha_gummifera_Taub120.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:139-GU"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2659706"
+    ],
+    "value": "Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Astracantha gummifera Taub120.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Astracantha gummifera Taub120.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Astracantha_gummifera_Taub120.png"
+    },
+    "usda_common_name:139-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Gum Tragacanth»",
+      "license": "CC0"
+    },
+    "usda_common_name:139-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tragacanth»",
+      "license": "CC0"
+    },
+    "usda_part:139-GU": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Gum»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:21966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21966",
+      "license": "CC0"
+    },
+    "usda_use:70380": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70380",
+      "license": "CC0"
+    },
+    "wcvp:2440441": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tragacantha gummifera (Labill.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2656966": {
+      "dataset": "wcvp",
+      "label": "WCVP: Astracantha gummifera (Labill.) Podlech",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2659706": {
+      "dataset": "wcvp",
+      "label": "WCVP: Astragalus gummifer Labill.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Astracantha gummifer": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Astracantha gummifer",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Astracantha_gummifer"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Gum), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Labill.",
+    "name": "Astragalus gummifer",
+    "refs": [
+      "wcvp:2659706"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Labill.) Podlech",
+      "name": "Astracantha gummifera",
+      "refs": [
+        "wcvp:2656966"
+      ]
+    },
+    {
+      "authors": "(Labill.) Kuntze",
+      "name": "Tragacantha gummifera",
+      "refs": [
+        "wcvp:2440441"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Woi.1",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 1"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Excipiente",
+      "activitySource": "Excipient",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70380",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

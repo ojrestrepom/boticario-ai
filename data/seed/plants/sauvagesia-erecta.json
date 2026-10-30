@@ -1,0 +1,136 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ff70f886ced675daa76bea242594914f6de33966fee5f19272bfd340a92e422c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1329-1"
+      ],
+      "text": "Yerba de san martin"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1329-1"
+    ],
+    "value": "Yerba de san martin"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2602394"
+    ],
+    "value": "Ochnaceae"
+  },
+  "goals": [],
+  "id": "sauvagesia-erecta",
+  "image": {
+    "attributionRequired": true,
+    "author": "João Medeiros",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sauvagesia_erecta_flower.jpg",
+    "refs": [
+      "commons:File:Sauvagesia erecta flower.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Sauvagesia_erecta_flower.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2602394"
+    ],
+    "value": "Brasil, Caribe, América Central, México, norte, oeste y sur de Sudamérica, y regiones tropicales de África y del oeste del océano Índico"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sauvagesia erecta flower.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sauvagesia erecta flower.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Sauvagesia_erecta_flower.jpg"
+    },
+    "usda_common_name:1329-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yerba de san martin»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:79548": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79548",
+      "license": "CC0"
+    },
+    "wcvp:2602394": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sauvagesia erecta L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El paquete registra «Yerba de san martin» con idioma inglés, pero parece un nombre en español; se acepta como español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Sauvagesia erecta",
+    "refs": [
+      "wcvp:2602394"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Indias Occidentales"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79548",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

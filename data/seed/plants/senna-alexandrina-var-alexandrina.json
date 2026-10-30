@@ -1,0 +1,444 @@
+{
+  "aliases": [
+    "cassia-angustifolia"
+  ],
+  "bundleHash": "sha256:018d089bd156720d10157ac7328c410d0c34c32ac7cd02cdd564e6a92dd0cbfc",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3234398"
+    ],
+    "value": "Senna alexandrina var. alexandrina"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3234398"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [
+    {
+      "area": "Estreñimiento",
+      "evidence": "La EMA tiene monografías para la hoja y el fruto en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:sennae-folium",
+        "ema_herbal:sennae-fructus"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "senna-alexandrina-var-alexandrina",
+  "image": {
+    "attributionRequired": true,
+    "author": "阿橋 HQ",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E7%8B%B9%E8%91%89%E7%95%AA%E7%80%89_Cassia_angustifolia_(Cassia_senna)_-%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E4%B8%B9%E6%A4%8D%E7%89%A9%E5%9C%92_Hortus_Botanicus,_Amsterdam-_(15317649936).jpg",
+    "refs": [
+      "commons:File:狹葉番瀉 Cassia angustifolia (Cassia senna) -阿姆斯特丹植物園 Hortus Botanicus, Amsterdam- (15317649936).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/%E7%8B%B9%E8%91%89%E7%95%AA%E7%80%89_Cassia_angustifolia_%28Cassia_senna%29_-%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E4%B8%B9%E6%A4%8D%E7%89%A9%E5%9C%92_Hortus_Botanicus%2C_Amsterdam-_%2815317649936%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3234398"
+    ],
+    "value": "Nativa del norte, este, oeste y centro-oeste de África tropical, la península arábiga, Asia occidental y el subcontinente indio."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:sennae-folium"
+      ],
+      "value": "Hoja"
+    },
+    {
+      "refs": [
+        "ema_herbal:sennae-fructus"
+      ],
+      "value": "Fruto"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:狹葉番瀉 Cassia angustifolia (Cassia senna) -阿姆斯特丹植物園 Hortus Botanicus, Amsterdam- (15317649936).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:狹葉番瀉 Cassia angustifolia (Cassia senna) -阿姆斯特丹植物園 Hortus Botanicus, Amsterdam- (15317649936).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:%E7%8B%B9%E8%91%89%E7%95%AA%E7%80%89_Cassia_angustifolia_(Cassia_senna)_-%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E4%B8%B9%E6%A4%8D%E7%89%A9%E5%9C%92_Hortus_Botanicus,_Amsterdam-_(15317649936).jpg"
+    },
+    "ema_herbal:sennae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Sennae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/sennae-folium"
+    },
+    "ema_herbal:sennae-fructus": {
+      "dataset": "ema_json",
+      "label": "EMA: Sennae fructus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/sennae-fructus"
+    },
+    "ema_pdf:sennae-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sennae-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:sennae-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sennae-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:sennae-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sennae-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:sennae-fructus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sennae-fructus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-fructus-revision-1_en.pdf"
+    },
+    "ema_pdf:sennae-fructus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sennae-fructus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-fructus-revision-1_en.pdf"
+    },
+    "ema_pdf:sennae-fructus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sennae-fructus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-fructus-revision-1_en.pdf"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11085": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11085",
+      "license": "CC0"
+    },
+    "usda_use:11086": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11086",
+      "license": "CC0"
+    },
+    "usda_use:11087": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11087",
+      "license": "CC0"
+    },
+    "usda_use:20319": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20319",
+      "license": "CC0"
+    },
+    "usda_use:31360": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31360",
+      "license": "CC0"
+    },
+    "usda_use:31361": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31361",
+      "license": "CC0"
+    },
+    "usda_use:31362": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31362",
+      "license": "CC0"
+    },
+    "usda_use:39523": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39523",
+      "license": "CC0"
+    },
+    "usda_use:39574": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39574",
+      "license": "CC0"
+    },
+    "usda_use:77678": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77678",
+      "license": "CC0"
+    },
+    "usda_use:80939": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80939",
+      "license": "CC0"
+    },
+    "usda_use:8927": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8927",
+      "license": "CC0"
+    },
+    "usda_use:8928": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8928",
+      "license": "CC0"
+    },
+    "usda_use:8929": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8929",
+      "license": "CC0"
+    },
+    "wcvp:3234398": {
+      "dataset": "wcvp",
+      "label": "WCVP: Senna alexandrina var. alexandrina",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:sennae-folium:4.3",
+      "ema_pdf:sennae-folium:4.4",
+      "ema_pdf:sennae-folium:4.5",
+      "ema_pdf:sennae-fructus:4.3",
+      "ema_pdf:sennae-fructus:4.4",
+      "ema_pdf:sennae-fructus:4.5"
+    ],
+    "text": "Las monografías de la EMA para la hoja y el fruto registran como contraindicaciones la hipersensibilidad, la obstrucción o estenosis intestinal, la atonía, la apendicitis, las enfermedades inflamatorias intestinales, el dolor abdominal de origen desconocido, la deshidratación grave, el embarazo, la lactancia y la edad menor de 12 años. Entre sus advertencias figuran que el uso prolongado de laxantes estimulantes puede deteriorar la función intestinal y causar dependencia, y el posible desequilibrio electrolítico en personas con trastornos renales. En interacciones registran que la hipopotasemia por uso prolongado potencia la acción de los glucósidos cardiacos e interactúa con antiarrítmicos, y que el uso con diuréticos, corticosteroides y raíz de regaliz puede aumentar la pérdida de potasio."
+  },
+  "scientificName": {
+    "authors": null,
+    "name": "Senna alexandrina var. alexandrina",
+    "refs": [
+      "wcvp:3234398"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos",
+        "Reino Unido (Gales)"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8927",
+        "usda_use:8928",
+        "usda_use:8929",
+        "usda_use:80939",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Eb24: 385",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 385"
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Francia"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11085",
+        "usda_use:11086",
+        "usda_use:11087",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Haití"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31360",
+        "usda_use:31361",
+        "usda_use:31362",
+        "usda_reference:Brutus",
+        "usda_reference:Keys",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39523",
+        "usda_use:39574",
+        "usda_reference:Keys",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Eb31: 353",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 353"
+        }
+      ],
+      "countries": [
+        "México (Kickapoo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20319",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77678",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

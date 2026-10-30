@@ -1,0 +1,257 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3b7f11eee012533e75a1c1b1eb6f909bb6971ed67958ec1607f77f058baf0fab",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2573805"
+    ],
+    "value": "Polygonum plebeium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2573805"
+    ],
+    "value": "Polygonaceae"
+  },
+  "goals": [],
+  "id": "polygonum-plebeium",
+  "image": {
+    "attributionRequired": true,
+    "author": "J.M.Garg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Polygonum_plebeium_W_IMG_0462.jpg",
+    "refs": [
+      "commons:File:Polygonum plebeium W IMG 0462.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Polygonum_plebeium_W_IMG_0462.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2573805"
+    ],
+    "value": "Nativa de África, Asia central y oriental, el subcontinente indio, Indochina, Malesia, Australia y el océano Índico occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Polygonum plebeium W IMG 0462.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Polygonum plebeium W IMG 0462.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Polygonum_plebeium_W_IMG_0462.jpg"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:19861": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19861",
+      "license": "CC0"
+    },
+    "usda_use:33859": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33859",
+      "license": "CC0"
+    },
+    "usda_use:37558": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37558",
+      "license": "CC0"
+    },
+    "usda_use:60538": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60538",
+      "license": "CC0"
+    },
+    "usda_use:60570": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60570",
+      "license": "CC0"
+    },
+    "usda_use:69771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69771",
+      "license": "CC0"
+    },
+    "usda_use:7933": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7933",
+      "license": "CC0"
+    },
+    "wcvp:2573805": {
+      "dataset": "wcvp",
+      "label": "WCVP: Polygonum plebeium R.Br.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Bowel» tiene una clave de cita sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Pneumonia» tiene una clave de cita sin resolver.",
+      "target": "traditionalUses[1]"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.Br.",
+    "name": "Polygonum plebeium",
+    "refs": [
+      "wcvp:2573805"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Intestino",
+      "activitySource": "Bowel",
+      "citations": [
+        {
+          "key": "Eb32: 302",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 302"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7933",
+        "usda_use:60538",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Neumonía",
+      "activitySource": "Pneumonia",
+      "citations": [
+        {
+          "key": "Eb32: 302",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 302"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37558",
+        "usda_use:60570",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Eb24: 261",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 261"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19861",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Tijereta",
+      "activitySource": "Earwig",
+      "citations": [
+        {
+          "key": "Eb24: 261",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 261"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69771",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Menorragia",
+      "activitySource": "Menorrhagia",
+      "citations": [
+        {
+          "key": "Eb24: 261",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 261"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33859",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,678 @@
+{
+  "aliases": [
+    "zanthoxylum-alatum"
+  ],
+  "bundleHash": "sha256:fc77bc40d48f8e14a3bf41029c9b71c41bf8c876b8d952b1d7931d9d41824608",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1096-1"
+      ],
+      "text": "Indian Prickly Ash"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1096-2"
+      ],
+      "text": "Wartara Oil Tree"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3259101"
+    ],
+    "value": "Zanthoxylum armatum var. armatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3259101"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "zanthoxylum-armatum-var-armatum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1096-FR",
+      "usda_part:1096-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3259101"
+    ],
+    "value": "China, Asia oriental, Subcontinente indio, Indochina y Malesia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:1147": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Bergapten",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1148": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: chelerythrine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:505": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Zanthoxylum armatum DC.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:506": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Zanthoxylum armatum DC.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:507": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Zanthoxylum armatum DC.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:508": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Zanthoxylum armatum DC.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:1096-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Indian Prickly Ash»",
+      "license": "CC0"
+    },
+    "usda_common_name:1096-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wartara Oil Tree»",
+      "license": "CC0"
+    },
+    "usda_part:1096-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_part:1096-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:1333": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1333",
+      "license": "CC0"
+    },
+    "usda_use:1898": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1898",
+      "license": "CC0"
+    },
+    "usda_use:22268": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22268",
+      "license": "CC0"
+    },
+    "usda_use:26624": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26624",
+      "license": "CC0"
+    },
+    "usda_use:36305": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36305",
+      "license": "CC0"
+    },
+    "usda_use:47996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47996",
+      "license": "CC0"
+    },
+    "usda_use:484": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 484",
+      "license": "CC0"
+    },
+    "usda_use:48660": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48660",
+      "license": "CC0"
+    },
+    "usda_use:49143": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49143",
+      "license": "CC0"
+    },
+    "usda_use:4930": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4930",
+      "license": "CC0"
+    },
+    "usda_use:51160": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51160",
+      "license": "CC0"
+    },
+    "usda_use:51699": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51699",
+      "license": "CC0"
+    },
+    "usda_use:62835": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62835",
+      "license": "CC0"
+    },
+    "usda_use:62837": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62837",
+      "license": "CC0"
+    },
+    "usda_use:64963": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64963",
+      "license": "CC0"
+    },
+    "usda_use:68108": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68108",
+      "license": "CC0"
+    },
+    "usda_use:7309": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7309",
+      "license": "CC0"
+    },
+    "usda_use:76195": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76195",
+      "license": "CC0"
+    },
+    "usda_use:77820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77820",
+      "license": "CC0"
+    },
+    "usda_use:8460": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8460",
+      "license": "CC0"
+    },
+    "wcvp:3259101": {
+      "dataset": "wcvp",
+      "label": "WCVP: Zanthoxylum armatum var. armatum",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en fruto y hoja, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:1147",
+      "efsa_botanic:1148",
+      "efsa_endpoint:505",
+      "efsa_endpoint:506",
+      "efsa_endpoint:507",
+      "efsa_endpoint:508"
+    ],
+    "text": "La EFSA registra la furocumarina fototóxica bergapteno (corteza y semilla) como sustancia de alta preocupación, por reacciones de la piel con la luz. Como sustancia de evidencia registra la queleritrina (corteza y semilla), y entre los estudios figuran hepatotoxicidad de psoralenos y toxicidad reproductiva de psoralenos."
+  },
+  "scientificName": {
+    "authors": null,
+    "name": "Zanthoxylum armatum var. armatum",
+    "refs": [
+      "wcvp:3259101"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Absceso",
+      "activitySource": "Abscess",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:484",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dolor (estómago)",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1333",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1898",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4930",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Ascariasis",
+      "activitySource": "Ascariasis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64963",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Mordedura (serpiente)",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7309",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8460",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dentífrico",
+      "activitySource": "Dentifrice",
+      "citations": [
+        {
+          "key": "Eb25: 422",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 422"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68108",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Enteritis",
+      "activitySource": "Enteritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22268",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Gastritis",
+      "activitySource": "Gastritis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26624",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Odontitis",
+      "activitySource": "Odontitis",
+      "citations": [
+        {
+          "key": "Eb25: 422",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 422"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62835",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36305",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Eb24: 135",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 135"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62837",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76195",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77820",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47996",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48660",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hinchazón",
+      "activitySource": "Swelling",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49143",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51160",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Traumatismo",
+      "activitySource": "Trauma",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51699",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

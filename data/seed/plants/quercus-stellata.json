@@ -1,0 +1,167 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2adc10c3f2aa6f82981ec4da52451126c749f0786225c7b34a3c5d135aa73d76",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Quercus stellata"
+      ],
+      "text": "Roble de los postes"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Quercus stellata"
+      ],
+      "text": "Roble colorado"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Quercus stellata"
+      ],
+      "text": "Roble encino"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:833-1"
+      ],
+      "text": "Post Oak"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Quercus stellata"
+    ],
+    "value": "Árbol del género Quercus originario de Norteamérica, de la sección Quercus (robles blancos). Sus bellotas maduran en 6 meses y tienen sabor dulce y ligeramente amargo; las hojas tienen lóbulos redondeados y casi sin cerdas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Quercus stellata"
+    ],
+    "value": "Roble de los postes"
+  },
+  "family": {
+    "refs": [
+      "wcvp:175243"
+    ],
+    "value": "Fagaceae"
+  },
+  "goals": [],
+  "id": "quercus-stellata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Choess",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Quercus_stellata_tree.jpg",
+    "refs": [
+      "commons:File:Quercus stellata tree.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Quercus_stellata_tree.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:175243"
+    ],
+    "value": "Centro-norte, noreste, centro-sur y sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Quercus stellata tree.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Quercus stellata tree.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Quercus_stellata_tree.jpg"
+    },
+    "usda_common_name:833-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Post Oak»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:12035": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12035",
+      "license": "CC0"
+    },
+    "wcvp:175243": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus stellata Wangenh.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Quercus stellata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Quercus stellata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Quercus_stellata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Wangenh.",
+    "name": "Quercus stellata",
+    "refs": [
+      "wcvp:175243"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12035",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0631c4169fda006254ea0c90167e13aec18b7487ebe1900c4d68a6e234bc2b4d",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Genista"
+    ],
+    "value": "Género de unas noventa especies de arbustos de la familia de las fabáceas, de tallos densos y verdes, hojas muy pequeñas y adaptados a la sequía, con flores sobre todo blancas o amarillas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q156696"
+    ],
+    "value": "Genista sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "genista-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Robert Flogaus-Faust",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Genista_tinctoria_2_RF.jpg",
+    "refs": [
+      "commons:File:Genista tinctoria 2 RF.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Genista_tinctoria_2_RF.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Genista tinctoria 2 RF.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Genista tinctoria 2 RF.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Genista_tinctoria_2_RF.jpg"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:55406": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55406",
+      "license": "CC0"
+    },
+    "wikidata:Q156696": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q156696",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q156696"
+    },
+    "wikipedia_es:Genista": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Genista",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Genista"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español para el género; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Genista sp",
+    "refs": [
+      "wikidata:Q156696"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55406",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

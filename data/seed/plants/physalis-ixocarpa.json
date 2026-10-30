@@ -1,0 +1,187 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:81af5340b296bffd3d57b76d5de7b5d737fed63413e927858210b55d0fa5ae2d",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Physalis ixocarpa"
+      ],
+      "text": "tomate"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Physalis ixocarpa"
+      ],
+      "text": "tomate verde"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Physalis ixocarpa"
+      ],
+      "text": "tomatillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Physalis ixocarpa"
+      ],
+      "text": "tomate de fresadilla"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:727-1"
+      ],
+      "text": "Tomatillo"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Physalis ixocarpa"
+    ],
+    "value": "Especie vegetal originaria de México, perteneciente a la familia de las solanáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Physalis ixocarpa"
+    ],
+    "value": "Tomatillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2549434"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "physalis-ixocarpa",
+  "image": {
+    "attributionRequired": true,
+    "author": "myself",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Physalis-philadelphica-1010897.JPG",
+    "refs": [
+      "commons:File:Physalis-philadelphica-1010897.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Physalis-philadelphica-1010897.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2549434"
+    ],
+    "value": "México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Physalis-philadelphica-1010897.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Physalis-philadelphica-1010897.JPG",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Physalis-philadelphica-1010897.JPG"
+    },
+    "usda_common_name:727-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tomatillo»",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_use:16069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16069",
+      "license": "CC0"
+    },
+    "wcvp:2549434": {
+      "dataset": "wcvp",
+      "label": "WCVP: Physalis ixocarpa Brot. ex Hornem.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2608183": {
+      "dataset": "wcvp",
+      "label": "WCVP: Physalis philadelphica subsp. ixocarpa (Brot. ex Hornem.) Sobr.-Vesp. & Sanz-Elorza",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Physalis ixocarpa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Physalis ixocarpa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Physalis_ixocarpa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Brot. ex Hornem.",
+    "name": "Physalis ixocarpa",
+    "refs": [
+      "wcvp:2549434"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Brot. ex Hornem.) Sobr.-Vesp. & Sanz-Elorza",
+      "name": "Physalis philadelphica subsp. ixocarpa",
+      "refs": [
+        "wcvp:2608183"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16069",
+        "usda_reference:Martinez"
+      ]
+    }
+  ]
+}

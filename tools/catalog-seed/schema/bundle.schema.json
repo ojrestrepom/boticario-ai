@@ -1,0 +1,1556 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boticario-ai.local/catalog-seed/bundle.schema.json",
+  "title": "Paquete v1 por planta",
+  "description": "Esquema del paquete por planta que recibe el consolidador (openspec/changes/consolidate-catalog-seed, requisito «Paquete por planta determinista»). Subconjunto de JSON Schema validado por catalog_seed/schema.py. El validador de registros solo depende de una parte del contrato (véase el README).",
+  "x-bundleVersion": "1",
+  "type": "object",
+  "properties": {
+    "bundleVersion": {
+      "const": "1"
+    },
+    "plantKey": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "bundleHash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identity": {
+      "$ref": "#/$defs/identity"
+    },
+    "sections": {
+      "type": "object",
+      "properties": {
+        "taxonomy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/taxonomyRow"
+          }
+        },
+        "distribution": {
+          "$ref": "#/$defs/distribution"
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/name"
+          }
+        },
+        "descriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/description"
+          }
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/part"
+          }
+        },
+        "uses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/use"
+          }
+        },
+        "regulatory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/regulatory"
+          }
+        },
+        "safety": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/safety"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/image"
+          }
+        },
+        "wikidata": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "con-item",
+                "sin-item",
+                "sin-respuesta",
+                "no-consultada"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/wikidataItem"
+              }
+            }
+          },
+          "required": [
+            "items",
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "descriptions",
+        "distribution",
+        "images",
+        "names",
+        "parts",
+        "regulatory",
+        "safety",
+        "taxonomy",
+        "uses",
+        "wikidata"
+      ],
+      "additionalProperties": false
+    },
+    "refs": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z_]+:.+"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/refEntry"
+      }
+    }
+  },
+  "required": [
+    "bundleVersion",
+    "plantKey",
+    "bundleHash",
+    "identity",
+    "sections",
+    "refs"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "refList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ref"
+      }
+    },
+    "reviewFlag": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "acceptedEntry": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authors",
+        "family",
+        "id",
+        "name",
+        "rank",
+        "ref",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "taxonomyRow": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "backbone": {
+          "enum": [
+            "wcvp",
+            "wfo"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "aceptado",
+            "propio",
+            "heterotipico-fusionado",
+            "sinonimo-homotipico"
+          ]
+        },
+        "sourceId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authors",
+        "backbone",
+        "family",
+        "id",
+        "name",
+        "rank",
+        "ref",
+        "role",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "nameSetItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "string"
+        },
+        "reason": {
+          "enum": [
+            "universe",
+            "entrada-usda",
+            "entrada-ema",
+            "heterotipico-fusionado",
+            "aceptado-del-grupo",
+            "sinonimo-homotipico"
+          ]
+        },
+        "backbone": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "wcvp",
+            "wfo",
+            null
+          ]
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "detail": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authors",
+        "backbone",
+        "name",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "universeEntry": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "enum": [
+            "usda",
+            "ema"
+          ]
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": "string"
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "matchedName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "author",
+        "key",
+        "matchedName",
+        "name",
+        "outcome",
+        "relation",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "collision": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "aceptado",
+            "separada"
+          ]
+        },
+        "acceptedName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "split": {
+          "type": "boolean"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "fused": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "required": [
+              "entries",
+              "name",
+              "reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "decision": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "decidido",
+                "sin-decision"
+              ]
+            },
+            "decision": {
+              "enum": [
+                "fuse",
+                "separate"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "decision",
+            "reason",
+            "state"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "acceptedName",
+        "decision",
+        "fused",
+        "members",
+        "role",
+        "split"
+      ],
+      "additionalProperties": false
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "proposedId": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "universe": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/universeEntry"
+          }
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "resolved",
+            "heterotypic",
+            "ambiguous",
+            "unresolved",
+            "unmatched",
+            "genus_only"
+          ]
+        },
+        "family": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "primaryBackbone": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "wcvp",
+            "wfo",
+            null
+          ]
+        },
+        "accepted": {
+          "type": "object",
+          "properties": {
+            "wcvp": {
+              "$ref": "#/$defs/acceptedEntry"
+            },
+            "wfo": {
+              "$ref": "#/$defs/acceptedEntry"
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "nameSet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nameSetItem"
+          },
+          "minItems": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          }
+        },
+        "collision": {
+          "$ref": "#/$defs/collision"
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reviewFlag"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "homotypicTotal": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "accepted",
+        "aliases",
+        "authors",
+        "collision",
+        "family",
+        "flags",
+        "kind",
+        "name",
+        "nameSet",
+        "notes",
+        "primaryBackbone",
+        "proposedId",
+        "universe"
+      ],
+      "additionalProperties": false
+    },
+    "distribution": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "native": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "introduced": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "nativeAreas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "nativeAreaCount": {
+          "type": "integer"
+        },
+        "introducedAreaCount": {
+          "type": "integer"
+        },
+        "of": {
+          "enum": [
+            "aceptado",
+            "aceptado-compartido"
+          ]
+        },
+        "extinctAreas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "introduced",
+        "introducedAreaCount",
+        "native",
+        "nativeAreaCount",
+        "nativeAreas",
+        "of",
+        "ref"
+      ],
+      "additionalProperties": false
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "enum": [
+            "usda",
+            "wikidata",
+            "tppt"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "p1843",
+            "etiqueta"
+          ]
+        }
+      },
+      "required": [
+        "language",
+        "ref",
+        "source",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "source": {
+          "const": "wikipedia_es"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shortDescription": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timestamp": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "qid": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "license",
+        "qid",
+        "ref",
+        "revision",
+        "shortDescription",
+        "source",
+        "text",
+        "timestamp",
+        "title",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "part": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "ppco": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ppna": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rows": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "hasEo": {
+          "type": "boolean"
+        },
+        "eoCompounds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "distinctCompounds": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "topAmount": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "topEo": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "distinctCompounds",
+        "eoCompounds",
+        "hasEo",
+        "ppco",
+        "ppna",
+        "ref",
+        "rows",
+        "topAmount",
+        "topEo"
+      ],
+      "additionalProperties": false
+    },
+    "use": {
+      "type": "object",
+      "properties": {
+        "activity": {
+          "type": "string"
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "countries": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "candidates": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ref": {
+                  "$ref": "#/$defs/ref"
+                },
+                "citation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "citation",
+                "ref"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "refsTotal": {
+          "type": "integer"
+        },
+        "citationsTotal": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "activity",
+        "candidates",
+        "citations",
+        "countries",
+        "n",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "goalCandidate": {
+      "type": "object",
+      "properties": {
+        "area": {
+          "type": "string",
+          "minLength": 1
+        },
+        "areaEs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subarea": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "area",
+        "areaEs",
+        "goal",
+        "subarea"
+      ],
+      "additionalProperties": false
+    },
+    "regulatory": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "slug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "latinName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "englishName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "botanicalName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "therapeuticAreas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "combination": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "goalCandidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/goalCandidate"
+          }
+        },
+        "unmappedAreas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "botanicalName",
+        "combination",
+        "englishName",
+        "goalCandidates",
+        "latinName",
+        "outcome",
+        "ref",
+        "slug",
+        "status",
+        "therapeuticAreas",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "substance": {
+      "type": "object",
+      "properties": {
+        "substance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "group": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "parts",
+        "ref",
+        "substance"
+      ],
+      "additionalProperties": false
+    },
+    "safety": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "enum": [
+            "tppt",
+            "ema_pdf",
+            "efsa",
+            "usda"
+          ]
+        },
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "refs": {
+          "$ref": "#/$defs/refList"
+        },
+        "terms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "level": {
+          "enum": [
+            "bajo",
+            "medio",
+            "alto",
+            null
+          ]
+        },
+        "levelReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "slug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "section": {
+          "enum": [
+            "4.3",
+            "4.4",
+            "4.5",
+            "CONCLUSIONS"
+          ]
+        },
+        "heading": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "documentKind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "severeInteractions": {
+          "type": "boolean"
+        },
+        "interactionClass": {
+          "type": "string",
+          "minLength": 1
+        },
+        "columns": {
+          "type": "object"
+        },
+        "matchedPatterns": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "safetyData": {
+          "type": "boolean"
+        },
+        "note": {
+          "type": "string"
+        },
+        "status": {
+          "const": "extraccion-fallida"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "latinName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "englishName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "germanName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "family": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "humanToxicity": {
+          "type": "string"
+        },
+        "animalToxicity": {
+          "type": "string"
+        },
+        "toxicPart": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string",
+                "minLength": 1
+              },
+              "level": {
+                "enum": [
+                  "bajo",
+                  "medio",
+                  "alto",
+                  null
+                ]
+              }
+            },
+            "required": [
+              "category",
+              "level"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "uncoveredCategories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "toxinCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "toxinsTotal": {
+          "type": "integer"
+        },
+        "remarks": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "toxins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "major": {
+                "type": "boolean"
+              },
+              "composition": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "psmClass": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "casrn": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "casrn",
+              "composition",
+              "major",
+              "name",
+              "psmClass"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "concernGroups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "concernSubstances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/substance"
+          }
+        },
+        "evidenceSubstances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/substance"
+          }
+        },
+        "rowsCounted": {
+          "type": "integer"
+        },
+        "evidenceTotal": {
+          "type": "integer"
+        },
+        "studiesTotal": {
+          "type": "integer"
+        },
+        "studies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ref": {
+                "$ref": "#/$defs/ref"
+              },
+              "studyCategory": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "testSpecies": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "route": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "testType": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "toxicitySummary": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "effect": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "part": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "year": {
+                "type": [
+                  "integer",
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "effect",
+              "part",
+              "ref",
+              "route",
+              "studyCategory",
+              "testSpecies",
+              "testType",
+              "title",
+              "toxicitySummary",
+              "year"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "ref",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pageUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "licenseCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "licenseUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attributionRequired": {
+          "type": "boolean"
+        },
+        "mime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "qid": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "attributionRequired",
+        "author",
+        "height",
+        "license",
+        "licenseCode",
+        "licenseUrl",
+        "mime",
+        "pageUrl",
+        "qid",
+        "ref",
+        "title",
+        "url",
+        "width"
+      ],
+      "additionalProperties": false
+    },
+    "wikidataItem": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/ref"
+        },
+        "qid": {
+          "type": "string",
+          "minLength": 1
+        },
+        "p225": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "labelEs": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "p1843Es": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "aliasesEs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "eswikiTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "gbif": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipni": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "powo": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "match": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "aliasesEs",
+        "authors",
+        "eswikiTitle",
+        "gbif",
+        "ipni",
+        "labelEs",
+        "match",
+        "p1843Es",
+        "p225",
+        "powo",
+        "qid",
+        "ref"
+      ],
+      "additionalProperties": false
+    },
+    "refEntry": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "enum": [
+            "usda",
+            "wcvp",
+            "wfo",
+            "ema_json",
+            "ema_pdf",
+            "tppt",
+            "efsa",
+            "wikidata",
+            "wikipedia_es",
+            "commons"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "dataset",
+        "label",
+        "license"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

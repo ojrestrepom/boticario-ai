@@ -1,0 +1,972 @@
+{
+  "aliases": [
+    "citrus-limon"
+  ],
+  "bundleHash": "sha256:5173dee1cdf9acde8f9f3b6b9b01e6ab03d9fd000991cd2d55cd4721b1412de0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:279-1"
+      ],
+      "text": "Lemon"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2724178"
+    ],
+    "value": "Citrus × limon"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2724178"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "citrus-x-limon",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:279-EE",
+      "usda_part:279-EF",
+      "usda_part:279-EL",
+      "usda_part:279-EO",
+      "usda_part:279-PC"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:403": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Phellopterin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:404": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Bergamottin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:405": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 8-geranoxypsoralen",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:406": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: psoralen",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:407": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Bergapten",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:409": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Methoxsalen",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:410": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Isopimpinellin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:411": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: imperatorin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:412": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: oxypeucedanin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:615": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Lemon",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:279-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lemon»",
+      "license": "CC0"
+    },
+    "usda_part:279-EE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Pericarp Essent. Oil»",
+      "license": "CC0"
+    },
+    "usda_part:279-EF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit Essent. Oil»",
+      "license": "CC0"
+    },
+    "usda_part:279-EL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf Essent. Oil»",
+      "license": "CC0"
+    },
+    "usda_part:279-EO": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Essential Oil»",
+      "license": "CC0"
+    },
+    "usda_part:279-PC": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Pericarp»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10426": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10426",
+      "license": "CC0"
+    },
+    "usda_use:13455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13455",
+      "license": "CC0"
+    },
+    "usda_use:16179": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16179",
+      "license": "CC0"
+    },
+    "usda_use:16180": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16180",
+      "license": "CC0"
+    },
+    "usda_use:16543": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16543",
+      "license": "CC0"
+    },
+    "usda_use:17231": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17231",
+      "license": "CC0"
+    },
+    "usda_use:17797": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17797",
+      "license": "CC0"
+    },
+    "usda_use:17798": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17798",
+      "license": "CC0"
+    },
+    "usda_use:19448": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19448",
+      "license": "CC0"
+    },
+    "usda_use:22400": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22400",
+      "license": "CC0"
+    },
+    "usda_use:24279": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24279",
+      "license": "CC0"
+    },
+    "usda_use:24280": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24280",
+      "license": "CC0"
+    },
+    "usda_use:29462": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29462",
+      "license": "CC0"
+    },
+    "usda_use:41081": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41081",
+      "license": "CC0"
+    },
+    "usda_use:42750": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42750",
+      "license": "CC0"
+    },
+    "usda_use:42985": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42985",
+      "license": "CC0"
+    },
+    "usda_use:43344": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43344",
+      "license": "CC0"
+    },
+    "usda_use:46577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46577",
+      "license": "CC0"
+    },
+    "usda_use:47148": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47148",
+      "license": "CC0"
+    },
+    "usda_use:4754": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4754",
+      "license": "CC0"
+    },
+    "usda_use:47563": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47563",
+      "license": "CC0"
+    },
+    "usda_use:57394": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57394",
+      "license": "CC0"
+    },
+    "usda_use:57395": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57395",
+      "license": "CC0"
+    },
+    "usda_use:57401": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57401",
+      "license": "CC0"
+    },
+    "usda_use:57411": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57411",
+      "license": "CC0"
+    },
+    "usda_use:64755": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64755",
+      "license": "CC0"
+    },
+    "usda_use:66601": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66601",
+      "license": "CC0"
+    },
+    "usda_use:68489": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68489",
+      "license": "CC0"
+    },
+    "usda_use:70838": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70838",
+      "license": "CC0"
+    },
+    "usda_use:72814": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72814",
+      "license": "CC0"
+    },
+    "usda_use:75991": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75991",
+      "license": "CC0"
+    },
+    "usda_use:76483": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76483",
+      "license": "CC0"
+    },
+    "usda_use:77689": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77689",
+      "license": "CC0"
+    },
+    "wcvp:2724178": {
+      "dataset": "wcvp",
+      "label": "WCVP: Citrus × limon (L.) Osbeck",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2724221": {
+      "dataset": "wcvp",
+      "label": "WCVP: Citrus medica var. limon L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2724222": {
+      "dataset": "wcvp",
+      "label": "WCVP: Citrus medica f. limon (L.) M.Hiroe",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3278656": {
+      "dataset": "wcvp",
+      "label": "WCVP: Citrus medica subsp. limon (L.) Cout.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[5]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[6]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[7]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[8]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Woi.Syria» no tiene candidata en el paquete y queda sin resolver.",
+      "target": "traditionalUses[10]"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:403",
+      "efsa_botanic:404",
+      "efsa_botanic:405",
+      "efsa_botanic:406",
+      "efsa_botanic:407",
+      "efsa_botanic:409",
+      "efsa_botanic:410",
+      "efsa_botanic:411",
+      "efsa_botanic:412",
+      "efsa_endpoint:615"
+    ],
+    "text": "La EFSA registra en la cáscara del fruto furocumarinas fototóxicas incluidas en su lista de sustancias de alta preocupación: 8-geranoxipsoraleno, bergamotina, bergapteno, isopimpinelina, metoxaleno, felopterina, imperatorina, oxipeucedanina y psoraleno. Un estudio recogido por la EFSA en semillas describe un efecto antifertilidad reversible en ratones hembra."
+  },
+  "scientificName": {
+    "authors": "(L.) Osbeck",
+    "name": "Citrus × limon",
+    "refs": [
+      "wcvp:2724178"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) M.Hiroe",
+      "name": "Citrus medica f. limon",
+      "refs": [
+        "wcvp:2724222"
+      ]
+    },
+    {
+      "authors": "(L.) Cout.",
+      "name": "Citrus medica subsp. limon",
+      "refs": [
+        "wcvp:3278656"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Citrus medica var. limon",
+      "refs": [
+        "wcvp:2724221"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17797",
+        "usda_use:17798",
+        "usda_use:57394",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24279",
+        "usda_use:24280",
+        "usda_use:70838",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10426",
+        "usda_use:66601",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Kurdistán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16179",
+        "usda_use:16180",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16543",
+        "usda_use:68489",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19448",
+        "usda_use:57395",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29462",
+        "usda_use:57401",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41081",
+        "usda_use:75991",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42750",
+        "usda_use:76483",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46577",
+        "usda_use:77689",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47563",
+        "usda_use:57411",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64755",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Arteriosclerosis",
+      "activitySource": "Arteriosclerosis",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4754",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Callo",
+      "activitySource": "Corn",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Perú"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13455",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17231",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: epilepsia",
+      "activitySource": "Epilepsy",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        }
+      ],
+      "countries": [
+        "Gabón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22400",
+        "usda_reference:Ayensu"
+      ]
+    },
+    {
+      "activity": "Ictericia",
+      "activitySource": "Jaundice",
+      "citations": [
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72814",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42985",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Champú",
+      "activitySource": "Shampoo",
+      "citations": [
+        {
+          "key": "Eb20: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 22"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43344",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Eb22: 311",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 311"
+        }
+      ],
+      "countries": [
+        "Ecuador (Jívaro)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47148",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

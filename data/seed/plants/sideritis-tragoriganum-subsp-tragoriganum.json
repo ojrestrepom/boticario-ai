@@ -1,0 +1,133 @@
+{
+  "aliases": [
+    "sideritis-mugronensis"
+  ],
+  "bundleHash": "sha256:811062cbe08b428d40617519c75d8ced7f08a5c3df6d79e3f60a2280130f5a15",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Sideritis mugronensis"
+      ],
+      "text": "rabogato"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Sideritis mugronensis"
+    ],
+    "value": "Planta de la familia de las lamiáceas, endémica del sureste ibérico. A veces se considera subespecie de Sideritis tragoriganum."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Sideritis mugronensis"
+    ],
+    "value": "Rabogato"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3286659"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "sideritis-tragoriganum-subsp-tragoriganum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Guillermo García-Saúco",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sideritis_mugronensis_Borja.jpg",
+    "refs": [
+      "commons:File:Sideritis mugronensis Borja.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Sideritis_mugronensis_Borja.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2048-FL",
+      "usda_part:2048-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3286659"
+    ],
+    "value": "Suroeste de Europa"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sideritis mugronensis Borja.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sideritis mugronensis Borja.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Sideritis_mugronensis_Borja.jpg"
+    },
+    "usda_part:2048-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:2048-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:3286659": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sideritis tragoriganum subsp. tragoriganum",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Sideritis mugronensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Sideritis mugronensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Sideritis_mugronensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Sideritis tragoriganum subsp. tragoriganum",
+    "refs": [
+      "wcvp:3286659"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

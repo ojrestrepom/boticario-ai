@@ -1,0 +1,305 @@
+{
+  "aliases": [
+    "cassia-marilandica"
+  ],
+  "bundleHash": "sha256:d51f3b769685cadf4ae5ad1bcfebf168a6c645ba36e087949c646433c144acc0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:216-1"
+      ],
+      "text": "Wild Senna"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2590624"
+    ],
+    "value": "Senna marilandica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2590624"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "senna-marilandica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:216-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2590624"
+    ],
+    "value": "Regiones del centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:216-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wild Senna»",
+      "license": "CC0"
+    },
+    "usda_part:216-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11082": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11082",
+      "license": "CC0"
+    },
+    "usda_use:11088": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11088",
+      "license": "CC0"
+    },
+    "usda_use:24203": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24203",
+      "license": "CC0"
+    },
+    "usda_use:24204": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24204",
+      "license": "CC0"
+    },
+    "usda_use:31373": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31373",
+      "license": "CC0"
+    },
+    "usda_use:38932": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38932",
+      "license": "CC0"
+    },
+    "usda_use:44531": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44531",
+      "license": "CC0"
+    },
+    "usda_use:77042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77042",
+      "license": "CC0"
+    },
+    "wcvp:2590624": {
+      "dataset": "wcvp",
+      "label": "WCVP: Senna marilandica (L.) Link",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2703517": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cassia marilandica L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2773569": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ditremexa marilandica (L.) Britton & Rose",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la parte «Plant», sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Link",
+    "name": "Senna marilandica",
+    "refs": [
+      "wcvp:2590624"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Cassia marilandica",
+      "refs": [
+        "wcvp:2703517"
+      ]
+    },
+    {
+      "authors": "(L.) Britton & Rose",
+      "name": "Ditremexa marilandica",
+      "refs": [
+        "wcvp:2773569"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Eb28: 324",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 324"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos (Amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_reference:EB",
+        "usda_reference:Uphof",
+        "usda_use:11082",
+        "usda_use:11088"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb28: 324",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 324"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_use:24203",
+        "usda_use:24204"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Eb28: 324",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 324"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_use:44531",
+        "usda_use:77042"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_reference:Krochmal",
+        "usda_use:31373"
+      ]
+    },
+    {
+      "activity": "Cataplasma",
+      "activitySource": "Poultice",
+      "citations": [
+        {
+          "key": "Eb28: 324",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 324"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_reference:EB",
+        "usda_use:38932"
+      ]
+    }
+  ]
+}

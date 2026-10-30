@@ -1,0 +1,816 @@
+{
+  "aliases": [
+    "adhatoda-vasica"
+  ],
+  "bundleHash": "sha256:e073fe33579285918292fd37d41dcae0a10ddcb85af45724a5390afb2db40c5a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Justicia adhatoda"
+      ],
+      "text": "adhatoda de Ceilán"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:521-1"
+      ],
+      "text": "Malabar Nut"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Justicia adhatoda"
+    ],
+    "value": "Especie de planta medicinal de la familia de las acantáceas, nativa de Asia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Justicia adhatoda"
+    ],
+    "value": "Adhatoda de Ceilán"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2330223"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "justicia-adhatoda",
+  "image": {
+    "attributionRequired": true,
+    "author": "Hari Prasad Nadig from Bangalore, India",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Adhatoda_zeylanica_herbs_and_spices_of_India.jpg",
+    "refs": [
+      "commons:File:Adhatoda zeylanica herbs and spices of India.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Adhatoda_zeylanica_herbs_and_spices_of_India.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2330223"
+    ],
+    "value": "Subcontinente indio, Indochina y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:adhatodae-vasicae-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Adhatoda zeylanica herbs and spices of India.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Adhatoda zeylanica herbs and spices of India.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Adhatoda_zeylanica_herbs_and_spices_of_India.jpg"
+    },
+    "efsa_botanic:2391": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: peganine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2392": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Quinoline alkaloids",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:adhatodae-vasicae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Adhatodae vasicae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/adhatodae-vasicae-folium"
+    },
+    "ema_pdf:adhatodae-vasicae-folium:CONCLUSIONS": {
+      "dataset": "ema_pdf",
+      "label": "EMA: declaración pública de adhatodae-vasicae-folium, conclusiones",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-adhatoda-vasica-nees-folium-first-version_en.pdf"
+    },
+    "usda_common_name:521-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Malabar Nut»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Singh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Singh",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:13159": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13159",
+      "license": "CC0"
+    },
+    "usda_use:13637": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13637",
+      "license": "CC0"
+    },
+    "usda_use:13638": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13638",
+      "license": "CC0"
+    },
+    "usda_use:1588": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1588",
+      "license": "CC0"
+    },
+    "usda_use:1784": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1784",
+      "license": "CC0"
+    },
+    "usda_use:22886": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22886",
+      "license": "CC0"
+    },
+    "usda_use:22887": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22887",
+      "license": "CC0"
+    },
+    "usda_use:23966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23966",
+      "license": "CC0"
+    },
+    "usda_use:29910": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29910",
+      "license": "CC0"
+    },
+    "usda_use:30621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30621",
+      "license": "CC0"
+    },
+    "usda_use:45585": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45585",
+      "license": "CC0"
+    },
+    "usda_use:4996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4996",
+      "license": "CC0"
+    },
+    "usda_use:4997": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4997",
+      "license": "CC0"
+    },
+    "usda_use:4998": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4998",
+      "license": "CC0"
+    },
+    "usda_use:52881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52881",
+      "license": "CC0"
+    },
+    "usda_use:53008": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53008",
+      "license": "CC0"
+    },
+    "usda_use:56487": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56487",
+      "license": "CC0"
+    },
+    "usda_use:58932": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58932",
+      "license": "CC0"
+    },
+    "usda_use:58937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58937",
+      "license": "CC0"
+    },
+    "usda_use:58938": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58938",
+      "license": "CC0"
+    },
+    "usda_use:58940": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58940",
+      "license": "CC0"
+    },
+    "usda_use:64640": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64640",
+      "license": "CC0"
+    },
+    "usda_use:65038": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65038",
+      "license": "CC0"
+    },
+    "usda_use:65897": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65897",
+      "license": "CC0"
+    },
+    "usda_use:77435": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77435",
+      "license": "CC0"
+    },
+    "usda_use:8021": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8021",
+      "license": "CC0"
+    },
+    "usda_use:8022": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8022",
+      "license": "CC0"
+    },
+    "usda_use:8023": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8023",
+      "license": "CC0"
+    },
+    "usda_use:81490": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81490",
+      "license": "CC0"
+    },
+    "wcvp:2330223": {
+      "dataset": "wcvp",
+      "label": "WCVP: Justicia adhatoda L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2622539": {
+      "dataset": "wcvp",
+      "label": "WCVP: Adhatoda vasica Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2780673": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ecbolium adhatoda (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2818741": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gendarussa adhadota (L.) Steud.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2911866": {
+      "dataset": "wcvp",
+      "label": "WCVP: Adhatoda zeylanica Medik.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Justicia adhatoda": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Justicia adhatoda",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Justicia_adhatoda"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Adhatoda vasica) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[5]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[6]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[10]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Hay claves de cita sin candidata que corresponda (Woi.Syria); queda pendiente de revisión humana.",
+      "target": "traditionalUses[11]"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "ema_pdf:adhatodae-vasicae-folium:CONCLUSIONS",
+      "efsa_botanic:2392",
+      "efsa_botanic:2391"
+    ],
+    "text": "La EMA tiene una declaración pública para la hoja: el comité considera que, con la información disponible sobre el uso tradicional y las dudas sobre seguridad reproductiva, no puede establecerse una monografía comunitaria salvo que se aporte información adicional. EFSA registra alcaloides quinolínicos y peganina en las hojas como sustancias de evidencia."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Justicia adhatoda",
+    "refs": [
+      "wcvp:2330223"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Nees",
+      "name": "Adhatoda vasica",
+      "refs": [
+        "wcvp:2622539"
+      ]
+    },
+    {
+      "authors": "Medik.",
+      "name": "Adhatoda zeylanica",
+      "refs": [
+        "wcvp:2911866"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Ecbolium adhatoda",
+      "refs": [
+        "wcvp:2780673"
+      ]
+    },
+    {
+      "authors": "(L.) Steud.",
+      "name": "Gendarussa adhadota",
+      "refs": [
+        "wcvp:2818741"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Eb25: 418",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 418"
+        },
+        {
+          "key": "Eb33: 188",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 188"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India",
+        "Nepal"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4996",
+        "usda_use:4997",
+        "usda_use:4998",
+        "usda_use:56487",
+        "usda_use:65038",
+        "usda_reference:EB",
+        "usda_reference:Singh",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Eb24: 256",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 256"
+        },
+        {
+          "key": "Eb33: 188",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 188"
+        },
+        {
+          "key": "Singh",
+          "ref": "usda_reference:Singh",
+          "text": "Singh, M.P., et al. 1979. Medicinal plants of Nepal - Retrospects and prospects. Economic Botany 33(2): 185-198."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India",
+        "Nepal"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8021",
+        "usda_use:8022",
+        "usda_use:8023",
+        "usda_use:58932",
+        "usda_use:65897",
+        "usda_reference:EB",
+        "usda_reference:Singh",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb24: 256",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 256"
+        },
+        {
+          "key": "Eb25: 418",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 418"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13637",
+        "usda_use:13638",
+        "usda_use:58938",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22886",
+        "usda_use:22887",
+        "usda_use:58940",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23966",
+        "usda_use:81490",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45585",
+        "usda_use:77435",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tuberculosis",
+      "activitySource": "Tuberculosis",
+      "citations": [
+        {
+          "key": "Eb24: 256",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 256"
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13159",
+        "usda_use:58937",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Alguicida",
+      "activitySource": "Algicide",
+      "citations": [
+        {
+          "key": "Eb24: 394",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 394"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1588",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1784",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:64640"
+      ]
+    },
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:29910"
+      ]
+    },
+    {
+      "activity": "Ictericia",
+      "activitySource": "Jaundice",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:30621"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de abdomen",
+      "activitySource": "Tumor(Abdomen)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52881",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de glándulas",
+      "activitySource": "Tumor(Glands)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53008",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

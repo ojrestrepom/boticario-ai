@@ -1,0 +1,17 @@
+PASA  135 plantas, cada una una vez 
+PASA  areas = union de las areas de todas sus subareas (como conjunto) 
+PASA  plantas en dos subareas aparecen una vez con areas reunidas 32 plantas
+--- ejemplo de planta con areas reunidas
+GET /v1/goals/otros-objetivos/plants (eucalyptus-globulus)
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "id": "eucalyptus-globulus",
+ "areas": [
+  "Dolor e inflamación"
+ ],
+ "safetyLevel": null,
+ "hasSafety": true
+}
+
+OBS   32 plantas en mas de una subarea traen mas de un area en la union; ejemplo vaccinium-myrtillus: ['Trastornos circulatorios', 'Trastornos de boca y garganta', 'Trastornos gastrointestinales']

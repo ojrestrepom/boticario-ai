@@ -1,0 +1,191 @@
+{
+  "aliases": [
+    "sclerocarya-caffra"
+  ],
+  "bundleHash": "sha256:4cb48d9da205f25698628d537e92fd11ca746ea58a70c5093d4fe8c2f51dff27",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:912-1"
+      ],
+      "text": "Marula"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wfo:wfo-0000434909"
+    ],
+    "value": "Sclerocarya birrea subsp. afra"
+  },
+  "family": {
+    "refs": [
+      "wfo:wfo-0000434909"
+    ],
+    "value": "Anacardiaceae"
+  },
+  "goals": [],
+  "id": "sclerocarya-birrea-subsp-afra",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:912-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Marula»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:17048": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17048",
+      "license": "CC0"
+    },
+    "usda_use:6133": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6133",
+      "license": "CC0"
+    },
+    "usda_use:61383": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61383",
+      "license": "CC0"
+    },
+    "usda_use:72718": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72718",
+      "license": "CC0"
+    },
+    "wfo:wfo-0000434909": {
+      "dataset": "wfo",
+      "label": "WFO: Sclerocarya birrea subsp. afra (Sond.) Kokwaro",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "respaldo-wfo",
+      "message": "El aceptado viene del respaldo de WFO, no de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Sond.) Kokwaro",
+    "name": "Sclerocarya birrea subsp. afra",
+    "refs": [
+      "wfo:wfo-0000434909"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Intoxicante",
+      "activitySource": "Intoxicant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "África",
+        "Sudáfrica"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61383",
+        "usda_use:72718",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6133",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17048",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

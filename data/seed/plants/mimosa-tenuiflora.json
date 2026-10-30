@@ -1,0 +1,147 @@
+{
+  "aliases": [
+    "mimosa-hostilis"
+  ],
+  "bundleHash": "sha256:00d330f3c47753dee7a774d01d4424f422fbc925939398b8304d8e21a44b0b46",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:624-1"
+      ],
+      "text": "Jurema"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:624-2"
+      ],
+      "text": "Yurema"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Mimosa tenuiflora"
+    ],
+    "value": "Árbol espinoso de la familia de las fabáceas, presente en América, de corteza castaño rojiza y entre 4 y 6 m de altura. Tiene espinas cortas, erectas y muy punzantes, y flores blanco-amarillentas, por lo general en espiga cilíndrica."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2374136"
+    ],
+    "value": "Mimosa tenuiflora"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2374136"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "mimosa-tenuiflora",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alessandro Sil",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Jurema-preta.jpg",
+    "refs": [
+      "commons:File:Jurema-preta.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Jurema-preta.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2374136"
+    ],
+    "value": "Brasil, América Central, México, norte de Sudamérica y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Jurema-preta.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Jurema-preta.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Jurema-preta.jpg"
+    },
+    "usda_common_name:624-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Jurema»",
+      "license": "CC0"
+    },
+    "usda_common_name:624-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yurema»",
+      "license": "CC0"
+    },
+    "wcvp:2374136": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mimosa tenuiflora (Willd.) Poir.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2614055": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acacia tenuiflora Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Mimosa tenuiflora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Mimosa tenuiflora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Mimosa_tenuiflora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Willd.) Poir.",
+    "name": "Mimosa tenuiflora",
+    "refs": [
+      "wcvp:2374136"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Willd.",
+      "name": "Acacia tenuiflora",
+      "refs": [
+        "wcvp:2614055"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

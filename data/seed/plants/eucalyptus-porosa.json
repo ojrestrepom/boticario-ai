@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5287167eeba2d12fee388b091cbf0bf64a45649e94ec551b9c1e293b8fe1caf5",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73689"
+    ],
+    "value": "Eucalyptus porosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73689"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-porosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Sydney Oats",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_porosa_(Mallee_Box)_(3964634616).jpg",
+    "refs": [
+      "commons:File:Eucalyptus porosa (Mallee Box) (3964634616).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Eucalyptus_porosa_%28Mallee_Box%29_%283964634616%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2111-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73689"
+    ],
+    "value": "Australia (Nueva Gales del Sur y Australia Meridional y Victoria)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus porosa (Mallee Box) (3964634616).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus porosa (Mallee Box) (3964634616).jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_porosa_(Mallee_Box)_(3964634616).jpg"
+    },
+    "usda_part:2111-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:73689": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus porosa F.Muell. ex Miq.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F.Muell. ex Miq.",
+    "name": "Eucalyptus porosa",
+    "refs": [
+      "wcvp:73689"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,148 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7f516f8e2021ab3fbf5ea7b376c77e5534a973b1659e10aba0fa0fa60696b832",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2693561"
+    ],
+    "value": "Calopogonium caeruleum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2693561"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "calopogonium-caeruleum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Dick Culbert from Gibsons, B.C., Canada",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Calopogonium_caeruleum_(24707306310).jpg",
+    "refs": [
+      "commons:File:Calopogonium caeruleum (24707306310).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Calopogonium_caeruleum_%2824707306310%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2693561"
+    ],
+    "value": "Brasil, el Caribe, América Central, México y Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Calopogonium caeruleum (24707306310).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Calopogonium caeruleum (24707306310).jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Calopogonium_caeruleum_(24707306310).jpg"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:44188": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44188",
+      "license": "CC0"
+    },
+    "wcvp:2597115": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stenolobium caeruleum Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2693561": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calopogonium caeruleum (Benth.) C.Wright",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2749024": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cyanostremma caeruleum (Benth.) Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth.) C.Wright",
+    "name": "Calopogonium caeruleum",
+    "refs": [
+      "wcvp:2693561"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth.) Benth.",
+      "name": "Cyanostremma caeruleum",
+      "refs": [
+        "wcvp:2749024"
+      ]
+    },
+    {
+      "authors": "Benth.",
+      "name": "Stenolobium caeruleum",
+      "refs": [
+        "wcvp:2597115"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Jabón",
+      "activitySource": "Soap",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "El Salvador"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44188",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

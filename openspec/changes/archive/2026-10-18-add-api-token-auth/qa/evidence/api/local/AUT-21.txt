@@ -1,0 +1,26 @@
+# AUT-21 Separadores entre esquema y token (objetivo: local)
+
+### GET /v1/plants?limit=2   [dos espacios]
+status=200
+content-type: application/json
+content-length: 336
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [tabulador]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [token con espacio final]
+status=200
+content-type: application/json
+content-length: 336
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}

@@ -1,0 +1,144 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7811dc8bae263800e48fc75e2e472bc34379f3dce59dd9ad02c4a2f19b062ca5",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2069-1"
+      ],
+      "text": "'Anatolian' Thyme"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:204611",
+      "wfo:wfo-0000323876"
+    ],
+    "value": "Thymus cilicicus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:204611"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "thymus-cilicicus",
+  "image": {
+    "attributionRequired": true,
+    "author": "阿橋 HQ",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E9%87%8C%E9%A6%99%E5%B1%AC_Thymus_cilicicus_-%E8%8B%B1%E6%A0%BC%E8%98%AD_Wisley_Gardens,_England-_(9198099987).jpg",
+    "refs": [
+      "commons:File:百里香屬 Thymus cilicicus -英格蘭 Wisley Gardens, England- (9198099987).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/%E7%99%BE%E9%87%8C%E9%A6%99%E5%B1%AC_Thymus_cilicicus_-%E8%8B%B1%E6%A0%BC%E8%98%AD_Wisley_Gardens%2C_England-_%289198099987%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2069-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:204611"
+    ],
+    "value": "Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:百里香屬 Thymus cilicicus -英格蘭 Wisley Gardens, England- (9198099987).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:百里香屬 Thymus cilicicus -英格蘭 Wisley Gardens, England- (9198099987).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:%E7%99%BE%E9%87%8C%E9%A6%99%E5%B1%AC_Thymus_cilicicus_-%E8%8B%B1%E6%A0%BC%E8%98%AD_Wisley_Gardens,_England-_(9198099987).jpg"
+    },
+    "usda_common_name:2069-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «'Anatolian' Thyme»",
+      "license": "CC0"
+    },
+    "usda_part:2069-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:143775": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum cilicicum (Boiss. & Balansa) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:204611": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus cilicicus Boiss. & Balansa",
+      "license": "CC BY 3.0"
+    },
+    "wfo:wfo-0000323876": {
+      "dataset": "wfo",
+      "label": "WFO: Thymus cilicicus Boiss. & Balansa",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boiss. & Balansa",
+    "name": "Thymus cilicicus",
+    "refs": [
+      "wcvp:204611",
+      "wfo:wfo-0000323876"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Boiss. & Balansa) Kuntze",
+      "name": "Origanum cilicicum",
+      "refs": [
+        "wcvp:143775"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

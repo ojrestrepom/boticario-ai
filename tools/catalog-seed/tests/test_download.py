@@ -1,0 +1,183 @@
+import contextlib
+import hashlib
+import io
+import json
+import os
+import tempfile
+import unittest
+from unittest import mock
+
+import support  # noqa: F401  (prepara sys.path)
+from support import PAYLOAD, make_source
+
+from catalog_seed import cli
+from catalog_seed.download import download_source, pin_source, require_verified, require_verified_files
+from catalog_seed.sources import SourceError, load_sources, validate_source
+
+
+def no_network(*args, **kwargs):
+    raise AssertionError("se intentó abrir la red")
+
+
+class DownloadTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.cache = self.tmp.name
+
+    def place(self, source, payload):
+        path = source.cache_path(self.cache)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+        return path
+
+    def block_network(self):
+        for target in ("urllib.request.urlopen", "socket.socket.connect", "socket.create_connection"):
+            patcher = mock.patch(target, side_effect=no_network)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+
+    def test_intact_input_is_used_without_network(self):
+        source = make_source()
+        path = self.place(source, PAYLOAD)
+        self.block_network()
+        self.assertEqual(require_verified(source, self.cache), path)
+        self.assertEqual(download_source(source, self.cache), ("cached", path))
+
+    def test_altered_input_fails_naming_source_and_download_step(self):
+        source = make_source()
+        self.place(source, PAYLOAD.replace(b"prueba", b"PRUEBA"))
+        self.block_network()
+        with self.assertRaises(SourceError) as ctx:
+            require_verified(source, self.cache)
+        message = str(ctx.exception)
+        self.assertIn("usda", message)
+        self.assertIn("alterado", message)
+        self.assertIn("download", message)
+        with self.assertRaises(SourceError):
+            download_source(source, self.cache)
+
+    def test_missing_input_fails_indicating_download_without_network(self):
+        source = make_source()
+        self.block_network()
+        with self.assertRaises(SourceError) as ctx:
+            require_verified(source, self.cache)
+        self.assertIn("usda", str(ctx.exception))
+        self.assertIn("download --source usda", str(ctx.exception))
+
+    def test_cli_offline_missing_fails_without_network(self):
+        self.block_network()
+        sources_file = os.path.join(self.tmp.name, "sources.json")
+        source = make_source()
+        with open(sources_file, "w") as handle:
+            json.dump({"sources": [source.data]}, handle)
+        err = io.StringIO()
+        with contextlib.redirect_stderr(err):
+            code = cli.main(["--sources", sources_file, "--cache-dir", self.cache, "download", "--offline"])
+        self.assertEqual(code, 1)
+        self.assertIn("download", err.getvalue())
+
+    def test_download_stores_verified_file(self):
+        source = make_source()
+        calls = []
+
+        def fake_fetch(url, destination):
+            calls.append(url)
+            with open(destination, "wb") as handle:
+                handle.write(PAYLOAD)
+
+        status, path = download_source(source, self.cache, fetch=fake_fetch)
+        self.assertEqual(status, "downloaded")
+        self.assertEqual(path.read_bytes(), PAYLOAD)
+        status, _ = download_source(source, self.cache, fetch=fake_fetch)
+        self.assertEqual(status, "cached")
+        self.assertEqual(len(calls), 1)
+
+    def test_bad_download_is_not_kept(self):
+        source = make_source()
+
+        def bad_fetch(url, destination):
+            with open(destination, "wb") as handle:
+                handle.write(b"otra cosa")
+
+        with self.assertRaises(SourceError):
+            download_source(source, self.cache, fetch=bad_fetch)
+        self.assertFalse(source.cache_path(self.cache).exists())
+        self.assertEqual(os.listdir(source.cache_path(self.cache).parent), [])
+
+    def test_disabled_source_is_not_downloaded(self):
+        source = make_source(enabled=False)
+        self.block_network()
+        self.assertEqual(download_source(source, self.cache), ("disabled", None))
+        self.assertFalse(source.cache_path(self.cache).exists())
+
+    def multi_source(self, pinned=True):
+        files = []
+        for name, payload in (("a.xls", b"aaaa"), ("b.xls", b"bbbbbb")):
+            files.append({
+                "url": "https://example.invalid/" + name, "filename": name,
+                "size": len(payload) if pinned else None,
+                "checksum": {"algorithm": "md5", "value": hashlib.md5(payload).hexdigest()} if pinned else None})
+        data = {"id": "efsa", "name": "Fixture", "pageUrl": "https://example.invalid/", "version": "v", "license": "CC BY 4.0", "attribution": "x", "enabled": True, "files": files}
+        return validate_source(data), {"a.xls": b"aaaa", "b.xls": b"bbbbbb"}
+
+    def test_multi_file_download_and_cache(self):
+        source, payloads = self.multi_source()
+        calls = []
+
+        def fetch(url, destination):
+            calls.append(url)
+            with open(destination, "wb") as handle:
+                handle.write(payloads[url.rsplit("/", 1)[1]])
+
+        self.assertEqual(download_source(source, self.cache, fetch=fetch)[0], "downloaded")
+        self.assertEqual(download_source(source, self.cache, fetch=fetch)[0], "cached")
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(len(require_verified_files(source, self.cache)), 2)
+
+    def test_multi_file_one_altered_file_fails(self):
+        source, payloads = self.multi_source()
+        for source_file in source.files:
+            path = source_file.cache_path(self.cache)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(payloads[source_file.filename])
+        source.files[1].cache_path(self.cache).write_bytes(b"cambiado")
+        self.block_network()
+        with self.assertRaises(SourceError) as ctx:
+            require_verified_files(source, self.cache)
+        self.assertIn("b.xls", str(ctx.exception))
+
+    def test_unpinned_source_refuses_to_download_and_points_to_pin(self):
+        source, _ = self.multi_source(pinned=False)
+        self.block_network()
+        with self.assertRaises(SourceError) as ctx:
+            download_source(source, self.cache)
+        self.assertIn("pin --source efsa", str(ctx.exception))
+        with self.assertRaises(SourceError):
+            require_verified_files(source, self.cache)
+
+    def test_pin_registers_size_and_sha256_and_keeps_the_file_cached(self):
+        source, payloads = self.multi_source(pinned=False)
+        sources_file = os.path.join(self.tmp.name, "sources.json")
+        with open(sources_file, "w") as handle:
+            json.dump({"sources": [source.data]}, handle)
+
+        def fetch(url, destination):
+            with open(destination, "wb") as handle:
+                handle.write(payloads[url.rsplit("/", 1)[1]])
+
+        self.assertTrue(pin_source(source, sources_file, self.cache, fetch=fetch,
+                                   describe=lambda s, paths: "snapshot de prueba"))
+        reloaded = load_sources(sources_file)[0]
+        self.assertTrue(reloaded.pinned)
+        self.assertEqual(reloaded.version, "snapshot de prueba")
+        self.assertEqual(reloaded.files[1].size, 6)
+        self.assertEqual(reloaded.files[1].algorithm, "sha256")
+        self.assertEqual(reloaded.files[1].checksum, hashlib.sha256(b"bbbbbb").hexdigest())
+        self.block_network()
+        self.assertEqual(download_source(reloaded, self.cache)[0], "cached")
+        self.assertFalse(pin_source(reloaded, sources_file, self.cache))
+
+
+if __name__ == "__main__":
+    unittest.main()

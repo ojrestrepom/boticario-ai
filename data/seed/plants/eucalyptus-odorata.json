@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:15f2599a689c87be60256a4d6e7eb985ae7e37533e59a75cd4e752085039a603",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73480"
+    ],
+    "value": "Eucalyptus odorata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73480"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-odorata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ian Brooker and David Kleinig",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_odorata.jpg",
+    "refs": [
+      "commons:File:Eucalyptus odorata.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Eucalyptus_odorata.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2112-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73480"
+    ],
+    "value": "Australia (Australia Meridional y Victoria)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus odorata.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus odorata.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_odorata.jpg"
+    },
+    "usda_part:2112-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:73480": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus odorata Behr",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Behr",
+    "name": "Eucalyptus odorata",
+    "refs": [
+      "wcvp:73480"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

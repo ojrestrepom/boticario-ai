@@ -1,0 +1,105 @@
+{
+  "aliases": [
+    "coleus-ignarius"
+  ],
+  "bundleHash": "sha256:726c47e4d33b63c8b8494ae4a54d01f6770a47dc3636a2a113daf338f59f9e8b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1990-1"
+      ],
+      "text": "Coleus"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:45968"
+    ],
+    "value": "Coleus igniarius"
+  },
+  "family": {
+    "refs": [
+      "wcvp:45968"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "coleus-igniarius",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:45968"
+    ],
+    "value": "Nativa de la península arábiga, África tropical oriental y el noreste de África tropical."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1990-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Coleus»",
+      "license": "CC0"
+    },
+    "wcvp:158173": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plectranthus igniarius (Schweinf.) Agnew",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:45968": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coleus igniarius Schweinf.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schweinf.",
+    "name": "Coleus igniarius",
+    "refs": [
+      "wcvp:45968"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Schweinf.) Agnew",
+      "name": "Plectranthus igniarius",
+      "refs": [
+        "wcvp:158173"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

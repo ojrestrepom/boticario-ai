@@ -1,0 +1,844 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b7efcf5f9a8d3e6952f67492086c478f968d2f3291d26fae1125d5b2d3a3b4f7",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Phellodendron amurense"
+      ],
+      "text": "Árbol de Amur"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Phellodendron amurense"
+      ],
+      "text": "Alcornoque de Amur"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:720-3"
+      ],
+      "text": "Amur Cork Tree"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:720-4"
+      ],
+      "text": "Huang Bai"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:720-1"
+      ],
+      "text": "Huang Po"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:720-2"
+      ],
+      "text": "Po Mu"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Phellodendron amurense"
+    ],
+    "value": "Planta medicinal de la familia Rutaceae, conocida como árbol de Amur o alcornoque de Amur; es una de las 50 hierbas fundamentales de la medicina tradicional china."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Phellodendron amurense"
+    ],
+    "value": "Árbol de Amur"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2541602"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "phellodendron-amurense",
+  "image": {
+    "attributionRequired": true,
+    "author": "Bruce Marlin",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Phellodendron_amurense_Morton.jpg",
+    "refs": [
+      "commons:File:Phellodendron amurense Morton.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Phellodendron_amurense_Morton.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:720-FR"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2541602"
+    ],
+    "value": "China, Asia oriental y el Lejano Oriente ruso"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Phellodendron amurense Morton.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Phellodendron amurense Morton.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Phellodendron_amurense_Morton.jpg"
+    },
+    "efsa_botanic:1006": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: magnoflorine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1007": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: jatrorrhizine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1008": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: berberine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1009": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: palmatine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:720-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Huang Po»",
+      "license": "CC0"
+    },
+    "usda_common_name:720-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Po Mu»",
+      "license": "CC0"
+    },
+    "usda_common_name:720-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Amur Cork Tree»",
+      "license": "CC0"
+    },
+    "usda_common_name:720-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Huang Bai»",
+      "license": "CC0"
+    },
+    "usda_part:720-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:13058": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13058",
+      "license": "CC0"
+    },
+    "usda_use:14619": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14619",
+      "license": "CC0"
+    },
+    "usda_use:1819": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1819",
+      "license": "CC0"
+    },
+    "usda_use:18454": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18454",
+      "license": "CC0"
+    },
+    "usda_use:20202": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20202",
+      "license": "CC0"
+    },
+    "usda_use:20676": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20676",
+      "license": "CC0"
+    },
+    "usda_use:30751": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30751",
+      "license": "CC0"
+    },
+    "usda_use:3490": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3490",
+      "license": "CC0"
+    },
+    "usda_use:3491": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3491",
+      "license": "CC0"
+    },
+    "usda_use:3492": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3492",
+      "license": "CC0"
+    },
+    "usda_use:3493": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3493",
+      "license": "CC0"
+    },
+    "usda_use:3732": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3732",
+      "license": "CC0"
+    },
+    "usda_use:43812": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43812",
+      "license": "CC0"
+    },
+    "usda_use:47847": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47847",
+      "license": "CC0"
+    },
+    "usda_use:47848": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47848",
+      "license": "CC0"
+    },
+    "usda_use:47849": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47849",
+      "license": "CC0"
+    },
+    "usda_use:47850": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47850",
+      "license": "CC0"
+    },
+    "usda_use:60161": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60161",
+      "license": "CC0"
+    },
+    "usda_use:60162": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60162",
+      "license": "CC0"
+    },
+    "usda_use:60169": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60169",
+      "license": "CC0"
+    },
+    "usda_use:65675": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65675",
+      "license": "CC0"
+    },
+    "usda_use:67980": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67980",
+      "license": "CC0"
+    },
+    "usda_use:68602": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68602",
+      "license": "CC0"
+    },
+    "usda_use:69485": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69485",
+      "license": "CC0"
+    },
+    "usda_use:69794": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69794",
+      "license": "CC0"
+    },
+    "usda_use:70211": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70211",
+      "license": "CC0"
+    },
+    "usda_use:72843": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72843",
+      "license": "CC0"
+    },
+    "usda_use:7337": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7337",
+      "license": "CC0"
+    },
+    "usda_use:7338": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7338",
+      "license": "CC0"
+    },
+    "usda_use:7339": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7339",
+      "license": "CC0"
+    },
+    "usda_use:76802": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76802",
+      "license": "CC0"
+    },
+    "usda_use:81872": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81872",
+      "license": "CC0"
+    },
+    "usda_use:9673": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9673",
+      "license": "CC0"
+    },
+    "wcvp:2541602": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phellodendron amurense Rupr.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Phellodendron amurense": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Phellodendron amurense",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Phellodendron_amurense"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Fruit), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:1008",
+      "efsa_botanic:1007",
+      "efsa_botanic:1006",
+      "efsa_botanic:1009"
+    ],
+    "text": "EFSA registra en la corteza las sustancias berberina, jatrorrizina, magnoflorina y palmatina en su compendio de botánicos, como sustancias de evidencia."
+  },
+  "scientificName": {
+    "authors": "Rupr.",
+    "name": "Phellodendron amurense",
+    "refs": [
+      "wcvp:2541602"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antiinflamatorio",
+      "activitySource": "Antiphlogistic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3490",
+        "usda_use:3491",
+        "usda_use:3492",
+        "usda_use:3493",
+        "usda_use:60161",
+        "usda_reference:Takeda",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47847",
+        "usda_use:47848",
+        "usda_use:47849",
+        "usda_use:47850",
+        "usda_use:60169",
+        "usda_reference:Takeda",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Principio amargo",
+      "activitySource": "Bitter-Principle",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7337",
+        "usda_use:7338",
+        "usda_use:7339",
+        "usda_use:65675",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Ictericia",
+      "activitySource": "Jaundice",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30751",
+        "usda_use:72843",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón (ainu)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43812",
+        "usda_use:76802",
+        "usda_reference:Keys",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1819",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3732",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81872",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de cuello uterino",
+      "activitySource": "Cancer(Cervix)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9673",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Chancro",
+      "activitySource": "Chancre",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60162",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Conjuntivitis",
+      "activitySource": "Conjunctivitis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13058",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Cistitis",
+      "activitySource": "Cystitis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14619",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67980",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68602",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18454",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69485",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20202",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Disuria",
+      "activitySource": "Dysuria",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20676",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Eccema",
+      "activitySource": "Eczema",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69794",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Enteritis",
+      "activitySource": "Enteritis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70211",
+        "usda_reference:Keys"
+      ]
+    }
+  ]
+}

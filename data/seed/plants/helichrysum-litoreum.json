@@ -1,0 +1,147 @@
+{
+  "aliases": [
+    "helichrysum-angustifolium"
+  ],
+  "bundleHash": "sha256:e063ac1721a6d318a2a55e7281743ee3d654b7a52c2b7cc47bb8949317159172",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:468-1"
+      ],
+      "text": "Everlasting"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:468-2"
+      ],
+      "text": "Immortelle"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3091400"
+    ],
+    "value": "Helichrysum litoreum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3091400"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "helichrysum-litoreum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jean.claude",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Helichrysum_litoreum_(V%C3%A9suve_16).jpg",
+    "refs": [
+      "commons:File:Helichrysum litoreum (Vésuve 16).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Helichrysum_litoreum_%28V%C3%A9suve_16%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:468-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3091400"
+    ],
+    "value": "Nativa del sudeste de Europa (Italia y Sicilia)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Helichrysum litoreum (Vésuve 16).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Helichrysum litoreum (Vésuve 16).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Helichrysum_litoreum_(V%C3%A9suve_16).jpg"
+    },
+    "usda_common_name:468-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Everlasting»",
+      "license": "CC0"
+    },
+    "usda_common_name:468-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Immortelle»",
+      "license": "CC0"
+    },
+    "usda_part:468-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:3091399": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gnaphalium angustifolium Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3091400": {
+      "dataset": "wcvp",
+      "label": "WCVP: Helichrysum litoreum Guss.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Guss.",
+    "name": "Helichrysum litoreum",
+    "refs": [
+      "wcvp:3091400"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Lam.",
+      "name": "Gnaphalium angustifolium",
+      "refs": [
+        "wcvp:3091399"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

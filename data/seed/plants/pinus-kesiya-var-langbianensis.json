@@ -1,0 +1,129 @@
+{
+  "aliases": [
+    "pinus-insularis"
+  ],
+  "bundleHash": "sha256:5604e0ac49e1d893897c4c73f7b90128acdf7b5609b1406979f61d48123a3838",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1970-1"
+      ],
+      "text": "Khasi Pine"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:386167"
+    ],
+    "value": "Pinus kesiya var. langbianensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:386167"
+    ],
+    "value": "Pinaceae"
+  },
+  "goals": [],
+  "id": "pinus-kesiya-var-langbianensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:386167"
+    ],
+    "value": "Nativa de China, Indochina y Malesia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1970-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Khasi Pine»",
+      "license": "CC0"
+    },
+    "wcvp:379701": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus langbianensis A.Chev.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:379714": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus insularis var. langbianensis (A.Chev.) Silba",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:386167": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus kesiya var. langbianensis (A.Chev.) Gaussen ex Bui",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:459134": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus kesiya subsp. langbianensis (A.Chev.) Silba",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(A.Chev.) Gaussen ex Bui",
+    "name": "Pinus kesiya var. langbianensis",
+    "refs": [
+      "wcvp:386167"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(A.Chev.) Silba",
+      "name": "Pinus insularis var. langbianensis",
+      "refs": [
+        "wcvp:379714"
+      ]
+    },
+    {
+      "authors": "(A.Chev.) Silba",
+      "name": "Pinus kesiya subsp. langbianensis",
+      "refs": [
+        "wcvp:459134"
+      ]
+    },
+    {
+      "authors": "A.Chev.",
+      "name": "Pinus langbianensis",
+      "refs": [
+        "wcvp:379701"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

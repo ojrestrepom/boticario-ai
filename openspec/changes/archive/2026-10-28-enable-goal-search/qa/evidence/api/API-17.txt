@@ -1,0 +1,85 @@
+--- sin token
+GET /v1/goals
+(sin Authorization)
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "128"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/goals"
+}
+
+PASA  /v1/goals: sin token -> 401 problem+json con WWW-Authenticate: Bearer 401
+PASA  /v1/goals: el 401 cumple el esquema de error y no revela si el objetivo existe 
+PASA  /v1/goals: token incorrecto -> 401 problem+json 401
+PASA  /v1/goals: token con el ultimo caracter cambiado -> 401 
+PASA  /v1/goals: esquema Basic con el token correcto -> 401 401
+OBS   /v1/goals: esquema 'bearer' en minusculas -> 200
+PASA  /v1/goals: 'Bearer ' sin token -> 401 401
+PASA  /v1/goals: token en X-Api-Key (no admitido) -> 401 
+PASA  /v1/goals: token en la query (no admitido) -> 401 
+--- sin token
+GET /v1/goals/mejorar-el-sueno/plants
+(sin Authorization)
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "152"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/goals/mejorar-el-sueno/plants"
+}
+
+PASA  /v1/goals/mejorar-el-sueno/plants: sin token -> 401 problem+json con WWW-Authenticate: Bearer 401
+PASA  /v1/goals/mejorar-el-sueno/plants: el 401 cumple el esquema de error y no revela si el objetivo existe 
+PASA  /v1/goals/mejorar-el-sueno/plants: token incorrecto -> 401 problem+json 401
+PASA  /v1/goals/mejorar-el-sueno/plants: token con el ultimo caracter cambiado -> 401 
+PASA  /v1/goals/mejorar-el-sueno/plants: esquema Basic con el token correcto -> 401 401
+OBS   /v1/goals/mejorar-el-sueno/plants: esquema 'bearer' en minusculas -> 200
+PASA  /v1/goals/mejorar-el-sueno/plants: 'Bearer ' sin token -> 401 401
+PASA  /v1/goals/mejorar-el-sueno/plants: token en X-Api-Key (no admitido) -> 401 
+PASA  /v1/goals/mejorar-el-sueno/plants: token en la query (no admitido) -> 401 
+--- sin token
+GET /v1/goals/otros-objetivos/plants?subarea=digestion
+(sin Authorization)
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "151"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/goals/otros-objetivos/plants"
+}
+
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: sin token -> 401 problem+json con WWW-Authenticate: Bearer 401
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: el 401 cumple el esquema de error y no revela si el objetivo existe 
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: token incorrecto -> 401 problem+json 401
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: token con el ultimo caracter cambiado -> 401 
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: esquema Basic con el token correcto -> 401 401
+OBS   /v1/goals/otros-objetivos/plants?subarea=digestion: esquema 'bearer' en minusculas -> 200
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: 'Bearer ' sin token -> 401 401
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: token en X-Api-Key (no admitido) -> 401 
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: token en la query (no admitido) -> 401 
+--- sin token
+GET /v1/goals/no-existe/plants
+(sin Authorization)
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "145"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/goals/no-existe/plants"
+}
+
+PASA  /v1/goals/no-existe/plants: sin token -> 401 problem+json con WWW-Authenticate: Bearer 401
+PASA  /v1/goals/no-existe/plants: el 401 cumple el esquema de error y no revela si el objetivo existe 
+PASA  /v1/goals/no-existe/plants: token incorrecto -> 401 problem+json 401
+PASA  /v1/goals/no-existe/plants: token con el ultimo caracter cambiado -> 401 
+PASA  /v1/goals/no-existe/plants: esquema Basic con el token correcto -> 401 401
+OBS   /v1/goals/no-existe/plants: esquema 'bearer' en minusculas -> 404
+PASA  /v1/goals/no-existe/plants: 'Bearer ' sin token -> 401 401
+PASA  /v1/goals/no-existe/plants: token en X-Api-Key (no admitido) -> 401 
+PASA  /v1/goals/no-existe/plants: token en la query (no admitido) -> 401 
+OBS   Authorization con espacio doble antes del token -> 200

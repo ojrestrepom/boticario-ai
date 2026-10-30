@@ -1,0 +1,6 @@
+PASA  252 filas objetivo x planta: scientificName, family, commonNames, areas, safetyLevel, hasSafety e image coinciden con la base {}
+OBS   el orden de 'areas' dentro de una planta difiere del orden de la base (position) en 0 filas; la spec no fija ese orden
+PASA  image.author puede ser null (planta con autor nulo y objetivo) 
+PASA  image null y hasSafety false no se mezclan: plantas sin imagen traen image null (20 de 175) 
+OBS   ejemplos de plantas sin imagen: ['capsicum-annuum-var-aviculare', 'fragaria-x-ananassa', 'glycyrrhiza-inflata']
+PASA  ninguna URL de imagen es distinta de upload.wikimedia.org (la API no deriva miniaturas) 

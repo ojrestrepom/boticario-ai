@@ -1,0 +1,37 @@
+# AUT-15 HEAD y OPTIONS (objetivo: local)
+
+### HEAD /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+
+
+### HEAD /v1/plants   [Bearer <válido>]
+status=200
+content-type: application/json
+content-length: 3871
+connection: close
+
+
+
+### OPTIONS /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### OPTIONS /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+content-length: 147
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}

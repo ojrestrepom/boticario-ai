@@ -1,0 +1,180 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:33032a6ad729f8db11bf0df3beb9e207005523e4af5eeee45e9b0b0addaa09c6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salix daphnoides",
+        "wikidata:Q159476"
+      ],
+      "text": "Sauce dafnoide"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salix daphnoides"
+    ],
+    "value": "Árbol de fronda de hasta 15 m de alto, de la familia de las salicáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Salix daphnoides",
+      "wikidata:Q159476"
+    ],
+    "value": "Sauce dafnoide"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2919032"
+    ],
+    "value": "Salicaceae"
+  },
+  "goals": [
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:salicis-cortex"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:salicis-cortex"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "salix-daphnoides",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salix_daphnoides_Bra62.png",
+    "refs": [
+      "commons:File:Salix daphnoides Bra62.png"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Salix_daphnoides_Bra62.png"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2919032"
+    ],
+    "value": "Nativa de Europa."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:salicis-cortex"
+      ],
+      "value": "Corteza"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salix daphnoides Bra62.png": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salix daphnoides Bra62.png",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Salix_daphnoides_Bra62.png"
+    },
+    "ema_herbal:salicis-cortex": {
+      "dataset": "ema_json",
+      "label": "EMA: Salicis cortex",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/salicis-cortex"
+    },
+    "ema_pdf:salicis-cortex:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de salicis-cortex, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salix-various-species-including-s-purpurea-l-s-daphnoides-vill-s-fragilis-l-cortex_en.pdf"
+    },
+    "ema_pdf:salicis-cortex:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de salicis-cortex, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salix-various-species-including-s-purpurea-l-s-daphnoides-vill-s-fragilis-l-cortex_en.pdf"
+    },
+    "ema_pdf:salicis-cortex:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de salicis-cortex, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salix-various-species-including-s-purpurea-l-s-daphnoides-vill-s-fragilis-l-cortex_en.pdf"
+    },
+    "wcvp:2919032": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salix daphnoides Vill.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q159476": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q159476",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q159476"
+    },
+    "wikipedia_es:Salix daphnoides": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salix daphnoides",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salix_daphnoides"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:salicis-cortex:4.3",
+      "ema_pdf:salicis-cortex:4.4",
+      "ema_pdf:salicis-cortex:4.5"
+    ],
+    "text": "La monografía de la EMA para la corteza registra como contraindicaciones la hipersensibilidad a la sustancia activa, a los salicilatos o a otros antiinflamatorios no esteroideos, el asma por sensibilidad a los salicilatos, la úlcera péptica activa, el tercer trimestre del embarazo, la deficiencia de glucosa-6-fosfato deshidrogenasa, la edad menor de 18 años por el riesgo de síndrome de Reye, la disfunción hepática o renal grave y los trastornos de coagulación. Advierte sobre el uso junto con salicilatos y otros antiinflamatorios no esteroideos y registra que la corteza puede aumentar el efecto de anticoagulantes como los derivados cumarínicos."
+  },
+  "scientificName": {
+    "authors": "Vill.",
+    "name": "Salix daphnoides",
+    "refs": [
+      "wcvp:2919032"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

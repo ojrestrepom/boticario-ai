@@ -1,0 +1,824 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:27a48b7e4d613a021a54d297bd300e5914aaee75508b2c5bdc49b70ec6775a24",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Equisetum hyemale"
+      ],
+      "text": "Equiseto de invierno"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P4"
+      ],
+      "text": "Rough horsetail"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:385-1"
+      ],
+      "text": "Horsetail"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:385-2"
+      ],
+      "text": "Scouring Rush"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P4"
+      ],
+      "text": "Winter-Schatelhalm"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Equisetum hyemale"
+    ],
+    "value": "El equiseto de invierno es una especie de arbusto de la familia Equisetaceae."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Equisetum hyemale"
+    ],
+    "value": "Equiseto de invierno"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2902170"
+    ],
+    "value": "Equisetaceae"
+  },
+  "goals": [],
+  "id": "equisetum-hyemale",
+  "image": {
+    "attributionRequired": true,
+    "author": "Diego Delso",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Equiseto_de_invierno_(Equisetum_hyemale),_jard%C3%ADn_bot%C3%A1nico_alpino-%C3%A1rtico,_Troms%C3%B8,_Noruega,_2019-09-04,_DD_81.jpg",
+    "refs": [
+      "commons:File:Equiseto de invierno (Equisetum hyemale), jardín botánico alpino-ártico, Tromsø, Noruega, 2019-09-04, DD 81.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Equiseto_de_invierno_%28Equisetum_hyemale%29%2C_jard%C3%ADn_bot%C3%A1nico_alpino-%C3%A1rtico%2C_Troms%C3%B8%2C_Noruega%2C_2019-09-04%2C_DD_81.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2902170"
+    ],
+    "value": "Europa, Asia (incluidos el Cáucaso, China, Siberia y el subcontinente indio) y América subártica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Equiseto de invierno (Equisetum hyemale), jardín botánico alpino-ártico, Tromsø, Noruega, 2019-09-04, DD 81.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Equiseto de invierno (Equisetum hyemale), jardín botánico alpino-ártico, Tromsø, Noruega, 2019-09-04, DD 81.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Equiseto_de_invierno_(Equisetum_hyemale),_jard%C3%ADn_bot%C3%A1nico_alpino-%C3%A1rtico,_Troms%C3%B8,_Noruega,_2019-09-04,_DD_81.jpg"
+    },
+    "tppt_plant:P4": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Equisetum hyemale L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:385-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Horsetail»",
+      "license": "CC0"
+    },
+    "usda_common_name:385-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Scouring Rush»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:12222": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12222",
+      "license": "CC0"
+    },
+    "usda_use:19545": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19545",
+      "license": "CC0"
+    },
+    "usda_use:19546": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19546",
+      "license": "CC0"
+    },
+    "usda_use:22502": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22502",
+      "license": "CC0"
+    },
+    "usda_use:22503": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22503",
+      "license": "CC0"
+    },
+    "usda_use:24492": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24492",
+      "license": "CC0"
+    },
+    "usda_use:25727": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25727",
+      "license": "CC0"
+    },
+    "usda_use:25821": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25821",
+      "license": "CC0"
+    },
+    "usda_use:28313": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28313",
+      "license": "CC0"
+    },
+    "usda_use:35293": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35293",
+      "license": "CC0"
+    },
+    "usda_use:5677": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5677",
+      "license": "CC0"
+    },
+    "usda_use:5678": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5678",
+      "license": "CC0"
+    },
+    "usda_use:62986": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62986",
+      "license": "CC0"
+    },
+    "usda_use:62988": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62988",
+      "license": "CC0"
+    },
+    "usda_use:62989": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62989",
+      "license": "CC0"
+    },
+    "usda_use:62992": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62992",
+      "license": "CC0"
+    },
+    "usda_use:62996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62996",
+      "license": "CC0"
+    },
+    "usda_use:62998": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62998",
+      "license": "CC0"
+    },
+    "usda_use:62999": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62999",
+      "license": "CC0"
+    },
+    "usda_use:63001": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63001",
+      "license": "CC0"
+    },
+    "usda_use:63004": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63004",
+      "license": "CC0"
+    },
+    "usda_use:63006": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63006",
+      "license": "CC0"
+    },
+    "usda_use:63009": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63009",
+      "license": "CC0"
+    },
+    "usda_use:68914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68914",
+      "license": "CC0"
+    },
+    "usda_use:72098": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72098",
+      "license": "CC0"
+    },
+    "usda_use:74249": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74249",
+      "license": "CC0"
+    },
+    "usda_use:82719": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82719",
+      "license": "CC0"
+    },
+    "usda_use:82726": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82726",
+      "license": "CC0"
+    },
+    "usda_use:9046": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9046",
+      "license": "CC0"
+    },
+    "wcvp:2902170": {
+      "dataset": "wcvp",
+      "label": "WCVP: Equisetum hyemale L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2902172": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hippochaete hyemalis (L.) Milde ex Bruhin",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3223591": {
+      "dataset": "wcvp",
+      "label": "WCVP: Presla hyemalis (L.) Dulac",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Equisetum hyemale": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Equisetum hyemale",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Equisetum_hyemale"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P4"
+    ],
+    "text": "TPPT registra la planta como tóxica para las personas, con la parte aérea (o la planta entera) como parte tóxica. Los alcaloides de piperidina son tóxicos y la palustrina es la toxina principal; también hay alcaloides de piridina."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Equisetum hyemale",
+    "refs": [
+      "wcvp:2902170"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Milde ex Bruhin",
+      "name": "Hippochaete hyemalis",
+      "refs": [
+        "wcvp:2902172"
+      ]
+    },
+    {
+      "authors": "(L.) Dulac",
+      "name": "Presla hyemalis",
+      "refs": [
+        "wcvp:3223591"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28313",
+        "usda_use:63006",
+        "usda_use:72098",
+        "usda_reference:Hunan",
+        "usda_reference:Keys",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Oftalmía",
+      "activitySource": "Ophthalmia",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35293",
+        "usda_use:63009",
+        "usda_use:74249",
+        "usda_reference:Bliss",
+        "usda_reference:Keys",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5677",
+        "usda_use:5678",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Austria",
+        "Alemania"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9046",
+        "usda_use:62988",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62996",
+        "usda_use:68914",
+        "usda_reference:Hunan",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19545",
+        "usda_use:19546",
+        "usda_reference:Hunan",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Epífora",
+      "activitySource": "Epiphora",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22502",
+        "usda_use:22503",
+        "usda_reference:Bliss",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Antídoto (cobre)",
+      "activitySource": "Antidote(Copper)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62989",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Ano",
+      "activitySource": "Anus",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82719",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62986",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12222",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Conjuntivitis",
+      "activitySource": "Conjunctivitis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62992",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Edema",
+      "activitySource": "Edema",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62998",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Enterorragia",
+      "activitySource": "Enterorrhagia",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62999",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24492",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Fístula",
+      "activitySource": "Fistula",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25727",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25821",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Flujo",
+      "activitySource": "Flux",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63001",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Sangre en las heces",
+      "activitySource": "Hematofeces",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63004",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Hematuria",
+      "activitySource": "Hematuria",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82726",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

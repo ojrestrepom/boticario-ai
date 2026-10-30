@@ -1,0 +1,100 @@
+{
+  "aliases": [
+    "simaba-morettii"
+  ],
+  "bundleHash": "sha256:7488062ac5ff9204c6a66af81105a6eabe68f3bd0b03ece819c80791902efbcf",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1090-1"
+      ],
+      "text": "Savanna Courbaril"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3228306"
+    ],
+    "value": "Homalolepis morettii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3228306"
+    ],
+    "value": "Simaroubaceae"
+  },
+  "goals": [],
+  "id": "homalolepis-morettii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3228306"
+    ],
+    "value": "Norte de Sudamérica (Guayana Francesa)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1090-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Savanna Courbaril»",
+      "license": "CC0"
+    },
+    "wcvp:2580372": {
+      "dataset": "wcvp",
+      "label": "WCVP: Simaba morettii Feuillet",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3228306": {
+      "dataset": "wcvp",
+      "label": "WCVP: Homalolepis morettii (Feuillet) Devecchi & Pirani",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Feuillet) Devecchi & Pirani",
+    "name": "Homalolepis morettii",
+    "refs": [
+      "wcvp:3228306"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Feuillet",
+      "name": "Simaba morettii",
+      "refs": [
+        "wcvp:2580372"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

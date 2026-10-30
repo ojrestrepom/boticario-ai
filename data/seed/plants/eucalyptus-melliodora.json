@@ -1,0 +1,105 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:92c2fe45b46fb69a997efa1b2972a62384b5071054af8059eadfe9a26c3ace3c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus melliodora"
+      ],
+      "text": "Boj amarillo"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus melliodora"
+    ],
+    "value": "Especie de eucalipto de la familia de las mirtáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eucalyptus melliodora"
+    ],
+    "value": "Boj amarillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73363"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-melliodora",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1378-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73363"
+    ],
+    "value": "Australia (Nueva Gales del Sur, Queensland y Victoria)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1378-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:73363": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus melliodora A.Cunn. ex Schauer",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus melliodora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus melliodora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_melliodora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El compuesto EO de USDA es el único respaldo del aceite esencial; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "A.Cunn. ex Schauer",
+    "name": "Eucalyptus melliodora",
+    "refs": [
+      "wcvp:73363"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,150 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6c475d9c1d91abb8ae21c32db5500c812218dff419373366c0443a79c6983ca6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Eucalyptus nova-anglica"
+      ],
+      "text": "Menta de Nueva Inglaterra"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1380-1"
+      ],
+      "text": "New England 'peppermint'"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus nova-anglica"
+    ],
+    "value": "Especie de eucalipto de la familia de las mirtáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Eucalyptus nova-anglica"
+    ],
+    "value": "Menta de Nueva Inglaterra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73442"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-nova-anglica",
+  "image": {
+    "attributionRequired": false,
+    "author": "HelloMojo at en.wikipedia",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_nova-anglica.jpg",
+    "refs": [
+      "commons:File:Eucalyptus nova-anglica.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Eucalyptus_nova-anglica.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1380-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73442"
+    ],
+    "value": "Australia (Nueva Gales del Sur y Queensland)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus nova-anglica.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus nova-anglica.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_nova-anglica.jpg"
+    },
+    "usda_common_name:1380-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «New England 'peppermint'»",
+      "license": "CC0"
+    },
+    "usda_part:1380-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72674": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus cinerea var. nova-anglica (H.Deane & Maiden) Maiden",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73442": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus nova-anglica H.Deane & Maiden",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus nova-anglica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus nova-anglica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_nova-anglica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El compuesto EO de USDA es el único respaldo del aceite esencial; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "H.Deane & Maiden",
+    "name": "Eucalyptus nova-anglica",
+    "refs": [
+      "wcvp:73442"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(H.Deane & Maiden) Maiden",
+      "name": "Eucalyptus cinerea var. nova-anglica",
+      "refs": [
+        "wcvp:72674"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

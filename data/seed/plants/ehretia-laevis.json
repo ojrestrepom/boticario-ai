@@ -1,0 +1,129 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e8807d431e61b0aa9dfe644914d3ebdb21fead2808cd8e79e959b17215a9b49e",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1559-BK"
+    ],
+    "value": "Ehretia laevis"
+  },
+  "family": null,
+  "goals": [],
+  "id": "ehretia-laevis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1559-BK": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Bark»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:49228": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49228",
+      "license": "CC0"
+    },
+    "usda_use:79896": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79896",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Ehretia laevis",
+    "refs": [
+      "usda_part:1559-BK"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Sífilis",
+      "activitySource": "Syphilis",
+      "citations": [
+        {
+          "key": "Eb24: 252",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 252"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49228",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Enfermedad venérea",
+      "activitySource": "Venereal",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79896",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

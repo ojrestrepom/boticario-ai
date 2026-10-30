@@ -1,0 +1,163 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:15f5306734d4f1cf143f379c5c0825559cbeac73b7dda6eaf0aa0c629ae051f6",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2359-1"
+      ],
+      "text": "African Caper"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Capparis tomentosa"
+    ],
+    "value": "Planta de la familia Capparaceae nativa de África."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2697652"
+    ],
+    "value": "Capparis tomentosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2697652"
+    ],
+    "value": "Capparaceae"
+  },
+  "goals": [],
+  "id": "capparis-tomentosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "SAplants",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Capparis_tomentosa_1DS-II_1-0688.jpg",
+    "refs": [
+      "commons:File:Capparis tomentosa 1DS-II 1-0688.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Capparis_tomentosa_1DS-II_1-0688.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2697652"
+    ],
+    "value": "Península arábiga, África tropical oriental, noreste, meridional, occidental y centro-occidental, África austral y océano Índico occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Capparis tomentosa 1DS-II 1-0688.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Capparis tomentosa 1DS-II 1-0688.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Capparis_tomentosa_1DS-II_1-0688.jpg"
+    },
+    "usda_common_name:2359-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «African Caper»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:23670": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23670",
+      "license": "CC0"
+    },
+    "usda_use:55690": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55690",
+      "license": "CC0"
+    },
+    "usda_use:74972": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74972",
+      "license": "CC0"
+    },
+    "wcvp:2697652": {
+      "dataset": "wcvp",
+      "label": "WCVP: Capparis tomentosa Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Capparis tomentosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Capparis tomentosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Capparis_tomentosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se muestra el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "usda_use:23670",
+      "usda_use:74972"
+    ],
+    "text": "Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "Lam.",
+    "name": "Capparis tomentosa",
+    "refs": [
+      "wcvp:2697652"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Brujería",
+      "activitySource": "Witchcraft",
+      "citations": [
+        {
+          "key": "Eb33: 30",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 30"
+        }
+      ],
+      "countries": [
+        "Etiopía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55690",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

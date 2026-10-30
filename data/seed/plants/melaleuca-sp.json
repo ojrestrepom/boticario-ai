@@ -1,0 +1,106 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:75563e22a6f4997524b720e3ae4f943f71082d78aa881da738d8c2315e00f7cd",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2121-1"
+      ],
+      "text": "Tea-Tree"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Melaleuca"
+    ],
+    "value": "Género de plantas de la familia del mirto (Myrtaceae), con unas 236 especies que se encuentran únicamente en Australia y Oceanía."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_common_name:2121-1"
+    ],
+    "value": "Melaleuca sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "melaleuca-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Eug",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Melaleuca_armillaris.jpg",
+    "refs": [
+      "commons:File:Melaleuca armillaris.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Melaleuca_armillaris.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Melaleuca armillaris.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Melaleuca armillaris.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Melaleuca_armillaris.jpg"
+    },
+    "usda_common_name:2121-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tea-Tree»",
+      "license": "CC0"
+    },
+    "wikipedia_es:Melaleuca": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Melaleuca",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Melaleuca"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Melaleuca sp",
+    "refs": [
+      "usda_common_name:2121-1"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

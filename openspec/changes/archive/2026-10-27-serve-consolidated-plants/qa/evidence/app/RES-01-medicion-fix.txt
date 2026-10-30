@@ -1,0 +1,6 @@
+Medicion en emulador boticario_catalog_api36 (emulator-5556), 360x640 dp (1080x1920 px), texto al 100 %, imagen real de Wikimedia, API local.
+Antes (commit ee276ca, imagen 160 dp, URL con codificacion por porcentaje, RV-02): lavandula-angustifolia, pestanas desde y=1435 de un area que termina en y=1488: 53 de 144 px visibles.
+Tras decodificar la URL (imagen 160 dp): lavandula-angustifolia, pestanas y=1360..1504, area hasta y=1488: 128 de 144 px visibles, cortadas 16 px.
+Tras bajar la imagen a 140 dp (ajuste final):
+MEASURE lavandula-angustifolia screen=360.0x640.0dp dpr=3.0 viewport_bottom_px=1488.0 chips_px=1300.0..1444.0
+MEASURE aconitum-napellus screen=360.0x640.0dp dpr=3.0 viewport_bottom_px=1488.0 chips_px=1180.0..1324.0

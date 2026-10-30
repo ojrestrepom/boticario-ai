@@ -1,0 +1,981 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:918a7b33f6ff8b7b86464e7e3375e3a0843bd2abf87addefcae2c36c771a66c5",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156865"
+      ],
+      "text": "Hierba de San Guillermo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156865"
+      ],
+      "text": "Algafil"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156865"
+      ],
+      "text": "Arquimonia"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:40-1"
+      ],
+      "text": "Agrimony"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:40-2"
+      ],
+      "text": "Sticklewort"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Agrimonia eupatoria"
+    ],
+    "value": "Planta que habita en terrenos arcillosos y soleados, junto a cultivos, setos y pendientes, y entre árboles como encinas o robles."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q156865"
+    ],
+    "value": "Hierba de San Guillermo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2907448"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:agrimoniae-herba"
+      ],
+      "subarea": "boca-y-garganta"
+    },
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:agrimoniae-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:agrimoniae-herba"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "agrimonia-eupatoria",
+  "image": {
+    "attributionRequired": true,
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Agrimonia_eupatoria_inflorescence.jpg",
+    "refs": [
+      "commons:File:(MHNT) Agrimonia eupatoria inflorescence.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/%28MHNT%29_Agrimonia_eupatoria_inflorescence.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:40-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2907448"
+    ],
+    "value": "Europa, norte de África y Asia"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:agrimoniae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(MHNT) Agrimonia eupatoria inflorescence.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(MHNT) Agrimonia eupatoria inflorescence.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Agrimonia_eupatoria_inflorescence.jpg"
+    },
+    "ema_herbal:agrimoniae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Agrimoniae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/agrimoniae-herba"
+    },
+    "ema_pdf:agrimoniae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agrimoniae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-agrimonia-eupatoria-l-herba-first-version_en.pdf"
+    },
+    "ema_pdf:agrimoniae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agrimoniae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-agrimonia-eupatoria-l-herba-first-version_en.pdf"
+    },
+    "ema_pdf:agrimoniae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agrimoniae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-agrimonia-eupatoria-l-herba-first-version_en.pdf"
+    },
+    "usda_common_name:40-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Agrimony»",
+      "license": "CC0"
+    },
+    "usda_common_name:40-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sticklewort»",
+      "license": "CC0"
+    },
+    "usda_part:40-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11576",
+      "license": "CC0"
+    },
+    "usda_use:11577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11577",
+      "license": "CC0"
+    },
+    "usda_use:11978": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11978",
+      "license": "CC0"
+    },
+    "usda_use:15350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15350",
+      "license": "CC0"
+    },
+    "usda_use:17443": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17443",
+      "license": "CC0"
+    },
+    "usda_use:17444": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17444",
+      "license": "CC0"
+    },
+    "usda_use:17445": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17445",
+      "license": "CC0"
+    },
+    "usda_use:21495": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21495",
+      "license": "CC0"
+    },
+    "usda_use:21496": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21496",
+      "license": "CC0"
+    },
+    "usda_use:22330": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22330",
+      "license": "CC0"
+    },
+    "usda_use:26640": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26640",
+      "license": "CC0"
+    },
+    "usda_use:27929": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27929",
+      "license": "CC0"
+    },
+    "usda_use:32326": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32326",
+      "license": "CC0"
+    },
+    "usda_use:36573": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36573",
+      "license": "CC0"
+    },
+    "usda_use:50065": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50065",
+      "license": "CC0"
+    },
+    "usda_use:50066": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50066",
+      "license": "CC0"
+    },
+    "usda_use:53977": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53977",
+      "license": "CC0"
+    },
+    "usda_use:53978": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53978",
+      "license": "CC0"
+    },
+    "usda_use:53979": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53979",
+      "license": "CC0"
+    },
+    "usda_use:5411": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5411",
+      "license": "CC0"
+    },
+    "usda_use:5412": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5412",
+      "license": "CC0"
+    },
+    "usda_use:5413": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5413",
+      "license": "CC0"
+    },
+    "usda_use:55019": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55019",
+      "license": "CC0"
+    },
+    "usda_use:55020": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55020",
+      "license": "CC0"
+    },
+    "usda_use:56510": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56510",
+      "license": "CC0"
+    },
+    "usda_use:66520": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66520",
+      "license": "CC0"
+    },
+    "usda_use:68152": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68152",
+      "license": "CC0"
+    },
+    "usda_use:69997": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69997",
+      "license": "CC0"
+    },
+    "usda_use:70221": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70221",
+      "license": "CC0"
+    },
+    "usda_use:70232": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70232",
+      "license": "CC0"
+    },
+    "usda_use:72082": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72082",
+      "license": "CC0"
+    },
+    "usda_use:73821": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73821",
+      "license": "CC0"
+    },
+    "usda_use:80730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80730",
+      "license": "CC0"
+    },
+    "usda_use:8820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8820",
+      "license": "CC0"
+    },
+    "usda_use:8821": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8821",
+      "license": "CC0"
+    },
+    "usda_use:8822": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8822",
+      "license": "CC0"
+    },
+    "usda_use:9778": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9778",
+      "license": "CC0"
+    },
+    "wcvp:2907448": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agrimonia eupatoria L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q156865": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q156865",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q156865"
+    },
+    "wikipedia_es:Agrimonia eupatoria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Agrimonia eupatoria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Agrimonia_eupatoria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Astringent» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Tonic» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[4]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:agrimoniae-herba:4.3",
+      "ema_pdf:agrimoniae-herba:4.4",
+      "ema_pdf:agrimoniae-herba:4.5"
+    ],
+    "text": "La monografía de la EMA para la parte aérea registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, que no se ha establecido el uso en menores de 12 años por falta de datos y que la diarrea recurrente o las heces con sangre requieren consulta médica. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Agrimonia eupatoria",
+    "refs": [
+      "wcvp:2907448"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Irak"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5411",
+        "usda_use:5412",
+        "usda_use:5413",
+        "usda_use:80730",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido",
+        "URSS",
+        "Reino Unido (Gales)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8820",
+        "usda_use:8821",
+        "usda_use:8822",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17443",
+        "usda_use:17444",
+        "usda_use:17445",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21495",
+        "usda_use:21496",
+        "usda_use:69997",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Irak"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50065",
+        "usda_use:50066",
+        "usda_use:56510",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53977",
+        "usda_use:53978",
+        "usda_use:53979",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Hungría",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11576",
+        "usda_use:11577",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15350",
+        "usda_use:68152",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Enuresis",
+      "activitySource": "Enuresis",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22330",
+        "usda_use:70232",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55019",
+        "usda_use:55020",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Alemania"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9778",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Cardiotónico",
+      "activitySource": "Cardiotonic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66520",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Coagulante",
+      "activitySource": "Coagulant",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11978",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Enterorragia",
+      "activitySource": "Enterorrhagia",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70221",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Gastrorragia",
+      "activitySource": "Gastrorrhagia",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26640",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Hematuria",
+      "activitySource": "Hematuria",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27929",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72082",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Hígado",
+      "activitySource": "Liver",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32326",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Metrorragia",
+      "activitySource": "Metrorrhagia",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73821",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Faringitis",
+      "activitySource": "Pharyngitis",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36573",
+        "usda_reference:FontQuer"
+      ]
+    }
+  ]
+}

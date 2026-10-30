@@ -1,0 +1,17 @@
+=== passport
+PASA  UI-07 al tocar «Hiedra común» se abre su pasaporte
+PASA  UI-07 el botón Atrás del pasaporte dice «Volver», no «Volver a Explorar» ['Volver']
+PASA  UI-07 al volver no aparece el estado de carga de P07 (no recarga la primera página)
+PASA  UI-07 al volver, P07 está en la misma posición con las mismas tarjetas (píxel a píxel) diferencia en None
+PASA  UI-07 la tarjeta tocada sigue en su sitio con el mismo texto
+FALLA UI-07 desde una subárea: al volver conserva 'Para: Digestión' y la tarjeta tocada sigue en su posición (±200 px por miniaturas que terminan de cargar) antes y=621, después y=681
+OBS   las tarjetas cambian de alto cuando la miniatura termina de cargar (aparece la línea de atribución): el contenido bajo ella se desplaza unos 10 dp; es la consecuencia de mostrar la atribución solo con la imagen cargada
+=== a11y
+PASA  UI-13 P06 (filas, Volver, Inicio): 8 controles, todos de 48 dp o más []
+PASA  UI-13 subáreas: 8 controles, todos de 48 dp o más []
+PASA  UI-13 P07 (tarjetas, Volver, Inicio): 4 controles, todos de 48 dp o más []
+PASA  UI-13 cada tarjeta se lee como un solo control con nombre, línea de la EMA y marca/atribución en una sola etiqueta
+PASA  UI-13 la imagen no duplica la lectura: ningún nodo aparte lee la foto ni el nombre ['Foto: Zeynel Cebeci · CC BY-SA 4.0\nAchicoria común\nCichorium intybus\nLa EMA la registra en: Pérdida de apetito; Trastornos gastrointestinales', 'Foto: David Monniaux · CC BY-SA 3.0\nAjenjo\nArtemisia absinthium\nLa EMA la registra en: Pérdida de apetito; Trastornos gastrointestinales\nPrecaución']
+PASA  UI-13 P07 al final (Ver más detalles): 1 controles, todos de 48 dp o más []
+OBS   etiqueta de tarjeta: Foto: Zeynel Cebeci · CC BY-SA 4.0 | Achicoria común | Cichorium intybus | La EMA la registra en: Pérdida de apetito; Trastornos gastrointestinales
+OBS   etiqueta de tarjeta: Foto: David Monniaux · CC BY-SA 3.0 | Ajenjo | Artemisia absinthium | La EMA la registra en: Pérdida de apetito; Trastornos gastrointestinales | Precaución

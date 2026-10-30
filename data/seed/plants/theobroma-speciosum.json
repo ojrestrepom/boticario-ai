@@ -1,0 +1,203 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4a759e25cb0bace990391b480d1b528d035172e675cdd6104a1ac26130e6b451",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1265-1"
+      ],
+      "text": "Macambo"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2520200"
+    ],
+    "value": "Theobroma speciosum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2520200"
+    ],
+    "value": "Malvaceae"
+  },
+  "goals": [],
+  "id": "theobroma-speciosum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Argemirogarcia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flores_do_cacauieiro.JPG",
+    "refs": [
+      "commons:File:Flores do cacauieiro.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Flores_do_cacauieiro.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2520200"
+    ],
+    "value": "Brasil y el norte y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flores do cacauieiro.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flores do cacauieiro.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Flores_do_cacauieiro.JPG"
+    },
+    "usda_common_name:1265-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Macambo»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:12050": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12050",
+      "license": "CC0"
+    },
+    "usda_use:44156": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44156",
+      "license": "CC0"
+    },
+    "usda_use:62104": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62104",
+      "license": "CC0"
+    },
+    "usda_use:76912": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76912",
+      "license": "CC0"
+    },
+    "wcvp:2520200": {
+      "dataset": "wcvp",
+      "label": "WCVP: Theobroma speciosum Willd. ex Spreng.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Willd. ex Spreng.",
+    "name": "Theobroma speciosum",
+    "refs": [
+      "wcvp:2520200"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Rapé",
+      "activitySource": "Snuff",
+      "citations": [
+        {
+          "key": "Eb26: 221",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 26: 221"
+        },
+        {
+          "key": "Eb26: 227",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 26: 227"
+        }
+      ],
+      "countries": [
+        "Brasil (Deni)",
+        "Brasil (Jamamadi)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44156",
+        "usda_use:76912",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "América Latina"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12050",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Embriagante",
+      "activitySource": "Intoxicant",
+      "citations": [
+        {
+          "key": "Eb26: 221",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 26: 221"
+        }
+      ],
+      "countries": [
+        "Brasil (Jamamadi)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62104",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

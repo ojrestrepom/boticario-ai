@@ -1,0 +1,14 @@
+# CON-02
+
+ Network boticario-ai_default Creating 
+ Network boticario-ai_default Creating 
+ Network boticario-ai_default Created 
+ Network boticario-ai_default Created 
+ Container boticario-ai-api-1 Creating 
+ Container boticario-ai-api-1 Created 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started 
+
+PASS GET /health -> 200
+PASS GET /v1/plants sin token -> 401
+PASS GET /v1/plants con token -> 200

@@ -1,0 +1,35 @@
+# AUT-24 Errores del contrato con token (objetivo: local)
+
+### GET /v1/plants?limit=abc   [Bearer <válido>]
+status=400
+content-type: application/problem+json
+content-length: 133
+connection: close
+
+{"type":"about:blank","title":"Bad Request","status":400,"detail":"limit debe ser un entero","instance":"/v1/plants","param":"limit"}
+
+### GET /v1/plants/no-existe   [Bearer <válido>]
+status=404
+content-type: application/problem+json
+content-length: 143
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"no existe una planta con ese identificador","instance":"/v1/plants/no-existe"}
+
+### GET /v1/plants?limit=abc   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants/no-existe   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 139
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/no-existe"}

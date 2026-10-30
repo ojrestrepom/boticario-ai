@@ -1,0 +1,106 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dfe0ec14e8fd8d1858f354d409d3733b8f53d7f5c117e9939b326b6bc7d12fee",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1092-1"
+      ],
+      "text": "Skimmia"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2600223"
+    ],
+    "value": "Skimmia arborescens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2600223"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "skimmia-arborescens",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1092-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2600223"
+    ],
+    "value": "Nativa de China, el subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1092-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Skimmia»",
+      "license": "CC0"
+    },
+    "usda_part:1092-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_use:38326": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38326",
+      "license": "CC0"
+    },
+    "wcvp:2600223": {
+      "dataset": "wcvp",
+      "label": "WCVP: Skimmia arborescens T.Anderson ex Gamble",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:38326"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "T.Anderson ex Gamble",
+    "name": "Skimmia arborescens",
+    "refs": [
+      "wcvp:2600223"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,13 @@
+# manifest por SHA
+application/vnd.oci.image.manifest.v1+json
+config sha256:675cb742ad8c82883ebe6f32176303d48d6747260ea1ad58376d5c417ec16faf
+layers 4
+# config
+architecture amd64 os linux
+user app exposed {'8080/tcp': {}}
+# digest sha vs latest
+fd94e8f6c88d61faa80de39c128a93ce9f584548 docker-content-digest: sha256:7f317ecbeaa3b951ac657d3b664719f9eeb610141740c2dca9df0ad366fb9d7d
+latest docker-content-digest: sha256:7f317ecbeaa3b951ac657d3b664719f9eeb610141740c2dca9df0ad366fb9d7d
+# sin credenciales
+GET manifests/fd94e8f6c88d61faa80de39c128a93ce9f584548 sin auth -> 401
+GET manifests/latest sin auth -> 401

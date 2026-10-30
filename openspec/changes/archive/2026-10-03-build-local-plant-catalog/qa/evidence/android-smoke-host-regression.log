@@ -1,0 +1,230 @@
+
+Start UTC: 2026-10-03T13:34:56.819691+00:00
+Working directory: /Users/jsrc1115/Code/boticario-ai/app
+Command: PATH=/opt/homebrew/share/flutter/bin:$PATH flutter test test/app/catalog_smoke_contract_test.dart
+Combined stdout/stderr follows (unmodified):
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Buscar por objetivo
+[Home] Identificar con cámara
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Historial
+[Home] Pestaña: Perfil
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+[Home] Explorar plantas y aceites
+00:01 +1: (tearDownAll)
+00:01 +1: All tests passed!
+
+End UTC: 2026-10-03T13:34:59.522700+00:00
+Exit code: 0
+Wall duration seconds: 2.703
+
+Start UTC: 2026-10-03T13:34:59.522778+00:00
+Working directory: /Users/jsrc1115/Code/boticario-ai/app
+Command: PATH=/opt/homebrew/share/flutter/bin:$PATH flutter test test/
+Combined stdout/stderr follows (unmodified):
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart
+00:00 +0: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.headerMenu devuelve "[Home] Cabecera: Menú"
+00:00 +1: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.headerProfile devuelve "[Home] Cabecera: Perfil"
+00:00 +2: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.explorePlantsAndOils devuelve "[Home] Explorar plantas y aceites"
+00:00 +3: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.searchByGoal devuelve "[Home] Buscar por objetivo"
+00:00 +4: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.identifyWithCamera devuelve "[Home] Identificar con cámara"
+00:00 +5: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.formulateBlends devuelve "[Home] Formular mezclas"
+00:00 +6: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.askTheBoticario devuelve "[Home] Preguntar al Boticario"
+00:00 +7: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.tabHome devuelve "[Home] Pestaña: Inicio"
+00:00 +8: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.tabFavorites devuelve "[Home] Pestaña: Favoritos"
+00:00 +9: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.tabHistory devuelve "[Home] Pestaña: Historial"
+00:00 +10: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo permitido HomeAction.tabProfile devuelve "[Home] Pestaña: Perfil"
+00:00 +11: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.headerMenu devuelve null
+00:00 +12: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.headerProfile devuelve null
+00:00 +13: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.explorePlantsAndOils devuelve null
+00:00 +14: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.searchByGoal devuelve null
+00:00 +15: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.identifyWithCamera devuelve null
+00:00 +16: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.formulateBlends devuelve null
+00:00 +17: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.askTheBoticario devuelve null
+00:00 +18: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.tabHome devuelve null
+00:00 +19: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.tabFavorites devuelve null
+00:00 +20: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.tabHistory devuelve null
+00:00 +21: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: homeActionMessage en modo no permitido HomeAction.tabProfile devuelve null
+00:00 +22: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: cobertura del enum HomeAction expone exactamente 11 acciones
+00:00 +23: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: cobertura del enum cada acción tiene un mensaje exacto y distinto
+00:00 +24: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: cobertura del enum los mensajes en modo permitido coinciden con el contrato
+00:00 +25: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_action_test.dart: cobertura del enum Cabecera: Perfil y Pestaña: Perfil son distintos
+00:00 +26: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +27: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +28: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +29: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +30: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.1 estructura y textos muestra los textos exactos y no los demo
+00:00 +31: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Buscar por objetivo
+[Home] Identificar con cámara
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+00:00 +32: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Pestaña: Favoritos
+00:00 +33: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Pestaña: Historial
+00:00 +34: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Pestaña: Perfil
+[Home] Explorar plantas y aceites
+00:00 +35: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +36: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +37: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +38: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +39: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +40: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +41: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +42: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +43: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +44: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +45: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +46: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +47: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +47: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: activar controles de Home no cambia la ruta /
+[Home] Cabecera: Perfil
+00:00 +48: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +48: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: activar controles de Home no cambia la ruta /
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Perfil
+00:00 +49: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:00 +50: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +51: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +52: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +53: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +54: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +55: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +56: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +57: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +58: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +59: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +60: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +61: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +62: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +63: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +64: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +65: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +66: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +67: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +68: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +69: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Explorar plantas y aceites
+00:01 +70: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +71: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +71: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: dos ProviderScope no comparten el GoRouter
+[Home] Pestaña: Favoritos
+00:01 +71: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +72: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +73: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +74: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +75: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +76: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +76: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.3 no mutación y sin logs automáticos Explorar llama una vez a su callback; otras diez no
+[Home] Explorar plantas y aceites
+[Home] Cabecera: Menú
+[Home] Cabecera: Perfil
+[Home] Buscar por objetivo
+[Home] Identificar con cámara
+00:01 +76: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Explorar plantas y aceites
+00:01 +76: /Users/jsrc1115/Code/boticario-ai/app/test/features/home/home_page_test.dart: 4.3 no mutación y sin logs automáticos Explorar llama una vez a su callback; otras diez no
+[Home] Formular mezclas
+[Home] Preguntar al Boticario
+[Home] Pestaña: Inicio
+[Home] Pestaña: Favoritos
+[Home] Pestaña: Historial
+[Home] Pestaña: Perfil
+00:01 +77: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +78: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +79: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +80: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +81: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+[Home] Explorar plantas y aceites
+00:01 +82: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +83: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +84: /Users/jsrc1115/Code/boticario-ai/app/test/app/catalog_smoke_contract_test.dart: shared real-app catalog smoke flow passes host preflight (not Android evidence)
+00:01 +85: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +86: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: shows an explicit loading state until the local catalog resolves
+00:01 +87: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +88: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +89: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +90: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +91: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +92: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +93: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +94: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +95: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: consulta, filtro y scroll restauran al volver por chevron y Back
+00:01 +96: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:02 +97: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:02 +98: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: Romero presenta usos sin limitar la lista y menta/manzanilla vacías
+00:02 +99: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: rutas directas de P05 permiten retornos seguros
+00:02 +100: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: rutas directas de P05 permiten retornos seguros
+00:02 +101: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: rutas directas de P05 permiten retornos seguros
+00:02 +102: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: rutas directas de P05 permiten retornos seguros
+00:02 +103: /Users/jsrc1115/Code/boticario-ai/app/test/app/app_test.dart: rutas directas de P05 permiten retornos seguros
+00:02 +104: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps the search field label and editing semantics after text changes
+00:02 +105: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: route entry resolves five valid IDs and handles all bad IDs safely
+00:02 +106: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: route entry resolves five valid IDs and handles all bad IDs safely
+00:02 +107: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: route entry resolves five valid IDs and handles all bad IDs safely
+00:02 +108: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: route entry resolves five valid IDs and handles all bad IDs safely
+00:02 +109: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: route entry resolves five valid IDs and handles all bad IDs safely
+00:02 +110: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: search text remains untruncated at 200% in empty and clear states
+00:02 +111: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: route ID changes known → unknown → known and resets General
+00:02 +112: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: filters, rows and catalog tabs expose one actionable semantic target
+00:02 +113: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: retry waits for Completer and actions work in loading/error
+00:02 +114: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: retry is accessible and readable at 1.0 text scale
+00:02 +115: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: disabled actions stay inert on every tab and evidence stays bounded
+00:02 +116: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: keeps controls accessible and safe at 1.0 text scale
+00:02 +117: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: loading, error retry, and not-found expose safe parent actions
+00:02 +118: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: essential content stays readable and reachable at 1.0
+00:02 +119: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:02 +120: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:02 +121: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: all five source identities, parts and 200% layouts remain readable
+00:02 +122: /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart: essential content stays readable and reachable at 2.0
+00:02 +123: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: disabled controls have a single accessible label and 48dp targets
+00:02 +124: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 controls expose complete semantics and 48dp targets at 1.0
+00:02 +125: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 essential content and citations remain readable at 1.0
+00:03 +126: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 very long citation is readable in overlapping segments at 1.0
+00:03 +127: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 route loading semantics and safe targets at 1.0
+00:03 +128: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 route error semantics and safe targets at 1.0
+00:03 +129: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 route notfound semantics and safe targets at 1.0
+00:03 +130: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 controls expose complete semantics and 48dp targets at 2.0
+00:03 +131: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 essential content and citations remain readable at 2.0
+00:04 +132: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 very long citation is readable in overlapping segments at 2.0
+00:04 +133: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 route loading semantics and safe targets at 2.0
+00:04 +134: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 route error semantics and safe targets at 2.0
+00:04 +135: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: P05 route notfound semantics and safe targets at 2.0
+00:04 +136: /Users/jsrc1115/Code/boticario-ai/app/test/features/passport/plant_passport_page_test.dart: (tearDownAll)
+00:04 +136: All tests passed!
+
+End UTC: 2026-10-03T13:35:05.670673+00:00
+Exit code: 0
+Wall duration seconds: 6.148

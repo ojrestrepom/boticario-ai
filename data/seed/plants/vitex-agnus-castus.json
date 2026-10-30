@@ -1,0 +1,791 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b41f0afd42b21a9e95e4207050e8f0fc2e0677ca94e1b3033953e241f1d8e549",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vitex agnus-castus"
+      ],
+      "text": "Sauzgatillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vitex agnus-castus"
+      ],
+      "text": "saucegatillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vitex agnus-castus"
+      ],
+      "text": "sauce gatillo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1067-1"
+      ],
+      "text": "Chaste-Tree"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Vitex agnus-castus"
+    ],
+    "value": "Vitex agnus-castus, conocida como sauzgatillo, es una especie nativa del Mediterráneo, de la familia Lamiaceae, que crece en los sotos frescos y a orillas de los ríos. También se la encuentra en Asia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Vitex agnus-castus"
+    ],
+    "value": "Sauzgatillo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:213297"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía del fruto en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:agni-casti-fructus"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "vitex-agnus-castus",
+  "image": {
+    "attributionRequired": true,
+    "author": "peganum from Henfield, England",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Vitex_agnus-castus_(15390963576).jpg",
+    "refs": [
+      "commons:File:Vitex agnus-castus (15390963576).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Vitex_agnus-castus_%2815390963576%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1067-FL",
+      "usda_part:1067-FR",
+      "usda_part:1067-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:213297"
+    ],
+    "value": "Nativa del sur y el este de Europa, el norte de África, Asia occidental y central, el Cáucaso, la península arábiga y el subcontinente indio."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:agni-casti-fructus"
+      ],
+      "value": "Fruto"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Vitex agnus-castus (15390963576).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Vitex agnus-castus (15390963576).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Vitex_agnus-castus_(15390963576).jpg"
+    },
+    "efsa_botanic:2634": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sabinene",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2635": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:624": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Vitex agnus-castus L.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:915": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Vitex agnus-castus L.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:959": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Vitex agnus-castus L.",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:agni-casti-fructus": {
+      "dataset": "ema_json",
+      "label": "EMA: Agni casti fructus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/agni-casti-fructus"
+    },
+    "ema_pdf:agni-casti-fructus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agni-casti-fructus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vitex-agnus-castus-l-fructus-revision-1_en.pdf"
+    },
+    "ema_pdf:agni-casti-fructus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agni-casti-fructus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vitex-agnus-castus-l-fructus-revision-1_en.pdf"
+    },
+    "ema_pdf:agni-casti-fructus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agni-casti-fructus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vitex-agnus-castus-l-fructus-revision-1_en.pdf"
+    },
+    "usda_common_name:1067-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chaste-Tree»",
+      "license": "CC0"
+    },
+    "usda_part:1067-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:1067-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_part:1067-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11561": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11561",
+      "license": "CC0"
+    },
+    "usda_use:12482": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12482",
+      "license": "CC0"
+    },
+    "usda_use:12780": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12780",
+      "license": "CC0"
+    },
+    "usda_use:1326": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1326",
+      "license": "CC0"
+    },
+    "usda_use:16366": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16366",
+      "license": "CC0"
+    },
+    "usda_use:18914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18914",
+      "license": "CC0"
+    },
+    "usda_use:21920": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21920",
+      "license": "CC0"
+    },
+    "usda_use:2850": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2850",
+      "license": "CC0"
+    },
+    "usda_use:31202": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31202",
+      "license": "CC0"
+    },
+    "usda_use:39294": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39294",
+      "license": "CC0"
+    },
+    "usda_use:40065": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40065",
+      "license": "CC0"
+    },
+    "usda_use:42511": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42511",
+      "license": "CC0"
+    },
+    "usda_use:4347": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4347",
+      "license": "CC0"
+    },
+    "usda_use:4633": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4633",
+      "license": "CC0"
+    },
+    "usda_use:62678": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62678",
+      "license": "CC0"
+    },
+    "usda_use:64068": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64068",
+      "license": "CC0"
+    },
+    "usda_use:64144": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64144",
+      "license": "CC0"
+    },
+    "usda_use:66717": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66717",
+      "license": "CC0"
+    },
+    "usda_use:69206": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69206",
+      "license": "CC0"
+    },
+    "usda_use:76634": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76634",
+      "license": "CC0"
+    },
+    "usda_use:82624": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82624",
+      "license": "CC0"
+    },
+    "usda_use:82626": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82626",
+      "license": "CC0"
+    },
+    "wcvp:213297": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vitex agnus-castus L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Vitex agnus-castus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Vitex agnus-castus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Vitex_agnus-castus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Flower, Fruit y Leaf), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:agni-casti-fructus:4.3",
+      "ema_pdf:agni-casti-fructus:4.4",
+      "ema_pdf:agni-casti-fructus:4.5",
+      "efsa_botanic:2634",
+      "efsa_botanic:2635",
+      "efsa_endpoint:624",
+      "efsa_endpoint:915",
+      "efsa_endpoint:959"
+    ],
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad al principio activo. Entre sus advertencias figuran que quienes padecen o padecieron un cáncer sensible a los estrógenos, usan agonistas o antagonistas de la dopamina, estrógenos o antiestrógenos, o tienen antecedentes de trastorno hipofisario deben consultar a un médico antes del uso, que el fruto puede enmascarar los síntomas de tumores hipofisarios que secretan prolactina y que el uso en menores de 18 años no está establecido por falta de datos. En interacciones, indica que no se pueden excluir con agonistas y antagonistas de la dopamina, estrógenos y antiestrógenos. EFSA anota el 1,8-cineol y el sabineno como sustancias de evidencia y recoge estudios en animales: una ligera reducción del número de fetos en ratas con semillas pulverizadas, un efecto inhibidor de la lactancia en ratas y signos de toxicidad hepática con extractos del fruto."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Vitex agnus-castus",
+    "refs": [
+      "wcvp:213297"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12780",
+        "usda_use:82624",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18914",
+        "usda_use:69206",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Kurdistán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1326",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64068",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antiafrodisíaco",
+      "activitySource": "Anaphrodisiac",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Región mediterránea"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64144",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Kurdistán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2850",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4347",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4633",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66717",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Escalofrío",
+      "activitySource": "Chill",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11561",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12482",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16366",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21920",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Ojos",
+      "activitySource": "Eye",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Kurdistán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82626",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Galactogogo",
+      "activitySource": "Lactogogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31202",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Psicosis",
+      "activitySource": "Psychosis",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39294",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40065",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Esclerosis (hígado)",
+      "activitySource": "Sclerosis(Liver)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42511",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76634",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Soporífero",
+      "activitySource": "Soporific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62678",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

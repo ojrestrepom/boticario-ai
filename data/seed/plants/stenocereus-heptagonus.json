@@ -1,0 +1,150 @@
+{
+  "aliases": [
+    "lemaireocereus-hystrix"
+  ],
+  "bundleHash": "sha256:f1ab00852063fb25ed7699aa679a33d3217e91f69076c7a7ab4a08ad9df72994",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2998796"
+    ],
+    "value": "Stenocereus heptagonus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2998796"
+    ],
+    "value": "Cactaceae"
+  },
+  "goals": [],
+  "id": "stenocereus-heptagonus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Descourtilz, J. Theodore.; Descourtilz, M. E.; Pichard.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(10421171203).jpg",
+    "refs": [
+      "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10421171203).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%2810421171203%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2998796"
+    ],
+    "value": "Caribe."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10421171203).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10421171203).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(10421171203).jpg"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:55310": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55310",
+      "license": "CC0"
+    },
+    "wcvp:2689215": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cactus heptagonus L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2711930": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cereus heptagonus (L.) Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2998796": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stenocereus heptagonus (L.) Mottram",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; no se presenta la planta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Mottram",
+    "name": "Stenocereus heptagonus",
+    "refs": [
+      "wcvp:2998796"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Cactus heptagonus",
+      "refs": [
+        "wcvp:2689215"
+      ]
+    },
+    {
+      "authors": "(L.) Mill.",
+      "name": "Cereus heptagonus",
+      "refs": [
+        "wcvp:2711930"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55310",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "aliases": [
+    "dolichos-biflorus"
+  ],
+  "bundleHash": "sha256:40f78ed2a2a248c58d7e4970ca1fa8c03cd06f15f62f29706f15a4bf959dbd19",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3031218"
+    ],
+    "value": "Macrotyloma biflorum var. biflorum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3031218"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "macrotyloma-biflorum-var-biflorum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3031218"
+    ],
+    "value": "Nativa de las regiones tropicales de África (noreste, sur, oeste y centro-oeste)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:52864": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52864",
+      "license": "CC0"
+    },
+    "wcvp:3031218": {
+      "dataset": "wcvp",
+      "label": "WCVP: Macrotyloma biflorum var. biflorum",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Macrotyloma biflorum var. biflorum",
+    "refs": [
+      "wcvp:3031218"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de abdomen",
+      "activitySource": "Tumor(Abdomen)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52864",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

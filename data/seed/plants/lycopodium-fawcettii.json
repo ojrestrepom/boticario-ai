@@ -1,0 +1,115 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f7f90ff79bf04676464fdf6b5bd129a66647b162cb32c5e87e2443cac1014089",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2241-1"
+      ],
+      "text": "Clubmoss"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3139422"
+    ],
+    "value": "Lycopodium fawcettii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3139422"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "lycopodium-fawcettii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3139422"
+    ],
+    "value": "Caribe."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2241-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "wcvp:3137978": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diphasiastrum fawcettii (F.E.Lloyd & Underw.) Holub",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139422": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium fawcettii F.E.Lloyd & Underw.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139423": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium complanatum var. fawcettii (F.E.Lloyd & Underw.) Nessel",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F.E.Lloyd & Underw.",
+    "name": "Lycopodium fawcettii",
+    "refs": [
+      "wcvp:3139422"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(F.E.Lloyd & Underw.) Holub",
+      "name": "Diphasiastrum fawcettii",
+      "refs": [
+        "wcvp:3137978"
+      ]
+    },
+    {
+      "authors": "(F.E.Lloyd & Underw.) Nessel",
+      "name": "Lycopodium complanatum var. fawcettii",
+      "refs": [
+        "wcvp:3139423"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

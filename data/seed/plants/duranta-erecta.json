@@ -1,0 +1,306 @@
+{
+  "aliases": [
+    "duranta-repens"
+  ],
+  "bundleHash": "sha256:6dadbbf5ee33a4675cf74cbbaf1884e71b441e5d8f48b2c3940b14ac3c495c0b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Duranta erecta"
+      ],
+      "text": "Tala blanco"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P530",
+        "usda_common_name:375-1"
+      ],
+      "text": "Golden dewdrop"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P530"
+      ],
+      "text": "Taubenbeere"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Duranta erecta"
+    ],
+    "value": "Arbusto de la familia Verbenaceae, distribuido desde México hasta América del Sur y las Antillas. Se cultiva ampliamente como planta ornamental en jardines tropicales y subtropicales y se ha naturalizado en muchos países."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Duranta erecta"
+    ],
+    "value": "Tala blanco"
+  },
+  "family": {
+    "refs": [
+      "wcvp:65221"
+    ],
+    "value": "Verbenaceae"
+  },
+  "goals": [],
+  "id": "duranta-erecta",
+  "image": {
+    "attributionRequired": true,
+    "author": "Sjdsc",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Durantarepens2.JPG",
+    "refs": [
+      "commons:File:Durantarepens2.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Durantarepens2.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:65221"
+    ],
+    "value": "Caribe, América Central, Indochina, México, norte de Sudamérica, sureste de Estados Unidos y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Durantarepens2.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Durantarepens2.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Durantarepens2.JPG"
+    },
+    "tppt_plant:P530": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Duranta erecta L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:375-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Golden Dewdrop»",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:15914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15914",
+      "license": "CC0"
+    },
+    "usda_use:23683": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23683",
+      "license": "CC0"
+    },
+    "usda_use:24465": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24465",
+      "license": "CC0"
+    },
+    "usda_use:29795": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29795",
+      "license": "CC0"
+    },
+    "usda_use:31227": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31227",
+      "license": "CC0"
+    },
+    "usda_use:46649": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46649",
+      "license": "CC0"
+    },
+    "usda_use:46650": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46650",
+      "license": "CC0"
+    },
+    "wcvp:65221": {
+      "dataset": "wcvp",
+      "label": "WCVP: Duranta erecta L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Duranta erecta": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Duranta erecta",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Duranta_erecta"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata en USDA y queda sin resolver.",
+      "target": "traditionalUses[3]"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "tppt_plant:P530",
+      "usda_use:23683"
+    ],
+    "text": "TPPT clasifica la planta como tóxica para las personas, sin precisar la fuerza, y señala que se supone tóxicos a los alcaloides piridínicos, mientras que los glucósidos iridoides detectados tienen poca importancia toxicológica. Advertencia: se registran casos mortales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Duranta erecta",
+    "refs": [
+      "wcvp:65221"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "México",
+        "Venezuela"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46649",
+        "usda_use:46650",
+        "usda_reference:Martinez",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Detergente",
+      "activitySource": "Detergent",
+      "citations": [
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "Venezuela"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15914",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24465",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:29795"
+      ]
+    },
+    {
+      "activity": "Larvicida",
+      "activitySource": "Larvicide",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31227",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

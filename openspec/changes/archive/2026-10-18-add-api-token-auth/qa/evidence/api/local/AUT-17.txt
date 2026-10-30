@@ -1,0 +1,9 @@
+# AUT-17 Cuerpo y cabeceras idénticos entre rechazos (objetivo: local)
+
+Cuerpo común:
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+Cabeceras comunes:
+content-type: application/problem+json
+www-authenticate: Bearer
+content-length: 129
+connection: close

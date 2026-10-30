@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5b4e0732e99bcad039171d692027f2e4dd30e0bdcacb8b316befe083420a5ce4",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72848"
+    ],
+    "value": "Eucalyptus dolichorhyncha"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72848"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-dolichorhyncha",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ivan G. Holliday",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_dolichorhyncha.jpg",
+    "refs": [
+      "commons:File:Eucalyptus dolichorhyncha.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Eucalyptus_dolichorhyncha.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2141-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72848"
+    ],
+    "value": "Nativa de Australia (Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus dolichorhyncha.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus dolichorhyncha.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_dolichorhyncha.jpg"
+    },
+    "usda_part:2141-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72848": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus dolichorhyncha (Brooker) Brooker & Hopper",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:72966": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus forrestiana subsp. dolichorhyncha Brooker",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Brooker) Brooker & Hopper",
+    "name": "Eucalyptus dolichorhyncha",
+    "refs": [
+      "wcvp:72848"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Brooker",
+      "name": "Eucalyptus forrestiana subsp. dolichorhyncha",
+      "refs": [
+        "wcvp:72966"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

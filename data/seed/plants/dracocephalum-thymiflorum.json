@@ -1,0 +1,145 @@
+{
+  "aliases": [
+    "dracocephalum-thymiflora",
+    "moldavica-thymiflora"
+  ],
+  "bundleHash": "sha256:06e5f072f3897ae2619361b02ccab6d35b161e65ef63716830dd2e9cc892a17c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:630-1",
+        "usda_common_name:2018-1"
+      ],
+      "text": "Thyme-Flowered Moldavica"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:63928"
+    ],
+    "value": "Dracocephalum thymiflorum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:63928"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "dracocephalum-thymiflorum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:630-PL",
+      "usda_part:2018-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:63928"
+    ],
+    "value": "Cáucaso, Asia central y occidental, Siberia y Europa oriental y sudoriental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2018-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Thyme-Flowered Moldavica»",
+      "license": "CC0"
+    },
+    "usda_common_name:630-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Thyme-Flowered Moldavica»",
+      "license": "CC0"
+    },
+    "usda_part:2018-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_part:630-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:128917": {
+      "dataset": "wcvp",
+      "label": "WCVP: Moldavica thymiflora (L.) Rydb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:180856": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ruyschiana thymiflora (L.) House",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:63928": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dracocephalum thymiflorum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español para Dracocephalum thymiflorum; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Dracocephalum thymiflorum",
+    "refs": [
+      "wcvp:63928"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Rydb.",
+      "name": "Moldavica thymiflora",
+      "refs": [
+        "wcvp:128917"
+      ]
+    },
+    {
+      "authors": "(L.) House",
+      "name": "Ruyschiana thymiflora",
+      "refs": [
+        "wcvp:180856"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,181 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b599bfecbfb23a9dd8986161c7bf4d8f86a080dd138fe54bbde61fdda7e5787a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Melaleuca linariifolia"
+      ],
+      "text": "nieve en verano"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1274-1"
+      ],
+      "text": "Paperbark Tea_tree"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Melaleuca linariifolia"
+    ],
+    "value": "Planta nativa del este de Australia, conocida popularmente como nieve en verano. Su taxonomía está bajo revisión junto con otras especies, como Melaleuca trichostachya."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Melaleuca linariifolia"
+    ],
+    "value": "Nieve en verano"
+  },
+  "family": {
+    "refs": [
+      "wcvp:123749"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "melaleuca-linariifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Eug",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Melaleuca_linariifolia.jpg",
+    "refs": [
+      "commons:File:Melaleuca linariifolia.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Melaleuca_linariifolia.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1274-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:123749"
+    ],
+    "value": "Este de Australia (Nueva Gales del Sur y Queensland)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Melaleuca linariifolia.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Melaleuca linariifolia.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Melaleuca_linariifolia.jpg"
+    },
+    "usda_common_name:1274-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Paperbark Tea_tree»",
+      "license": "CC0"
+    },
+    "usda_part:1274-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:64645": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64645",
+      "license": "CC0"
+    },
+    "wcvp:123749": {
+      "dataset": "wcvp",
+      "label": "WCVP: Melaleuca linariifolia Sm.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:132214": {
+      "dataset": "wcvp",
+      "label": "WCVP: Myrtoleucodendron linariifolium (Sm.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Melaleuca linariifolia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Melaleuca linariifolia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Melaleuca_linariifolia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la hoja, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Sm.",
+    "name": "Melaleuca linariifolia",
+    "refs": [
+      "wcvp:123749"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Sm.) Kuntze",
+      "name": "Myrtoleucodendron linariifolium",
+      "refs": [
+        "wcvp:132214"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Australia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64645",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

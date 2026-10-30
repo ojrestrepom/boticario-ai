@@ -1,0 +1,150 @@
+{
+  "aliases": [
+    "plectranthus-rugosus"
+  ],
+  "bundleHash": "sha256:482bd2c7884b69cf098897d93787dc4424ec6305f7482aee9e105f113365b223",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:103022"
+    ],
+    "value": "Isodon rugosus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:103022"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "isodon-rugosus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Dinesh Valke from Thane, India",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Isodon_rugosus_(7787372612).jpg",
+    "refs": [
+      "commons:File:Isodon rugosus (7787372612).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Isodon_rugosus_%287787372612%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:103022"
+    ],
+    "value": "Península arábiga, China, subcontinente indio, Indochina y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Isodon rugosus (7787372612).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Isodon rugosus (7787372612).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Isodon_rugosus_(7787372612).jpg"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:29998": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29998",
+      "license": "CC0"
+    },
+    "wcvp:103022": {
+      "dataset": "wcvp",
+      "label": "WCVP: Isodon rugosus (Wall. ex Benth.) Codd",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:158460": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plectranthus rugosus Wall. ex Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:175991": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rabdosia rugosa (Wall. ex Benth.) H.Hara",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico (Isodon rugosus).",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Wall. ex Benth.) Codd",
+    "name": "Isodon rugosus",
+    "refs": [
+      "wcvp:103022"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Wall. ex Benth.",
+      "name": "Plectranthus rugosus",
+      "refs": [
+        "wcvp:158460"
+      ]
+    },
+    {
+      "authors": "(Wall. ex Benth.) H.Hara",
+      "name": "Rabdosia rugosa",
+      "refs": [
+        "wcvp:175991"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Repelente de insectos",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29998",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

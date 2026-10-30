@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c84f5aae34ba38ffa24732f39abef98f8a1e7cb491b94938570647085c6a9e9a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:539-1"
+      ],
+      "text": "Intoxicating Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:107268"
+    ],
+    "value": "Lagochilus inebrians"
+  },
+  "family": {
+    "refs": [
+      "wcvp:107268"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lagochilus-inebrians",
+  "image": {
+    "attributionRequired": true,
+    "author": "Fqi",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lagochilus_inebrians.jpg",
+    "refs": [
+      "commons:File:Lagochilus inebrians.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Lagochilus_inebrians.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:539-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:107268"
+    ],
+    "value": "Asia Central"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lagochilus inebrians.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lagochilus inebrians.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lagochilus_inebrians.jpg"
+    },
+    "usda_common_name:539-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Intoxicating Mint»",
+      "license": "CC0"
+    },
+    "usda_part:539-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:107268": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lagochilus inebrians Bunge",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Bunge",
+    "name": "Lagochilus inebrians",
+    "refs": [
+      "wcvp:107268"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

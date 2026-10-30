@@ -1,0 +1,810 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:215ac6527b05fa1d1bb9bef005e00a3c1bb31ef7e4b0aa9c072b3329adc58a10",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:979-1"
+      ],
+      "text": "Benzoin"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:979-2"
+      ],
+      "text": "Onycha"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:979-3"
+      ],
+      "text": "Styrax"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Styrax benzoin"
+    ],
+    "value": "Planta de la familia Styracaceae, originaria de las islas de Sumatra, Java y Borneo."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2580647"
+    ],
+    "value": "Styrax benzoin"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2580647"
+    ],
+    "value": "Styracaceae"
+  },
+  "goals": [],
+  "id": "styrax-benzoin",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Styrax_benzoin_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-133.jpg",
+    "refs": [
+      "commons:File:Styrax benzoin - Köhler–s Medizinal-Pflanzen-133.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Styrax_benzoin_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-133.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2580647"
+    ],
+    "value": "Subcontinente indio, Indochina y Malesia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Styrax benzoin - Köhler–s Medizinal-Pflanzen-133.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Styrax benzoin - Köhler–s Medizinal-Pflanzen-133.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Styrax_benzoin_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-133.jpg"
+    },
+    "usda_common_name:979-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Benzoin»",
+      "license": "CC0"
+    },
+    "usda_common_name:979-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Onycha»",
+      "license": "CC0"
+    },
+    "usda_common_name:979-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Styrax»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10754": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10754",
+      "license": "CC0"
+    },
+    "usda_use:11037": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11037",
+      "license": "CC0"
+    },
+    "usda_use:12756": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12756",
+      "license": "CC0"
+    },
+    "usda_use:17393": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17393",
+      "license": "CC0"
+    },
+    "usda_use:18875": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18875",
+      "license": "CC0"
+    },
+    "usda_use:22809": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22809",
+      "license": "CC0"
+    },
+    "usda_use:23324": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23324",
+      "license": "CC0"
+    },
+    "usda_use:23325": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23325",
+      "license": "CC0"
+    },
+    "usda_use:29884": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29884",
+      "license": "CC0"
+    },
+    "usda_use:29885": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29885",
+      "license": "CC0"
+    },
+    "usda_use:3800": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3800",
+      "license": "CC0"
+    },
+    "usda_use:3801": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3801",
+      "license": "CC0"
+    },
+    "usda_use:3802": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3802",
+      "license": "CC0"
+    },
+    "usda_use:43241": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43241",
+      "license": "CC0"
+    },
+    "usda_use:45229": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45229",
+      "license": "CC0"
+    },
+    "usda_use:45985": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45985",
+      "license": "CC0"
+    },
+    "usda_use:46981": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46981",
+      "license": "CC0"
+    },
+    "usda_use:46982": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46982",
+      "license": "CC0"
+    },
+    "usda_use:4921": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4921",
+      "license": "CC0"
+    },
+    "usda_use:55202": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55202",
+      "license": "CC0"
+    },
+    "usda_use:61889": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61889",
+      "license": "CC0"
+    },
+    "usda_use:61891": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61891",
+      "license": "CC0"
+    },
+    "usda_use:64628": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64628",
+      "license": "CC0"
+    },
+    "usda_use:65965": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65965",
+      "license": "CC0"
+    },
+    "usda_use:66336": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66336",
+      "license": "CC0"
+    },
+    "usda_use:66702": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66702",
+      "license": "CC0"
+    },
+    "usda_use:67803": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67803",
+      "license": "CC0"
+    },
+    "usda_use:70527": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70527",
+      "license": "CC0"
+    },
+    "wcvp:114311": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lithocarpus benzoin (Dryand.) Royle",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2551858": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plagiospermum benzoin (Dryand.) Pierre",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2580647": {
+      "dataset": "wcvp",
+      "label": "WCVP: Styrax benzoin Dryand.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Styrax benzoin": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Styrax benzoin",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Styrax_benzoin"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Dryand.",
+    "name": "Styrax benzoin",
+    "refs": [
+      "wcvp:2580647"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Dryand.) Royle",
+      "name": "Lithocarpus benzoin",
+      "refs": [
+        "wcvp:114311"
+      ]
+    },
+    {
+      "authors": "(Dryand.) Pierre",
+      "name": "Plagiospermum benzoin",
+      "refs": [
+        "wcvp:2551858"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3800",
+        "usda_use:3801",
+        "usda_use:3802",
+        "usda_use:64628",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Eb33: 235",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 235"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23324",
+        "usda_use:23325",
+        "usda_use:70527",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10754",
+        "usda_use:66702",
+        "usda_reference:Bliss",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29884",
+        "usda_use:29885",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46981",
+        "usda_use:46982",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4921",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Asia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65965",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66336",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11037",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12756",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Asia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67803",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Desodorante",
+      "activitySource": "Deodorant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61889",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Desinfectante",
+      "activitySource": "Disinfectant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17393",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18875",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Mal de ojo",
+      "activitySource": "Evil eye",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22809",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Incienso",
+      "activitySource": "Incense",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61891",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43241",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Asia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45229",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Espermatorrea",
+      "activitySource": "Spermatorrhea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45985",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55202",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

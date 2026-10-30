@@ -1,0 +1,103 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9612aa2b972843324de2deae1018f87b1aec3a254ca0bca36166af452d09815b",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:194632"
+    ],
+    "value": "Spondianthus preussii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:194632"
+    ],
+    "value": "Phyllanthaceae"
+  },
+  "goals": [],
+  "id": "spondianthus-preussii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:194632"
+    ],
+    "value": "África tropical (oriental, nororiental, meridional, occidental y centro-occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:61767": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61767",
+      "license": "CC0"
+    },
+    "wcvp:194632": {
+      "dataset": "wcvp",
+      "label": "WCVP: Spondianthus preussii Engl.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Engl.",
+    "name": "Spondianthus preussii",
+    "refs": [
+      "wcvp:194632"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Raticida",
+      "activitySource": "Raticide",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Camerún"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61767",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

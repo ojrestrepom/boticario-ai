@@ -1,0 +1,27 @@
+--- valores distintos de areas
+GET censo
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "Estrés mental y trastornos del ánimo": 17,
+ "Trastornos del sueño e insomnio pasajero": 8,
+ "Trastornos de la piel y heridas leves": 32,
+ "Tos y resfriado": 52,
+ "Fatiga y debilidad": 8,
+ "Trastornos urinarios y genitales": 42,
+ "Trastornos circulatorios": 17,
+ "Pérdida de apetito; Trastornos gastrointestinales": 9,
+ "Trastornos gastrointestinales": 43,
+ "Trastornos de boca y garganta": 20,
+ "Estreñimiento": 11,
+ "Molestias oculares": 1,
+ "Pérdida de apetito": 3,
+ "Dolor e inflamación": 22,
+ "Trastornos gastrointestinales; Trastornos digestivos": 1,
+ "Estreñimiento; Trastornos gastrointestinales": 1
+}
+
+PASA  ninguna area (16 valores distintos) contiene lenguaje de dosis o eficacia []
+PASA  los valores de areas son los 13 del diseno mas los 3 compuestos con '; ' set()
+OBS   areas compuestas tal cual (decision tomada): {'Pérdida de apetito; Trastornos gastrointestinales': 9, 'Trastornos gastrointestinales; Trastornos digestivos': 1, 'Estreñimiento; Trastornos gastrointestinales': 1}
+PASA  los textos del catalogo de objetivos tampoco contienen lenguaje de dosis 

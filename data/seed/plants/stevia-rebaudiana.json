@@ -1,0 +1,253 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7bced0215372aff93c51e452c5c44df5d1bb1f41433734561e11d7734dfe1fd1",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Stevia rebaudiana"
+      ],
+      "text": "Estevia"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:973-3"
+      ],
+      "text": "Stevia"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:973-1"
+      ],
+      "text": "Ca-A-E"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:973-2"
+      ],
+      "text": "Sweet Leaf of Paraguay"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Stevia rebaudiana"
+    ],
+    "value": "Especie del género Stevia, de la familia de las asteráceas, nativa de la región tropical de Sudamérica. Se encuentra en estado silvestre en Paraguay y se cultiva desde hace décadas por sus propiedades edulcorantes."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Stevia rebaudiana"
+    ],
+    "value": "Estevia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2929127"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "stevia-rebaudiana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ethel Aardvark",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Stevia_rebaudiana_foliage.jpg",
+    "refs": [
+      "commons:File:Stevia rebaudiana foliage.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Stevia_rebaudiana_foliage.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:973-FL",
+      "usda_part:973-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2929127"
+    ],
+    "value": "Brasil y el sur de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Stevia rebaudiana foliage.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Stevia rebaudiana foliage.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Stevia_rebaudiana_foliage.jpg"
+    },
+    "usda_common_name:973-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ca-A-E»",
+      "license": "CC0"
+    },
+    "usda_common_name:973-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sweet Leaf of Paraguay»",
+      "license": "CC0"
+    },
+    "usda_common_name:973-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Stevia»",
+      "license": "CC0"
+    },
+    "usda_part:973-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:973-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:48775": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48775",
+      "license": "CC0"
+    },
+    "usda_use:48784": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48784",
+      "license": "CC0"
+    },
+    "usda_use:61846": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61846",
+      "license": "CC0"
+    },
+    "wcvp:2929127": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stevia rebaudiana (Bertoni) Bertoni",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2929128": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eupatorium rebaudianum Bertoni",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Stevia rebaudiana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Stevia rebaudiana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Stevia_rebaudiana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; esto no significa que la planta sea segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la flor y la hoja, sin ficha de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Bertoni) Bertoni",
+    "name": "Stevia rebaudiana",
+    "refs": [
+      "wcvp:2929127"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Bertoni",
+      "name": "Eupatorium rebaudianum",
+      "refs": [
+        "wcvp:2929128"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Edulcorante",
+      "activitySource": "Sweetener",
+      "citations": [
+        {
+          "key": "Eb22: 326",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 326"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Paraguay"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48775",
+        "usda_use:48784",
+        "usda_reference:EB",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anticonceptivo",
+      "activitySource": "Contraceptive",
+      "citations": [
+        {
+          "key": "Eb31: 302",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 302"
+        }
+      ],
+      "countries": [
+        "Paraguay"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61846",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Documentación
+comprobador de enlaces (scratch, control negativo detecta 3 rotos de 4): enlaces relativos comprobados: 93 rotos: 0 archivos: 9
+-- menciones de rust|mise|cargo en README.md (ninguna es una instrucción de instalación):
+16:en `backend/`: una ingesta en Rust que construye una base neutra
+41:- `backend/`: workspace de Cargo con tres crates, con su guía 
+47:- `mise.toml`: versión fijada de Rust
+50:r, `backend/` es exclusivo de Rust y `data/` contiene artefactos
+205:Para modificar el código Rust o ejecutarlo sin Docker, ver 
+213:` para la API y la ingesta en Rust y `data/` para los artefactos
+222:.md), con el flujo nativo con mise y cargo.
+-- secciones de backend/README.md:
+9:## 1. Prerrequisitos
+22:## 2. Construir el catálogo
+38:## 3. Ejecutar la API
+67:## 4. Contrato OpenAPI
+77:## 5. Verificación
+93:## 6. Cambiar el esquema
+-- comandos y tabla de la sección antigua del README (HEAD) vs backend/README.md: idénticos
+-- openapi regenerado == backend/openapi.json: igual
+-- toolchain_pin: coinciden -> 6 ok; mise.toml 1.98.0 -> 'la versión de Rust difiere: mise.toml fija 1.98.0 y el Dockerfile usa 1.99.0'; Dockerfile 1.98.0 -> 'mise.toml fija 1.99.0 y el Dockerfile usa 1.98.0'; cargo test --workspace: todo ok

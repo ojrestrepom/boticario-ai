@@ -1,0 +1,129 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:033ba5347b3e85103d7872c180f32e3d3bb00fd3e780c150525073a464eca4d4",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1136-1"
+      ],
+      "text": "Cerecito"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1136-2"
+      ],
+      "text": "Hayo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1136-3"
+      ],
+      "text": "Jaillito"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Erythroxylum steyermarkii"
+    ],
+    "value": "Especie de planta de la familia Erythroxylaceae que se distribuye en Venezuela."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2801679"
+    ],
+    "value": "Erythroxylum steyermarkii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2801679"
+    ],
+    "value": "Erythroxylaceae"
+  },
+  "goals": [],
+  "id": "erythroxylum-steyermarkii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2801679"
+    ],
+    "value": "Nativa del norte de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1136-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cerecito»",
+      "license": "CC0"
+    },
+    "usda_common_name:1136-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hayo»",
+      "license": "CC0"
+    },
+    "usda_common_name:1136-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Jaillito»",
+      "license": "CC0"
+    },
+    "wcvp:2801679": {
+      "dataset": "wcvp",
+      "label": "WCVP: Erythroxylum steyermarkii Plowman",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Erythroxylum steyermarkii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Erythroxylum steyermarkii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Erythroxylum_steyermarkii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español reconocido como tal; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Cerecito», «Hayo» y «Jaillito» con idioma inglés, pero parecen nombres en español; no se usan como nombre mostrado.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Plowman",
+    "name": "Erythroxylum steyermarkii",
+    "refs": [
+      "wcvp:2801679"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

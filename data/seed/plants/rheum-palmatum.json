@@ -1,0 +1,409 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ffb6959462871a3ce53fc55936029b53d41dc667c9c7f6444287779af8777b1c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:846-1"
+      ],
+      "text": "Chinese Rhubarb"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2425567"
+    ],
+    "value": "Rheum palmatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2425567"
+    ],
+    "value": "Polygonaceae"
+  },
+  "goals": [
+    {
+      "area": "Estreñimiento",
+      "evidence": "La EMA tiene una monografía para la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rhei-radix"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "rheum-palmatum",
+  "image": {
+    "attributionRequired": true,
+    "author": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rheum_officinale_001.JPG",
+    "refs": [
+      "commons:File:Rheum officinale 001.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Rheum_officinale_001.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:846-RH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2425567"
+    ],
+    "value": "Nativa de China e Indochina."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:rhei-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rheum officinale 001.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rheum officinale 001.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rheum_officinale_001.JPG"
+    },
+    "efsa_botanic:739": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: anthraquinones",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:740": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Emodin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:741": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sennoside A",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:742": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sennoside B",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:743": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: palmidin C",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:744": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: rhein",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:rhei-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Rhei radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/rhei-radix"
+    },
+    "ema_pdf:rhei-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rhei-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rheum-palmatum-l-and-rheum-officinale-baillon-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:rhei-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rhei-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rheum-palmatum-l-and-rheum-officinale-baillon-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:rhei-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rhei-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rheum-palmatum-l-and-rheum-officinale-baillon-radix-revision-1_en.pdf"
+    },
+    "usda_common_name:846-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Rhubarb»",
+      "license": "CC0"
+    },
+    "usda_part:846-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:4145": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4145",
+      "license": "CC0"
+    },
+    "usda_use:4146": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4146",
+      "license": "CC0"
+    },
+    "usda_use:47902": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47902",
+      "license": "CC0"
+    },
+    "usda_use:50914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50914",
+      "license": "CC0"
+    },
+    "usda_use:53150": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53150",
+      "license": "CC0"
+    },
+    "usda_use:6060": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6060",
+      "license": "CC0"
+    },
+    "usda_use:9829": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9829",
+      "license": "CC0"
+    },
+    "wcvp:2425567": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rheum palmatum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2425619": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhabarbarum palmatum (L.) Moench",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Upho» del grupo «Aperient»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el rizoma, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:rhei-radix:4.3",
+      "ema_pdf:rhei-radix:4.4",
+      "ema_pdf:rhei-radix:4.5",
+      "efsa_botanic:739",
+      "efsa_botanic:740",
+      "efsa_botanic:741",
+      "efsa_botanic:742",
+      "efsa_botanic:743",
+      "efsa_botanic:744"
+    ],
+    "text": "La monografía de la EMA para la raíz registra como contraindicaciones la hipersensibilidad a la sustancia activa, la obstrucción y estenosis intestinal, la atonía, la apendicitis, las enfermedades inflamatorias del colon, el dolor abdominal de origen desconocido, la deshidratación grave con pérdida de agua y electrolitos, el embarazo, la lactancia y la edad menor de 12 años. Como advertencias registra que el uso prolongado de laxantes estimulantes puede alterar la función intestinal y causar dependencia, y precauciones en pacientes que toman glucósidos cardíacos, antiarrítmicos, diuréticos, corticosteroides o raíz de regaliz, y en pacientes con trastornos renales. Como interacción registra que la hipopotasemia por uso prolongado de laxantes potencia la acción de los glucósidos cardíacos y que el uso con diuréticos, corticosteroides y raíz de regaliz puede aumentar la pérdida de potasio. EFSA registra como sustancias de evidencia en raíces y otras partes subterráneas la emodina, las antraquinonas, la palmidina C, la reína y los senósidos A y B."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Rheum palmatum",
+    "refs": [
+      "wcvp:2425567"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Moench",
+      "name": "Rhabarbarum palmatum",
+      "refs": [
+        "wcvp:2425619"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Aperient",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Upho",
+          "ref": null,
+          "text": "Upho (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4145",
+        "usda_use:4146",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6060",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9829",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47902",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50914",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de bazo",
+      "activitySource": "Tumor(Spleen)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53150",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+PASA  GET /v1/plants/{id} responde 200 y cumple PlantDto en las 2354 plantas 0 fallos []
+PASA  ningun id canonico lleva Content-Location 
+PASA  campos requeridos siempre presentes (aunque vacios o null) []
+PASA  family siempre presente (texto o null) 0 sin la clave, p. ej. []
+PASA  ninguna respuesta contiene 'reviewFlags' 
+PASA  ninguna respuesta contiene un codigo de reviewFlag []
+PASA  ningun nombre de campo es de fuente/dataset/flag (source, dataset, flags...) ['activity', 'activitySource', 'area', 'attribution', 'attributionRequired', 'author', 'citation', 'count', 'countries', 'credits', 'description', 'displayName', 'evidence', 'family', 'goals', 'id', 'image', 'kind', 'label', 'language', 'level', 'license', 'licenseUrl', 'name', 'names', 'oil', 'origin', 'pageUrl', 'parts', 'reference', 'references', 'resolved', 'safety', 'scientificName', 'subarea', 'synonyms', 'text', 'type', 'url', 'useGroups', 'uses']
+campos usados en el detalle: activity, activitySource, area, attribution, attributionRequired, author, citation, count, countries, credits, description, displayName, evidence, family, goals, id, image, kind, label, language, level, license, licenseUrl, name, names, oil, origin, pageUrl, parts, reference, references, resolved, safety, scientificName, subarea, synonyms, text, type, url, useGroups, uses
+tiempos del detalle (una peticion secuencial por planta, 2354 plantas, base real, API en contenedor local): mediana 1.1 ms, p95 1.8 ms, p99 2.7 ms, max 8.7 ms
+las 5 mas lentas: helianthus-tuberosus 9 ms (8569 B), viscum-angulatum 7 ms (1102 B), oenanthe-javanica 5 ms (2711 B), rhus-typhina 4 ms (5218 B), abelmoschus-esculentus 4 ms (17039 B)
+las 5 de mayor tamano: allium-sativum 32245 B, senna-occidentalis 31334 B, ricinus-communis 28782 B, zingiber-officinale 28059 B, aloe-vera 26492 B; mediana 3751 B

@@ -1,0 +1,10 @@
+HTTP/2 200 
+content-type: application/json
+x-cloud-trace-context: a53535ae027ccd5849b40729d8542768
+date: Sat, 17 Oct 2026 02:16:26 GMT
+server: Google Frontend
+content-length: 8742
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+{"openapi":"3.1.0","info":{"title":"Boticario AI Catalog API","description":"API de solo lectura del catálogo de plantas. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`.","license":{"name":""},"version":"1"},"paths":{"/health":{"get":{"tags":["health"],"summary":"El servicio está activo.","operationId":"health","responses":{"200":{"description":"El servicio está activo","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HealthDto"}}}},"405":{"description":"Método no permitido; la respuesta incluye `Allow: GET`","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDto"}}}}}}},"/openapi.json":{"get":{"tags":["health"],"summary":"Documento OpenAPI de esta misma API.","operationId":"openapi_json","responses":{"200":{"description":"Este mismo documento OpenAPI","content":{"application/json":{}}},"405":{"description":"Método no permitido; la respuesta incluye `Allow: GET`","content":{"application/problem+json":{"schema":{"$ref":"#/components/schemas/ProblemDto"}}}}}}},"/v1/plants":{"get":{"tags":["catalog"],"summary":"Lista plantas con búsqueda y paginación.","operationId":"list_plants","parameters":[{"name":"q","in":"query","description":"Subcadena a buscar en el nombre científico y los nombres comunes, sin distinguir mayúsculas, acentos ni espacios repetidos o
+[... recortado, 8742 bytes en total]

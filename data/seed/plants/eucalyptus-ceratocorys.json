@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:903ff80ff67c4e0e157742db16a59866bce9a73eba6c5bd88661a434213fa178",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72662"
+    ],
+    "value": "Eucalyptus ceratocorys"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72662"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-ceratocorys",
+  "image": {
+    "attributionRequired": true,
+    "author": "J.R. Connors",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_ceratocorys_bark.jpg",
+    "refs": [
+      "commons:File:Eucalyptus ceratocorys bark.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Eucalyptus_ceratocorys_bark.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2137-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72662"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus ceratocorys bark.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus ceratocorys bark.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_ceratocorys_bark.jpg"
+    },
+    "usda_part:2137-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72437": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus angulosa var. ceratocorys Blakely",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:72662": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus ceratocorys (Blakely) L.A.S.Johnson & K.D.Hill",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Blakely) L.A.S.Johnson & K.D.Hill",
+    "name": "Eucalyptus ceratocorys",
+    "refs": [
+      "wcvp:72662"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Blakely",
+      "name": "Eucalyptus angulosa var. ceratocorys",
+      "refs": [
+        "wcvp:72437"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

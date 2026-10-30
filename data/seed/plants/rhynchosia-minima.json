@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b5888ad3f57a4887790aa5b586d4f344b2de3040bae7d3c8c31572c1db35fdda",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:857-1"
+      ],
+      "text": "Burn Mouth Vine"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2427763"
+    ],
+    "value": "Rhynchosia minima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2427763"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "rhynchosia-minima",
+  "image": {
+    "attributionRequired": false,
+    "author": "Tracey Slotta",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rhynchosia_minima_seeds.jpg",
+    "refs": [
+      "commons:File:Rhynchosia minima seeds.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Rhynchosia_minima_seeds.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2427763"
+    ],
+    "value": "Nativa de amplias zonas de África, Asia, Australia, América Central, el Caribe y América del Sur."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rhynchosia minima seeds.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rhynchosia minima seeds.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Rhynchosia_minima_seeds.jpg"
+    },
+    "usda_common_name:857-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Burn Mouth Vine»",
+      "license": "CC0"
+    },
+    "usda_use:266": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 266",
+      "license": "CC0"
+    },
+    "usda_use:37299": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37299",
+      "license": "CC0"
+    },
+    "wcvp:2427763": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhynchosia minima (L.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774160": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolicholus minimus (L.) Medik.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774450": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolichos minimus L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata en el paquete.",
+      "target": "traditionalUses[0]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:266"
+    ],
+    "text": "Advertencia: registrada como abortiva en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(L.) DC.",
+    "name": "Rhynchosia minima",
+    "refs": [
+      "wcvp:2427763"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Medik.",
+      "name": "Dolicholus minimus",
+      "refs": [
+        "wcvp:2774160"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Dolichos minimus",
+      "refs": [
+        "wcvp:2774450"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:37299"
+      ]
+    }
+  ]
+}

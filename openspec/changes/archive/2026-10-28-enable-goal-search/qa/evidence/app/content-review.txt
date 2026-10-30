@@ -1,0 +1,34 @@
+Tarjetas leidas en la interfaz: 287 en 11 listas; plantas distintas con objetivo en la API: 175
+CON-01 lineas por tipo en las tarjetas: {'nombre': 528, 'ema': 287, 'marca': 73}; cada tarjeta tiene nombre, [cientifico], una linea de la EMA y a lo sumo una marca
+CON-01 coincidencias con la lista de terminos de eficacia o dosis (incluye 'calma', 'alivia', 'trata', 'efecto', 'mg'...): 0
+CON-02 plantas de riesgo conocido presentes en las listas, con su nivel y lo que muestra la tarjeta:
+  symphytum-officinale (Consuelda): nivel medio, marca Precaución; consuelda: alcaloides pirrolizidinicos, uso interno restringido
+  arnica-montana (Hierba de las caídas): nivel bajo, marca -; arnica: toxica por via interna, la EMA solo admite uso topico
+  eucalyptus-globulus (Eucalipto común): nivel None, marca -; aceite de eucalipto: toxico por ingestion en dosis pequenas, y en ninos
+  eucalyptus-smithii (Eucalipto de Smith): nivel None, marca -; idem
+  tanacetum-parthenium (Gamaza): nivel medio, marca Precaución; gamaza/matricaria: contraindicada en embarazo
+  frangula-purshiana (Cáscara sagrada): nivel None, marca -; laxante antraquinonico
+  frangula-alnus (Arraclán): nivel medio, marca Precaución; laxante antraquinonico
+  senna-alexandrina (Sen de Alejandría): nivel None, marca -; laxante antraquinonico
+  hypericum-perforatum (Hierba de San Juan): nivel alto, marca Precaución; interacciones graves
+  glycyrrhiza-glabra (Regaliz): nivel alto, marca Precaución; regaliz: hipertension e hipopotasemia
+  allium-sativum (Ajo): nivel alto, marca Precaución; anticoagulacion
+  ginkgo-biloba (Ginkgo): nivel alto, marca Precaución; anticoagulacion
+  panax-ginseng (Ginseng): nivel alto, marca Precaución; interacciones
+  juniperus-communis (Enebro): nivel medio, marca Precaución; embarazo y renal
+  melaleuca-alternifolia (Árbol del té): nivel medio, marca Precaución; aceite: toxico por ingestion
+  mentha-x-piperita (Menta piperita): nivel medio, marca Precaución; mentol en ninos pequenos
+  menyanthes-trifoliata (Trébol de agua): nivel medio, marca Precaución; emetico en exceso
+  ononis-spinosa (Gatuña): nivel None, marca -; -
+CON-02 ninguna de las 13 plantas de nivel alto es una de las excluidas por toxicidad (la API no las lista: API-13)
+CON-03 plantas con el cientifico como nombre principal: 32 (el diseno dice 32)
+CON-03 tarjetas donde el nombre principal se repite como secundario: 0
+CON-03 nombres principales repetidos entre plantas distintas (se distinguen por el cientifico): {'Manzanilla': 2, 'Ortiga': 2, 'Gordolobo': 2, 'Primavera': 2, 'Regaliz': 2}
+CON-03 nombres que empiezan en minuscula: []
+CON-03 nombres con espacios sobrantes: []
+CON-03 nombres que se apartan del uso comun segun la revision (a confirmar en 6.5): arnica-montana 'Hierba de las caídas' (el uso comun es 'Árnica'); silybum-marianum 'Cardo de maria' (sin tilde: 'Cardo de María'); capsella-bursa-pastoris 'Mostaza salvaje' (el uso comun es 'Bolsa de pastor'); tanacetum-parthenium 'Gamaza'; eucalyptus-polybractea 'Mallee azul'
+CON-03 grindelia-robusta trae un nombre comun 'es' ('grindelia') pero su nombre principal es el cientifico; las otras tres Grindelia tambien: ['Grindelia camporum', 'Grindelia humilis', 'Grindelia robusta', 'Grindelia squarrosa']
+CON-04 de las 175 plantas, 155 tienen imagen y 20 no; autor nulo en 6: ['urtica-dioica', 'glycyrrhiza-glabra', 'salix-daphnoides', 'cinnamomum-verum', 'ribes-nigrum', 'ruscus-aculeatus']
+CON-04 imagenes sin licencia en la API: 0
+CON-04 imagenes fuera de upload.wikimedia.org/wikipedia/commons: 0
+CON-04 extensiones: {'jpg': 152, 'gif': 1, 'png': 2} (todas rasters o svg: la politica deriva miniatura de 500 px para todas)

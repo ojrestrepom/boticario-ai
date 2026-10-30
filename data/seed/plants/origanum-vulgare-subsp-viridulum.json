@@ -1,0 +1,139 @@
+{
+  "aliases": [
+    "origanum-vulgare-var-viride"
+  ],
+  "bundleHash": "sha256:ba80fd71a09706080ff9c21543c4db417015894e7e3046ffa15438359ea35040",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2084-1"
+      ],
+      "text": "Green Turkish Oregano"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:143964"
+    ],
+    "value": "Origanum vulgare subsp. viridulum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:143964"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "origanum-vulgare-subsp-viridulum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2084-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:143964"
+    ],
+    "value": "Cáucaso, Europa oriental, sudoriental y sudoccidental, Asia occidental y subcontinente indio"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2084-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Green Turkish Oregano»",
+      "license": "CC0"
+    },
+    "usda_part:2084-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:143952": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum viridulum Martrin-Donos",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:143964": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum vulgare subsp. viridulum (Martrin-Donos) Nyman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:375274": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum vulgare var. viridulum (Martrin-Donos) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:499179": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum vulgare f. viridulum (Martrin-Donos) Bolzon",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico Origanum vulgare subsp. viridulum.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Martrin-Donos) Nyman",
+    "name": "Origanum vulgare subsp. viridulum",
+    "refs": [
+      "wcvp:143964"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Martrin-Donos",
+      "name": "Origanum viridulum",
+      "refs": [
+        "wcvp:143952"
+      ]
+    },
+    {
+      "authors": "(Martrin-Donos) Bolzon",
+      "name": "Origanum vulgare f. viridulum",
+      "refs": [
+        "wcvp:499179"
+      ]
+    },
+    {
+      "authors": "(Martrin-Donos) Briq.",
+      "name": "Origanum vulgare var. viridulum",
+      "refs": [
+        "wcvp:375274"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

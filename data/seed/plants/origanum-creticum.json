@@ -1,0 +1,214 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:93d93f70744f516638647abda8e5be3274b031890cb441064e3dc39dfe6ff7b1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:677-1"
+      ],
+      "text": "Dittany Of Crete"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:143784"
+    ],
+    "value": "Origanum creticum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:143784"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "origanum-creticum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:677-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:677-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dittany Of Crete»",
+      "license": "CC0"
+    },
+    "usda_part:677-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:33648": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33648",
+      "license": "CC0"
+    },
+    "usda_use:42641": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42641",
+      "license": "CC0"
+    },
+    "usda_use:45807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45807",
+      "license": "CC0"
+    },
+    "usda_use:52443": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52443",
+      "license": "CC0"
+    },
+    "wcvp:143784": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum creticum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Origanum creticum",
+    "refs": [
+      "wcvp:143784"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33648",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Escrófula",
+      "activitySource": "Scrofula",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42641",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45807",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52443",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "aliases": [
+    "scutellaria-churchilliana"
+  ],
+  "bundleHash": "sha256:3f6b3d5042961f9a541b9f6f21fb049b0f4836ca79aa91f13c3d7ad0c9f52417",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:916-1"
+      ],
+      "text": "Hybrid Skullcap"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:189005"
+    ],
+    "value": "Scutellaria × churchilliana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:189005"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "scutellaria-x-churchilliana",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:916-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:189005"
+    ],
+    "value": "Nativa de Canadá y Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:916-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hybrid Skullcap»",
+      "license": "CC0"
+    },
+    "usda_part:916-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:189005": {
+      "dataset": "wcvp",
+      "label": "WCVP: Scutellaria × churchilliana Fernald",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (usda_part:916-PL), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Fernald",
+    "name": "Scutellaria × churchilliana",
+    "refs": [
+      "wcvp:189005"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,110 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dfa43ddd6776ac1052b5612fa57245b800d27e1b5309a5f1e37c38368082484f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:950-1"
+      ],
+      "text": "Siberian Pachycarpa"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2597311"
+    ],
+    "value": "Sophora pachycarpa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2597311"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "sophora-pachycarpa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2597311"
+    ],
+    "value": "Asia central, China y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:950-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Siberian Pachycarpa»",
+      "license": "CC0"
+    },
+    "wcvp:2452372": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vexibia pachycarpa (Schrenk ex C.A.Mey.) W.A.Weber",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2597311": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sophora pachycarpa Schrenk ex C.A.Mey.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2828293": {
+      "dataset": "wcvp",
+      "label": "WCVP: Goebelia pachycarpa (Schrenk ex C.A.Mey.) Bunge ex Boiss.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schrenk ex C.A.Mey.",
+    "name": "Sophora pachycarpa",
+    "refs": [
+      "wcvp:2597311"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Schrenk ex C.A.Mey.) Bunge ex Boiss.",
+      "name": "Goebelia pachycarpa",
+      "refs": [
+        "wcvp:2828293"
+      ]
+    },
+    {
+      "authors": "(Schrenk ex C.A.Mey.) W.A.Weber",
+      "name": "Vexibia pachycarpa",
+      "refs": [
+        "wcvp:2452372"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

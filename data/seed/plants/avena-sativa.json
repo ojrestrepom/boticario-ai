@@ -1,0 +1,533 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6744fd2376aa02f3e9345a080750d9aecf9c2cc00d5797ba1ba7c771e48742a1",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Avena sativa"
+      ],
+      "text": "avena"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P821"
+      ],
+      "text": "Oat"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:144-1"
+      ],
+      "text": "Oats"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P821"
+      ],
+      "text": "Saat-Hafer"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Avena sativa"
+    ],
+    "value": "Especie de planta fanerógama de la familia Poaceae, un cereal que se cultiva por su semilla."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Avena sativa"
+    ],
+    "value": "Avena"
+  },
+  "family": {
+    "refs": [
+      "wcvp:397860"
+    ],
+    "value": "Poaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía para el fruto en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:avenae-fructus"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos del sueño e insomnio pasajero",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "mejorar-el-sueno",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:avenae-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:avenae-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "avena-sativa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Sendelbach ( talk )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Avena_sativa_L.jpg",
+    "refs": [
+      "commons:File:Avena sativa L.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Avena_sativa_L.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:397860"
+    ],
+    "value": "Nativa de Siberia y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:avenae-fructus"
+      ],
+      "value": "Fruto"
+    },
+    {
+      "refs": [
+        "ema_herbal:avenae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Avena sativa L.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Avena sativa L.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Avena_sativa_L.jpg"
+    },
+    "ema_herbal:avenae-fructus": {
+      "dataset": "ema_json",
+      "label": "EMA: Avenae fructus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/avenae-fructus"
+    },
+    "ema_herbal:avenae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Avenae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/avenae-herba"
+    },
+    "ema_pdf:avenae-fructus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de avenae-fructus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-avena-sativa-l-fructus_en.pdf"
+    },
+    "ema_pdf:avenae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de avenae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-avena-sativa-l-herba_en.pdf"
+    },
+    "ema_pdf:avenae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de avenae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-avena-sativa-l-herba_en.pdf"
+    },
+    "ema_pdf:avenae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de avenae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-avena-sativa-l-herba_en.pdf"
+    },
+    "tppt_plant:P821": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Avena sativa L. s.l. (A. sativa L. s.str. and A. sativa subsp. orientalis (Schreb.) H. Werner)",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:144-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Oats»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_use:14913": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14913",
+      "license": "CC0"
+    },
+    "usda_use:14914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14914",
+      "license": "CC0"
+    },
+    "usda_use:17602": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17602",
+      "license": "CC0"
+    },
+    "usda_use:17603": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17603",
+      "license": "CC0"
+    },
+    "usda_use:34772": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34772",
+      "license": "CC0"
+    },
+    "usda_use:37695": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37695",
+      "license": "CC0"
+    },
+    "usda_use:45615": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45615",
+      "license": "CC0"
+    },
+    "usda_use:46505": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46505",
+      "license": "CC0"
+    },
+    "usda_use:50168": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50168",
+      "license": "CC0"
+    },
+    "usda_use:51965": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51965",
+      "license": "CC0"
+    },
+    "usda_use:52837": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52837",
+      "license": "CC0"
+    },
+    "usda_use:55040": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55040",
+      "license": "CC0"
+    },
+    "wcvp:397502": {
+      "dataset": "wcvp",
+      "label": "WCVP: Avena fatua subsp. sativa (L.) Thell.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:397538": {
+      "dataset": "wcvp",
+      "label": "WCVP: Avena fatua var. sativa (L.) Hausskn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:397860": {
+      "dataset": "wcvp",
+      "label": "WCVP: Avena sativa L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Avena sativa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Avena sativa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Avena_sativa"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:avenae-fructus:4.3",
+      "ema_pdf:avenae-herba:4.3",
+      "ema_pdf:avenae-herba:4.4",
+      "ema_pdf:avenae-herba:4.5",
+      "usda_use:37695"
+    ],
+    "text": "La EMA registra como contraindicación la hipersensibilidad al principio activo (fruto y parte aérea); para la parte aérea indica que el uso en menores de 12 años no se recomienda por falta de datos y que se aconseja precaución en personas con enfermedad celíaca porque no hay datos sobre el contenido de proteínas; no registra interacciones. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Avena sativa",
+    "refs": [
+      "wcvp:397860"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Thell.",
+      "name": "Avena fatua subsp. sativa",
+      "refs": [
+        "wcvp:397502"
+      ]
+    },
+    {
+      "authors": "(L.) Hausskn.",
+      "name": "Avena fatua var. sativa",
+      "refs": [
+        "wcvp:397538"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14913",
+        "usda_use:14914",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "España",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17602",
+        "usda_use:17603",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34772",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45615",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46505",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50168",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51965",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de abdomen",
+      "activitySource": "Tumor(Abdomen)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido (Gales)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52837",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55040",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

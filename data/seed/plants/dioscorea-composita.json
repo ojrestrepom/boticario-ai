@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:231fbc3bf9e9ef188f98965186fcdb52319b11d44c9ef948ca30d352e0d41300",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:365-1"
+      ],
+      "text": "Barbasco"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Dioscorea composita"
+    ],
+    "value": "Tubérculo de la especie Dioscorea, originario de México."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:239993"
+    ],
+    "value": "Dioscorea composita"
+  },
+  "family": {
+    "refs": [
+      "wcvp:239993"
+    ],
+    "value": "Dioscoreaceae"
+  },
+  "goals": [],
+  "id": "dioscorea-composita",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ryan Somma",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Dioscorea_composita.jpg",
+    "refs": [
+      "commons:File:Dioscorea composita.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Dioscorea_composita.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:239993"
+    ],
+    "value": "México y América Central."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Dioscorea composita.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Dioscorea composita.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Dioscorea_composita.jpg"
+    },
+    "efsa_botanic:2020": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Diosgenin",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:365-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Barbasco»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:37106": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37106",
+      "license": "CC0"
+    },
+    "wcvp:239993": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dioscorea composita Hemsl.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Dioscorea composita": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Dioscorea composita",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Dioscorea_composita"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "«Barbasco» viene etiquetado como inglés en USDA, pero parece una palabra española; se registra con el idioma del paquete.",
+      "target": "commonNames"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2020"
+    ],
+    "text": "EFSA registra la diosgenina como sustancia de evidencia."
+  },
+  "scientificName": {
+    "authors": "Hemsl.",
+    "name": "Dioscorea composita",
+    "refs": [
+      "wcvp:239993"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Eb25: 242",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 242"
+        }
+      ],
+      "countries": [
+        "México (Chinantec)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37106",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

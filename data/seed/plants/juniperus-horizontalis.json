@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6461313401f1d9e0f4be07f7fc0617f76d2b0331bc344557a917ecfc5928b429",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:377614"
+    ],
+    "value": "Juniperus horizontalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:377614"
+    ],
+    "value": "Cupressaceae"
+  },
+  "goals": [],
+  "id": "juniperus-horizontalis",
+  "image": {
+    "attributionRequired": true,
+    "author": "SriMesh",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:JuniperBerry.jpg",
+    "refs": [
+      "commons:File:JuniperBerry.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/JuniperBerry.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:377614"
+    ],
+    "value": "Canadá, norte de Estados Unidos y zonas subárticas de América"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:JuniperBerry.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:JuniperBerry.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:JuniperBerry.jpg"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:55429": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55429",
+      "license": "CC0"
+    },
+    "usda_use:72886": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72886",
+      "license": "CC0"
+    },
+    "wcvp:377614": {
+      "dataset": "wcvp",
+      "label": "WCVP: Juniperus horizontalis Moench",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:379064": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sabina horizontalis (Moench) Rydb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico (Juniperus horizontalis).",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Moench",
+    "name": "Juniperus horizontalis",
+    "refs": [
+      "wcvp:377614"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Moench) Rydb.",
+      "name": "Sabina horizontalis",
+      "refs": [
+        "wcvp:379064"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "Eb24: 305",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 305"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72886",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55429",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

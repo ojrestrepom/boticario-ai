@@ -1,0 +1,79 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:51fe5aad7c1c528b762bb149140c095424778b4f7b1166978a71537bc0e726a2",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Acinos"
+    ],
+    "value": "Género de 10 especies de plantas anuales o perennes, nativas del sur de Europa u oeste de Asia. Son pequeños arbustos de entre 10 y 45 cm de altura."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q158296"
+    ],
+    "value": "Acinos sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "acinos-sp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wikidata:Q158296": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q158296",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q158296"
+    },
+    "wikipedia_es:Acinos": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Acinos",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Acinos"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Acinos sp",
+    "refs": [
+      "wikidata:Q158296"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

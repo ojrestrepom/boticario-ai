@@ -1,0 +1,798 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:cfa379da527b52462b66999df8f57e61c81d594258e3fdbf6ecf398e951c31de",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lactuca sativa",
+        "wikidata:Q83193"
+      ],
+      "text": "lechuga"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P728"
+      ],
+      "text": "Kopfsalat"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P728"
+      ],
+      "text": "Garden lettuce"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:534-1"
+      ],
+      "text": "Lettuce"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lactuca sativa"
+    ],
+    "value": "Planta anual de la familia Asteraceae que se cultiva sobre todo como verdura de hoja y a veces por su tallo. Se utiliza sobre todo en ensaladas, y también en sopas, emparedados y otros platos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Lactuca sativa",
+      "wikidata:Q83193"
+    ],
+    "value": "Lechuga"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2912742"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "lactuca-sativa",
+  "image": {
+    "attributionRequired": true,
+    "author": "en:User:Geographer",
+    "license": "CC BY 1.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/1.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Iceberg_lettuce_in_SB.jpg",
+    "refs": [
+      "commons:File:Iceberg lettuce in SB.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Iceberg_lettuce_in_SB.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2912742"
+    ],
+    "value": "Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Iceberg lettuce in SB.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Iceberg lettuce in SB.jpg",
+      "license": "CC BY 1.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Iceberg_lettuce_in_SB.jpg"
+    },
+    "tppt_plant:P728": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Lactuca sativa L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:534-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lettuce»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:10108": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10108",
+      "license": "CC0"
+    },
+    "usda_use:10543": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10543",
+      "license": "CC0"
+    },
+    "usda_use:11896": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11896",
+      "license": "CC0"
+    },
+    "usda_use:18220": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18220",
+      "license": "CC0"
+    },
+    "usda_use:2128": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2128",
+      "license": "CC0"
+    },
+    "usda_use:22033": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22033",
+      "license": "CC0"
+    },
+    "usda_use:24747": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24747",
+      "license": "CC0"
+    },
+    "usda_use:29102": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29102",
+      "license": "CC0"
+    },
+    "usda_use:29103": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29103",
+      "license": "CC0"
+    },
+    "usda_use:30041": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30041",
+      "license": "CC0"
+    },
+    "usda_use:30078": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30078",
+      "license": "CC0"
+    },
+    "usda_use:3117": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3117",
+      "license": "CC0"
+    },
+    "usda_use:33904": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33904",
+      "license": "CC0"
+    },
+    "usda_use:3479": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3479",
+      "license": "CC0"
+    },
+    "usda_use:38026": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38026",
+      "license": "CC0"
+    },
+    "usda_use:43073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43073",
+      "license": "CC0"
+    },
+    "usda_use:45736": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45736",
+      "license": "CC0"
+    },
+    "usda_use:5190": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5190",
+      "license": "CC0"
+    },
+    "usda_use:5191": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5191",
+      "license": "CC0"
+    },
+    "usda_use:58985": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58985",
+      "license": "CC0"
+    },
+    "usda_use:58987": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58987",
+      "license": "CC0"
+    },
+    "usda_use:64283": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64283",
+      "license": "CC0"
+    },
+    "usda_use:72285": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72285",
+      "license": "CC0"
+    },
+    "usda_use:73940": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73940",
+      "license": "CC0"
+    },
+    "usda_use:76576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76576",
+      "license": "CC0"
+    },
+    "usda_use:9184": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9184",
+      "license": "CC0"
+    },
+    "usda_use:9185": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9185",
+      "license": "CC0"
+    },
+    "wcvp:2912742": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lactuca sativa L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2912743": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lactuca scariola var. sativa (L.) Moris",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q83193": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q83193",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q83193"
+    },
+    "wikipedia_es:Lactuca sativa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lactuca sativa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lactuca_sativa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Asthma» tiene claves de cita sin candidata utilizable en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Hypnotic» tiene claves de cita sin candidata utilizable en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[2]"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P728",
+      "usda_use:38026"
+    ],
+    "text": "TPPT la califica de débilmente tóxica (planta entera, con las mayores concentraciones en el látex). Sus toxinas principales son la lactucina y la lactucopicrina, lactonas sesquiterpénicas. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Lactuca sativa",
+    "refs": [
+      "wcvp:2912742"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 1.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Moris",
+      "name": "Lactuca scariola var. sativa",
+      "refs": [
+        "wcvp:2912743"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5190",
+        "usda_use:5191",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Reino Unido"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9184",
+        "usda_use:9185",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Hipnótico",
+      "activitySource": "Hypnotic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29102",
+        "usda_use:29103",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58985",
+        "usda_use:73940",
+        "usda_reference:Liogier",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43073",
+        "usda_use:76576",
+        "usda_reference:Liogier",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45736",
+        "usda_use:58987",
+        "usda_reference:Brutus",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antiafrodisíaco",
+      "activitySource": "Anaphrodisiac",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2128",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64283",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3117",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Antiflogístico",
+      "activitySource": "Antiphlogistic",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3479",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Cardíaco",
+      "activitySource": "Cardiac",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10108",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10543",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Circulación",
+      "activitySource": "Circulation",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11896",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18220",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22033",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24747",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Hiperglucemia",
+      "activitySource": "Hyperglycemia",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72285",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Insomnio",
+      "activitySource": "Insomnia",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30041",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Intelecto",
+      "activitySource": "Intellect",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30078",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Menstruación",
+      "activitySource": "Menstruation",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33904",
+        "usda_reference:Liogier"
+      ]
+    }
+  ]
+}

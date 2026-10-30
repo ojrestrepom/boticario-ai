@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:25daf00c50a92b3cecd86f464be734d413c63ca49739bb17d3cf4086770b40aa",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2374-1"
+      ],
+      "text": "Chilean Wolfberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lycium chilense"
+    ],
+    "value": "Arbusto de la familia Solanaceae, originario del sureste de Argentina y Chile."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2496338"
+    ],
+    "value": "Lycium chilense"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2496338"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "lycium-chilense",
+  "image": {
+    "attributionRequired": true,
+    "author": "Fernando Lopez Anido",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lycium_chilense_01.jpg",
+    "refs": [
+      "commons:File:Lycium chilense 01.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Lycium_chilense_01.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2496338"
+    ],
+    "value": "Sur y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lycium chilense 01.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lycium chilense 01.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lycium_chilense_01.jpg"
+    },
+    "usda_common_name:2374-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chilean Wolfberry»",
+      "license": "CC0"
+    },
+    "wcvp:2496338": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycium chilense Bertero",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2500381": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycium salsum var. chilense (Bertero) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lycium chilense": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lycium chilense",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lycium_chilense"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Bertero",
+    "name": "Lycium chilense",
+    "refs": [
+      "wcvp:2496338"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Bertero) Kuntze",
+      "name": "Lycium salsum var. chilense",
+      "refs": [
+        "wcvp:2500381"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,102 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dd111e22256c74ff0c7e080bf2d112494adebb1544ea95df17062b428f3b9868",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Cytisus"
+      ],
+      "text": "ceticio"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cytisus"
+    ],
+    "value": "Género de arbustos de la subfamilia Faboideae, familia Fabaceae, naturales de Europa, Oriente Medio y norte de África."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Cytisus"
+    ],
+    "value": "Ceticio"
+  },
+  "family": null,
+  "goals": [],
+  "id": "cytisus-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Franco christophe",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cytisus_ardoini2.jpg",
+    "refs": [
+      "commons:File:Cytisus ardoini2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Cytisus_ardoini2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cytisus ardoini2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cytisus ardoini2.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Cytisus_ardoini2.jpg"
+    },
+    "wikidata:Q157226": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q157226",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q157226"
+    },
+    "wikipedia_es:Cytisus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cytisus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cytisus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Cytisus sp",
+    "refs": [
+      "wikidata:Q157226"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

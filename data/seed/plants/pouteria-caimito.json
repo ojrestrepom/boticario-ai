@@ -1,0 +1,219 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:98a57c1cc2f499303d430aeffa5a2294947c50459adeebd470ff2a561deab586",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1252-2"
+      ],
+      "text": "Caimito"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1650768"
+      ],
+      "text": "caimito amarillo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1650768"
+      ],
+      "text": "caimo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1650768"
+      ],
+      "text": "luma"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1650768"
+      ],
+      "text": "madura verde"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1252-1"
+      ],
+      "text": "Abiu"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pouteria caimito"
+    ],
+    "value": "Árbol tropical de frutos comestibles de la familia Sapotaceae, emparentado con otras sapotáceas del género Pouteria como Pouteria sapota, P. campechiana y P. lucuma."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1252-2"
+    ],
+    "value": "Caimito"
+  },
+  "family": {
+    "refs": [
+      "wcvp:163978"
+    ],
+    "value": "Sapotaceae"
+  },
+  "goals": [],
+  "id": "pouteria-caimito",
+  "image": {
+    "attributionRequired": true,
+    "author": "Forest and Kim Starr",
+    "license": "CC BY 3.0 us",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Starr-140925-2018-Pouteria_caimito-fruit-Pali_o_Waipio_Huelo-Maui_(24616024964).jpg",
+    "refs": [
+      "commons:File:Starr-140925-2018-Pouteria caimito-fruit-Pali o Waipio Huelo-Maui (24616024964).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Starr-140925-2018-Pouteria_caimito-fruit-Pali_o_Waipio_Huelo-Maui_%2824616024964%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:163978"
+    ],
+    "value": "Brasil, el Caribe, América Central y el norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Starr-140925-2018-Pouteria caimito-fruit-Pali o Waipio Huelo-Maui (24616024964).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Starr-140925-2018-Pouteria caimito-fruit-Pali o Waipio Huelo-Maui (24616024964).jpg",
+      "license": "CC BY 3.0 us",
+      "url": "https://commons.wikimedia.org/wiki/File:Starr-140925-2018-Pouteria_caimito-fruit-Pali_o_Waipio_Huelo-Maui_(24616024964).jpg"
+    },
+    "usda_common_name:1252-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Abiu»",
+      "license": "CC0"
+    },
+    "usda_common_name:1252-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Caimito»",
+      "license": "CC0"
+    },
+    "wcvp:106630": {
+      "dataset": "wcvp",
+      "label": "WCVP: Labatia caimito (Ruiz & Pav.) Mart.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:115307": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lucuma caimito (Ruiz & Pav.) Roem. & Schult.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:163978": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pouteria caimito (Ruiz & Pav.) Radlk.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:1708": {
+      "dataset": "wcvp",
+      "label": "WCVP: Achras caimito Ruiz & Pav.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:93049": {
+      "dataset": "wcvp",
+      "label": "WCVP: Guapeba caimito (Ruiz & Pav.) Pierre",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q1650768": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1650768",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1650768"
+    },
+    "wikipedia_es:Pouteria caimito": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pouteria caimito",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pouteria_caimito"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Caimito» con idioma inglés, pero parece un nombre en español; se registró como español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Ruiz & Pav.) Radlk.",
+    "name": "Pouteria caimito",
+    "refs": [
+      "wcvp:163978"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 us"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Ruiz & Pav.",
+      "name": "Achras caimito",
+      "refs": [
+        "wcvp:1708"
+      ]
+    },
+    {
+      "authors": "(Ruiz & Pav.) Pierre",
+      "name": "Guapeba caimito",
+      "refs": [
+        "wcvp:93049"
+      ]
+    },
+    {
+      "authors": "(Ruiz & Pav.) Mart.",
+      "name": "Labatia caimito",
+      "refs": [
+        "wcvp:106630"
+      ]
+    },
+    {
+      "authors": "(Ruiz & Pav.) Roem. & Schult.",
+      "name": "Lucuma caimito",
+      "refs": [
+        "wcvp:115307"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,782 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3980ceb7749e92b5b6d1cf859024388ed6d988c2b394f47994349d624dc65a9f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:453-1"
+      ],
+      "text": "Gumweed"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:453-2"
+      ],
+      "text": "Rosinweed"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Grindelia squarrosa"
+    ],
+    "value": "Especie de planta fanerógama de la familia Asteraceae. Es una pequeña planta de América del Norte."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2927094"
+    ],
+    "value": "Grindelia squarrosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2927094"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:grindeliae-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "grindelia-squarrosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:453-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2927094"
+    ],
+    "value": "América del Norte (Canadá, Estados Unidos y México)"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:grindeliae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_endpoint:665": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Grindelia squarrosa (Pursh) Dunal",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:815": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Grindelia squarrosa (Pursh) Dunal",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:grindeliae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Grindeliae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/grindeliae-herba"
+    },
+    "ema_pdf:grindeliae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de grindeliae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-grindelia-robusta-nutt-grindelia-squarrosa-pursh-dunal-grindelia-humilis-hook-et-arn-grindelia-camporum-greene-herba_en.pdf"
+    },
+    "ema_pdf:grindeliae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de grindeliae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-grindelia-robusta-nutt-grindelia-squarrosa-pursh-dunal-grindelia-humilis-hook-et-arn-grindelia-camporum-greene-herba_en.pdf"
+    },
+    "usda_common_name:453-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Gumweed»",
+      "license": "CC0"
+    },
+    "usda_common_name:453-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Rosinweed»",
+      "license": "CC0"
+    },
+    "usda_part:453-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hart": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hart",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:12246": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12246",
+      "license": "CC0"
+    },
+    "usda_use:13909": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13909",
+      "license": "CC0"
+    },
+    "usda_use:23077": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23077",
+      "license": "CC0"
+    },
+    "usda_use:24622": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24622",
+      "license": "CC0"
+    },
+    "usda_use:26883": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26883",
+      "license": "CC0"
+    },
+    "usda_use:30620": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30620",
+      "license": "CC0"
+    },
+    "usda_use:32380": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32380",
+      "license": "CC0"
+    },
+    "usda_use:3312": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3312",
+      "license": "CC0"
+    },
+    "usda_use:36519": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36519",
+      "license": "CC0"
+    },
+    "usda_use:37525": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37525",
+      "license": "CC0"
+    },
+    "usda_use:3903": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3903",
+      "license": "CC0"
+    },
+    "usda_use:3956": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3956",
+      "license": "CC0"
+    },
+    "usda_use:4840": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4840",
+      "license": "CC0"
+    },
+    "usda_use:5156": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5156",
+      "license": "CC0"
+    },
+    "usda_use:58449": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58449",
+      "license": "CC0"
+    },
+    "usda_use:58450": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58450",
+      "license": "CC0"
+    },
+    "usda_use:58451": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58451",
+      "license": "CC0"
+    },
+    "usda_use:70459": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70459",
+      "license": "CC0"
+    },
+    "usda_use:74590": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74590",
+      "license": "CC0"
+    },
+    "usda_use:8119": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8119",
+      "license": "CC0"
+    },
+    "usda_use:81336": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81336",
+      "license": "CC0"
+    },
+    "usda_use:8549": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8549",
+      "license": "CC0"
+    },
+    "usda_use:9805": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9805",
+      "license": "CC0"
+    },
+    "wcvp:2927094": {
+      "dataset": "wcvp",
+      "label": "WCVP: Grindelia squarrosa (Pursh) Dunal",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2927095": {
+      "dataset": "wcvp",
+      "label": "WCVP: Donia squarrosa Pursh",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2927109": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aurelia squarrosa (Pursh) Cass. ex Steud.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Grindelia squarrosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Grindelia squarrosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Grindelia_squarrosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:grindeliae-herba:4.3",
+      "ema_pdf:grindeliae-herba:4.4",
+      "efsa_endpoint:665",
+      "efsa_endpoint:815"
+    ],
+    "text": "La EMA registra para la parte aérea una contraindicación por hipersensibilidad a la sustancia activa y a otras plantas de la familia Asteraceae (Compositae), y uso en menores de 18 años sin establecer. EFSA recoge estudios con la planta viva que registran mortalidad de ovejas tras pastar la planta y que la planta concentra selenio del suelo hasta niveles tóxicos."
+  },
+  "scientificName": {
+    "authors": "(Pursh) Dunal",
+    "name": "Grindelia squarrosa",
+    "refs": [
+      "wcvp:2927094"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pursh) Cass. ex Steud.",
+      "name": "Aurelia squarrosa",
+      "refs": [
+        "wcvp:2927109"
+      ]
+    },
+    {
+      "authors": "Pursh",
+      "name": "Donia squarrosa",
+      "refs": [
+        "wcvp:2927095"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Eb24: 321",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 321"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23077",
+        "usda_use:70459",
+        "usda_reference:EB",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tos ferina",
+      "activitySource": "Pertussis",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África",
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36519",
+        "usda_use:74590",
+        "usda_reference:Hart",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Neumonía",
+      "activitySource": "Pneumonia",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos",
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37525",
+        "usda_use:81336",
+        "usda_reference:Hart",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58449",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Antídoto (Rhus)",
+      "activitySource": "Antidote(Rhus)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3312",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3903",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Antitusivo",
+      "activitySource": "Antitussive",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3956",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4840",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Eb24: 321",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 321"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5156",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Eb24: 321",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 321"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8119",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8549",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9805",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12246",
+        "usda_reference:Hart"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb24: 321",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 321"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13909",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24622",
+        "usda_reference:Hart"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26883",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatitis",
+      "activitySource": "Hepatitis",
+      "citations": [
+        {
+          "key": "Eb24: 321",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 321"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58450",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Ivy Poisoning",
+      "activitySource": "Ivy Poisoning",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30620",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "Eb24: 321",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 321"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Blackfoot)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58451",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Hígado",
+      "activitySource": "Liver",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32380",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

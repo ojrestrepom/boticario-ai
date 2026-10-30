@@ -1,0 +1,908 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f158040d2e39dcc4545ac37f7ad41e8b387a884b09ef87570663f852e4d9979c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q311228"
+      ],
+      "text": "Llantén indio"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q311228"
+      ],
+      "text": "Isphagula"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:762-1"
+      ],
+      "text": "Blond Psyllium"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:762-5"
+      ],
+      "text": "Indian Plantago"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:762-2"
+      ],
+      "text": "Ispaghula"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:762-4"
+      ],
+      "text": "Psyllium"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:762-3"
+      ],
+      "text": "Spogel Seeds"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Plantago ovata"
+    ],
+    "value": "Especie de planta herbácea original del sur de Asia. Hoy en día, India suministra la totalidad del mercado mundial."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q311228"
+    ],
+    "value": "Llantén indio"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2569899"
+    ],
+    "value": "Plantaginaceae"
+  },
+  "goals": [
+    {
+      "area": "Estreñimiento",
+      "evidence": "La EMA tiene monografías para la semilla y su cubierta en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:plantaginis-ovatae-semen",
+        "ema_herbal:plantaginis-ovatae-seminis-tegumentum"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "plantago-ovata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Stan Shebs",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Plantago_ovata_form.jpg",
+    "refs": [
+      "commons:File:Plantago ovata form.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Plantago_ovata_form.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2569899"
+    ],
+    "value": "Nativa de Macaronesia, el norte de África y el noreste de África tropical, el suroeste de Europa, Asia occidental y central, el Cáucaso, la península arábiga, el subcontinente indio, México y el suroeste y centro-sur de Estados Unidos."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:plantaginis-ovatae-semen"
+      ],
+      "value": "Semilla"
+    },
+    {
+      "refs": [
+        "ema_herbal:plantaginis-ovatae-seminis-tegumentum"
+      ],
+      "value": "Cubierta de la semilla"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Plantago ovata form.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Plantago ovata form.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Plantago_ovata_form.jpg"
+    },
+    "ema_herbal:plantaginis-ovatae-semen": {
+      "dataset": "ema_json",
+      "label": "EMA: Plantaginis ovatae semen",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/plantaginis-ovatae-semen"
+    },
+    "ema_herbal:plantaginis-ovatae-seminis-tegumentum": {
+      "dataset": "ema_json",
+      "label": "EMA: Plantaginis ovatae seminis tegumentum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/plantaginis-ovatae-seminis-tegumentum"
+    },
+    "ema_pdf:plantaginis-ovatae-semen:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-ovatae-semen, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-semen_en.pdf"
+    },
+    "ema_pdf:plantaginis-ovatae-semen:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-ovatae-semen, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-semen_en.pdf"
+    },
+    "ema_pdf:plantaginis-ovatae-semen:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-ovatae-semen, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-semen_en.pdf"
+    },
+    "ema_pdf:plantaginis-ovatae-seminis-tegumentum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-ovatae-seminis-tegumentum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-seminis-tegumentum_en.pdf"
+    },
+    "ema_pdf:plantaginis-ovatae-seminis-tegumentum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-ovatae-seminis-tegumentum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-seminis-tegumentum_en.pdf"
+    },
+    "ema_pdf:plantaginis-ovatae-seminis-tegumentum:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-ovatae-seminis-tegumentum, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-seminis-tegumentum_en.pdf"
+    },
+    "usda_common_name:762-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Blond Psyllium»",
+      "license": "CC0"
+    },
+    "usda_common_name:762-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ispaghula»",
+      "license": "CC0"
+    },
+    "usda_common_name:762-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Spogel Seeds»",
+      "license": "CC0"
+    },
+    "usda_common_name:762-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Psyllium»",
+      "license": "CC0"
+    },
+    "usda_common_name:762-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Indian Plantago»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:1265": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1265",
+      "license": "CC0"
+    },
+    "usda_use:14113": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14113",
+      "license": "CC0"
+    },
+    "usda_use:15041": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15041",
+      "license": "CC0"
+    },
+    "usda_use:16923": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16923",
+      "license": "CC0"
+    },
+    "usda_use:1911": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1911",
+      "license": "CC0"
+    },
+    "usda_use:19849": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19849",
+      "license": "CC0"
+    },
+    "usda_use:19850": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19850",
+      "license": "CC0"
+    },
+    "usda_use:22087": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22087",
+      "license": "CC0"
+    },
+    "usda_use:2712": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2712",
+      "license": "CC0"
+    },
+    "usda_use:30921": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30921",
+      "license": "CC0"
+    },
+    "usda_use:31636": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31636",
+      "license": "CC0"
+    },
+    "usda_use:39000": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39000",
+      "license": "CC0"
+    },
+    "usda_use:48254": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48254",
+      "license": "CC0"
+    },
+    "usda_use:49042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49042",
+      "license": "CC0"
+    },
+    "usda_use:53401": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53401",
+      "license": "CC0"
+    },
+    "usda_use:55665": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55665",
+      "license": "CC0"
+    },
+    "usda_use:60415": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60415",
+      "license": "CC0"
+    },
+    "usda_use:64074": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64074",
+      "license": "CC0"
+    },
+    "usda_use:67224": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67224",
+      "license": "CC0"
+    },
+    "usda_use:69497": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69497",
+      "license": "CC0"
+    },
+    "usda_use:71592": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71592",
+      "license": "CC0"
+    },
+    "usda_use:7423": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7423",
+      "license": "CC0"
+    },
+    "usda_use:81945": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81945",
+      "license": "CC0"
+    },
+    "usda_use:8213": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8213",
+      "license": "CC0"
+    },
+    "wcvp:2569899": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plantago ovata Forssk.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q311228": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q311228",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q311228"
+    },
+    "wikipedia_es:Plantago ovata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Plantago ovata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Plantago_ovata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "No es seguro que «Isphagula», alias de Wikidata, sea un nombre en español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Disentería» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Amebiasis» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Laxante» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Vejiga» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[5]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Resfriado» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[7]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Tos» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[8]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Demulcente» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Emoliente» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[11]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Gastritis» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[12]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Riñón» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[13]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Reumatismo» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[15]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Estíptico» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[16]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Hinchazón» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[17]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Uretritis» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[18]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:plantaginis-ovatae-semen:4.3",
+      "ema_pdf:plantaginis-ovatae-semen:4.4",
+      "ema_pdf:plantaginis-ovatae-semen:4.5",
+      "ema_pdf:plantaginis-ovatae-seminis-tegumentum:4.3",
+      "ema_pdf:plantaginis-ovatae-seminis-tegumentum:4.4",
+      "ema_pdf:plantaginis-ovatae-seminis-tegumentum:4.5"
+    ],
+    "text": "Las monografías de la EMA para la semilla y su cubierta registran contraindicaciones (hipersensibilidad, cambio persistente del hábito intestinal, sangrado rectal sin diagnosticar, estrechamientos u obstrucción intestinal, dificultad para tragar), advertencias (no se recomienda en menores de 6 años, o de 12 según la indicación; con poco líquido puede obstruir la garganta y el esófago o el intestino; el polvo puede causar sensibilización alérgica por inhalación; en hipercolesterolemia se requiere supervisión médica) e interacciones (puede retrasar la absorción de otros medicamentos; en personas con diabetes o con hormonas tiroideas se requiere supervisión médica)."
+  },
+  "scientificName": {
+    "authors": "Forssk.",
+    "name": "Plantago ovata",
+    "refs": [
+      "wcvp:2569899"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India",
+        "Irak"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19849",
+        "usda_use:19850",
+        "usda_use:69497",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Amebiasis",
+      "activitySource": "Amebiasis",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1911",
+        "usda_use:64074",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31636",
+        "usda_use:81945",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Eb28: 427",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 427"
+        }
+      ],
+      "countries": [
+        "México (Seri)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1265",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Eb24: 261",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 261"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2712",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Vejiga",
+      "activitySource": "Bladder",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:7423"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Eb24: 261",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 261"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8213",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:67224"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:14113"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:15041"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16923",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:22087"
+      ]
+    },
+    {
+      "activity": "Gastritis",
+      "activitySource": "Gastritis",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:71592"
+      ]
+    },
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:30921"
+      ]
+    },
+    {
+      "activity": "Cataplasma",
+      "activitySource": "Poultice",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39000",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:60415"
+      ]
+    },
+    {
+      "activity": "Estíptico",
+      "activitySource": "Styptic",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:48254"
+      ]
+    },
+    {
+      "activity": "Hinchazón",
+      "activitySource": "Swelling",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:49042"
+      ]
+    },
+    {
+      "activity": "Uretritis",
+      "activitySource": "Urethritis",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:53401"
+      ]
+    },
+    {
+      "activity": "Panadizo",
+      "activitySource": "Whitlow",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55665",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

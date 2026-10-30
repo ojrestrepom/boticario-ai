@@ -1,0 +1,900 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:13cd69d484d20e0374729754b2f8b7665156fb295b7e2234ff80905d55be375d",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q12252383"
+      ],
+      "text": "Frambuesa"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q12252383"
+      ],
+      "text": "Frambueso"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:878-2"
+      ],
+      "text": "Raspberry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:878-1"
+      ],
+      "text": "Red Raspberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rubus idaeus"
+    ],
+    "value": "Arbusto del género Rubus, nativo de Europa y del norte de Asia. Su fruto comestible, la frambuesa roja, es un eterio formado por varias drupas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Rubus idaeus",
+      "wikidata:Q12252383"
+    ],
+    "value": "Frambuesa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2982071"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rubi-idaei-folium"
+      ],
+      "subarea": "boca-y-garganta"
+    },
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rubi-idaei-folium"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rubi-idaei-folium"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "rubus-idaeus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Didier Descouens",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(MHNT)_Rubus_idaeus_-_Feuillage.jpg",
+    "refs": [
+      "commons:File:(MHNT) Rubus idaeus - Feuillage.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/%28MHNT%29_Rubus_idaeus_-_Feuillage.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2982071"
+    ],
+    "value": "Nativa de Europa, Asia y Norteamérica."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:rubi-idaei-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(MHNT) Rubus idaeus - Feuillage.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(MHNT) Rubus idaeus - Feuillage.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Rubus_idaeus_-_Feuillage.jpg"
+    },
+    "efsa_botanic:864": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: gallotannins",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:865": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Ellagitannins (hydrolysable tannins)",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:591": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Raspberries, red",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:592": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Raspberries, red",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:593": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Raspberries, red",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:rubi-idaei-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Rubi idaei folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/rubi-idaei-folium"
+    },
+    "ema_pdf:rubi-idaei-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rubi-idaei-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rubus-idaeus-l-folium_en.pdf"
+    },
+    "ema_pdf:rubi-idaei-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rubi-idaei-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rubus-idaeus-l-folium_en.pdf"
+    },
+    "ema_pdf:rubi-idaei-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rubi-idaei-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rubus-idaeus-l-folium_en.pdf"
+    },
+    "usda_common_name:878-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Red Raspberry»",
+      "license": "CC0"
+    },
+    "usda_common_name:878-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Raspberry»",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hart": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hart",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:15668": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15668",
+      "license": "CC0"
+    },
+    "usda_use:20221": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20221",
+      "license": "CC0"
+    },
+    "usda_use:23584": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23584",
+      "license": "CC0"
+    },
+    "usda_use:25278": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25278",
+      "license": "CC0"
+    },
+    "usda_use:25279": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25279",
+      "license": "CC0"
+    },
+    "usda_use:26606": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26606",
+      "license": "CC0"
+    },
+    "usda_use:27117": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27117",
+      "license": "CC0"
+    },
+    "usda_use:29596": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29596",
+      "license": "CC0"
+    },
+    "usda_use:35665": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35665",
+      "license": "CC0"
+    },
+    "usda_use:36053": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36053",
+      "license": "CC0"
+    },
+    "usda_use:36054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36054",
+      "license": "CC0"
+    },
+    "usda_use:36055": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36055",
+      "license": "CC0"
+    },
+    "usda_use:41573": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41573",
+      "license": "CC0"
+    },
+    "usda_use:41574": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41574",
+      "license": "CC0"
+    },
+    "usda_use:42846": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42846",
+      "license": "CC0"
+    },
+    "usda_use:46923": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46923",
+      "license": "CC0"
+    },
+    "usda_use:46924": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46924",
+      "license": "CC0"
+    },
+    "usda_use:49610": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49610",
+      "license": "CC0"
+    },
+    "usda_use:6099": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6099",
+      "license": "CC0"
+    },
+    "usda_use:6100": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6100",
+      "license": "CC0"
+    },
+    "usda_use:61073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61073",
+      "license": "CC0"
+    },
+    "usda_use:61074": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61074",
+      "license": "CC0"
+    },
+    "usda_use:61084": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61084",
+      "license": "CC0"
+    },
+    "usda_use:66308": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66308",
+      "license": "CC0"
+    },
+    "usda_use:6762": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6762",
+      "license": "CC0"
+    },
+    "usda_use:7935": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7935",
+      "license": "CC0"
+    },
+    "usda_use:82150": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82150",
+      "license": "CC0"
+    },
+    "wcvp:2942504": {
+      "dataset": "wcvp",
+      "label": "WCVP: Batidaea idaea (L.) Nieuwl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2982071": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rubus idaeus L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q12252383": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q12252383",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q12252383"
+    },
+    "wikipedia_es:Rubus idaeus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rubus idaeus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rubus_idaeus"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:rubi-idaei-folium:4.3",
+      "ema_pdf:rubi-idaei-folium:4.4",
+      "ema_pdf:rubi-idaei-folium:4.5",
+      "efsa_botanic:864",
+      "efsa_botanic:865",
+      "efsa_endpoint:591",
+      "efsa_endpoint:592",
+      "efsa_endpoint:593"
+    ],
+    "text": "La monografía de la EMA para la hoja registra como contraindicación la hipersensibilidad a las sustancias activas, indica que no se ha establecido el uso en menores de 18 años y no registra interacciones. EFSA anota elagitaninos y galotaninos en las hojas y recoge un estudio en ratas con consumo materno de hoja de frambuesa que describe pubertad precoz en las crías hembra, crías con crecimiento restringido y mayor duración de la gestación."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Rubus idaeus",
+    "refs": [
+      "wcvp:2982071"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Nieuwl.",
+      "name": "Batidaea idaea",
+      "refs": [
+        "wcvp:2942504"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Eb28: 331",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 331"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36053",
+        "usda_use:36054",
+        "usda_use:36055",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6099",
+        "usda_use:6100",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25278",
+        "usda_use:25279",
+        "usda_reference:Brutus",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "España"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41573",
+        "usda_use:41574",
+        "usda_reference:Brutus",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46923",
+        "usda_use:46924",
+        "usda_reference:Brutus",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49610",
+        "usda_use:61084",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Biliosidad",
+      "activitySource": "Bilious",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6762",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Bowel",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7935",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66308",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15668",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61073",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61074",
+        "usda_reference:Hart"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20221",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Ojos",
+      "activitySource": "Eye",
+      "citations": [
+        {
+          "key": "Eb28: 331",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 331"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23584",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Gastritis",
+      "activitySource": "Gastritis",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26606",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Gota",
+      "activitySource": "Gout",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27117",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Eb28: 331",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 331"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29596",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Licor",
+      "activitySource": "Liqueur",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82150",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Parálisis",
+      "activitySource": "Paralysis",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35665",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42846",
+        "usda_reference:Brutus"
+      ]
+    }
+  ]
+}

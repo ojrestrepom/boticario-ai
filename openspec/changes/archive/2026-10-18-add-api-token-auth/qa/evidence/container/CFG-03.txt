@@ -1,0 +1,16 @@
+# CFG-03
+
+$ API_TOKENS de 31 caracteres
+exit=2
+error de configuración: API_TOKENS: el token 1 es demasiado corto; la longitud mínima es 32 caracteres
+
+PASS 31 caracteres: código 2
+PASS 31 caracteres: el mensaje indica el límite
+PASS 31 caracteres: el mensaje no contiene el valor
+$ API_TOKENS de 257 caracteres
+exit=2
+error de configuración: API_TOKENS: el token 1 es demasiado largo; la longitud máxima es 256 caracteres
+
+PASS 257 caracteres: código 2
+PASS 257 caracteres: el mensaje indica el límite
+PASS 257 caracteres: el mensaje no contiene el valor

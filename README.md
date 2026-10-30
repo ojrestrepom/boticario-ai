@@ -8,16 +8,26 @@ Proyecto en desarrollo. La app es una aplicación Flutter para Android y vive en
 
 Implementado:
 
-- Pantallas Inicio, Explorar plantas, Pasaporte de planta y Buscar por objetivo, con las rutas `/`, `/explore`, `/explore/:plantId` y `/goals`.
-- Buscar por objetivo es solo visual: muestra las categorías de objetivo, pero no selecciona ni devuelve resultados.
-- Catálogo local y sin conexión con cinco plantas (Lavanda, Eucalipto, Romero, Manzanilla y Menta), tomadas del snapshot USDA Dr. Duke (CC0). La procedencia y los límites están en la [guía del catálogo USDA](docs/data/usda-catalog.md).
-- La búsqueda por nombre ignora mayúsculas y acentos.
+- Pantallas Inicio, Explorar plantas, Pasaporte de planta, Buscar por objetivo (P06), la pantalla de subáreas de «Otros objetivos» y Recomendaciones (P07), con las rutas `/`, `/explore`, `/explore/:plantId`, `/goals`, `/goals/:goalId/subareas`, `/goals/:goalId/plants` (con `?subarea=` para una subárea) y `/goals/:goalId/plants/:plantId`.
+- Buscar por objetivo (P06) es funcional: una fila por objetivo de `GET /v1/goals`, en el orden de la API, con el nombre que entrega la API (los nombres y el orden salen de la semilla, no de la app) y un icono local por identificador (un icono genérico si el identificador es nuevo); no muestra conteos. Mientras carga muestra un indicador y, si falla (incluido un 401, sin mostrar el token), un error con «Reintentar».
+- Un objetivo sin subáreas abre Recomendaciones (P07) directamente. «Otros objetivos» abre antes una pantalla con una fila por subárea que tenga plantas visibles (las vacías se omiten) y cada subárea abre P07 con `?subarea=`.
+- Recomendaciones (P07) lista las plantas de `GET /v1/goals/{goalId}/plants` en el orden de la API (sin ranking ni puntuaciones), de 20 en 20 al acercarse al final del scroll, con un pie de carga, un error reintentable que conserva lo ya cargado y un indicador de fin de lista. El título y el aviso son textos fijos; el subtítulo `Para: <nombre>` sale de la respuesta de la API. Cada tarjeta muestra la miniatura de 500 px (con `Foto: <autor> · <licencia>` solo cuando la imagen carga; si no hay imagen o falla, arte local sin atribución), el nombre principal (`displayName`), el científico solo si el principal es un nombre común, la línea `La EMA la registra en: <áreas>` (dos áreas y `y N más`; las áreas llegan de la API en español y se muestran tal cual) y una marca de texto: `Precaución` con nivel `alto` o `medio`, `Sin datos de precauciones (esto no significa que sea segura)` cuando la planta no tiene datos de seguridad y ninguna marca con nivel `bajo` o con precauciones sin nivel. La tarjeta no tiene verbos de efecto, dosis ni los textos de ejemplo del mockup.
+- El aviso `Estas recomendaciones se basan en información especializada. Consulta detalles y precauciones.` va al final del scroll, con un icono informativo, y justo debajo el botón `Ver más detalles`, que abre una hoja inferior `Sobre estas recomendaciones` con un texto fijo de la app: las plantas son las que la EMA registra en el área indicada, no es consejo médico ni dosis, la marca de precaución señala advertencias de seguridad del registro, el detalle y las citas están en el pasaporte y hay que consultar a un profesional de la salud. La hoja se cierra con su botón, deslizándola o con Atrás del sistema; no navega, no hace peticiones ni registra datos.
+- Tocar una tarjeta abre el pasaporte apilado sobre P07 (botón Atrás con la etiqueta neutra «Volver»); Atrás vuelve a P07 con las páginas cargadas y la posición del scroll, sin recargar, y Atrás sigue paso a paso hasta Inicio. La pestaña Inicio de cada pantalla limpia la pila. No se guarda qué plantas se abrieron.
+- La API oculta de P06 y P07 las plantas cuyo vínculo con el objetivo está pendiente de revisión (`plant_goal.pending_review`, por ejemplo el hipérico en «Relajación / Estrés»): no aparecen ni cuentan, pero su detalle `GET /v1/plants/{id}` sigue disponible. La app no filtra nada por su cuenta.
+- Explorar y el Pasaporte consumen por HTTP el catálogo del backend: la semilla consolidada de `data/seed/`, con textos en español. Explorar pagina con scroll infinito de 50 en 50. El nombre principal es el `displayName` que entrega la API (el nombre para mostrar de la semilla, por ejemplo «Lavanda»; si falta, el primer nombre común, y si no hay ninguno, el científico) y el secundario es el científico, salvo que coincidan; las filas no cargan imágenes. Sin backend o sin conectividad, Explorar y el Pasaporte muestran un error con «Reintentar»; Inicio sigue funcionando; Buscar por objetivo y Recomendaciones también necesitan el backend y muestran el mismo error con «Reintentar». Las fuentes y sus límites están en la [guía de fuentes](docs/data/usda-catalog.md).
+- La búsqueda por nombre la resuelve la API (`q`), que normaliza mayúsculas y acentos.
+- El Pasaporte tiene cuatro pestañas, `General`, `Propiedades`, `Usos` y `Fuentes`, con `General` inicial; `Fuentes` es una pestaña más y no aparece bajo las otras tres. `General` muestra el nombre común, los sinónimos, la familia, el origen, la parte utilizada, el tipo de aceite, la descripción y los demás nombres comunes con su idioma; cada campo sin dato dice «No disponible en fuente» o que no hay registros, y las precauciones de nivel alto añaden un aviso general. `Propiedades` muestra los objetivos registrados por la EMA (con subárea, área, tipo de documento y cita) y las `Precauciones` con su nivel en texto cuando existe; una planta sin datos de precauciones no se presenta como segura. `Usos` agrupa los registros tradicionales por actividad, con un aviso fijo siempre visible, el número de registros, los países y todas las citas, y las no resueltas se ven atenuadas como «(sin resolver)».
+- La cabecera del Pasaporte muestra la fotografía de la planta cuando la API trae `image`: una miniatura de 500 px de ancho que Wikimedia sirve para la imagen (no el original, que puede pesar decenas de MB), solo desde `commons.wikimedia.org` o `upload.wikimedia.org` por HTTPS, con un pie de atribución «Foto: autor · licencia» en el que el autor enlaza a la página del archivo y la licencia a su texto (sin autor, «Wikimedia Commons» ocupa su lugar y enlaza al archivo). Mientras carga, si falla la descarga o si la planta no tiene imagen, se ve el arte local provisional, sin pie y sin error.
+- `Fuentes` lista los créditos de la planta (el nombre de la fuente y el de la licencia son enlaces cuando existe la URL; la atribución va como texto secundario), la entrada de la imagen y el texto de licencias mixtas; sin créditos lo dice explícitamente. Ninguna URL se muestra como texto ni hay un botón aparte: solo se abren las `https`, en el navegador del sistema con `url_launcher`, y una pulsación larga copia la URL al portapapeles con el aviso «Enlace copiado»; si no se puede abrir, el aviso es «No se pudo abrir el enlace». La app nunca muestra la página destino.
+- Ante un backend anterior que no envía los campos nuevos, la app los trata como vacíos: el Pasaporte sigue funcionando con la familia, los nombres, las partes y los usos, deriva los grupos de uso desde `uses` y muestra los estados sin datos. Un campo nuevo con un tipo erróneo produce un error legible, no un fallo.
 - Los usos del Pasaporte son registros tradicionales con referencia, no consejo ni evidencia clínica; no hay dosis ni recomendaciones.
+- Existe un backend de catálogo en `backend/`: una ingesta en Rust que construye una base neutral desde la semilla consolidada de `data/seed/` y una API HTTP de solo lectura.
 
 No implementado:
 
 - Recomendaciones, formulación de mezclas, identificación con cámara y chat.
-- Backend, login y persistencia de usuario.
+- Login y persistencia de usuario.
 - Favoritos, Historial y Perfil se ven en la barra inferior, pero no hacen nada.
 
 Los proveedores de servicios están por definir. La distribución inicial prevista es Google Play (Android); iOS es una posibilidad futura.
@@ -37,12 +47,19 @@ Los datos de los mockups son ilustrativos. El contenido especializado requiere r
 ## Estructura del repositorio
 
 - `app/`: aplicación Flutter.
-- `docs/`: canvas, mockups, research y procedencia de los datos.
+- `backend/`: workspace de Cargo con tres crates, con su guía de desarrollo en [`backend/README.md`](backend/README.md). `catalog-core` tiene los tipos de dominio, la normalización, la versión del esquema y el acceso a la base neutral. `catalog-ingest` lee la semilla, verifica sus hashes y escribe la base, sin red. `catalog-api` sirve esa base por HTTP.
+- `data/`: la migración del esquema neutral (`data/migrations/`), la semilla del catálogo (`data/seed/`, un JSON por planta más un manifiesto) y las salidas generadas e ignoradas por git `data/build/` y `data/work/`.
+- `tools/catalog-seed/`: herramientas en Python, solo para el desarrollador, que generan la semilla de `data/seed/` (fuentes, esquema del registro, validador, plan de regeneración y sellado); véase [`tools/catalog-seed/README.md`](tools/catalog-seed/README.md).
+- `docs/`: canvas, mockups y documentación de los datos.
 - `openspec/`: specs vigentes y registro de cambios.
-- `.github/workflows/`: integración continua.
+- `.github/workflows/`: integración continua y despliegue.
 - `.flutter-version`: versión fijada del SDK de Flutter.
+- `mise.toml`: versión fijada de Rust para el desarrollo nativo del backend.
+- `Dockerfile`, `compose.yaml` y `.dockerignore`: imagen y arranque con Docker del backend.
+- `docs/deploy/cloud-run.md`: guía del despliegue del backend en Google Cloud Run (preparación, operación, costo y desmontaje).
+- `.github/workflows/deploy-backend.yml`: workflow que construye la imagen del backend y la despliega en Cloud Run.
 
-El repositorio se trata como monorepo; las carpetas del backend y de la ingesta de datos aún no existen.
+El repositorio es un monorepo: `app/` es exclusiva de Flutter, `backend/` es exclusivo de Rust y `data/` contiene artefactos de datos, no código.
 
 ## Quick start
 
@@ -67,19 +84,36 @@ Revisar y aceptar las licencias pendientes de forma interactiva. Verificar que `
 
 ### 2. Abrir y ejecutar en Android Studio
 
+La app necesita el backend en marcha y un token de API: desde la raíz del repositorio, `docker compose up` (ver [Backend: catálogo y API](#backend-catálogo-y-api)). Por defecto la app llama a `http://10.0.2.2:8080`, que es como el emulador Android alcanza al backend que corre en el Mac. Para un dispositivo físico en la misma red, pasar la dirección con `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080` (también en `flutter build` y en el smoke). El permiso `INTERNET` está en todos los builds; `debug` y `profile` habilitan además el HTTP en claro en la pila de red de Android, que es lo que permite llegar al backend local, y `release` no lo habilita. Esa restricción no alcanza al cliente Dart (`dart:io`), así que la garantía de HTTPS la da la URL que se pasa en `API_BASE_URL`, no el build.
+
+La API exige `Authorization: Bearer <token>` en `/v1`. La app toma el token al compilar de `--dart-define=API_TOKEN=<token>` (no hay valor por defecto ni token en el repositorio), junto a `API_BASE_URL`, en `flutter run`, `flutter build` y el smoke. Sin `API_TOKEN` la app arranca pero no envía `Authorization`, la API responde 401 y la app muestra un error de «no autorizada». El token sale de la lista `API_TOKENS` del backend: para el backend local, uno de los valores de `API_TOKENS` del `.env` de la raíz (ver [Backend: catálogo y API](#backend-catálogo-y-api)); para Cloud Run, el token de la app que guarda el secreto, según [`docs/deploy/cloud-run.md`](docs/deploy/cloud-run.md). Un token embebido en el APK se puede extraer, y solo identifica a la app, no al usuario: no es una credencial de usuario.
+
+Para no escribir el token en cada comando, Flutter admite `--dart-define-from-file`. Crear `app/dart_defines.local.json` (ignorado por git, nunca se commitea) con este contenido, sustituyendo los marcadores:
+
+```json
+{
+  "API_BASE_URL": "<URL-del-backend>",
+  "API_TOKEN": "<token-de-la-app>"
+}
+```
+
+y pasarlo desde `app/` con `--dart-define-from-file=dart_defines.local.json` (desde la raíz sería `app/dart_defines.local.json`), por ejemplo `flutter run -d ID_DEL_DISPOSITIVO --dart-define-from-file=dart_defines.local.json`. Es opcional: equivale a escribir los dos `--dart-define`.
+
+Para usar el backend desplegado en Cloud Run no hace falta `docker compose up`: el build `release` debe apuntar a esa URL HTTPS (un `release` compilado con una URL `http://` la usaría tal cual) y se compila con `flutter build apk --release --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app --dart-define=API_TOKEN=<token-de-la-app>` (o `flutter run --release -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app --dart-define=API_TOKEN=<token-de-la-app>`); sin el define de la dirección, esta sigue siendo la del emulador, y sin el del token la API responde 401. Las pruebas con el backend local (`http://`) se dejan para `debug` y `profile`, que además no consumen la capa gratuita. La guía del despliegue está en [`docs/deploy/cloud-run.md`](docs/deploy/cloud-run.md).
+
 Abrir `app/` como proyecto (su raíz tiene `pubspec.yaml`). Configurar la ruta raíz del SDK de Flutter en el plugin de Flutter y elegir el dispositivo o emulador Android en la selección de dispositivo. En la terminal integrada, situada en `app/`:
 
 ```bash
 flutter pub get --enforce-lockfile
 flutter analyze
-flutter run -d ID_DEL_DISPOSITIVO
+flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_TOKEN=<token-de-la-app>
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador del dispositivo o emulador Android mostrado por `flutter devices`. Para un dispositivo físico: `flutter run -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=http://<IP-del-Mac>:8080 --dart-define=API_TOKEN=<token-de-la-app>`.
 
 ### 3. Pruebas
 
-La app incluye pruebas unit y de widget en `app/test/`. Desde `app/`:
+La app incluye pruebas unit y de widget en `app/test/`. No usan red: emplean un cliente HTTP falso y fixtures en [`app/test/fixtures/api/`](app/test/fixtures/api/). Desde `app/`:
 
 ```bash
 flutter test test/
@@ -98,15 +132,17 @@ Las fixtures de tipografía Roboto usadas por pruebas de layout están en [`app/
 
 ### 4. Smoke Android
 
-El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`. Recorre Inicio, Buscar por objetivo, Explorar y el Pasaporte de planta, con búsqueda, filtros y retorno a Inicio.
+El smoke es una prueba de integración que usa la app real en Android. Su punto de entrada es `app/integration_test/app_test.dart` y delega el flujo en `app/integration_test/catalog_smoke.dart`. Requiere un dispositivo o emulador Android iniciado y listado por `flutter devices`, y el backend en marcha (`docker compose up` desde la raíz) con su `API_TOKENS`. El smoke exige `--dart-define=API_TOKEN=<token-de-la-app>` y falla enseguida con un mensaje claro si falta. Recorre Inicio, Buscar por objetivo (objetivo, planta, Pasaporte y vuelta paso a paso hasta Inicio, con la hoja `Ver más detalles` y la posición del scroll de P07 conservada), Explorar y el Pasaporte de planta, con la búsqueda de una planta real (`lavandula` → «Lavanda» / «Lavandula angustifolia», el nombre para mostrar de la semilla), filtros y retorno a Inicio. El guard HTTP de la prueba solo permite el host del backend y los dos hosts de Wikimedia de las fotos.
 
 Desde `app/`:
 
 ```bash
-flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO
+flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO --dart-define=API_TOKEN=<token-de-la-app>
 ```
 
-Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Preparar y verificar previamente el SDK Android y sus licencias.
+Sustituir `ID_DEL_DISPOSITIVO` por el identificador Android de `flutter devices`. Con un dispositivo físico, añadir `--dart-define=API_BASE_URL=http://<IP-del-Mac>:8080`. También acepta `--dart-define-from-file=dart_defines.local.json`. Preparar y verificar previamente el SDK Android y sus licencias.
+
+Para correr el smoke contra el backend desplegado, sin `docker compose up`, pasar la dirección de Cloud Run: `flutter test integration_test/app_test.dart -d ID_DEL_DISPOSITIVO --dart-define=API_BASE_URL=https://boticario-api-d3xv5q3iaa-pv.a.run.app --dart-define=API_TOKEN=<token-de-la-app>`.
 
 ### 5. Comandos de calidad
 
@@ -119,22 +155,129 @@ flutter analyze
 flutter test test/
 ```
 
+## Backend: catálogo y API
+
+El backend construye una base SQLite neutral con las plantas del catálogo y la sirve en modo de solo lectura. El modelo de datos y cómo añadir una fuente nueva a las herramientas están en la [guía del modelo de datos](docs/data/modelo-de-datos.md#9-cómo-añadir-una-fuente-nueva-a-las-herramientas). La app lo consume desde el emulador Android en `http://10.0.2.2:8080`. `/v1` solo admite cambios aditivos, porque la app ya es su primer consumidor. Para ejecutarlo solo hace falta Docker.
+
+### Prerrequisito
+
+Docker Desktop, o un Docker compatible, con Compose, y `openssl` para generar el token.
+
+### Arrancar
+
+La API exige un token de API en `/v1` y no arranca sin él. La primera vez, se crea el archivo `.env` de la raíz (git lo ignora) con un token aleatorio; Compose lo lee solo:
+
+```bash
+echo "API_TOKENS=$(openssl rand -hex 32)" > .env
+```
+
+Sin `API_TOKENS` (ni en el entorno ni en `.env`), `docker compose up` falla antes de arrancar con un mensaje que lo indica. Después, desde la raíz del repositorio:
+
+```bash
+docker compose up --build
+```
+
+La primera construcción compila el backend y construye el catálogo dentro de la imagen a partir de la semilla de `data/seed/`, sin descargar datos. Tarda varios minutos la primera vez y segundos las siguientes: un cambio en la semilla reconstruye el catálogo sin recompilar la API. La imagen resultante contiene la API y el catálogo ya construido, así que el contenedor sirve sin red.
+
+### Endpoints
+
+Todos son `GET`, por defecto en `http://localhost:8080`:
+
+- `/health`: estado del servicio (público).
+- `/v1/plants`: lista paginada, con búsqueda opcional por `q` (exige token).
+- `/v1/plants/{id}`: detalle de una planta (exige token).
+- `/v1/goals`: los objetivos con sus subáreas, sin paginar (exige token).
+- `/v1/goals/{goalId}/plants`: página de las plantas de un objetivo o de una subárea (`subarea`, `limit` y `offset`), sin las pendientes de revisión (exige token).
+- `/openapi.json`: el contrato OpenAPI (público).
+
+Todo lo que cuelga de `/v1` lleva la cabecera `Authorization: Bearer <token>`, con uno de los tokens de `API_TOKENS`. Sin token, o con uno que no coincide, la respuesta es 401. Para probar, se toma el token del `.env` sin copiarlo a mano:
+
+```bash
+TOKEN=$(sed -n 's/^API_TOKENS=//p' .env | cut -d, -f1)
+curl -H "Authorization: Bearer $TOKEN" 'http://localhost:8080/v1/plants?q=lavand'
+curl -i http://localhost:8080/v1/plants   # 401 con WWW-Authenticate: Bearer
+```
+
+La imagen no define un `healthcheck`; para sondear el servicio desde fuera, usar `/health`.
+
+### Configuración
+
+| Variable | Por defecto | Uso |
+|---|---|---|
+| `PORT` | `8080` | Puerto de escucha y puerto publicado en el anfitrión. |
+| `RUST_LOG` | `info` | Filtro de logs. |
+| `API_TOKENS` | obligatoria, sin valor por defecto | Tokens de API válidos, separados por comas. Cada uno tiene de 32 a 256 caracteres (letras, dígitos y `-._~+/`); `openssl rand -hex 32` da uno de 64. |
+
+```bash
+PORT=9090 docker compose up
+RUST_LOG=warn docker compose up
+```
+
+Para rotar el token sin cortar a un cliente se ponen dos separados por coma (`API_TOKENS=<token-nuevo>,<token-viejo>`) y se retira el viejo cuando todos usen el nuevo. La imagen no contiene ningún token: llegan siempre por el entorno al ejecutar.
+
+### Límites de la autorización
+
+El token frena a clientes casuales y a quien no lo tiene, pero no es una credencial de usuario:
+
+- Un token embebido en el APK de la app se puede extraer. Autoriza a la app, no a una persona; rotarlo y revocarlo es barato.
+- Las peticiones rechazadas con 401 también llegan al servicio: en Cloud Run se facturan y consumen la cuota gratuita. `max-instances` y la alerta de presupuesto acotan el gasto.
+- No hay protección de borde (límite de tasa, WAF ni App Check); un ataque de volumen queda fuera de alcance.
+
+Dentro del contenedor la API siempre escucha en `0.0.0.0`; esa dirección no es configurable.
+
+### Hash del catálogo
+
+La construcción imprime el hash del contenido del catálogo en su log:
+
+```bash
+docker compose --progress=plain build 2>&1 | grep 'hash:'
+```
+
+Si todas las capas vienen de la caché, el log no repite la línea; en ese caso, `docker compose --progress=plain build --no-cache 2>&1 | grep 'hash:'` la vuelve a imprimir, a costa de repetir toda la construcción. El hash depende solo de los datos y es el mismo que da una construcción nativa del mismo insumo.
+
+### Reconstruir y parar
+
+Tras cambiar el código o los datos, se reconstruye y se arranca de nuevo con `docker compose up --build`. Para parar y eliminar el contenedor:
+
+```bash
+docker compose down
+```
+
+`docker compose` interpola `API_TOKENS` en todos sus subcomandos, no solo en `up`: `down`, `ps` y `logs` también fallan con «required variable API_TOKENS is missing a value» si la variable no está en el entorno ni en el `.env` de la raíz. Con el `.env` documentado arriba no ocurre. Si exportaste la variable solo en un shell, en otro shell hay que volver a definirla. Para detener basta un valor cualquiera, porque `down` no arranca la API: `API_TOKENS=x docker compose down`. Este fallo es intencionado en `up`: el servicio no debe arrancar sin token.
+
+Las cachés de construcción viven en el almacenamiento de Docker, no en el repositorio; se limpian con `docker builder prune`. Si una construcción se comporta de forma inexplicable, `docker compose build --no-cache` ignora la caché de capas y reconstruye todo (las monturas de caché solo se limpian con `docker builder prune`).
+
+### Despliegue en Cloud Run
+
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) verifica el backend (`fmt`, `clippy` y pruebas, con el workflow reutilizable `backend-ci.yml`) y, solo si pasa, construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend (`backend/`, `data/migrations/`, `data/seed/`, `Dockerfile`, `mise.toml`, `.dockerignore` o el propio workflow), o a mano con `workflow_dispatch`. Si la verificación falla, no se publica ninguna imagen ni se crea ninguna revisión. El servicio responde en https://boticario-api-d3xv5q3iaa-pv.a.run.app.
+
+La imagen local se construye para la arquitectura del anfitrión (arm64 en un Mac con Apple Silicon); `docker build --platform linux/amd64 .` queda como prueba local de la imagen que despliega el workflow.
+
+La preparación en Google Cloud, la operación, el costo esperado y el desmontaje están en la [guía de Cloud Run](docs/deploy/cloud-run.md).
+
+### Desarrollo del backend
+
+Para modificar el código Rust o ejecutarlo sin Docker, ver [`backend/README.md`](backend/README.md).
+
 ## Integración continua
 
 El workflow [`.github/workflows/flutter.yml`](.github/workflows/flutter.yml) corre en push y pull request, con filtros de ruta `app/**`, `.flutter-version` y el propio workflow. Lee el pin [`.flutter-version`](.flutter-version) desde la raíz, instala ese SDK exacto y verifica la versión efectiva de Flutter antes de seguir.
 
-El job de CI cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
+El job de CI de Flutter cubre unit y widget; **no** ejecuta el smoke Android ni monta un emulador. Replica los [comandos de calidad](#5-comandos-de-calidad).
 
-Pendiente: el repositorio se tratará como monorepo, con `app/` exclusiva de Flutter y carpetas futuras para el backend y la ingesta de datos, que aún no existen. Este workflow cubre solo `app/`. Cuando la arquitectura esté más definida habrá que revisar sus filtros de ruta y añadir CI propia para los componentes nuevos; por ahora se deja sin diseñar de forma deliberada.
+El workflow [`.github/workflows/backend-ci.yml`](.github/workflows/backend-ci.yml) verifica el backend: `cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace, con el Rust fijado en [`mise.toml`](mise.toml). Corre en pull requests y en pushes a ramas distintas de `main` que toquen `backend/`, `data/migrations/`, el `Dockerfile`, `mise.toml` o el propio workflow. El comando local equivalente está en la guía de [`backend/README.md`](backend/README.md#integración-continua).
+
+El workflow [`.github/workflows/deploy-backend.yml`](.github/workflows/deploy-backend.yml) verifica el backend y, solo si pasa, construye la imagen amd64 y la despliega en Cloud Run en cada push a `main` que toque el backend; ver [Despliegue en Cloud Run](#despliegue-en-cloud-run).
 
 ## Documentación
 
-Orden de lectura sugerido: Canvas, mockups, research, plan de trabajo.
+Orden de lectura sugerido: Canvas, mockups, guía de fuentes y guía del modelo de datos.
 
 - Canvas y negocio: [índice](docs/canvas/README.md) y [modelo de negocio](docs/canvas/modelo-de-negocio.md).
 - Mockups: [índice](docs/mockups/README.md), [pantallas](docs/mockups/pantallas.md) y [navegación](docs/mockups/navegacion.md).
-- Research Flutter: [índice](docs/research/flutter/README.md), [fuentes](docs/research/flutter/fuentes.md) y [plan de trabajo](docs/research/flutter/plan-de-trabajo.md).
-- Datos: [guía del catálogo USDA](docs/data/usda-catalog.md).
+- Datos: [guía de fuentes](docs/data/usda-catalog.md), [guía del modelo de datos](docs/data/modelo-de-datos.md) y [regeneración de la semilla](docs/data/regeneracion-de-la-semilla.md).
+- Desarrollo del backend: [`backend/README.md`](backend/README.md), con el flujo nativo con mise y cargo.
+- Despliegue: [guía de Cloud Run](docs/deploy/cloud-run.md).
 
 Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus informes de QA, está en `openspec/changes/archive/`.
 
@@ -144,8 +287,7 @@ Las specs vigentes están en `openspec/specs/`; cada cambio archivado, con sus i
 docs/
   canvas/              índice y modelo de negocio
   mockups/             índice, pantallas y navegación
-  research/flutter/    índice, fuentes y plan de trabajo
-  data/               procedencia, curación y límites del catálogo USDA
+  data/               fuentes, modelo de datos y regeneración de la semilla
   Canvas.png           canvas original
   mockups.png          lámina original de mockups
 ```

@@ -1,0 +1,846 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3291b970419a8378afdaba3f9c8de25ae1f25c65b605eedcd78f5875f724d91b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Strychnos nux-vomica",
+        "wikidata:Q272945"
+      ],
+      "text": "Nuez vómica"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:978-1"
+      ],
+      "text": "Nux-Vomica"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:978-2"
+      ],
+      "text": "Stychnine"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Strychnos nux-vomica"
+    ],
+    "value": "Especie del género Strychnos de las Loganiáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Strychnos nux-vomica"
+    ],
+    "value": "Nuez vómica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2598138"
+    ],
+    "value": "Loganiaceae"
+  },
+  "goals": [],
+  "id": "strychnos-nux-vomica",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Strychnos_nux-vomica_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-266.jpg",
+    "refs": [
+      "commons:File:Strychnos nux-vomica - Köhler–s Medizinal-Pflanzen-266.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Strychnos_nux-vomica_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-266.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2598138"
+    ],
+    "value": "Subcontinente indio, Indochina y Malesia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Strychnos nux-vomica - Köhler–s Medizinal-Pflanzen-266.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Strychnos nux-vomica - Köhler–s Medizinal-Pflanzen-266.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Strychnos_nux-vomica_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-266.jpg"
+    },
+    "usda_common_name:978-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Nux-Vomica»",
+      "license": "CC0"
+    },
+    "usda_common_name:978-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Stychnine»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11823": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11823",
+      "license": "CC0"
+    },
+    "usda_use:12755": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12755",
+      "license": "CC0"
+    },
+    "usda_use:14596": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14596",
+      "license": "CC0"
+    },
+    "usda_use:1901": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1901",
+      "license": "CC0"
+    },
+    "usda_use:21367": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21367",
+      "license": "CC0"
+    },
+    "usda_use:22488": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22488",
+      "license": "CC0"
+    },
+    "usda_use:23706": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23706",
+      "license": "CC0"
+    },
+    "usda_use:25452": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25452",
+      "license": "CC0"
+    },
+    "usda_use:38375": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38375",
+      "license": "CC0"
+    },
+    "usda_use:38376": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38376",
+      "license": "CC0"
+    },
+    "usda_use:38377": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38377",
+      "license": "CC0"
+    },
+    "usda_use:38536": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38536",
+      "license": "CC0"
+    },
+    "usda_use:45225": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45225",
+      "license": "CC0"
+    },
+    "usda_use:45226": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45226",
+      "license": "CC0"
+    },
+    "usda_use:4608": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4608",
+      "license": "CC0"
+    },
+    "usda_use:51036": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51036",
+      "license": "CC0"
+    },
+    "usda_use:51037": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51037",
+      "license": "CC0"
+    },
+    "usda_use:51038": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51038",
+      "license": "CC0"
+    },
+    "usda_use:5332": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5332",
+      "license": "CC0"
+    },
+    "usda_use:61866": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61866",
+      "license": "CC0"
+    },
+    "usda_use:61870": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61870",
+      "license": "CC0"
+    },
+    "usda_use:61873": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61873",
+      "license": "CC0"
+    },
+    "usda_use:61876": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61876",
+      "license": "CC0"
+    },
+    "usda_use:61877": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61877",
+      "license": "CC0"
+    },
+    "usda_use:61879": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61879",
+      "license": "CC0"
+    },
+    "usda_use:61881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61881",
+      "license": "CC0"
+    },
+    "usda_use:6345": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6345",
+      "license": "CC0"
+    },
+    "usda_use:63582": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63582",
+      "license": "CC0"
+    },
+    "usda_use:6549": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6549",
+      "license": "CC0"
+    },
+    "usda_use:66467": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66467",
+      "license": "CC0"
+    },
+    "usda_use:71212": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71212",
+      "license": "CC0"
+    },
+    "usda_use:75184": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75184",
+      "license": "CC0"
+    },
+    "usda_use:77807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77807",
+      "license": "CC0"
+    },
+    "usda_use:82378": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82378",
+      "license": "CC0"
+    },
+    "usda_use:82379": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82379",
+      "license": "CC0"
+    },
+    "usda_use:82385": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82385",
+      "license": "CC0"
+    },
+    "usda_use:9479": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9479",
+      "license": "CC0"
+    },
+    "usda_use:9957": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9957",
+      "license": "CC0"
+    },
+    "usda_use:9958": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9958",
+      "license": "CC0"
+    },
+    "wcvp:2598138": {
+      "dataset": "wcvp",
+      "label": "WCVP: Strychnos nux-vomica L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q272945": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q272945",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q272945"
+    },
+    "wikipedia_es:Strychnos nux-vomica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Strychnos nux-vomica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Strychnos_nux-vomica"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "usda_use:23706",
+      "usda_use:61876",
+      "usda_use:38375",
+      "usda_use:38376",
+      "usda_use:38377",
+      "usda_use:61879",
+      "usda_use:61881",
+      "usda_use:75184",
+      "usda_use:38536",
+      "usda_use:63582"
+    ],
+    "text": "Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Strychnos nux-vomica",
+    "refs": [
+      "wcvp:2598138"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Canicida",
+      "activitySource": "Canicide",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "Malasia",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9957",
+        "usda_use:9958",
+        "usda_use:61870",
+        "usda_use:66467",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        },
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares",
+        "India"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25452",
+        "usda_use:61877",
+        "usda_use:71212",
+        "usda_reference:WOI",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "India",
+        "Malasia",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51036",
+        "usda_use:51037",
+        "usda_use:51038",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45225",
+        "usda_use:45226",
+        "usda_reference:Hartwell",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "India",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77807",
+        "usda_use:82385",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Abdomen",
+      "activitySource": "Abdomen",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82378",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Ague",
+      "activitySource": "Ague",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61866",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Ambliopía",
+      "activitySource": "Amblyopia",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1901",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4608",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5332",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Avicida",
+      "activitySource": "Avicide",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6345",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Calvicie",
+      "activitySource": "Baldness",
+      "citations": [
+        {
+          "key": "Eb20: 23",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 23"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6549",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Estimulante del sistema nervioso central",
+      "activitySource": "CNS stimulant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Malasia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82379",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9479",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Corea",
+      "activitySource": "Chorea",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11823",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12755",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Cynanche",
+      "activitySource": "Cynanche",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14596",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Caspa",
+      "activitySource": "Dandruff",
+      "citations": [
+        {
+          "key": "Eb20: 23",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 23"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61873",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "Camboya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21367",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: epilepsia",
+      "activitySource": "Epilepsy",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India raw materials, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22488",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "aliases": [
+    "rhus-alata"
+  ],
+  "bundleHash": "sha256:8e2bf801cef243642adcf92d7624af6a71a1365c7060b780fe0c84811e3807ad",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2851085"
+    ],
+    "value": "Hippobromus pauciflorus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2851085"
+    ],
+    "value": "Sapindaceae"
+  },
+  "goals": [],
+  "id": "hippobromus-pauciflorus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Paul venter",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hippobromus_pauciflorus01.jpg",
+    "refs": [
+      "commons:File:Hippobromus pauciflorus01.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Hippobromus_pauciflorus01.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2851085"
+    ],
+    "value": "Nativa del sur de África."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hippobromus pauciflorus01.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hippobromus pauciflorus01.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hippobromus_pauciflorus01.jpg"
+    },
+    "wcvp:2421066": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhus pauciflora L.f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2851085": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hippobromus pauciflorus (L.f.) Radlk.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad (sin TPPT, EMA ni EFSA ni señales de riesgo en los usos); la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.f.) Radlk.",
+    "name": "Hippobromus pauciflorus",
+    "refs": [
+      "wcvp:2851085"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.f.",
+      "name": "Rhus pauciflora",
+      "refs": [
+        "wcvp:2421066"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

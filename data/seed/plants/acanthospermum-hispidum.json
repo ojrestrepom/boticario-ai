@@ -1,0 +1,172 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:32611073c7e7789d91a66b90889db63e2dc9b0abcbfe0095c9b88aef78a9fabf",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2922485"
+    ],
+    "value": "Acanthospermum hispidum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2922485"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "acanthospermum-hispidum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ton Rulkens from Mozambique",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Acanthospermum_hispidum_-_flower_head_(8644478683).jpg",
+    "refs": [
+      "commons:File:Acanthospermum hispidum - flower head (8644478683).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Acanthospermum_hispidum_-_flower_head_%288644478683%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1288-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2922485"
+    ],
+    "value": "Nativa de Brasil, el Caribe, América Central y el norte, sur y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Acanthospermum hispidum - flower head (8644478683).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Acanthospermum hispidum - flower head (8644478683).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Acanthospermum_hispidum_-_flower_head_(8644478683).jpg"
+    },
+    "usda_part:1288-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:17412": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17412",
+      "license": "CC0"
+    },
+    "usda_use:48302": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48302",
+      "license": "CC0"
+    },
+    "wcvp:2922485": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acanthospermum hispidum DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2922486": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acanthospermum humile var. hispidum (DC.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Acanthospermum hispidum",
+    "refs": [
+      "wcvp:2922485"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(DC.) Kuntze",
+      "name": "Acanthospermum humile var. hispidum",
+      "refs": [
+        "wcvp:2922486"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17412",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48302",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

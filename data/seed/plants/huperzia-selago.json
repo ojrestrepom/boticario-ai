@@ -1,0 +1,260 @@
+{
+  "aliases": [
+    "lycopodium-selago"
+  ],
+  "bundleHash": "sha256:9d8bf6647be0d32096b08704ff66b4dfa3e8e48e98224616907f82edd88ced5a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Huperzia selago"
+      ],
+      "text": "musgo derecho"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P1"
+      ],
+      "text": "Tannenbaerlapp"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P1"
+      ],
+      "text": "Fir clubmoss"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2245-1"
+      ],
+      "text": "Clubmoss"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Huperzia selago"
+    ],
+    "value": "Especie de planta herbácea de la familia Lycopodiaceae, conocida como musgo derecho."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Huperzia selago"
+    ],
+    "value": "Musgo derecho"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3138051"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "huperzia-selago",
+  "image": {
+    "attributionRequired": true,
+    "author": "User:Tigerente",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Huperzia_selago.jpg",
+    "refs": [
+      "commons:File:Huperzia selago.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Huperzia_selago.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3138051"
+    ],
+    "value": "Europa, Asia templada y Siberia, y el norte de Norteamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Huperzia selago.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Huperzia selago.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Huperzia_selago.jpg"
+    },
+    "efsa_botanic:1306": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: huperzine A",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1307": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: huperzine B",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1308": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: N-methyl-huperzine B",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1309": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: huperzinine",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P1": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Huperzia selago (L.) Schrank & Mart.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:2245-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "usda_use:63569": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63569",
+      "license": "CC0"
+    },
+    "wcvp:3138051": {
+      "dataset": "wcvp",
+      "label": "WCVP: Huperzia selago (L.) Bernh. ex Schrank & Mart.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139676": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium selago L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139678": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopodium selago var. densum Wallr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3139681": {
+      "dataset": "wcvp",
+      "label": "WCVP: Urostachys selago (L.) Herter",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3233563": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plananthus selago (L.) P.Beauv.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3233564": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mirmau selago (L.) H.P.Fuchs",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3235701": {
+      "dataset": "wcvp",
+      "label": "WCVP: Selago vulgaris Schur",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Huperzia selago": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Huperzia selago",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Huperzia_selago"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P1",
+      "efsa_botanic:1306",
+      "efsa_botanic:1307",
+      "efsa_botanic:1308",
+      "efsa_botanic:1309",
+      "usda_use:63569"
+    ],
+    "text": "TPPT registra la planta como tóxica para las personas (parte aérea o planta entera): los alcaloides de Lycopodium (quinolizidínicos) son tóxicos y los de piperidina y piridina son toxinas menores. EFSA registra como sustancias de evidencia en la parte aérea la huperzina A, la huperzina B, la N-metil-huperzina B y la huperzinina. Advertencia: registrada como abortiva en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(L.) Bernh. ex Schrank & Mart.",
+    "name": "Huperzia selago",
+    "refs": [
+      "wcvp:3138051"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Lycopodium selago",
+      "refs": [
+        "wcvp:3139676"
+      ]
+    },
+    {
+      "authors": "Wallr.",
+      "name": "Lycopodium selago var. densum",
+      "refs": [
+        "wcvp:3139678"
+      ]
+    },
+    {
+      "authors": "(L.) H.P.Fuchs",
+      "name": "Mirmau selago",
+      "refs": [
+        "wcvp:3233564"
+      ]
+    },
+    {
+      "authors": "(L.) P.Beauv.",
+      "name": "Plananthus selago",
+      "refs": [
+        "wcvp:3233563"
+      ]
+    },
+    {
+      "authors": "Schur",
+      "name": "Selago vulgaris",
+      "refs": [
+        "wcvp:3235701"
+      ]
+    },
+    {
+      "authors": "(L.) Herter",
+      "name": "Urostachys selago",
+      "refs": [
+        "wcvp:3139681"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

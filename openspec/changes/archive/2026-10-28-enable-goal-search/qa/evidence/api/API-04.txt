@@ -1,0 +1,120 @@
+PASA  digestion: subarea con id y name, total 68 {'id': 'digestion', 'name': 'Digestión'}
+PASA  digestion: solo plantas de esa subarea (conjunto igual al de la base) 
+PASA  digestion: areas solo las de esa subarea 
+PASA  vias-urinarias-y-genitales: subarea con id y name, total 42 {'id': 'vias-urinarias-y-genitales', 'name': 'Vías urinarias y genitales'}
+PASA  vias-urinarias-y-genitales: solo plantas de esa subarea (conjunto igual al de la base) 
+PASA  vias-urinarias-y-genitales: areas solo las de esa subarea 
+PASA  dolor-e-inflamacion: subarea con id y name, total 22 {'id': 'dolor-e-inflamacion', 'name': 'Dolor e inflamación'}
+PASA  dolor-e-inflamacion: solo plantas de esa subarea (conjunto igual al de la base) 
+PASA  dolor-e-inflamacion: areas solo las de esa subarea 
+PASA  boca-y-garganta: subarea con id y name, total 20 {'id': 'boca-y-garganta', 'name': 'Boca y garganta'}
+PASA  boca-y-garganta: solo plantas de esa subarea (conjunto igual al de la base) 
+PASA  boca-y-garganta: areas solo las de esa subarea 
+PASA  circulacion: subarea con id y name, total 17 {'id': 'circulacion', 'name': 'Circulación'}
+PASA  circulacion: solo plantas de esa subarea (conjunto igual al de la base) 
+PASA  circulacion: areas solo las de esa subarea 
+PASA  molestias-oculares: subarea con id y name, total 1 {'id': 'molestias-oculares', 'name': 'Molestias oculares'}
+PASA  molestias-oculares: solo plantas de esa subarea (conjunto igual al de la base) 
+PASA  molestias-oculares: areas solo las de esa subarea 
+--- subarea digestion (2 elementos)
+GET /v1/goals/otros-objetivos/plants?subarea=digestion&limit=2
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "2036"}
+{
+ "goal": {
+  "id": "otros-objetivos",
+  "name": "Otros objetivos"
+ },
+ "subarea": {
+  "id": "digestion",
+  "name": "Digestión"
+ },
+ "items": [
+  {
+   "id": "cichorium-intybus",
+   "scientificName": "Cichorium intybus",
+   "displayName": "Achicoria común",
+   "commonNames": [
+    {
+     "text": "Achicoria común",
+     "language": "es"
+    },
+    {
+     "text": "Chicoree",
+     "language": "de"
+    },
+    {
+     "text": "Chicory",
+     "language": "en"
+    },
+    {
+     "text": "Escarola",
+     "language": "es"
+    },
+    {
+     "text": "Succory",
+     "language": "en"
+    },
+    {
+     "text": "Witloof",
+     "language": "en"
+    }
+   ],
+   "family": "Asteraceae",
+   "areas": [
+    "Pérdida de apetito; Trastornos gastrointestinales"
+   ],
+   "safetyLevel": "bajo",
+   "hasSafety": true,
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Cichorium_intybus_-_Chic
+... (recortado, 2759 caracteres)
+
+--- subarea con una sola planta
+GET /v1/goals/otros-objetivos/plants?subarea=molestias-oculares
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "954"}
+{
+ "goal": {
+  "id": "otros-objetivos",
+  "name": "Otros objetivos"
+ },
+ "subarea": {
+  "id": "molestias-oculares",
+  "name": "Molestias oculares"
+ },
+ "items": [
+  {
+   "id": "hamamelis-virginiana",
+   "scientificName": "Hamamelis virginiana",
+   "displayName": "Avellano de bruja",
+   "commonNames": [
+    {
+     "text": "Avellano de bruja",
+     "language": "es"
+    },
+    {
+     "text": "avellana que se rompe",
+     "language": "es"
+    },
+    {
+     "text": "escoba de bruja",
+     "language": "es"
+    },
+    {
+     "text": "Witch Hazel",
+     "language": "en"
+    }
+   ],
+   "family": "Hamamelidaceae",
+   "areas": [
+    "Molestias oculares"
+   ],
+   "safetyLevel": null,
+   "hasSafety": true,
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Hamamelis_virginiana_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-070.jpg",
+    "pageUrl": "https://commons.wikimedia.org
+... (recortado, 1193 caracteres)
+
+PASA  molestias-oculares: una planta (limite inferior) ['hamamelis-virginiana']

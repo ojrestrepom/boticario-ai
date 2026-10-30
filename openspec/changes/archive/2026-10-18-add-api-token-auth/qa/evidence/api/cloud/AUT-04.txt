@@ -1,0 +1,13 @@
+# AUT-04 Cabecera ausente (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: ec219091bfe1363869ccdae0f1fb451d
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

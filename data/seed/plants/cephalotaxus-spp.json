@@ -1,0 +1,98 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0c664aad8f2350b6f2d30aaa55116556a71e28f3fb65178d506857d8681e17fb",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Cephalotaxus"
+      ],
+      "text": "cefalotaxos"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:242-1"
+      ],
+      "text": "Generic Plum Yew"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Cephalotaxus"
+    ],
+    "value": "Género de coníferas que comprende 11 especies, originario del este de Asia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Cephalotaxus"
+    ],
+    "value": "Cefalotaxos"
+  },
+  "family": null,
+  "goals": [],
+  "id": "cephalotaxus-spp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:242-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Generic Plum Yew»",
+      "license": "CC0"
+    },
+    "wikidata:Q933520": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q933520",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q933520"
+    },
+    "wikipedia_es:Cephalotaxus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Cephalotaxus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Cephalotaxus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Cephalotaxus spp",
+    "refs": [
+      "wikidata:Q933520"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

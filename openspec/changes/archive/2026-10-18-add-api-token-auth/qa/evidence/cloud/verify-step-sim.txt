@@ -1,0 +1,39 @@
+## (a) token de CI correcto contra Cloud Run
+exit=0
+GET /health -> 200
+GET /v1/plants/lavandula-angustifolia -> 200
+GET /v1/plants/lavandula-angustifolia (sin token) -> 401
+Servicio disponible en https://boticario-api-d3xv5q3iaa-pv.a.run.app
+
+
+## (b) token obsoleto (aleatorio) contra Cloud Run
+exit=56
+GET /health -> 200
+curl: (56) The requested URL returned error: 401
+curl: (56) The requested URL returned error: 401
+curl: (56) The requested URL returned error: 401
+curl: (56) The requested URL returned error: 401
+curl: (56) The requested URL returned error: 401
+curl: (56) The requested URL returned error: 401
+
+
+## (c) servicio abierto simulado (200 a todo, sin token incluido)
+exit=1
+GET /health -> 200
+GET /v1/plants/lavandula-angustifolia -> 200
+GET /v1/plants/lavandula-angustifolia (sin token) -> 200
+::error::/v1/plants/lavandula-angustifolia respondio 200 sin token: el servicio estaria abierto, la autorizacion no esta activa
+
+
+## (d) sin API_VERIFY_TOKEN
+exit=1
+::error::Falta el secreto de GitHub API_VERIFY_TOKEN (un token de CI de los que contiene boticario-api-tokens); ver docs/deploy/cloud-run.md
+
+
+## (e) token válido contra el contenedor local
+exit=0
+GET /health -> 200
+GET /v1/plants/lavandula-angustifolia -> 200
+GET /v1/plants/lavandula-angustifolia (sin token) -> 401
+Servicio disponible en http://localhost:8080
+

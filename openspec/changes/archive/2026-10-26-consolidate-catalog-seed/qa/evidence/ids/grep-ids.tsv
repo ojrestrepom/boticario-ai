@@ -1,0 +1,532 @@
+archivo	linea	id	estado	id_nuevo	linea_texto
+.github/workflows/deploy-backend.yml	145	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant=/v1/plants/lavandula-angustifolia
+app/integration_test/catalog_smoke.dart	83	lavandula-angustifolia	MISMO	lavandula-angustifolia	const _lavenderPath = '/explore/lavandula-angustifolia';
+app/test/app/app_test.dart	112	lavandula-angustifolia	MISMO	lavandula-angustifolia	expect(router.state.uri.path, '/explore/lavandula-angustifolia');
+app/test/app/app_test.dart	214	lavandula-angustifolia	MISMO	lavandula-angustifolia	('English Lavender', 'lavandula-angustifolia'),
+app/test/app/app_test.dart	215	lavandula-latifolia	MISMO	lavandula-latifolia	('Aspic', 'lavandula-latifolia'),
+app/test/app/app_test.dart	216	lavandula-sp	MISMO	lavandula-sp	('Lavender', 'lavandula-sp'),
+app/test/app/app_test.dart	217	lavandula-spica	MISMO	lavandula-spica	('Lavandula spica', 'lavandula-spica'),
+app/test/app/app_test.dart	218	lavandula-x-hybrida	ALIAS	lavandula-x-heterophylla	('Hybrid Lavender', 'lavandula-x-hybrida'),
+app/test/app/app_test.dart	219	lavandula-x-intermedia	MISMO	lavandula-x-intermedia	('Dutch Lavender', 'lavandula-x-intermedia'),
+app/test/app/app_test.dart	220	rosmarinus-x-lavandulaceus	ALIAS	salvia-x-lavandulacea	('Lavender Rosemary', 'rosmarinus-x-lavandulaceus'),
+app/test/app/app_test.dart	365	lavandula-angustifolia	MISMO	lavandula-angustifolia	expect(router.state.uri.path, '/explore/lavandula-angustifolia');
+app/test/app/app_test.dart	428	lavandula-angustifolia	MISMO	lavandula-angustifolia	('/explore/lavandula-angustifolia', 'English Lavender'),
+app/test/app/app_test.dart	500	lavandula-angustifolia	MISMO	lavandula-angustifolia	unawaited(router.push('/explore/lavandula-angustifolia'));
+app/test/features/catalog/data/catalog_json_parser_test.dart	17	lavandula-angustifolia	MISMO	lavandula-angustifolia	jsonDecode(apiFixture('plant_lavandula-angustifolia.json'))
+app/test/features/catalog/data/catalog_json_parser_test.dart	29	lavandula-angustifolia	MISMO	lavandula-angustifolia	(p) => p.id == 'lavandula-angustifolia',
+app/test/features/catalog/data/catalog_json_parser_test.dart	89	lavandula-angustifolia	MISMO	lavandula-angustifolia	final plant = parsePlant(apiFixture('plant_lavandula-angustifolia.json'));
+app/test/features/catalog/data/catalog_json_parser_test.dart	90	lavandula-angustifolia	MISMO	lavandula-angustifolia	expect(plant.id, 'lavandula-angustifolia');
+app/test/features/catalog/data/catalog_json_parser_test.dart	101	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	parsePlant(apiFixture('plant_rosmarinus-officinalis.json')).uses,
+app/test/features/catalog/data/catalog_json_parser_test.dart	104	chondrus-crispus	MISMO	chondrus-crispus	final none = parsePlant(apiFixture('plant_chondrus-crispus.json'));
+app/test/features/catalog/data/catalog_json_parser_test.dart	108	abies-spectabilis	MISMO	abies-spectabilis	parsePlant(apiFixture('plant_abies-spectabilis.json')).commonNames,
+app/test/features/catalog/data/catalog_repository_test.dart	122	lavandula-angustifolia	MISMO	lavandula-angustifolia	await r.getPlant('lavandula-angustifolia');
+app/test/features/catalog/data/catalog_repository_test.dart	165	lavandula-angustifolia	MISMO	lavandula-angustifolia	File('test/fixtures/api/plant_lavandula-angustifolia.json')
+app/test/features/catalog/data/catalog_repository_test.dart	171	lavandula-angustifolia	MISMO	lavandula-angustifolia	final plant = await r.getPlant('lavandula-angustifolia');
+app/test/features/catalog/data/catalog_repository_test.dart	174	lavandula-angustifolia	MISMO	lavandula-angustifolia	'http://host:8080/v1/plants/lavandula-angustifolia',
+app/test/features/catalog/data/catalog_repository_test.dart	226	lavandula-angustifolia	MISMO	lavandula-angustifolia	r.getPlant('lavandula-angustifolia'),
+app/test/features/catalog/data/catalog_repository_test.dart	342	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	(await repository.getPlant('rosmarinus-officinalis'))!.uses.length,
+app/test/features/catalog/data/catalog_repository_test.dart	361	lavandula-angustifolia	MISMO	lavandula-angustifolia	noToken.getPlant('lavandula-angustifolia'),
+app/test/features/catalog/domain/catalog_models_test.dart	18	lavandula-angustifolia	MISMO	lavandula-angustifolia	id: 'lavandula-angustifolia',
+app/test/features/explore/explore_page_test.dart	245	rosmarinus-x-lavandulaceus	ALIAS	salvia-x-lavandulacea	expect(selected, 'rosmarinus-x-lavandulaceus');
+app/test/features/explore/explore_page_test.dart	579	lavandula-angustifolia	MISMO	lavandula-angustifolia	expect(selected, 'lavandula-angustifolia');
+app/test/features/passport/plant_detail_provider_test.dart	26	lavandula-angustifolia	MISMO	lavandula-angustifolia	plantDetailProvider('lavandula-angustifolia').future,
+app/test/features/passport/plant_detail_provider_test.dart	29	lavandula-angustifolia	MISMO	lavandula-angustifolia	expect(plant!.id, 'lavandula-angustifolia');
+app/test/features/passport/plant_detail_provider_test.dart	31	lavandula-angustifolia	MISMO	lavandula-angustifolia	expect(api.requests.single.url.path, '/v1/plants/lavandula-angustifolia');
+app/test/features/passport/plant_detail_provider_test.dart	42	lavandula-angustifolia	MISMO	lavandula-angustifolia	plantDetailProvider('lavandula-angustifolia'),
+app/test/features/passport/plant_detail_provider_test.dart	47	lavandula-angustifolia	MISMO	lavandula-angustifolia	container.read(plantDetailProvider('lavandula-angustifolia').future),
+app/test/features/passport/plant_detail_provider_test.dart	57	lavandula-angustifolia	MISMO	lavandula-angustifolia	container.read(plantDetailProvider('lavandula-angustifolia').future),
+app/test/features/passport/plant_detail_provider_test.dart	71	chondrus-crispus	MISMO	chondrus-crispus	plantDetailProvider('chondrus-crispus'),
+app/test/features/passport/plant_detail_provider_test.dart	76	chondrus-crispus	MISMO	chondrus-crispus	container.read(plantDetailProvider('chondrus-crispus').future),
+app/test/features/passport/plant_detail_provider_test.dart	80	chondrus-crispus	MISMO	chondrus-crispus	container.invalidate(plantDetailProvider('chondrus-crispus'));
+app/test/features/passport/plant_detail_provider_test.dart	82	chondrus-crispus	MISMO	chondrus-crispus	plantDetailProvider('chondrus-crispus').future,
+app/test/features/passport/plant_passport_page_test.dart	20	lavandula-angustifolia	MISMO	lavandula-angustifolia	const _lavender = 'lavandula-angustifolia';
+app/test/features/passport/plant_passport_page_test.dart	21	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	const _rosemary = 'rosmarinus-officinalis';
+app/test/features/passport/plant_passport_page_test.dart	22	abies-spectabilis	MISMO	abies-spectabilis	const _noCommonNames = 'abies-spectabilis';
+app/test/features/passport/plant_passport_page_test.dart	23	chondrus-crispus	MISMO	chondrus-crispus	const _noFamily = 'chondrus-crispus';
+app/test/features/passport/plant_passport_page_test.dart	24	abies-sachalinensis	MISMO	abies-sachalinensis	const _noUses = 'abies-sachalinensis';
+app/test/fixtures/api/list_lavandula.json	4	lavandula-angustifolia	MISMO	lavandula-angustifolia	"id": "lavandula-angustifolia",
+app/test/fixtures/api/list_lavandula.json	15	lavandula-latifolia	MISMO	lavandula-latifolia	"id": "lavandula-latifolia",
+app/test/fixtures/api/list_lavandula.json	34	lavandula-sp	MISMO	lavandula-sp	"id": "lavandula-sp",
+app/test/fixtures/api/list_lavandula.json	45	lavandula-spica	MISMO	lavandula-spica	"id": "lavandula-spica",
+app/test/fixtures/api/list_lavandula.json	51	lavandula-x-hybrida	ALIAS	lavandula-x-heterophylla	"id": "lavandula-x-hybrida",
+app/test/fixtures/api/list_lavandula.json	62	lavandula-x-intermedia	MISMO	lavandula-x-intermedia	"id": "lavandula-x-intermedia",
+app/test/fixtures/api/list_lavandula.json	77	rosmarinus-x-lavandulaceus	ALIAS	salvia-x-lavandulacea	"id": "rosmarinus-x-lavandulaceus",
+app/test/fixtures/api/plant_abies-sachalinensis.json	2	abies-sachalinensis	MISMO	abies-sachalinensis	"id": "abies-sachalinensis",
+app/test/fixtures/api/plant_abies-spectabilis.json	2	abies-spectabilis	MISMO	abies-spectabilis	"id": "abies-spectabilis",
+app/test/fixtures/api/plant_chondrus-crispus.json	2	chondrus-crispus	MISMO	chondrus-crispus	"id": "chondrus-crispus",
+app/test/fixtures/api/plant_lavandula-angustifolia.json	2	lavandula-angustifolia	MISMO	lavandula-angustifolia	"id": "lavandula-angustifolia",
+app/test/fixtures/api/plant_rosmarinus-officinalis.json	2	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	"id": "rosmarinus-officinalis",
+app/test/support/fake_catalog_api.dart	58	lavandula-angustifolia	MISMO	lavandula-angustifolia	'lavandula-angustifolia',
+app/test/support/fake_catalog_api.dart	59	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	'rosmarinus-officinalis',
+app/test/support/fake_catalog_api.dart	60	abies-spectabilis	MISMO	abies-spectabilis	'abies-spectabilis',
+app/test/support/fake_catalog_api.dart	61	abies-sachalinensis	MISMO	abies-sachalinensis	'abies-sachalinensis',
+app/test/support/fake_catalog_api.dart	62	chondrus-crispus	MISMO	chondrus-crispus	'chondrus-crispus',
+backend/catalog-api/src/async_catalog.rs	147	lavandula-angustifolia	MISMO	lavandula-angustifolia	catalog.get_plant(PlantId("lavandula-angustifolia".to_string())),
+backend/catalog-api/src/http.rs	195	lavandula-angustifolia	MISMO	lavandula-angustifolia	params(("id" = String, Path, description = "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.")),
+backend/catalog-api/src/http.rs	359	lavandula-angustifolia	MISMO	lavandula-angustifolia	assert_eq!(ids(&sci), ["lavandula-angustifolia", "lavandula-latifolia"]);
+backend/catalog-api/src/http.rs	359	lavandula-latifolia	MISMO	lavandula-latifolia	assert_eq!(ids(&sci), ["lavandula-angustifolia", "lavandula-latifolia"]);
+backend/catalog-api/src/http.rs	374	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/http.rs	375	lavandula-latifolia	MISMO	lavandula-latifolia	"lavandula-latifolia",
+backend/catalog-api/src/http.rs	424	zea-mays	MISMO	zea-mays	assert_eq!(ids(&json), ["zea-mays"], "{uri}");
+backend/catalog-api/src/http.rs	471	lavandula-angustifolia	MISMO	lavandula-angustifolia	let (status, json) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+backend/catalog-api/src/http.rs	497	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/http.rs	498	lavandula-latifolia	MISMO	lavandula-latifolia	"lavandula-latifolia",
+backend/catalog-api/src/http.rs	516	lavandula-angustifolia	MISMO	lavandula-angustifolia	let (_, with_family) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+backend/catalog-api/src/http.rs	525	lavandula-latifolia	MISMO	lavandula-latifolia	let (_, latifolia) = get_json(&app, "/v1/plants/lavandula-latifolia").await;
+backend/catalog-api/src/http.rs	552	lavandula-angustifolia	MISMO	lavandula-angustifolia	let (status, detail) = get_json(&app, "/v1/plants/lavandula-angustifolia").await;
+backend/catalog-api/src/http.rs	654	zea-mays	MISMO	zea-mays	(Method::DELETE, "/v1/plants/zea-mays"),
+backend/catalog-api/src/http.rs	655	zea-mays	MISMO	zea-mays	(Method::PUT, "/v1/plants/zea-mays"),
+backend/catalog-api/src/http.rs	656	zea-mays	MISMO	zea-mays	(Method::PATCH, "/v1/plants/zea-mays"),
+backend/catalog-api/src/http.rs	665	zea-mays	MISMO	zea-mays	let (status, _) = get_json(&app, "/v1/plants/zea-mays").await;
+backend/catalog-api/src/repository.rs	463	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/repository.rs	464	lavandula-latifolia	MISMO	lavandula-latifolia	"lavandula-latifolia",
+backend/catalog-api/src/repository.rs	468	zea-mays	MISMO	zea-mays	"zea-mays",
+backend/catalog-api/src/repository.rs	522	lavandula-angustifolia	MISMO	lavandula-angustifolia	id: pid("lavandula-angustifolia"),
+backend/catalog-api/src/repository.rs	543	lavandula-angustifolia	MISMO	lavandula-angustifolia	assert_eq!(ids(&sci), ["lavandula-angustifolia", "lavandula-latifolia"]);
+backend/catalog-api/src/repository.rs	543	lavandula-latifolia	MISMO	lavandula-latifolia	assert_eq!(ids(&sci), ["lavandula-angustifolia", "lavandula-latifolia"]);
+backend/catalog-api/src/repository.rs	546	lavandula-angustifolia	MISMO	lavandula-angustifolia	assert_eq!(ids(&common), ["lavandula-angustifolia"]);
+backend/catalog-api/src/repository.rs	549	lavandula-latifolia	MISMO	lavandula-latifolia	assert_eq!(ids(&inner), ["lavandula-latifolia"]);
+backend/catalog-api/src/repository.rs	599	zea-mays	MISMO	zea-mays	assert_eq!(ids(&page), ["zea-mays"], "q = {q:?}");
+backend/catalog-api/src/repository.rs	619	lavandula-angustifolia	MISMO	lavandula-angustifolia	.get_plant(&pid("lavandula-angustifolia"))
+backend/catalog-api/src/repository.rs	669	lavandula-latifolia	MISMO	lavandula-latifolia	.get_plant(&pid("lavandula-latifolia"))
+backend/catalog-api/src/test_support.rs	4	lavandula-angustifolia	MISMO	lavandula-angustifolia	//! - `lavandula-angustifolia`: familia, nombres de dos fuentes, partes y usos con referencia.
+backend/catalog-api/src/test_support.rs	5	lavandula-latifolia	MISMO	lavandula-latifolia	//! - `lavandula-latifolia`: prefijo común con la anterior, sin partes ni usos.
+backend/catalog-api/src/test_support.rs	7	zea-mays	MISMO	zea-mays	//! - `zea-mays`: nombres con `%` y `_` literales.
+backend/catalog-api/src/test_support.rs	222	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/test_support.rs	229	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/test_support.rs	237	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/test_support.rs	245	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/test_support.rs	251	lavandula-angustifolia	MISMO	lavandula-angustifolia	add_part(conn, "lavandula-angustifolia", "Leaf", &["a", "b"]);
+backend/catalog-api/src/test_support.rs	252	lavandula-angustifolia	MISMO	lavandula-angustifolia	add_part(conn, "lavandula-angustifolia", "Flower", &["a"]);
+backend/catalog-api/src/test_support.rs	255	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/test_support.rs	262	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia",
+backend/catalog-api/src/test_support.rs	270	lavandula-latifolia	MISMO	lavandula-latifolia	"lavandula-latifolia",
+backend/catalog-api/src/test_support.rs	277	lavandula-latifolia	MISMO	lavandula-latifolia	"lavandula-latifolia",
+backend/catalog-api/src/test_support.rs	302	zea-mays	MISMO	zea-mays	add_plant(conn, "zea-mays", "Zea mays", Some(("Poaceae", "b")), &["b"]);
+backend/catalog-api/src/test_support.rs	303	zea-mays	MISMO	zea-mays	add_name(conn, "zea-mays", "100% Corn", "common", "en", &["b"]);
+backend/catalog-api/src/test_support.rs	304	zea-mays	MISMO	zea-mays	add_name(conn, "zea-mays", "corn_meal", "common", "en", &["b"]);
+backend/catalog-api/tests/fixture_end_to_end.rs	70	calendula-officinalis	MISMO	calendula-officinalis	"calendula-officinalis",
+backend/catalog-api/tests/fixture_end_to_end.rs	71	conium-maculatum	MISMO	conium-maculatum	"conium-maculatum",
+backend/catalog-api/tests/fixture_end_to_end.rs	72	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia"
+backend/catalog-api/tests/fixture_end_to_end.rs	78	lavandula-angustifolia	MISMO	lavandula-angustifolia	let (status, body) = get(&app, "/v1/plants/lavandula-angustifolia").await;
+backend/catalog-api/tests/real_catalog.rs	34	lavandula-angustifolia	MISMO	lavandula-angustifolia	.any(|p| p.id.0 == "lavandula-angustifolia"),
+backend/catalog-api/tests/real_catalog.rs	40	lavandula-angustifolia	MISMO	lavandula-angustifolia	.get_plant(&PlantId("lavandula-angustifolia".to_string()))
+backend/catalog-core/src/normalize.rs	57	lavandula-angustifolia	MISMO	lavandula-angustifolia	("Lavandula angustifolia", "lavandula-angustifolia"),
+backend/catalog-core/src/normalize.rs	58	lavandula-angustifolia	MISMO	lavandula-angustifolia	("Lavándula   Angustifolia ", "lavandula-angustifolia"),
+backend/catalog-core/src/normalize.rs	61	mentha-x-piperita-subsp-nothosubsp-piperita	ALIAS	mentha-x-piperita	"mentha-x-piperita-subsp-nothosubsp-piperita",
+backend/catalog-core/src/normalize.rs	63	aloe-vera	MISMO	aloe-vera	("--Aloe (vera)--", "aloe-vera"),
+backend/catalog-ingest/tests/fixtures/seed/plants/calendula-officinalis.json	146	calendula-officinalis	MISMO	calendula-officinalis	"id": "calendula-officinalis",
+backend/catalog-ingest/tests/fixtures/seed/plants/conium-maculatum.json	76	conium-maculatum	MISMO	conium-maculatum	"id": "conium-maculatum",
+backend/catalog-ingest/tests/fixtures/seed/plants/lavandula-angustifolia.json	77	lavandula-angustifolia	MISMO	lavandula-angustifolia	"id": "lavandula-angustifolia",
+backend/catalog-ingest/tests/real_build.rs	54	lavandula-angustifolia	MISMO	lavandula-angustifolia	let lavender = "lavandula-angustifolia";
+backend/catalog-ingest/tests/seed.rs	39	calendula-officinalis	MISMO	calendula-officinalis	"calendula-officinalis",
+backend/catalog-ingest/tests/seed.rs	40	conium-maculatum	MISMO	conium-maculatum	"conium-maculatum",
+backend/catalog-ingest/tests/seed.rs	41	lavandula-angustifolia	MISMO	lavandula-angustifolia	"lavandula-angustifolia"
+backend/catalog-ingest/tests/seed.rs	56	lavandula-angustifolia	MISMO	lavandula-angustifolia	let path = tmp.path().join("plants/lavandula-angustifolia.json");
+backend/catalog-ingest/tests/seed.rs	88	conium-maculatum	MISMO	conium-maculatum	tmp.path().join("plants/conium-maculatum.json"),
+backend/catalog-ingest/tests/seed.rs	94	conium-maculatum	MISMO	conium-maculatum	matches!(err, SeedError::FileNameMismatch { ref id, .. } if id == "conium-maculatum"),
+backend/catalog-ingest/tests/seed.rs	103	calendula-officinalis	MISMO	calendula-officinalis	let path = tmp.path().join("plants/calendula-officinalis.json");
+backend/catalog-ingest/tests/seed.rs	110	calendula-officinalis	MISMO	calendula-officinalis	msg.contains("calendula-officinalis") && msg.contains("extra"),
+backend/catalog-ingest/tests/seed.rs	118	calendula-officinalis	MISMO	calendula-officinalis	let path = tmp.path().join("plants/calendula-officinalis.json");
+backend/catalog-ingest/tests/seed.rs	151	thymus-vulgaris	MISMO	thymus-vulgaris	Path::new(env!("CARGO_MANIFEST_DIR")).join("../../data/seed/plants/thymus-vulgaris.json"),
+backend/catalog-ingest/tests/seed.rs	152	thymus-vulgaris	MISMO	thymus-vulgaris	tmp.path().join("plants/thymus-vulgaris.json"),
+backend/catalog-ingest/tests/seed.rs	176	lavandula-angustifolia	MISMO	lavandula-angustifolia	let path = tmp.join("plants/lavandula-angustifolia.json");
+backend/catalog-ingest/tests/seed.rs	193	lavandula-angustifolia	MISMO	lavandula-angustifolia	msg.contains("lavandula-angustifolia") && msg.contains("inventado"),
+backend/catalog-ingest/tests/seed.rs	204	lavandula-angustifolia	MISMO	lavandula-angustifolia	msg.contains("lavandula-angustifolia") && msg.contains("inventada"),
+backend/catalog-ingest/tests/seed_build.rs	96	calendula-officinalis	MISMO	calendula-officinalis	.find(|p| p.id == "calendula-officinalis")
+backend/catalog-ingest/tests/seed_build.rs	100	calendula-officinalis	MISMO	calendula-officinalis	"SELECT text FROM plant_name WHERE plant_id = 'calendula-officinalis' AND kind = 'scientific' AND language = 'la' ORDER BY id",
+backend/catalog-ingest/tests/seed_build.rs	107	calendula-officinalis	MISMO	calendula-officinalis	"SELECT text || '|' || language FROM plant_name WHERE plant_id = 'calendula-officinalis' AND kind = 'common'",
+backend/catalog-ingest/tests/seed_build.rs	123	calendula-officinalis	MISMO	calendula-officinalis	"SELECT label FROM plant_part WHERE plant_id = 'calendula-officinalis'"
+backend/catalog-ingest/tests/seed_build.rs	134	calendula-officinalis	MISMO	calendula-officinalis	"SELECT family || '|' || family_source_id FROM plant WHERE id = 'calendula-officinalis'"
+backend/catalog-ingest/tests/seed_build.rs	227	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT text FROM plant_name WHERE plant_id = 'lavandula-angustifolia' AND kind = 'common' ORDER BY text, language LIMIT 1",
+backend/catalog-ingest/tests/seed_build.rs	231	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT display_name FROM plant_profile WHERE plant_id = 'lavandula-angustifolia'",
+backend/catalog-ingest/tests/seed_build.rs	289	calendula-officinalis	MISMO	calendula-officinalis	"SELECT goal_id || '|' || COALESCE(subarea_id, '-') FROM plant_goal WHERE plant_id = 'calendula-officinalis' ORDER BY position"
+backend/catalog-ingest/tests/seed_build.rs	306	lavandula-angustifolia	MISMO	lavandula-angustifolia	let lav = plant(&mut seed, "lavandula-angustifolia");
+backend/catalog-ingest/tests/seed_build.rs	317	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT goal_id || '|' || pending_review FROM plant_goal WHERE plant_id = 'lavandula-angustifolia' ORDER BY position"
+backend/catalog-ingest/tests/seed_build.rs	324	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT code || '|' || target || '|' || message FROM plant_review_flag WHERE plant_id = 'lavandula-angustifolia'"
+backend/catalog-ingest/tests/seed_build.rs	340	calendula-officinalis	MISMO	calendula-officinalis	WHERE g.plant_id = 'calendula-officinalis' AND g.activity = 'Estimulante' ORDER BY r.position"
+backend/catalog-ingest/tests/seed_build.rs	352	calendula-officinalis	MISMO	calendula-officinalis	"SELECT reference_id FROM plant_use WHERE plant_id = 'calendula-officinalis' AND activity = 'Estimulante'"
+backend/catalog-ingest/tests/seed_build.rs	374	lavandula-angustifolia	MISMO	lavandula-angustifolia	let lav = plant(&mut seed, "lavandula-angustifolia");
+backend/catalog-ingest/tests/seed_build.rs	391	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT CAST(pending_review AS TEXT) FROM plant_use_group WHERE plant_id = 'lavandula-angustifolia' AND activity = '{activity}'"
+backend/catalog-ingest/tests/seed_build.rs	400	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT COUNT(*) FROM plant_use WHERE plant_id = 'lavandula-angustifolia' AND activity = '{activity}'"
+backend/catalog-ingest/tests/seed_build.rs	408	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT COUNT(*) FROM plant_use_group_ref r JOIN plant_use_group g ON g.id = r.use_group_id WHERE g.plant_id = 'lavandula-angustifolia' AND g.position = 0 AND r
+backend/catalog-ingest/tests/seed_build.rs	416	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	423	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT authors || '|' || origin || '|' || oil_type || '|' || record_version || '|' || prompt_version FROM plant_profile WHERE plant_id = 'lavandula-angustifoli
+backend/catalog-ingest/tests/seed_build.rs	430	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT description FROM plant_profile WHERE plant_id = 'lavandula-angustifolia'"
+backend/catalog-ingest/tests/seed_build.rs	437	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT bundle_hash FROM plant_profile WHERE plant_id = 'lavandula-angustifolia'"
+backend/catalog-ingest/tests/seed_build.rs	443	lavandula-angustifolia	MISMO	lavandula-angustifolia	["lavandula-vera>lavandula-angustifolia"]
+backend/catalog-ingest/tests/seed_build.rs	449	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT license || '|' || attribution_required FROM plant_image WHERE plant_id = 'lavandula-angustifolia'"
+backend/catalog-ingest/tests/seed_build.rs	457	calendula-officinalis	MISMO	calendula-officinalis	"SELECT COUNT(*) FROM plant_review_flag WHERE plant_id = 'calendula-officinalis' AND code = 'aceite-por-compuesto-eo' AND target = 'oil'"
+backend/catalog-ingest/tests/seed_build.rs	481	lavandula-angustifolia	MISMO	lavandula-angustifolia	WHERE p.plant_id = 'lavandula-angustifolia' AND p.field IN ('description', 'family', 'partsUsed', 'oil') ORDER BY p.field, r.dataset"
+backend/catalog-ingest/tests/seed_build.rs	552	calendula-officinalis	MISMO	calendula-officinalis	.find(|p| p.id == "calendula-officinalis")
+backend/catalog-ingest/tests/seed_build.rs	557	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia").safety = None;
+backend/catalog-ingest/tests/seed_build.rs	562	calendula-officinalis	MISMO	calendula-officinalis	"SELECT COALESCE(level, 'NULL') FROM plant_safety WHERE plant_id = 'calendula-officinalis'"
+backend/catalog-ingest/tests/seed_build.rs	569	calendula-officinalis	MISMO	calendula-officinalis	"SELECT text FROM plant_safety WHERE plant_id = 'calendula-officinalis'"
+backend/catalog-ingest/tests/seed_build.rs	576	calendula-officinalis	MISMO	calendula-officinalis	"SELECT COUNT(*) FROM plant_safety_ref WHERE plant_id = 'calendula-officinalis'"
+backend/catalog-ingest/tests/seed_build.rs	582	conium-maculatum	MISMO	conium-maculatum	"SELECT level FROM plant_safety WHERE plant_id = 'conium-maculatum'"
+backend/catalog-ingest/tests/seed_build.rs	589	lavandula-angustifolia	MISMO	lavandula-angustifolia	"SELECT COUNT(*) FROM plant_safety WHERE plant_id = 'lavandula-angustifolia'"
+backend/catalog-ingest/tests/seed_build.rs	609	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	611	conium-maculatum	MISMO	conium-maculatum	.push("conium-maculatum".to_string());
+backend/catalog-ingest/tests/seed_build.rs	612	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "conium-maculatum");
+backend/catalog-ingest/tests/seed_build.rs	612	conium-maculatum	MISMO	conium-maculatum	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "conium-maculatum");
+backend/catalog-ingest/tests/seed_build.rs	619	lavandula-angustifolia	MISMO	lavandula-angustifolia	let lav = plant(&mut seed, "lavandula-angustifolia");
+backend/catalog-ingest/tests/seed_build.rs	621	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "wcvp:108971");
+backend/catalog-ingest/tests/seed_build.rs	628	lavandula-angustifolia	MISMO	lavandula-angustifolia	let lav = plant(&mut seed, "lavandula-angustifolia");
+backend/catalog-ingest/tests/seed_build.rs	630	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "usda_reference:WOI");
+backend/catalog-ingest/tests/seed_build.rs	638	lavandula-angustifolia	MISMO	lavandula-angustifolia	let path = tmp.path().join("plants/lavandula-angustifolia.json");
+backend/catalog-ingest/tests/seed_build.rs	652	lavandula-angustifolia	MISMO	lavandula-angustifolia	msg.contains("lavandula-angustifolia") && msg.contains("inexistente"),
+backend/catalog-ingest/tests/seed_build.rs	662	conium-maculatum	MISMO	conium-maculatum	let path = tmp.path().join("plants/conium-maculatum.json");
+backend/catalog-ingest/tests/seed_build.rs	673	conium-maculatum	MISMO	conium-maculatum	msg.contains("conium-maculatum") && msg.contains("extremo"),
+backend/catalog-ingest/tests/seed_build.rs	682	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	687	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "CC BY-NC 4.0");
+backend/catalog-ingest/tests/seed_build.rs	695	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	700	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "dataset");
+backend/catalog-ingest/tests/seed_build.rs	711	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	716	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "licen");
+backend/catalog-ingest/tests/seed_build.rs	727	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	733	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "origin");
+backend/catalog-ingest/tests/seed_build.rs	738	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia")
+backend/catalog-ingest/tests/seed_build.rs	743	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "desconocido");
+backend/catalog-ingest/tests/seed_build.rs	750	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut seed, "lavandula-angustifolia").goals[0].pending_review = true;
+backend/catalog-ingest/tests/seed_build.rs	751	lavandula-angustifolia	MISMO	lavandula-angustifolia	let err = assert_fails_naming(&seed, "lavandula-angustifolia", "goals.mejorar-el-sueno");
+backend/catalog-ingest/tests/seed_build.rs	763	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut broken, "lavandula-angustifolia").refs.clear();
+backend/catalog-ingest/tests/seed_build.rs	786	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant(&mut changed, "lavandula-angustifolia")
+backend/openapi.json	191	lavandula-angustifolia	MISMO	lavandula-angustifolia	"description": "Identificador público de la planta, por ejemplo `lavandula-angustifolia`.",
+docs/data/modelo-de-datos.md	201	matricaria-recutita	ALIAS	matricaria-chamomilla	cp tools/catalog-seed/tests/fixtures/validate/bundle_matricaria.json $T/bundles/matricaria-recutita.json
+docs/data/modelo-de-datos.md	202	hypericum-perforatum	MISMO	hypericum-perforatum	cp tools/catalog-seed/tests/fixtures/validate/bundle_hiperico.json $T/bundles/hypericum-perforatum.json
+docs/data/modelo-de-datos.md	204	hypericum-perforatum	MISMO	hypericum-perforatum	cp tools/catalog-seed/tests/fixtures/validate/record_hiperico.json $T/work/hypericum-perforatum.json
+docs/data/modelo-de-datos.md	240	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- **Los IDs cambiaron.** El ID es el slug del nombre aceptado de WCVP, no el literal de USDA, y unos 500 de los 2.376 IDs anteriores cambian (por ejemplo `rosma
+docs/data/usda-catalog.md	65	matricaria-recutita	ALIAS	matricaria-chamomilla	La identidad también cambia. El ID de una planta ya no es el slug del `TAXON` de USDA sino el del nombre aceptado en WCVP, fijo en la semilla; el slug del `TAXO
+docs/deploy/cloud-run.md	618	lavandula-angustifolia	MISMO	lavandula-angustifolia	Primero corre el job `verify`, que reutiliza `backend-ci.yml` (`cargo fmt --check`, `cargo clippy` con `-D warnings` y `cargo test` sobre el workspace); solo si
+openspec/changes/consolidate-catalog-seed/design.md	11	lavandula-angustifolia	MISMO	lavandula-angustifolia	- Quién fija IDs de planta hoy: el workflow de despliegue verifica `/v1/plants/lavandula-angustifolia` (`.github/workflows/deploy-backend.yml`), la prueba ignor
+openspec/changes/consolidate-catalog-seed/design.md	11	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- Quién fija IDs de planta hoy: el workflow de despliegue verifica `/v1/plants/lavandula-angustifolia` (`.github/workflows/deploy-backend.yml`), la prueba ignor
+openspec/changes/consolidate-catalog-seed/design.md	11	rosmarinus-x-lavandulaceus	ALIAS	salvia-x-lavandulacea	- Quién fija IDs de planta hoy: el workflow de despliegue verifica `/v1/plants/lavandula-angustifolia` (`.github/workflows/deploy-backend.yml`), la prueba ignor
+openspec/changes/consolidate-catalog-seed/design.md	132	lavandula-angustifolia	MISMO	lavandula-angustifolia	El ID es el slug del nombre aceptado de WCVP, generado una vez y fijo en la semilla. Si Kew renombra, cambia el nombre mostrado y no el ID. Cambian unos 500 de 
+openspec/changes/consolidate-catalog-seed/design.md	246	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **[Cambio de unos 500 IDs]** Un cliente con un ID guardado dejaría de encontrarlo. → Hoy no se encontró persistencia de IDs; los alias se guardan; `lavandula-
+openspec/changes/consolidate-catalog-seed/proposal.md	17	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- **BREAKING (identificadores públicos)**: el ID de planta pasa a ser el slug del nombre aceptado en WCVP, generado una vez y fijo en la semilla. Cambian unos 5
+openspec/changes/consolidate-catalog-seed/proposal.md	17	matricaria-recutita	ALIAS	matricaria-chamomilla	- **BREAKING (identificadores públicos)**: el ID de planta pasa a ser el slug del nombre aceptado en WCVP, generado una vez y fijo en la semilla. Cambian unos 5
+openspec/changes/consolidate-catalog-seed/proposal.md	17	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **BREAKING (identificadores públicos)**: el ID de planta pasa a ser el slug del nombre aceptado en WCVP, generado una vez y fijo en la semilla. Cambian unos 5
+openspec/changes/consolidate-catalog-seed/proposal.md	56	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- **App y despliegue**: sin cambios de código. Los fixtures de la app (`rosmarinus-officinalis` y otros) son archivos estáticos y no se rompen; la verificación 
+openspec/changes/consolidate-catalog-seed/proposal.md	56	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **App y despliegue**: sin cambios de código. Los fixtures de la app (`rosmarinus-officinalis` y otros) son archivos estáticos y no se rompen; la verificación 
+openspec/changes/consolidate-catalog-seed/specs/backend-container/spec.md	26	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se ejecuta el contenedor sin acceso a la red y con `API_TOKENS` definido, y se consulta `GET /v1/plants/lavandula-angustifolia` con un token válido
+openspec/changes/consolidate-catalog-seed/specs/catalog-seed/spec.md	144	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- **THEN** el ID es `salvia-rosmarinus` y `rosmarinus-officinalis` queda como alias
+openspec/changes/consolidate-catalog-seed/specs/catalog-seed/spec.md	156	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **THEN** `lavandula-angustifolia` conserva su ID, porque el despliegue lo usa en su verificación
+openspec/changes/consolidate-catalog-seed/specs/plant-passport/spec.md	9	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se abre el pasaporte de una planta existente, por ejemplo `lavandula-angustifolia`, cuyo primer nombre común en la API es el nombre para mostrar de l
+openspec/changes/consolidate-catalog-seed/tasks.md	21	lavandula-angustifolia	MISMO	lavandula-angustifolia	- [x] 2.6 Generar el universo (USDA FNFTAX más especies de la EMA que no estén en USDA), los IDs propuestos (slug del aceptado de WCVP, `×` como `x`), los alias
+openspec/changes/consolidate-catalog-seed/tasks.md	69	lavandula-angustifolia	MISMO	lavandula-angustifolia	- [x] 7.6 Actualizar `real_catalog.rs` y `real_build.rs` para la semilla (sin fijar 10 usos y 4 partes de la lavanda sino comprobando que `lavandula-angustifoli
+openspec/changes/consolidate-catalog-seed/tasks.md	74	lavandula-angustifolia	MISMO	lavandula-angustifolia	- [x] 8.2 Verificar los escenarios de `backend-container`: el hash del log es igual al de la construcción nativa de la misma semilla, un registro alterado hace 
+openspec/changes/consolidate-catalog-seed/tasks.md	87	lavandula-angustifolia	MISMO	lavandula-angustifolia	- [ ] 10.2 Revisar todos los IDs fijados fuera del catálogo (workflow de despliegue, `real_catalog.rs`, fixtures y tests de la app, specs y documentación) con `
+openspec/changes/enable-goal-search/specs/catalog-client/spec.md	25	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se pide el detalle del identificador `lavandula-angustifolia`
+openspec/changes/enable-goal-search/specs/catalog-client/spec.md	26	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **THEN** se envía `GET /v1/plants/lavandula-angustifolia` con `Accept: application/json` y `Authorization: Bearer <token>`, y un identificador con caracteres 
+openspec/changes/enable-goal-search/specs/goal-results-screen/spec.md	135	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se toca la tarjeta de `lavandula-angustifolia`
+openspec/changes/enable-goal-search/tasks.md	37	lavandula-angustifolia	MISMO	lavandula-angustifolia	- [ ] 5.3 Conectar las tarjetas al pasaporte del cambio 2 con la ruta `/goals/:goalId/plants/:plantId` y conservar las páginas y la posición de scroll al volver
+openspec/changes/serve-consolidated-plants/design.md	234	lavandula-angustifolia	MISMO	lavandula-angustifolia	2. Desplegar primero la API (aditiva: la app anterior ignora los campos nuevos), verificando el detalle de `lavandula-angustifolia` con el token.
+openspec/changes/serve-consolidated-plants/specs/catalog-api/spec.md	184	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- **WHEN** un cliente pide `GET /v1/plants/rosmarinus-officinalis` y esa cadena es un alias de `salvia-rosmarinus`
+openspec/changes/serve-consolidated-plants/specs/catalog-client/spec.md	25	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se pide el detalle del identificador `lavandula-angustifolia`
+openspec/changes/serve-consolidated-plants/specs/catalog-client/spec.md	26	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **THEN** se envía `GET /v1/plants/lavandula-angustifolia` con `Accept: application/json` y `Authorization: Bearer <token>`, y un identificador con caracteres 
+openspec/changes/serve-consolidated-plants/specs/plant-passport/spec.md	9	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se abre el pasaporte de una planta existente, por ejemplo `lavandula-angustifolia`, cuyo `displayName` es «Lavanda»
+openspec/changes/serve-consolidated-plants/tasks.md	32	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	- [ ] 5.1 Actualizar `tests/real_catalog.rs` (ignorada) para la semilla: la lavanda existe, su `displayName` es el de la semilla, tiene `useGroups`, `credits` n
+openspec/specs/backend-container/spec.md	12	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se ejecuta el contenedor sin acceso a la red y con `API_TOKENS` definido, y se consulta `GET /v1/plants/lavandula-angustifolia` con un token válido
+openspec/specs/backend-container/spec.md	49	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se consulta `/v1/plants?q=lavand` y `/v1/plants/lavandula-angustifolia` con un token válido
+openspec/specs/backend-deployment/spec.md	28	lavandula-angustifolia	MISMO	lavandula-angustifolia	El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore
+openspec/specs/backend-deployment/spec.md	28	lavandula-angustifolia	MISMO	lavandula-angustifolia	El workflow SHALL ejecutarse en cada `push` a `main` que modifique el backend (`backend/`, `data/migrations/`, `data/sources.toml`, `Dockerfile`, `.dockerignore
+openspec/specs/backend-deployment/spec.md	55	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** el servicio desplegado responde 200 en `/health` y en `/v1/plants/lavandula-angustifolia` con el token de verificación, y 401 en esa ruta sin token
+openspec/specs/backend-deployment/spec.md	63	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** la consulta sin token a `/v1/plants/lavandula-angustifolia` responde 200 en vez de 401
+openspec/specs/catalog-client/spec.md	43	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se pide el detalle del identificador `lavandula-angustifolia`
+openspec/specs/catalog-client/spec.md	44	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **THEN** se envía `GET /v1/plants/lavandula-angustifolia` con `Accept: application/json` y `Authorization: Bearer <token>`, y un identificador con caracteres 
+openspec/specs/catalog-ingest/spec.md	110	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **THEN** su identificador público es `lavandula-angustifolia`
+openspec/specs/plant-passport/spec.md	13	lavandula-angustifolia	MISMO	lavandula-angustifolia	- **WHEN** se abre el pasaporte de una planta existente, por ejemplo `lavandula-angustifolia`
+tools/catalog-seed/README.md	105	matricaria-recutita	ALIAS	matricaria-chamomilla	cp tools/catalog-seed/tests/fixtures/validate/bundle_matricaria.json $T/bundles/matricaria-recutita.json
+tools/catalog-seed/README.md	106	hypericum-perforatum	MISMO	hypericum-perforatum	cp tools/catalog-seed/tests/fixtures/validate/bundle_hiperico.json $T/bundles/hypericum-perforatum.json
+tools/catalog-seed/README.md	108	hypericum-perforatum	MISMO	hypericum-perforatum	cp tools/catalog-seed/tests/fixtures/validate/record_hiperico.json $T/work/hypericum-perforatum.json
+tools/catalog-seed/README.md	394	chiococca-alba	MISMO	chiococca-alba	- Ejemplos de descartados: *Spermacoce assurgens* pedido por `spermacoce-remota` (ambiguo), *Thymus capitatus* pedido por `thymbra-capitata` (ambiguo), *Lonicer
+tools/catalog-seed/README.md	394	callicarpa-arborea	MISMO	callicarpa-arborea	- Ejemplos de descartados: *Spermacoce assurgens* pedido por `spermacoce-remota` (ambiguo), *Thymus capitatus* pedido por `thymbra-capitata` (ambiguo), *Lonicer
+tools/catalog-seed/README.md	394	chamaecytisus-albus	MISMO	chamaecytisus-albus	- Ejemplos de descartados: *Spermacoce assurgens* pedido por `spermacoce-remota` (ambiguo), *Thymus capitatus* pedido por `thymbra-capitata` (ambiguo), *Lonicer
+tools/catalog-seed/README.md	394	cytisus-multiflorus	MISMO	cytisus-multiflorus	- Ejemplos de descartados: *Spermacoce assurgens* pedido por `spermacoce-remota` (ambiguo), *Thymus capitatus* pedido por `thymbra-capitata` (ambiguo), *Lonicer
+tools/catalog-seed/README.md	394	nerium-oleander	MISMO	nerium-oleander	- Ejemplos de descartados: *Spermacoce assurgens* pedido por `spermacoce-remota` (ambiguo), *Thymus capitatus* pedido por `thymbra-capitata` (ambiguo), *Lonicer
+tools/catalog-seed/README.md	395	lavandula-angustifolia	MISMO	lavandula-angustifolia	- Controles del piloto: la lavanda (`lavandula-angustifolia`) tiene solo el ítem Q42081 y su imagen; el ítem de *L. latifolia* (Q905916) va a `lavandula-latifol
+tools/catalog-seed/README.md	395	lavandula-latifolia	MISMO	lavandula-latifolia	- Controles del piloto: la lavanda (`lavandula-angustifolia`) tiene solo el ítem Q42081 y su imagen; el ítem de *L. latifolia* (Q905916) va a `lavandula-latifol
+tools/catalog-seed/README.md	395	passiflora-incarnata	MISMO	passiflora-incarnata	- Controles del piloto: la lavanda (`lavandula-angustifolia`) tiene solo el ítem Q42081 y su imagen; el ítem de *L. latifolia* (Q905916) va a `lavandula-latifol
+tools/catalog-seed/README.md	395	passiflora-edulis	MISMO	passiflora-edulis	- Controles del piloto: la lavanda (`lavandula-angustifolia`) tiene solo el ítem Q42081 y su imagen; el ítem de *L. latifolia* (Q905916) va a `lavandula-latifol
+tools/catalog-seed/README.md	469	lavandula-angustifolia	MISMO	lavandula-angustifolia	Ejemplo resumido de la lavanda (`lavandula-angustifolia`, datos reales):
+tools/catalog-seed/README.md	474	lavandula-angustifolia	MISMO	lavandula-angustifolia	"plantKey": "lavandula-angustifolia",
+tools/catalog-seed/README.md	477	lavandula-angustifolia	MISMO	lavandula-angustifolia	"proposedId": "lavandula-angustifolia", "name": "Lavandula angustifolia", "authors": "Mill.", "kind": "resolved", "family": "Lamiaceae",
+tools/catalog-seed/README.md	521	curcuma-longa	MISMO	curcuma-longa	| Máximo | 21.700 en el piloto (20 plantas elegidas) | 35.833 (`curcuma-longa`) |
+tools/catalog-seed/README.md	527	momordica-charantia	MISMO	momordica-charantia	- Propuesta de tope, sin aplicar: limitar `uses` a los 40 grupos con más filas (`DEFAULT_LIMITS["useGroups"]` en `bundles.py`; el registro tiene hasta 20 grupos
+tools/catalog-seed/README.md	531	prunus-dulcis	ALIAS	prunus-amygdalus	`tools/catalog-seed/control.txt` fija las 20 plantas de la corrida de control: las del piloto con los IDs del universo actual (romero es `salvia-rosmarinus`, ma
+tools/catalog-seed/README.md	559	hypericum-perforatum	MISMO	hypericum-perforatum	- El hipérico (`hypericum-perforatum`) trae `severeInteractions` verdadero en las secciones 4.5 de `hyperici-herba-0` y de `hyperici-herba` y el candidato `rela
+tools/catalog-seed/README.md	560	melaleuca-alternifolia	MISMO	melaleuca-alternifolia	- La menta (`mentha-x-piperita`) cuenta el resultado combinado `European Union herbal monograph;European Union list entry` y trae los candidatos `dolor-e-inflam
+tools/catalog-seed/README.md	560	calendula-officinalis	MISMO	calendula-officinalis	- La menta (`mentha-x-piperita`) cuenta el resultado combinado `European Union herbal monograph;European Union list entry` y trae los candidatos `dolor-e-inflam
+tools/catalog-seed/README.md	561	cinnamomum-verum	MISMO	cinnamomum-verum	- La bergamota (`citrus-x-bergamia`) se arma como *Citrus × bergamia* (`role` `separada`, aceptado compartido *Citrus × limon*). La canela (`cinnamomum-verum`) 
+tools/catalog-seed/README.md	579	lavandula-angustifolia	MISMO	lavandula-angustifolia	| Lavanda (`lavandula-angustifolia`) | - | Correcto: sin datos de *L. latifolia* | Correcto, según `EO` | medio | 0 (0) |
+tools/catalog-seed/README.md	582	valeriana-officinalis	MISMO	valeriana-officinalis	| Valeriana (`valeriana-officinalis`) | - | - | Esencial | medio | 0 (0) |
+tools/catalog-seed/README.md	583	symphytum-officinale	MISMO	symphytum-officinale	| Consuelda (`symphytum-officinale`) | - | - | `null` | medio | 0 (0) |
+tools/catalog-seed/README.md	584	melaleuca-alternifolia	MISMO	melaleuca-alternifolia	| Árbol del té (`melaleuca-alternifolia`) | Correcto: tiene objetivos | - | Esencial | medio | 0 (0) |
+tools/catalog-seed/README.md	587	thymus-vulgaris	MISMO	thymus-vulgaris	| Tomillo (`thymus-vulgaris`) | - | - | Esencial | bajo | 5 (5) |
+tools/catalog-seed/README.md	589	eucalyptus-globulus	MISMO	eucalyptus-globulus	| Eucalipto (`eucalyptus-globulus`) | - | - | Esencial | `null` | 3 (3) |
+tools/catalog-seed/README.md	590	passiflora-incarnata	MISMO	passiflora-incarnata	| Pasiflora (`passiflora-incarnata`) | - | Correcto: sin datos de *P. edulis* | `null` | `null` | 0 (0) |
+tools/catalog-seed/README.md	591	melissa-officinalis	MISMO	melissa-officinalis	| Melisa (`melissa-officinalis`) | - | - | Esencial | `null` | 0 (0) |
+tools/catalog-seed/README.md	592	calendula-officinalis	MISMO	calendula-officinalis	| Caléndula (`calendula-officinalis`) | Correcto: tiene objetivos | - | Esencial | `null` | 6 (5) |
+tools/catalog-seed/README.md	593	lavandula-x-intermedia	MISMO	lavandula-x-intermedia	| Lavandín (`lavandula-x-intermedia`) | - | - | Esencial | `null` | 0 (0) |
+tools/catalog-seed/README.md	596	conium-maculatum	MISMO	conium-maculatum	| Cicuta (`conium-maculatum`) | Correcto: sin objetivos | - | Esencial (`EO` en USDA); se anota para revisión | alto | 2 (2) |
+tools/catalog-seed/README.md	597	ricinus-communis	MISMO	ricinus-communis	| Ricino (`ricinus-communis`) | Correcto: objetivos omitidos por toxicidad de TPPT | - | `null`, porque es un aceite fijo | alto | 9 (9) |
+tools/catalog-seed/README.md	598	hypericum-perforatum	MISMO	hypericum-perforatum	| Hipérico (`hypericum-perforatum`) | Correcto: `relajacion-estres` con `pendingReview` y `reviewFlag` `interacciones-graves-estres` | - | Esencial (`EO` en USD
+tools/catalog-seed/README.md	755	lavandula-angustifolia	MISMO	lavandula-angustifolia	cp data/work/control/v4/lote-*/{lavandula-angustifolia,mentha-x-piperita,matricaria-chamomilla}.json $W/seed/plants/
+tools/catalog-seed/README.md	757	lavandula-angustifolia	MISMO	lavandula-angustifolia	printf "lavandula-angustifolia\nmentha-x-piperita\nmatricaria-chamomilla\n" > $W/plants.txt
+tools/catalog-seed/README.md	770	lavandula-angustifolia	MISMO	lavandula-angustifolia	- `plan` con Wikipedia desactivada: «3 plantas a regenerar», las tres con el motivo `bundleHash` (`lavandula-angustifolia`, `matricaria-chamomilla` y `mentha-x-
+tools/catalog-seed/README.md	878	taraxacum-officinale	MISMO	taraxacum-officinale	Mejora previa a la fase 2 (Wikidata por el nombre propio): de las 117 plantas sin aceptado, 96 (1 sin resolver y 33 sin emparejar, de las 34 `unresolved` o `unm
+tools/catalog-seed/README.md	878	fucus-vesiculosus	MISMO	fucus-vesiculosus	Mejora previa a la fase 2 (Wikidata por el nombre propio): de las 117 plantas sin aceptado, 96 (1 sin resolver y 33 sin emparejar, de las 34 `unresolved` o `unm
+tools/catalog-seed/README.md	878	taraxacum-officinale	MISMO	taraxacum-officinale	Mejora previa a la fase 2 (Wikidata por el nombre propio): de las 117 plantas sin aceptado, 96 (1 sin resolver y 33 sin emparejar, de las 34 `unresolved` o `unm
+tools/catalog-seed/README.md	882	fucus-vesiculosus	MISMO	fucus-vesiculosus	Resultados de la fase 2 (2026-10-25): el workflow lanzó 215 lotes de 10 plantas con el prompt v7 y un agente `Worker` por lote. Una pausa por el límite de uso c
+tools/catalog-seed/README.md	882	taraxacum-officinale	MISMO	taraxacum-officinale	Resultados de la fase 2 (2026-10-25): el workflow lanzó 215 lotes de 10 plantas con el prompt v7 y un agente `Worker` por lote. Una pausa por el límite de uso c
+tools/catalog-seed/README.md	882	malachra-alaceaefolia	AUSENTE		Resultados de la fase 2 (2026-10-25): el workflow lanzó 215 lotes de 10 plantas con el prompt v7 y un agente `Worker` por lote. Una pausa por el límite de uso c
+tools/catalog-seed/README.md	882	malachra-alaceaefolia	AUSENTE		Resultados de la fase 2 (2026-10-25): el workflow lanzó 215 lotes de 10 plantas con el prompt v7 y un agente `Worker` por lote. Una pausa por el límite de uso c
+tools/catalog-seed/README.md	884	malachra-alaceaefolia	AUSENTE		Corrección posterior a la fase 2 (`fix1`): la medición encontró imágenes que la app no puede mostrar (10 PDF y 8 TIFF), autores con correos o texto de licencia 
+tools/catalog-seed/README.md	888	malachra-alaceaefolia	AUSENTE		Estado final de la semilla (tarea 11.5): 2.354 plantas, `seedHash` `sha256:0c42c0a285dee2a6fba331e8ab1e32b076b6ced17d8e93814e6a93d386e9800a`. `plan --seed data/
+tools/catalog-seed/README.md	888	lavandula-angustifolia	MISMO	lavandula-angustifolia	Estado final de la semilla (tarea 11.5): 2.354 plantas, `seedHash` `sha256:0c42c0a285dee2a6fba331e8ab1e32b076b6ced17d8e93814e6a93d386e9800a`. `plan --seed data/
+tools/catalog-seed/README.md	934	taraxacum-officinale	MISMO	taraxacum-officinale	- Aceptado de rango superior a especie: si un nombre es sinónimo de un aceptado que el índice no carga (solo guarda especies e inferiores), queda `unresolved` c
+tools/catalog-seed/README.md	982	lavandula-angustifolia	MISMO	lavandula-angustifolia	| IDs repetidos; `lavandula-angustifolia` | ninguno; presente | ninguno; presente |
+tools/catalog-seed/README.md	995	lavandula-angustifolia	MISMO	lavandula-angustifolia	- Salidas en `data/work/universe/` (`--out-dir`): `universe.json`, `report.json` y `report.md`. Compara los IDs con `data/build/catalog.db` si existe (`--catalo
+tools/catalog-seed/README.md	1001	lavandula-angustifolia	MISMO	lavandula-angustifolia	- Raíz: `format`, `inputs` (`wcvp` y `wfo` con `<algoritmo>:<checksum>`, `usda` y `ema_json` con la versión de la extracción, `indexVersion`, y `collisionDecisi
+tools/catalog-seed/README.md	1021	lavandula-angustifolia	MISMO	lavandula-angustifolia	| `lavandula-angustifolia` | presente | presente |
+tools/catalog-seed/README.md	1024	cynara-cardunculus-subsp-cardunculus	MISMO	cynara-cardunculus-subsp-cardunculus	- Plantas por tipo: 2.215 `resolved`, 23 `heterotypic`, 21 `ambiguous`, 34 sin resolver (33 `unmatched` y 1 `unresolved`), 62 solo género. Hay 650 alias en 620 
+tools/catalog-seed/README.md	1029	taraxacum-officinale	MISMO	taraxacum-officinale	- Aceptado de rango superior a especie: 5 entradas de *Taraxacum officinale* (USDA y 4 fichas de la EMA), todas una sola planta `taraxacum-officinale` `unresolv
+tools/catalog-seed/README.md	1055	aloe-vera	MISMO	aloe-vera	Las 31 filas `sin-asignar` son las de nombres que resuelven a un grupo partido sin el propio aceptado y sin miembro con su clave (*Brassica oleracea*, con 15 fi
+tools/catalog-seed/README.md	1055	cinnamomum-verum	MISMO	cinnamomum-verum	Las 31 filas `sin-asignar` son las de nombres que resuelven a un grupo partido sin el propio aceptado y sin miembro con su clave (*Brassica oleracea*, con 15 fi
+tools/catalog-seed/catalog_seed/cli.py	144	lavandula-angustifolia	MISMO	lavandula-angustifolia	failed = report["checks"]["duplicate_ids"] or not report["checks"]["lavandula-angustifolia"]
+tools/catalog-seed/catalog_seed/resolve_universe.py	33	lavandula-angustifolia	MISMO	lavandula-angustifolia	PILOT_CHECK_ID = "lavandula-angustifolia"
+tools/catalog-seed/catalog_seed/wiki_assign.py	400	lavandula-angustifolia	MISMO	lavandula-angustifolia	def control_checks(document, checks=(("lavandula-angustifolia", "Lavandula latifolia"),
+tools/catalog-seed/catalog_seed/wiki_assign.py	401	passiflora-incarnata	MISMO	passiflora-incarnata	("passiflora-incarnata", "Passiflora edulis"))):
+tools/catalog-seed/control.txt	3	lavandula-angustifolia	MISMO	lavandula-angustifolia	lavandula-angustifolia
+tools/catalog-seed/control.txt	5	eucalyptus-globulus	MISMO	eucalyptus-globulus	eucalyptus-globulus
+tools/catalog-seed/control.txt	6	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	# romero (antes rosmarinus-officinalis)
+tools/catalog-seed/control.txt	8	matricaria-recutita	ALIAS	matricaria-chamomilla	# manzanilla (antes matricaria-recutita)
+tools/catalog-seed/control.txt	13	conium-maculatum	MISMO	conium-maculatum	conium-maculatum
+tools/catalog-seed/control.txt	15	ricinus-communis	MISMO	ricinus-communis	ricinus-communis
+tools/catalog-seed/control.txt	17	valeriana-officinalis	MISMO	valeriana-officinalis	valeriana-officinalis
+tools/catalog-seed/control.txt	19	passiflora-incarnata	MISMO	passiflora-incarnata	passiflora-incarnata
+tools/catalog-seed/control.txt	21	melissa-officinalis	MISMO	melissa-officinalis	melissa-officinalis
+tools/catalog-seed/control.txt	23	thymus-vulgaris	MISMO	thymus-vulgaris	thymus-vulgaris
+tools/catalog-seed/control.txt	25	calendula-officinalis	MISMO	calendula-officinalis	calendula-officinalis
+tools/catalog-seed/control.txt	27	hypericum-perforatum	MISMO	hypericum-perforatum	hypericum-perforatum
+tools/catalog-seed/control.txt	29	symphytum-officinale	MISMO	symphytum-officinale	symphytum-officinale
+tools/catalog-seed/control.txt	31	melaleuca-alternifolia	MISMO	melaleuca-alternifolia	melaleuca-alternifolia
+tools/catalog-seed/control.txt	33	lavandula-x-intermedia	MISMO	lavandula-x-intermedia	lavandula-x-intermedia
+tools/catalog-seed/generation/README.md	69	malachra-alaceaefolia	AUSENTE		La fase 2 dio 0 errores y 0 advertencias del validador en los 215 lotes y 1 rechazo, `malachra-alaceaefolia`, porque su paquete no trae ningún ref y el esquema 
+tools/catalog-seed/tests/fixtures/validate/bundle_hiperico.json	40	hypericum-perforatum	MISMO	hypericum-perforatum	"proposedId": "hypericum-perforatum",
+tools/catalog-seed/tests/fixtures/validate/bundle_hiperico.json	43	hypericum-perforatum	MISMO	hypericum-perforatum	"plantKey": "hypericum-perforatum",
+tools/catalog-seed/tests/fixtures/validate/bundle_matricaria.json	17	matricaria-recutita	ALIAS	matricaria-chamomilla	"matricaria-recutita"
+tools/catalog-seed/tests/fixtures/validate/bundle_matricaria.json	58	matricaria-recutita	ALIAS	matricaria-chamomilla	"plantKey": "matricaria-recutita",
+tools/catalog-seed/tests/fixtures/validate/record_hiperico.json	25	hypericum-perforatum	MISMO	hypericum-perforatum	"id": "hypericum-perforatum",
+tools/catalog-seed/tests/fixtures/validate/record_matricaria.json	3	matricaria-recutita	ALIAS	matricaria-chamomilla	"matricaria-recutita"
+tools/catalog-seed/tests/test_bundles.py	21	lavandula-angustifolia	MISMO	lavandula-angustifolia	WIKIPEDIA_PLANTS = {"lavandula-angustifolia", "passiflora-incarnata", "hypericum-perforatum"}
+tools/catalog-seed/tests/test_bundles.py	21	passiflora-incarnata	MISMO	passiflora-incarnata	WIKIPEDIA_PLANTS = {"lavandula-angustifolia", "passiflora-incarnata", "hypericum-perforatum"}
+tools/catalog-seed/tests/test_bundles.py	21	hypericum-perforatum	MISMO	hypericum-perforatum	WIKIPEDIA_PLANTS = {"lavandula-angustifolia", "passiflora-incarnata", "hypericum-perforatum"}
+tools/catalog-seed/tests/test_bundles.py	57	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(sorted(self.built), ["cinnamomum-verum", "hypericum-perforatum", "lavandula-angustifolia", "lavandula-latifolia",
+tools/catalog-seed/tests/test_bundles.py	57	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(sorted(self.built), ["cinnamomum-verum", "hypericum-perforatum", "lavandula-angustifolia", "lavandula-latifolia",
+tools/catalog-seed/tests/test_bundles.py	57	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(sorted(self.built), ["cinnamomum-verum", "hypericum-perforatum", "lavandula-angustifolia", "lavandula-latifolia",
+tools/catalog-seed/tests/test_bundles.py	57	lavandula-latifolia	MISMO	lavandula-latifolia	self.assertEqual(sorted(self.built), ["cinnamomum-verum", "hypericum-perforatum", "lavandula-angustifolia", "lavandula-latifolia",
+tools/catalog-seed/tests/test_bundles.py	58	mentha-spicata	MISMO	mentha-spicata	"mentha-spicata", "passiflora-incarnata"])
+tools/catalog-seed/tests/test_bundles.py	58	passiflora-incarnata	MISMO	passiflora-incarnata	"mentha-spicata", "passiflora-incarnata"])
+tools/catalog-seed/tests/test_bundles.py	76	lavandula-angustifolia	MISMO	lavandula-angustifolia	refs = self.built["lavandula-angustifolia"]["refs"]
+tools/catalog-seed/tests/test_bundles.py	81	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertIn("tppt_plant:P291", self.built["hypericum-perforatum"]["refs"])
+tools/catalog-seed/tests/test_bundles.py	82	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertIn("commons:File:Hiperico.jpg", self.built["hypericum-perforatum"]["refs"])
+tools/catalog-seed/tests/test_bundles.py	85	lavandula-angustifolia	MISMO	lavandula-angustifolia	bundle = self.built["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_bundles.py	100	lavandula-angustifolia	MISMO	lavandula-angustifolia	bundle = copy.deepcopy(self.built["lavandula-angustifolia"])
+tools/catalog-seed/tests/test_bundles.py	120	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(differing, {"hypericum-perforatum"})
+tools/catalog-seed/tests/test_bundles.py	126	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual({k for k in changed if changed[k]["bundleHash"] != self.built[k]["bundleHash"]}, {"hypericum-perforatum"})
+tools/catalog-seed/tests/test_bundles.py	129	mentha-spicata	MISMO	mentha-spicata	subset = self.world.build(plant_ids=["mentha-spicata"])
+tools/catalog-seed/tests/test_bundles.py	130	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(list(subset), ["mentha-spicata"])
+tools/catalog-seed/tests/test_bundles.py	131	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(subset["mentha-spicata"]["bundleHash"], self.built["mentha-spicata"]["bundleHash"])
+tools/catalog-seed/tests/test_bundles.py	131	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(subset["mentha-spicata"]["bundleHash"], self.built["mentha-spicata"]["bundleHash"])
+tools/catalog-seed/tests/test_bundles.py	136	lavandula-angustifolia	MISMO	lavandula-angustifolia	lavender = self.built["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_bundles.py	141	lavandula-latifolia	MISMO	lavandula-latifolia	latifolia = self.built["lavandula-latifolia"]
+tools/catalog-seed/tests/test_bundles.py	147	passiflora-incarnata	MISMO	passiflora-incarnata	passionflower = self.built["passiflora-incarnata"]
+tools/catalog-seed/tests/test_bundles.py	161	lavandula-angustifolia	MISMO	lavandula-angustifolia	description = self.built["lavandula-angustifolia"]["sections"]["descriptions"][0]
+tools/catalog-seed/tests/test_bundles.py	166	hypericum-perforatum	MISMO	hypericum-perforatum	refs = self.built["hypericum-perforatum"]["refs"]
+tools/catalog-seed/tests/test_bundles.py	170	hypericum-perforatum	MISMO	hypericum-perforatum	image = self.built["hypericum-perforatum"]["sections"]["images"][0]
+tools/catalog-seed/tests/test_bundles.py	177	lavandula-angustifolia	MISMO	lavandula-angustifolia	def groups(self, plant_id="lavandula-angustifolia"):
+tools/catalog-seed/tests/test_bundles.py	188	lavandula-angustifolia	MISMO	lavandula-angustifolia	refs = self.built["lavandula-angustifolia"]["refs"]
+tools/catalog-seed/tests/test_bundles.py	198	lavandula-angustifolia	MISMO	lavandula-angustifolia	capped = self.world.build(limits={"useGroups": 1}, plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_bundles.py	198	lavandula-angustifolia	MISMO	lavandula-angustifolia	capped = self.world.build(limits={"useGroups": 1}, plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_bundles.py	203	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertNotEqual(capped["bundleHash"], self.built["lavandula-angustifolia"]["bundleHash"])
+tools/catalog-seed/tests/test_bundles.py	206	lavandula-angustifolia	MISMO	lavandula-angustifolia	capped = self.world.build(limits={"useRefs": 1, "useKeys": 1}, plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_bundles.py	206	lavandula-angustifolia	MISMO	lavandula-angustifolia	capped = self.world.build(limits={"useRefs": 1, "useKeys": 1}, plant_ids=["lavandula-angustifolia"])["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_bundles.py	217	hypericum-perforatum	MISMO	hypericum-perforatum	bundle = self.built["hypericum-perforatum"]
+tools/catalog-seed/tests/test_bundles.py	218	hypericum-perforatum	MISMO	hypericum-perforatum	tppt = self.entries("hypericum-perforatum", "tppt")[0]
+tools/catalog-seed/tests/test_bundles.py	224	hypericum-perforatum	MISMO	hypericum-perforatum	sections = {e["section"]: e for e in self.entries("hypericum-perforatum", "ema_pdf")}
+tools/catalog-seed/tests/test_bundles.py	234	lavandula-angustifolia	MISMO	lavandula-angustifolia	entry = [e for e in self.entries("lavandula-angustifolia", "ema_pdf") if e["section"] == "4.5"][0]
+tools/catalog-seed/tests/test_bundles.py	236	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertFalse(has_severe_interactions(self.built["lavandula-angustifolia"]))
+tools/catalog-seed/tests/test_bundles.py	239	passiflora-incarnata	MISMO	passiflora-incarnata	entry = self.entries("passiflora-incarnata", "ema_pdf")[0]
+tools/catalog-seed/tests/test_bundles.py	244	passiflora-incarnata	MISMO	passiflora-incarnata	entry = self.entries("passiflora-incarnata", "tppt")[0]
+tools/catalog-seed/tests/test_bundles.py	249	lavandula-angustifolia	MISMO	lavandula-angustifolia	entry = self.entries("lavandula-angustifolia", "efsa")[0]
+tools/catalog-seed/tests/test_bundles.py	258	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(self.entries("lavandula-angustifolia", "efsa")[0]["ref"], "efsa_botanic:1")
+tools/catalog-seed/tests/test_bundles.py	261	lavandula-latifolia	MISMO	lavandula-latifolia	entry = self.entries("lavandula-latifolia", "efsa")[0]
+tools/catalog-seed/tests/test_bundles.py	266	mentha-spicata	MISMO	mentha-spicata	mint = self.built["mentha-spicata"]
+tools/catalog-seed/tests/test_bundles.py	272	cinnamomum-verum	MISMO	cinnamomum-verum	cinnamon = [e for e in self.built["cinnamomum-verum"]["sections"]["safety"] if e["source"] == "ema_pdf"]
+tools/catalog-seed/tests/test_bundles.py	276	lavandula-latifolia	MISMO	lavandula-latifolia	self.assertEqual([e["source"] for e in self.built["lavandula-latifolia"]["sections"]["safety"]], ["efsa"])
+tools/catalog-seed/tests/test_bundles.py	287	mentha-spicata	MISMO	mentha-spicata	row = self.built["mentha-spicata"]["sections"]["regulatory"][0]
+tools/catalog-seed/tests/test_bundles.py	289	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(self.candidates("mentha-spicata")["menthae-spicatae-folium"], [("otros-objetivos", "digestion"), ("alivio-respiratorio", None)])
+tools/catalog-seed/tests/test_bundles.py	293	hypericum-perforatum	MISMO	hypericum-perforatum	candidates = self.candidates("hypericum-perforatum")
+tools/catalog-seed/tests/test_bundles.py	296	hypericum-perforatum	MISMO	hypericum-perforatum	merged = {r["slug"]: r for r in self.built["hypericum-perforatum"]["sections"]["regulatory"]}["hyperici-herba"]
+tools/catalog-seed/tests/test_bundles.py	301	passiflora-incarnata	MISMO	passiflora-incarnata	self.assertEqual(self.candidates("passiflora-incarnata"), {"passiflorae-herba": []})
+tools/catalog-seed/tests/test_bundles.py	313	cinnamomum-verum	MISMO	cinnamomum-verum	bundle = self.built["cinnamomum-verum"]
+tools/catalog-seed/tests/test_bundles.py	315	cinnamomum-zeylanicum	ALIAS	cinnamomum-verum	self.assertEqual(identity["aliases"], ["cinnamomum-zeylanicum"])
+tools/catalog-seed/tests/test_bundles.py	326	lavandula-angustifolia	MISMO	lavandula-angustifolia	identity = self.built["lavandula-angustifolia"]["identity"]
+tools/catalog-seed/tests/test_bundles.py	336	lavandula-angustifolia	MISMO	lavandula-angustifolia	distribution = self.built["lavandula-angustifolia"]["sections"]["distribution"]
+tools/catalog-seed/tests/test_bundles.py	340	mentha-spicata	MISMO	mentha-spicata	self.assertIsNone(self.built["mentha-spicata"]["sections"]["distribution"])
+tools/catalog-seed/tests/test_bundles.py	343	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(self.built["lavandula-angustifolia"]["sections"]["wikidata"]["status"], "con-item")
+tools/catalog-seed/tests/test_bundles.py	344	cinnamomum-verum	MISMO	cinnamomum-verum	cinnamon = self.built["cinnamomum-verum"]
+tools/catalog-seed/tests/test_bundles.py	348	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(without["lavandula-angustifolia"]["sections"]["wikidata"]["status"], "sin-respuesta")
+tools/catalog-seed/tests/test_bundles.py	349	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertIn("wikidata-sin-respuesta", [f["code"] for f in without["lavandula-angustifolia"]["identity"]["flags"]])
+tools/catalog-seed/tests/test_bundles.py	350	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(without["lavandula-angustifolia"]["sections"]["images"], [])
+tools/catalog-seed/tests/test_bundles.py	355	lavandula-angustifolia	MISMO	lavandula-angustifolia	names = [(n["source"], n["text"], n["language"]) for n in self.built["lavandula-angustifolia"]["sections"]["names"]]
+tools/catalog-seed/tests/test_bundles.py	388	hypericum-perforatum	MISMO	hypericum-perforatum	built = self.world.build(disabled=("wikipedia_es",))["hypericum-perforatum"]
+tools/catalog-seed/tests/test_bundles.py	395	hypericum-perforatum	MISMO	hypericum-perforatum	with_wikipedia = self.built["hypericum-perforatum"]
+tools/catalog-seed/tests/test_bundles.py	461	mentha-spicata	MISMO	mentha-spicata	with open(os.path.join(tmp, "mentha-spicata.json"), encoding="utf-8") as handle:
+tools/catalog-seed/tests/test_bundles.py	463	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(text, canonical_json(self.built["mentha-spicata"]) + "\n")
+tools/catalog-seed/tests/test_bundles.py	465	mentha-spicata	MISMO	mentha-spicata	some = {k: v for k, v in self.built.items() if k != "mentha-spicata"}
+tools/catalog-seed/tests/test_bundles.py	467	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(bundles.write_bundles(some, tmp, prune=True), ["mentha-spicata"])
+tools/catalog-seed/tests/test_bundles.py	474	lavandula-angustifolia	MISMO	lavandula-angustifolia	handle.write("# plantas\nmentha-spicata\n\n  lavandula-angustifolia  \n")
+tools/catalog-seed/tests/test_bundles.py	475	mentha-spicata	MISMO	mentha-spicata	self.assertEqual(bundles.read_plant_ids(path), ["mentha-spicata", "lavandula-angustifolia"])
+tools/catalog-seed/tests/test_bundles.py	475	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(bundles.read_plant_ids(path), ["mentha-spicata", "lavandula-angustifolia"])
+tools/catalog-seed/tests/test_bundles.py	526	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertIn("lavandula-angustifolia", {b["plantKey"] for b in written})
+tools/catalog-seed/tests/test_bundles.py	542	lavandula-angustifolia	MISMO	lavandula-angustifolia	handle.write("lavandula-angustifolia\n")
+tools/catalog-seed/tests/test_bundles.py	554	lavandula-angustifolia	MISMO	lavandula-angustifolia	if not os.path.isfile(os.path.join(cls.directory, "lavandula-angustifolia.json")):
+tools/catalog-seed/tests/test_bundles.py	565	lavandula-angustifolia	MISMO	lavandula-angustifolia	lavender = canonical_json(self.bundle("lavandula-angustifolia"))
+tools/catalog-seed/tests/test_bundles.py	568	passiflora-incarnata	MISMO	passiflora-incarnata	passionflower = canonical_json(self.bundle("passiflora-incarnata"))
+tools/catalog-seed/tests/test_bundles.py	573	hypericum-perforatum	MISMO	hypericum-perforatum	bundle = self.bundle("hypericum-perforatum")
+tools/catalog-seed/tests/test_bundles.py	575	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertIn(("relajacion-estres", None), self.candidates("hypericum-perforatum"))
+tools/catalog-seed/tests/test_bundles.py	580	melaleuca-alternifolia	MISMO	melaleuca-alternifolia	self.assertEqual(self.candidates("melaleuca-alternifolia"), {("otros-objetivos", "boca-y-garganta"), ("cuidado-de-la-piel", None)})
+tools/catalog-seed/tests/test_bundles.py	581	calendula-officinalis	MISMO	calendula-officinalis	self.assertEqual(self.candidates("calendula-officinalis"), {("otros-objetivos", "boca-y-garganta"), ("cuidado-de-la-piel", None)})
+tools/catalog-seed/tests/test_bundles.py	587	cinnamomum-verum	MISMO	cinnamomum-verum	cinnamon = self.bundle("cinnamomum-verum")
+tools/catalog-seed/tests/test_collision_rule.py	38	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(self.ids(uni), ["cinnamomum-verum"])
+tools/catalog-seed/tests/test_collision_rule.py	42	cinnamomum-zeylanicum	ALIAS	cinnamomum-verum	self.assertEqual(plant.aliases, ["cinnamomum-zeylanicum"])
+tools/catalog-seed/tests/test_collision_rule.py	67	foeniculum-vulgare	MISMO	foeniculum-vulgare	self.assertEqual(self.ids(uni), ["foeniculum-vulgare", "foeniculum-vulgare-var-dulce"])
+tools/catalog-seed/tests/test_collision_rule.py	80	thevetia-peruviana	ALIAS	cascabela-thevetia	self.assertEqual(plant.aliases, ["thevetia-peruviana"])
+tools/catalog-seed/tests/test_collision_rule.py	86	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(self.ids(uni), ["cinnamomum-verum", "cinnamomum-zeylanicum"])
+tools/catalog-seed/tests/test_collision_rule.py	86	cinnamomum-zeylanicum	ALIAS	cinnamomum-verum	self.assertEqual(self.ids(uni), ["cinnamomum-verum", "cinnamomum-zeylanicum"])
+tools/catalog-seed/tests/test_collision_rule.py	106	cinnamomum-aromaticum	MISMO	cinnamomum-aromaticum	self.assertEqual(self.ids(uni), ["cinnamomum-aromaticum", "cinnamomum-verum"])
+tools/catalog-seed/tests/test_collision_rule.py	106	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(self.ids(uni), ["cinnamomum-aromaticum", "cinnamomum-verum"])
+tools/catalog-seed/tests/test_collision_rule.py	109	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertIn("fusion-heterotipica", self.codes(uni.plant("cinnamomum-verum")))
+tools/catalog-seed/tests/test_collision_rule.py	110	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertIn("grupo-partido", self.codes(uni.plant("cinnamomum-verum")))
+tools/catalog-seed/tests/test_collision_rule.py	117	cinnamomum-aromaticum	MISMO	cinnamomum-aromaticum	self.assertEqual(self.ids(uni), ["cinnamomum-aromaticum", "cinnamomum-verum"])
+tools/catalog-seed/tests/test_collision_rule.py	117	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(self.ids(uni), ["cinnamomum-aromaticum", "cinnamomum-verum"])
+tools/catalog-seed/tests/test_collision_rule.py	118	cinnamomum-verum	MISMO	cinnamomum-verum	accepted = uni.plant("cinnamomum-verum")
+tools/catalog-seed/tests/test_collision_rule.py	119	cinnamomum-zeylanicum	ALIAS	cinnamomum-verum	self.assertEqual((accepted.kind, accepted.is_core, accepted.aliases), ("resolved", False, ["cinnamomum-zeylanicum"]))
+tools/catalog-seed/tests/test_collision_rule.py	141	foeniculum-vulgare	MISMO	foeniculum-vulgare	self.assertEqual(uni.assign("Foeniculum vulgare")[0].id, "foeniculum-vulgare")
+tools/catalog-seed/tests/test_collision_rule.py	149	foeniculum-vulgare	MISMO	foeniculum-vulgare	self.assertEqual(self.ids(uni), ["foeniculum-vulgare"])
+tools/catalog-seed/tests/test_collision_rule.py	150	foeniculum-vulgare	MISMO	foeniculum-vulgare	self.assertEqual(uni.assign("Foeniculum dulce")[0].id, "foeniculum-vulgare")
+tools/catalog-seed/tests/test_collisions_decide.py	299	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(ids, ["cascabela-thevetia", "cinnamomum-verum", "foeniculum-vulgare", "foeniculum-vulgare-var-dulce"])
+tools/catalog-seed/tests/test_collisions_decide.py	299	foeniculum-vulgare	MISMO	foeniculum-vulgare	self.assertEqual(ids, ["cascabela-thevetia", "cinnamomum-verum", "foeniculum-vulgare", "foeniculum-vulgare-var-dulce"])
+tools/catalog-seed/tests/test_collisions_decide.py	300	cinnamomum-verum	MISMO	cinnamomum-verum	self.assertEqual(uni.assign("Cinnamomum zeylanicum")[0].id, "cinnamomum-verum")
+tools/catalog-seed/tests/test_collisions_decide.py	304	cinnamomum-zeylanicum	ALIAS	cinnamomum-verum	self.assertIn("cinnamomum-zeylanicum", [p.id for p in uni.plants])
+tools/catalog-seed/tests/test_resolve_universe.py	55	matricaria-recutita	ALIAS	matricaria-chamomilla	connection.executemany("INSERT INTO plant VALUES (?)", [("matricaria-recutita",), ("citrus-limon",), ("lavandula-angustifolia",)])
+tools/catalog-seed/tests/test_resolve_universe.py	55	citrus-limon	ALIAS	citrus-x-limon	connection.executemany("INSERT INTO plant VALUES (?)", [("matricaria-recutita",), ("citrus-limon",), ("lavandula-angustifolia",)])
+tools/catalog-seed/tests/test_resolve_universe.py	55	lavandula-angustifolia	MISMO	lavandula-angustifolia	connection.executemany("INSERT INTO plant VALUES (?)", [("matricaria-recutita",), ("citrus-limon",), ("lavandula-angustifolia",)])
+tools/catalog-seed/tests/test_resolve_universe.py	94	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(code, 1, err)  # lavandula-angustifolia no está en este universo mínimo
+tools/catalog-seed/tests/test_resolve_universe.py	100	valeriana-officinalis	MISMO	valeriana-officinalis	self.assertEqual(sorted(plants), ["citrus-x-bergamia", "citrus-x-limon", "matricaria-chamomilla", "valeriana-officinalis"])
+tools/catalog-seed/tests/test_resolve_universe.py	103	valeriana-officinalis	MISMO	valeriana-officinalis	self.assertEqual([e["source"] for e in plants["valeriana-officinalis"]["entries"]], ["ema"])
+tools/catalog-seed/tests/test_resolve_universe.py	119	citrus-limon	ALIAS	citrus-x-limon	self.assertEqual(plant["aliases"], ["citrus-limon"])
+tools/catalog-seed/tests/test_resolve_universe.py	150	citrus-limon	ALIAS	citrus-x-limon	self.assertEqual(lemon["aliases"], ["citrus-bergamia", "citrus-limon"])
+tools/catalog-seed/tests/test_resolve_universe.py	160	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(report["comparison_with_current"]["current_ids_lost"], ["lavandula-angustifolia"])
+tools/catalog-seed/tests/test_resolve_universe.py	175	citrus-limon	ALIAS	citrus-x-limon	self.assertEqual(comparison["current_ids_kept_as_alias"], 2)  # citrus-limon y matricaria-recutita
+tools/catalog-seed/tests/test_resolve_universe.py	175	matricaria-recutita	ALIAS	matricaria-chamomilla	self.assertEqual(comparison["current_ids_kept_as_alias"], 2)  # citrus-limon y matricaria-recutita
+tools/catalog-seed/tests/test_resolve_universe.py	176	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(comparison["current_ids_lost"], ["lavandula-angustifolia"])
+tools/catalog-seed/tests/test_resolve_universe.py	204	taraxacum-officinale	MISMO	taraxacum-officinale	self.assertTrue({"ziziphus-jujuba", "eschscholzia-californica", "taraxacum-officinale", "salix-purpurea"} <= ids)
+tools/catalog-seed/tests/test_resolve_universe.py	215	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertTrue(self.report()["checks"]["lavandula-angustifolia"])
+tools/catalog-seed/tests/test_seed.py	37	matricaria-recutita	ALIAS	matricaria-chamomilla	dump(os.path.join(self.bundles, "matricaria-recutita.json"), fx.bundle())
+tools/catalog-seed/tests/test_seed.py	38	hypericum-perforatum	MISMO	hypericum-perforatum	dump(os.path.join(self.bundles, "hypericum-perforatum.json"), fx.bundle("hiperico"))
+tools/catalog-seed/tests/test_seed.py	40	hypericum-perforatum	MISMO	hypericum-perforatum	dump(os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json"), fx.record("hiperico"))
+tools/catalog-seed/tests/test_seed.py	92	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual([p["id"] for p in plan], ["hypericum-perforatum", "matricaria-chamomilla"])
+tools/catalog-seed/tests/test_seed.py	96	hypericum-perforatum	MISMO	hypericum-perforatum	path = os.path.join(self.bundles, "hypericum-perforatum.json")
+tools/catalog-seed/tests/test_seed.py	101	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(plan, [{"id": "hypericum-perforatum", "plantKey": "hypericum-perforatum", "reasons": ["bundleHash"]}])
+tools/catalog-seed/tests/test_seed.py	101	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(plan, [{"id": "hypericum-perforatum", "plantKey": "hypericum-perforatum", "reasons": ["bundleHash"]}])
+tools/catalog-seed/tests/test_seed.py	115	matricaria-recutita	ALIAS	matricaria-chamomilla	dump(os.path.join(self.bundles, "matricaria-recutita.json"), bundle)
+tools/catalog-seed/tests/test_seed.py	163	hypericum-perforatum	MISMO	hypericum-perforatum	path = os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json")
+tools/catalog-seed/tests/test_seed.py	173	hypericum-perforatum	MISMO	hypericum-perforatum	path = os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json")
+tools/catalog-seed/tests/test_seed.py	213	hypericum-perforatum	MISMO	hypericum-perforatum	os.rename(os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json"), os.path.join(self.seed_dir, "plants", "otro.json"))
+tools/catalog-seed/tests/test_seed.py	257	hypericum-perforatum	MISMO	hypericum-perforatum	path = os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json")
+tools/catalog-seed/tests/test_seed.py	263	hypericum-perforatum	MISMO	hypericum-perforatum	raw = self.plant_bytes("hypericum-perforatum")
+tools/catalog-seed/tests/test_seed.py	268	hypericum-perforatum	MISMO	hypericum-perforatum	work = self.work_dir(**{"matricaria-chamomilla": fx.record(), "hypericum-perforatum": fx.record("hiperico")})
+tools/catalog-seed/tests/test_seed.py	270	hypericum-perforatum	MISMO	hypericum-perforatum	os.remove(os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json"))
+tools/catalog-seed/tests/test_seed.py	272	hypericum-perforatum	MISMO	hypericum-perforatum	names = ["manifest.json", "goals.json", "plants/matricaria-chamomilla.json", "plants/hypericum-perforatum.json"]
+tools/catalog-seed/tests/test_seed.py	287	hypericum-perforatum	MISMO	hypericum-perforatum	os.remove(os.path.join(self.seed_dir, "plants", "hypericum-perforatum.json"))
+tools/catalog-seed/tests/test_seed.py	288	hypericum-perforatum	MISMO	hypericum-perforatum	work = self.work_dir(**{"hypericum-perforatum": fx.record("hiperico")})
+tools/catalog-seed/tests/test_seed.py	291	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(json.loads(self.plant_bytes("hypericum-perforatum"))["id"], "hypericum-perforatum")
+tools/catalog-seed/tests/test_seed.py	291	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(json.loads(self.plant_bytes("hypericum-perforatum"))["id"], "hypericum-perforatum")
+tools/catalog-seed/tests/test_seed.py	296	hypericum-perforatum	MISMO	hypericum-perforatum	work = self.work_dir(**{"hypericum-perforatum": bad})
+tools/catalog-seed/tests/test_seed.py	297	hypericum-perforatum	MISMO	hypericum-perforatum	before = self.plant_bytes("hypericum-perforatum")
+tools/catalog-seed/tests/test_seed.py	300	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertIn("hypericum-perforatum", str(caught.exception))
+tools/catalog-seed/tests/test_seed.py	301	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(self.plant_bytes("hypericum-perforatum"), before)
+tools/catalog-seed/tests/test_seed.py	309	hypericum-perforatum	MISMO	hypericum-perforatum	work = self.work_dir(**{"hypericum-perforatum": bad, "matricaria-chamomilla": record})
+tools/catalog-seed/tests/test_seed.py	323	hypericum-perforatum	MISMO	hypericum-perforatum	one = self.work_dir("uno", **{"hypericum-perforatum": fx.record("hiperico")})
+tools/catalog-seed/tests/test_seed.py	324	hypericum-perforatum	MISMO	hypericum-perforatum	two = self.work_dir("dos", **{"hypericum-perforatum": fx.record("hiperico")})
+tools/catalog-seed/tests/test_seed.py	344	hypericum-perforatum	MISMO	hypericum-perforatum	work = self.work_dir(**{"hypericum-perforatum": fx.record("hiperico")})
+tools/catalog-seed/tests/test_taxonomy_names.py	261	lavandula-angustifolia	MISMO	lavandula-angustifolia	("Lavandula angustifolia", "lavandula-angustifolia"),
+tools/catalog-seed/tests/test_taxonomy_names.py	262	lavandula-angustifolia	MISMO	lavandula-angustifolia	("Lavándula   Angustifolia ", "lavandula-angustifolia"),
+tools/catalog-seed/tests/test_taxonomy_names.py	263	mentha-x-piperita-subsp-nothosubsp-piperita	ALIAS	mentha-x-piperita	("Mentha x piperita subsp. nothosubsp. piperita", "mentha-x-piperita-subsp-nothosubsp-piperita"),
+tools/catalog-seed/tests/test_taxonomy_names.py	264	aloe-vera	MISMO	aloe-vera	("--Aloe (vera)--", "aloe-vera"), ("Ñandú", "nandu"), ("", ""), ("   ", ""), ("!!!", "")):
+tools/catalog-seed/tests/test_taxonomy_names.py	269	rosmarinus-x-lavandulaceus	ALIAS	salvia-x-lavandulacea	self.assertEqual(plant_slug("Rosmarinus × lavandulaceus"), "rosmarinus-x-lavandulaceus")
+tools/catalog-seed/tests/test_taxonomy_names.py	273	mentha-x-piperita-subsp-nothosubsp-piperita	ALIAS	mentha-x-piperita	"mentha-x-piperita-subsp-nothosubsp-piperita")
+tools/catalog-seed/tests/test_taxonomy_quality.py	87	taraxacum-officinale	MISMO	taraxacum-officinale	plant = uni.plant("taraxacum-officinale")
+tools/catalog-seed/tests/test_taxonomy_universe.py	50	brassica-oleracea-var-italica	MISMO	brassica-oleracea-var-italica	"brassica-oleracea-var-italica"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	56	rosmarinus-officinalis	ALIAS	salvia-rosmarinus	self.assertEqual((plant.id, plant.name, plant.aliases, plant.split), ("salvia-rosmarinus", "Salvia rosmarinus", ["rosmarinus-officinalis"], False))
+tools/catalog-seed/tests/test_taxonomy_universe.py	70	citrus-meyerii	ALIAS	citrus-x-meyeri	self.assertEqual(self.ids(uni), ["citrus-meyerii", "citrus-x-limon"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	71	citrus-meyerii	ALIAS	citrus-x-meyeri	meyerii = uni.plant("citrus-meyerii")
+tools/catalog-seed/tests/test_taxonomy_universe.py	87	gossypium-sp	MISMO	gossypium-sp	self.assertEqual(sorted(by_id), ["gossypium-sp", "prunus-dulcis", "zzzzus-nonexistens"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	87	prunus-dulcis	ALIAS	prunus-amygdalus	self.assertEqual(sorted(by_id), ["gossypium-sp", "prunus-dulcis", "zzzzus-nonexistens"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	88	prunus-dulcis	ALIAS	prunus-amygdalus	self.assertEqual(by_id["prunus-dulcis"].kind, "ambiguous")
+tools/catalog-seed/tests/test_taxonomy_universe.py	89	prunus-dulcis	ALIAS	prunus-amygdalus	self.assertIn("identidad-ambigua", [f["code"] for f in by_id["prunus-dulcis"].review_flags])
+tools/catalog-seed/tests/test_taxonomy_universe.py	90	gossypium-sp	MISMO	gossypium-sp	self.assertIn("solo-genero", [f["code"] for f in by_id["gossypium-sp"].review_flags])
+tools/catalog-seed/tests/test_taxonomy_universe.py	92	gossypium-sp	MISMO	gossypium-sp	for flag in by_id["gossypium-sp"].review_flags:
+tools/catalog-seed/tests/test_taxonomy_universe.py	98	valeriana-officinalis	MISMO	valeriana-officinalis	self.assertEqual(self.ids(uni), ["matricaria-chamomilla", "valeriana-officinalis"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	104	matricaria-recutita	ALIAS	matricaria-chamomilla	self.assertEqual(self.ids(uni), ["matricaria-chamomilla", "matricaria-recutita"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	116	prunus-dulcis	ALIAS	prunus-amygdalus	self.assertEqual(self.ids(uni), ["prunus-amygdalus", "prunus-dulcis"])
+tools/catalog-seed/tests/test_taxonomy_universe.py	118	prunus-dulcis	ALIAS	prunus-amygdalus	self.assertEqual([(a[0], a[1]) for a in uni.discarded_aliases], [("prunus-amygdalus", "prunus-dulcis")])
+tools/catalog-seed/tests/test_taxonomy_universe.py	122	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(uni.plants[0].id, "lavandula-angustifolia")
+tools/catalog-seed/tests/test_taxonomy_universe.py	176	prunus-dulcis	ALIAS	prunus-amygdalus	self.assertEqual((plant.id, reason), ("prunus-dulcis", "misma-clave"))
+tools/catalog-seed/tests/test_usda_assign.py	192	cinnamomum-verum	MISMO	cinnamomum-verum	verum = result.by_plant["cinnamomum-verum"]
+tools/catalog-seed/tests/test_usda_assign.py	196	cinnamomum-aromaticum	MISMO	cinnamomum-aromaticum	self.assertEqual([c["ref"] for c in result.by_plant["cinnamomum-aromaticum"]["commonNames"]], ["usda_common_name:3-1"])
+tools/catalog-seed/tests/test_validate.py	456	matricaria-recutita	ALIAS	matricaria-chamomilla	self.write(bundles, "matricaria-recutita.json", fx.bundle())
+tools/catalog-seed/tests/test_validate.py	457	hypericum-perforatum	MISMO	hypericum-perforatum	self.write(bundles, "hypericum-perforatum.json", fx.bundle("hiperico"))
+tools/catalog-seed/tests/test_validate.py	459	hypericum-perforatum	MISMO	hypericum-perforatum	self.write(records, "hypericum-perforatum.json", fx.record("hiperico"))
+tools/catalog-seed/tests/test_validate.py	466	hypericum-perforatum	MISMO	hypericum-perforatum	self.assertEqual(sorted(report["plants"]), ["hypericum-perforatum", "matricaria-chamomilla"])
+tools/catalog-seed/tests/test_validate.py	470	hypericum-perforatum	MISMO	hypericum-perforatum	os.rename(os.path.join(records, "hypericum-perforatum.json"), os.path.join(records, "otro.json"))
+tools/catalog-seed/tests/test_validate.py	471	matricaria-recutita	ALIAS	matricaria-chamomilla	os.remove(os.path.join(bundles, "matricaria-recutita.json"))
+tools/catalog-seed/tests/test_wiki_assign.py	39	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(self.plan["byName"]["Lavandula officinalis"], ["lavandula-angustifolia"])
+tools/catalog-seed/tests/test_wiki_assign.py	56	lavandula-angustifolia	MISMO	lavandula-angustifolia	lavender = document["plants"]["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_wiki_assign.py	60	lavandula-latifolia	MISMO	lavandula-latifolia	self.assertEqual(spike["plantId"], "lavandula-latifolia")
+tools/catalog-seed/tests/test_wiki_assign.py	62	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(spike["requestedFor"], ["lavandula-angustifolia"])
+tools/catalog-seed/tests/test_wiki_assign.py	70	passiflora-incarnata	MISMO	passiflora-incarnata	self.assertEqual(document["plants"]["passiflora-incarnata"]["wikidata"]["items"], ["Q128939"])
+tools/catalog-seed/tests/test_wiki_assign.py	88	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertTrue(checks["lavandula-angustifolia"]["ok"])
+tools/catalog-seed/tests/test_wiki_assign.py	89	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(checks["lavandula-angustifolia"]["homonymItems"]["Q905916"]["plantId"], "lavandula-latifolia")
+tools/catalog-seed/tests/test_wiki_assign.py	89	lavandula-latifolia	MISMO	lavandula-latifolia	self.assertEqual(checks["lavandula-angustifolia"]["homonymItems"]["Q905916"]["plantId"], "lavandula-latifolia")
+tools/catalog-seed/tests/test_wiki_assign.py	94	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(document["items"]["Q111"]["plantId"], "lavandula-angustifolia")
+tools/catalog-seed/tests/test_wiki_assign.py	97	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(document["plants"]["lavandula-angustifolia"]["wikidata"]["items"], ["Q111"])
+tools/catalog-seed/tests/test_wiki_assign.py	170	justicia-adhatoda	MISMO	justicia-adhatoda	self.assertEqual((items["Q11"]["plantId"], items["Q11"]["reason"]), ("justicia-adhatoda", "aceptado"))
+tools/catalog-seed/tests/test_wiki_assign.py	171	justicia-adhatoda	MISMO	justicia-adhatoda	self.assertEqual((items["Q12"]["plantId"], items["Q12"]["reason"]), ("justicia-adhatoda", "homotipico"))
+tools/catalog-seed/tests/test_wiki_assign.py	182	justicia-adhatoda	MISMO	justicia-adhatoda	if plant["id"] == "justicia-adhatoda":
+tools/catalog-seed/tests/test_wiki_assign.py	190	justicia-adhatoda	MISMO	justicia-adhatoda	self.assertEqual((items["Q13"]["plantId"], items["Q13"]["reason"]), ("justicia-adhatoda", "heterotipico-fusionado"))
+tools/catalog-seed/tests/test_wiki_assign.py	192	justicia-adhatoda	MISMO	justicia-adhatoda	self.assertEqual(document["plants"]["justicia-adhatoda"]["spanishNames"], ["adhatoda"])
+tools/catalog-seed/tests/test_wiki_assign.py	213	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(items["Q2"]["plantId"], "lavandula-angustifolia")
+tools/catalog-seed/tests/test_wiki_assign.py	222	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(status["lavandula-angustifolia"], wa.STATUS_WITH_ITEM)
+tools/catalog-seed/tests/test_wiki_assign.py	223	passiflora-incarnata	MISMO	passiflora-incarnata	self.assertEqual(status["passiflora-incarnata"], wa.STATUS_NO_ITEM)
+tools/catalog-seed/tests/test_wiki_assign.py	224	justicia-adhatoda	MISMO	justicia-adhatoda	self.assertEqual(status["justicia-adhatoda"], wa.STATUS_NO_RESPONSE)
+tools/catalog-seed/tests/test_wiki_assign.py	234	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(document["plants"]["lavandula-angustifolia"]["wikidata"]["status"], wa.STATUS_NO_RESPONSE)
+tools/catalog-seed/tests/test_wiki_assign.py	258	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant = document["plants"]["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_wiki_assign.py	272	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant = document["plants"]["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_wiki_assign.py	280	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertEqual(document["plants"]["lavandula-angustifolia"]["wikipedia"], [])
+tools/catalog-seed/tests/test_wiki_assign.py	307	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertNotIn("Lavandula latifolia", self.taxa("lavandula-angustifolia"))
+tools/catalog-seed/tests/test_wiki_assign.py	308	lavandula-latifolia	MISMO	lavandula-latifolia	latifolia = self.document["plants"]["lavandula-latifolia"]["wikidata"]["items"] if "lavandula-latifolia" in self.document["plants"] else []
+tools/catalog-seed/tests/test_wiki_assign.py	308	lavandula-latifolia	MISMO	lavandula-latifolia	latifolia = self.document["plants"]["lavandula-latifolia"]["wikidata"]["items"] if "lavandula-latifolia" in self.document["plants"] else []
+tools/catalog-seed/tests/test_wiki_assign.py	309	lavandula-angustifolia	MISMO	lavandula-angustifolia	lavender = set(self.document["plants"]["lavandula-angustifolia"]["wikidata"]["items"])
+tools/catalog-seed/tests/test_wiki_assign.py	313	passiflora-incarnata	MISMO	passiflora-incarnata	self.assertNotIn("Passiflora edulis", self.taxa("passiflora-incarnata"))
+tools/catalog-seed/tests/test_wiki_assign.py	316	passiflora-incarnata	MISMO	passiflora-incarnata	self.assertNotEqual(item["plantId"], "passiflora-incarnata")
+tools/catalog-seed/tests/test_wiki_fetch.py	109	lavandula-angustifolia	MISMO	lavandula-angustifolia	lavender = document["plants"]["lavandula-angustifolia"]
+tools/catalog-seed/tests/test_wiki_fetch.py	113	lavandula-latifolia	MISMO	lavandula-latifolia	self.assertEqual(document["plants"]["lavandula-latifolia"]["wikidata"]["items"], ["Q905916"])
+tools/catalog-seed/tests/test_wiki_fetch.py	114	lavandula-angustifolia	MISMO	lavandula-angustifolia	self.assertTrue(report["controls"]["lavandula-angustifolia"]["ok"])
+tools/catalog-seed/tests/wiki_support.py	79	lavandula-angustifolia	MISMO	lavandula-angustifolia	plant("lavandula-angustifolia", "Lavandula angustifolia", 1),
+tools/catalog-seed/tests/wiki_support.py	80	lavandula-latifolia	MISMO	lavandula-latifolia	plant("lavandula-latifolia", "Lavandula latifolia", 2),
+tools/catalog-seed/tests/wiki_support.py	81	passiflora-incarnata	MISMO	passiflora-incarnata	plant("passiflora-incarnata", "Passiflora incarnata", 5),
+tools/catalog-seed/tests/wiki_support.py	82	justicia-adhatoda	MISMO	justicia-adhatoda	plant("justicia-adhatoda", "Justicia adhatoda", 10),

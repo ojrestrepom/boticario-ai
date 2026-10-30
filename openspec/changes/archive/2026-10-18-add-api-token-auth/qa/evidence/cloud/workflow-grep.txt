@@ -1,0 +1,14 @@
+22:permissions:
+26:concurrency:
+28:  cancel-in-progress: false
+36:    permissions:
+41:    needs: verify
+43:    permissions:
+89:            ${{ env.IMAGE }}:latest
+95:      # El despliegue usa la etiqueta del SHA (inmutable en la practica), no latest.
+98:      # API_TOKENS viene de Secret Manager con la version fijada (nunca latest: instancias del mismo
+121:            --set-secrets=API_TOKENS=boticario-api-tokens:1
+138:          API_VERIFY_TOKEN: ${{ secrets.API_VERIFY_TOKEN }}
+141:          if [ -z "${API_VERIFY_TOKEN}" ]; then
+142:            echo "::error::Falta el secreto de GitHub API_VERIFY_TOKEN (un token de CI de los que contiene boticario-api-tokens); ver docs/deploy/cloud-run.md"
+162:          printf 'Authorization: Bearer %s\n' "$API_VERIFY_TOKEN" |

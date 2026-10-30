@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a230413a3f24bc13ebcbdcab51533a190519a83b81ac200c9af3911c82bc0088",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:385016"
+    ],
+    "value": "Diospyros wallichii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:385016"
+    ],
+    "value": "Ebenaceae"
+  },
+  "goals": [],
+  "id": "diospyros-wallichii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:385016"
+    ],
+    "value": "Indochina y Malesia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:15832": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15832",
+      "license": "CC0"
+    },
+    "usda_use:37124": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37124",
+      "license": "CC0"
+    },
+    "wcvp:385016": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros wallichii King & Gamble",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "King & Gamble",
+    "name": "Diospyros wallichii",
+    "refs": [
+      "wcvp:385016"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Dermatosis",
+      "activitySource": "Dermatosis",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15832",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37124",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

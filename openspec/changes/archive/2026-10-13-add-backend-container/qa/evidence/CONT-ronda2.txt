@@ -1,0 +1,31 @@
+# Ronda 2 (tras corregir spec, catalog-api y Dockerfile)
+docker compose build (builder desktop-linux): exit 0, 10 pasos CACHED; la imagen contiene la cadena "se fuerza el apagado" (grep -c = 1); /app/catalog-api 7 014 024 bytes
+CONT-09: RUST_LOG=warn -> 0 líneas, 0 "escuchando"; por defecto -> 2 líneas, 1 "escuchando", 1 "apagado completado"
+CONT-12: docker stop 0.13 s, exit 0, log "escuchando" + "apagado completado"
+# Conexión colgada (python: GET /healthz HTTP/1.1\r\nHost: x\r\n sin línea vacía)
+docker stop (sin -t), 3 repeticiones: 3.18 s, 3.15 s, 3.16 s, exit 137, log solo con "escuchando" (FALLA)
+docker compose stop, 1 repetición: 3.18 s, exit 137 (FALLA); docker compose down: 3.35 s
+docker stop -t 10: 5.14 s, exit 0, log: WARN catalog_api: se fuerza el apagado: quedaban conexiones abiertas tras 5 s grace_secs=5 + INFO catalog_api: apagado completado
+docker kill -s TERM + sondeo de estado: 5.48 s hasta exited, exit 0, mismas dos líneas
+compose con stop_grace_period: 10s (archivo en el scratch): compose stop 5.17 s, exit 0, mismas dos líneas
+Contenedor que ignora SIGTERM (trap "" TERM): docker stop 3.12 s exit 137; docker stop -t 10 10.12 s -> el plazo por defecto efectivo en este Docker Engine 29.8.2 (Docker Desktop, macOS) es ~3 s, no 10 s; sin daemon.json ni config.json que lo expliquen
+cargo test -p catalog-api --test shutdown: idle_keep_alive_connection_does_not_delay_shutdown ok, incomplete_request_forces_shutdown_after_grace ok; cargo test --workspace: todo ok (58, 1, 1, 2, 7, 6, 84; 3 ignoradas)
+# Insumo cacheado inválido (builder desechable, copia en scratch, id de montura qa-retry-data-cache)
+1) Dockerfile.poison: download válido y luego printf junk >> ZIP (ZIP de 6033994 bytes en la caché)
+2) Dockerfile con reintento, exit 0: "error: ... ya existe pero no es íntegro (tamaño distinto del declarado: se esperaban 6033990 bytes y hay 6033994)", "download falló: se vacía /data/.cache y se reintenta una vez", "usda: descargado y verificado", "plantas: 2376", hash 48d71b6b...5812d
+3) siguiente construcción con binario de ingesta distinto: "usda: ya estaba y está verificado" (sin reintento)
+4) MD5 declarado 000...0: un solo reintento y luego "error: checksum MD5 distinto del declarado", exit 1, sin imagen; también con caché vacía (builder nuevo): exit 1, sin imagen
+# Construcción en frío con el Dockerfile nuevo (BUILDX_BUILDER=qa-cold docker compose build)
+exit 0, 153 Compiling, "usda: descargado y verificado", plantas 2376, hash 48d71b6b0221787add6a8474b6a6b1b6567915d435cb3d1660e8335da3a5812d
+# Ronda 3 (SHUTDOWN_GRACE = 2 s)
+docker compose build: exit 0, 10 CACHED (la imagen ya llevaba el cambio; creada 03:35 UTC). Sin fallo de MD5, no hizo falta --no-cache
+CONT-26 (docker stop SIN -t, conexión de cabeceras incompletas), 3 repeticiones: 2.15 s, 2.15 s, 2.16 s; exit 0; oom=false; log:
+  INFO catalog_api: escuchando addr=0.0.0.0:8080 db=/app/catalog.db
+  WARN catalog_api: se fuerza el apagado: quedaban conexiones abiertas tras 2 s grace_secs=2
+  INFO catalog_api: apagado completado
+docker compose stop con conexión colgada: 2.19 s, exit 0, mismas tres líneas; docker compose down: 2.33 s
+CONT-31 (docker kill -s TERM): 2.12 s hasta exited, exit 0
+CONT-32 (docker stop -t 10): 2.16 s, exit 0
+CONT-12 (parada normal): 0.12 s, exit 0, log con "escuchando" y "apagado completado"
+CONT-33 (keep-alive inactiva): 0.13 s, exit 0, "apagado completado"
+CONT-34: cargo test -p catalog-api --test shutdown: 2 ok; cargo test --workspace: todo ok; enlaces: 93, 0 rotos

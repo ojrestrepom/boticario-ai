@@ -1,0 +1,194 @@
+{
+  "aliases": [
+    "salvia-fructicosa",
+    "salvia-triloba"
+  ],
+  "bundleHash": "sha256:252ab3c6db1ae676ce6ddda4c54cdfd8d6e05c4f04d66e0e0162d3036e901197",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia fruticosa"
+      ],
+      "text": "Salvia de jardín"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:890-1",
+        "tppt_plant:P547"
+      ],
+      "text": "Greek sage"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P547"
+      ],
+      "text": "Dreilappiger Salbei"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia fruticosa"
+    ],
+    "value": "Planta perenne de la familia de las lamiáceas, originaria del este de la región mediterránea, incluidos el sur de Italia, las Islas Canarias y el norte de África."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Salvia fruticosa"
+    ],
+    "value": "Salvia de jardín"
+  },
+  "family": {
+    "refs": [
+      "wcvp:182683"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-fruticosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:890-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:182683"
+    ],
+    "value": "Nativa del norte de África, el sureste de Europa y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:salviae-trilobae-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_endpoint:424": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Greek sage",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:425": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Greek sage",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:salviae-trilobae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Salviae trilobae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/salviae-trilobae-folium"
+    },
+    "tppt_plant:P547": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Salvia triloba L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:890-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Greek Sage»",
+      "license": "CC0"
+    },
+    "usda_part:890-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:182683": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia fruticosa Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:184058": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia triloba L.f.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Salvia fruticosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia fruticosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia_fruticosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Salvia triloba) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de la parte «Plant» de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P547",
+      "efsa_endpoint:424",
+      "efsa_endpoint:425"
+    ],
+    "text": "TPPT la califica de débilmente tóxica para las personas y los animales; la parte tóxica es la parte aérea y entre sus toxinas menores figuran la isotuyona y la tuyona, cuyos efectos adversos TPPT asocia a cantidades altas que normalmente no se alcanzan. EFSA recoge un estudio en ratas con extractos de hojas que describe efectos adversos sobre la fertilidad de machos y hembras."
+  },
+  "scientificName": {
+    "authors": "Mill.",
+    "name": "Salvia fruticosa",
+    "refs": [
+      "wcvp:182683"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.f.",
+      "name": "Salvia triloba",
+      "refs": [
+        "wcvp:184058"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

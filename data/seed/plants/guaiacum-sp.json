@@ -1,0 +1,140 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5a12080011f878ab4823c38c0b67f8e43cee4973b4ac4e97b28898e0a2aa6e59",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Guaiacum"
+      ],
+      "text": "guayacos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Guaiacum"
+      ],
+      "text": "guayacanes"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:454-1"
+      ],
+      "text": "Guaiac"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Guaiacum"
+    ],
+    "value": "Género de árboles y arbustos nativos de las regiones tropicales y subtropicales de América, conocidos como guayacos o guayacanes."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Guaiacum"
+    ],
+    "value": "Guayacos"
+  },
+  "family": null,
+  "goals": [],
+  "id": "guaiacum-sp",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Guaiacum_officinale_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-069.jpg",
+    "refs": [
+      "commons:File:Guaiacum officinale - Köhler–s Medizinal-Pflanzen-069.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Guaiacum_officinale_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-069.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:454-WD"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Guaiacum officinale - Köhler–s Medizinal-Pflanzen-069.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Guaiacum officinale - Köhler–s Medizinal-Pflanzen-069.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Guaiacum_officinale_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-069.jpg"
+    },
+    "usda_common_name:454-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Guaiac»",
+      "license": "CC0"
+    },
+    "usda_part:454-WD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Wood»",
+      "license": "CC0"
+    },
+    "wikidata:Q1429385": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1429385",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1429385"
+    },
+    "wikipedia_es:Guaiacum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Guaiacum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Guaiacum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Wood), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Guaiacum sp.",
+    "refs": [
+      "wikidata:Q1429385"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

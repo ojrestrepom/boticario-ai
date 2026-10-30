@@ -1,0 +1,122 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6938fc8d1421125213b13eb2a2116c6b28e67786d5c61bb53cc34fd483cdecea",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:384397"
+    ],
+    "value": "Diospyros maritima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:384397"
+    ],
+    "value": "Ebenaceae"
+  },
+  "goals": [],
+  "id": "diospyros-maritima",
+  "image": {
+    "attributionRequired": true,
+    "author": "Photo by David J. Stang",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Diospyros_maritima_5zz.jpg",
+    "refs": [
+      "commons:File:Diospyros maritima 5zz.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Diospyros_maritima_5zz.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:384397"
+    ],
+    "value": "Australia, China, Asia oriental, Indochina, Malesia y Papuasia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Diospyros maritima 5zz.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Diospyros maritima 5zz.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Diospyros_maritima_5zz.jpg"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:37119": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37119",
+      "license": "CC0"
+    },
+    "wcvp:384397": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diospyros maritima Blume",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Blume",
+    "name": "Diospyros maritima",
+    "refs": [
+      "wcvp:384397"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Vietnam"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37119"
+      ]
+    }
+  ]
+}

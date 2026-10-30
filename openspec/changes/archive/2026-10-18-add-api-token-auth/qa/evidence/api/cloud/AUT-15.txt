@@ -1,0 +1,49 @@
+# AUT-15 HEAD y OPTIONS (objetivo: cloud)
+
+### HEAD /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 4e4d5e00cc9d445538ddd920ea909e28
+content-length: 129
+server: Google Frontend
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### HEAD /v1/plants   [Bearer <válido>]
+status=200
+content-type: application/json
+x-cloud-trace-context: 264b221d65de0f9d9f3a73f65964f08f
+content-length: 3871
+server: Google Frontend
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### OPTIONS /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+x-cloud-trace-context: b71cc33e29d7998842ac14f4c0bab22a
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### OPTIONS /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+x-cloud-trace-context: 1cf9bb9b333a06a6636ea1c8c6ab07bb
+server: Google Frontend
+content-length: 147
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}

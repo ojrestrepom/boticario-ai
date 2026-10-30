@@ -1,0 +1,126 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:68bd3162833b733424971baf6faaa2192c33461b3e1098f2bef660c0c7db44bf",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rosa",
+        "wikidata:Q34687"
+      ],
+      "text": "Rosal"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rosa"
+      ],
+      "text": "Gabarrera"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:872-1"
+      ],
+      "text": "Rose Hips"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rosa"
+    ],
+    "value": "Género de plantas mayoritariamente arbustivas y espinosas, género tipo de la familia de las rosáceas. Se denomina rosal a la planta y gabarrera a las especies silvestres."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Rosa"
+    ],
+    "value": "Rosal"
+  },
+  "family": null,
+  "goals": [],
+  "id": "rosa-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Primazega",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Bunga_mawar_putih.jpg",
+    "refs": [
+      "commons:File:Bunga mawar putih.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Bunga_mawar_putih.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Bunga mawar putih.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Bunga mawar putih.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Bunga_mawar_putih.jpg"
+    },
+    "usda_common_name:872-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Rose Hips»",
+      "license": "CC0"
+    },
+    "wikidata:Q34687": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q34687",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q34687"
+    },
+    "wikipedia_es:Rosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Rosa spp",
+    "refs": [
+      "wikidata:Q34687"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

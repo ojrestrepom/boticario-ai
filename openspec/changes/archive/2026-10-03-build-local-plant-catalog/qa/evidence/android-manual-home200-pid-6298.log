@@ -1,0 +1,53 @@
+--------- beginning of main
+10-03 09:37:50.924  6298  6298 I le.boticario_ai: Late-enabling -Xcheck:jni
+10-03 09:37:50.935  6298  6298 I le.boticario_ai: Using CollectorTypeCMC GC.
+10-03 09:37:50.938  6298  6298 D nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-03 09:37:50.953  6298  6298 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+10-03 09:37:50.953  6298  6298 D ApplicationLoaders: Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+10-03 09:37:51.046  6298  6298 D nativeloader: Configuring clns-9 for other apk /data/app/~~sf59z8VwYYoI8785H10W7g==/com.example.boticario_ai-U3uASd8rAlcfNuH_y2mvAA==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~sf59z8VwYYoI8785H10W7g==/com.example.boticario_ai-U3uASd8rAlcfNuH_y2mvAA==/lib/arm64:/data/app/~~sf59z8VwYYoI8785H10W7g==/com.example.boticario_ai-U3uASd8rAlcfNuH_y2mvAA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.example.boticario_ai
+10-03 09:37:51.047  6298  6298 I le.boticario_ai: AssetManager2(0xb40000728fe74ad8) locale list changing from [] to [en-US]
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment: Currently set values for:
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment: com.example.boticario_ai is not listed in per-application setting
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment: ANGLE allowlist from config: com.dreamgames.royalmatch com.dts.freefiremax com.dxx.firenow com.gramgames.mergedragons com.ludo.king com.mojang.minecraftpe com.my.defense com.nintendo.zaka com.os.airforce com.playrix.fishdomdd.gplay io.teslatech.callbreak jp.konami.prospia net.peakgames.toonblast
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment: com.example.boticario_ai is not listed in ANGLE allowlist or settings, returning default
+10-03 09:37:51.050  6298  6298 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+--------- beginning of system
+10-03 09:37:51.062  6298  6329 I DisplayManager: Choreographer implicitly registered for the refresh rate.
+10-03 09:37:51.065  6298  6298 I le.boticario_ai: AssetManager2(0xb40000728fe77698) locale list changing from [] to [en-US]
+10-03 09:37:51.067  6298  6298 E ashmem  : Pinning is deprecated since Android Q. Please use trim or other methods.
+10-03 09:37:51.070  6298  6331 D FlutterJNI: Beginning load of flutter...
+10-03 09:37:51.071  6298  6332 I ResourceExtractor: Found extracted resources res_timestamp-1-1791037906106
+10-03 09:37:51.077  6298  6329 I EGL_emulation: Opening libGLESv1_CM_emulation.so
+10-03 09:37:51.077  6298  6329 I EGL_emulation: Opening libGLESv2_emulation.so
+10-03 09:37:51.081  6298  6329 W HWUI    : Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-03 09:37:51.081  6298  6329 W HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-03 09:37:51.082  6298  6331 D nativeloader: Load /data/app/~~sf59z8VwYYoI8785H10W7g==/com.example.boticario_ai-U3uASd8rAlcfNuH_y2mvAA==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~sf59z8VwYYoI8785H10W7g==/com.example.boticario_ai-U3uASd8rAlcfNuH_y2mvAA==/base.apk): ok
+10-03 09:37:51.083  6298  6331 D FlutterJNI: flutter (null) was loaded normally!
+10-03 09:37:51.087  6298  6333 D skia    : [SkFontMgr Android Parser] '/product/etc/fonts_customization.xml' could not be opened
+10-03 09:37:51.092  6298  6298 W le.boticario_ai: type=1400 audit(0.0:48): avc:  denied  { read } for  name="max_map_count" dev="proc" ino=21170 scontext=u:r:untrusted_app:s0:c216,c256,c512,c768 tcontext=u:object_r:proc_max_map_count:s0 tclass=file permissive=0 app=com.example.boticario_ai
+10-03 09:37:51.092  6298  6298 I le.boticario_ai: AssetManager2(0xb40000728fe795d8) locale list changing from [] to [en-US]
+10-03 09:37:51.108  6298  6298 D DesktopModeFlags: Toggle override initialized to: OVERRIDE_UNSET
+10-03 09:37:51.129  6298  6334 I flutter : [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+10-03 09:37:51.170  6298  6341 I flutter : The Dart VM service is listening on http://127.0.0.1:41019/[REDACTED_VM_SERVICE_AUTH]
+10-03 09:37:51.330  6298  6298 I le.boticario_ai: hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported,test-api) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-03 09:37:51.330  6298  6298 I le.boticario_ai: hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-03 09:37:51.330  6298  6298 I le.boticario_ai: hiddenapi: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-03 09:37:51.330  6298  6298 I le.boticario_ai: hiddenapi: Accessing hidden method Landroid/util/LongArray;->get(I)J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-03 09:37:51.331  6298  6298 D AccessibilityBridge: Setting not found: accessibility_display_inversion_enabled, using default: 0
+10-03 09:37:51.337  6298  6298 D FlutterRenderer: Width is zero. 0,0
+10-03 09:37:51.338  6298  6298 D CompatChangeReporter: Compat change id reported: 377864165; UID 10216; state: ENABLED
+10-03 09:37:51.343  6298  6298 W HWUI    : Unknown dataspace 0
+10-03 09:37:51.649  6298  6298 I Choreographer: Skipped 34 frames!  The application may be doing too much work on its main thread.
+10-03 09:37:51.652  6298  6298 I WindowExtensionsImpl: Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+10-03 09:37:51.657  6298  6298 D FlutterRenderer: Width is zero. 0,0
+10-03 09:37:51.659  6298  6306 I le.boticario_ai: Compiler allocated 5111KB to compile void android.view.ViewRootImpl.performTraversals()
+10-03 09:37:51.660  6298  6298 D FlutterJNI: Sending viewport metrics to the engine.
+10-03 09:37:51.885  6298  6298 D FlutterJNI: Sending viewport metrics to the engine.
+10-03 09:37:51.908  6298  6298 D WindowLayoutComponentImpl: Register WindowLayoutInfoListener on Context=com.example.boticario_ai.MainActivity@9ffab20, of which baseContext=android.app.ContextImpl@71f3980
+10-03 09:37:51.909  6298  6298 D FlutterJNI: Sending viewport metrics to the engine.
+10-03 09:37:51.931  6298  6298 D InsetsController: hide(ime(), fromIme=false)
+10-03 09:37:51.932  6298  6298 I ImeTracker: com.example.boticario_ai:9812afb0: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-03 09:37:56.664  6298  6381 D ProfileInstaller: Installing profile for com.example.boticario_ai
+10-03 09:38:01.954  6298  6298 I flutter : [Home] Preguntar al Boticario

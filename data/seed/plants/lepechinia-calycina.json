@@ -1,0 +1,125 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8ae5907b62cebfdef302434e482b8987dd47699982ceb870abcc0f56a3eceb9a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:554-1"
+      ],
+      "text": "Epling's Lepechinia"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:110759"
+    ],
+    "value": "Lepechinia calycina"
+  },
+  "family": {
+    "refs": [
+      "wcvp:110759"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lepechinia-calycina",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:554-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:110759"
+    ],
+    "value": "Suroeste de Estados Unidos (California)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:554-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Epling's Lepechinia»",
+      "license": "CC0"
+    },
+    "usda_part:554-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:110759": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepechinia calycina (Benth.) Epling",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:193974": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sphacele calycina Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:5984": {
+      "dataset": "wcvp",
+      "label": "WCVP: Alguelagum calycinum (Benth.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth.) Epling",
+    "name": "Lepechinia calycina",
+    "refs": [
+      "wcvp:110759"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth.) Kuntze",
+      "name": "Alguelagum calycinum",
+      "refs": [
+        "wcvp:5984"
+      ]
+    },
+    {
+      "authors": "Benth.",
+      "name": "Sphacele calycina",
+      "refs": [
+        "wcvp:193974"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

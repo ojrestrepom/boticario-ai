@@ -1,0 +1,973 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:57f1d567d884c277953fe5f79cf3b9bcf6124787cd056b9635f5d8f88912f4fc",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia officinalis",
+        "wikidata:Q1111359"
+      ],
+      "text": "Salvia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1111359"
+      ],
+      "text": "Salvia Real"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1111359"
+      ],
+      "text": "Salvia fina"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q1111359"
+      ],
+      "text": "Mermasangre"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:888-1"
+      ],
+      "text": "Sage"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P540"
+      ],
+      "text": "Common sage"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P540"
+      ],
+      "text": "Echter Salbei"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia officinalis"
+    ],
+    "value": "Especie herbácea de la familia de las lamiáceas, comúnmente llamada salvia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Salvia officinalis",
+      "wikidata:Q1111359"
+    ],
+    "value": "Salvia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:183353"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:salviae-officinalis-folium"
+      ],
+      "subarea": "boca-y-garganta"
+    },
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:salviae-officinalis-folium"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:salviae-officinalis-folium"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "salvia-officinalis",
+  "image": {
+    "attributionRequired": false,
+    "author": "iNaturalist.org (Alina Majcen) (Alina%20Majcen)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salvia_officinalis_L._3355742911.jpg",
+    "refs": [
+      "commons:File:Salvia officinalis L. 3355742911.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Salvia_officinalis_L._3355742911.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:salviae-officinalis-aetheroleum",
+      "usda_part:888-LF",
+      "usda_part:888-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:183353"
+    ],
+    "value": "Nativa del centro, el sureste y el suroeste de Europa."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:salviae-officinalis-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salvia officinalis L. 3355742911.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salvia officinalis L. 3355742911.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Salvia_officinalis_L._3355742911.jpg"
+    },
+    "efsa_botanic:2378": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: alpha-thujone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2379": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Camphor",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2380": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2381": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2384": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: beta-thujone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:301": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Salvia officinalis L.",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:salviae-officinalis-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Salviae officinalis aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/salviae-officinalis-aetheroleum"
+    },
+    "ema_herbal:salviae-officinalis-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Salviae officinalis folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/salviae-officinalis-folium"
+    },
+    "ema_pdf:salviae-officinalis-aetheroleum:CONCLUSIONS": {
+      "dataset": "ema_pdf",
+      "label": "EMA: declaración pública de salviae-officinalis-aetheroleum, conclusiones",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-salvia-officinalis-l-aetheroleum_en.pdf"
+    },
+    "ema_pdf:salviae-officinalis-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de salviae-officinalis-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salvia-officinalis-l-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:salviae-officinalis-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de salviae-officinalis-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salvia-officinalis-l-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:salviae-officinalis-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de salviae-officinalis-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salvia-officinalis-l-folium-revision-1_en.pdf"
+    },
+    "tppt_plant:P540": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Salvia officinalis L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:888-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sage»",
+      "license": "CC0"
+    },
+    "usda_part:888-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:888-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10720": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10720",
+      "license": "CC0"
+    },
+    "usda_use:12424": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12424",
+      "license": "CC0"
+    },
+    "usda_use:13416": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13416",
+      "license": "CC0"
+    },
+    "usda_use:14659": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14659",
+      "license": "CC0"
+    },
+    "usda_use:25309": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25309",
+      "license": "CC0"
+    },
+    "usda_use:3785": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3785",
+      "license": "CC0"
+    },
+    "usda_use:4049": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4049",
+      "license": "CC0"
+    },
+    "usda_use:45492": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45492",
+      "license": "CC0"
+    },
+    "usda_use:45493": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45493",
+      "license": "CC0"
+    },
+    "usda_use:46935": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46935",
+      "license": "CC0"
+    },
+    "usda_use:46936": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46936",
+      "license": "CC0"
+    },
+    "usda_use:50952": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50952",
+      "license": "CC0"
+    },
+    "usda_use:50953": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50953",
+      "license": "CC0"
+    },
+    "usda_use:50954": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50954",
+      "license": "CC0"
+    },
+    "usda_use:6116": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6116",
+      "license": "CC0"
+    },
+    "usda_use:6117": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6117",
+      "license": "CC0"
+    },
+    "usda_use:61186": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61186",
+      "license": "CC0"
+    },
+    "usda_use:61192": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61192",
+      "license": "CC0"
+    },
+    "usda_use:61194": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61194",
+      "license": "CC0"
+    },
+    "usda_use:64621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64621",
+      "license": "CC0"
+    },
+    "usda_use:65314": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65314",
+      "license": "CC0"
+    },
+    "usda_use:6547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6547",
+      "license": "CC0"
+    },
+    "usda_use:66698": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66698",
+      "license": "CC0"
+    },
+    "usda_use:67789": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67789",
+      "license": "CC0"
+    },
+    "usda_use:68728": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68728",
+      "license": "CC0"
+    },
+    "usda_use:69601": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69601",
+      "license": "CC0"
+    },
+    "usda_use:69694": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69694",
+      "license": "CC0"
+    },
+    "usda_use:70096": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70096",
+      "license": "CC0"
+    },
+    "wcvp:183353": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia officinalis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q1111359": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1111359",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1111359"
+    },
+    "wikipedia_es:Salvia officinalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia officinalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia_officinalis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "Alguna clave de cita del grupo «Astringente» no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Alguna clave de cita del grupo «Tónico» no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Alguna clave de cita del grupo «Dolor de garganta» no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[4]"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "ema_pdf:salviae-officinalis-folium:4.3",
+      "ema_pdf:salviae-officinalis-folium:4.4",
+      "ema_pdf:salviae-officinalis-folium:4.5",
+      "ema_pdf:salviae-officinalis-aetheroleum:CONCLUSIONS",
+      "efsa_botanic:2378",
+      "efsa_botanic:2384",
+      "efsa_botanic:2381",
+      "efsa_botanic:2380",
+      "efsa_botanic:2379",
+      "efsa_endpoint:301",
+      "tppt_plant:P540"
+    ],
+    "text": "La monografía de la EMA para la hoja registra como contraindicación la hipersensibilidad a las sustancias activas, indica que no se ha establecido el uso en menores de 18 años y no registra interacciones. Una declaración pública de la EMA sobre el aceite de salvia concluye que sus beneficios no superan sus riesgos. EFSA marca la alfa y la beta tuyona y el estragol entre las sustancias de preocupación de la parte aérea, anota 1,8-cineol y alcanfor como evidencia y recoge casos descritos en personas de convulsiones tras la ingesta oral. TPPT la califica de débilmente tóxica; la parte tóxica es la parte aérea y los efectos adversos de la tuyona se asocian a cantidades altas que normalmente no se alcanzan."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Salvia officinalis",
+    "refs": [
+      "wcvp:183353"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6116",
+        "usda_use:6117",
+        "usda_use:65314",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50952",
+        "usda_use:50953",
+        "usda_use:50954",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3785",
+        "usda_use:64621",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10720",
+        "usda_use:66698",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dolor de garganta",
+      "activitySource": "Sore(Throat)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45492",
+        "usda_use:45493",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46935",
+        "usda_use:46936",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anhidrótico",
+      "activitySource": "Anydrotic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4049",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Calvicie",
+      "activitySource": "Baldness",
+      "citations": [
+        {
+          "key": "Eb20: 23",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 23"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6547",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de boca",
+      "activitySource": "Cancer(Mouth)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido (Gales)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61186",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12424",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Cordial",
+      "activitySource": "Cordial",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13416",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67789",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Caspa",
+      "activitySource": "Dandruff",
+      "citations": [
+        {
+          "key": "Eb20: 23",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 23"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14659",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68728",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61192",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69601",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69694",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70096",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25309",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Gárgaras",
+      "activitySource": "Gargle",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61194",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

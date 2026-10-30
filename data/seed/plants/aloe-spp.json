@@ -1,0 +1,132 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:632e51cac2427cc86f362005e00cd3ad31a93e0088d4ae6ea865e637e82be7f2",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Aloe"
+      ],
+      "text": "Áloe"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Aloe"
+      ],
+      "text": "Sábila"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Aloe"
+      ],
+      "text": "Acíbar"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2187-1"
+      ],
+      "text": "Aloe"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Aloe"
+    ],
+    "value": "Género de plantas suculentas de la familia Asphodelaceae, con alrededor de 525 especies aceptadas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Aloe"
+    ],
+    "value": "Áloe"
+  },
+  "family": null,
+  "goals": [],
+  "id": "aloe-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Harald Süpfle",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Aloe_hereroensis_Auob_C15.JPG",
+    "refs": [
+      "commons:File:Aloe hereroensis Auob C15.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Aloe_hereroensis_Auob_C15.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Aloe hereroensis Auob C15.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Aloe hereroensis Auob C15.JPG",
+      "license": "CC BY-SA 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Aloe_hereroensis_Auob_C15.JPG"
+    },
+    "usda_common_name:2187-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Aloe»",
+      "license": "CC0"
+    },
+    "wikidata:Q127134": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q127134",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q127134"
+    },
+    "wikipedia_es:Aloe": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Aloe",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Aloe"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Aloe spp.",
+    "refs": [
+      "wikidata:Q127134"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

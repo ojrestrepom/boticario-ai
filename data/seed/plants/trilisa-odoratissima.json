@@ -1,0 +1,370 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d50eb3de86661d01fca27e7da1601f5e404db58ab4b5aa881196409c56d8d629",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2334-1"
+      ],
+      "text": "Carolina Vanilla"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2334-2"
+      ],
+      "text": "Deer's Tongue"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2334-3"
+      ],
+      "text": "Hound's Tongue"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2334-4"
+      ],
+      "text": "Vanilla Plant"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3131235"
+    ],
+    "value": "Trilisa odoratissima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3131235"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "trilisa-odoratissima",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3131235"
+    ],
+    "value": "Nativa del sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2334-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Carolina Vanilla»",
+      "license": "CC0"
+    },
+    "usda_common_name:2334-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Deer's Tongue»",
+      "license": "CC0"
+    },
+    "usda_common_name:2334-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hound's Tongue»",
+      "license": "CC0"
+    },
+    "usda_common_name:2334-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Vanilla Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:18861": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18861",
+      "license": "CC0"
+    },
+    "usda_use:26319": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26319",
+      "license": "CC0"
+    },
+    "usda_use:26320": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26320",
+      "license": "CC0"
+    },
+    "usda_use:34731": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34731",
+      "license": "CC0"
+    },
+    "usda_use:47011": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47011",
+      "license": "CC0"
+    },
+    "usda_use:51118": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51118",
+      "license": "CC0"
+    },
+    "usda_use:74598": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74598",
+      "license": "CC0"
+    },
+    "usda_use:78306": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78306",
+      "license": "CC0"
+    },
+    "wcvp:3131231": {
+      "dataset": "wcvp",
+      "label": "WCVP: Chrysocoma odoratissima J.F.Gmel.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3131234": {
+      "dataset": "wcvp",
+      "label": "WCVP: Liatris odoratissima (J.F.Gmel.) Willd.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3131235": {
+      "dataset": "wcvp",
+      "label": "WCVP: Trilisa odoratissima (J.F.Gmel.) Cass.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3131236": {
+      "dataset": "wcvp",
+      "label": "WCVP: Carphephorus odoratissimus (J.F.Gmel.) H.J.-C.Hebert",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3216477": {
+      "dataset": "wcvp",
+      "label": "WCVP: Serratula odoratissima (J.F.Gmel.) Dum.Cours.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(J.F.Gmel.) Cass.",
+    "name": "Trilisa odoratissima",
+    "refs": [
+      "wcvp:3131235"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(J.F.Gmel.) H.J.-C.Hebert",
+      "name": "Carphephorus odoratissimus",
+      "refs": [
+        "wcvp:3131236"
+      ]
+    },
+    {
+      "authors": "J.F.Gmel.",
+      "name": "Chrysocoma odoratissima",
+      "refs": [
+        "wcvp:3131231"
+      ]
+    },
+    {
+      "authors": "(J.F.Gmel.) Willd.",
+      "name": "Liatris odoratissima",
+      "refs": [
+        "wcvp:3131234"
+      ]
+    },
+    {
+      "authors": "(J.F.Gmel.) Dum.Cours.",
+      "name": "Serratula odoratissima",
+      "refs": [
+        "wcvp:3216477"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fumitory",
+      "activitySource": "Fumitory",
+      "citations": [
+        {
+          "key": "Eb23: 185",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 23: 185"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26319",
+        "usda_use:26320"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18861",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervios",
+      "activitySource": "Nerves",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34731",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tos ferina",
+      "activitySource": "Pertussis",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74598",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47011",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:78306",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51118",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

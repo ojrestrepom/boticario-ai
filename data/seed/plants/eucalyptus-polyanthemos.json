@@ -1,0 +1,122 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0a7f56232f90370f9b7a2b2d863dc8f7385433a9a4537dfb4b45dbb37ecdd16f",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus polyanthemos"
+    ],
+    "value": "Especie de árbol de la familia Myrtaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73672"
+    ],
+    "value": "Eucalyptus polyanthemos"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73672"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-polyanthemos",
+  "image": {
+    "attributionRequired": true,
+    "author": "Melburnian",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_polyanthemos_vestita.jpg",
+    "refs": [
+      "commons:File:Eucalyptus polyanthemos vestita.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Eucalyptus_polyanthemos_vestita.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1384-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73672"
+    ],
+    "value": "Australia (Nueva Gales del Sur y Victoria)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus polyanthemos vestita.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus polyanthemos vestita.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_polyanthemos_vestita.jpg"
+    },
+    "usda_part:1384-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:73672": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus polyanthemos Schauer",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus polyanthemos": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus polyanthemos",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_polyanthemos"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schauer",
+    "name": "Eucalyptus polyanthemos",
+    "refs": [
+      "wcvp:73672"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

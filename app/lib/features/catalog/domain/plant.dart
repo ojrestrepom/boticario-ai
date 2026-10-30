@@ -1,75 +1,207 @@
-import 'plant_catalog_provenance.dart';
+import 'package:flutter/foundation.dart';
 
-enum PlantKind { plant }
+import 'plant_consolidated.dart';
+import 'plant_summary.dart';
 
-/// An explicitly registered plant part with its source identifier.
-class PlantPart {
-  PlantPart({
-    required this.name,
-    required this.sourceCode,
-    required Iterable<SourceRecord> sources,
-  }) : sources = List.unmodifiable(sources);
+enum PlantNameKind { scientific, common }
 
-  final String name;
-  final String sourceCode;
+@immutable
+class PlantName {
+  const PlantName({
+    required this.text,
+    required this.kind,
+    required this.language,
+  });
 
-  /// Source rows linking the plant to this part and defining the part.
-  final List<SourceRecord> sources;
+  final String text;
+  final PlantNameKind kind;
+  final String language;
+
+  @override
+  bool operator ==(Object other) =>
+      other is PlantName &&
+      other.text == text &&
+      other.kind == kind &&
+      other.language == language;
+
+  @override
+  int get hashCode => Object.hash(text, kind, language);
 }
 
-/// Immutable catalog entry. Null optional fields mean unavailable, not
-/// inferred or editorially filled content.
+@immutable
+class UseReference {
+  const UseReference({required this.id, required this.citation});
+
+  final String id;
+  final String citation;
+
+  @override
+  bool operator ==(Object other) =>
+      other is UseReference && other.id == id && other.citation == citation;
+
+  @override
+  int get hashCode => Object.hash(id, citation);
+}
+
+@immutable
+class PlantUse {
+  const PlantUse({
+    required this.activity,
+    required this.language,
+    required this.reference,
+  });
+
+  final String activity;
+  final String language;
+  final UseReference reference;
+
+  @override
+  bool operator ==(Object other) =>
+      other is PlantUse &&
+      other.activity == activity &&
+      other.language == language &&
+      other.reference == reference;
+
+  @override
+  int get hashCode => Object.hash(activity, language, reference);
+}
+
+/// Detail of `GET /v1/plants/{id}`.
+@immutable
 class Plant {
   Plant({
-    required this.usdaPlantId,
-    required this.editorialCommonName,
-    required this.sourceScientificName,
-    this.kind = PlantKind.plant,
-    this.origin,
+    required this.id,
+    required this.scientificName,
+    required this.family,
+    required List<PlantName> names,
+    required List<String> parts,
+    required List<PlantUse> uses,
+    this.displayName,
+    List<String> synonyms = const [],
     this.description,
-    this.identitySource,
-    Iterable<PlantPart> parts = const [],
-    Iterable<TraditionalUse> traditionalUses = const [],
-    this.propertiesNotEvaluated = true,
-  }) : parts = List.unmodifiable(parts),
-       traditionalUses = List.unmodifiable(traditionalUses);
+    this.origin,
+    this.oil,
+    List<UseGroup>? useGroups,
+    List<PlantGoal> goals = const [],
+    this.safety,
+    this.image,
+    List<PlantCredit> credits = const [],
+  }) : names = List.unmodifiable(names),
+       parts = List.unmodifiable(parts),
+       uses = List.unmodifiable(uses),
+       synonyms = List.unmodifiable(synonyms),
+       useGroups = List.unmodifiable(useGroups ?? deriveUseGroups(uses)),
+       goals = List.unmodifiable(goals),
+       credits = List.unmodifiable(credits);
 
-  /// Stable internal identity corresponding to the source FNFNUM.
-  final int usdaPlantId;
-  final String editorialCommonName;
-  final String sourceScientificName;
-  final PlantKind kind;
-  final String? origin;
+  final String id;
+  final String scientificName;
+  final String? family;
+  final List<PlantName> names;
+
+  /// Part labels, in the order the API sent them.
+  final List<String> parts;
+  final List<PlantUse> uses;
+
+  /// Display name from the API; `null` when the backend predates it.
+  final String? displayName;
+  final List<String> synonyms;
   final String? description;
-  final SourceRecord? identitySource;
-  final List<PlantPart> parts;
-  final List<TraditionalUse> traditionalUses;
-  final bool propertiesNotEvaluated;
+  final String? origin;
+  final PlantOil? oil;
+
+  /// Traditional-use groups. When the response has none of its own they are
+  /// derived from [uses], one per activity (older backend fallback).
+  final List<UseGroup> useGroups;
+  final List<PlantGoal> goals;
+
+  /// `null` only when the sources have no precaution data at all.
+  final PlantSafety? safety;
+  final PlantImage? image;
+  final List<PlantCredit> credits;
+
+  List<PlantName> get commonNames => [
+    for (final name in names)
+      if (name.kind == PlantNameKind.common) name,
+  ];
+
+  DisplayNames get displayNames => displayNamesFor(
+    scientificName: scientificName,
+    displayName: displayName,
+    commonNames: [for (final name in commonNames) name.text],
+  );
+
+  String get primaryName => displayNames.primary;
+  String? get secondaryName => displayNames.secondary;
+
+  @override
+  bool operator ==(Object other) =>
+      other is Plant &&
+      other.id == id &&
+      other.scientificName == scientificName &&
+      other.family == family &&
+      listEquals(other.names, names) &&
+      listEquals(other.parts, parts) &&
+      listEquals(other.uses, uses) &&
+      other.displayName == displayName &&
+      listEquals(other.synonyms, synonyms) &&
+      other.description == description &&
+      other.origin == origin &&
+      other.oil == oil &&
+      listEquals(other.useGroups, useGroups) &&
+      listEquals(other.goals, goals) &&
+      other.safety == safety &&
+      other.image == image &&
+      listEquals(other.credits, credits);
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    scientificName,
+    family,
+    Object.hashAll(names),
+    Object.hashAll(parts),
+    Object.hashAll(uses),
+    displayName,
+    Object.hashAll(synonyms),
+    description,
+    origin,
+    oil,
+    Object.hashAll(useGroups),
+    Object.hashAll(goals),
+    safety,
+    image,
+    Object.hashAll(credits),
+  );
 }
 
-/// Ordered, immutable catalog with unambiguous nullable ID lookup.
-class PlantCatalog {
-  PlantCatalog({required Iterable<Plant> plants, required this.provenance})
-    : plants = List.unmodifiable(plants) {
-    final ids = <int>{};
-    for (final plant in this.plants) {
-      if (!ids.add(plant.usdaPlantId)) {
-        throw ArgumentError.value(
-          plant.usdaPlantId,
-          'plants',
-          'Plant IDs must be unique',
-        );
-      }
-    }
+/// Older-backend fallback: one group per activity, in the contract order
+/// (`count` descending, then activity). Countries and source are unknown.
+List<UseGroup> deriveUseGroups(List<PlantUse> uses) {
+  final byActivity = <String, List<PlantUse>>{};
+  for (final use in uses) {
+    byActivity.putIfAbsent(use.activity, () => []).add(use);
   }
-
-  final List<Plant> plants;
-  final PlantCatalogProvenance provenance;
-
-  Plant? findById(int usdaPlantId) {
-    for (final plant in plants) {
-      if (plant.usdaPlantId == usdaPlantId) return plant;
-    }
-    return null;
-  }
+  final groups = [
+    for (final entry in byActivity.entries)
+      UseGroup(
+        activity: entry.key,
+        activitySource: null,
+        count: entry.value.length,
+        countries: const [],
+        references: [
+          for (final use in entry.value)
+            CitedReference(
+              id: use.reference.id,
+              citation: use.reference.citation,
+              resolved: true,
+            ),
+        ],
+      ),
+  ];
+  groups.sort((a, b) {
+    final byCount = b.count.compareTo(a.count);
+    return byCount != 0 ? byCount : a.activity.compareTo(b.activity);
+  });
+  return groups;
 }

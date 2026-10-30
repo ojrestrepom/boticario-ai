@@ -1,0 +1,178 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b0b82813311b8b99c1642647f5538c1fbc3bad7bf3e684e3301c0acedee83a72",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia mexicana",
+        "wikidata:Q7406836"
+      ],
+      "text": "Tlacote"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia mexicana"
+    ],
+    "value": "Especie de planta de la familia de las lamiáceas, nativa de México."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Salvia mexicana",
+      "wikidata:Q7406836"
+    ],
+    "value": "Tlacote"
+  },
+  "family": {
+    "refs": [
+      "wcvp:183183"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-mexicana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Juan Carlos Fonseca Mata",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Tlacote_(Salvia_mexicana)_I.jpg",
+    "refs": [
+      "commons:File:Tlacote (Salvia mexicana) I.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Tlacote_%28Salvia_mexicana%29_I.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:183183"
+    ],
+    "value": "Nativa de México."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Tlacote (Salvia mexicana) I.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Tlacote (Salvia mexicana) I.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Tlacote_(Salvia_mexicana)_I.jpg"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:55504": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55504",
+      "license": "CC0"
+    },
+    "wcvp:183183": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia mexicana L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:188685": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sclarea mexicana (L.) Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:98247": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hemistegia mexicana (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q7406836": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q7406836",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q7406836"
+    },
+    "wikipedia_es:Salvia mexicana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia mexicana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia_mexicana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Salvia mexicana",
+    "refs": [
+      "wcvp:183183"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Raf.",
+      "name": "Hemistegia mexicana",
+      "refs": [
+        "wcvp:98247"
+      ]
+    },
+    {
+      "authors": "(L.) Mill.",
+      "name": "Sclarea mexicana",
+      "refs": [
+        "wcvp:188685"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55504",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

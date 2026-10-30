@@ -1,0 +1,877 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d25adc9b9d8bdb247902298e0303b5df4f2c547b8445cd24001cd6f854080438",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Paeonia lactiflora"
+      ],
+      "text": "peonía china"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Paeonia lactiflora"
+      ],
+      "text": "peonía híbrida"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Paeonia lactiflora"
+      ],
+      "text": "rosa de monte"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Paeonia lactiflora"
+      ],
+      "text": "rosa sin espinas"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:687-1"
+      ],
+      "text": "Chih-Shao"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:687-3"
+      ],
+      "text": "Common Garden Peony"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:687-2"
+      ],
+      "text": "Peony"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:687-4"
+      ],
+      "text": "White Peony"
+    },
+    {
+      "language": "zh",
+      "refs": [
+        "usda_common_name:687-5"
+      ],
+      "text": "Bai Shao"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Paeonia lactiflora"
+    ],
+    "value": "Especie herbácea perenne fanerógama de la familia Paeoniaceae."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Paeonia lactiflora"
+    ],
+    "value": "Peonía china"
+  },
+  "family": {
+    "refs": [
+      "wcvp:519125"
+    ],
+    "value": "Paeoniaceae"
+  },
+  "goals": [],
+  "id": "paeonia-lactiflora",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ulf Eliasson",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg",
+    "refs": [
+      "commons:File:Lactiflora1b.UME.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Lactiflora1b.UME.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:687-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:519125"
+    ],
+    "value": "China, Mongolia, Extremo Oriente ruso y Siberia"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:paeoniae-radix-alba",
+        "ema_herbal:paeoniae-radix-rubra"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lactiflora1b.UME.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lactiflora1b.UME.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lactiflora1b.UME.jpg"
+    },
+    "ema_herbal:paeoniae-radix-alba": {
+      "dataset": "ema_json",
+      "label": "EMA: Paeoniae radix alba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/paeoniae-radix-alba"
+    },
+    "ema_herbal:paeoniae-radix-rubra": {
+      "dataset": "ema_json",
+      "label": "EMA: Paeoniae radix rubra",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/paeoniae-radix-rubra"
+    },
+    "usda_common_name:687-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chih-Shao»",
+      "license": "CC0"
+    },
+    "usda_common_name:687-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Peony»",
+      "license": "CC0"
+    },
+    "usda_common_name:687-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Common Garden Peony»",
+      "license": "CC0"
+    },
+    "usda_common_name:687-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «White Peony»",
+      "license": "CC0"
+    },
+    "usda_common_name:687-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bai Shao (Chinese)»",
+      "license": "CC0"
+    },
+    "usda_part:687-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Kimura": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Kimura",
+      "license": "CC0"
+    },
+    "usda_reference:Li": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Li",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:13397": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13397",
+      "license": "CC0"
+    },
+    "usda_use:16878": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16878",
+      "license": "CC0"
+    },
+    "usda_use:20185": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20185",
+      "license": "CC0"
+    },
+    "usda_use:25012": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25012",
+      "license": "CC0"
+    },
+    "usda_use:2656": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2656",
+      "license": "CC0"
+    },
+    "usda_use:2657": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2657",
+      "license": "CC0"
+    },
+    "usda_use:3722": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3722",
+      "license": "CC0"
+    },
+    "usda_use:3911": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3911",
+      "license": "CC0"
+    },
+    "usda_use:53082": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53082",
+      "license": "CC0"
+    },
+    "usda_use:53083": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53083",
+      "license": "CC0"
+    },
+    "usda_use:5931": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5931",
+      "license": "CC0"
+    },
+    "usda_use:59957": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59957",
+      "license": "CC0"
+    },
+    "usda_use:59958": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59958",
+      "license": "CC0"
+    },
+    "usda_use:59963": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59963",
+      "license": "CC0"
+    },
+    "usda_use:59966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59966",
+      "license": "CC0"
+    },
+    "usda_use:6372": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6372",
+      "license": "CC0"
+    },
+    "usda_use:64043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64043",
+      "license": "CC0"
+    },
+    "usda_use:64304": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64304",
+      "license": "CC0"
+    },
+    "usda_use:6474": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6474",
+      "license": "CC0"
+    },
+    "usda_use:66429": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66429",
+      "license": "CC0"
+    },
+    "usda_use:67524": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67524",
+      "license": "CC0"
+    },
+    "usda_use:68059": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68059",
+      "license": "CC0"
+    },
+    "usda_use:7554": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7554",
+      "license": "CC0"
+    },
+    "usda_use:80199": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80199",
+      "license": "CC0"
+    },
+    "usda_use:81805": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81805",
+      "license": "CC0"
+    },
+    "usda_use:930": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 930",
+      "license": "CC0"
+    },
+    "usda_use:9628": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9628",
+      "license": "CC0"
+    },
+    "usda_use:9671": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9671",
+      "license": "CC0"
+    },
+    "usda_use:9672": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9672",
+      "license": "CC0"
+    },
+    "wcvp:519125": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paeonia lactiflora Pall.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Paeonia lactiflora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Paeonia lactiflora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Paeonia_lactiflora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Root), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad (las declaraciones públicas de la EMA no traen datos de seguridad); la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Pall.",
+    "name": "Paeonia lactiflora",
+    "refs": [
+      "wcvp:519125"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Japón"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2656",
+        "usda_use:2657",
+        "usda_use:64304",
+        "usda_reference:Hunan",
+        "usda_reference:Kimura",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3911",
+        "usda_use:59957",
+        "usda_reference:Kimura",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Eb31: 35",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 35"
+        },
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6372",
+        "usda_use:6474",
+        "usda_reference:EB",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de cuello uterino",
+      "activitySource": "Cancer(Cervix)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9671",
+        "usda_use:9672",
+        "usda_reference:Hartwell",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Convulsión",
+      "activitySource": "Convulsion",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13397",
+        "usda_use:67524",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Kimura",
+          "ref": "usda_reference:Kimura",
+          "text": "Kimura, Koiti. 1962. Japanese medicinal plants. vol. 1 (Revised ed.). Hirokawa Publishing Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Japón"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25012",
+        "usda_use:59963",
+        "usda_reference:Kimura",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de pulmón",
+      "activitySource": "Tumor(Lung)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53082",
+        "usda_use:53083",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Vértigo",
+      "activitySource": "Vertigo",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59966",
+        "usda_use:80199",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:930",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64043",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59958",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Antidiurético",
+      "activitySource": "Antidiuretic",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81805",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3722",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5931",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Sangre",
+      "activitySource": "Blood",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7554",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
+      "activitySource": "Cancer(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9628",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66429",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68059",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16878",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20185",
+        "usda_reference:NAS2"
+      ]
+    }
+  ]
+}

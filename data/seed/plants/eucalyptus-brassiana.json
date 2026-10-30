@@ -1,0 +1,100 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a045d8c991cdbba9b004b8eb921e8ff8673a3626b8d2dca5562e2fa78556fdbf",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1370-1"
+      ],
+      "text": "Brasses' Eucalyptus"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72563"
+    ],
+    "value": "Eucalyptus brassiana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72563"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-brassiana",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1370-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72563"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1370-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Brasses' Eucalyptus»",
+      "license": "CC0"
+    },
+    "usda_part:1370-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72563": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus brassiana S.T.Blake",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "S.T.Blake",
+    "name": "Eucalyptus brassiana",
+    "refs": [
+      "wcvp:72563"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

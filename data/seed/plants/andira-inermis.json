@@ -1,0 +1,657 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0056730d48fd6f1445ac2d6be70cc8c5aed0b10864abc47e3ec45ec15128edf5",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Andira inermis"
+      ],
+      "text": "Almendro de Rio"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:78-1"
+      ],
+      "text": "Cabbage Bark"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Andira inermis"
+    ],
+    "value": "Árbol de la familia de las fabáceas, originario de América."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Andira inermis"
+    ],
+    "value": "Almendro de Rio"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2636921"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "andira-inermis",
+  "image": {
+    "attributionRequired": true,
+    "author": "S.Pereira-Nunes",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Tree_Picture_of_Andira_Inermis.jpg",
+    "refs": [
+      "commons:File:Tree Picture of Andira Inermis.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Tree_Picture_of_Andira_Inermis.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2636921"
+    ],
+    "value": "Nativa de América tropical (Caribe, México, Centroamérica, Brasil y el norte y oeste de Sudamérica), el sureste de Estados Unidos y África tropical."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Tree Picture of Andira Inermis.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Tree Picture of Andira Inermis.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Tree_Picture_of_Andira_Inermis.jpg"
+    },
+    "efsa_botanic:419": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: berberine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:420": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: biochanin-A",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:421": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: calycosin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:422": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: genistein",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:78-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cabbage Bark»",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Lewis": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Lewis",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:20804": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20804",
+      "license": "CC0"
+    },
+    "usda_use:20805": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20805",
+      "license": "CC0"
+    },
+    "usda_use:21022": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21022",
+      "license": "CC0"
+    },
+    "usda_use:23763": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23763",
+      "license": "CC0"
+    },
+    "usda_use:24023": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24023",
+      "license": "CC0"
+    },
+    "usda_use:24593": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24593",
+      "license": "CC0"
+    },
+    "usda_use:33143": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33143",
+      "license": "CC0"
+    },
+    "usda_use:34216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34216",
+      "license": "CC0"
+    },
+    "usda_use:37007": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37007",
+      "license": "CC0"
+    },
+    "usda_use:37651": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37651",
+      "license": "CC0"
+    },
+    "usda_use:37652": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37652",
+      "license": "CC0"
+    },
+    "usda_use:38590": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38590",
+      "license": "CC0"
+    },
+    "usda_use:39505": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39505",
+      "license": "CC0"
+    },
+    "usda_use:40088": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40088",
+      "license": "CC0"
+    },
+    "usda_use:40089": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40089",
+      "license": "CC0"
+    },
+    "usda_use:54019": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54019",
+      "license": "CC0"
+    },
+    "usda_use:54020": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54020",
+      "license": "CC0"
+    },
+    "usda_use:54021": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54021",
+      "license": "CC0"
+    },
+    "usda_use:56390": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56390",
+      "license": "CC0"
+    },
+    "usda_use:56391": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56391",
+      "license": "CC0"
+    },
+    "usda_use:56631": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56631",
+      "license": "CC0"
+    },
+    "usda_use:56632": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56632",
+      "license": "CC0"
+    },
+    "usda_use:64375": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64375",
+      "license": "CC0"
+    },
+    "usda_use:74748": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74748",
+      "license": "CC0"
+    },
+    "usda_use:79962": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79962",
+      "license": "CC0"
+    },
+    "usda_use:79963": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79963",
+      "license": "CC0"
+    },
+    "wcvp:2452629": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vouacapoua inermis (W.Wright) P.Knuth",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2636921": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andira inermis (W.Wright) Kunth ex DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2822551": {
+      "dataset": "wcvp",
+      "label": "WCVP: Geoffroea inermis W.Wright",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Andira inermis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Andira inermis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Andira_inermis"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:37651",
+      "usda_use:37652",
+      "usda_use:38590",
+      "efsa_botanic:419",
+      "efsa_botanic:420",
+      "efsa_botanic:421",
+      "efsa_botanic:422"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. EFSA registra en la corteza las sustancias berberina, biochanin-A, calicosina y genisteína como evidencia, sin que ninguna esté en su lista de alta preocupación."
+  },
+  "scientificName": {
+    "authors": "(W.Wright) Kunth ex DC.",
+    "name": "Andira inermis",
+    "refs": [
+      "wcvp:2636921"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "W.Wright",
+      "name": "Geoffroea inermis",
+      "refs": [
+        "wcvp:2822551"
+      ]
+    },
+    {
+      "authors": "(W.Wright) P.Knuth",
+      "name": "Vouacapoua inermis",
+      "refs": [
+        "wcvp:2452629"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México",
+        "Trinidad",
+        "Venezuela"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54019",
+        "usda_use:54020",
+        "usda_use:54021",
+        "usda_use:56632",
+        "usda_use:79962",
+        "usda_use:79963",
+        "usda_reference:Duke",
+        "usda_reference:EB",
+        "usda_reference:Martinez",
+        "usda_reference:Pittier",
+        "usda_reference:Uphof",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Trinidad"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39505",
+        "usda_use:40088",
+        "usda_use:40089",
+        "usda_use:56631",
+        "usda_reference:Duke",
+        "usda_reference:EB",
+        "usda_reference:Uphof",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Eccema",
+      "activitySource": "Eczema",
+      "citations": [
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20804",
+        "usda_use:20805",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24023",
+        "usda_use:24593",
+        "usda_reference:Brutus",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Lewis",
+          "ref": "usda_reference:Lewis",
+          "text": "Lewis and Elvin-Lewis, Medical Botany, ca 1977"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37007",
+        "usda_use:74748",
+        "usda_reference:Duke",
+        "usda_reference:Lewis"
+      ]
+    },
+    {
+      "activity": "Frambesia",
+      "activitySource": "Yaws",
+      "citations": [
+        {
+          "key": "Eb30: 123",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 123"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56390",
+        "usda_use:56391",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Antihelmíntico",
+      "activitySource": "Anthelminthic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64375",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "Venezuela"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21022",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Febrífugo",
+      "activitySource": "Febrifuge",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23763",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33143",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34216",
+        "usda_reference:Duke"
+      ]
+    }
+  ]
+}

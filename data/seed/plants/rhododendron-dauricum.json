@@ -1,0 +1,137 @@
+{
+  "aliases": [
+    "rhododendron-ledebourii"
+  ],
+  "bundleHash": "sha256:bca621852cd3ac98df4bc9b4c5f6d57110232f7b4c8862ef3cd6a85184c0a019",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:849-1"
+      ],
+      "text": "Chinese Alpenrose"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2419620"
+    ],
+    "value": "Rhododendron dauricum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2419620"
+    ],
+    "value": "Ericaceae"
+  },
+  "goals": [],
+  "id": "rhododendron-dauricum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kurt Stüber [1]",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rhododendron_dauricum1.jpg",
+    "refs": [
+      "commons:File:Rhododendron dauricum1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Rhododendron_dauricum1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2419620"
+    ],
+    "value": "China, Asia oriental, Mongolia, Extremo Oriente ruso y Siberia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rhododendron dauricum1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rhododendron dauricum1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rhododendron_dauricum1.jpg"
+    },
+    "usda_common_name:849-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Alpenrose»",
+      "license": "CC0"
+    },
+    "wcvp:2417961": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhododendron ledebourii Pojark.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2419620": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhododendron dauricum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2667074": {
+      "dataset": "wcvp",
+      "label": "WCVP: Azalea daurica (L.) K.Koch",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Rhododendron ledebourii) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Rhododendron dauricum",
+    "refs": [
+      "wcvp:2419620"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) K.Koch",
+      "name": "Azalea daurica",
+      "refs": [
+        "wcvp:2667074"
+      ]
+    },
+    {
+      "authors": "Pojark.",
+      "name": "Rhododendron ledebourii",
+      "refs": [
+        "wcvp:2417961"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

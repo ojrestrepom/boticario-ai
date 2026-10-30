@@ -1,0 +1,168 @@
+{
+  "aliases": [
+    "passiflora-mollissima"
+  ],
+  "bundleHash": "sha256:2a808b18ea3427b16cb7a1126264234f19898dcf3923536fa2d8a878e3d9a922",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1246-2"
+      ],
+      "text": "Granadilla De Guineo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1246-1"
+      ],
+      "text": "Banana Passionfruit"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1246-2"
+    ],
+    "value": "Granadilla De Guineo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2562949"
+    ],
+    "value": "Passifloraceae"
+  },
+  "goals": [],
+  "id": "passiflora-tripartita-var-mollissima",
+  "image": {
+    "attributionRequired": true,
+    "author": "Fibonacci",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Curuba.jpg",
+    "refs": [
+      "commons:File:Curuba.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Curuba.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2562949"
+    ],
+    "value": "América Central y norte y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Curuba.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Curuba.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Curuba.jpg"
+    },
+    "usda_common_name:1246-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Banana Passionfruit»",
+      "license": "CC0"
+    },
+    "usda_common_name:1246-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Granadilla De Guineo»",
+      "license": "CC0"
+    },
+    "wcvp:2502508": {
+      "dataset": "wcvp",
+      "label": "WCVP: Murucuia mollissima (Kunth) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2516819": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tacsonia mollissima Kunth",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2560473": {
+      "dataset": "wcvp",
+      "label": "WCVP: Passiflora mollissima (Kunth) L.H.Bailey",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2562949": {
+      "dataset": "wcvp",
+      "label": "WCVP: Passiflora tripartita var. mollissima (Kunth) Holm-Niels. & P.M.Jørg.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2888253": {
+      "dataset": "wcvp",
+      "label": "WCVP: Passiflora tomentosa var. mollissima (Kunth) Triana & Planch.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA marca «Granadilla De Guineo» como inglés, pero es claramente español; se registra como español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Kunth) Holm-Niels. & P.M.Jørg.",
+    "name": "Passiflora tripartita var. mollissima",
+    "refs": [
+      "wcvp:2562949"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Kunth) Spreng.",
+      "name": "Murucuia mollissima",
+      "refs": [
+        "wcvp:2502508"
+      ]
+    },
+    {
+      "authors": "(Kunth) L.H.Bailey",
+      "name": "Passiflora mollissima",
+      "refs": [
+        "wcvp:2560473"
+      ]
+    },
+    {
+      "authors": "(Kunth) Triana & Planch.",
+      "name": "Passiflora tomentosa var. mollissima",
+      "refs": [
+        "wcvp:2888253"
+      ]
+    },
+    {
+      "authors": "Kunth",
+      "name": "Tacsonia mollissima",
+      "refs": [
+        "wcvp:2516819"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

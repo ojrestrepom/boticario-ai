@@ -1,0 +1,183 @@
+{
+  "aliases": [
+    "satureja-glabella"
+  ],
+  "bundleHash": "sha256:092d54511c3aeb3220b412ba120c03770954559cd034402eac623d75dea69bd0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:902-1"
+      ],
+      "text": "Smooth Savory"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:43533"
+    ],
+    "value": "Clinopodium glabellum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:43533"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-glabellum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Mason Brock ( Masebrock )",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Clinopodium_glabellum.jpg",
+    "refs": [
+      "commons:File:Clinopodium glabellum.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Clinopodium_glabellum.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:902-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:43533"
+    ],
+    "value": "Este y oeste de Canadá, y noreste, noroeste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Clinopodium glabellum.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Clinopodium glabellum.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Clinopodium_glabellum.jpg"
+    },
+    "usda_common_name:902-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Smooth Savory»",
+      "license": "CC0"
+    },
+    "usda_part:902-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:127229": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria glabella (Michx.) Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185643": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja glabella (Michx.) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:215862": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ziziphora glabella (Michx.) Roem. & Schult.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:29141": {
+      "dataset": "wcvp",
+      "label": "WCVP: Calamintha glabella (Michx.) Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43533": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium glabellum (Michx.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:52315": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cunila glabella Michx.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Michx.) Kuntze",
+    "name": "Clinopodium glabellum",
+    "refs": [
+      "wcvp:43533"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Michx.) Benth.",
+      "name": "Calamintha glabella",
+      "refs": [
+        "wcvp:29141"
+      ]
+    },
+    {
+      "authors": "Michx.",
+      "name": "Cunila glabella",
+      "refs": [
+        "wcvp:52315"
+      ]
+    },
+    {
+      "authors": "(Michx.) Benth.",
+      "name": "Micromeria glabella",
+      "refs": [
+        "wcvp:127229"
+      ]
+    },
+    {
+      "authors": "(Michx.) Briq.",
+      "name": "Satureja glabella",
+      "refs": [
+        "wcvp:185643"
+      ]
+    },
+    {
+      "authors": "(Michx.) Roem. & Schult.",
+      "name": "Ziziphora glabella",
+      "refs": [
+        "wcvp:215862"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

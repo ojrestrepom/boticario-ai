@@ -1,0 +1,199 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:27bd5fb45c787240c6fc219d54c00a48416809d96540f6290a078c36251a042e",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1700-LF"
+    ],
+    "value": "Bauhinia vahlii"
+  },
+  "family": null,
+  "goals": [],
+  "id": "bauhinia-vahlii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1700-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:11672": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11672",
+      "license": "CC0"
+    },
+    "usda_use:19048": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19048",
+      "license": "CC0"
+    },
+    "usda_use:19373": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19373",
+      "license": "CC0"
+    },
+    "usda_use:41867": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41867",
+      "license": "CC0"
+    },
+    "usda_use:56871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56871",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Bauhinia vahlii",
+    "refs": [
+      "usda_part:1700-LF"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Eb24: 246",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 246"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56871",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cólera",
+      "activitySource": "Cholera",
+      "citations": [
+        {
+          "key": "Eb24: 246",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 246"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11672",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Eb29: 41",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 41"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19048",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Eb24: 246",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 246"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19373",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Peste bovina",
+      "activitySource": "Rinderpest",
+      "citations": [
+        {
+          "key": "Eb24: 246",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 246"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41867",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

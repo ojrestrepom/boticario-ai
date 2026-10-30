@@ -1,0 +1,156 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1f8f5142624e5ef2016c9fe2bb4dedf48bf4c5b6df8190ce23de15ef2c88ba1d",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:191167"
+    ],
+    "value": "Sideritis clandestina"
+  },
+  "family": {
+    "refs": [
+      "wcvp:191167"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una entrada en su lista de la Unión para la parte aérea en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:sideritis-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una entrada en su lista de la Unión para la parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:sideritis-herba"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "sideritis-clandestina",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:191167"
+    ],
+    "value": "Nativa del sudeste de Europa (Grecia)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:sideritis-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:sideritis-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Sideritis herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/sideritis-herba"
+    },
+    "ema_pdf:sideritis-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sideritis-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf"
+    },
+    "ema_pdf:sideritis-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sideritis-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf"
+    },
+    "ema_pdf:sideritis-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sideritis-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf"
+    },
+    "wcvp:133353": {
+      "dataset": "wcvp",
+      "label": "WCVP: Navicularia clandestina (Bory & Chaub.) Soják",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:152181": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phlomis clandestina Bory & Chaub.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:191167": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sideritis clandestina (Bory & Chaub.) Hayek",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:sideritis-herba:4.3",
+      "ema_pdf:sideritis-herba:4.4",
+      "ema_pdf:sideritis-herba:4.5"
+    ],
+    "text": "La lista de la EMA para la parte aérea (Sideritis herba) registra como contraindicación la hipersensibilidad al principio activo y a otras plantas de la familia de las lamiáceas (labiadas), y señala que no se ha establecido su uso en menores de 18 años por falta de datos. No se reportan interacciones."
+  },
+  "scientificName": {
+    "authors": "(Bory & Chaub.) Hayek",
+    "name": "Sideritis clandestina",
+    "refs": [
+      "wcvp:191167"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Bory & Chaub.) Soják",
+      "name": "Navicularia clandestina",
+      "refs": [
+        "wcvp:133353"
+      ]
+    },
+    {
+      "authors": "Bory & Chaub.",
+      "name": "Phlomis clandestina",
+      "refs": [
+        "wcvp:152181"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

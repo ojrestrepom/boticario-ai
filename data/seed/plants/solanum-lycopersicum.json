@@ -1,0 +1,825 @@
+{
+  "aliases": [
+    "lycopersicon-esculentum"
+  ],
+  "bundleHash": "sha256:69ae36da80d5e91d052fc730d19fe778f2470bfbaca4388017f328e2250758c4",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Solanum lycopersicum"
+      ],
+      "text": "Tomate"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Solanum lycopersicum",
+        "wikidata:Q23501"
+      ],
+      "text": "Tomatera"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Solanum lycopersicum"
+      ],
+      "text": "Jitomate"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P516"
+      ],
+      "text": "Tomate"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P516",
+        "usda_common_name:576-1"
+      ],
+      "text": "Tomato"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Solanum lycopersicum"
+    ],
+    "value": "Planta herbácea de la familia Solanaceae, de importancia global por su uso como alimento. Se cultiva en todo el mundo por su fruto, el tomate o jitomate."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Solanum lycopersicum"
+    ],
+    "value": "Tomate"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2932342"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "solanum-lycopersicum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kod B",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:European_tomates_from_Ivory_Coast_01.jpg",
+    "refs": [
+      "commons:File:European tomates from Ivory Coast 01.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/European_tomates_from_Ivory_Coast_01.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2932342"
+    ],
+    "value": "Perú, en el oeste de América del Sur"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:European tomates from Ivory Coast 01.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:European tomates from Ivory Coast 01.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:European_tomates_from_Ivory_Coast_01.jpg"
+    },
+    "tppt_plant:P516": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Lycopersicon esculentum Mill.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:576-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tomato»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:13486": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13486",
+      "license": "CC0"
+    },
+    "usda_use:15578": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15578",
+      "license": "CC0"
+    },
+    "usda_use:17270": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17270",
+      "license": "CC0"
+    },
+    "usda_use:17271": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17271",
+      "license": "CC0"
+    },
+    "usda_use:25850": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25850",
+      "license": "CC0"
+    },
+    "usda_use:25851": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25851",
+      "license": "CC0"
+    },
+    "usda_use:25852": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25852",
+      "license": "CC0"
+    },
+    "usda_use:25853": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25853",
+      "license": "CC0"
+    },
+    "usda_use:35571": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35571",
+      "license": "CC0"
+    },
+    "usda_use:36234": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36234",
+      "license": "CC0"
+    },
+    "usda_use:38073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38073",
+      "license": "CC0"
+    },
+    "usda_use:3848": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3848",
+      "license": "CC0"
+    },
+    "usda_use:40663": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40663",
+      "license": "CC0"
+    },
+    "usda_use:4118": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4118",
+      "license": "CC0"
+    },
+    "usda_use:55007": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55007",
+      "license": "CC0"
+    },
+    "usda_use:55434": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55434",
+      "license": "CC0"
+    },
+    "usda_use:59273": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59273",
+      "license": "CC0"
+    },
+    "usda_use:59274": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59274",
+      "license": "CC0"
+    },
+    "usda_use:63312": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63312",
+      "license": "CC0"
+    },
+    "usda_use:63313": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63313",
+      "license": "CC0"
+    },
+    "usda_use:63314": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63314",
+      "license": "CC0"
+    },
+    "usda_use:64726": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64726",
+      "license": "CC0"
+    },
+    "usda_use:66261": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66261",
+      "license": "CC0"
+    },
+    "usda_use:67570": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67570",
+      "license": "CC0"
+    },
+    "usda_use:67571": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67571",
+      "license": "CC0"
+    },
+    "usda_use:67729": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67729",
+      "license": "CC0"
+    },
+    "usda_use:68216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68216",
+      "license": "CC0"
+    },
+    "usda_use:75277": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75277",
+      "license": "CC0"
+    },
+    "usda_use:79465": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79465",
+      "license": "CC0"
+    },
+    "usda_use:80713": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80713",
+      "license": "CC0"
+    },
+    "usda_use:82826": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82826",
+      "license": "CC0"
+    },
+    "usda_use:9727": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9727",
+      "license": "CC0"
+    },
+    "wcvp:2496040": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopersicon lycopersicum (L.) H.Karst.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2496100": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lycopersicon esculentum Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2932342": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solanum lycopersicum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3222356": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solanum lycopersicum var. esculentum (Mill.) Voss",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q23501": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q23501",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q23501"
+    },
+    "wikipedia_es:Solanum lycopersicum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Solanum lycopersicum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Solanum_lycopersicum"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P516",
+      "usda_use:38073",
+      "usda_use:75277"
+    ],
+    "text": "TPPT registra la planta entera como tóxica, con la alfa-tomatina (alcaloide esteroidal) como toxina principal, y anota que los frutos maduros ya no contienen alcaloides esteroidales. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Solanum lycopersicum",
+    "refs": [
+      "wcvp:2932342"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Mill.",
+      "name": "Lycopersicon esculentum",
+      "refs": [
+        "wcvp:2496100"
+      ]
+    },
+    {
+      "authors": "(L.) H.Karst.",
+      "name": "Lycopersicon lycopersicum",
+      "refs": [
+        "wcvp:2496040"
+      ]
+    },
+    {
+      "authors": "(Mill.) Voss",
+      "name": "Solanum lycopersicum var. esculentum",
+      "refs": [
+        "wcvp:3222356"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Eb30: 138",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 138"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Haití",
+        "Trinidad"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25850",
+        "usda_use:25851",
+        "usda_use:25852",
+        "usda_use:25853",
+        "usda_reference:Brutus",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Callo",
+      "activitySource": "Corn",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Gabón",
+        "Grecia",
+        "Perú"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13486",
+        "usda_use:67570",
+        "usda_use:67571",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Eb30: 138",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 138"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3848",
+        "usda_use:63312",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Aperient",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4118",
+        "usda_use:64726",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile",
+        "Indias Occidentales"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59273",
+        "usda_use:66261",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15578",
+        "usda_use:68216",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17270",
+        "usda_use:17271",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Palpitación",
+      "activitySource": "Palpitation",
+      "citations": [
+        {
+          "key": "Eb30: 138",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 138"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35571",
+        "usda_use:82826",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Vitíligo",
+      "activitySource": "Vitiligo",
+      "citations": [
+        {
+          "key": "Eb30: 138",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 138"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55007",
+        "usda_use:63313",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Eb30: 138",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 138"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55434",
+        "usda_use:63314",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de boca",
+      "activitySource": "Cancer(Mouth)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Venezuela"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9727",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67729",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36234",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Repelente (insectos)",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40663",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79465",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de hígado",
+      "activitySource": "Tumor(Liver)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59274",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: fiebre amarilla",
+      "activitySource": "Yellow Fever",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80713",
+        "usda_reference:Duke"
+      ]
+    }
+  ]
+}

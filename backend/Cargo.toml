@@ -1,0 +1,30 @@
+[workspace]
+members = ["catalog-core", "catalog-ingest", "catalog-api"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace.dependencies]
+catalog-core = { path = "catalog-core" }
+catalog-ingest = { path = "catalog-ingest" }
+unicode-normalization = "0.1"
+rusqlite = { version = "0.40", features = ["bundled"] }
+tempfile = "3"
+toml = "1"
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.11"
+diesel = { version = "2.3", default-features = false, features = ["sqlite", "returning_clauses_for_sqlite_3_35", "r2d2"] }
+diesel_migrations = { version = "2.3", default-features = false, features = ["sqlite"] }
+libsqlite3-sys = { version = "0.38", features = ["bundled"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "net", "time", "sync"] }
+axum = "0.8"
+tracing = "0.1"
+tower = { version = "0.5", features = ["util"] }
+http-body-util = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+utoipa = { version = "6", features = ["axum_extras"] }
+subtle = "2"

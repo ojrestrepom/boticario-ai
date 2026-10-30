@@ -1,0 +1,12 @@
+# CON-10
+
+líneas de log a nivel trace: 13
+apariciones: {'T1': 0, 'T2': 0, 'T3': 0, 'T3[:40]': 0, 'T1[:32]': 0, 'T2[:32]': 0}
+muestra de las líneas con «autoriz» o «Authorization»:
+2026-10-18T23:52:20.794484Z DEBUG catalog_api::auth: petición no autorizada reason="no coincide" path="/v1/plants"
+2026-10-18T23:52:20.795122Z DEBUG catalog_api::auth: petición no autorizada reason="ausente" path="/v1/plants"
+2026-10-18T23:52:20.795762Z DEBUG catalog_api::auth: petición no autorizada reason="no coincide" path="/v1/plants"
+2026-10-18T23:52:20.796352Z DEBUG catalog_api::auth: petición no autorizada reason="ausente" path="/v1/plants"
+PASS 0 apariciones de tokens (válidos, inválidos, prefijos) en 13 líneas de log trace
+PASS el 401 se registra a nivel debug con la clase del fallo
+PASS no se registra el valor de la cabecera Authorization

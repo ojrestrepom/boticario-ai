@@ -1,0 +1,35 @@
+=== p06
+PASA  UI-01 P06: título, subtítulo y botón Volver a Inicio
+PASA  UI-01 P06: seis filas en el orden del catálogo, todas botones (clickable) ['Relajación / Estrés', 'Mejorar el sueño', 'Cuidado de la piel', 'Alivio respiratorio', 'Cansancio y fatiga', 'Otros objetivos']
+PASA  UI-01 P06: sin 'Concentración'
+PASA  UI-01 P06: ninguna fila muestra un conteo (el nombre de la etiqueta no lleva dígitos)
+PASA  UI-01 P06: barra inferior con Inicio y las otras tres no disponibles
+PASA  UI-01 P06: con scroll la sexta fila queda completa (alcanzable)
+PASA  UI-02 abrir 'Mejorar el sueño' lleva a P07 con 'Para: Mejorar el sueño'
+PASA  UI-01 volver a P06 con Atrás del sistema
+PASA  UI-01 ninguna fila queda seleccionada ni resaltada tras volver (zona de filas idéntica píxel a píxel)
+=== sheet
+PASA  UI-06 el aviso y 'Ver más detalles' están al final del scroll
+PASA  UI-06 la hoja 'Sobre estas recomendaciones' se abre
+PASA  UI-06 la hoja dice «Agencia Europea de Medicamentos (EMA)»
+PASA  UI-06 la hoja dice «no es un consejo médico ni una dosis»
+PASA  UI-06 la hoja dice «marca de precaución señala advertencias de seguridad»
+PASA  UI-06 la hoja dice «pasaporte de cada planta»
+PASA  UI-06 la hoja dice «profesional de la salud»
+PASA  UI-06 la hoja tiene el control Cerrar
+PASA  UI-06 cerrar con el control: P07 intacto (misma pantalla píxel a píxel)
+OBS   arrastrar el cuerpo de la hoja (texto) no la cierra: sigue abierta; el gesto lo consume el SingleChildScrollView del contenido
+PASA  UI-06 cerrar deslizando desde el asa: la hoja desaparece y P07 queda intacto
+PASA  UI-06 cerrar con Atrás del sistema: vuelve a P07 (no sale a P06)
+PASA  UI-06 tras cerrar con Atrás, P07 sigue idéntico
+OBS   sin peticiones ni registro: la hoja es un widget con texto constante (goal_results_page.dart, _DetailsSheet); la API de depuración no registra peticiones autorizadas, así que se verifica por lectura del código y por la prueba del producto
+=== stack
+PASA  UI-08 Inicio, P06, Otros objetivos, Digestión y una planta: se llega al pasaporte
+PASA  UI-08 botón Volver de la app: paso 1 vuelve a P07
+PASA  UI-08 botón Volver de la app: paso 2 vuelve a subáreas
+PASA  UI-08 botón Volver de la app: paso 3 vuelve a P06
+PASA  UI-08 botón Volver de la app: paso 4 vuelve a Inicio
+PASA  UI-08 Atrás del sistema: paso 1 vuelve a P07
+PASA  UI-08 Atrás del sistema: paso 2 vuelve a subáreas
+PASA  UI-08 Atrás del sistema: paso 3 vuelve a P06
+PASA  UI-08 Atrás del sistema: paso 4 vuelve a Inicio

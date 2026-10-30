@@ -1,0 +1,113 @@
+caso	estado	comprobacion	detalle
+API-01	PASA	200	200
+API-01	PASA	Content-Type application/json	application/json
+API-01	PASA	respuesta cumple PageDto_PlantSummaryDto	
+API-01	PASA	limit=20 y offset=0 por defecto	limit=20 offset=0 n=20
+API-01	PASA	total = plantas de la base (2354)	total=2354
+API-01	PASA	orden por nombre cientifico e id	
+API-02	PASA	recorrido completo con limit=100	 paginas=24 en 0.1s
+API-02	PASA	sin duplicados	2354 ids, 2354 unicos
+API-02	PASA	el recorrido cubre exactamente los 2354 ids de la base y en su orden	
+API-02	PASA	total constante en todas las paginas	{2354}
+API-02	PASA	offset = total: 200 con items vacio	200 0
+API-02	PASA	limit=1 offset=5 devuelve el sexto	
+API-02	PASA	limit=0 -> 400 problem+json	400
+API-02	PASA	limit=101 -> 400 problem+json	400
+API-02	PASA	limit=abc -> 400 problem+json	400
+API-02	PASA	offset=-1 -> 400 problem+json	400
+API-02	PASA	limit vacio -> 400 problem+json	400
+API-02	PASA	offset desbordado -> 400 problem+json	400
+API-03	PASA	nombre cientifico exacto: q='lavandula angustifolia' encuentra lavandula-angustifolia	200 total=1 posicion=1
+API-03	PASA	nombre cientifico con mayusculas: q='LAVANDULA Angustifolia' encuentra lavandula-angustifolia	200 total=1 posicion=1
+API-03	PASA	fragmento cientifico: q='angustif' encuentra lavandula-angustifolia	200 total=11 posicion=7
+API-03	PASA	sinonimo cientifico (Rosmarinus officinalis): q='rosmarinus officinalis' encuentra salvia-rosmarinus	200 total=3 posicion=2
+API-03	PASA	nombre aceptado nuevo: q='salvia rosmarinus' encuentra salvia-rosmarinus	200 total=1 posicion=1
+API-03	FALLA	sinonimo anterior de manzanilla: q='matricaria recutita' encuentra matricaria-chamomilla	200 total=0 posicion=None
+API-03	PASA	nombre aceptado de manzanilla: q='matricaria chamomilla' encuentra matricaria-chamomilla	200 total=1 posicion=1
+API-03	PASA	comun es: manzanilla: q='manzanilla' encuentra matricaria-chamomilla	200 total=3 posicion=3
+API-03	PASA	comun es: menta: q='menta' encuentra mentha-x-piperita	200 total=20 posicion=14
+API-03	PASA	comun es: lavanda: q='lavanda' encuentra lavandula-angustifolia	200 total=2 posicion=1
+API-03	PASA	comun es: romero: q='romero' encuentra salvia-rosmarinus	200 total=3 posicion=3
+API-03	PASA	comun es con acento (hipérico): q='hipérico' encuentra hypericum-perforatum	200 total=1 posicion=1
+API-03	PASA	comun es sin acento (hiperico): q='hiperico' encuentra hypericum-perforatum	200 total=1 posicion=1
+API-03	PASA	comun es: hierba de san juan: q='hierba de san juan' encuentra hypericum-perforatum	200 total=3 posicion=2
+API-03	PASA	comun en: English Lavender: q='english lavender' encuentra lavandula-angustifolia	200 total=1 posicion=1
+API-03	PASA	espacios repetidos y exteriores: q='  rosmarinus    officinalis  ' encuentra salvia-rosmarinus	200 total=3 posicion=2
+API-03	FALLA	sinonimo: Mentha piperita: q='mentha piperita' encuentra mentha-x-piperita	200 total=0 posicion=None
+API-03	FALLA	hibrido escrito con x ASCII (Mentha x piperita): q='mentha x piperita' encuentra mentha-x-piperita	200 total=0 posicion=None
+API-03	PASA	hibrido escrito con el signo × (Mentha × piperita): q='mentha × piperita' encuentra mentha-x-piperita	200 total=1 posicion=1
+API-03	PASA	sin coincidencias: total 0	200 0
+API-03	PASA	vacio no filtra: total = 2354	200 2354
+API-03	PASA	solo espacios no filtra: total = 2354	200 2354
+API-03	PASA	% literal no actua como comodin	200 total=0
+API-03	PASA	_ literal no actua como comodin	200 total=1
+API-03	PASA	q de 201 caracteres -> 400	400
+API-03	PASA	q con caracter de control -> 400	400
+API-03	PASA	300 plantas al azar se encuentran por su nombre cientifico	[]
+API-03	PASA	300 plantas al azar se encuentran por un nombre comun en espanol	[]
+API-04	OBS	De 628 IDs anteriores que pasan a alias, buscar su nombre cientifico anterior encuentra la planta nueva en 271 y no la encuentra en 357.	
+API-04	FALLA	los 264 nombres anteriores que la planta nueva lista como sinonimo se encuentran	['rosmarinus-x-lavandulaceus', 'rosmarinus-x-mendizabalii']
+API-05	PASA	manzanilla (matricaria-chamomilla): 200 y cumple PlantDto	200 []
+API-05	PASA	manzanilla: id = matricaria-chamomilla	
+API-05	PASA	manzanilla tiene usos	40 usos
+API-05	PASA	manzanilla: actividades en espanol (language=es)	Counter({'es': 40})
+API-05	PASA	manzanilla: cada uso con referencia con id y cita no vacios	
+API-05	PASA	manzanilla: sin usos repetidos	
+API-05	PASA	menta (mentha-x-piperita): 200 y cumple PlantDto	200 []
+API-05	PASA	menta: id = mentha-x-piperita	
+API-05	PASA	menta tiene usos	31 usos
+API-05	PASA	menta: actividades en espanol (language=es)	Counter({'es': 31})
+API-05	PASA	menta: cada uso con referencia con id y cita no vacios	
+API-05	PASA	menta: sin usos repetidos	
+API-05	PASA	lavanda (lavandula-angustifolia): 200 y cumple PlantDto	200 []
+API-05	PASA	lavanda: id = lavandula-angustifolia	
+API-05	PASA	lavanda tiene usos	13 usos
+API-05	PASA	lavanda: actividades en espanol (language=es)	Counter({'es': 13})
+API-05	PASA	lavanda: cada uso con referencia con id y cita no vacios	
+API-05	PASA	lavanda: sin usos repetidos	
+API-05	PASA	hiperico (hypericum-perforatum): 200 y cumple PlantDto	200 []
+API-05	PASA	hiperico: id = hypericum-perforatum	
+API-05	PASA	hiperico tiene usos	24 usos
+API-05	PASA	hiperico: actividades en espanol (language=es)	Counter({'es': 24})
+API-05	PASA	hiperico: cada uso con referencia con id y cita no vacios	
+API-05	PASA	hiperico: sin usos repetidos	
+API-05	PASA	solo genero (Lavandula sp) (lavandula-sp): 200 y cumple PlantDto	200 []
+API-05	PASA	solo genero (Lavandula sp): id = lavandula-sp	
+API-05	PASA	solo genero (Lavandula sp): actividades en espanol (language=es)	Counter()
+API-05	PASA	solo genero (Lavandula sp): cada uso con referencia con id y cita no vacios	
+API-05	PASA	solo genero (Lavandula sp): sin usos repetidos	
+API-05	OBS	Planta de solo genero lavandula-sp: usos=0, nombres=['Lavandula sp', 'Alhucema', 'Cantueso', 'Espliego', 'Lavanda', 'Lavender']	
+API-06	PASA	/v1/plants/no-existe -> 404 problem+json	404
+API-06	PASA	/v1/plants/rosmarinus-officinalis -> 404 problem+json	404
+API-06	PASA	/v1/plants/matricaria-recutita -> 404 problem+json	404
+API-06	PASA	/v1/plants/LAVANDULA-ANGUSTIFOLIA -> 404 problem+json	404
+API-06	PASA	/v1/plants/lavandula-angustifolia%20 -> 404 problem+json	404
+API-06	PASA	/v1/plants/malachra-alaceaefolia -> 404 problem+json	404
+API-06	PASA	/v1/plants sin token -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants token incorrecto -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants/lavandula-angustifolia sin token -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants/lavandula-angustifolia token incorrecto -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants?q=lavanda sin token -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants?q=lavanda token incorrecto -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants/no-existe sin token -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/plants/no-existe token incorrecto -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/otra-cosa sin token -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	/v1/otra-cosa token incorrecto -> 401 + WWW-Authenticate: Bearer	401
+API-06	PASA	el cuerpo del 401 es el mismo para toda ruta y credencial salvo `instance` (no revela el motivo)	1 variantes
+API-06	PASA	/health publico sin token -> 200	200
+API-06	PASA	/openapi.json publico sin token -> 200	200
+API-07	PASA	los 2354 detalles responden 200 y cumplen PlantDto	0 con problema [] en 1s
+API-07	PASA	usos servidos = plant_use de la base (24.286)	api=24286 mismatch=[]
+API-07	PASA	nombres servidos = plant_name de la base	api=15144
+API-07	PASA	plantas sin usos = base	923
+API-07	PASA	idioma de los usos: todos es	{'es': 24286}
+API-07	FALLA	el primer nombre comun de la API es el nombre para mostrar (plant-passport)	1024 distintos; ejemplos [('abelmoschus-esculentus', 'Bolondrón', 'Quimbombó'), ('abies-alba', 'Abeto blanco', 'Abeto común'), ('abrus-precatorius', 'Coral Beadplant', 'Coralillo asiático')]
+API-07	OBS	1194 plantas sirven su nombre cientifico como nombre comun (language la): p. ej. ['abutilon-theophrasti', 'acacia-confusa', 'acacia-decurrens']	
+API-07	OBS	24286 de 24286 usos sirven como `reference.citation` la etiqueta 'USDA Dr. Duke: referencia X' en lugar de la cita completa	
+API-08	PASA	/openapi.json servido = backend/openapi.json versionado	
+API-08	PASA	rutas del contrato: solo /health, /openapi.json, /v1/plants y /v1/plants/{id}	['/health', '/openapi.json', '/v1/plants', '/v1/plants/{id}']
+API-08	PASA	backend/openapi.json no cambia respecto de main	
+API-08	PASA	/health cumple HealthDto	
+API-08	PASA	POST /v1/plants -> 405 con Allow: GET	405 GET
+API-08	PASA	PUT /v1/plants -> 405 con Allow: GET	405 GET
+API-08	PASA	DELETE /v1/plants -> 405 con Allow: GET	405 GET

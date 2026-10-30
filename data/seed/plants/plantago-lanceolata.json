@@ -1,0 +1,856 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5afe0be04d75fbfc5dddbdcbe8c5088f70e0eb23e46dae690fb3b1dc27262afa",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Plantago lanceolata",
+        "wikidata:Q157408"
+      ],
+      "text": "Llantén menor"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Plantago lanceolata",
+        "wikidata:Q157408"
+      ],
+      "text": "Siete venas"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157408"
+      ],
+      "text": "Llantén de cinco nervios"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157408"
+      ],
+      "text": "Quinquenervia"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Plantago lanceolata"
+    ],
+    "value": "Planta herbácea perenne nativa de Europa, América y Asia occidental, que crece en terrenos secos, taludes, bordes de caminos y lugares incultos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Plantago lanceolata",
+      "wikidata:Q157408"
+    ],
+    "value": "Llantén menor"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2569834"
+    ],
+    "value": "Plantaginaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la hoja en el área de tos y resfriado.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:plantaginis-lanceolatae-folium"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "plantago-lanceolata",
+  "image": {
+    "attributionRequired": true,
+    "author": "sannse",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ribwort_600.jpg",
+    "refs": [
+      "commons:File:Ribwort 600.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Ribwort_600.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2569834"
+    ],
+    "value": "Nativa de Europa, el norte de África, Macaronesia, África tropical occidental y gran parte de Asia (Asia occidental, central y oriental, el Cáucaso, Siberia, Mongolia, la península arábiga y el subcontinente indio)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:plantaginis-lanceolatae-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ribwort 600.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ribwort 600.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ribwort_600.jpg"
+    },
+    "ema_herbal:plantaginis-lanceolatae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Plantaginis lanceolatae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/plantaginis-lanceolatae-folium"
+    },
+    "ema_pdf:plantaginis-lanceolatae-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-lanceolatae-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-plantaginis-lanceolatae-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:plantaginis-lanceolatae-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-lanceolatae-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-plantaginis-lanceolatae-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:plantaginis-lanceolatae-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de plantaginis-lanceolatae-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-plantaginis-lanceolatae-folium-revision-1_en.pdf"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_use:11434": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11434",
+      "license": "CC0"
+    },
+    "usda_use:14110": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14110",
+      "license": "CC0"
+    },
+    "usda_use:15637": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15637",
+      "license": "CC0"
+    },
+    "usda_use:15638": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15638",
+      "license": "CC0"
+    },
+    "usda_use:1825": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1825",
+      "license": "CC0"
+    },
+    "usda_use:18515": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18515",
+      "license": "CC0"
+    },
+    "usda_use:18516": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18516",
+      "license": "CC0"
+    },
+    "usda_use:22086": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22086",
+      "license": "CC0"
+    },
+    "usda_use:28393": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28393",
+      "license": "CC0"
+    },
+    "usda_use:32673": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32673",
+      "license": "CC0"
+    },
+    "usda_use:39928": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39928",
+      "license": "CC0"
+    },
+    "usda_use:4304": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4304",
+      "license": "CC0"
+    },
+    "usda_use:45046": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45046",
+      "license": "CC0"
+    },
+    "usda_use:5961": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5961",
+      "license": "CC0"
+    },
+    "usda_use:60396": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60396",
+      "license": "CC0"
+    },
+    "usda_use:60414": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60414",
+      "license": "CC0"
+    },
+    "usda_use:60424": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60424",
+      "license": "CC0"
+    },
+    "usda_use:65063": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65063",
+      "license": "CC0"
+    },
+    "usda_use:65393": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65393",
+      "license": "CC0"
+    },
+    "usda_use:68127": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68127",
+      "license": "CC0"
+    },
+    "usda_use:70507": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70507",
+      "license": "CC0"
+    },
+    "usda_use:73439": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73439",
+      "license": "CC0"
+    },
+    "usda_use:77216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77216",
+      "license": "CC0"
+    },
+    "usda_use:80294": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80294",
+      "license": "CC0"
+    },
+    "usda_use:9309": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9309",
+      "license": "CC0"
+    },
+    "wcvp:2495483": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lagopus lanceolatus (L.) Fourr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2569834": {
+      "dataset": "wcvp",
+      "label": "WCVP: Plantago lanceolata L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2653052": {
+      "dataset": "wcvp",
+      "label": "WCVP: Arnoglossum lanceolatum (L.) Gray",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q157408": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q157408",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q157408"
+    },
+    "wikipedia_es:Plantago lanceolata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Plantago lanceolata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Plantago_lanceolata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Diurético» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Pulmón» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Llagas» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria del grupo «Vulnerario» no tiene candidata; el grupo conserva las demás citas resueltas.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Alterativo» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[12]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Asma» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[13]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Astringente» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[14]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Bactericida» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[15]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Anticonceptivo» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[16]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Tos» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[17]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Hemostático» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[18]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Purgante» tiene candidata (Woi.Syria); el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[19]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:plantaginis-lanceolatae-folium:4.3",
+      "ema_pdf:plantaginis-lanceolatae-folium:4.4",
+      "ema_pdf:plantaginis-lanceolatae-folium:4.5"
+    ],
+    "text": "La monografía de la EMA para la hoja registra como contraindicación la hipersensibilidad a la sustancia activa o al polen del llantén menor. Entre las advertencias, el uso oral y en la mucosa de la boca no se recomienda en menores de 3 años, y según el preparado tampoco en menores de 6 o de 12 años por falta de datos; el uso cutáneo no se recomienda en menores de 3 años; si aparece disnea, fiebre o esputo purulento se indica consultar a un médico o profesional sanitario. En interacciones, la EMA no registra ninguna."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Plantago lanceolata",
+    "refs": [
+      "wcvp:2569834"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Gray",
+      "name": "Arnoglossum lanceolatum",
+      "refs": [
+        "wcvp:2653052"
+      ]
+    },
+    {
+      "authors": "(L.) Fourr.",
+      "name": "Lagopus lanceolatus",
+      "refs": [
+        "wcvp:2495483"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15637",
+        "usda_use:15638",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18515",
+        "usda_use:18516",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Pulmón",
+      "activitySource": "Lung",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32673",
+        "usda_use:73439",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Llagas",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45046",
+        "usda_use:77216",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60424",
+        "usda_use:80294",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4304",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido (Gales)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9309",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Pecho",
+      "activitySource": "Chest",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11434",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Desobstruyente",
+      "activitySource": "Deobstruent",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68127",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22086",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70507",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Refrigerante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60414",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:1825"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:65063"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:5961"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:65393"
+      ]
+    },
+    {
+      "activity": "Anticonceptivo",
+      "activitySource": "Contraceptive",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:60396"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:14110"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:28393"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:39928"
+      ]
+    }
+  ]
+}

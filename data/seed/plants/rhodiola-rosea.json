@@ -1,0 +1,284 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:975d17f05dc96564c10a83ec9a11c0ea7614ea15c59d5ef74804b4bce4620769",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rhodiola rosea"
+      ],
+      "text": "rodiola"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rhodiola rosea"
+    ],
+    "value": "Planta de la familia Crassulaceae que crece en las regiones frías del hemisferio norte: el litoral del Ártico y el piso alpino de montañas elevadas como el Himalaya, las Montañas Rocosas, los Alpes, los Pirineos y los Cárpatos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Rhodiola rosea"
+    ],
+    "value": "Rodiola"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2416694"
+    ],
+    "value": "Crassulaceae"
+  },
+  "goals": [
+    {
+      "area": "Fatiga y debilidad",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "cansancio-y-fatiga",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rhodiolae-roseae-rhizoma-et-radix"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rhodiolae-roseae-rhizoma-et-radix"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "rhodiola-rosea",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alpsdake",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rhodiola_rosea_(Montage_s3).jpg",
+    "refs": [
+      "commons:File:Rhodiola rosea (Montage s3).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Rhodiola_rosea_%28Montage_s3%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2416694"
+    ],
+    "value": "Asia, Europa y el norte de Norteamérica"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:rhodiolae-roseae-rhizoma-et-radix"
+      ],
+      "value": "Rizoma y raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rhodiola rosea (Montage s3).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rhodiola rosea (Montage s3).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rhodiola_rosea_(Montage_s3).jpg"
+    },
+    "ema_herbal:rhodiolae-roseae-rhizoma-et-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Rhodiolae roseae rhizoma et radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/rhodiolae-roseae-rhizoma-et-radix"
+    },
+    "ema_pdf:rhodiolae-roseae-rhizoma-et-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rhodiolae-roseae-rhizoma-et-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rhodiola-rosea-l-rhizoma-et-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:rhodiolae-roseae-rhizoma-et-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rhodiolae-roseae-rhizoma-et-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rhodiola-rosea-l-rhizoma-et-radix-revision-1_en.pdf"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:25360": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25360",
+      "license": "CC0"
+    },
+    "usda_use:29140": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29140",
+      "license": "CC0"
+    },
+    "usda_use:42865": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42865",
+      "license": "CC0"
+    },
+    "usda_use:43218": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43218",
+      "license": "CC0"
+    },
+    "wcvp:2416694": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhodiola rosea L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2475525": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sedum rosea (L.) Scop.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Rhodiola rosea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rhodiola rosea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rhodiola_rosea"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:rhodiolae-roseae-rhizoma-et-radix:4.3",
+      "ema_pdf:rhodiolae-roseae-rhizoma-et-radix:4.4"
+    ],
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, que el uso en menores de 18 años no está establecido por falta de datos adecuados."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Rhodiola rosea",
+    "refs": [
+      "wcvp:2416694"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Scop.",
+      "name": "Sedum rosea",
+      "refs": [
+        "wcvp:2475525"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25360",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hipotensión",
+      "activitySource": "Hypotension",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29140",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42865",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43218",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

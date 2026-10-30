@@ -1,0 +1,104 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0c720d45276f13874681fe48780bbbf75c6c918895a0dfee5b1b8aa3724b47f3",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Betula",
+        "wikidata:Q25243"
+      ],
+      "text": "abedul"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Betula"
+    ],
+    "value": "Género de árboles de la familia Betulaceae y del orden Fagales. El nombre común «abedul» designa a varios árboles caducifolios de este género."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Betula",
+      "wikidata:Q25243"
+    ],
+    "value": "Abedul"
+  },
+  "family": null,
+  "goals": [],
+  "id": "betula-sp",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Illustration_Betula_pendula0.jpg",
+    "refs": [
+      "commons:File:Illustration Betula pendula0.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Illustration_Betula_pendula0.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Illustration Betula pendula0.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Illustration Betula pendula0.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Illustration_Betula_pendula0.jpg"
+    },
+    "wikidata:Q25243": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q25243",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q25243"
+    },
+    "wikipedia_es:Betula": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Betula",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Betula"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Betula sp.",
+    "refs": [
+      "wikidata:Q25243"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

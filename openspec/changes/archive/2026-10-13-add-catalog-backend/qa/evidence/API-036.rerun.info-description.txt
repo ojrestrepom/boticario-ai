@@ -1,0 +1,1 @@
+API de solo lectura del catálogo de plantas y sus fuentes. Dentro de `/v1` solo habrá cambios aditivos: los clientes deben ignorar los campos desconocidos. Las rutas desconocidas responden 404 y los métodos distintos de `GET` responden 405, ambos como `application/problem+json`.

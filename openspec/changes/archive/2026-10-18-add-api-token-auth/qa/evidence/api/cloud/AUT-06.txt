@@ -1,0 +1,13 @@
+# AUT-06 Último carácter distinto (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [Bearer <válido con el último carácter cambiado>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 5fa514fec9ece4818cf4c4308edbbff2
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

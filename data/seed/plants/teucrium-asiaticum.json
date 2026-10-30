@@ -1,0 +1,122 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e2513a7f5d7457f58d58c97ab2c26eef4ad32dffe5321d5df0c8102d959ea5cd",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Teucrium asiaticum"
+    ],
+    "value": "Planta herbácea de la familia Lamiaceae, endémica de las Islas Baleares."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:202671"
+    ],
+    "value": "Teucrium asiaticum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:202671"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-asiaticum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Paucabot",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Teucrium.asiaticum2.jpg",
+    "refs": [
+      "commons:File:Teucrium.asiaticum2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Teucrium.asiaticum2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2056-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:202671"
+    ],
+    "value": "Suroeste de Europa (Islas Baleares)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Teucrium.asiaticum2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Teucrium.asiaticum2.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Teucrium.asiaticum2.jpg"
+    },
+    "usda_part:2056-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:202671": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium asiaticum L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Teucrium asiaticum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Teucrium asiaticum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Teucrium_asiaticum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Teucrium asiaticum",
+    "refs": [
+      "wcvp:202671"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

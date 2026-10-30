@@ -1,0 +1,137 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:efa2049bd00bf38a05252115264339bbfb78ec0055511eea5f3eab413bc3317a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:820-1"
+      ],
+      "text": "Typical Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171069"
+    ],
+    "value": "Pycnanthemum pycnanthemoides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171069"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-pycnanthemoides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:820-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171069"
+    ],
+    "value": "Nativa del centro-norte, noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:820-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Typical Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:820-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106191": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia pycnanthemodes (Leavenw.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171052": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum incanum var. tullia Chapm.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171069": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum pycnanthemoides (Leavenw.) Fernald",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:209386": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tullia pycnanthemoides Leavenw.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Leavenw.) Fernald",
+    "name": "Pycnanthemum pycnanthemoides",
+    "refs": [
+      "wcvp:171069"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Leavenw.) Kuntze",
+      "name": "Koellia pycnanthemodes",
+      "refs": [
+        "wcvp:106191"
+      ]
+    },
+    {
+      "authors": "Chapm.",
+      "name": "Pycnanthemum incanum var. tullia",
+      "refs": [
+        "wcvp:171052"
+      ]
+    },
+    {
+      "authors": "Leavenw.",
+      "name": "Tullia pycnanthemoides",
+      "refs": [
+        "wcvp:209386"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

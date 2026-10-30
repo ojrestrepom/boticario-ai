@@ -1,0 +1,181 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:195f6b2218a98b5c8d3ab3fad02400ee1e411fda86fbbba5a717cc88b6c250ca",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Anemone coronaria"
+      ],
+      "text": "Anémona"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q511179"
+      ],
+      "text": "Anémola"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:81-1"
+      ],
+      "text": "French Anemone"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Anemone coronaria"
+    ],
+    "value": "Especie de fanerógama originaria de la región mediterránea, cuyas flores se utilizan como ornamentales."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Anemone coronaria"
+    ],
+    "value": "Anémona"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2638132"
+    ],
+    "value": "Ranunculaceae"
+  },
+  "goals": [],
+  "id": "anemone-coronaria",
+  "image": {
+    "attributionRequired": true,
+    "author": "Aviad2001",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Anemones5.jpg",
+    "refs": [
+      "commons:File:Anemones5.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Anemones5.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2638132"
+    ],
+    "value": "Nativa de la región mediterránea, el Cáucaso, el norte de África y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Anemones5.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Anemones5.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Anemones5.jpg"
+    },
+    "usda_common_name:81-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «French Anemone»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:53153": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53153",
+      "license": "CC0"
+    },
+    "wcvp:2544413": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pulsatilla coronaria (L.) Borkh.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2638132": {
+      "dataset": "wcvp",
+      "label": "WCVP: Anemone coronaria L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q511179": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q511179",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q511179"
+    },
+    "wikipedia_es:Anemone coronaria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Anemone coronaria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Anemone_coronaria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Anemone coronaria",
+    "refs": [
+      "wcvp:2638132"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Borkh.",
+      "name": "Pulsatilla coronaria",
+      "refs": [
+        "wcvp:2544413"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de estómago",
+      "activitySource": "Tumor(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53153",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

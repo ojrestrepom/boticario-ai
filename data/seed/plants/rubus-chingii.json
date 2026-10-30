@@ -1,0 +1,85 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:96dc3f19171f7cffae0d88406bb4cbbb4eb1d3968a995ee2ec2b67647b5ced9c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:876-1"
+      ],
+      "text": "Chinese Raspberry"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2902128"
+    ],
+    "value": "Rubus chingii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2902128"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "rubus-chingii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2902128"
+    ],
+    "value": "China y Asia oriental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:876-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Raspberry»",
+      "license": "CC0"
+    },
+    "wcvp:2902128": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rubus chingii Hu",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Hu",
+    "name": "Rubus chingii",
+    "refs": [
+      "wcvp:2902128"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

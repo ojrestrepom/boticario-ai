@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c09325c1d63cf38c8a2cc539beff57363e2aaaeb5c374b6af63f2089429c6187",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rzedowskia tolantonguensis"
+    ],
+    "value": "Es la única especie del género monotípico Rzedowskia, de la familia de las celastráceas, y es originaria de México."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2416437"
+    ],
+    "value": "Rzedowskia tolantonguensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2416437"
+    ],
+    "value": "Celastraceae"
+  },
+  "goals": [],
+  "id": "rzedowskia-tolantonguensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2416437"
+    ],
+    "value": "México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2416437": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rzedowskia tolantonguensis Medrano",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Rzedowskia tolantonguensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rzedowskia tolantonguensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rzedowskia_tolantonguensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete solo trae «Rzedowskia», que es el nombre del género y no un nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Medrano",
+    "name": "Rzedowskia tolantonguensis",
+    "refs": [
+      "wcvp:2416437"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,184 @@
+{
+  "aliases": [
+    "solanum-quitoensis"
+  ],
+  "bundleHash": "sha256:13dcb974d0790d7f8026b7dd60da3f489c07852f0204f26537a1b7f8e7ffdaa0",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q795069"
+      ],
+      "text": "Lulo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q795069"
+      ],
+      "text": "Naranjilla"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q795069"
+      ],
+      "text": "Quito quito"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1260-1"
+      ],
+      "text": "Naranjillo"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Solanum quitoense"
+    ],
+    "value": "Planta perenne subtropical del noroeste de América del Sur. Su fruta se conoce como naranjilla en Ecuador, Panamá, Nicaragua y Costa Rica, y como lulo en Colombia, Venezuela, República Dominicana y el sur de México."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q795069"
+    ],
+    "value": "Lulo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3032457"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "solanum-quitoense",
+  "image": {
+    "attributionRequired": true,
+    "author": "Picture taken by Fibonacci .",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lulo.jpg",
+    "refs": [
+      "commons:File:Lulo.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Lulo.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3032457"
+    ],
+    "value": "América Central y norte y oeste de América del Sur"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lulo.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lulo.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lulo.jpg"
+    },
+    "usda_common_name:1260-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Naranjillo»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:3276": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3276",
+      "license": "CC0"
+    },
+    "wcvp:3032457": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solanum quitoense Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q795069": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q795069",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q795069"
+    },
+    "wikipedia_es:Solanum quitoense": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Solanum quitoense",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Solanum_quitoense"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lam.",
+    "name": "Solanum quitoense",
+    "refs": [
+      "wcvp:3032457"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto (Hippomane)",
+      "activitySource": "Antidote(Hippomane)",
+      "citations": [
+        {
+          "key": "Eb24: 359",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 359"
+        }
+      ],
+      "countries": [
+        "Panamá (Choco)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3276",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

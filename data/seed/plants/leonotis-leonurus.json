@@ -1,0 +1,408 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:dc1a3d64a537b6ac17694f0d744e52fd1b776720795a19a7de812b4f17eeaa36",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:551-1"
+      ],
+      "text": "Lion's Ear"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Leonotis leonurus"
+    ],
+    "value": "Especie de la familia de las lamiáceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:109449"
+    ],
+    "value": "Leonotis leonurus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:109449"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "leonotis-leonurus",
+  "image": {
+    "attributionRequired": false,
+    "author": "Urban",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Leonotis_leonorus10.jpg",
+    "refs": [
+      "commons:File:Leonotis leonorus10.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Leonotis_leonorus10.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:551-SE"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:109449"
+    ],
+    "value": "Sur de África"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Leonotis leonorus10.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Leonotis leonorus10.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Leonotis_leonorus10.jpg"
+    },
+    "usda_common_name:551-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lion's Ear»",
+      "license": "CC0"
+    },
+    "usda_part:551-SE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Se»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:12284": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12284",
+      "license": "CC0"
+    },
+    "usda_use:13968": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13968",
+      "license": "CC0"
+    },
+    "usda_use:34303": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34303",
+      "license": "CC0"
+    },
+    "usda_use:39841": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39841",
+      "license": "CC0"
+    },
+    "usda_use:43734": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43734",
+      "license": "CC0"
+    },
+    "usda_use:49459": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49459",
+      "license": "CC0"
+    },
+    "usda_use:59066": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59066",
+      "license": "CC0"
+    },
+    "usda_use:70057": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70057",
+      "license": "CC0"
+    },
+    "usda_use:7134": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7134",
+      "license": "CC0"
+    },
+    "usda_use:80069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80069",
+      "license": "CC0"
+    },
+    "wcvp:109449": {
+      "dataset": "wcvp",
+      "label": "WCVP: Leonotis leonurus (L.) R.Br.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:152292": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phlomis leonurus L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:98243": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hemisodon leonurus (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Leonotis leonurus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Leonotis leonurus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Leonotis_leonurus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) R.Br.",
+    "name": "Leonotis leonurus",
+    "refs": [
+      "wcvp:109449"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Raf.",
+      "name": "Hemisodon leonurus",
+      "refs": [
+        "wcvp:98243"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Phlomis leonurus",
+      "refs": [
+        "wcvp:152292"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59066",
+        "usda_use:70057",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Mordedura (serpiente)",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7134",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12284",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13968",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34303",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39841",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43734",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tenia",
+      "activitySource": "Tapeworm",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49459",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "África"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80069",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,782 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7093a06147874f95a5ea96ae0a8b793f1aececa6e08bb59d43be90757d090162",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2167-1"
+      ],
+      "text": "Wild Yam"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Dioscorea villosa"
+    ],
+    "value": "Especie de planta trepadora tuberosa, nativa y silvestre de América del Norte."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:241123"
+    ],
+    "value": "Dioscorea villosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:241123"
+    ],
+    "value": "Dioscoreaceae"
+  },
+  "goals": [],
+  "id": "dioscorea-villosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Phyzome",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Wild_yam_in_woods_-_young_plants.jpg",
+    "refs": [
+      "commons:File:Wild yam in woods - young plants.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Wild_yam_in_woods_-_young_plants.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:241123"
+    ],
+    "value": "América del Norte: este de Canadá y regiones del centro-norte, nordeste, centro-sur y sudeste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Wild yam in woods - young plants.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Wild yam in woods - young plants.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Wild_yam_in_woods_-_young_plants.jpg"
+    },
+    "efsa_botanic:2793": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: protodioscin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2794": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methylprotodioscin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2795": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: parrisaponin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2796": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: dioscin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2797": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: prosapogenin A",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2798": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: progenin II",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2799": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: dioscorine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:924": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Dioscorea villosa L.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:925": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Dioscorea villosa L.",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2167-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wild Yam»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_use:10474": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10474",
+      "license": "CC0"
+    },
+    "usda_use:1735": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1735",
+      "license": "CC0"
+    },
+    "usda_use:17927": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17927",
+      "license": "CC0"
+    },
+    "usda_use:20376": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20376",
+      "license": "CC0"
+    },
+    "usda_use:21127": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21127",
+      "license": "CC0"
+    },
+    "usda_use:21128": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21128",
+      "license": "CC0"
+    },
+    "usda_use:23012": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23012",
+      "license": "CC0"
+    },
+    "usda_use:2466": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2466",
+      "license": "CC0"
+    },
+    "usda_use:32363": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32363",
+      "license": "CC0"
+    },
+    "usda_use:33539": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33539",
+      "license": "CC0"
+    },
+    "usda_use:35888": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35888",
+      "license": "CC0"
+    },
+    "usda_use:38834": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38834",
+      "license": "CC0"
+    },
+    "usda_use:41153": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41153",
+      "license": "CC0"
+    },
+    "usda_use:45692": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45692",
+      "license": "CC0"
+    },
+    "usda_use:45693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45693",
+      "license": "CC0"
+    },
+    "usda_use:48424": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48424",
+      "license": "CC0"
+    },
+    "usda_use:5110": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5110",
+      "license": "CC0"
+    },
+    "usda_use:53628": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53628",
+      "license": "CC0"
+    },
+    "usda_use:57892": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57892",
+      "license": "CC0"
+    },
+    "usda_use:64242": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64242",
+      "license": "CC0"
+    },
+    "usda_use:65488": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65488",
+      "license": "CC0"
+    },
+    "usda_use:68912": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68912",
+      "license": "CC0"
+    },
+    "usda_use:70444": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70444",
+      "license": "CC0"
+    },
+    "usda_use:71656": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71656",
+      "license": "CC0"
+    },
+    "usda_use:81163": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81163",
+      "license": "CC0"
+    },
+    "wcvp:241123": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dioscorea villosa L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:254358": {
+      "dataset": "wcvp",
+      "label": "WCVP: Merione villosa (L.) Salisb.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Dioscorea villosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Dioscorea villosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Dioscorea_villosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español para Dioscorea villosa; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2793",
+      "efsa_botanic:2794",
+      "efsa_botanic:2795",
+      "efsa_botanic:2796",
+      "efsa_botanic:2797",
+      "efsa_botanic:2798",
+      "efsa_botanic:2799",
+      "efsa_endpoint:924",
+      "efsa_endpoint:925"
+    ],
+    "text": "La EFSA registra como sustancias de evidencia dioscina, dioscorina, metilprotodioscina, parrisaponina, progenina II, prosapogenina A y protodioscina, y dos estudios de toxicidad a corto plazo en ratas con raíces y partes subterráneas que registran inflamación en el hígado y fibrosis en los riñones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Dioscorea villosa",
+    "refs": [
+      "wcvp:241123"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Salisb.",
+      "name": "Merione villosa",
+      "refs": [
+        "wcvp:254358"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2466",
+        "usda_use:64242",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17927",
+        "usda_use:68912",
+        "usda_reference:Keys",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21127",
+        "usda_use:21128",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23012",
+        "usda_use:70444",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45692",
+        "usda_use:45693",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1735",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5110",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Bilioso",
+      "activitySource": "Bilious",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65488",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10474",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Crup",
+      "activitySource": "Croup",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81163",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20376",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71656",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Hígado",
+      "activitySource": "Liver",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32363",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33539",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35888",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Poliuria",
+      "activitySource": "Polyuria",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38834",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (esclavos)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41153",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48424",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sífilis",
+      "activitySource": "Syphilis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57892",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Uterotónico",
+      "activitySource": "Uterotonic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53628",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

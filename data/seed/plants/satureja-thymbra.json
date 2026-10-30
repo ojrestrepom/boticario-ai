@@ -1,0 +1,176 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b1dc67705eff16313eb81f14ae54e918e4a10bc7aa87a8b942ce0e3591c6a3af",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2042-1"
+      ],
+      "text": "Goat Oregano"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:185996"
+    ],
+    "value": "Satureja thymbra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:185996"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "satureja-thymbra",
+  "image": {
+    "attributionRequired": true,
+    "author": "Marco Barberini",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Satureja_thymbra.jpg",
+    "refs": [
+      "commons:File:Satureja thymbra.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Satureja_thymbra.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2042-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:185996"
+    ],
+    "value": "Norte de África, sudeste y suroeste de Europa y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Satureja thymbra.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Satureja thymbra.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Satureja_thymbra.jpg"
+    },
+    "usda_common_name:2042-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Goat Oregano»",
+      "license": "CC0"
+    },
+    "usda_part:2042-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:79547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79547",
+      "license": "CC0"
+    },
+    "wcvp:127414": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria thymbra (L.) Kostel.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185996": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja thymbra L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43684": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium thymbra (L.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de aceite esencial de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Satureja thymbra",
+    "refs": [
+      "wcvp:185996"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Clinopodium thymbra",
+      "refs": [
+        "wcvp:43684"
+      ]
+    },
+    {
+      "authors": "(L.) Kostel.",
+      "name": "Micromeria thymbra",
+      "refs": [
+        "wcvp:127414"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Grecia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79547",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

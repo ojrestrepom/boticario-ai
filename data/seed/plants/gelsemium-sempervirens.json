@@ -1,0 +1,935 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bd62c11c6454da47814589bb7f5d154591bef37e42260ed47b006a123aea2108",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Gelsemium sempervirens"
+      ],
+      "text": "Gelsemio"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Gelsemium sempervirens"
+      ],
+      "text": "Jazmín de Carolina"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P840"
+      ],
+      "text": "Yellow jasmine"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:434-1"
+      ],
+      "text": "Yellow Jessamine"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P840"
+      ],
+      "text": "WilderJasmin"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Gelsemium sempervirens"
+    ],
+    "value": "Planta trepadora de la familia Gelsemiaceae, conocida popularmente como gelsemio o jazmín de Carolina."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Gelsemium sempervirens"
+    ],
+    "value": "Gelsemio"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2818735"
+    ],
+    "value": "Gelsemiaceae"
+  },
+  "goals": [],
+  "id": "gelsemium-sempervirens",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Gelsemium_sempervirens_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-065.jpg",
+    "refs": [
+      "commons:File:Gelsemium sempervirens - Köhler–s Medizinal-Pflanzen-065.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Gelsemium_sempervirens_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-065.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:434-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2818735"
+    ],
+    "value": "América Central, México, centro-sur de Estados Unidos y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Gelsemium sempervirens - Köhler–s Medizinal-Pflanzen-065.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Gelsemium sempervirens - Köhler–s Medizinal-Pflanzen-065.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Gelsemium_sempervirens_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-065.jpg"
+    },
+    "efsa_botanic:441": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: gelsemine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:442": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: gelsemicine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:443": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sempervirin",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P840": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Gelsemium sempervirens (L.) Jaume St.-Hili.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:434-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yellow Jessamine»",
+      "license": "CC0"
+    },
+    "usda_part:434-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11224": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11224",
+      "license": "CC0"
+    },
+    "usda_use:1181": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1181",
+      "license": "CC0"
+    },
+    "usda_use:11948": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11948",
+      "license": "CC0"
+    },
+    "usda_use:20155": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20155",
+      "license": "CC0"
+    },
+    "usda_use:2073": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2073",
+      "license": "CC0"
+    },
+    "usda_use:23687": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23687",
+      "license": "CC0"
+    },
+    "usda_use:24586": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24586",
+      "license": "CC0"
+    },
+    "usda_use:24587": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24587",
+      "license": "CC0"
+    },
+    "usda_use:2523": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2523",
+      "license": "CC0"
+    },
+    "usda_use:2524": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2524",
+      "license": "CC0"
+    },
+    "usda_use:2525": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2525",
+      "license": "CC0"
+    },
+    "usda_use:26874": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26874",
+      "license": "CC0"
+    },
+    "usda_use:28927": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28927",
+      "license": "CC0"
+    },
+    "usda_use:28996": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28996",
+      "license": "CC0"
+    },
+    "usda_use:32925": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32925",
+      "license": "CC0"
+    },
+    "usda_use:34803": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34803",
+      "license": "CC0"
+    },
+    "usda_use:34941": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34941",
+      "license": "CC0"
+    },
+    "usda_use:37937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37937",
+      "license": "CC0"
+    },
+    "usda_use:37938": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37938",
+      "license": "CC0"
+    },
+    "usda_use:38661": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38661",
+      "license": "CC0"
+    },
+    "usda_use:3895": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3895",
+      "license": "CC0"
+    },
+    "usda_use:41223": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41223",
+      "license": "CC0"
+    },
+    "usda_use:43038": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43038",
+      "license": "CC0"
+    },
+    "usda_use:43039": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43039",
+      "license": "CC0"
+    },
+    "usda_use:43040": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43040",
+      "license": "CC0"
+    },
+    "usda_use:45715": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45715",
+      "license": "CC0"
+    },
+    "usda_use:5147": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5147",
+      "license": "CC0"
+    },
+    "usda_use:58324": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58324",
+      "license": "CC0"
+    },
+    "usda_use:58325": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58325",
+      "license": "CC0"
+    },
+    "usda_use:67691": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67691",
+      "license": "CC0"
+    },
+    "usda_use:68142": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68142",
+      "license": "CC0"
+    },
+    "usda_use:70649": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70649",
+      "license": "CC0"
+    },
+    "usda_use:72257": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72257",
+      "license": "CC0"
+    },
+    "usda_use:73517": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73517",
+      "license": "CC0"
+    },
+    "usda_use:74140": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74140",
+      "license": "CC0"
+    },
+    "usda_use:75040": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75040",
+      "license": "CC0"
+    },
+    "usda_use:76030": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76030",
+      "license": "CC0"
+    },
+    "usda_use:76561": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76561",
+      "license": "CC0"
+    },
+    "usda_use:77426": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77426",
+      "license": "CC0"
+    },
+    "wcvp:2331558": {
+      "dataset": "wcvp",
+      "label": "WCVP: Jeffersonia sempervirens (L.) Brickell",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2818735": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gelsemium sempervirens (L.) J.St.-Hil.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:320213": {
+      "dataset": "wcvp",
+      "label": "WCVP: Bignonia sempervirens L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Gelsemium sempervirens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Gelsemium sempervirens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Gelsemium_sempervirens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "tppt_plant:P840",
+      "efsa_botanic:441",
+      "efsa_botanic:442",
+      "efsa_botanic:443",
+      "usda_use:37937",
+      "usda_use:37938",
+      "usda_use:38661",
+      "usda_use:58325",
+      "usda_use:75040",
+      "usda_use:23687",
+      "usda_use:70649",
+      "usda_use:72257"
+    ],
+    "text": "TPPT clasifica la planta como de toxicidad humana muy fuerte: la parte tóxica es el rizoma y la raíz, y sus toxinas son alcaloides indólicos monoterpenoides. EFSA registra la gelsemicina, la gelsemina y la sempervirina de la planta viva como sustancias de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: se registran casos mortales. Advertencia: registrada como veneno homicida en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(L.) J.St.-Hil.",
+    "name": "Gelsemium sempervirens",
+    "refs": [
+      "wcvp:2818735"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Bignonia sempervirens",
+      "refs": [
+        "wcvp:320213"
+      ]
+    },
+    {
+      "authors": "(L.) Brickell",
+      "name": "Jeffersonia sempervirens",
+      "refs": [
+        "wcvp:2331558"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43038",
+        "usda_use:43039",
+        "usda_use:43040",
+        "usda_use:76561",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2523",
+        "usda_use:2524",
+        "usda_use:2525",
+        "usda_reference:Krochmal",
+        "usda_reference:Standley",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24586",
+        "usda_use:24587",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: malaria",
+      "activitySource": "Malaria",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32925",
+        "usda_use:73517",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34803",
+        "usda_use:58324",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Neuralgia",
+      "activitySource": "Neuralgia",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34941",
+        "usda_use:74140",
+        "usda_reference:Martinez",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41223",
+        "usda_use:76030",
+        "usda_reference:Martinez",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45715",
+        "usda_use:77426",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1181",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Analgésico",
+      "activitySource": "Analgesic",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2073",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3895",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5147",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Depresor del sistema nervioso central",
+      "activitySource": "CNS depressant",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11948",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Cefalalgia",
+      "activitySource": "Cephalgia",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11224",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67691",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Depresor",
+      "activitySource": "Depressant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68142",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20155",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26874",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Hiperemia",
+      "activitySource": "Hyperemia",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28927",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hipertensión",
+      "activitySource": "Hypertension",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28996",
+        "usda_reference:Martinez"
+      ]
+    }
+  ]
+}

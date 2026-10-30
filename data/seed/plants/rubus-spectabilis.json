@@ -1,0 +1,260 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:09e4c953b41a75f4ec349f550d05261da31cdff19f5a8560b36c57a19bc1c616",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2272-1"
+      ],
+      "text": "Salmonberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rubus spectabilis"
+    ],
+    "value": "Especie del género Rubus de la familia Rosaceae, autóctona de la costa oeste de América del Norte, desde Alaska hasta California y hacia el interior hasta Idaho. Da frutos comestibles de color amarillo anaranjado o rojo, como las frambuesas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2988426"
+    ],
+    "value": "Rubus spectabilis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2988426"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "rubus-spectabilis",
+  "image": {
+    "attributionRequired": true,
+    "author": "David McMaster (= user BlindGoofy )",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salmonberry_Blossom.jpg",
+    "refs": [
+      "commons:File:Salmonberry Blossom.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Salmonberry_Blossom.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2988426"
+    ],
+    "value": "Costa oeste de América del Norte: oeste de Canadá y noroeste y suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salmonberry Blossom.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salmonberry Blossom.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Salmonberry_Blossom.jpg"
+    },
+    "usda_common_name:2272-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Salmonberry»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:20511": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20511",
+      "license": "CC0"
+    },
+    "usda_use:27381": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27381",
+      "license": "CC0"
+    },
+    "usda_use:45128": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45128",
+      "license": "CC0"
+    },
+    "usda_use:65307": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65307",
+      "license": "CC0"
+    },
+    "usda_use:8607": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8607",
+      "license": "CC0"
+    },
+    "wcvp:2952222": {
+      "dataset": "wcvp",
+      "label": "WCVP: Parmena spectabilis (Pursh) Greene",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2988426": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rubus spectabilis Pursh",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Rubus spectabilis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rubus spectabilis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rubus_spectabilis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Pursh",
+    "name": "Rubus spectabilis",
+    "refs": [
+      "wcvp:2988426"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pursh) Greene",
+      "name": "Parmena spectabilis",
+      "refs": [
+        "wcvp:2952222"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Eb25: 88",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 88"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65307",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Eb27: 291",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 27: 291"
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8607",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Eb25: 88",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 88"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20511",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Aceite para el cabello",
+      "activitySource": "Hair-Oil",
+      "citations": [
+        {
+          "key": "Eb25: 88",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 88"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27381",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Eb27: 291",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 27: 291"
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45128",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

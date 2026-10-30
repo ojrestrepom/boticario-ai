@@ -1,0 +1,163 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:87a645bff9a5aa188c4c6c143e5c3356a7854a2cff524eb38dc4fadc1b35028a",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lepechinia meyenii"
+    ],
+    "value": "Hierba de la familia de las lamiáceas, utilizada dentro del sistema de salud tradicional de los pueblos originarios de los Andes de Perú."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:110788"
+    ],
+    "value": "Lepechinia meyenii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:110788"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "lepechinia-meyenii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Cbrescia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pachasalvia.jpg",
+    "refs": [
+      "commons:File:Pachasalvia.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Pachasalvia.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:110788"
+    ],
+    "value": "Sur y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pachasalvia.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pachasalvia.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pachasalvia.jpg"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_use:47217": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47217",
+      "license": "CC0"
+    },
+    "wcvp:110788": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lepechinia meyenii (Walp.) Epling",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:194007": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sphacele meyenii (Walp.) J.F.Macbr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:195327": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stachys meyenii Walp.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lepechinia meyenii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lepechinia meyenii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lepechinia_meyenii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Walp.) Epling",
+    "name": "Lepechinia meyenii",
+    "refs": [
+      "wcvp:110788"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Walp.) J.F.Macbr.",
+      "name": "Sphacele meyenii",
+      "refs": [
+        "wcvp:194007"
+      ]
+    },
+    {
+      "authors": "Walp.",
+      "name": "Stachys meyenii",
+      "refs": [
+        "wcvp:195327"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        }
+      ],
+      "countries": [
+        "Perú"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47217",
+        "usda_reference:Altschul"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:537844113cdeef51ef3d9563ca22b56b16ebc8b486c320a790326fab4abad1bb",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1270-1"
+      ],
+      "text": "Hog Peanut"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Amphicarpaea bracteata"
+    ],
+    "value": "Planta trepadora anual o perenne de la familia de las fabáceas, originaria de bosques, matorrales y laderas húmedas del este de América del Norte y Asia oriental."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2634649"
+    ],
+    "value": "Amphicarpaea bracteata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2634649"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "amphicarpaea-bracteata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jomegat",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Amphicarpaea_bracteata_inflorescence.jpg",
+    "refs": [
+      "commons:File:Amphicarpaea bracteata inflorescence.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Amphicarpaea_bracteata_inflorescence.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2634649"
+    ],
+    "value": "Canadá (este y oeste), México y el centro, noreste, sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Amphicarpaea bracteata inflorescence.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Amphicarpaea bracteata inflorescence.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Amphicarpaea_bracteata_inflorescence.jpg"
+    },
+    "usda_common_name:1270-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hog Peanut»",
+      "license": "CC0"
+    },
+    "wcvp:2634649": {
+      "dataset": "wcvp",
+      "label": "WCVP: Amphicarpaea bracteata (L.) Fernald",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2807600": {
+      "dataset": "wcvp",
+      "label": "WCVP: Falcata bracteata (L.) Farw.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2827246": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycine bracteata L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Amphicarpaea bracteata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Amphicarpaea bracteata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Amphicarpaea_bracteata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Fernald",
+    "name": "Amphicarpaea bracteata",
+    "refs": [
+      "wcvp:2634649"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Farw.",
+      "name": "Falcata bracteata",
+      "refs": [
+        "wcvp:2807600"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Glycine bracteata",
+      "refs": [
+        "wcvp:2827246"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

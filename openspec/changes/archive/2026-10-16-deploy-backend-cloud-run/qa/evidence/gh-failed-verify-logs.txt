@@ -1,0 +1,14 @@
+== run 38991643116
+2026-10-17T01:42:16.5147166Z ^[[36;1m  status="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \^[[0m
+2026-10-17T01:42:16.5148193Z ^[[36;1m  echo "GET ${path} -> ${status}"^[[0m
+2026-10-17T01:42:16.5148868Z ^[[36;1m    echo "::error::${path} respondio ${status} y se esperaba 200"^[[0m
+2026-10-17T01:42:16.6139298Z curl: (22) The requested URL returned error: 404
+2026-10-17T01:42:19.6187394Z curl: (22) The requested URL returned error: 404
+2026-10-17T01:42:22.6226125Z curl: (22) The requested URL returned error: 404
+== run 38991678058
+2026-10-17T01:43:22.4946131Z ^[[36;1m  status="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \^[[0m
+2026-10-17T01:43:22.4947175Z ^[[36;1m  echo "GET ${path} -> ${status}"^[[0m
+2026-10-17T01:43:22.4947835Z ^[[36;1m    echo "::error::${path} respondio ${status} y se esperaba 200"^[[0m
+2026-10-17T01:43:22.5816735Z curl: (22) The requested URL returned error: 404
+2026-10-17T01:43:25.5872163Z curl: (22) The requested URL returned error: 404
+2026-10-17T01:43:28.5927215Z curl: (22) The requested URL returned error: 404

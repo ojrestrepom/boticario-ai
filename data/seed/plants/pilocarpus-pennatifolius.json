@@ -1,0 +1,161 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d6ccea510f317e4d8314f251dec8308df1a5acc330c52a99c35c7fbcf62f41d1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:738-1"
+      ],
+      "text": "Paraguay Jaborandi"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pilocarpus pennatifolius"
+    ],
+    "value": "Especie de planta de la familia Rutaceae, nativa de Sudamérica (Paraguay, Argentina y Brasil) y cultivada en África."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2543310"
+    ],
+    "value": "Pilocarpus pennatifolius"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2543310"
+    ],
+    "value": "Rutaceae"
+  },
+  "goals": [],
+  "id": "pilocarpus-pennatifolius",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pilocarpus_pennatifolius_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-238.jpg",
+    "refs": [
+      "commons:File:Pilocarpus pennatifolius - Köhler–s Medizinal-Pflanzen-238.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/Pilocarpus_pennatifolius_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-238.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2543310"
+    ],
+    "value": "Nativa de Brasil y del sur de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pilocarpus pennatifolius - Köhler–s Medizinal-Pflanzen-238.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pilocarpus pennatifolius - Köhler–s Medizinal-Pflanzen-238.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Pilocarpus_pennatifolius_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-238.jpg"
+    },
+    "efsa_botanic:2497": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: pilocarpine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:738-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Paraguay Jaborandi»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:73747": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73747",
+      "license": "CC0"
+    },
+    "wcvp:2543310": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pilocarpus pennatifolius Lem.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pilocarpus pennatifolius": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pilocarpus pennatifolius",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pilocarpus_pennatifolius"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2497"
+    ],
+    "text": "EFSA registra en las hojas la sustancia pilocarpine como sustancia de evidencia."
+  },
+  "scientificName": {
+    "authors": "Lem.",
+    "name": "Pilocarpus pennatifolius",
+    "refs": [
+      "wcvp:2543310"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "América Latina"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73747",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

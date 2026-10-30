@@ -1,0 +1,885 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ed2549122e3c324f9b9deeae9925bf5a8be5d7049c414f478a28cf6f1a7de6f6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Althaea officinalis",
+        "wikidata:Q158496"
+      ],
+      "text": "Malvavisco"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Althaea officinalis"
+      ],
+      "text": "altea"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Althaea officinalis",
+        "wikidata:Q158496"
+      ],
+      "text": "Bismalva"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Althaea officinalis",
+        "wikidata:Q158496"
+      ],
+      "text": "Hierba cañamera"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158496"
+      ],
+      "text": "Camarmaje"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:62-1"
+      ],
+      "text": "Marshmallow"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:62-2"
+      ],
+      "text": "White Mallow"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Althaea officinalis"
+    ],
+    "value": "Planta herbácea eurasiática, cultivada desde la antigüedad."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Althaea officinalis",
+      "wikidata:Q158496"
+    ],
+    "value": "Malvavisco"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2631597"
+    ],
+    "value": "Malvaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía de la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:althaeae-radix"
+      ],
+      "subarea": "boca-y-garganta"
+    },
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía de la raíz en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:althaeae-radix"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía de la raíz en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:althaeae-radix"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "althaea-officinalis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Giuseppe Frizzi",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Dettaglio_-_Malvaceae_Althaea_officinalis_Lin._Erbario_Frizzi_Perugia_n._1202.jpg",
+    "refs": [
+      "commons:File:Dettaglio - Malvaceae Althaea officinalis Lin. Erbario Frizzi Perugia n. 1202.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Dettaglio_-_Malvaceae_Althaea_officinalis_Lin._Erbario_Frizzi_Perugia_n._1202.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:62-FL",
+      "usda_part:62-LF",
+      "usda_part:62-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2631597"
+    ],
+    "value": "Europa, norte de África y Asia"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:althaeae-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Dettaglio - Malvaceae Althaea officinalis Lin. Erbario Frizzi Perugia n. 1202.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Dettaglio - Malvaceae Althaea officinalis Lin. Erbario Frizzi Perugia n. 1202.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Dettaglio_-_Malvaceae_Althaea_officinalis_Lin._Erbario_Frizzi_Perugia_n._1202.jpg"
+    },
+    "ema_herbal:althaeae-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Althaeae radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/althaeae-radix"
+    },
+    "ema_pdf:althaeae-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de althaeae-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-althaea-officinalis-l-radix_en.pdf"
+    },
+    "ema_pdf:althaeae-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de althaeae-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-althaea-officinalis-l-radix_en.pdf"
+    },
+    "ema_pdf:althaeae-radix:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de althaeae-radix, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-althaea-officinalis-l-radix_en.pdf"
+    },
+    "usda_common_name:62-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Marshmallow»",
+      "license": "CC0"
+    },
+    "usda_common_name:62-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «White Mallow»",
+      "license": "CC0"
+    },
+    "usda_part:62-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:62-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:62-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10878": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10878",
+      "license": "CC0"
+    },
+    "usda_use:13653": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13653",
+      "license": "CC0"
+    },
+    "usda_use:13654": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13654",
+      "license": "CC0"
+    },
+    "usda_use:14900": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14900",
+      "license": "CC0"
+    },
+    "usda_use:14901": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14901",
+      "license": "CC0"
+    },
+    "usda_use:21953": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21953",
+      "license": "CC0"
+    },
+    "usda_use:21954": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21954",
+      "license": "CC0"
+    },
+    "usda_use:21955": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21955",
+      "license": "CC0"
+    },
+    "usda_use:21956": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21956",
+      "license": "CC0"
+    },
+    "usda_use:21957": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21957",
+      "license": "CC0"
+    },
+    "usda_use:29418": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29418",
+      "license": "CC0"
+    },
+    "usda_use:30143": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30143",
+      "license": "CC0"
+    },
+    "usda_use:32498": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32498",
+      "license": "CC0"
+    },
+    "usda_use:36138": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36138",
+      "license": "CC0"
+    },
+    "usda_use:36688": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36688",
+      "license": "CC0"
+    },
+    "usda_use:38914": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38914",
+      "license": "CC0"
+    },
+    "usda_use:40791": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40791",
+      "license": "CC0"
+    },
+    "usda_use:42407": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42407",
+      "license": "CC0"
+    },
+    "usda_use:42408": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42408",
+      "license": "CC0"
+    },
+    "usda_use:45350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45350",
+      "license": "CC0"
+    },
+    "usda_use:51907": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51907",
+      "license": "CC0"
+    },
+    "usda_use:56584": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56584",
+      "license": "CC0"
+    },
+    "usda_use:70408": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70408",
+      "license": "CC0"
+    },
+    "usda_use:72433": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72433",
+      "license": "CC0"
+    },
+    "usda_use:72655": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72655",
+      "license": "CC0"
+    },
+    "usda_use:73882": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73882",
+      "license": "CC0"
+    },
+    "usda_use:8840": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8840",
+      "license": "CC0"
+    },
+    "wcvp:2503597": {
+      "dataset": "wcvp",
+      "label": "WCVP: Malva althaea E.H.L.Krause",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2503991": {
+      "dataset": "wcvp",
+      "label": "WCVP: Malva officinalis (L.) K.F.Schimp. & Spenn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2631597": {
+      "dataset": "wcvp",
+      "label": "WCVP: Althaea officinalis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q158496": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q158496",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q158496"
+    },
+    "wikipedia_es:Althaea officinalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Althaea officinalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Althaea_officinalis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Flower, Leaf y Root), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Emollient» tiene claves de cita sin candidata en el paquete (Woi.Syria); el grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[0]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:althaeae-radix:4.3",
+      "ema_pdf:althaeae-radix:4.4",
+      "ema_pdf:althaeae-radix:4.5"
+    ],
+    "text": "La monografía de la EMA para la raíz registra como contraindicación la hipersensibilidad a la sustancia activa y, entre las advertencias, que no se recomienda el uso en menores de 3 años en algunos preparados y que en otros no se ha establecido en menores de 12 o de 18 años por falta de datos, y que la absorción de otros medicamentos tomados a la vez puede retrasarse. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Althaea officinalis",
+    "refs": [
+      "wcvp:2631597"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "E.H.L.Krause",
+      "name": "Malva althaea",
+      "refs": [
+        "wcvp:2503597"
+      ]
+    },
+    {
+      "authors": "(L.) K.F.Schimp. & Spenn.",
+      "name": "Malva officinalis",
+      "refs": [
+        "wcvp:2503991"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Eb24: 394",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 394"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Francia",
+        "Irak",
+        "Turquía"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21953",
+        "usda_use:21954",
+        "usda_use:21955",
+        "usda_use:21956",
+        "usda_use:21957",
+        "usda_reference:Al-Rawi",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10878",
+        "usda_use:56584",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb28: 325",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 325"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13653",
+        "usda_use:13654",
+        "usda_reference:EB",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14900",
+        "usda_use:14901",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29418",
+        "usda_use:72433",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Intestine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30143",
+        "usda_use:72655",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Esclerosis",
+      "activitySource": "Sclerosis",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Grecia",
+        "Perú"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42407",
+        "usda_use:42408",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido (Gales)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8840",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Eb24: 380",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 380"
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70408",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Lubricante",
+      "activitySource": "Lubricative",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32498",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Mucoso",
+      "activitySource": "Mucous",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73882",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36138",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Piles",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36688",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Cataplasma",
+      "activitySource": "Poultice",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38914",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Respiratorio",
+      "activitySource": "Respiratory",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40791",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Dolor de garganta",
+      "activitySource": "Sore(Throat)",
+      "citations": [
+        {
+          "key": "Eb28: 325",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 325"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45350",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51907",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e47424ee855829d587d169dbc893e930bcdb87db0059bfcf94984a040c6f54ca",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1294-1"
+      ],
+      "text": "Madeira vine"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:360631"
+    ],
+    "value": "Anredera baselloides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:360631"
+    ],
+    "value": "Basellaceae"
+  },
+  "goals": [],
+  "id": "anredera-baselloides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:360631"
+    ],
+    "value": "Oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1294-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Madeira vine»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:67553": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67553",
+      "license": "CC0"
+    },
+    "wcvp:360631": {
+      "dataset": "wcvp",
+      "label": "WCVP: Anredera baselloides (Kunth) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:363507": {
+      "dataset": "wcvp",
+      "label": "WCVP: Boussingaultia baselloides Kunth",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad ni señales de riesgo; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Kunth) Baill.",
+    "name": "Anredera baselloides",
+    "refs": [
+      "wcvp:360631"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Kunth",
+      "name": "Boussingaultia baselloides",
+      "refs": [
+        "wcvp:363507"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Callo",
+      "activitySource": "Corn",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Filipinas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67553",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

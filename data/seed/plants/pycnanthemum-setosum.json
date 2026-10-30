@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:121cf09b7291f17b4568c34f6d380d7ba069deedd30a104580f9ee77caa2b750",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:821-1"
+      ],
+      "text": "Setose Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171073"
+    ],
+    "value": "Pycnanthemum setosum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171073"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-setosum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Choess",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_setosum_before_bloom.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum setosum before bloom.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Pycnanthemum_setosum_before_bloom.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:821-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171073"
+    ],
+    "value": "Nativa del noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum setosum before bloom.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum setosum before bloom.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_setosum_before_bloom.jpg"
+    },
+    "usda_common_name:821-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Setose Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:821-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:171073": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum setosum Nutt.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Nutt.",
+    "name": "Pycnanthemum setosum",
+    "refs": [
+      "wcvp:171073"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

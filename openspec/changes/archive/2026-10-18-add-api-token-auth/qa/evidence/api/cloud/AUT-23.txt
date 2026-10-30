@@ -1,0 +1,477 @@
+# AUT-23 Evasión de ruta (objetivo: cloud)
+
+### GET /V1/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: ba204d8de13436e2f0f5ec93c96297fe;o=1
+server: Google Frontend
+content-length: 122
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/V1/plants"}
+
+### GET /V1/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: a9a518f8b0f97b641da9ec01aaf75cd4
+server: Google Frontend
+content-length: 122
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/V1/plants"}
+
+### GET /v1X   [sin Authorization]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: e84eb7351f0a503553389e9483d65d1a
+server: Google Frontend
+content-length: 116
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1X"}
+
+### GET /v1X   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 665b73386128bd484ae5d44e33a7198e
+server: Google Frontend
+content-length: 116
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1X"}
+
+### GET /v1x/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: fcdfc60ecdf7a667ed03c71907270931
+server: Google Frontend
+content-length: 123
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1x/plants"}
+
+### GET /v1x/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 1c0934baffcea712a100f344c9428cab
+server: Google Frontend
+content-length: 123
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1x/plants"}
+
+### GET //v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 87646bfa0f3eaa4cac438575dd0bd435
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET //v1/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: ae4e614623d4f1f3137b64cf156944d5
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /x/../v1/plants   [sin Authorization]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /x/../v1/plants   [Bearer <incorrecto>]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /./v1/plants   [sin Authorization]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /./v1/plants   [Bearer <incorrecto>]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/./plants   [sin Authorization]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/./plants   [Bearer <incorrecto>]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /%76%31/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: dd65866b22653eb703c3af450e33f0af
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /%76%31/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 0e2feea5e2c347ac7386b9f36e818263
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1%2Fplants   [sin Authorization]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 9da4bb7dcde208629cb1c397ce8807de
+server: Google Frontend
+content-length: 124
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1%2Fplants"}
+
+### GET /v1%2Fplants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 39582fae9c43e4d41f170e5634c87352
+server: Google Frontend
+content-length: 124
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1%2Fplants"}
+
+### GET /v1/plants/   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: aec0ba57053ad3dd75b61c807724ec13
+server: Google Frontend
+content-length: 130
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/"}
+
+### GET /v1/plants/   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: bc556a939ad1e29aacdb97f8850975aa
+server: Google Frontend
+content-length: 130
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/"}
+
+### GET /v1;a/plants   [sin Authorization]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: d335f3cde5bf1cee6a8dcd6051370de6
+server: Google Frontend
+content-length: 124
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1;a/plants"}
+
+### GET /v1;a/plants   [Bearer <incorrecto>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: b25a4dab21361fe28104970702373a30
+server: Google Frontend
+content-length: 124
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1;a/plants"}
+
+### GET /v1/plants;a=1   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 3554d135a278e12f4b996d2a744ba535
+server: Google Frontend
+content-length: 133
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants;a=1"}
+
+### GET /v1/plants;a=1   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: b51200fc24aee29a29f6940bd287e0c0
+server: Google Frontend
+content-length: 133
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants;a=1"}
+
+### GET /v1/plants%00   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: ae273de1014e508ac8ebc8fb8e28e596
+server: Google Frontend
+content-length: 132
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%00"}
+
+### GET /v1/plants%00   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: df72234b1472e141f0b42c8d35372140
+server: Google Frontend
+content-length: 132
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%00"}
+
+### GET /v1/plants/..;/plants   [sin Authorization]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/plants/..;/plants   [Bearer <incorrecto>]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/plants#x   [sin Authorization]
+status=400
+server: Google Frontend
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/plants#x   [Bearer <incorrecto>]
+status=400
+server: Google Frontend
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/%2e%2e/v1/plants   [sin Authorization]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/%2e%2e/v1/plants   [Bearer <incorrecto>]
+status=302
+cache-control: private
+location: https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants
+content-length: 0
+content-type: text/html; charset=UTF-8
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+
+
+### GET /v1/plants%2F   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 467b7a22733fb47180f1437024b50dd4
+server: Google Frontend
+content-length: 132
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%2F"}
+
+### GET /v1/plants%2F   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 1aa749b6a8e79023c4d3873ac89501ec
+server: Google Frontend
+content-length: 132
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants%2F"}
+
+### GET /v1/%70lants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 835ec4e247119bfc3c1aab8a167740bb
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/%70lants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 4d2f439beded74ecb764c7ec2044dc07
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?%00   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 04d6c221aa5d492ec0db6ab2c190f7c1
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?%00   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 167273bfa67fcde811ff53c83db5a71b;o=1
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 9e8fb05eda4b6b1cb277e556b543d9bd
+server: Google Frontend
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 580dcd89e0262d4a9c8aa45c1d33c2a0
+server: Google Frontend
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://boticario-api-d3xv5q3iaa-pv.a.run.app//v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: dca9076d609fbf519777e1c660c0481e
+server: Google Frontend
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET http://boticario-api-d3xv5q3iaa-pv.a.run.app//v1/plants   [Bearer <incorrecto>]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 7be383d2a0b169b7f278db097b1ea11b
+server: Google Frontend
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

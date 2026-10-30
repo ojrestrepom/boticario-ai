@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:010d5d171ce9ddc481fd62276a7ea837b4d446fdb9def9291ec7fb1959f810a5",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:197-1"
+      ],
+      "text": "Giant Milkweed"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Calotropis"
+    ],
+    "value": "Género de plantas de la familia Apocynaceae con 3 especies, originario de las regiones áridas de África y Asia. Se encuentra en bordes de caminos, sabanas y lugares abiertos."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q310216"
+    ],
+    "value": "Calotropis sp."
+  },
+  "family": null,
+  "goals": [],
+  "id": "calotropis-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Forest & Kim Starr",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Starr_041014-0034_Calotropis_gigantea.jpg",
+    "refs": [
+      "commons:File:Starr 041014-0034 Calotropis gigantea.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Starr_041014-0034_Calotropis_gigantea.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Starr 041014-0034 Calotropis gigantea.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Starr 041014-0034 Calotropis gigantea.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Starr_041014-0034_Calotropis_gigantea.jpg"
+    },
+    "usda_common_name:197-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Giant Milkweed»",
+      "license": "CC0"
+    },
+    "wikidata:Q310216": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q310216",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q310216"
+    },
+    "wikipedia_es:Calotropis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Calotropis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Calotropis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Calotropis sp.",
+    "refs": [
+      "wikidata:Q310216"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

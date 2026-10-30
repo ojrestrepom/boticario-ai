@@ -1,0 +1,199 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:df418f96ec3e43b46efc52e3d3a7fbc3701abd238aa9690883c813dfa9742d8c",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_part:1814-BK"
+    ],
+    "value": "Terminalia alata"
+  },
+  "family": null,
+  "goals": [],
+  "id": "terminalia-alata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_part:1814-BK": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Bark»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10233": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10233",
+      "license": "CC0"
+    },
+    "usda_use:45246": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45246",
+      "license": "CC0"
+    },
+    "usda_use:48287": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48287",
+      "license": "CC0"
+    },
+    "usda_use:69171": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69171",
+      "license": "CC0"
+    },
+    "usda_use:82432": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82432",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "identidad-ambigua",
+      "message": "El nombre es un homónimo que el backbone no resuelve; la planta conserva la identidad de la fuente.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-no-consultada",
+      "message": "La planta no tiene nombre aceptado, así que no se consultó Wikidata.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Terminalia alata",
+    "refs": [
+      "usda_part:1814-BK"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Cardiotónico",
+      "activitySource": "Cardiotonic",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10233",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82432",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69171",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45246",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estíptico",
+      "activitySource": "Styptic",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48287",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

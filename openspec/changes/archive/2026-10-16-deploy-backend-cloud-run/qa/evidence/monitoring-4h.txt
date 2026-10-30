@@ -1,0 +1,257 @@
+## request_count (7 series)
+2026-10-17T01:45:00Z boticario-api-00002-wtj {'route': '', 'response_code': '200', 'response_code_class': '2xx'} value=1
+2026-10-17T01:46:00Z boticario-api-00002-wtj {'route': '', 'response_code': '200', 'response_code_class': '2xx'} value=2
+2026-10-17T01:59:00Z boticario-api-00002-wtj {'route': '', 'response_code': '200', 'response_code_class': '2xx'} value=1
+2026-10-17T01:46:00Z boticario-api-00002-wtj {'route': '', 'response_code': '404', 'response_code_class': '4xx'} value=3
+2026-10-17T01:59:00Z boticario-api-00002-wtj {'route': '', 'response_code': '404', 'response_code_class': '4xx'} value=1
+2026-10-17T01:58:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=4
+2026-10-17T01:59:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=4
+2026-10-17T02:16:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=126
+2026-10-17T02:17:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=110
+2026-10-17T02:18:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=98
+2026-10-17T02:35:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=5
+2026-10-17T02:36:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=3
+2026-10-17T02:37:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=2
+2026-10-17T02:38:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=1
+2026-10-17T02:39:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=5
+2026-10-17T02:40:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=9
+2026-10-17T02:41:00Z boticario-api-00003-w5w {'response_code_class': '2xx', 'route': '', 'response_code': '200'} value=1
+2026-10-17T02:16:00Z boticario-api-00003-w5w {'response_code_class': '3xx', 'route': '', 'response_code': '302'} value=1
+2026-10-17T02:17:00Z boticario-api-00003-w5w {'response_code_class': '3xx', 'route': '', 'response_code': '302'} value=1
+2026-10-17T02:41:00Z boticario-api-00003-w5w {'response_code_class': '3xx', 'route': '', 'response_code': '302'} value=1
+2026-10-17T02:16:00Z boticario-api-00003-w5w {'response_code_class': '4xx', 'route': '', 'response_code': '400'} value=13
+2026-10-17T02:17:00Z boticario-api-00003-w5w {'response_code_class': '4xx', 'route': '', 'response_code': '400'} value=13
+2026-10-17T01:58:00Z boticario-api-00003-w5w {'response_code': '404', 'route': '', 'response_code_class': '4xx'} value=1
+2026-10-17T01:59:00Z boticario-api-00003-w5w {'response_code': '404', 'route': '', 'response_code_class': '4xx'} value=1
+2026-10-17T02:16:00Z boticario-api-00003-w5w {'response_code': '404', 'route': '', 'response_code_class': '4xx'} value=9
+2026-10-17T02:17:00Z boticario-api-00003-w5w {'response_code': '404', 'route': '', 'response_code_class': '4xx'} value=20
+2026-10-17T02:16:00Z boticario-api-00003-w5w {'response_code_class': '4xx', 'route': '', 'response_code': '405'} value=6
+2026-10-17T02:17:00Z boticario-api-00003-w5w {'response_code_class': '4xx', 'route': '', 'response_code': '405'} value=6
+TOTAL request_count = 448
+## container/startup_latencies (3 series)
+2026-10-17T01:43:00Z boticario-api-00001-95z {} count=1 mean=2034 max_bucket<=2079.6506
+2026-10-17T01:44:00Z boticario-api-00002-wtj {} count=1 mean=2030 max_bucket<=2079.6506
+2026-10-17T01:59:00Z boticario-api-00002-wtj {} count=1 mean=2033 max_bucket<=2079.6506
+2026-10-17T01:58:00Z boticario-api-00003-w5w {} count=1 mean=2018 max_bucket<=2079.6506
+2026-10-17T01:59:00Z boticario-api-00003-w5w {} count=1 mean=2033 max_bucket<=2079.6506
+2026-10-17T02:16:00Z boticario-api-00003-w5w {} count=1 mean=2016 max_bucket<=2079.6506
+2026-10-17T02:35:00Z boticario-api-00003-w5w {} count=1 mean=2020 max_bucket<=2079.6506
+## container/memory/utilizations (3 series)
+2026-10-17T01:43:00Z boticario-api-00001-95z {} count=1 mean=0.03221 max_bucket<=0.04
+2026-10-17T01:44:00Z boticario-api-00001-95z {} count=1 mean=0.03221 max_bucket<=0.04
+2026-10-17T01:45:00Z boticario-api-00002-wtj {} count=1 mean=0.082 max_bucket<=0.09
+2026-10-17T01:46:00Z boticario-api-00002-wtj {} count=1 mean=0.08466 max_bucket<=0.09
+2026-10-17T01:47:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:48:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:49:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:50:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:51:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:52:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:53:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:54:00Z boticario-api-00002-wtj {} count=1 mean=0.1026 max_bucket<=0.11
+2026-10-17T01:55:00Z boticario-api-00002-wtj {} count=1 mean=0.1031 max_bucket<=0.11
+2026-10-17T01:56:00Z boticario-api-00002-wtj {} count=1 mean=0.1031 max_bucket<=0.11
+2026-10-17T01:57:00Z boticario-api-00002-wtj {} count=1 mean=0.1019 max_bucket<=0.11
+2026-10-17T01:58:00Z boticario-api-00003-w5w {} count=1 mean=0.08472 max_bucket<=0.09
+2026-10-17T01:59:00Z boticario-api-00003-w5w {} count=1 mean=0.08165 max_bucket<=0.09
+2026-10-17T02:00:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:01:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:02:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:03:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:04:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:05:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:06:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:07:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:08:00Z boticario-api-00003-w5w {} count=1 mean=0.05196 max_bucket<=0.06
+2026-10-17T02:09:00Z boticario-api-00003-w5w {} count=1 mean=0.05222 max_bucket<=0.06
+2026-10-17T02:10:00Z boticario-api-00003-w5w {} count=1 mean=0.05246 max_bucket<=0.06
+2026-10-17T02:11:00Z boticario-api-00003-w5w {} count=1 mean=0.05246 max_bucket<=0.06
+2026-10-17T02:12:00Z boticario-api-00003-w5w {} count=1 mean=0.05246 max_bucket<=0.06
+2026-10-17T02:13:00Z boticario-api-00003-w5w {} count=1 mean=0.05246 max_bucket<=0.06
+2026-10-17T02:14:00Z boticario-api-00003-w5w {} count=1 mean=0.05246 max_bucket<=0.06
+2026-10-17T02:16:00Z boticario-api-00003-w5w {} count=1 mean=0.08206 max_bucket<=0.09
+2026-10-17T02:17:00Z boticario-api-00003-w5w {} count=1 mean=0.06931 max_bucket<=0.07
+2026-10-17T02:18:00Z boticario-api-00003-w5w {} count=1 mean=0.0723 max_bucket<=0.08
+2026-10-17T02:19:00Z boticario-api-00003-w5w {} count=1 mean=0.07236 max_bucket<=0.08
+2026-10-17T02:20:00Z boticario-api-00003-w5w {} count=1 mean=0.07236 max_bucket<=0.08
+2026-10-17T02:21:00Z boticario-api-00003-w5w {} count=1 mean=0.09506 max_bucket<=0.1
+2026-10-17T02:22:00Z boticario-api-00003-w5w {} count=1 mean=0.09506 max_bucket<=0.1
+2026-10-17T02:23:00Z boticario-api-00003-w5w {} count=1 mean=0.09604 max_bucket<=0.1
+2026-10-17T02:24:00Z boticario-api-00003-w5w {} count=1 mean=0.09604 max_bucket<=0.1
+2026-10-17T02:25:00Z boticario-api-00003-w5w {} count=1 mean=0.09653 max_bucket<=0.1
+2026-10-17T02:26:00Z boticario-api-00003-w5w {} count=1 mean=0.09653 max_bucket<=0.1
+2026-10-17T02:27:00Z boticario-api-00003-w5w {} count=1 mean=0.09534 max_bucket<=0.1
+2026-10-17T02:28:00Z boticario-api-00003-w5w {} count=1 mean=0.09534 max_bucket<=0.1
+2026-10-17T02:29:00Z boticario-api-00003-w5w {} count=1 mean=0.09312 max_bucket<=0.1
+2026-10-17T02:30:00Z boticario-api-00003-w5w {} count=1 mean=0.09312 max_bucket<=0.1
+2026-10-17T02:31:00Z boticario-api-00003-w5w {} count=1 mean=0.09312 max_bucket<=0.1
+2026-10-17T02:32:00Z boticario-api-00003-w5w {} count=1 mean=0.09312 max_bucket<=0.1
+2026-10-17T02:33:00Z boticario-api-00003-w5w {} count=1 mean=0.09312 max_bucket<=0.1
+2026-10-17T02:36:00Z boticario-api-00003-w5w {} count=1 mean=0.08794 max_bucket<=0.09
+2026-10-17T02:37:00Z boticario-api-00003-w5w {} count=1 mean=0.08887 max_bucket<=0.09
+2026-10-17T02:38:00Z boticario-api-00003-w5w {} count=1 mean=0.05316 max_bucket<=0.06
+2026-10-17T02:39:00Z boticario-api-00003-w5w {} count=1 mean=0.05338 max_bucket<=0.06
+2026-10-17T02:40:00Z boticario-api-00003-w5w {} count=1 mean=0.05367 max_bucket<=0.06
+2026-10-17T02:41:00Z boticario-api-00003-w5w {} count=1 mean=0.05368 max_bucket<=0.06
+2026-10-17T02:42:00Z boticario-api-00003-w5w {} count=1 mean=0.05368 max_bucket<=0.06
+2026-10-17T02:43:00Z boticario-api-00003-w5w {} count=1 mean=0.05368 max_bucket<=0.06
+2026-10-17T02:44:00Z boticario-api-00003-w5w {} count=1 mean=0.05368 max_bucket<=0.06
+2026-10-17T02:45:00Z boticario-api-00003-w5w {} count=1 mean=0.05368 max_bucket<=0.06
+2026-10-17T02:46:00Z boticario-api-00003-w5w {} count=1 mean=0.05397 max_bucket<=0.06
+2026-10-17T02:47:00Z boticario-api-00003-w5w {} count=1 mean=0.05397 max_bucket<=0.06
+2026-10-17T02:48:00Z boticario-api-00003-w5w {} count=1 mean=0.05397 max_bucket<=0.06
+2026-10-17T02:49:00Z boticario-api-00003-w5w {} count=1 mean=0.05397 max_bucket<=0.06
+2026-10-17T02:50:00Z boticario-api-00003-w5w {} count=1 mean=0.05397 max_bucket<=0.06
+2026-10-17T02:51:00Z boticario-api-00003-w5w {} count=1 mean=0.05397 max_bucket<=0.06
+2026-10-17T02:52:00Z boticario-api-00003-w5w {} count=1 mean=0.05414 max_bucket<=0.06
+2026-10-17T02:53:00Z boticario-api-00003-w5w {} count=1 mean=0.05414 max_bucket<=0.06
+2026-10-17T02:54:00Z boticario-api-00003-w5w {} count=1 mean=0.05414 max_bucket<=0.06
+2026-10-17T02:55:00Z boticario-api-00003-w5w {} count=1 mean=0.05414 max_bucket<=0.06
+2026-10-17T02:56:00Z boticario-api-00003-w5w {} count=1 mean=0.05463 max_bucket<=0.06
+## container/cpu/allocation_time (3 series)
+2026-10-17T01:43:00Z boticario-api-00001-95z {} value=8.65947
+2026-10-17T01:44:00Z boticario-api-00001-95z {} value=5.92325
+2026-10-17T01:45:00Z boticario-api-00001-95z {} value=0.5
+2026-10-17T01:44:00Z boticario-api-00002-wtj {} value=10.8488
+2026-10-17T01:46:00Z boticario-api-00002-wtj {} value=0.1
+2026-10-17T01:47:00Z boticario-api-00002-wtj {} value=0.5
+2026-10-17T01:58:00Z boticario-api-00002-wtj {} value=0.5
+2026-10-17T01:59:00Z boticario-api-00002-wtj {} value=2.6
+2026-10-17T01:58:00Z boticario-api-00003-w5w {} value=14.5821
+2026-10-17T01:59:00Z boticario-api-00003-w5w {} value=15.0752
+2026-10-17T02:00:00Z boticario-api-00003-w5w {} value=0.4
+2026-10-17T02:15:00Z boticario-api-00003-w5w {} value=0.578293
+2026-10-17T02:16:00Z boticario-api-00003-w5w {} value=6.42312
+2026-10-17T02:17:00Z boticario-api-00003-w5w {} value=22.252
+2026-10-17T02:18:00Z boticario-api-00003-w5w {} value=14
+2026-10-17T02:19:00Z boticario-api-00003-w5w {} value=1.1
+2026-10-17T02:34:00Z boticario-api-00003-w5w {} value=0.1
+2026-10-17T02:36:00Z boticario-api-00003-w5w {} value=14.5946
+2026-10-17T02:37:00Z boticario-api-00003-w5w {} value=0.3
+2026-10-17T02:38:00Z boticario-api-00003-w5w {} value=0.2
+2026-10-17T02:39:00Z boticario-api-00003-w5w {} value=0.2
+2026-10-17T02:40:00Z boticario-api-00003-w5w {} value=1.3
+2026-10-17T02:41:00Z boticario-api-00003-w5w {} value=0.1
+TOTAL container/cpu/allocation_time = 120.837
+## container/memory/allocation_time (3 series)
+2026-10-17T01:43:00Z boticario-api-00001-95z {} value=0.575
+2026-10-17T01:45:00Z boticario-api-00001-95z {} value=0.125
+2026-10-17T01:44:00Z boticario-api-00002-wtj {} value=0.427875
+2026-10-17T01:46:00Z boticario-api-00002-wtj {} value=0.025
+2026-10-17T01:47:00Z boticario-api-00002-wtj {} value=0.125
+2026-10-17T01:58:00Z boticario-api-00002-wtj {} value=0.125
+2026-10-17T01:59:00Z boticario-api-00002-wtj {} value=0.65
+2026-10-17T01:58:00Z boticario-api-00003-w5w {} value=0.6
+2026-10-17T01:59:00Z boticario-api-00003-w5w {} value=0.725
+2026-10-17T02:00:00Z boticario-api-00003-w5w {} value=0.1
+2026-10-17T02:15:00Z boticario-api-00003-w5w {} value=0.144573
+2026-10-17T02:16:00Z boticario-api-00003-w5w {} value=0.655427
+2026-10-17T02:17:00Z boticario-api-00003-w5w {} value=3.475
+2026-10-17T02:18:00Z boticario-api-00003-w5w {} value=3.5
+2026-10-17T02:19:00Z boticario-api-00003-w5w {} value=0.275
+2026-10-17T02:34:00Z boticario-api-00003-w5w {} value=0.025
+2026-10-17T02:36:00Z boticario-api-00003-w5w {} value=0.625
+2026-10-17T02:37:00Z boticario-api-00003-w5w {} value=0.075
+2026-10-17T02:38:00Z boticario-api-00003-w5w {} value=0.05
+2026-10-17T02:39:00Z boticario-api-00003-w5w {} value=0.05
+2026-10-17T02:40:00Z boticario-api-00003-w5w {} value=0.325
+2026-10-17T02:41:00Z boticario-api-00003-w5w {} value=0.025
+TOTAL container/memory/allocation_time = 12.7029
+## container/billable_instance_time (3 series)
+2026-10-17T01:43:00Z boticario-api-00001-95z {} value=2.3
+2026-10-17T01:45:00Z boticario-api-00001-95z {} value=0.5
+2026-10-17T01:44:00Z boticario-api-00002-wtj {} value=1.7115
+2026-10-17T01:46:00Z boticario-api-00002-wtj {} value=0.1
+2026-10-17T01:47:00Z boticario-api-00002-wtj {} value=0.5
+2026-10-17T01:58:00Z boticario-api-00002-wtj {} value=0.5
+2026-10-17T01:59:00Z boticario-api-00002-wtj {} value=2.6
+2026-10-17T01:58:00Z boticario-api-00003-w5w {} value=2.4
+2026-10-17T01:59:00Z boticario-api-00003-w5w {} value=2.9
+2026-10-17T02:00:00Z boticario-api-00003-w5w {} value=0.4
+2026-10-17T02:15:00Z boticario-api-00003-w5w {} value=0.578293
+2026-10-17T02:16:00Z boticario-api-00003-w5w {} value=2.62171
+2026-10-17T02:17:00Z boticario-api-00003-w5w {} value=13.9
+2026-10-17T02:18:00Z boticario-api-00003-w5w {} value=14
+2026-10-17T02:19:00Z boticario-api-00003-w5w {} value=1.1
+2026-10-17T02:34:00Z boticario-api-00003-w5w {} value=0.1
+2026-10-17T02:36:00Z boticario-api-00003-w5w {} value=2.5
+2026-10-17T02:37:00Z boticario-api-00003-w5w {} value=0.3
+2026-10-17T02:38:00Z boticario-api-00003-w5w {} value=0.2
+2026-10-17T02:39:00Z boticario-api-00003-w5w {} value=0.2
+2026-10-17T02:40:00Z boticario-api-00003-w5w {} value=1.3
+2026-10-17T02:41:00Z boticario-api-00003-w5w {} value=0.1
+TOTAL container/billable_instance_time = 50.8115
+## container/instance_count (6 series)
+2026-10-17T01:43:00Z boticario-api-00001-95z {'state': 'active'} value=1
+2026-10-17T01:44:00Z boticario-api-00001-95z {'state': 'idle'} value=1
+2026-10-17T01:45:00Z boticario-api-00002-wtj {'state': 'active'} value=1
+2026-10-17T01:46:00Z boticario-api-00002-wtj {'state': 'active'} value=1
+2026-10-17T01:47:00Z boticario-api-00002-wtj {'state': 'active'} value=1
+2026-10-17T01:48:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:49:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:50:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:51:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:52:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:53:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:54:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:55:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:56:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:57:00Z boticario-api-00002-wtj {'state': 'idle'} value=1
+2026-10-17T01:58:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T01:59:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:00:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:16:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:17:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:18:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:19:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:36:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:37:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:38:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:39:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:40:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:41:00Z boticario-api-00003-w5w {'state': 'active'} value=1
+2026-10-17T02:01:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:02:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:03:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:04:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:05:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:06:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:07:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:08:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:09:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:10:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:11:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:12:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:13:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:14:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:15:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:20:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:21:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:22:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:23:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:24:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:25:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:26:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:27:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:28:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:29:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:30:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:31:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:32:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:33:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:42:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:43:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:44:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:45:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:46:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:47:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:48:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:49:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:50:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:51:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:52:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:53:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:54:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:55:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+2026-10-17T02:56:00Z boticario-api-00003-w5w {'state': 'idle'} value=1
+TOTAL container/instance_count = 72

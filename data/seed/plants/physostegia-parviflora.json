@@ -1,0 +1,139 @@
+{
+  "aliases": [
+    "moldavica-parviflora"
+  ],
+  "bundleHash": "sha256:d9a2ebf2a0a1fb68e3fc2b1d461851a6f6e220e5a97ae66857cad64d056d5fd8",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2017-1"
+      ],
+      "text": "Small-Flowered Moldavica"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:155810"
+    ],
+    "value": "Physostegia parviflora"
+  },
+  "family": {
+    "refs": [
+      "wcvp:155810"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "physostegia-parviflora",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2017-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:155810"
+    ],
+    "value": "Oeste de Canadá y norte, noroeste y suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2017-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Small-Flowered Moldavica»",
+      "license": "CC0"
+    },
+    "usda_part:2017-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:128913": {
+      "dataset": "wcvp",
+      "label": "WCVP: Moldavica parviflora (Nutt. ex A.Gray) Britton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:155810": {
+      "dataset": "wcvp",
+      "label": "WCVP: Physostegia parviflora Nutt. ex A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:155829": {
+      "dataset": "wcvp",
+      "label": "WCVP: Physostegia virginiana var. parviflora (Nutt. ex A.Gray) B.Boivin",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:63849": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dracocephalum nuttallii Britton",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta entera, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Nutt. ex A.Gray",
+    "name": "Physostegia parviflora",
+    "refs": [
+      "wcvp:155810"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Britton",
+      "name": "Dracocephalum nuttallii",
+      "refs": [
+        "wcvp:63849"
+      ]
+    },
+    {
+      "authors": "(Nutt. ex A.Gray) Britton",
+      "name": "Moldavica parviflora",
+      "refs": [
+        "wcvp:128913"
+      ]
+    },
+    {
+      "authors": "(Nutt. ex A.Gray) B.Boivin",
+      "name": "Physostegia virginiana var. parviflora",
+      "refs": [
+        "wcvp:155829"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

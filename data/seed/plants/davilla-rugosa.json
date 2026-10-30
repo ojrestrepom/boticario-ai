@@ -1,0 +1,183 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9293c21376c752c186253edddf6492415bbbfc8be9368adf37c7b67c3848cc9b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1358-1"
+      ],
+      "text": "Cipo caboclo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1358-2"
+      ],
+      "text": "Watervine"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2758447"
+    ],
+    "value": "Davilla rugosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2758447"
+    ],
+    "value": "Dilleniaceae"
+  },
+  "goals": [],
+  "id": "davilla-rugosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2758447"
+    ],
+    "value": "Brasil, América Central y el norte, oeste y sur de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1358-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cipo caboclo»",
+      "license": "CC0"
+    },
+    "usda_common_name:1358-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Watervine»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_use:11101": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11101",
+      "license": "CC0"
+    },
+    "usda_use:21120": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21120",
+      "license": "CC0"
+    },
+    "usda_use:79689": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79689",
+      "license": "CC0"
+    },
+    "wcvp:2758447": {
+      "dataset": "wcvp",
+      "label": "WCVP: Davilla rugosa Poir.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español para Davilla rugosa; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Poir.",
+    "name": "Davilla rugosa",
+    "refs": [
+      "wcvp:2758447"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11101",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21120",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor de testículo",
+      "activitySource": "Tumor(Testicle)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Brasil"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79689",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# CFG-05
+
+$ API_TOKENS: elemento vacío en medio (a,,b)
+exit=2
+error de configuración: API_TOKENS tiene un elemento vacío en la posición 2; quita las comas sobrantes
+
+PASS elemento vacío en medio (a,,b): código 2, nombra API_TOKENS, sin el valor
+$ API_TOKENS: coma final
+exit=2
+error de configuración: API_TOKENS tiene un elemento vacío en la posición 2; quita las comas sobrantes
+
+PASS coma final: código 2, nombra API_TOKENS, sin el valor
+$ API_TOKENS: coma inicial
+exit=2
+error de configuración: API_TOKENS tiene un elemento vacío en la posición 1; quita las comas sobrantes
+
+PASS coma inicial: código 2, nombra API_TOKENS, sin el valor
+$ API_TOKENS: carácter @
+exit=2
+error de configuración: API_TOKENS: el token 1 tiene un carácter no permitido; solo se admiten letras, dígitos y -._~+/
+
+PASS carácter @: código 2, nombra API_TOKENS, sin el valor
+$ API_TOKENS: espacio interior
+exit=2
+error de configuración: API_TOKENS: el token 1 tiene un carácter no permitido; solo se admiten letras, dígitos y -._~+/
+
+PASS espacio interior: código 2, nombra API_TOKENS, sin el valor
+$ API_TOKENS: carácter no ASCII
+exit=2
+error de configuración: API_TOKENS: el token 1 tiene un carácter no permitido; solo se admiten letras, dígitos y -._~+/
+
+PASS carácter no ASCII: código 2, nombra API_TOKENS, sin el valor
+$ API_TOKENS: un token malo entre buenos
+exit=2
+error de configuración: API_TOKENS: el token 2 es demasiado corto; la longitud mínima es 32 caracteres
+
+PASS un token malo entre buenos: código 2, nombra API_TOKENS, sin el valor

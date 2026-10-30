@@ -1,0 +1,37 @@
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '2'
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 568.0.0
+        run.googleapis.com/cpu-throttling: 'true'
+        run.googleapis.com/execution-environment: gen1
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containers:
+      - env:
+        - name: API_TOKENS
+          valueFrom:
+            secretKeyRef:
+              key: '1'
+              name: boticario-api-tokens
+        resources:
+          limits:
+            cpu: '1'
+            memory: 256Mi
+        startupProbe:
+          failureThreshold: 10
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 1
+          periodSeconds: 2
+          timeoutSeconds: 1
+      serviceAccountName: boticario-runtime@boticario-ai.iam.gserviceaccount.com
+status:
+  latestReadyRevisionName: boticario-api-00007-fgc
+  traffic:
+  - latestRevision: true
+    percent: 100
+    revisionName: boticario-api-00007-fgc

@@ -1,0 +1,136 @@
+# backend-container Specification
+
+## Purpose
+Define la imagen de contenedor del backend: un artefacto autocontenido con la API y el catálogo ya construido, que se construye y arranca con Docker sin instalar Rust, mise ni descargar datos a mano, y que sirve de base para un despliegue posterior.
+
+## Requirements
+
+### Requirement: Imagen autocontenida
+La imagen SHALL contener la API y el catálogo ya construido, y SHALL servir sin acceso a la red. La imagen final SHALL NOT incluir la semilla, las herramientas de generación, el toolchain de Rust ni el código fuente, y SHALL NOT incluir ningún token de API: los tokens llegan siempre por el entorno en tiempo de ejecución.
+
+#### Scenario: Servir sin red
+- **WHEN** se ejecuta el contenedor sin acceso a la red y con `API_TOKENS` definido, y se consulta `GET /v1/plants/lavandula-angustifolia` con un token válido
+- **THEN** la API responde 200 con el detalle de la planta
+
+#### Scenario: Contenido mínimo
+- **WHEN** se inspecciona el sistema de archivos de la imagen final
+- **THEN** no existe `data/seed/`, `cargo`, `rustc` ni el código fuente, y sí existen el binario de la API y la base del catálogo
+
+#### Scenario: Sin tokens en la imagen
+- **WHEN** se inspeccionan las capas y la configuración de la imagen
+- **THEN** no contienen ningún valor de `API_TOKENS` y la variable no tiene valor por defecto
+
+### Requirement: Construcción reproducible del catálogo
+El catálogo SHALL construirse al construir la imagen, no al arrancar el contenedor, a partir de la semilla del repositorio y sin descargar ningún dato, y la construcción SHALL imprimir el hash de contenido del catálogo. Ese hash SHALL ser igual al de una construcción nativa a partir de la misma semilla.
+
+#### Scenario: Hash igual al nativo
+- **WHEN** se construye la imagen y se compara el hash impreso en el log de construcción con el de una construcción nativa de la misma semilla
+- **THEN** ambos hashes son idénticos
+
+#### Scenario: Insumo alterado
+- **WHEN** un registro de la semilla no coincide con el hash de su manifiesto
+- **THEN** la construcción de la imagen falla y no produce imagen
+
+#### Scenario: Sin descargas de datos
+- **WHEN** se construye la imagen con la caché de Docker vacía
+- **THEN** la etapa del catálogo no realiza ninguna conexión de red para obtener datos
+
+### Requirement: Construcción sin preparación previa
+`docker compose build` SHALL construir la imagen en una máquina que solo tiene Docker con Compose y acceso a la red para obtener las imágenes base y los crates de Rust, sin Rust, mise, un compilador de C ni descargas manuales previas de datos.
+
+#### Scenario: Máquina limpia
+- **WHEN** un compañero con solo Docker ejecuta `docker compose build` desde la raíz del repo
+- **THEN** la imagen se construye con éxito
+
+### Requirement: Arranque con un solo comando
+`docker compose up` SHALL arrancar la API publicando el puerto 8080 del anfitrión por defecto, con datos reales del catálogo, siempre que `API_TOKENS` esté definido en el entorno o en el archivo `.env` de la raíz. Sin `API_TOKENS`, `docker compose up` SHALL fallar con un mensaje que indica cómo definirlo y SHALL NOT arrancar una API sin autorización.
+
+#### Scenario: Salud y datos
+- **WHEN** se ejecuta `docker compose up` con `API_TOKENS` definido y se consulta `http://localhost:8080/health`
+- **THEN** la respuesta es 200
+
+#### Scenario: Búsqueda real
+- **WHEN** se consulta `/v1/plants?q=lavand` y `/v1/plants/lavandula-angustifolia` con un token válido
+- **THEN** ambas responden 200 y devuelven el listado y el detalle con datos del catálogo real
+
+#### Scenario: Sin token configurado
+- **WHEN** se ejecuta `docker compose up` sin `API_TOKENS` en el entorno ni en `.env`
+- **THEN** falla antes de arrancar el contenedor con un mensaje que nombra `API_TOKENS`
+
+#### Scenario: Consulta sin token
+- **WHEN** se consulta `/v1/plants` sin token en el contenedor en marcha
+- **THEN** la respuesta es 401
+
+### Requirement: Configuración por entorno
+El puerto publicado y el puerto de escucha SHALL poder cambiarse con la variable `PORT`, el nivel de logs con `RUST_LOG` y los tokens válidos con `API_TOKENS`. La dirección de escucha SHALL ser siempre `0.0.0.0` dentro del contenedor y SHALL NOT depender de la configuración del usuario.
+
+#### Scenario: Otro puerto
+- **WHEN** se ejecuta `PORT=9090 docker compose up` y se consulta `http://localhost:9090/health`
+- **THEN** la respuesta es 200 y el puerto 8080 del anfitrión no está publicado
+
+#### Scenario: Otro nivel de logs
+- **WHEN** se ejecuta el contenedor con `RUST_LOG=warn` y, por separado, con el valor por defecto
+- **THEN** con `warn` el log no contiene la línea INFO de arranque («escuchando») y con el valor por defecto sí la contiene
+
+#### Scenario: Tokens por entorno
+- **WHEN** se ejecuta el contenedor con `API_TOKENS` de dos tokens válidos
+- **THEN** una petición a `/v1/plants` con cualquiera de los dos responde 200 y con otro valor responde 401
+
+### Requirement: Ejecución sin privilegios
+El proceso de la API SHALL ejecutarse con un usuario sin privilegios, nunca como root, y SHALL abrir la base del catálogo en solo lectura.
+
+#### Scenario: Usuario del proceso
+- **WHEN** se consulta el usuario del proceso dentro del contenedor en ejecución
+- **THEN** no es root
+
+### Requirement: Apagado ordenado
+Al recibir la señal de terminación, el contenedor SHALL terminar de forma ordenada, con código de salida 0 y un registro de que el apagado se completó. El apagado SHALL esperar a las peticiones en curso como máximo el plazo de gracia, que es menor que el plazo por defecto de `docker stop` (unos 3 s en Docker 29), y SHALL terminar con código 0 aunque queden conexiones abiertas.
+
+#### Scenario: Detener el contenedor
+- **WHEN** se ejecuta `docker stop` sobre el contenedor en ejecución
+- **THEN** el contenedor termina con código 0, sin esperar al cierre forzado, y su log contiene «apagado completado»
+
+#### Scenario: Conexión colgada
+- **WHEN** un cliente mantiene una conexión abierta con cabeceras incompletas y se ejecuta `docker stop`
+- **THEN** el contenedor termina con código 0 antes de que Docker fuerce el cierre, con `docker stop` sin opciones, y el log contiene el aviso de apagado forzado y «apagado completado»
+
+### Requirement: Documentación sin setup manual
+El README de la raíz SHALL describir cómo arrancar el backend usando solo Docker y SHALL NOT incluir instrucciones para instalar Rust, mise ni cargo, aunque SHALL poder enlazar a `backend/README.md` para quien modifique el código. El flujo de desarrollo nativo SHALL conservarse completo en `backend/README.md`, y los enlaces del README y de `docs/` SHALL seguir siendo válidos.
+
+#### Scenario: README solo con Docker
+- **WHEN** se busca en el README instrucciones de instalación de Rust, mise o cargo
+- **THEN** no hay ninguna, y la sección del backend indica Docker, `docker compose up --build`, endpoints, variables configurables, cómo ver el hash del catálogo, cómo reconstruir y, como máximo, un enlace a `backend/README.md`
+
+#### Scenario: Flujo nativo completo
+- **WHEN** se revisa `backend/README.md`
+- **THEN** incluye prerrequisitos con mise, construcción del catálogo, ejecución de la API, regeneración del OpenAPI, verificación y cambio de esquema
+
+#### Scenario: Enlaces válidos
+- **WHEN** se comprueban los enlaces relativos y los anclajes del README y de `docs/`
+- **THEN** todos apuntan a destinos existentes
+
+### Requirement: Guardia de versión del toolchain
+Una prueba automatizada SHALL fallar cuando la versión de Rust de la imagen base de compilación no coincida con la fijada para el desarrollo local, para que ambas no diverjan.
+
+#### Scenario: Versiones coinciden
+- **WHEN** se ejecuta la prueba con la versión de la imagen igual a la fijada localmente
+- **THEN** la prueba pasa
+
+#### Scenario: Versiones divergen
+- **WHEN** se altera una de las dos versiones y se ejecuta la prueba
+- **THEN** la prueba falla indicando ambas versiones
+
+### Requirement: Reconstrucción incremental de la semilla y la API
+Las reconstrucciones SHALL reutilizar la caché de construcción. Sin cambios, la reconstrucción SHALL reutilizar todas las capas. Con un cambio en un archivo Rust, SHALL recompilar sin descargar datos. Con un cambio en la semilla, SHALL reconstruir el catálogo sin recompilar el código de la API.
+
+#### Scenario: Sin cambios
+- **WHEN** se vuelve a construir la imagen sin modificar el repo
+- **THEN** la construcción termina reutilizando la caché y no ejecuta de nuevo la compilación ni la construcción del catálogo
+
+#### Scenario: Cambio en Rust
+- **WHEN** se modifica un archivo Rust y se vuelve a construir la imagen
+- **THEN** se recompila el código y no se descarga ningún dato
+
+#### Scenario: Cambio en la semilla
+- **WHEN** se modifica un registro de la semilla, con su manifiesto actualizado, y se vuelve a construir la imagen
+- **THEN** se reconstruye el catálogo y no se recompila el binario de la API

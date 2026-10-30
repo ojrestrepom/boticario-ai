@@ -1,0 +1,268 @@
+{
+  "aliases": [
+    "notopterygium-incisum"
+  ],
+  "bundleHash": "sha256:c973d8b515d1029dc0706478f5260e2ee7079d4a986bfd25625d1f032a4cd56e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:665-1"
+      ],
+      "text": "Qiang Huo"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2607384"
+    ],
+    "value": "Hansenia weberbaueriana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2607384"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "hansenia-weberbaueriana",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2607384"
+    ],
+    "value": "China"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:665-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Qiang Huo»",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_use:12332": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12332",
+      "license": "CC0"
+    },
+    "usda_use:32541": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32541",
+      "license": "CC0"
+    },
+    "usda_use:41408": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41408",
+      "license": "CC0"
+    },
+    "usda_use:63784": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63784",
+      "license": "CC0"
+    },
+    "usda_use:64939": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64939",
+      "license": "CC0"
+    },
+    "usda_use:78340": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78340",
+      "license": "CC0"
+    },
+    "wcvp:2342379": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ligusticum weberbauerianum Fedde ex H.Wolff",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2379625": {
+      "dataset": "wcvp",
+      "label": "WCVP: Notopterygium weberbauerianum (Fedde ex H.Wolff) Pimenov & Kljuykov",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2607384": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hansenia weberbaueriana (Fedde ex H.Wolff) Pimenov & Kljuykov",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Fedde ex H.Wolff) Pimenov & Kljuykov",
+    "name": "Hansenia weberbaueriana",
+    "refs": [
+      "wcvp:2607384"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Fedde ex H.Wolff",
+      "name": "Ligusticum weberbauerianum",
+      "refs": [
+        "wcvp:2342379"
+      ]
+    },
+    {
+      "authors": "(Fedde ex H.Wolff) Pimenov & Kljuykov",
+      "name": "Notopterygium weberbauerianum",
+      "refs": [
+        "wcvp:2379625"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63784",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64939",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12332",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Lumbago",
+      "activitySource": "Lumbago",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32541",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41408",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Sudoración",
+      "activitySource": "Sweating",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:78340",
+        "usda_reference:NAS2"
+      ]
+    }
+  ]
+}

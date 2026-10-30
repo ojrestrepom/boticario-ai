@@ -1,0 +1,35 @@
+# AUT-27 La cabecera llega intacta a la API en Cloud Run (objetivo: cloud)
+
+### GET /v1/plants/lavandula-angustifolia   [Bearer <token de la app>]
+status=200
+content-type: application/json
+x-cloud-trace-context: 2cbea70fa3ac4753697cb1900efa58c7
+server: Google Frontend
+content-length: 1938
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"id":"lavandula-angustifolia","scientificName":"Lavandula angustifolia","family":"Lamiaceae","names":[{"text":"Lavandula angustifolia","kind":"scientific","language":"la"},{"text":"English Lavender","kind":"common","language":"en"}],"parts":[{"label":"Flower"},{"label":"Leaf"},{"label":"Plant"},{"label":"Seed"}],"uses":[{"activity":"Carminative","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Cholagogue","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Diuretic","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Nervine","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Perfume","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Spasm","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Stimulant","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Stomachic","language":"en","referenc
+
+### GET /v1/plants/lavandula-angustifolia   [Bearer <token de CI>]
+status=200
+content-type: application/json
+x-cloud-trace-context: 75add7d6c80db764914a2f2b97518c64
+server: Google Frontend
+content-length: 1938
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"id":"lavandula-angustifolia","scientificName":"Lavandula angustifolia","family":"Lamiaceae","names":[{"text":"Lavandula angustifolia","kind":"scientific","language":"la"},{"text":"English Lavender","kind":"common","language":"en"}],"parts":[{"label":"Flower"},{"label":"Leaf"},{"label":"Plant"},{"label":"Seed"}],"uses":[{"activity":"Carminative","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Cholagogue","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Diuretic","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Nervine","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Perfume","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Spasm","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Stimulant","language":"en","reference":{"id":"Steinmetz","citation":"Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."}},{"activity":"Stomachic","language":"en","referenc
+
+### GET /v1/plants/lavandula-angustifolia   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: f821c266380500067c4194e69108f934;o=1
+server: Google Frontend
+content-length: 152
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants/lavandula-angustifolia"}

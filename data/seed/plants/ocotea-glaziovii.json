@@ -1,0 +1,85 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:57dced35c0dbd5504413bb6f677cbaba3bcbfc5d6b3fa1eeb1a03633ae8ac734",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:668-1"
+      ],
+      "text": "Ocotea"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2386033"
+    ],
+    "value": "Ocotea glaziovii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2386033"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "ocotea-glaziovii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2386033"
+    ],
+    "value": "Brasil."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:668-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ocotea»",
+      "license": "CC0"
+    },
+    "wcvp:2386033": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocotea glaziovii Mez",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Mez",
+    "name": "Ocotea glaziovii",
+    "refs": [
+      "wcvp:2386033"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

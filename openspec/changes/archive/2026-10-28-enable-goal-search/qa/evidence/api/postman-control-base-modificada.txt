@@ -1,0 +1,51 @@
+# Control negativo: la misma coleccion contra la base modificada (puerto 8081); debe fallar donde los conteos y la lavanda cambian
+|              iterations |                 1 |                0 |
+--------------------------+-------------------+-------------------
+|                requests |                29 |                0 |
+--------------------------+-------------------+-------------------
+|            test-scripts |                29 |                0 |
+--------------------------+-------------------+-------------------
+|      prerequest-scripts |                 0 |                0 |
+--------------------------+-------------------+-------------------
+|              assertions |               138 |                6 |
+------------------------------------------------------------------
+| total run duration: 422 ms                                     |
+------------------------------------------------------------------
+| total data received: 321.74 KB (approx)                        |
+------------------------------------------------------------------
+| average response time: 2 ms [min: 1 ms, max: 7 ms, s.d.: 1 ms] |
+------------------------------------------------------------------
+
+  #  failure         detail                                                                              
+                                                                                                         
+ 1.  AssertionError  conteos reales 17, 8, 32, 52, 8, 135                                                
+                     expected [ 17, 7, 32, 52, +0, 134 ] to deeply equal [ 17, 8, 32, 52, 8, 135 ]       
+                     at assertion:5 in test-script                                                       
+                     inside "Objetivos / OBJ-01 catalogo de objetivos"                                   
+                                                                                                         
+ 2.  AssertionError  subareas en orden con conteos 68, 42, 22, 20, 17, 1                                 
+                     expected [ 'digestion', …(4) ] to deeply equal [ 'digestion', …(5) ]                
+                     at assertion:7 in test-script                                                       
+                     inside "Objetivos / OBJ-01 catalogo de objetivos"                                   
+                                                                                                         
+ 3.  AssertionError  goal, subarea null, total 8, limit 20, offset 0                                     
+                     expected 7 to deeply equal 8                                                        
+                     at assertion:3 in test-script                                                       
+                     inside "Plantas por objetivo / PLA-01 mejorar-el-sueno, primera pagina"             
+                                                                                                         
+ 4.  AssertionError  subarea null, total 135, sin repetidas                                              
+                     expected 134 to deeply equal 135                                                    
+                     at assertion:3 in test-script                                                       
+                     inside "Plantas por objetivo / PLA-04 union de otros-objetivos sin repetir"         
+                                                                                                         
+ 5.  TypeError       lavandula-angustifolia con el area de sueno                                         
+                     Cannot read properties of undefined (reading 'areas')                               
+                     at assertion:3 in test-script                                                       
+                     inside "Plantas por objetivo / PLA-08 la lavanda en el sueno con su area"           
+                                                                                                         
+ 6.  AssertionError  displayName Lavanda y objetivos                                                     
+                     expected [ 'Relajación / Estrés' ] to be a superset of [ 'Mejorar el sueño', …(1) ] 
+                     at assertion:3 in test-script                                                       
+                     inside "Rutas existentes / REG-02 detalle de la lavanda sigue igual"                
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

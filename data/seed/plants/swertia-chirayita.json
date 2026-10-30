@@ -1,0 +1,793 @@
+{
+  "aliases": [
+    "swertia-chirata"
+  ],
+  "bundleHash": "sha256:f7d851413e64a0ce083f51661228b2f28a0b033d88a7f95947a5ee50342c1833",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:982-1"
+      ],
+      "text": "Chirata"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:982-2"
+      ],
+      "text": "Chiretta"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2608888"
+    ],
+    "value": "Swertia chirayita"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2608888"
+    ],
+    "value": "Gentianaceae"
+  },
+  "goals": [],
+  "id": "swertia-chirayita",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2608888"
+    ],
+    "value": "Subcontinente indio."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:982-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chirata»",
+      "license": "CC0"
+    },
+    "usda_common_name:982-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chiretta»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:14226": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14226",
+      "license": "CC0"
+    },
+    "usda_use:14796": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14796",
+      "license": "CC0"
+    },
+    "usda_use:15726": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15726",
+      "license": "CC0"
+    },
+    "usda_use:20538": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20538",
+      "license": "CC0"
+    },
+    "usda_use:2219": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2219",
+      "license": "CC0"
+    },
+    "usda_use:25455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25455",
+      "license": "CC0"
+    },
+    "usda_use:25456": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25456",
+      "license": "CC0"
+    },
+    "usda_use:27219": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27219",
+      "license": "CC0"
+    },
+    "usda_use:28588": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28588",
+      "license": "CC0"
+    },
+    "usda_use:31739": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31739",
+      "license": "CC0"
+    },
+    "usda_use:47953": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47953",
+      "license": "CC0"
+    },
+    "usda_use:51043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51043",
+      "license": "CC0"
+    },
+    "usda_use:51044": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51044",
+      "license": "CC0"
+    },
+    "usda_use:5333": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5333",
+      "license": "CC0"
+    },
+    "usda_use:5334": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5334",
+      "license": "CC0"
+    },
+    "usda_use:54681": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54681",
+      "license": "CC0"
+    },
+    "usda_use:61895": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61895",
+      "license": "CC0"
+    },
+    "usda_use:61896": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61896",
+      "license": "CC0"
+    },
+    "usda_use:61897": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61897",
+      "license": "CC0"
+    },
+    "usda_use:61898": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61898",
+      "license": "CC0"
+    },
+    "usda_use:61899": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61899",
+      "license": "CC0"
+    },
+    "usda_use:6339": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6339",
+      "license": "CC0"
+    },
+    "usda_use:70231": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70231",
+      "license": "CC0"
+    },
+    "usda_use:71214": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71214",
+      "license": "CC0"
+    },
+    "usda_use:78100": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78100",
+      "license": "CC0"
+    },
+    "usda_use:82390": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82390",
+      "license": "CC0"
+    },
+    "usda_use:82391": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82391",
+      "license": "CC0"
+    },
+    "usda_use:8255": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8255",
+      "license": "CC0"
+    },
+    "usda_use:8256": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8256",
+      "license": "CC0"
+    },
+    "usda_use:8691": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8691",
+      "license": "CC0"
+    },
+    "wcvp:2387838": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ophelia chirayita (Roxb.) Griseb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2608888": {
+      "dataset": "wcvp",
+      "label": "WCVP: Swertia chirayita (Roxb.) H.Karst.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2625928": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agathotes chirayita (Roxb.) D.Don ex G.Don",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2795329": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ericoila chirayita (Roxb.) Bercht. & J.Presl",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2820217": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gentiana chirayita Roxb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Roxb.) H.Karst.",
+    "name": "Swertia chirayita",
+    "refs": [
+      "wcvp:2608888"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Roxb.) D.Don ex G.Don",
+      "name": "Agathotes chirayita",
+      "refs": [
+        "wcvp:2625928"
+      ]
+    },
+    {
+      "authors": "(Roxb.) Bercht. & J.Presl",
+      "name": "Ericoila chirayita",
+      "refs": [
+        "wcvp:2795329"
+      ]
+    },
+    {
+      "authors": "Roxb.",
+      "name": "Gentiana chirayita",
+      "refs": [
+        "wcvp:2820217"
+      ]
+    },
+    {
+      "authors": "(Roxb.) Griseb.",
+      "name": "Ophelia chirayita",
+      "refs": [
+        "wcvp:2387838"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        },
+        {
+          "key": "Eb25: 417",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 417"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India",
+        "India (santal)"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25455",
+        "usda_use:25456",
+        "usda_use:71214",
+        "usda_use:82390",
+        "usda_reference:EB",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India",
+        "India (hindú)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51043",
+        "usda_use:51044",
+        "usda_use:61898",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India",
+        "India (santal)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5333",
+        "usda_use:5334",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India",
+        "India (santal)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8255",
+        "usda_use:8256",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31739",
+        "usda_use:82391",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47953",
+        "usda_use:78100",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54681",
+        "usda_use:61899",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61895",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2219",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Atrofia",
+      "activitySource": "Atrophy",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6339",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Caquexia",
+      "activitySource": "Cachexia",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8691",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14226",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14796",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Eb25: 417",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 417"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15726",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20538",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Enterorragia",
+      "activitySource": "Enterrhagia",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70231",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61896",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Gravel",
+      "activitySource": "Gravel",
+      "citations": [
+        {
+          "key": "Eb24: 254",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 254"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27219",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatitis",
+      "activitySource": "Hepatitis",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28588",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hipnótico",
+      "activitySource": "Hypnotic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61897",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

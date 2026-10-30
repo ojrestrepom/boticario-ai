@@ -1,0 +1,156 @@
+{
+  "aliases": [
+    "euphrasia-rostkoviana"
+  ],
+  "bundleHash": "sha256:347ce378303941d448434158e6de64757e22496726016fbdb8d5a4eee2fd1eb9",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157495"
+      ],
+      "text": "Eufrasia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157495"
+      ],
+      "text": "Ojo brillante"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q157495"
+    ],
+    "value": "Eufrasia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2910574"
+    ],
+    "value": "Orobanchaceae"
+  },
+  "goals": [],
+  "id": "euphrasia-officinalis-subsp-pratensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2910574"
+    ],
+    "value": "Nativa del Cáucaso, Europa y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:euphrasiae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:euphrasiae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Euphrasiae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/euphrasiae-herba"
+    },
+    "wcvp:2804405": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euphrasia rostkoviana Hayne",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2910574": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euphrasia officinalis subsp. pratensis Fr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2928025": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euphrasia officinalis var. pratensis (Fr.) Wimm. & Grab.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2933356": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euphrasia officinalis subsp. rostkoviana (Hayne) F.Towns.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3279456": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euphrasia rostkoviana subsp. pratensis (Fr.) Asch. & Graebn.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q157495": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q157495",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q157495"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad: la declaración pública de la EMA no incluye datos de seguridad y no hay otras fuentes; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Fr.",
+    "name": "Euphrasia officinalis subsp. pratensis",
+    "refs": [
+      "wcvp:2910574"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Hayne) F.Towns.",
+      "name": "Euphrasia officinalis subsp. rostkoviana",
+      "refs": [
+        "wcvp:2933356"
+      ]
+    },
+    {
+      "authors": "(Fr.) Wimm. & Grab.",
+      "name": "Euphrasia officinalis var. pratensis",
+      "refs": [
+        "wcvp:2928025"
+      ]
+    },
+    {
+      "authors": "Hayne",
+      "name": "Euphrasia rostkoviana",
+      "refs": [
+        "wcvp:2804405"
+      ]
+    },
+    {
+      "authors": "(Fr.) Asch. & Graebn.",
+      "name": "Euphrasia rostkoviana subsp. pratensis",
+      "refs": [
+        "wcvp:3279456"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

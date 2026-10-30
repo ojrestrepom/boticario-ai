@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../catalog/data/plant_catalog_repository.dart';
+import '../../catalog/data/catalog_client_exception.dart';
+import '../../catalog/data/plant_image_policy.dart';
 import '../../catalog/domain/plant.dart';
-import '../../catalog/domain/plant_catalog_provenance.dart';
+import '../application/plant_detail_provider.dart';
+import 'passport_general_tab.dart';
+import 'passport_header.dart';
+import 'passport_properties_tab.dart';
+import 'passport_sources_tab.dart';
+import 'passport_style.dart';
+import 'passport_texts.dart';
+import 'passport_uses_tab.dart';
 
-const _green = Color(0xFF236335);
-const _ink = Color(0xFF172A1F);
-const _background = Color(0xFFF9FAF7);
-
-/// Route-facing entry point. ID parsing and lookup belong to P05, not router.
+/// Route-facing entry point. It resolves the API id (slug) of the route
+/// against the catalog API; the content itself is [PlantPassportPage].
 class PlantPassportRoutePage extends ConsumerWidget {
   const PlantPassportRoutePage({
     required this.plantId,
     required this.onBack,
     required this.onHome,
+    this.backLabel = defaultPassportBackLabel,
     super.key,
   });
 
@@ -22,37 +28,42 @@ class PlantPassportRoutePage extends ConsumerWidget {
   final VoidCallback onBack;
   final VoidCallback onHome;
 
+  /// Label of the back button; Explorar by default, neutral from P07.
+  final String backLabel;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final catalog = ref.watch(plantCatalogProvider);
-    final id = int.tryParse(plantId);
-    return catalog.when(
+    final plant = ref.watch(plantDetailProvider(plantId));
+    return plant.when(
       loading: () => _PassportStatusPage(
-        title: 'Cargando catálogo...',
+        title: 'Cargando planta...',
+        backLabel: backLabel,
         onBack: onBack,
         onHome: onHome,
       ),
-      error: (_, _) => _PassportStatusPage(
-        title: 'No se pudo cargar el catálogo',
+      error: (error, _) => _PassportStatusPage(
+        title: 'No se pudo cargar la planta',
+        message: error is CatalogClientException ? error.message : null,
+        backLabel: backLabel,
         onBack: onBack,
         onHome: onHome,
-        action: TextButton(
-          onPressed: () => ref.invalidate(plantCatalogProvider),
+        action: OutlinedButton(
+          onPressed: () => ref.invalidate(plantDetailProvider(plantId)),
           child: const Text('Reintentar'),
         ),
       ),
       data: (value) {
-        final plant = id == null || id < 0 ? null : value.findById(id);
-        if (plant == null) {
+        if (value == null) {
           return _PassportStatusPage(
             title: 'Planta no encontrada',
+            backLabel: backLabel,
             onBack: onBack,
             onHome: onHome,
           );
         }
         return PlantPassportPage(
-          plant: plant,
-          provenance: value.provenance,
+          plant: value,
+          backLabel: backLabel,
           onBack: onBack,
           onHome: onHome,
         );
@@ -67,16 +78,20 @@ class _PassportStatusPage extends StatelessWidget {
     required this.title,
     required this.onBack,
     required this.onHome,
+    required this.backLabel,
+    this.message,
     this.action,
   });
   final String title;
+  final String backLabel;
+  final String? message;
   final VoidCallback onBack;
   final VoidCallback onHome;
   final Widget? action;
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: _background,
+    backgroundColor: passportBackground,
     body: SafeArea(
       child: Column(
         children: [
@@ -86,9 +101,9 @@ class _PassportStatusPage extends StatelessWidget {
               width: 48,
               height: 48,
               child: IconButton(
-                tooltip: 'Volver a Explorar',
+                tooltip: backLabel,
                 onPressed: onBack,
-                icon: const Icon(Icons.chevron_left, color: _green),
+                icon: const Icon(Icons.chevron_left, color: passportGreen),
               ),
             ),
           ),
@@ -105,7 +120,14 @@ class _PassportStatusPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      ?action,
+                      if (message != null) ...[
+                        const SizedBox(height: 8),
+                        Text(message!, textAlign: TextAlign.center),
+                      ],
+                      if (action != null) ...[
+                        const SizedBox(height: 16),
+                        action!,
+                      ],
                     ],
                   ),
                 ),
@@ -128,13 +150,29 @@ class _PassportBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Material(
     color: Theme.of(context).colorScheme.surface,
-    child: Row(
-      children: [
-        _navItem('Inicio', Icons.home, selected: true, onPressed: onHome),
-        _navItem('Favoritos', Icons.favorite_border),
-        _navItem('Historial', Icons.history),
-        _navItem('Perfil', Icons.person_outline),
-      ],
+    child: LayoutBuilder(
+      builder: (context, constraints) {
+        final scaler = MediaQuery.textScalerOf(context);
+        final fontSize = Theme.of(context).textTheme.labelSmall?.fontSize ?? 12;
+        final largeText = scaler.scale(fontSize) / fontSize >= 1.5;
+        final items = [
+          _navItem('Inicio', Icons.home, selected: true, onPressed: onHome),
+          _navItem('Favoritos', Icons.favorite_border),
+          _navItem('Historial', Icons.history),
+          _navItem('Perfil', Icons.person_outline),
+        ];
+        if (!largeText) {
+          return Row(
+            children: [for (final item in items) Expanded(child: item)],
+          );
+        }
+        return Wrap(
+          children: [
+            for (final item in items)
+              SizedBox(width: constraints.maxWidth / 2, child: item),
+          ],
+        );
+      },
     ),
   );
 }
@@ -144,31 +182,33 @@ Widget _navItem(
   IconData icon, {
   bool selected = false,
   VoidCallback? onPressed,
-}) => Expanded(
-  child: Semantics(
-    label: selected ? label : '$label no disponible',
-    button: true,
-    selected: selected,
-    enabled: onPressed != null,
-    onTap: onPressed,
-    child: ExcludeSemantics(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(minHeight: 56),
-        child: InkWell(
-          onTap: onPressed,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(icon, size: 20, color: selected ? _green : Colors.grey),
-                Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: selected ? _green : Colors.grey),
-                ),
-              ],
-            ),
+}) => Semantics(
+  label: selected ? label : '$label no disponible',
+  button: true,
+  selected: selected,
+  enabled: onPressed != null,
+  onTap: onPressed,
+  child: ExcludeSemantics(
+    child: ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 56),
+      child: InkWell(
+        onTap: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 20,
+                color: selected ? passportGreen : Colors.grey,
+              ),
+              Text(
+                label,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: selected ? passportGreen : Colors.grey),
+              ),
+            ],
           ),
         ),
       ),
@@ -183,39 +223,61 @@ Widget _navItem(
 class PlantPassportPage extends StatefulWidget {
   const PlantPassportPage({
     required this.plant,
-    required this.provenance,
     required this.onBack,
     required this.onHome,
+    this.backLabel = defaultPassportBackLabel,
+    this.imageProviderFor = PlantImagePolicy.thumbnailProviderFor,
     super.key,
   });
 
   final Plant plant;
-  final PlantCatalogProvenance provenance;
   final VoidCallback onBack;
   final VoidCallback onHome;
+  final String backLabel;
+
+  /// Resolves the header image from `image.url`. Tests replace it to simulate
+  /// a download without the network.
+  final ImageProvider? Function(String? url) imageProviderFor;
 
   @override
   State<PlantPassportPage> createState() => _PlantPassportPageState();
 }
 
+const _tabLabels = [
+  'General',
+  'Propiedades',
+  'Usos',
+  PassportTexts.sourcesTitle,
+];
+
 class _PlantPassportPageState extends State<PlantPassportPage> {
   int _tab = 0;
+  final _tabsKey = GlobalKey();
 
   @override
   void didUpdateWidget(covariant PlantPassportPage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.plant.usdaPlantId != widget.plant.usdaPlantId) _tab = 0;
+    if (oldWidget.plant.id != widget.plant.id) _tab = 0;
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: _background,
+    backgroundColor: passportBackground,
     body: SafeArea(
       bottom: false,
       child: CustomScrollView(
-        key: PageStorageKey('passport-${widget.plant.usdaPlantId}-$_tab'),
+        // One position per plant, shared by the four tabs: switching tab
+        // must not send the sheet back to the top (DEF-01).
+        key: PageStorageKey('passport-${widget.plant.id}'),
         slivers: [
-          SliverToBoxAdapter(child: _header()),
+          SliverToBoxAdapter(
+            child: PassportHeader(
+              plant: widget.plant,
+              onBack: widget.onBack,
+              backLabel: widget.backLabel,
+              imageProviderFor: widget.imageProviderFor,
+            ),
+          ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
             sliver: SliverList.list(
@@ -223,11 +285,13 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
                 _tabs(),
                 const SizedBox(height: 16),
                 if (_tab == 0)
-                  _general()
+                  PassportGeneralTab(plant: widget.plant)
                 else if (_tab == 1)
-                  _properties()
+                  PassportPropertiesTab(plant: widget.plant)
+                else if (_tab == 2)
+                  PassportUsesTab(plant: widget.plant)
                 else
-                  _uses(),
+                  PassportSourcesTab(plant: widget.plant),
               ],
             ),
           ),
@@ -251,192 +315,44 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     ),
   );
 
-  Widget _header() => Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-    child: Row(
-      children: [
-        SizedBox(
-          width: 48,
-          height: 48,
-          child: IconButton(
-            tooltip: 'Volver a Explorar',
-            onPressed: widget.onBack,
-            icon: const Icon(Icons.chevron_left),
-            color: _green,
-          ),
-        ),
-        const ExcludeSemantics(
-          child: Icon(Icons.local_florist, color: _green, size: 34),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.plant.editorialCommonName,
-                style: Theme.of(context).textTheme.titleLarge
-                    ?.copyWith(color: _ink),
-              ),
-              Text(
-                widget.plant.sourceScientificName,
-                style: Theme.of(context).textTheme.bodyMedium
-                    ?.copyWith(color: _ink),
-              ),
-            ],
-          ),
-        ),
-        Semantics(
-          label: 'Favorito no disponible',
-          button: true,
-          enabled: false,
-          child: const SizedBox(
-            width: 48,
-            height: 48,
-            child: Icon(Icons.favorite_border, color: Colors.grey),
-          ),
-        ),
-      ],
-    ),
-  );
+  void _selectTab(int tab) {
+    setState(() => _tab = tab);
+    // The new tab can be shorter than the scroll offset, or the offset can
+    // leave the chips above the viewport: bring them back so the start of the
+    // content is right below them.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final context = _tabsKey.currentContext;
+      if (!mounted || context == null) return;
+      Scrollable.ensureVisible(
+        context,
+        alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtStart,
+      );
+    });
+  }
 
   Widget _tabs() => Wrap(
+    key: _tabsKey,
     spacing: 8,
     runSpacing: 4,
     children: [
-      for (var i = 0; i < 3; i++)
+      for (var i = 0; i < _tabLabels.length; i++)
         ChoiceChip(
-          label: Text(['General', 'Propiedades', 'Usos'][i]),
+          label: Text(_tabLabels[i]),
           selected: _tab == i,
-          onSelected: (_) => setState(() => _tab = i),
+          // The check mark would widen the selected chip and shift the rest.
+          // The border keeps the same width (it counts in the chip size); the
+          // selection shows as a green border and fill, and in semantics.
+          showCheckmark: false,
+          selectedColor: passportSelectedChip,
+          side: BorderSide(
+            color: _tab == i ? passportGreen : Colors.black12,
+            width: 2,
+          ),
+          onSelected: (_) => _selectTab(i),
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),
     ],
   );
-
-  Widget _general() => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      _field('Nombre común editorial', widget.plant.editorialCommonName),
-      _field('Nombre científico de fuente', widget.plant.sourceScientificName),
-      _field('Origen', widget.plant.origin ?? 'No disponible en fuente'),
-      _field(
-        'Descripción',
-        widget.plant.description ?? 'No disponible en fuente',
-      ),
-      _field(
-        'Partes registradas en fuente',
-        widget.plant.parts.isEmpty
-            ? 'No hay partes registradas en fuente'
-            : widget.plant.parts
-                  .map((p) => '${p.name} (${p.sourceCode})')
-                  .join(', '),
-      ),
-      _field('Tipo de aceite', 'No aplicable: ficha de planta'),
-      const SizedBox(height: 8),
-      _sectionTitle('Procedencia'),
-      _field('Fuente', widget.provenance.sourceName),
-      _field('Licencia', widget.provenance.license),
-      _field('Versión', widget.provenance.version),
-      _field('Dataset', widget.provenance.datasetId),
-      _field(
-        'Archivo',
-        '${widget.provenance.fileName} (ID ${widget.provenance.fileId})',
-      ),
-      _field('URL de fuente', widget.provenance.sourceUrl),
-      _field(
-        'Fecha de inspección (no cobertura temporal)',
-        _date(widget.provenance.inspectedOn),
-      ),
-      _field(
-        'Cita recomendada de la fuente',
-        widget.provenance.recommendedCitation,
-      ),
-      if (widget.plant.traditionalUses.isNotEmpty) ...[
-        const SizedBox(height: 8),
-        _sectionTitle('Referencias bibliográficas'),
-        for (final ref in _references()) _field(ref.id, ref.citation),
-      ],
-    ],
-  );
-
-  Widget _properties() => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      _sectionTitle('Propiedades'),
-      const SizedBox(height: 8),
-      const Text('sin propiedades medicinales evaluadas en este catálogo'),
-    ],
-  );
-
-  Widget _uses() {
-    final uses = widget.plant.traditionalUses;
-    if (uses.isEmpty) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _sectionTitle('Usos tradicionales'),
-          const SizedBox(height: 8),
-          const Text(
-            'No hay usos tradicionales con referencia verificable disponibles',
-          ),
-        ],
-      );
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _sectionTitle('Registros tradicionales'),
-        const SizedBox(height: 8),
-        const Text(
-          'No es una recomendación de uso ni evidencia de eficacia clínica',
-        ),
-        const SizedBox(height: 12),
-        for (final use in uses) ...[
-          _field('Registro tradicional', use.activity),
-          for (final ref in use.references)
-            _field('Fuente: ${ref.id}', ref.citation),
-          const Divider(height: 20),
-        ],
-      ],
-    );
-  }
-
-  List<PlantReference> _references() {
-    final refs = <String, PlantReference>{};
-    for (final use in widget.plant.traditionalUses) {
-      for (final ref in use.references) {
-        refs[ref.id] = ref;
-      }
-    }
-    return refs.values.toList();
-  }
-
-  Widget _field(String label, String value) => Padding(
-    padding: const EdgeInsets.only(bottom: 14),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.labelLarge
-              ?.copyWith(color: _green),
-        ),
-        const SizedBox(height: 3),
-        Text(
-          value,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: _ink),
-        ),
-      ],
-    ),
-  );
-
-  Widget _sectionTitle(String text) => Text(
-    text,
-    style: Theme.of(context).textTheme.titleMedium?.copyWith(color: _ink),
-  );
-  String _date(DateTime date) =>
-      '${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
 }
 
 class _DisabledAction extends StatelessWidget {

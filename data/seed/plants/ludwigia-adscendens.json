@@ -1,0 +1,199 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0251f1365bdc2bd879e443c04e2befeb061f5883951702eb3d8b9137ace6f992",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1315-1"
+      ],
+      "text": "Ascending ludwigia"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2493615"
+    ],
+    "value": "Ludwigia adscendens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2493615"
+    ],
+    "value": "Onagraceae"
+  },
+  "goals": [],
+  "id": "ludwigia-adscendens",
+  "image": {
+    "attributionRequired": false,
+    "author": "Forestowlet",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_adscendens.JPG",
+    "refs": [
+      "commons:File:Ludwigia adscendens.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ludwigia_adscendens.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2493615"
+    ],
+    "value": "Nativa de África (tropical, austral y del norte), Asia (oriental, occidental, el subcontinente indio e Indochina), China, Australia, Malesia, Papuasia, México, América Central y el Caribe."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ludwigia adscendens.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ludwigia adscendens.JPG",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ludwigia_adscendens.JPG"
+    },
+    "usda_common_name:1315-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ascending ludwigia»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:38985": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38985",
+      "license": "CC0"
+    },
+    "usda_use:44885": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44885",
+      "license": "CC0"
+    },
+    "usda_use:81592": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81592",
+      "license": "CC0"
+    },
+    "wcvp:2332287": {
+      "dataset": "wcvp",
+      "label": "WCVP: Jussiaea adscendens L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2493615": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ludwigia adscendens (L.) H.Hara",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) H.Hara",
+    "name": "Ludwigia adscendens",
+    "refs": [
+      "wcvp:2493615"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Jussiaea adscendens",
+      "refs": [
+        "wcvp:2332287"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Cataplasma",
+      "activitySource": "Poultice",
+      "citations": [
+        {
+          "key": "Eb32: 306",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 306"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38985",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Eb32: 306",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 306"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81592",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Eb32: 306",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 306"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44885",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

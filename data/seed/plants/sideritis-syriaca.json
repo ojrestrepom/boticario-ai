@@ -1,0 +1,159 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8d8e2e930366cef56286c937d103805ca9523e88ca8987fbf467a5c3fa80a9f6",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Sideritis syriaca"
+    ],
+    "value": "Sideritis syriaca es una planta de la familia de las lamiáceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:191680"
+    ],
+    "value": "Sideritis syriaca"
+  },
+  "family": {
+    "refs": [
+      "wcvp:191680"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una entrada en su lista de la Unión para la parte aérea en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:sideritis-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una entrada en su lista de la Unión para la parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:sideritis-herba"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "sideritis-syriaca",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:191680"
+    ],
+    "value": "Nativa del sudeste de Europa y Asia occidental (Creta, Líbano-Siria y Turquía)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:sideritis-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:sideritis-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Sideritis herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/sideritis-herba"
+    },
+    "ema_pdf:sideritis-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sideritis-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf"
+    },
+    "ema_pdf:sideritis-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sideritis-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf"
+    },
+    "ema_pdf:sideritis-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de sideritis-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf"
+    },
+    "wcvp:133357": {
+      "dataset": "wcvp",
+      "label": "WCVP: Navicularia syriaca (L.) Soják",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:191680": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sideritis syriaca L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Sideritis syriaca": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Sideritis syriaca",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Sideritis_syriaca"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:sideritis-herba:4.3",
+      "ema_pdf:sideritis-herba:4.4",
+      "ema_pdf:sideritis-herba:4.5"
+    ],
+    "text": "La lista de la EMA para la parte aérea (Sideritis herba) registra como contraindicación la hipersensibilidad al principio activo y a otras plantas de la familia de las lamiáceas (labiadas), y señala que no se ha establecido su uso en menores de 18 años por falta de datos. No se reportan interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Sideritis syriaca",
+    "refs": [
+      "wcvp:191680"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Soják",
+      "name": "Navicularia syriaca",
+      "refs": [
+        "wcvp:133357"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

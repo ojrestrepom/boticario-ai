@@ -1,0 +1,165 @@
+{
+  "aliases": [
+    "dicliptera-roxburghiana"
+  ],
+  "bundleHash": "sha256:179cb90c76af8570de371500eb3912275feb5b05f56462894f343bfec86f48e9",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Dicliptera chinensis"
+    ],
+    "value": "Especie de planta con flores del género Dicliptera, de la familia Acanthaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2766480"
+    ],
+    "value": "Dicliptera chinensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2766480"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "dicliptera-chinensis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Keisotyo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Dicliptera_chinensis_yanbaruhaguro04.jpg",
+    "refs": [
+      "commons:File:Dicliptera chinensis yanbaruhaguro04.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Dicliptera_chinensis_yanbaruhaguro04.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2766480"
+    ],
+    "value": "Nativa de China, Asia oriental, el subcontinente indio, Indochina y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Dicliptera chinensis yanbaruhaguro04.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Dicliptera chinensis yanbaruhaguro04.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Dicliptera_chinensis_yanbaruhaguro04.jpg"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:19510": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19510",
+      "license": "CC0"
+    },
+    "wcvp:2330790": {
+      "dataset": "wcvp",
+      "label": "WCVP: Justicia chinensis L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2765163": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diapedium chinense (L.) K.D.Koenig",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2766480": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dicliptera chinensis (L.) Juss.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Dicliptera chinensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Dicliptera chinensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Dicliptera_chinensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Juss.",
+    "name": "Dicliptera chinensis",
+    "refs": [
+      "wcvp:2766480"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) K.D.Koenig",
+      "name": "Diapedium chinense",
+      "refs": [
+        "wcvp:2765163"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Justicia chinensis",
+      "refs": [
+        "wcvp:2330790"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19510",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

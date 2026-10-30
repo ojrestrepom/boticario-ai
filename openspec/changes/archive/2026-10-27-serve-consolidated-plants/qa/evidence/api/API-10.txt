@@ -1,0 +1,41 @@
+PASA  los 650 alias resuelven 200 con el id canonico en el cuerpo y en Content-Location (cuerpo igual al canonico) 0 []
+--- alias de un renombre
+GET /v1/plants/rosmarinus-officinalis
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-location": "/v1/plants/salvia-rosmarinus", "content-length": "19476"}
+{
+ "id": "salvia-rosmarinus",
+ "scientificName": "Salvia rosmarinus",
+ "displayName": "Romero"
+}
+
+PASA  rosmarinus-officinalis -> salvia-rosmarinus, Content-Location /v1/plants/salvia-rosmarinus 
+PASA  id canonico: 200 sin Content-Location 
+--- id inexistente
+GET /v1/plants/no-existe-xyz
+Authorization: Bearer <token-app>
+-> 404 {"content-type": "application/problem+json", "content-length": "147"}
+{
+ "type": "about:blank",
+ "title": "Not Found",
+ "status": 404,
+ "detail": "no existe una planta con ese identificador",
+ "instance": "/v1/plants/no-existe-xyz"
+}
+
+PASA  id desconocido: 404 application/problem+json con el formato de error 404 application/problem+json
+--- alias sin token
+GET /v1/plants/rosmarinus-officinalis
+(sin Authorization)
+-> 401 {"content-type": "application/problem+json", "www-authenticate": "Bearer", "content-length": "152"}
+{
+ "type": "about:blank",
+ "title": "Unauthorized",
+ "status": 401,
+ "detail": "se requiere un token de API válido",
+ "instance": "/v1/plants/rosmarinus-officinalis"
+}
+
+PASA  alias sin token: 401 con WWW-Authenticate: Bearer y sin Content-Location 401
+PASA  ningun alias aparece como id en el listado []
+tiempo del detalle por alias: mediana 0.6 ms, max 3.4 ms

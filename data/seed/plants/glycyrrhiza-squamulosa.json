@@ -1,0 +1,83 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f2289418988b6f16b363380938a6cb37dc72db1d164efa9632c88968e78c4095",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Glycyrrhiza squamulosa"
+    ],
+    "value": "Especie de planta floral del género Glycyrrhiza, de la familia Fabaceae y el orden Fabales."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2827771"
+    ],
+    "value": "Glycyrrhiza squamulosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2827771"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "glycyrrhiza-squamulosa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2827771"
+    ],
+    "value": "China y Mongolia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2827771": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glycyrrhiza squamulosa Franch.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Glycyrrhiza squamulosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Glycyrrhiza squamulosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Glycyrrhiza_squamulosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Franch.",
+    "name": "Glycyrrhiza squamulosa",
+    "refs": [
+      "wcvp:2827771"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

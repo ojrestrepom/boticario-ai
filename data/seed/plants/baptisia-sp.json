@@ -1,0 +1,79 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d6934283a18b98383d1d559b34878e3da0b63426e289ca6252d4b5656b0f01c8",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Baptisia"
+    ],
+    "value": "Género de plantas con flores perteneciente a la familia Fabaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q2698539"
+    ],
+    "value": "Baptisia sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "baptisia-sp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wikidata:Q2698539": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q2698539",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q2698539"
+    },
+    "wikipedia_es:Baptisia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Baptisia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Baptisia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Baptisia sp",
+    "refs": [
+      "wikidata:Q2698539"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

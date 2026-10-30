@@ -1,0 +1,277 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:26933b71db315a45c01acd491aac16d3c25f6421fcc0fe73e5dda1a1a5797394",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Thymus zygis",
+        "wikidata:Q851544"
+      ],
+      "text": "Tomillo salsero"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2097-1"
+      ],
+      "text": "Spanish Thyme"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Thymus zygis"
+    ],
+    "value": "Especie de la familia de las lamiáceas, conocida como tomillo salsero."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Thymus zygis",
+      "wikidata:Q851544"
+    ],
+    "value": "Tomillo salsero"
+  },
+  "family": {
+    "refs": [
+      "wcvp:205681"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía de la parte aérea y otra del aceite esencial en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:thymi-aetheroleum",
+        "ema_herbal:thymi-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "thymus-zygis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ximenex",
+    "license": "CC BY-SA 2.1 es",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.1/es/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Thymus_zygis_1.JPG",
+    "refs": [
+      "commons:File:Thymus zygis 1.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Thymus_zygis_1.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "ema_herbal:thymi-aetheroleum",
+      "usda_part:2097-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:205681"
+    ],
+    "value": "Suroeste de Europa y norte de África"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:thymi-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Thymus zygis 1.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Thymus zygis 1.JPG",
+      "license": "CC BY-SA 2.1 es",
+      "url": "https://commons.wikimedia.org/wiki/File:Thymus_zygis_1.JPG"
+    },
+    "efsa_botanic:3320": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: carvacrol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3321": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3322": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Camphor",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:thymi-aetheroleum": {
+      "dataset": "ema_json",
+      "label": "EMA: Thymi aetheroleum",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/thymi-aetheroleum"
+    },
+    "ema_herbal:thymi-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Thymi herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/thymi-herba"
+    },
+    "ema_pdf:thymi-aetheroleum:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-aetheroleum, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-thymus-vulgaris-l-thymus-zygis-l-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:thymi-aetheroleum:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-aetheroleum, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-thymus-vulgaris-l-thymus-zygis-l-aetheroleum-revision-1_en.pdf"
+    },
+    "ema_pdf:thymi-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba_en.pdf"
+    },
+    "ema_pdf:thymi-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de thymi-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba_en.pdf"
+    },
+    "usda_common_name:2097-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Spanish Thyme»",
+      "license": "CC0"
+    },
+    "usda_part:2097-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:82470": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82470",
+      "license": "CC0"
+    },
+    "wcvp:143970": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum zygis (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:205681": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus zygis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q851544": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q851544",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q851544"
+    },
+    "wikipedia_es:Thymus zygis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Thymus zygis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Thymus_zygis"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:3321",
+      "efsa_botanic:3322",
+      "efsa_botanic:3320",
+      "ema_pdf:thymi-aetheroleum:4.3",
+      "ema_pdf:thymi-aetheroleum:4.4",
+      "ema_pdf:thymi-herba:4.3",
+      "ema_pdf:thymi-herba:4.4"
+    ],
+    "text": "EFSA registra 1,8-cineol, alcanfor y carvacrol como sustancias de evidencia en la parte aérea. La EMA registra como contraindicación la hipersensibilidad a la sustancia activa o a otras plantas de la familia Lamiaceae (Labiatae); para el aceite como aditivo de baño, contraindica los baños calientes completos con lesiones cutáneas extensas o heridas abiertas, enfermedades agudas de la piel, fiebre alta, infecciones graves, trastornos circulatorios graves e insuficiencia cardíaca. En las advertencias señala la falta de datos en niños (menores de 12 o de 18 años según el preparado), la precaución con el baño completo en caso de hipertensión y el riesgo de laringoespasmo si el aceite se aplica en la cara, en especial en la zona nasal de bebés y niños menores de 2 años."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Thymus zygis",
+    "refs": [
+      "wcvp:205681"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.1 es"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Origanum zygis",
+      "refs": [
+        "wcvp:143970"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82470",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

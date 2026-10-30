@@ -1,0 +1,16 @@
+ Container boticario-ai-api-1 Started 
+## sin API_TOKENS: docker compose ps
+error while interpolating services.api.environment.API_TOKENS: required variable API_TOKENS is missing a value: API_TOKE
+exit=
+## sin API_TOKENS: docker compose logs
+error while interpolating services.api.environment.API_TOKENS: required variable API_TOKENS is missing a value: API_TOKE
+exit=
+## sin API_TOKENS: docker compose down
+error while interpolating services.api.environment.API_TOKENS: required variable API_TOKENS is missing a value: API_TOKE
+exit=
+contenedores en marcha tras los fallos: boticario-ai-api-1
+## API_TOKENS=x docker compose down (como dice el README)
+ Network boticario-ai_default Removing 
+ Network boticario-ai_default Removed 
+contenedores tras down: 0
+.env en la raíz: ls: .env: No such file or directory

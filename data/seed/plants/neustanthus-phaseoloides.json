@@ -1,0 +1,175 @@
+{
+  "aliases": [
+    "pueraria-phaseoloides"
+  ],
+  "bundleHash": "sha256:59921edb31382880bae95f353e76a9b638d5bb0cad3b8696854e44655da6ff8a",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2383113"
+    ],
+    "value": "Neustanthus phaseoloides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2383113"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "neustanthus-phaseoloides",
+  "image": {
+    "attributionRequired": true,
+    "author": "Aroche",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pueraria_phasealoides.JPG",
+    "refs": [
+      "commons:File:Pueraria phasealoides.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Pueraria_phasealoides.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2383113"
+    ],
+    "value": "China, Asia oriental, el subcontinente indio, Indochina, Malesia y Papuasia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pueraria phasealoides.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pueraria phasealoides.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pueraria_phasealoides.JPG"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:77228": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77228",
+      "license": "CC0"
+    },
+    "usda_use:7807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7807",
+      "license": "CC0"
+    },
+    "wcvp:2383113": {
+      "dataset": "wcvp",
+      "label": "WCVP: Neustanthus phaseoloides (Roxb.) Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2537342": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pueraria phaseoloides (Roxb.) Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774493": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolichos phaseoloides Roxb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Roxb.) Benth.",
+    "name": "Neustanthus phaseoloides",
+    "refs": [
+      "wcvp:2383113"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Roxb.",
+      "name": "Dolichos phaseoloides",
+      "refs": [
+        "wcvp:2774493"
+      ]
+    },
+    {
+      "authors": "(Roxb.) Benth.",
+      "name": "Pueraria phaseoloides",
+      "refs": [
+        "wcvp:2537342"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7807",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Malaya"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77228",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

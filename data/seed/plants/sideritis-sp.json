@@ -1,0 +1,89 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2b8e8dea664fb8b47ba3fc6a37d758a88073571aad964acea61395ca8ec55d46",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Sideritis"
+      ],
+      "text": "rabogatos"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q431310"
+      ],
+      "text": "chahorra"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Sideritis"
+    ],
+    "value": "Género de plantas mediterráneas, asiáticas y macaronésicas de la familia de las labiadas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Sideritis"
+    ],
+    "value": "Rabogatos"
+  },
+  "family": null,
+  "goals": [],
+  "id": "sideritis-sp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wikidata:Q431310": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q431310",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q431310"
+    },
+    "wikipedia_es:Sideritis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Sideritis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Sideritis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Sideritis sp",
+    "refs": [
+      "wikidata:Q431310"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

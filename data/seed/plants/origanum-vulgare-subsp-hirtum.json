@@ -1,0 +1,157 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:aa65af80a878bd0a870a606e39b0ffd3ccb69d4452987e9578a687d66a95ad2b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2082-1"
+      ],
+      "text": "Greek Oregano"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2082-2"
+      ],
+      "text": "Wild Oregano"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2082-3"
+      ],
+      "text": "Common Turkish Oregano"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:143959"
+    ],
+    "value": "Origanum vulgare subsp. hirtum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:143959"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "origanum-vulgare-subsp-hirtum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Forest & Kim Starr",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Starr_070906-8860_Origanum_vulgare_subsp._hirtum.jpg",
+    "refs": [
+      "commons:File:Starr 070906-8860 Origanum vulgare subsp. hirtum.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Starr_070906-8860_Origanum_vulgare_subsp._hirtum.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2082-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:143959"
+    ],
+    "value": "Europa sudoriental y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Starr 070906-8860 Origanum vulgare subsp. hirtum.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Starr 070906-8860 Origanum vulgare subsp. hirtum.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Starr_070906-8860_Origanum_vulgare_subsp._hirtum.jpg"
+    },
+    "usda_common_name:2082-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Greek Oregano»",
+      "license": "CC0"
+    },
+    "usda_common_name:2082-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wild Oregano»",
+      "license": "CC0"
+    },
+    "usda_common_name:2082-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Common Turkish Oregano»",
+      "license": "CC0"
+    },
+    "usda_part:2082-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:143822": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum hirtum Link",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:143959": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum vulgare subsp. hirtum (Link) A.Terracc.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico Origanum vulgare subsp. hirtum.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Link) A.Terracc.",
+    "name": "Origanum vulgare subsp. hirtum",
+    "refs": [
+      "wcvp:143959"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Link",
+      "name": "Origanum hirtum",
+      "refs": [
+        "wcvp:143822"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

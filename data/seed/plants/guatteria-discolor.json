@@ -1,0 +1,90 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:40c53c21189175491b4fbdfb21c4c7b19fde128ef58600e618797ce6cf03872d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1200-1"
+      ],
+      "text": "Envira Preta"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2834338"
+    ],
+    "value": "Guatteria discolor"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2834338"
+    ],
+    "value": "Annonaceae"
+  },
+  "goals": [],
+  "id": "guatteria-discolor",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2834338"
+    ],
+    "value": "Nativa de Brasil y del norte y el oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1200-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Envira Preta»",
+      "license": "CC0"
+    },
+    "wcvp:2834338": {
+      "dataset": "wcvp",
+      "label": "WCVP: Guatteria discolor R.E.Fr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "El nombre «Envira Preta» viene de USDA con idioma inglés, pero parece portugués.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.E.Fr.",
+    "name": "Guatteria discolor",
+    "refs": [
+      "wcvp:2834338"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

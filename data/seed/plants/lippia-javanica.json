@@ -1,0 +1,196 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7f9a9afd325783bb50ff0cf059480ce7b155a8ae6d5cea0910850ec94ae1b4f0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2345-1"
+      ],
+      "text": "Lemon Bush"
+    },
+    {
+      "language": "zu",
+      "refs": [
+        "usda_common_name:2345-2"
+      ],
+      "text": "Umsuzwane"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lippia javanica"
+    ],
+    "value": "Arbusto perenne de la familia de las verbenáceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:113550"
+    ],
+    "value": "Lippia javanica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:113550"
+    ],
+    "value": "Verbenaceae"
+  },
+  "goals": [],
+  "id": "lippia-javanica",
+  "image": {
+    "attributionRequired": true,
+    "author": "JMK",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lippia_javanica,_blomme,_Skeerpoort,_a.jpg",
+    "refs": [
+      "commons:File:Lippia javanica, blomme, Skeerpoort, a.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Lippia_javanica%2C_blomme%2C_Skeerpoort%2C_a.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2345-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:113550"
+    ],
+    "value": "África tropical (este, noreste, sur y centro-oeste) y África austral"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lippia javanica, blomme, Skeerpoort, a.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lippia javanica, blomme, Skeerpoort, a.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lippia_javanica,_blomme,_Skeerpoort,_a.jpg"
+    },
+    "usda_common_name:2345-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lemon Bush»",
+      "license": "CC0"
+    },
+    "usda_common_name:2345-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Umsuzwane (Zulu)»",
+      "license": "CC0"
+    },
+    "usda_part:2345-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:113550": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lippia javanica (Burm.f.) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:153213": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phyla javanica (Burm.f.) Moldenke",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:212390": {
+      "dataset": "wcvp",
+      "label": "WCVP: Verbena javanica Burm.f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:215581": {
+      "dataset": "wcvp",
+      "label": "WCVP: Zappania javanica (Burm.f.) Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:22318": {
+      "dataset": "wcvp",
+      "label": "WCVP: Blairia javanica (Burm.f.) Gaertn.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Lippia javanica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lippia javanica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lippia_javanica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Burm.f.) Spreng.",
+    "name": "Lippia javanica",
+    "refs": [
+      "wcvp:113550"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Burm.f.) Gaertn.",
+      "name": "Blairia javanica",
+      "refs": [
+        "wcvp:22318"
+      ]
+    },
+    {
+      "authors": "(Burm.f.) Moldenke",
+      "name": "Phyla javanica",
+      "refs": [
+        "wcvp:153213"
+      ]
+    },
+    {
+      "authors": "Burm.f.",
+      "name": "Verbena javanica",
+      "refs": [
+        "wcvp:212390"
+      ]
+    },
+    {
+      "authors": "(Burm.f.) Lam.",
+      "name": "Zappania javanica",
+      "refs": [
+        "wcvp:215581"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

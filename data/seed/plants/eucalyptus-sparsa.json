@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:272fc69fd11a6a9744196608627f0e2c062218d3b32a2f14f0a854aeb79b1cd0",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73913"
+    ],
+    "value": "Eucalyptus sparsa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73913"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-sparsa",
+  "image": {
+    "attributionRequired": true,
+    "author": "John R. Connors",
+    "license": "CC BY 3.0 au",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_sparsa.jpg",
+    "refs": [
+      "commons:File:Eucalyptus sparsa.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Eucalyptus_sparsa.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2103-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73913"
+    ],
+    "value": "Australia (Territorio del Norte, Australia Meridional y Australia Occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus sparsa.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus sparsa.jpg",
+      "license": "CC BY 3.0 au",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_sparsa.jpg"
+    },
+    "usda_part:2103-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:73913": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus sparsa Boomsma",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boomsma",
+    "name": "Eucalyptus sparsa",
+    "refs": [
+      "wcvp:73913"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0 au"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

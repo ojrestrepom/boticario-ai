@@ -1,0 +1,140 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7ac1f3bee96623d74a4d47edba654bd27f795c33f07ab83a485c80fe043d620d",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pericopsis laxiflora"
+    ],
+    "value": "Especie de árbol de la familia Fabaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2538407"
+    ],
+    "value": "Pericopsis laxiflora"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2538407"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "pericopsis-laxiflora",
+  "image": {
+    "attributionRequired": true,
+    "author": "Bamba Tubaab",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Kullu-kullu_gi_(Pericopsis_laxiflora).jpg",
+    "refs": [
+      "commons:File:Kullu-kullu gi (Pericopsis laxiflora).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Kullu-kullu_gi_%28Pericopsis_laxiflora%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2538407"
+    ],
+    "value": "África tropical (noreste, oeste y centro-oeste)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Kullu-kullu gi (Pericopsis laxiflora).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Kullu-kullu gi (Pericopsis laxiflora).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Kullu-kullu_gi_(Pericopsis_laxiflora).jpg"
+    },
+    "wcvp:2388307": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ormosia laxiflora Benth. ex Baker",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2538407": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pericopsis laxiflora (Benth. ex Baker) Meeuwen",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2538410": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pericopsis angolensis subsp. laxiflora (Benth. ex Baker) Yakovlev",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2624937": {
+      "dataset": "wcvp",
+      "label": "WCVP: Afrormosia laxiflora (Benth. ex Baker) Harms",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pericopsis laxiflora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pericopsis laxiflora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pericopsis_laxiflora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth. ex Baker) Meeuwen",
+    "name": "Pericopsis laxiflora",
+    "refs": [
+      "wcvp:2538407"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth. ex Baker) Harms",
+      "name": "Afrormosia laxiflora",
+      "refs": [
+        "wcvp:2624937"
+      ]
+    },
+    {
+      "authors": "Benth. ex Baker",
+      "name": "Ormosia laxiflora",
+      "refs": [
+        "wcvp:2388307"
+      ]
+    },
+    {
+      "authors": "(Benth. ex Baker) Yakovlev",
+      "name": "Pericopsis angolensis subsp. laxiflora",
+      "refs": [
+        "wcvp:2538410"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

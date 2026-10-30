@@ -1,0 +1,47 @@
+======== lavandula-angustifolia | nuse 11 | flags []
+IDENT Lavandula angustifolia role= None kind= resolved aliases= [] notes= []
+B.names [["de", "Echter Lavendel", "tppt_plant"], ["en", "True lavender", "tppt_plant"], ["en", "English Lavender", "usda_common_name"]]
+B.wd [["Q42081", "Lavandula angustifolia", [], ["Lavandula officinalis var faucheana", "Lavandula officinalis var pyrenaica", "Lavandula officinalis var. faucheana", "Lavandula officinalis var. pyrenaica", "Lavandula pyrenaica", "Lavandula spica var faucheana", "Lavandula spica var pyrenaica", "Lavandula spica var turolensis"], "Lavandula angustifolia"]] con-item
+B.desc [["wikipedia_es:Lavandula angustifolia", "Lavandula angustifolia, lavanda, es una especie de planta sufruticosa perenne del género Lavandula en la familia Lamiaceae."]]
+B.dist aceptado ['Southeastern Europe', 'Southwestern Europe'] ['France', 'Italy', 'Spain'] 3
+B.parts [["usda_part:544-FL", "Flower", true], ["usda_part:544-LF", "Leaf", false], ["usda_part:544-PL", "Plant", false], ["usda_part:544-SD", "Seed", false]]
+B.reg [["ema_herbal:lavandulae-aetheroleum", "European Union herbal monograph", "No", ["Sleep disorders and temporary insomnia", "Mental stress and mood disorders"], ["mejorar-el-sueno", "relajacion-estres"]], ["ema_herbal:lavandulae-flos", "European Union herbal monograph", "No", ["Sleep disorders and temporary insomnia", "Mental stress and mood disorders"], ["mejorar-el-sueno", "relajacion-estres"]]]
+B.efsa medio [{"group": "toxico-con-limite", "parts": ["Aerial part of plants"], "ref": "efsa_botanic:3224", "substance": "alpha-thujone"}, {"group": "toxico-con-limite", "parts": ["Aerial part of plants"], "ref": "efsa_botanic:3287", "substance": "beta-thujone"}] ["1,8-cineole", "Camphor"] []
+B.ema ema_pdf:lavandulae-aetheroleum:4.3 None None False level= None | [traditional_use] Hypersensitivity to the active substance(s). Full baths are contraindicated in cases of open wounds, large skin injuries, acute skin diseases, high fever, severe infections, severe circulatory disturbances and cardiac insufficiency.
+B.ema ema_pdf:lavandulae-aetheroleum:4.4 None None False level= None | [traditional_use] The use in children under 12 years of age has not been established due to lack of adequate data. If the symptoms worsen during the use of the medicinal product, a doctor or a qualified health care practitioner should be consulted.
+B.ema ema_pdf:lavandulae-aetheroleum:4.5 None none-reported False level= None | [traditional_use] None reported.
+B.ema ema_pdf:lavandulae-flos:4.3 None None False level= None | [traditional_use] Hypersensitivity to the active substance(s).
+B.ema ema_pdf:lavandulae-flos:4.4 None None False level= None | [traditional_use] The use in children under 12 years of age has not been established due to lack of adequate data. If the symptoms worsen during the use of the medicinal product, a doctor or a qualified health care practitioner should be consulted. For tinctures containing ethanol, the appropriate labelling for ethanol, taken from the ‘Guideline on excipients in the label and package leaflet of medicinal products for human use’, must be included.
+B.ema ema_pdf:lavandulae-flos:4.5 None none-reported False level= None | [traditional_use] None reported.
+B.tppt weak toxic [{'category': 'weak toxic', 'level': 'bajo'}] bajo part= Aerial part animal=  remarks= None major= ['(+)-Linalool', '(-)-Linalool', 'Lynalyl acetate'] ntox 11
+B.uses sens: []
+B.images [["commons:File:Lavandula angustifolia - Köhler–s Medizinal-Pfl", "Public domain", "image/jpeg", "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen"]]
+--- RECORD
+aliases : []
+scientificName : {"authors": "Mill.", "name": "Lavandula angustifolia", "refs": ["wcvp:108971"]}
+family : {"refs": ["wcvp:108971"], "value": "Lamiaceae"}
+synonyms : []
+displayName : {"language": "es", "refs": ["wikipedia_es:Lavandula angustifolia"], "value": "Lavanda"}
+commonNames : [["es", "lavanda", ["wikipedia_es"]], ["en", "True lavender", ["tppt_plant"]], ["en", "English Lavender", ["usda_common_name"]], ["de", "Echter Lavendel", ["tppt_plant"]]]
+origin : {"refs": ["wcvp:108971"], "value": "Sureste y suroeste de Europa."}
+description : {"refs": ["wikipedia_es:Lavandula angustifolia"], "value": "Especie de planta sufruticosa perenne del género Lavandula, de la familia Lamiaceae."}
+partsUsed : [{"refs": ["ema_herbal:lavandulae-flos"], "value": "Flor"}]
+oil : {"refs": ["ema_herbal:lavandulae-aetheroleum", "usda_part:544-FL"], "type": "Esencial"}
+goals : [["mejorar-el-sueno", null, "Trastornos del sueño e insomnio pasajero", "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.", false], ["relajacion-estres", null, "Estrés mental y trastornos del ánimo", "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.", false]]
+safety : {"level": "medio", "refs": ["efsa_botanic:3224", "efsa_botanic:3287", "tppt_plant:P553", "ema_pdf:lavandulae-flos:4.3", "ema_pdf:lavandulae-aetheroleum:4.3", "ema_pdf:lavandulae-flos:4.4", "ema_pdf:lavandulae-aetheroleum:4.4"], "text": "EFSA incluye la alfa-tuyona y la beta-tuyona de la parte aérea entre las sustancias de alta preocupación, con límites de ingesta. TPPT la califica de débilmente tóxica (parte aérea; toxina principal: linalool). La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, para el aceite esencial, los baños completos en caso de heridas abiertas, lesiones cutáneas extensas, enfermedades agudas de la piel, fiebre alta, infecciones graves, trastornos circulatorios graves e insuficiencia cardíaca. En advertencias, la EMA anota que no se ha establecido el uso en menores de 12 años por falta de datos."}
+image : {"author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen", "license": "Public domain", "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg", "attributionRequired": false}
+reviewFlags : [["cita-sin-resolver x0"]]
+traditionalUses (11):
+  [0] Carminativo <= Carminative | n=2 | Otros lugares, Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.'), ('Woi.6', 'The Wealth of India, vol. 6')]
+  [1] Estimulante <= Stimulant | n=2 | Otros lugares, Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.'), ('Woi.6', 'The Wealth of India, vol. 6')]
+  [2] Colagogo <= Cholagogue | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [3] Diurético <= Diuretic | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [4] Nervino <= Nervine | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [5] Perfume <= Perfume | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [6] Repelente de insectos <= Repellant(Insect) | n=1 | Otros lugares | pend=False | cit=[('Woi.6', 'The Wealth of India, vol. 6')]
+  [7] Espasmo <= Spasm | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [8] Estomacal <= Stomachic | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [9] Sudorífico <= Sudorific | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+  [10] Vermífugo <= Vermifuge | n=1 | Turquía | pend=False | cit=[('Steinmetz', 'Steinmetz, E.F. 1957. codex Vegetabilis.')]
+AUTO:
+

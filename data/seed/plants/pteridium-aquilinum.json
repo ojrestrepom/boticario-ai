@@ -1,0 +1,932 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2e942c0977cec46bb42e6c3c17232a85386ebdd0a40d0efacbd1c33ffb57c906",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pteridium aquilinum"
+      ],
+      "text": "Helecho águila"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pteridium aquilinum"
+      ],
+      "text": "Amambáy"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P14"
+      ],
+      "text": "Adlerfarn"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P14",
+        "usda_common_name:800-2"
+      ],
+      "text": "Bracken fern"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:800-1"
+      ],
+      "text": "Bracken"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pteridium aquilinum"
+    ],
+    "value": "Helecho de la familia Dennstaedtiaceae, uno de los organismos vegetales de más amplia distribución, presente en todos los continentes salvo la Antártida."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Pteridium aquilinum"
+    ],
+    "value": "Helecho águila"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2931242"
+    ],
+    "value": "Dennstaedtiaceae"
+  },
+  "goals": [],
+  "id": "pteridium-aquilinum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Herbarium of the University of Coimbra (COI)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:COI00077019_-_Pteridium_aquilinum_forma_congestum_-_Martins,_J._Rainha,_Bento_Victoria_Silva,_Antnio_Rodrigo_Pinto_-_7518.jpg",
+    "refs": [
+      "commons:File:COI00077019 - Pteridium aquilinum forma congestum - Martins, J. Rainha, Bento Victoria Silva, Antnio Rodrigo Pinto - 7518.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/COI00077019_-_Pteridium_aquilinum_forma_congestum_-_Martins%2C_J._Rainha%2C_Bento_Victoria_Silva%2C_Antnio_Rodrigo_Pinto_-_7518.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:800-RH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2931242"
+    ],
+    "value": "Europa, Macaronesia, norte y nordeste de África, Asia occidental y central, Mongolia y Siberia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:COI00077019 - Pteridium aquilinum forma congestum - Martins, J. Rainha, Bento Victoria Silva, Antnio Rodrigo Pinto - 7518.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:COI00077019 - Pteridium aquilinum forma congestum - Martins, J. Rainha, Bento Victoria Silva, Antnio Rodrigo Pinto - 7518.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:COI00077019_-_Pteridium_aquilinum_forma_congestum_-_Martins,_J._Rainha,_Bento_Victoria_Silva,_Antnio_Rodrigo_Pinto_-_7518.jpg"
+    },
+    "efsa_botanic:556": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: ptaquiloside",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:557": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: thiaminase",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:595": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: prunasin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:197": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Bracken",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P14": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Pteridium aquilinum (L.) Kuhn",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:800-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bracken»",
+      "license": "CC0"
+    },
+    "usda_common_name:800-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bracken Fern»",
+      "license": "CC0"
+    },
+    "usda_part:800-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10052": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10052",
+      "license": "CC0"
+    },
+    "usda_use:14545": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14545",
+      "license": "CC0"
+    },
+    "usda_use:18582": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18582",
+      "license": "CC0"
+    },
+    "usda_use:25214": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25214",
+      "license": "CC0"
+    },
+    "usda_use:34142": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34142",
+      "license": "CC0"
+    },
+    "usda_use:38222": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38222",
+      "license": "CC0"
+    },
+    "usda_use:38223": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38223",
+      "license": "CC0"
+    },
+    "usda_use:39312": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39312",
+      "license": "CC0"
+    },
+    "usda_use:42545": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42545",
+      "license": "CC0"
+    },
+    "usda_use:43192": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43192",
+      "license": "CC0"
+    },
+    "usda_use:43474": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43474",
+      "license": "CC0"
+    },
+    "usda_use:47276": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47276",
+      "license": "CC0"
+    },
+    "usda_use:49442": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49442",
+      "license": "CC0"
+    },
+    "usda_use:54588": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54588",
+      "license": "CC0"
+    },
+    "usda_use:54589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54589",
+      "license": "CC0"
+    },
+    "usda_use:60771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60771",
+      "license": "CC0"
+    },
+    "usda_use:60773": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60773",
+      "license": "CC0"
+    },
+    "usda_use:60774": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60774",
+      "license": "CC0"
+    },
+    "usda_use:60775": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60775",
+      "license": "CC0"
+    },
+    "usda_use:60776": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60776",
+      "license": "CC0"
+    },
+    "usda_use:60777": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60777",
+      "license": "CC0"
+    },
+    "usda_use:6497": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6497",
+      "license": "CC0"
+    },
+    "usda_use:65289": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65289",
+      "license": "CC0"
+    },
+    "usda_use:68625": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68625",
+      "license": "CC0"
+    },
+    "usda_use:72316": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72316",
+      "license": "CC0"
+    },
+    "usda_use:72483": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72483",
+      "license": "CC0"
+    },
+    "usda_use:72681": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72681",
+      "license": "CC0"
+    },
+    "usda_use:7977": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7977",
+      "license": "CC0"
+    },
+    "usda_use:80127": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80127",
+      "license": "CC0"
+    },
+    "wcvp:2931242": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pteridium aquilinum (L.) Kuhn",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931243": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pteris aquilina L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931245": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eupteris aquilina (L.) Newman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931246": {
+      "dataset": "wcvp",
+      "label": "WCVP: Filix-foemina aquilina (L.) Farw.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931262": {
+      "dataset": "wcvp",
+      "label": "WCVP: Allosorus aquilinus (L.) C.Presl",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931268": {
+      "dataset": "wcvp",
+      "label": "WCVP: Asplenium aquilinum (L.) Bernh.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931272": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cincinalis aquilina (L.) Gled.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931283": {
+      "dataset": "wcvp",
+      "label": "WCVP: Filix aquilina (L.) Woyn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931302": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ornithopteris aquilina (L.) J.Sm.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2931303": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paesia aquilina (L.) Keyserl.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pteridium aquilinum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pteridium aquilinum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pteridium_aquilinum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la parte «Rhizome», sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "«Amambáy» aparece en el resumen en español de Wikipedia, pero parece un nombre de origen guaraní y no es seguro que sea español.",
+      "target": "commonNames"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:556",
+      "efsa_botanic:595",
+      "efsa_botanic:557",
+      "efsa_endpoint:197",
+      "tppt_plant:P14",
+      "usda_use:38222",
+      "usda_use:38223",
+      "usda_use:60775",
+      "usda_use:10052",
+      "usda_use:34142",
+      "usda_use:14545"
+    ],
+    "text": "EFSA registra para la planta viva el ptaquilósido, de la categoría de sustancias genotóxicas o carcinógenas, y como sustancias de evidencia la prunasina y la tiaminasa; un caso notificado indica que la biotransformación del ptaquilósido da lugar al ptaquilósido B, neurotóxico. TPPT la clasifica como tóxica en la planta entera, con el ptaquilósido como toxina principal, y registra también prunasina (glucósido cianogénico) y tiaminasa. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como carcinógena. Advertencia: registrada como mutágena. Advertencia: registrada como cianogénica."
+  },
+  "scientificName": {
+    "authors": "(L.) Kuhn",
+    "name": "Pteridium aquilinum",
+    "refs": [
+      "wcvp:2931242"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) C.Presl",
+      "name": "Allosorus aquilinus",
+      "refs": [
+        "wcvp:2931262"
+      ]
+    },
+    {
+      "authors": "(L.) Bernh.",
+      "name": "Asplenium aquilinum",
+      "refs": [
+        "wcvp:2931268"
+      ]
+    },
+    {
+      "authors": "(L.) Gled.",
+      "name": "Cincinalis aquilina",
+      "refs": [
+        "wcvp:2931272"
+      ]
+    },
+    {
+      "authors": "(L.) Newman",
+      "name": "Eupteris aquilina",
+      "refs": [
+        "wcvp:2931245"
+      ]
+    },
+    {
+      "authors": "(L.) Woyn.",
+      "name": "Filix aquilina",
+      "refs": [
+        "wcvp:2931283"
+      ]
+    },
+    {
+      "authors": "(L.) Farw.",
+      "name": "Filix-foemina aquilina",
+      "refs": [
+        "wcvp:2931246"
+      ]
+    },
+    {
+      "authors": "(L.) J.Sm.",
+      "name": "Ornithopteris aquilina",
+      "refs": [
+        "wcvp:2931302"
+      ]
+    },
+    {
+      "authors": "(L.) Keyserl.",
+      "name": "Paesia aquilina",
+      "refs": [
+        "wcvp:2931303"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Pteris aquilina",
+      "refs": [
+        "wcvp:2931243"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos",
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54588",
+        "usda_use:54589",
+        "usda_use:80127",
+        "usda_reference:Duke",
+        "usda_reference:Krochmal",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60771",
+        "usda_use:68625",
+        "usda_reference:Krochmal",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65289",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6497",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Mama",
+      "activitySource": "Breast",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7977",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18582",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25214",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Gastritis",
+      "activitySource": "Gastritis",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60773",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hipertensión",
+      "activitySource": "Hypertension",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72316",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72483",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Intestine",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72681",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Woi.8",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 8"
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60774",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Pubertad",
+      "activitySource": "Puberty",
+      "citations": [
+        {
+          "key": "Eb25: 69",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 69"
+        }
+      ],
+      "countries": [
+        "Canadá (salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39312",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Esclerosis (bazo)",
+      "activitySource": "Sclerosis(Spleen)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42545",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43192",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Sialagogo",
+      "activitySource": "Sialogogue",
+      "citations": [
+        {
+          "key": "Eb25: 69",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 69"
+        }
+      ],
+      "countries": [
+        "Canadá (salish)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43474",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60776",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindio)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47276",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Taenífugo",
+      "activitySource": "Taenifuge",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49442",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60777",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

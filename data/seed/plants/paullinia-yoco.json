@@ -1,0 +1,158 @@
+{
+  "aliases": [
+    "paullinia-yoko"
+  ],
+  "bundleHash": "sha256:eaedd5a94857f4c2f71541c223a50aac030307bd9617af49e2328c73e4079b8d",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Paullinia yoco"
+      ],
+      "text": "yoco"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:704-1"
+      ],
+      "text": "Yoko"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Paullinia yoco"
+    ],
+    "value": "Planta trepadora de la familia de las sapindáceas, nativa del noroccidente de la Amazonia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Paullinia yoco"
+    ],
+    "value": "Yoco"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2543964"
+    ],
+    "value": "Sapindaceae"
+  },
+  "goals": [],
+  "id": "paullinia-yoco",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2543964"
+    ],
+    "value": "Oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:704-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yoko»",
+      "license": "CC0"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:46840": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46840",
+      "license": "CC0"
+    },
+    "usda_use:46841": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46841",
+      "license": "CC0"
+    },
+    "wcvp:2543964": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paullinia yoco R.E.Schult. & Killip",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Paullinia yoco": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Paullinia yoco",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Paullinia_yoco"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "R.E.Schult. & Killip",
+    "name": "Paullinia yoco",
+    "refs": [
+      "wcvp:2543964"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Eb26: 120",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 26: 120"
+        }
+      ],
+      "countries": [
+        "Colombia",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46840",
+        "usda_use:46841",
+        "usda_reference:Altschul",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

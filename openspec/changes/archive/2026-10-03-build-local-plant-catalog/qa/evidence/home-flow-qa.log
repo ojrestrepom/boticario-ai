@@ -1,0 +1,25 @@
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/home_flow_qa_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: HQ01 ten inert actions twice: literal logs, immutable Home, no overlays
+HOME-FLOW-QA HQ01 ten inert actions twice: literal logs, immutable Home, no overlays debugPrint=20 messages=[[Home] Cabecera: Menú, [Home] Cabecera: Perfil, [Home] Buscar por objetivo, [Home] Identificar con cámara, [Home] Formular mezclas, [Home] Preguntar al Boticario, [Home] Pestaña: Inicio, [Home] Pestaña: Favoritos, [Home] Pestaña: Historial, [Home] Pestaña: Perfil, [Home] Cabecera: Menú, [Home] Cabecera: Perfil, [Home] Buscar por objetivo, [Home] Identificar con cámara, [Home] Formular mezclas, [Home] Preguntar al Boticario, [Home] Pestaña: Inicio, [Home] Pestaña: Favoritos, [Home] Pestaña: Historial, [Home] Pestaña: Perfil]
+00:00 +1: HQ02 Home card to all five correct passports, pop and rebuild silent
+HOME-FLOW-QA HQ02 Home card to all five correct passports, pop and rebuild silent debugPrint=1 messages=[[Home] Explorar plantas y aceites]
+00:00 +2: HQ03-chevron-P04Home session restores and Home clears stack; reentry fresh
+HOME-FLOW-QA restored chevron-P04Home offset=48.0 -> 48.0
+HOME-FLOW-QA HQ03-chevron-P04Home session restores and Home clears stack; reentry fresh debugPrint=2 messages=[[Home] Explorar plantas y aceites, [Home] Explorar plantas y aceites]
+00:01 +3: HQ03-frameworkBack-P05Home session restores and Home clears stack; reentry fresh
+HOME-FLOW-QA restored frameworkBack-P05Home offset=48.0 -> 48.0
+HOME-FLOW-QA HQ03-frameworkBack-P05Home session restores and Home clears stack; reentry fresh debugPrint=2 messages=[[Home] Explorar plantas y aceites, [Home] Explorar plantas y aceites]
+00:01 +4: HQ04 catalog negative actions and private query never emit Home or data logs
+HOME-FLOW-QA HQ04 catalog negative actions and private query never emit Home or data logs debugPrint=1 messages=[[Home] Explorar plantas y aceites]
+00:01 +5: (tearDownAll)
+00:01 +5: All tests passed!

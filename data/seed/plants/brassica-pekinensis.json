@@ -1,0 +1,90 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9b6e704ba0c4176b322abc9b70370b711a179db9a0cf48bcaccd9d43b928e565",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:181-1"
+      ],
+      "text": "Chinese Cabbage"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2682607"
+    ],
+    "value": "Brassica pekinensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2682607"
+    ],
+    "value": "Brassicaceae"
+  },
+  "goals": [],
+  "id": "brassica-pekinensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:181-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Cabbage»",
+      "license": "CC0"
+    },
+    "wcvp:2682607": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brassica pekinensis (Lour.) Rupr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Lour.) Rupr.",
+    "name": "Brassica pekinensis",
+    "refs": [
+      "wcvp:2682607"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

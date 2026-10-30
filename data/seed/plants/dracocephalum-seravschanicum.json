@@ -1,0 +1,123 @@
+{
+  "aliases": [
+    "hyssopus-ferganensis",
+    "hyssopus-seravshanicus"
+  ],
+  "bundleHash": "sha256:01fff9f4481900ee8fb614a63f8febf294e7ddea6254ad13f6bbf627baad8c6b",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3304210"
+    ],
+    "value": "Dracocephalum seravschanicum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3304210"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "dracocephalum-seravschanicum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3304210"
+    ],
+    "value": "Asia central, Asia occidental y subcontinente indio."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:102259": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hyssopus ferganensis Boriss.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:102287": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hyssopus officinalis var. seravschanicus Dubj.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:102298": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hyssopus seravschanicus (Dubj.) Pazij",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3304210": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dracocephalum seravschanicum (Dubj.) Y.P.Chen & B.T.Drew",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Hyssopus ferganensis) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Dubj.) Y.P.Chen & B.T.Drew",
+    "name": "Dracocephalum seravschanicum",
+    "refs": [
+      "wcvp:3304210"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Boriss.",
+      "name": "Hyssopus ferganensis",
+      "refs": [
+        "wcvp:102259"
+      ]
+    },
+    {
+      "authors": "Dubj.",
+      "name": "Hyssopus officinalis var. seravschanicus",
+      "refs": [
+        "wcvp:102287"
+      ]
+    },
+    {
+      "authors": "(Dubj.) Pazij",
+      "name": "Hyssopus seravschanicus",
+      "refs": [
+        "wcvp:102298"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

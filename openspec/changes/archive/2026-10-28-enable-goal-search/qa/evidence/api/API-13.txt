@@ -1,0 +1,23 @@
+PASA  ninguna planta tipo 'objetivos-omitidos-por-toxicidad' ni conium-maculatum aparece en ningun objetivo ['conium-maculatum', 'cucurbita-pepo', 'glycine-max', 'phaseolus-vulgaris', 'ricinus-communis', 'solanum-dulcamara']
+PASA  la union de los seis objetivos son exactamente las 175 plantas con filas visibles en la base 175
+PASA  ninguna de las plantas con nivel alto y sin objetivos en la base aparece 99 plantas
+PASA  aconitum-napellus no aparece en ningun objetivo 
+PASA  ricinus-communis no aparece en ningun objetivo 
+PASA  abrus-precatorius no aparece en ningun objetivo 
+PASA  angelica-laxiflora no aparece en ningun objetivo 
+PASA  la union de las seis subareas es la lista sin subarea (135) 
+PASA  plantas en dos objetivos aparecen en ambos con solo las areas de cada uno (71 plantas) 
+--- lavandula-angustifolia en dos objetivos
+GET areas por objetivo
+Authorization: Bearer <token-app>
+-> 200 {}
+{
+ "mejorar-el-sueno": [
+  "Trastornos del sueño e insomnio pasajero"
+ ],
+ "relajacion-estres": [
+  "Estrés mental y trastornos del ánimo"
+ ]
+}
+
+PASA  lavandula-angustifolia: sueno -> 'Trastornos del sueno...', estres -> 'Estres mental...' (cada uno solo la suya) 

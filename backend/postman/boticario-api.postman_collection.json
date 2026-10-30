@@ -1,0 +1,880 @@
+{
+  "info": {
+    "name": "Boticario API",
+    "description": "Todos los endpoints de la API del backend (backend/openapi.json). Variables: baseUrl y token. Las peticiones de /v1 heredan Authorization: Bearer {{token}}.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Público",
+      "description": "Endpoints sin token.",
+      "item": [
+        {
+          "name": "GET /health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "pm.test(\"status es ok\", () => pm.expect(pm.response.json().status).to.eql(\"ok\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Estado del servicio. No exige token.",
+            "auth": {
+              "type": "noauth"
+            }
+          }
+        },
+        {
+          "name": "GET /openapi.json",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"es un documento OpenAPI con las rutas de /v1\", () => { pm.expect(j.openapi).to.be.a(\"string\"); pm.expect(j.paths).to.have.property(\"/v1/plants\"); pm.expect(j.paths).to.have.property(\"/v1/goals\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/openapi.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "openapi.json"
+              ]
+            },
+            "description": "Contrato OpenAPI de la API. No exige token.",
+            "auth": {
+              "type": "noauth"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plantas",
+      "description": "Listado, búsqueda y detalle de plantas. Exigen token.",
+      "item": [
+        {
+          "name": "Listado sin parámetros",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"limit 20, offset 0 y 20 elementos\", () => { pm.expect(j.limit).to.eql(20); pm.expect(j.offset).to.eql(0); pm.expect(j.items.length).to.eql(20); pm.expect(j.total).to.be.above(20); });",
+                  "pm.test(\"cada elemento lleva id, scientificName, displayName y commonNames\", () => j.items.forEach(i => { pm.expect(i.id).to.be.a(\"string\"); pm.expect(i.scientificName).to.be.a(\"string\"); pm.expect(i.displayName).to.be.a(\"string\").and.not.empty; pm.expect(i.commonNames).to.be.an(\"array\"); }));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ]
+            },
+            "description": "Primera página con los valores por defecto (limit 20, offset 0)."
+          }
+        },
+        {
+          "name": "Listado con paginación",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"limit 2, offset 2 y 2 elementos\", () => { pm.expect(j.limit).to.eql(2); pm.expect(j.offset).to.eql(2); pm.expect(j.items.length).to.eql(2); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants?limit=2&offset=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "offset",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Segunda página de dos elementos con limit=2 y offset=2."
+          }
+        },
+        {
+          "name": "Búsqueda por nombre común",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "const ids = j.items.map(i => i.id);",
+                  "pm.test(\"incluye lavandula-angustifolia\", () => { pm.expect(j.total).to.be.at.least(1); pm.expect(ids).to.include(\"lavandula-angustifolia\"); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants?q=lavanda",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "lavanda"
+                }
+              ]
+            },
+            "description": "q=lavanda encuentra la lavanda por su nombre común."
+          }
+        },
+        {
+          "name": "Búsqueda por sinónimo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "const ids = j.items.map(i => i.id);",
+                  "pm.test(\"incluye salvia-rosmarinus\", () => pm.expect(ids).to.include(\"salvia-rosmarinus\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants?q=rosmarinus%20officinalis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "rosmarinus%20officinalis"
+                }
+              ]
+            },
+            "description": "q=rosmarinus officinalis encuentra el romero por un sinónimo."
+          }
+        },
+        {
+          "name": "Búsqueda por nombre anterior",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "const ids = j.items.map(i => i.id);",
+                  "pm.test(\"incluye matricaria-chamomilla\", () => pm.expect(ids).to.include(\"matricaria-chamomilla\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants?q=matricaria%20recutita",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "matricaria%20recutita"
+                }
+              ]
+            },
+            "description": "q=matricaria recutita encuentra la manzanilla por su identificador anterior."
+          }
+        },
+        {
+          "name": "Búsqueda con % literal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"sin resultados\", () => { pm.expect(j.total).to.eql(0); pm.expect(j.items).to.eql([]); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants?q=%25",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "%25"
+                }
+              ]
+            },
+            "description": "q=%25 se trata como el carácter % y no como comodín: no devuelve resultados."
+          }
+        },
+        {
+          "name": "Detalle por id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"id y nombres\", () => { pm.expect(j.id).to.eql(\"lavandula-angustifolia\"); pm.expect(j.scientificName).to.eql(\"Lavandula angustifolia\"); pm.expect(j.displayName).to.be.a(\"string\").and.not.empty; pm.expect(j.names).to.be.an(\"array\"); });",
+                  "pm.test(\"sin Content-Location (no es un alias)\", () => pm.expect(pm.response.headers.has(\"Content-Location\")).to.be.false);",
+                  "pm.test(\"campos consolidados presentes\", () => { [\"synonyms\",\"useGroups\",\"goals\",\"credits\",\"parts\",\"uses\"].forEach(k => pm.expect(j[k], k).to.be.an(\"array\")); [\"description\",\"origin\",\"oil\",\"safety\",\"image\"].forEach(k => pm.expect(j, k).to.have.property(k)); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants/lavandula-angustifolia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants",
+                "lavandula-angustifolia"
+              ]
+            },
+            "description": "Detalle de la lavanda, con los campos consolidados siempre presentes."
+          }
+        },
+        {
+          "name": "Detalle por alias",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"id canónico en el cuerpo\", () => pm.expect(j.id).to.eql(\"salvia-rosmarinus\"));",
+                  "pm.test(\"Content-Location apunta a la ruta canónica\", () => pm.expect(pm.response.headers.get(\"Content-Location\")).to.eql(\"/v1/plants/salvia-rosmarinus\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants/rosmarinus-officinalis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants",
+                "rosmarinus-officinalis"
+              ]
+            },
+            "description": "Un identificador anterior devuelve la planta canónica, con Content-Location y sin redirección."
+          }
+        },
+        {
+          "name": "Detalle inexistente (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 404\", () => { pm.expect(j.status).to.eql(404); pm.expect(j.title).to.eql(\"Not Found\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants/no-existe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants",
+                "no-existe"
+              ]
+            },
+            "description": "Un id que no existe ni como alias responde 404."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Objetivos",
+      "description": "Catálogo de objetivos y sus plantas. Exigen token.",
+      "item": [
+        {
+          "name": "Listar objetivos",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"array en la raíz y no vacío\", () => { pm.expect(j).to.be.an(\"array\"); pm.expect(j.length).to.be.above(0); });",
+                  "pm.test(\"cada objetivo lleva id, name, plantCount y subareas\", () => j.forEach(g => { pm.expect(g.id).to.be.a(\"string\"); pm.expect(g.name).to.be.a(\"string\"); pm.expect(g.plantCount).to.be.a(\"number\"); pm.expect(g.subareas).to.be.an(\"array\"); }));",
+                  "pm.test(\"otros-objetivos tiene subáreas incluida digestion\", () => { const o = j.find(g => g.id === \"otros-objetivos\"); pm.expect(o).to.exist; pm.expect(o.subareas.map(s => s.id)).to.include(\"digestion\"); });",
+                  "pm.test(\"relajacion-estres no tiene subáreas\", () => pm.expect(j.find(g => g.id === \"relajacion-estres\").subareas).to.eql([]));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals"
+              ]
+            },
+            "description": "Array en la raíz con id, name, plantCount y subareas de cada objetivo."
+          }
+        },
+        {
+          "name": "Plantas de un objetivo sin subáreas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"objetivo, sin subárea y elementos con forma de tarjeta\", () => { pm.expect(j.goal.id).to.eql(\"relajacion-estres\"); pm.expect(j.subarea).to.be.null; pm.expect(j.limit).to.eql(5); pm.expect(j.items.length).to.be.within(1, 5); pm.expect(j.total).to.be.at.least(j.items.length); j.items.forEach(i => { pm.expect(i.id).to.be.a(\"string\"); pm.expect(i.displayName).to.be.a(\"string\"); pm.expect(i.commonNames).to.be.an(\"array\"); pm.expect(i.areas).to.be.an(\"array\"); pm.expect(i).to.have.property(\"safetyLevel\"); pm.expect(i.hasSafety).to.be.a(\"boolean\"); pm.expect(i).to.have.property(\"image\"); }); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals/relajacion-estres/plants?limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals",
+                "relajacion-estres",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "relajacion-estres, con limit=5."
+          }
+        },
+        {
+          "name": "Plantas de una subárea",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"objetivo y subárea pedidos\", () => { pm.expect(j.goal.id).to.eql(\"otros-objetivos\"); pm.expect(j.subarea.id).to.eql(\"digestion\"); pm.expect(j.items.length).to.be.within(1, 5); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals/otros-objetivos/plants?subarea=digestion&limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals",
+                "otros-objetivos",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "subarea",
+                  "value": "digestion"
+                },
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "otros-objetivos con subarea=digestion."
+          }
+        },
+        {
+          "name": "Unión de subáreas (sin subarea)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"sin subárea y total mayor que el de digestion\", () => { pm.expect(j.goal.id).to.eql(\"otros-objetivos\"); pm.expect(j.subarea).to.be.null; pm.expect(j.total).to.be.above(68); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals/otros-objetivos/plants?limit=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals",
+                "otros-objetivos",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": "otros-objetivos sin subarea devuelve la unión sin repetir plantas."
+          }
+        },
+        {
+          "name": "Plantas de un objetivo con paginación",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Content-Type application/json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"forma de página: items, total, limit, offset\", () => { pm.expect(j.items).to.be.an(\"array\"); pm.expect(j.total).to.be.a(\"number\"); pm.expect(j.limit).to.be.a(\"number\"); pm.expect(j.offset).to.be.a(\"number\"); });",
+                  "pm.test(\"limit 2, offset 2 y 2 elementos\", () => { pm.expect(j.limit).to.eql(2); pm.expect(j.offset).to.eql(2); pm.expect(j.items.length).to.eql(2); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals/relajacion-estres/plants?limit=2&offset=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals",
+                "relajacion-estres",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "offset",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "relajacion-estres con limit=2 y offset=2."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Errores",
+      "description": "Respuestas application/problem+json.",
+      "item": [
+        {
+          "name": "401 sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 401\", () => pm.response.to.have.status(401));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 401\", () => { pm.expect(j.status).to.eql(401); pm.expect(j.title).to.eql(\"Unauthorized\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"WWW-Authenticate es Bearer\", () => pm.expect(pm.response.headers.get(\"WWW-Authenticate\")).to.eql(\"Bearer\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ]
+            },
+            "description": "Sin cabecera Authorization: 401 con WWW-Authenticate: Bearer.",
+            "auth": {
+              "type": "noauth"
+            }
+          }
+        },
+        {
+          "name": "401 en /v1/goals sin token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 401\", () => pm.response.to.have.status(401));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 401\", () => { pm.expect(j.status).to.eql(401); pm.expect(j.title).to.eql(\"Unauthorized\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"WWW-Authenticate es Bearer\", () => pm.expect(pm.response.headers.get(\"WWW-Authenticate\")).to.eql(\"Bearer\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals"
+              ]
+            },
+            "description": "El token también se exige en los objetivos.",
+            "auth": {
+              "type": "noauth"
+            }
+          }
+        },
+        {
+          "name": "400 limit=0",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 400\", () => { pm.expect(j.status).to.eql(400); pm.expect(j.title).to.eql(\"Bad Request\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"param es limit\", () => pm.expect(j.param).to.eql(\"limit\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants?limit=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "limit fuera de rango (1 a 100): 400 con param=limit."
+          }
+        },
+        {
+          "name": "400 subárea ajena",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 400\", () => { pm.expect(j.status).to.eql(400); pm.expect(j.title).to.eql(\"Bad Request\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"param es subarea\", () => pm.expect(j.param).to.eql(\"subarea\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals/relajacion-estres/plants?subarea=digestion",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals",
+                "relajacion-estres",
+                "plants"
+              ],
+              "query": [
+                {
+                  "key": "subarea",
+                  "value": "digestion"
+                }
+              ]
+            },
+            "description": "digestion no pertenece a relajacion-estres: 400 con param=subarea."
+          }
+        },
+        {
+          "name": "404 objetivo desconocido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 404\", () => { pm.expect(j.status).to.eql(404); pm.expect(j.title).to.eql(\"Not Found\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/goals/no-existe/plants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "goals",
+                "no-existe",
+                "plants"
+              ]
+            },
+            "description": "Un goalId que no existe responde 404."
+          }
+        },
+        {
+          "name": "405 POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"estado 405\", () => pm.response.to.have.status(405));",
+                  "pm.test(\"Content-Type application/problem+json\", () => pm.expect(pm.response.headers.get(\"Content-Type\") || \"\").to.include(\"application/problem+json\"));",
+                  "const j = pm.response.json();",
+                  "pm.test(\"cuerpo problem+json con status 405\", () => { pm.expect(j.status).to.eql(405); pm.expect(j.title).to.eql(\"Method Not Allowed\"); pm.expect(j.type).to.eql(\"about:blank\"); pm.expect(j.detail).to.be.a(\"string\").and.not.empty; });",
+                  "pm.test(\"Allow incluye GET\", () => pm.expect(pm.response.headers.get(\"Allow\")).to.include(\"GET\"));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/plants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "plants"
+              ]
+            },
+            "description": "La API es de solo lectura: POST responde 405 con Allow: GET."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,754 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a1e05626ce05fbf2f946a651ac037ab2c48ff044c9aa61e936abc1794efd6eb6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Spinacia oleracea",
+        "wikidata:Q81464"
+      ],
+      "text": "Espinaca"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q81464"
+      ],
+      "text": "Espinaca común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q81464"
+      ],
+      "text": "Espinaca de Holanda"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P410"
+      ],
+      "text": "Gemuese-Spinat"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P410",
+        "usda_common_name:957-1"
+      ],
+      "text": "Spinach"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Spinacia oleracea"
+    ],
+    "value": "Planta anual, dioica, de la familia de las amarantáceas, cultivada como verdura por sus hojas comestibles, grandes y de color verde muy oscuro."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Spinacia oleracea",
+      "wikidata:Q81464"
+    ],
+    "value": "Espinaca"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2483900"
+    ],
+    "value": "Amaranthaceae"
+  },
+  "goals": [],
+  "id": "spinacia-oleracea",
+  "image": {
+    "attributionRequired": true,
+    "author": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Spinacia_oleracea_Spinazie_bloeiend.jpg",
+    "refs": [
+      "commons:File:Spinacia oleracea Spinazie bloeiend.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Spinacia_oleracea_Spinazie_bloeiend.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2483900"
+    ],
+    "value": "Nativa de Asia central y occidental y del subcontinente indio."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Spinacia oleracea Spinazie bloeiend.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Spinacia oleracea Spinazie bloeiend.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Spinacia_oleracea_Spinazie_bloeiend.jpg"
+    },
+    "tppt_plant:P410": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Spinacia oleracea L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:957-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Spinach»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_use:15079": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15079",
+      "license": "CC0"
+    },
+    "usda_use:15719": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15719",
+      "license": "CC0"
+    },
+    "usda_use:15720": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15720",
+      "license": "CC0"
+    },
+    "usda_use:18762": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18762",
+      "license": "CC0"
+    },
+    "usda_use:25420": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25420",
+      "license": "CC0"
+    },
+    "usda_use:29622": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29622",
+      "license": "CC0"
+    },
+    "usda_use:31730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31730",
+      "license": "CC0"
+    },
+    "usda_use:40529": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40529",
+      "license": "CC0"
+    },
+    "usda_use:61757": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61757",
+      "license": "CC0"
+    },
+    "usda_use:61758": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61758",
+      "license": "CC0"
+    },
+    "usda_use:61759": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61759",
+      "license": "CC0"
+    },
+    "usda_use:6176": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6176",
+      "license": "CC0"
+    },
+    "usda_use:61760": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61760",
+      "license": "CC0"
+    },
+    "usda_use:61761": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61761",
+      "license": "CC0"
+    },
+    "usda_use:61762": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61762",
+      "license": "CC0"
+    },
+    "usda_use:61763": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61763",
+      "license": "CC0"
+    },
+    "usda_use:65433": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65433",
+      "license": "CC0"
+    },
+    "usda_use:65872": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65872",
+      "license": "CC0"
+    },
+    "usda_use:66701": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66701",
+      "license": "CC0"
+    },
+    "usda_use:68071": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68071",
+      "license": "CC0"
+    },
+    "usda_use:72490": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72490",
+      "license": "CC0"
+    },
+    "usda_use:79309": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79309",
+      "license": "CC0"
+    },
+    "usda_use:82351": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82351",
+      "license": "CC0"
+    },
+    "usda_use:82352": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82352",
+      "license": "CC0"
+    },
+    "wcvp:2483900": {
+      "dataset": "wcvp",
+      "label": "WCVP: Spinacia oleracea L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q81464": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q81464",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q81464"
+    },
+    "wikipedia_es:Spinacia oleracea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Spinacia oleracea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Spinacia_oleracea"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "WCVP ubica la planta en Amaranthaceae y WFO en Chenopodiaceae; se usó WCVP, la fuente más autorizada para taxonomía.",
+      "target": "family"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[12]"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P410"
+    ],
+    "text": "TPPT la registra como irritante de la piel: la parte registrada es la planta entera, con concentraciones altas de oxalato e histaminas."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Spinacia oleracea",
+    "refs": [
+      "wcvp:2483900"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Intestino",
+      "activitySource": "Bowel",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61757",
+        "usda_use:65872",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15079",
+        "usda_use:68071",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15719",
+        "usda_use:15720",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18762",
+        "usda_use:61759",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Inflamación",
+      "activitySource": "Inflammation",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29622",
+        "usda_use:72490",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Refrigerante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40529",
+        "usda_use:61761",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61758",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Antivinous",
+      "activitySource": "Antivinous",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82351",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6176",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:65433"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66701",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Fatiga",
+      "activitySource": "Fatigue",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61760",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:25420"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31730",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Raquitismo",
+      "activitySource": "Rachitis",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82352",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Sed",
+      "activitySource": "Thirst",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61762",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tuberculosis",
+      "activitySource": "Tuberculosis",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79309",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61763",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

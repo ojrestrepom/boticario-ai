@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c37622115eb6febbbb79f180a4620a0024b0e4dd72b67c72a6b6b099d8c73df7",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:460-1"
+      ],
+      "text": "Drummond's Pennyroyal"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:96462"
+    ],
+    "value": "Hedeoma drummondii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:96462"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "hedeoma-drummondii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Stan Shebs",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hedeoma_drummondii_5.jpg",
+    "refs": [
+      "commons:File:Hedeoma drummondii 5.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Hedeoma_drummondii_5.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:460-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:96462"
+    ],
+    "value": "México y Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hedeoma drummondii 5.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hedeoma drummondii 5.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hedeoma_drummondii_5.jpg"
+    },
+    "usda_common_name:460-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Drummond's Pennyroyal»",
+      "license": "CC0"
+    },
+    "usda_part:460-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:96462": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedeoma drummondii Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Benth.",
+    "name": "Hedeoma drummondii",
+    "refs": [
+      "wcvp:96462"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

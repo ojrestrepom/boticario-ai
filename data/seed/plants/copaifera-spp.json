@@ -1,0 +1,131 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6c391bfbad376b9bdd270abb5e30161402feea391a9e6165ff9ed5752f10d9f1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:303-1"
+      ],
+      "text": "Copaiba"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Copaifera"
+    ],
+    "value": "Género de plantas de la familia Fabaceae, originario de la cuenca del Amazonas, formado por árboles y arbustos de tallo erecto y poco ramificados."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q134428"
+    ],
+    "value": "Copaifera spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "copaifera-spp",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Copaifera_officinalis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-047.jpg",
+    "refs": [
+      "commons:File:Copaifera officinalis - Köhler–s Medizinal-Pflanzen-047.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Copaifera_officinalis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-047.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:303-GU"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Copaifera officinalis - Köhler–s Medizinal-Pflanzen-047.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Copaifera officinalis - Köhler–s Medizinal-Pflanzen-047.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Copaifera_officinalis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-047.jpg"
+    },
+    "usda_common_name:303-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Copaiba»",
+      "license": "CC0"
+    },
+    "usda_part:303-GU": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Gum»",
+      "license": "CC0"
+    },
+    "wikidata:Q134428": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q134428",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q134428"
+    },
+    "wikipedia_es:Copaifera": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Copaifera",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Copaifera"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Copaifera spp",
+    "refs": [
+      "wikidata:Q134428"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

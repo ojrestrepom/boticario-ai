@@ -1,0 +1,173 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8af80520c2ea7feb920418f60335d9398170e881d3ebfb74fb6e1020e0169ccb",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2095-1"
+      ],
+      "text": "Kekik"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2095-2"
+      ],
+      "text": "Tas Kekik"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:205019",
+      "wfo:wfo-0000324304"
+    ],
+    "value": "Thymus longicaulis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:205019"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "thymus-longicaulis",
+  "image": {
+    "attributionRequired": true,
+    "author": "4028mdk09",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Langst%C3%A4ngel-Thymian_2011.JPG",
+    "refs": [
+      "commons:File:Langstängel-Thymian 2011.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Langst%C3%A4ngel-Thymian_2011.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2095-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:205019"
+    ],
+    "value": "Europa central, Europa sudoriental y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Langstängel-Thymian 2011.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Langstängel-Thymian 2011.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Langst%C3%A4ngel-Thymian_2011.JPG"
+    },
+    "usda_common_name:2095-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Kekik»",
+      "license": "CC0"
+    },
+    "usda_common_name:2095-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tas Kekik»",
+      "license": "CC0"
+    },
+    "usda_part:2095-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:205019": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus longicaulis C.Presl",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:340603": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus striatus var. longicaulis (C.Presl) Nyman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:486557": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus serpyllum var. longicaulis (C.Presl) Bég.",
+      "license": "CC BY 3.0"
+    },
+    "wfo:wfo-0000324304": {
+      "dataset": "wfo",
+      "label": "WFO: Thymus longicaulis C.Presl",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "Los nombres «Kekik» y «Tas Kekik» vienen marcados como inglés en el paquete, pero parecen nombres turcos; se conservan tal cual.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "C.Presl",
+    "name": "Thymus longicaulis",
+    "refs": [
+      "wcvp:205019",
+      "wfo:wfo-0000324304"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wfo",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(C.Presl) Bég.",
+      "name": "Thymus serpyllum var. longicaulis",
+      "refs": [
+        "wcvp:486557"
+      ]
+    },
+    {
+      "authors": "(C.Presl) Nyman",
+      "name": "Thymus striatus var. longicaulis",
+      "refs": [
+        "wcvp:340603"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

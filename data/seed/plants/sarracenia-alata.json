@@ -1,0 +1,128 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bbd37f06618b8bcc2e58ce028229ac1f02d0593203b54a406e4b10b6ab20ea0d",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Sarracenia alata"
+    ],
+    "value": "Especie de planta carnívora de la familia Sarraceniaceae, nativa del sur de Alabama y el este de Texas, donde crece en humedales y sabanas abiertas, normalmente con Pinus palustris."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2582956"
+    ],
+    "value": "Sarracenia alata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2582956"
+    ],
+    "value": "Sarraceniaceae"
+  },
+  "goals": [],
+  "id": "sarracenia-alata",
+  "image": {
+    "attributionRequired": true,
+    "author": "NoahElhardt",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sarracenia_alata_flowers.jpg",
+    "refs": [
+      "commons:File:Sarracenia alata flowers.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Sarracenia_alata_flowers.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2582956"
+    ],
+    "value": "Centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sarracenia alata flowers.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sarracenia alata flowers.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Sarracenia_alata_flowers.jpg"
+    },
+    "wcvp:2582956": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sarracenia alata (Alph.Wood) Alph.Wood",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2891961": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sarracenia gronovii var. alata Alph.Wood",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3035705": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sarracenia purpurea var. alata (Alph.Wood) Alph.Wood",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Sarracenia alata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Sarracenia alata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Sarracenia_alata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Alph.Wood) Alph.Wood",
+    "name": "Sarracenia alata",
+    "refs": [
+      "wcvp:2582956"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Alph.Wood",
+      "name": "Sarracenia gronovii var. alata",
+      "refs": [
+        "wcvp:2891961"
+      ]
+    },
+    {
+      "authors": "(Alph.Wood) Alph.Wood",
+      "name": "Sarracenia purpurea var. alata",
+      "refs": [
+        "wcvp:3035705"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,14 @@
+2026-10-02T02:36:45Z
+$ flutter test --no-pub --reporter expanded test/features/explore/explore_page_test.dart
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/app/test/features/explore/explore_page_test.dart
+00:00 +0: shows an explicit loading state until the local catalog resolves
+00:00 +1: retry shows loading until the second local load completes
+00:00 +2: loads five catalog plants in stable order and dispatches identity
+00:00 +3: searches accents and scientific names; clear preserves selected filter
+00:00 +4: keeps the search field label and editing semantics after text changes
+00:00 +5: oils empty is distinct from unmatched search
+00:00 +6: exposes loading, readable error and retries the local provider
+00:00 +7: keeps navigation callbacks and layout stable at 200% text
+00:00 +8: search text remains untruncated at 200% in empty and clear states
+00:00 +9: filters, rows and catalog tabs expose one actionable semantic target
+00:00 +10: All tests passed!

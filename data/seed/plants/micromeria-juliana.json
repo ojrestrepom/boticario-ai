@@ -1,0 +1,132 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:de2dd12fe66a55c7a7a3776cf9fc1b644341666a46e09ea7f0f3d6e6e442bef8",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:127273"
+    ],
+    "value": "Micromeria juliana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:127273"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "micromeria-juliana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Micromeria_juliana_kz1.jpg",
+    "refs": [
+      "commons:File:Micromeria juliana kz1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Micromeria_juliana_kz1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2013-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:127273"
+    ],
+    "value": "Norte de África, sudeste de Europa, suroeste de Europa y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Micromeria juliana kz1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Micromeria juliana kz1.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Micromeria_juliana_kz1.jpg"
+    },
+    "usda_part:2013-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:127273": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria juliana (L.) Benth. ex Rchb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185713": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja juliana L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43568": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium julianum (L.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Benth. ex Rchb.",
+    "name": "Micromeria juliana",
+    "refs": [
+      "wcvp:127273"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Clinopodium julianum",
+      "refs": [
+        "wcvp:43568"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Satureja juliana",
+      "refs": [
+        "wcvp:185713"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

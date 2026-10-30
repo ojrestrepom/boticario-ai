@@ -1,0 +1,1082 @@
+{
+ "version": 3,
+ "levels": [
+  "bajo",
+  "medio",
+  "alto"
+ ],
+ "description": "Niveles mínimos de seguridad que fija cada fuente. El nivel de un registro es el más alto entre las fuentes; una planta sin datos lleva safety nulo y un reviewFlag, y nunca se presenta como segura. level null significa sin nivel, por el motivo indicado. Versión 2: niveles de TPPT aprobados, declaraciones públicas de la EMA con datos de seguridad en medio y EFSA limitada a una lista versionada de sustancias de alta preocupación. Versión 3: las señales de riesgo de los usos de USDA (sección usda) se clasifican; las letales (Fatality, Fatal, Death, Suicide, Homicide) fijan el nivel alto y las demás señales siguen sin nivel.",
+ "tppt": {
+  "match": "Se separa por «, » y se compara en minúsculas el prefijo anterior al paréntesis (los calificadores como «only wild growing plants» o la especie animal no cambian la categoría).",
+  "human_toxicity": {
+   "very strong toxic": {
+    "level": "alto",
+    "why": "Mandato del diseño: la categoría más alta de toxicidad humana de TPPT."
+   },
+   "strong toxic": {
+    "level": "alto",
+    "why": "Mandato del diseño: toxicidad humana fuerte según TPPT."
+   },
+   "toxic": {
+    "level": "medio",
+    "why": "Tóxica sin gradación: entre «weak toxic» (bajo) y «strong toxic» (alto). Se toma el valor intermedio porque no justifica alarma máxima ni se puede tratar como leve. Incluye «toxic (unknown strength)», que comparte el prefijo: la fuerza desconocida no permite bajarla a bajo."
+   },
+   "weak toxic": {
+    "level": "bajo",
+    "why": "TPPT la califica de débilmente tóxica: efectos leves o solo a dosis altas."
+   },
+   "carcinogenic": {
+    "level": "medio",
+    "why": "Mandato del diseño: riesgo carcinogénico, a largo plazo y dependiente de la exposición."
+   },
+   "phototoxic": {
+    "level": "medio",
+    "why": "Mandato del diseño: reacciones de la piel con la luz, relevantes para el uso tópico."
+   },
+   "allergenic": {
+    "level": "bajo",
+    "why": "Mandato del diseño: riesgo de alergia en personas sensibles."
+   },
+   "skin-irritating": {
+    "level": "bajo",
+    "why": "Irritación local y reversible de la piel; misma gravedad que «allergenic»."
+   },
+   "liver toxic": {
+    "level": "medio",
+    "why": "Toxicidad de un órgano concreto (hígado): efecto sistémico y potencialmente grave, sin la gradación de «strong toxic»."
+   },
+   "cytotoxic": {
+    "level": "medio",
+    "why": "Toxicidad celular (una sola planta): por precaución se trata como una toxicidad de órgano, medio."
+   },
+   "estrogenic": {
+    "level": "medio",
+    "why": "Actividad hormonal: relevante en embarazo, lactancia y condiciones sensibles a hormonas; por precaución, medio."
+   },
+   "stimulating": {
+    "level": null,
+    "why": "Describe un efecto farmacológico estimulante, no una toxicidad; no fija nivel (los usos y advertencias los trata el paquete)."
+   },
+   "nontoxic": {
+    "level": null,
+    "why": "Indica ausencia de toxicidad conocida en TPPT, pero eso no hace segura a la planta (la spec prohíbe presentarla como segura): sin nivel."
+   },
+   "unknown": {
+    "level": null,
+    "why": "Sin dato de toxicidad: sin nivel (no equivale a segura)."
+   },
+   "infested plants only": {
+    "level": null,
+    "why": "El peligro viene de la contaminación (por ejemplo hongos) y no de la planta sana: sin nivel."
+   }
+  },
+  "animal_toxicity": {
+   "very strong toxic": {
+    "level": null,
+    "why": "Toxicidad en animales (ganado, caballos, perros, gatos): no fija el nivel para personas; se conserva como dato del paquete."
+   },
+   "strong toxic": {
+    "level": null,
+    "why": "Toxicidad en animales: no fija el nivel para personas; se conserva como dato del paquete."
+   },
+   "toxic": {
+    "level": null,
+    "why": "Toxicidad en animales: no fija el nivel para personas; se conserva como dato del paquete."
+   },
+   "weak toxic": {
+    "level": null,
+    "why": "Toxicidad en animales: no fija el nivel para personas; se conserva como dato del paquete."
+   }
+  }
+ },
+ "efsa": {
+  "definition": {
+   "text": "Una planta tiene una sustancia de preocupación si el compendio de EFSA (BOTANIC.xls) la lista con al menos una fila cuyo nombre de sustancia (SubstanceName) está en concern_list y cuyo tipo de resultado no es «Non Detected Value (<LOD)». Las demás sustancias del compendio son evidencia para el texto de seguridad y no fijan nivel. La comparación del nombre ignora mayúsculas, espacios repetidos y espacios duros, pero no cambia prefijos estereoquímicos ni plurales: cada variante del compendio figura por separado en la lista. Los estudios de ENDPOINTSTUDY.xls son evidencia y no fijan nivel.",
+   "table": "BOTANIC",
+   "substance_field": "SubstanceName",
+   "exclude_result_types": [
+    "Non Detected Value (<LOD)"
+   ]
+  },
+  "classes": {
+   "substance-of-concern": {
+    "level": "medio",
+    "why": "Decisión del usuario (D8, variante B: lista amplia): una fila no «no detectada» de una sustancia de concern_list fija un mínimo medio. EFSA por sí sola no fija alto: no gradúa la gravedad ni la dosis, así que alto queda para TPPT y las interacciones graves de la EMA."
+   },
+   "evidence-only": {
+    "level": null,
+    "why": "Sustancia del compendio que no está en concern_list: es evidencia para el texto de seguridad y no fija nivel."
+   },
+   "no-substance": {
+    "level": null,
+    "why": "La planta no figura en el compendio, o solo con filas «no detectada»: sin nivel por EFSA (no equivale a segura)."
+   }
+  },
+  "result_types": {
+   "Numerical Value": {
+    "level": "medio",
+    "why": "Fila de BOTANIC con valor numérico: cuenta si su sustancia está en concern_list."
+   },
+   "Non Quantified Value (<LOQ)": {
+    "level": "medio",
+    "why": "Por debajo del límite de cuantificación pero no declarada ausente: cuenta si su sustancia está en concern_list, por precaución."
+   },
+   "Non Detected Value (<LOD)": {
+    "level": null,
+    "why": "Sustancia no detectada: no cuenta."
+   },
+   "": {
+    "level": "medio",
+    "why": "Fila sin valor numérico (la sustancia se cita sin cuantificar): cuenta si su sustancia está en concern_list."
+   }
+  },
+  "study_categories": {
+   "Human health": {
+    "level": null,
+    "why": "Estudios en personas o relevantes para ellas: evidencia, sin nivel propio."
+   },
+   "Animal (target species) health": {
+    "level": null,
+    "why": "Salud de animales de destino (ganado, mascotas): no fija el nivel para personas."
+   }
+  },
+  "endpoint_effects": {
+   "digestive": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "urogenital": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "neurologic": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "cardiovascular / hematological": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "systemic": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "reproductive": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "respiratory": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "glandular": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "other": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "teratogenic": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "irritation": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "hepatotoxicity": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "neurotoxicity": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "endocrine": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "immunotoxicity": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "musclo-skeletal": {
+    "level": null,
+    "why": "Es evidencia de un estudio, no una clasificación de gravedad: 894 de 972 estudios de EFSA no informan la dosis, así que el efecto no fija un nivel. Se conserva en el paquete para que el consolidador lo lea."
+   },
+   "not reported": {
+    "level": null,
+    "why": "El estudio no informa el efecto: no hay evidencia que clasificar."
+   },
+   "not applicable": {
+    "level": null,
+    "why": "Sin efecto aplicable: no hay evidencia que clasificar."
+   },
+   "none": {
+    "level": null,
+    "why": "El estudio no halló efecto: no es evidencia de peligro, ni de seguridad de la planta."
+   },
+   "": {
+    "level": null,
+    "why": "Estudio sin efecto codificado (el texto libre queda en el paquete)."
+   }
+  },
+  "concern_list": {
+   "version": 1,
+   "about": "Lista versionada de sustancias de alta preocupación, con los nombres exactos de SubstanceName en BOTANIC.xls. Cada entrada lleva su grupo; el motivo es el del grupo salvo que la entrada traiga un 'why' propio. Las sustancias que no figuran aquí son evidencia sin nivel.",
+   "groups": {
+    "genotoxico-carcinogeno": {
+     "why": "Genotóxicas o carcinógenas: estragol, metileugenol, safrol, isosafrol, asarona y beta-asarona, ácidos aristolóquicos y Aristolochia, alcaloides pirrolizidínicos y ptaquilósido. El riesgo es a largo plazo y no depende de la planta entera."
+    },
+    "toxico-con-limite": {
+     "why": "Tuyona (alfa y beta), pulegona, mentofurano y cumarina: sustancias con límites de ingesta en la UE o toxicidad conocida (neurotoxicidad, hepatotoxicidad) que justifican un mínimo medio."
+    },
+    "furocumarina-fototoxica": {
+     "why": "Furocumarinas fototóxicas (psoralenos lineales y angulares): reacciones de la piel con la luz, relevantes para el uso tópico."
+    },
+    "veneno-potente": {
+     "why": "Venenos potentes: glucósidos cardíacos (cardenólidos y bufadienólidos), alcaloides tropánicos, aconitina, ricina, abrina, taxina, cucurbitacinas y otros de esa clase (coniina, estricnina, colchicina, cicutoxina, enantotoxina)."
+    }
+   },
+   "substances": [
+    {
+     "substance": "estragole",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "methyleugenol",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Safrole",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "isosafrole",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "asarone",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "beta-asarone",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "trans-isoasarone",
+     "group": "genotoxico-carcinogeno",
+     "why": "Isómero de la asarona (alfa-asarona): se trata como asarona. Familia de la beta-asarona."
+    },
+    {
+     "substance": "Aristolochia",
+     "group": "genotoxico-carcinogeno",
+     "why": "Aristolochia figura como género en el compendio por sus ácidos aristolóquicos (nefrotóxicos y carcinógenos)."
+    },
+    {
+     "substance": "Pyrrolizidine alkaloids",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Lycopsamine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Heliotrine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "heliotridine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Senecionine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Echimidine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Intermedine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Senkirkine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Amabiline",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Monocrotaline",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Supinine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Symphytine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Trichodesmine",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "Seneci(o)phylline",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "ptaquiloside",
+     "group": "genotoxico-carcinogeno"
+    },
+    {
+     "substance": "alpha-thujone",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "beta-thujone",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "pulegone",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "(+)-pulegone",
+     "group": "toxico-con-limite",
+     "why": "Variante estereoquímica del nombre del compendio: pulegona."
+    },
+    {
+     "substance": "menthofuran",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "(R)-(+)-Menthofuran",
+     "group": "toxico-con-limite",
+     "why": "Variante estereoquímica del nombre del compendio: mentofurano."
+    },
+    {
+     "substance": "Coumarin",
+     "group": "toxico-con-limite"
+    },
+    {
+     "substance": "Bergapten",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "psoralen",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Methoxsalen",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "imperatorin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "isoimperatorin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Isopimpinellin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Phellopterin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "8-geranoxypsoralen",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Bergamottin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "angelicin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "oxypeucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "oxypeucedanin hydrate",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "isooxypeucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "oxyimperatorin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "8-methoxy-peucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "peucedanin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "isobergapten",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "bergaptol",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "pimpinellin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "sphondin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "archangelicin",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "Furanocoumarins",
+     "group": "furocumarina-fototoxica"
+    },
+    {
+     "substance": "cardenolide glycosides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cardenolides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "bufadienolide glycosides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "bryophyllin A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "bryophyllin C",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "acetyldigitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "adonitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "antiarins",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "asclepin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cannogenol",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cheirotoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "convallatoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "convalloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "corchoroside A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "corchoroside B",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "coroloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "corotoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cymarin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "deglucocoroloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "deglucohyrcanoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "deslanoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digitanols glycosides",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "digoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "erysimoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "evatromonoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "glucoevatromonoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "frugosid",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "gitaloxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "gitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "gitoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "16-anhydrogitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "16-propionylgitoxigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "glucoside scillaine (or scillitoxin)",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "glucoverodoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "helveticoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "hyrcanogenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "hyrcanoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "K-strophanthidin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "lanatoside A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "lanatoside B",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "lanatoside D",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "odoroside G",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "odoroside H",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "olitoriside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "oleandrigenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "oleandrin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "ouabain",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "periplogenin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "proscillaridin A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "rhodexin A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "scillaren A",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strebloside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strophantidin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strophantoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strospeside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "thevetine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "toxicariosids",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "uzarin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "verodoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Tropane alkaloids",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Atropine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Hyoscyamine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Scopolamine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Cocain",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "aconitine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Ricin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Abrin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "taxine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacins",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacin I",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacin I-glycoside",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine B",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine C",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine D",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cucurbitacine E",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "coniine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "strychnine",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "Colchicin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "cicutoxin",
+     "group": "veneno-potente"
+    },
+    {
+     "substance": "oenanthotoxin",
+     "group": "veneno-potente"
+    }
+   ]
+  },
+  "evidence_only": [
+   {
+    "substances": [
+     "1,8-cineole",
+     "Camphor",
+     "(-)-camphor",
+     "borneol",
+     "l-borneol",
+     "fenchone",
+     "linalool",
+     "alpha-pinene",
+     "beta-pinene",
+     "sabinene",
+     "myrcene"
+    ],
+    "candidate": false,
+    "why": "Terpenos y aceites esenciales comunes (1,8-cineol, alcanfor): la preocupación depende de dosis y vía que el compendio no gradúa; evidencia para el texto, sin nivel."
+   },
+   {
+    "substances": [
+     "Tannins",
+     "Proanthocyanidins (condensed tannins)",
+     "Ellagitannins (hydrolysable tannins)",
+     "gallotannins",
+     "tannic acid"
+    ],
+    "candidate": false,
+    "why": "Taninos: presentes en gran parte de las plantas; se leen como evidencia y no fijan nivel."
+   },
+   {
+    "substances": [
+     "Calcium oxalate",
+     "Oxalates",
+     "oxalic acid"
+    ],
+    "candidate": false,
+    "why": "Oxalatos: riesgo en consumo alto o en predispuestos, no un mínimo medio para toda la planta."
+   },
+   {
+    "substances": [
+     "Lectins",
+     "Saponins",
+     "Triterpene saponins",
+     "caffeine",
+     "Theobromine",
+     "theophylline"
+    ],
+    "candidate": false,
+    "why": "Lectinas, saponinas y metilxantinas (cafeína): efectos conocidos y dependientes de la dosis; evidencia sin nivel."
+   },
+   {
+    "substances": [
+     "anethole",
+     "carvacrol",
+     "eugenol",
+     "Carvone",
+     "cinnamaldehyde",
+     "thymoquinone"
+    ],
+    "candidate": false,
+    "why": "Fenilpropanoides y terpenos de especias y aceites (anetol, carvacrol): fuera por decisión del usuario; evidencia sin nivel."
+   },
+   {
+    "substances": [
+     "Aloe-emodin",
+     "anthraquinones",
+     "1,8-dihydroxyanthraquinone derivatives",
+     "anthracene derivatives",
+     "chrysophanol",
+     "rhein",
+     "physcion",
+     "aloin A",
+     "aloin B"
+    ],
+    "candidate": false,
+    "why": "Antraquinonas: efecto laxante conocido y tratado por las monografías de la EMA; evidencia sin nivel."
+   },
+   {
+    "substances": [
+     "Cyanogenic glycosides",
+     "Cyanide",
+     "amygdalin",
+     "prunasin",
+     "linamarin",
+     "lotaustralin"
+    ],
+    "candidate": true,
+    "why": "Glucósidos cianogénicos: dudosos; quedan fuera como candidatos a la lista."
+   },
+   {
+    "substances": [
+     "Emodin",
+     "emodin anthron"
+    ],
+    "candidate": true,
+    "why": "Emodina: dudosa; queda fuera como candidata."
+   },
+   {
+    "substances": [
+     "elemicin",
+     "myristicin"
+    ],
+    "candidate": true,
+    "why": "Elemicina y miristicina: dudosas; quedan fuera como candidatas."
+   },
+   {
+    "substances": [
+     "Platyphylline",
+     "Tussilagine",
+     "isotussilagine"
+    ],
+    "candidate": true,
+    "why": "Alcaloides pirrolizidínicos de necina saturada: sin el doble enlace que causa la hepatotoxicidad; candidatos si el usuario los quiere."
+   },
+   {
+    "substances": [
+     "Acetyllandromedol"
+    ],
+    "candidate": true,
+    "why": "Diterpenos tipo grayanotoxina: venenos potentes de Ericaceae; candidatos a la lista."
+   }
+  ]
+ },
+ "ema": {
+  "section": "4.5",
+  "description": "Se clasifica el texto de la sección 4.5 de la monografía de la UE (interacciones con otros medicamentos), una vez por columna (uso bien establecido o tradicional). La clase de la ficha es la más grave de sus columnas, en el orden severe, interactions, no-studies, none-reported. Un texto es severe si coincide con algún severe_patterns (sin distinguir mayúsculas); si no, es none-reported o no-studies si, sin los rótulos «Indication n)», coincide entero con la expresión respectiva; en otro caso es interactions.",
+  "severe_patterns": [
+   {
+    "id": "contraindicated",
+    "regex": "\\bcontra-?indicated\\b",
+    "why": "La EMA declara contraindicado el uso concomitante (por ejemplo hipérico con ciclosporina o anticoagulantes cumarínicos, ajo con saquinavir): es el término más fuerte de la monografía."
+   },
+   {
+    "id": "not-to-be-used-together",
+    "regex": "\\b(not to be|should not be|must not be|shall not be|is not to be|are not to be)\\s+(used|taken|administered|combined|given)\\s+(concomitantly|together|in combination|simultaneously|with)\\b|\\bnot to use\\s+(concomitantly|together|in combination)\\b|\\bconcomitant use\\b[^.]{0,100}\\b(should be avoided|is not recommended)\\b",
+    "why": "Prohibición o desaconsejo expreso de combinar (regaliz con diuréticos, glucósidos cardíacos y corticoides; arándano con warfarina). No incluye «should not be taken ½ to 1 hour before», que solo separa horarios."
+   },
+   {
+    "id": "serotonin-syndrome",
+    "regex": "\\bserotonin(ergic)? syndrome\\b",
+    "why": "Reacción potencialmente grave descrita con antidepresivos (hipérico)."
+   },
+   {
+    "id": "bleeding-risk",
+    "regex": "\\b(increase\\w*|enhance\\w*|potentiat\\w*|prolong\\w*)\\b[^.]{0,40}\\b(bleeding|anticoagula\\w+|anti-?platelet)|\\b(bleeding times?|haemorrhag\\w*|hemorrhag\\w*)\\b",
+    "why": "Aumento del efecto de anticoagulantes o antiagregantes, o del riesgo de sangrado (ajo, sauce): el riesgo es hemorrágico."
+   },
+   {
+    "id": "warfarin-interaction",
+    "regex": "\\binteractions? with warfarin\\b|\\bpotentiat\\w*[^.]{0,40}\\bwarfarin\\b|\\bincreased INR\\b",
+    "why": "Interacción descrita con warfarina (palmito, arándano rojo): afecta la coagulación en pacientes anticoagulados."
+   },
+   {
+    "id": "life-threatening",
+    "regex": "\\b(life-threatening|fatal|death)\\b",
+    "why": "Desenlace grave citado de forma expresa."
+   }
+  ],
+  "none_reported_regex": "(none|nothing)( (reported|known))?|not (known|reported)|no (clinically relevant )?interactions?( (have been|has been|are|were))?( (observed|reported|known))?|none reported",
+  "no_studies_regex": "no interaction studies (have|has) been (performed|conducted|carried out)|no data( are| is)? available|not available|unknown",
+  "classes": {
+   "severe": {
+    "level": "alto",
+    "why": "Mandato del diseño: las interacciones graves de la EMA fijan alto. «Grave» se define de forma verificable con severe_patterns."
+   },
+   "interactions": {
+    "level": null,
+    "why": "Hay interacciones concretas pero sin término de gravedad (por ejemplo, retraso de la absorción de otros medicamentos, o CYP3A4 con precaución): no fijan nivel y el texto va al paquete para que el consolidador lo cite."
+   },
+   "no-studies": {
+    "level": null,
+    "why": "La EMA no tiene datos («No interaction studies have been performed», «No data available»): ausencia de evidencia, no de interacciones, y no hace segura a la planta."
+   },
+   "none-reported": {
+    "level": null,
+    "why": "«None reported» y equivalentes: la EMA no registra interacciones, sin que eso sea una garantía de seguridad."
+   },
+   "no-section": {
+    "level": null,
+    "why": "La monografía no trae la sección 4.5 en un formato que se pueda extraer: sin nivel y con reviewFlag de extracción."
+   },
+   "statement-no-safety": {
+    "level": null,
+    "why": "Declaración pública sin datos de seguridad (la monografía no se pudo establecer): sin nivel."
+   },
+   "statement-with-safety": {
+    "level": "medio",
+    "why": "Decisión del usuario: declaración pública cuyas conclusiones mencionan seguridad (kava, bálsamo del Perú, celidonia, adhatoda, aceite de salvia): no trae sección 4.5 pero la EMA documenta un problema de seguridad, así que fija medio. El texto va al paquete."
+   },
+   "sin-documento": {
+    "level": null,
+    "why": "La ficha de la EMA no publica monografía ni declaración (por ejemplo, combinaciones): sin datos de seguridad de la EMA."
+   },
+   "no-descargada": {
+    "level": null,
+    "why": "Ficha cuyos PDF aún no se han descargado: debe resolverse antes de armar paquetes."
+   }
+  }
+ },
+ "usda": {
+  "match": "Se compara en minúsculas la forma base de la actividad de un grupo de uso (el texto anterior al primer paréntesis, sin espacios sobrantes), igual que sensitive-activities.json: «Fatality(Veterinary)» cuenta como «fatality». Los términos son las señales de riesgo de sensitive-activities.json; las pruebas comprueban que ambas listas coinciden. Una señal con level alto fija el nivel de la planta; con level null es solo advertencia. Vocabulario letal revisado sobre las 1.572 actividades reales: los términos letales son Fatality, Fatal, Death, Suicide y Homicide, más la errata «Homocide» e «Infanticide», agregadas por decisión del coordinador.",
+  "risk_signals": {
+   "fatality": {
+    "level": "alto",
+    "why": "Señal letal de USDA: se registran casos mortales."
+   },
+   "fatal": {
+    "level": "alto",
+    "why": "Señal letal de USDA: se registran casos mortales."
+   },
+   "death": {
+    "level": "alto",
+    "why": "Señal letal de USDA: se registran muertes."
+   },
+   "suicide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno de suicidio."
+   },
+   "homicide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno homicida."
+   },
+   "poison": {
+    "level": null,
+    "why": "Veneno registrado en usos tradicionales, sin indicar muerte ni gravedad: advertencia sin nivel."
+   },
+   "popison": {
+    "level": null,
+    "why": "Variante tipográfica de «Poison»: advertencia sin nivel."
+   },
+   "arrow-poison": {
+    "level": null,
+    "why": "Veneno de flechas: dato de uso tradicional sin gradación para personas; advertencia sin nivel."
+   },
+   "ordeal-poison": {
+    "level": null,
+    "why": "Veneno de ordalía: dato histórico sin gradación; advertencia sin nivel."
+   },
+   "food-poison": {
+    "level": null,
+    "why": "Veneno alimentario: sin gradación; advertencia sin nivel."
+   },
+   "toxic": {
+    "level": null,
+    "why": "Tóxica sin gradación; advertencia sin nivel (TPPT fija el nivel cuando hay dato)."
+   },
+   "toxemia": {
+    "level": null,
+    "why": "Toxemia registrada sin gradación; advertencia sin nivel."
+   },
+   "abortifacient": {
+    "level": null,
+    "why": "Efecto abortivo: riesgo específico (embarazo) que no equivale a letalidad general; advertencia sin nivel."
+   },
+   "abortive": {
+    "level": null,
+    "why": "Efecto abortivo: riesgo específico (embarazo) que no equivale a letalidad general; advertencia sin nivel."
+   },
+   "carcinogenic": {
+    "level": null,
+    "why": "Riesgo a largo plazo sin gradación en USDA; advertencia sin nivel (TPPT fija el nivel cuando hay dato)."
+   },
+   "mutagenic": {
+    "level": null,
+    "why": "Riesgo a largo plazo sin gradación; advertencia sin nivel."
+   },
+   "convulsant": {
+    "level": null,
+    "why": "Efecto convulsivante sin gradación; advertencia sin nivel."
+   },
+   "cyanogenetic": {
+    "level": null,
+    "why": "Contiene precursores de cianuro, sin cantidad ni gravedad; advertencia sin nivel."
+   },
+   "dermatitogenic": {
+    "level": null,
+    "why": "Reacción local de la piel; advertencia sin nivel."
+   },
+   "phototoxic": {
+    "level": null,
+    "why": "Reacción de la piel con la luz, sin gradación; advertencia sin nivel."
+   },
+   "hemolytic": {
+    "level": null,
+    "why": "Efecto hemolítico sin gradación; advertencia sin nivel."
+   },
+   "homocide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno homicida (grafía errónea de Homicide)."
+   },
+   "infanticide": {
+    "level": "alto",
+    "why": "Señal letal de USDA: registrada como veneno de infanticidio."
+   }
+  },
+  "lethal_rule": "Decisión del usuario (2026-10-26): las señales letales de USDA fijan el nivel alto por precaución; las demás señales de riesgo no fijan nivel."
+ }
+}

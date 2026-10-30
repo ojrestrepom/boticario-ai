@@ -1,0 +1,9 @@
+PASA  los 2354 detalles responden 200 y cumplen PlantDto 0 con problema [] en 1s
+PASA  usos servidos = plant_use de la base (24.286) api=24568 mismatch=[]
+PASA  nombres servidos = plant_name de la base api=13940
+PASA  plantas sin usos = base 898
+PASA  idioma de los usos: todos es {'es': 24568}
+FALLA el primer nombre comun de la API es el nombre para mostrar (plant-passport) 1285 distintos; ejemplos [('abelmoschus-esculentus', 'Bolondrón', 'Quimbombó'), ('abies-alba', 'Abeto blanco', 'Abeto común'), ('abrus-precatorius', 'Coral Beadplant', 'Coralillo asiático')]
+citas de los usos: {"etiqueta 'USDA Dr. Duke: referencia'": 24568}
+plantas cuyo nombre comun repite el nombre cientifico: 0; ejemplos []
+OBS   24568 de 24568 usos sirven como `reference.citation` la etiqueta 'USDA Dr. Duke: referencia X' en lugar de la cita completa

@@ -1,0 +1,231 @@
+# AUT-26 Consistencia (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 2de19cb84baaf9ff78cc8f311d4c0f22
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 5a33f37b447fe83bd021a7900b8aada4
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 5d91ed2adc7871e186de9bb61a72dc1c
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: a388fe6300993e40b3906758fbf0e053
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 18fdfdbefa8f26c8942f27c0c891b8f7
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: debcd873e483838e4a58e7048e24d9ae
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: e53fd56111e0704c947eebacabfc60b0
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: d106e90bc3cf3a56b4ed8b4ee7ab3726
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 53c1807775015263df74cfaeaf959483
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 594acc1fab783ced72b26efcfa79c55d
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 3e019b8a0f8bc6a2a46f554ba99bcf54
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 27667fdecd08c0e77de97ebb01b38c91
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: ebd3df3c0381ac715aed392bbce7740d
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 03c934ea5f01044588e1db063fff5ec9
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: 93de677bf06d14d81db14c0fcebdedae
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 80ff42981fd700cd75333e1aa396336c
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: baf86f06459e8dc38f1f517bb6220dd4
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 1fbf1f197d6d87af66412ec82a001514
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [válida]
+status=200
+content-type: application/json
+x-cloud-trace-context: fd8406a7c4d968d21a400673bca546b3
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [incorrecta]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 673c3fb980e62ead0ea83a4c6ad45027
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

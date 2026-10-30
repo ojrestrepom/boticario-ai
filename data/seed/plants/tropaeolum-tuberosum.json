@@ -1,0 +1,173 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a54135b447868e3313f421467904234e9ccdc19044d313a6e97bcc54a567c08d",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1027-2"
+      ],
+      "text": "Mashua"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tropaeolum tuberosum"
+      ],
+      "text": "Mashwa"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tropaeolum tuberosum"
+      ],
+      "text": "Añu"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tropaeolum tuberosum"
+      ],
+      "text": "Isaño"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Tropaeolum tuberosum"
+      ],
+      "text": "Cubio"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Tropaeolum tuberosum"
+    ],
+    "value": "Planta originaria de los Andes centrales, con mayor concentración en Colombia, Bolivia, Ecuador y Perú entre los 3500 y 4100 m s. n. m.; en Colombia se cultivan variedades entre los 2600 y 3500 m s. n. m."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1027-2"
+    ],
+    "value": "Mashua"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2519640"
+    ],
+    "value": "Tropaeolaceae"
+  },
+  "goals": [],
+  "id": "tropaeolum-tuberosum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Håkan Svensson",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Peru_Oca_y_mashua.jpg",
+    "refs": [
+      "commons:File:Peru Oca y mashua.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Peru_Oca_y_mashua.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2519640"
+    ],
+    "value": "Nativa del oeste y sur de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Peru Oca y mashua.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Peru Oca y mashua.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Peru_Oca_y_mashua.jpg"
+    },
+    "usda_common_name:1027-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mashua»",
+      "license": "CC0"
+    },
+    "wcvp:2442693": {
+      "dataset": "wcvp",
+      "label": "WCVP: Trophaeum tuberosum (Ruiz & Pav.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2519640": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tropaeolum tuberosum Ruiz & Pav.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2720449": {
+      "dataset": "wcvp",
+      "label": "WCVP: Chymocarpus tuberosus (Ruiz & Pav.) Heynh.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Tropaeolum tuberosum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Tropaeolum tuberosum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Tropaeolum_tuberosum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA registra «Mashua» con idioma inglés, pero es un nombre en español; la tilde y la grafía de los demás nombres vienen de Wikipedia en español.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Ruiz & Pav.",
+    "name": "Tropaeolum tuberosum",
+    "refs": [
+      "wcvp:2519640"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Ruiz & Pav.) Heynh.",
+      "name": "Chymocarpus tuberosus",
+      "refs": [
+        "wcvp:2720449"
+      ]
+    },
+    {
+      "authors": "(Ruiz & Pav.) Kuntze",
+      "name": "Trophaeum tuberosum",
+      "refs": [
+        "wcvp:2442693"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

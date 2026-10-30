@@ -1,0 +1,127 @@
+caso	comprobacion	estado	detalle
+API-01	200 y cumple PageDto_PlantSummaryDto	PASA	
+API-01	total = 2354	PASA	2354
+API-01	todos los elementos llevan displayName (texto no vacio)	PASA	
+API-01	familia presente como texto o null en cada elemento	PASA	
+API-01	recorrido completo (limit=100) sin errores de contrato	PASA	
+API-01	2354 ids unicos en el orden de nombre cientifico e id	PASA	2354 elementos
+API-01	displayName = plant_profile.display_name en las 2.354 plantas	PASA	[]
+API-01	plantas cuyo displayName no es un nombre comun (nombre cientifico): 1195; de ellas con comunes en otros idiomas: 571	OBS	
+API-01	commonNames: displayName primero (el es antes en un empate) y el resto sin distinguir mayusculas ni acentos, por texto e idioma; sin destacado si displayName es cientifico	PASA	0 desvios, p. ej. []
+API-01	planta sin nombres comunes: displayName = nombre cientifico y commonNames vacio	PASA	[]
+API-02	GET /v1/plants/{id} responde 200 y cumple PlantDto en las 2354 plantas	PASA	0 fallos []
+API-02	ningun id canonico lleva Content-Location	PASA	
+API-02	campos requeridos siempre presentes (aunque vacios o null)	PASA	[]
+API-02	family siempre presente (texto o null)	PASA	0 sin la clave, p. ej. []
+API-02	ninguna respuesta contiene 'reviewFlags'	PASA	
+API-02	ninguna respuesta contiene un codigo de reviewFlag	PASA	[]
+API-02	ningun nombre de campo es de fuente/dataset/flag (source, dataset, flags...)	PASA	['activity', 'activitySource', 'area', 'attribution', 'attributionRequired', 'author', 'citation', 'count', 'countries', 'credits', 'description', 'displayName', 'evidence', 'family', 'goals', 'id', 'image', 'kind', 'label', 'language', 'level', 'license', 'licenseUrl', 'name', 'names', 'oil', 'origin', 'pageUrl', 'parts', 'reference', 'references', 'resolved', 'safety', 'scientificName', 'subarea', 'synonyms', 'text', 'type', 'url', 'useGroups', 'uses']
+API-03	detalle: displayName = plant_profile.display_name	PASA	[]
+API-03	names: cientificos antes que comunes; comunes con displayName primero y el resto por texto e idioma	PASA	0 desvios []
+API-03	synonyms: sin repetir el nombre aceptado y ordenados por texto	PASA	[]
+API-03	synonyms = nombres cientificos de la base distintos del aceptado	PASA	0 desvios []
+API-03	listado y detalle coinciden en displayName y comunes	PASA	[]
+API-04	origin, description y oil.type = plant_profile	PASA	[]
+API-04	oil es null o {type}	PASA	
+API-04	description <= 400 caracteres	PASA	307
+API-04	family = plant.family	PASA	
+API-04	parts = plant_part	PASA	[]
+API-05	useGroups: solo los grupos con pending_review = 0 (actividad y count), 17.160 aprox.	PASA	0 plantas con conjunto distinto []; servidos=17160
+API-05	useGroups ordenados por count descendente y luego actividad sin distinguir mayusculas ni acentos	PASA	0 []
+API-05	useGroups: activitySource, paises y referencias (texto completo en citation, orden de la semilla)	PASA	0 []
+API-05	referencias sin resolver: id nulo, resolved falso y cita '<clave> (sin resolver)'; ninguna cita resuelta es la etiqueta corta	PASA	0 []; sin resolver servidas=993
+API-05	uses = una fila por actividad y referencia resuelta de los grupos servidos (sin repetir), con la etiqueta en citation (compatibilidad)	PASA	0 []
+API-05	grupos con pending_review=1 en la base: 366; ninguno debe servirse (servidos 17160 de 17526)	OBS	
+API-06	goals = plant_goal sin los pending_review (id, nombre, subarea, area, evidence)	PASA	0 []
+API-06	goals ordenados por nombre	PASA	[]
+API-06	hypericum-perforatum no sirve relajacion-estres y conserva el resto	PASA	['cuidado-de-la-piel', 'otros-objetivos']
+API-06	ninguna otra planta tiene un objetivo pendiente en la base	PASA	['hypericum-perforatum']
+API-07	safety = plant_safety (nivel, texto, referencias con cita); null solo si no hay fila	PASA	0 []
+API-07	eucalipto: safety con level null, texto y referencias (no safety null)	PASA	{"level": null, "text": "La EMA registra como contraindicaciones del aceite esencial la hipersensibilidad al aceite de eucalipto o al 1,8-cineol, los niños con antecedentes de convulsiones, los menores de 24 meses por riesgo de laringoespasmo y los baños calientes completos en caso de lesiones cután
+API-07	safety.level solo alto, medio, bajo o null	PASA	
+API-08	image = plant_image; null solo si no hay fila	PASA	0 []
+API-08	image presente => licencia y pageUrl no vacios	PASA	
+API-08	todas las image.url son https y de upload.wikimedia.org	PASA	
+API-08	todas las image.pageUrl son https	PASA	
+API-08	imagenes con atribucion obligatoria llevan autor (CC BY / CC BY-SA sin autor seria atribucion faltante)	PASA	0 sin autor: []
+API-08	licencias CC BY* marcan attributionRequired verdadero	PASA	[]
+API-08	licencias CC BY* llevan licenseUrl	PASA	0 []
+API-09	credits sin repeticiones	PASA	[]
+API-09	credits ordenados por nombre	PASA	[]
+API-09	cada credito = fila de source (licencia, licenseUrl de source.license_url, atribucion, url)	PASA	0 []
+API-09	licenseUrl oficial de Creative Commons en Wikipedia, EFSA y WCVP	PASA	
+API-09	licenseUrl null para la EMA y TPPT	PASA	{'TPPT, Toxic Plants and Phytotoxins database (Agroscope)': ['None'], 'EMA: Herbal medicines for human use (listado)': ['None'], 'EMA: monografías y declaraciones públicas del HMPC': ['None']}
+API-09	licenseUrl siempre null o https	PASA	
+API-09	credits incluye cada fuente que respalda un dato servido de la planta (nombres, usos, familia, perfil, objetivos, seguridad, grupos de uso)	PASA	0 plantas con faltantes, p. ej. []
+API-09	credits no incluye fuentes que no respaldan ningun dato servido	PASA	0 plantas con sobrantes, p. ej. []
+API-09	descripcion respaldada por Wikipedia => credito de Wikipedia con enlace al articulo	PASA	0 []; con credito de Wikipedia: 1459
+API-10	los 650 alias resuelven 200 con el id canonico en el cuerpo y en Content-Location (cuerpo igual al canonico)	PASA	0 []
+API-10	rosmarinus-officinalis -> salvia-rosmarinus, Content-Location /v1/plants/salvia-rosmarinus	PASA	
+API-10	id canonico: 200 sin Content-Location	PASA	
+API-10	id desconocido: 404 application/problem+json con el formato de error	PASA	404 application/problem+json
+API-10	alias sin token: 401 con WWW-Authenticate: Bearer y sin Content-Location	PASA	401
+API-10	ningun alias aparece como id en el listado	PASA	[]
+API-11	/v1/plants sin token: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants token incorrecto: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants esquema Basic: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants token vacio: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants/lavandula-angustifolia sin token: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants/lavandula-angustifolia token incorrecto: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants/lavandula-angustifolia esquema Basic: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/v1/plants/lavandula-angustifolia token vacio: 401 con WWW-Authenticate: Bearer	PASA	401
+API-11	/health sin token: 200	PASA	
+API-11	/openapi.json sin token: 200 y coincide con backend/openapi.json (campos nuevos presentes)	PASA	200
+API-11	OpenAPI: ningun campo ni esquema contiene el nombre de un dataset ni reviewFlags	PASA	[]
+API-12	q='rosmarinus officinalis' encuentra salvia-rosmarinus	PASA	total=3 ids=['salvia-jordanii', 'salvia-rosmarinus', 'salvia-x-lavandulacea']
+API-12	q='matricaria recutita' encuentra matricaria-chamomilla	PASA	total=1 ids=['matricaria-chamomilla']
+API-12	q='Matricaria  Recutita ' encuentra matricaria-chamomilla	PASA	total=1 ids=['matricaria-chamomilla']
+API-12	q='MATRICARIA RECUTITA' encuentra matricaria-chamomilla	PASA	total=1 ids=['matricaria-chamomilla']
+API-12	q='Mentha x piperita subsp. nothosubsp. piperita' encuentra mentha-x-piperita	PASA	total=1 ids=['mentha-x-piperita']
+API-12	q='mentha x piperita' encuentra mentha-x-piperita	PASA	total=1 ids=['mentha-x-piperita']
+API-12	q='lavandula' encuentra lavandula-angustifolia	PASA	total=7 ids=['lavandula-angustifolia', 'lavandula-latifolia', 'lavandula-sp', 'lavandula-spica']
+API-12	q='manzanilla' encuentra matricaria-chamomilla	PASA	total=3 ids=['chamaemelum-nobile', 'hippomane-mancinella', 'matricaria-chamomilla']
+API-12	q='menta' encuentra mentha-x-piperita	PASA	total=20 ids=['aframomum-melegueta', 'agastache-rugosa', 'ageratum-conyzoides', 'coleus-amboinicus']
+API-12	q='romero' encuentra salvia-rosmarinus	PASA	total=3 ids=['salvia-granatensis', 'salvia-jordanii', 'salvia-rosmarinus']
+API-12	q='eucalipto' encuentra eucalyptus-globulus	PASA	total=15 ids=['corymbia-citriodora', 'eucalyptus-blakelyi', 'eucalyptus-camaldulensis', 'eucalyptus-cladocalyx']
+API-12	q='Espliego' encuentra None	PASA	total=2 ids=['lavandula-sp', 'teucrium-montanum']
+API-12	matricaria recutita: el alias no aparece como nombre (ni 'matricaria-recutita' ni 'Matricaria recutita' en el resultado)	PASA	
+API-12	limite conocido: 'mentha piperita' (sin la x) da 0 resultados	PASA	total=0
+API-12	rosmarinus officinalis: salvia-rosmarinus una sola vez y total coherente	PASA	['salvia-jordanii', 'salvia-rosmarinus', 'salvia-x-lavandulacea']
+API-12	los 357 nombres anteriores de API-04 (cambio 1) encuentran su planta nueva	PASA	0 sin resultado []
+API-12	sin duplicados ni total incoherente en esas busquedas	PASA	[]
+API-12	el alias (id anterior) nunca aparece como id de un elemento	PASA	[]
+API-12	32 consultas variadas: total y conjunto = oraculo SQL (nombres normalizados + alias con slug)	PASA	0 []
+API-12	q='%': literal, sin comodin (total = nombres que contienen el caracter)	PASA	total=0 esperado=0
+API-12	q='_': literal, sin comodin (total = nombres que contienen el caracter)	PASA	total=1 esperado=1
+API-12	q='%%': literal, sin comodin (total = nombres que contienen el caracter)	PASA	total=0 esperado=0
+API-12	q='_a': 200 sin error	PASA	total=577
+API-12	q='a%': 200 sin error	PASA	total=577
+API-12	q='100%': 200 sin error	PASA	total=0
+API-12	q='\\': literal, sin comodin (total = nombres que contienen el caracter)	PASA	total=0 esperado=0
+API-12	q vacio: igual que sin q	PASA	
+API-12	q solo espacios: igual que sin q	PASA	
+API-12	sin coincidencias: 200, lista vacia y total 0	PASA	
+API-12	consulta de 200 caracteres: 200	PASA	200
+API-12	consulta de 201 caracteres: 400 problem+json (limite de q, sin cambios)	PASA	400
+API-12	consulta de 5000 caracteres: 400 problem+json (limite de q, sin cambios)	PASA	400
+API-12	limit=0: 400 problem+json	PASA	400
+API-12	limit=101: 400 problem+json	PASA	400
+API-12	limit=abc: 400 problem+json	PASA	400
+API-12	offset=-1: 400 problem+json	PASA	400
+API-12	orden por nombre cientifico y luego id tambien en una busqueda amplia	PASA	
+API-13	lavanda: displayName Lavanda y Lavanda primero entre los comunes	PASA	
+API-13	lavanda: cita completa de Steinmetz en useGroups	PASA	Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam.
+API-13	lavanda: uses[].reference.citation sigue siendo la etiqueta 'USDA Dr. Duke: referencia Steinmetz'	PASA	
+API-13	lavanda: grupo de 2 registros con 2 paises antes que los de 1 y orden por actividad	PASA	
+API-13	lavanda: objetivos de la EMA (mejorar-el-sueno, relajacion-estres) con area y cita	PASA	
+API-13	lavanda: credito de Wikipedia con CC BY-SA 4.0, URL de licencia y enlace al articulo; EMA con licenseUrl null	PASA	
+API-13	matricaria-chamomilla: 200, displayName en espanol y usos presentes	PASA	displayName=Manzanilla grupos=20 usos=40
+API-13	chamaemelum-nobile: 200, displayName en espanol y usos presentes	PASA	displayName=Manzanilla grupos=19 usos=33
+API-13	mentha-x-piperita: 200, displayName en espanol y usos presentes	PASA	displayName=Menta piperita grupos=20 usos=31
+API-13	hiperico: sin relajacion-estres en goals, resto del detalle completo	PASA	['cuidado-de-la-piel', 'otros-objetivos']
+API-13	existen plantas de nivel alto (112) y todas sirven texto y citas	PASA	112
+API-13	planta sin datos (angelica-laxiflora): 200 con useGroups, goals, uses, parts y synonyms vacios, safety, image, description, origin, oil y family null	PASA	41 plantas sin ningun dato consolidado
+API-13	abutilon-theophrasti: displayName cientifico y Velvetleaf entre los comunes sin destacar	PASA	
+API-13	unas 1.195 plantas con displayName = nombre cientifico	PASA	1195
+API-14	efecto en safety.text: 3 coincidencias; p. ej. chelidonium-majus [beneficio] ...s por motivos de seguridad, la relación beneficio-riesgo del uso oral es negativa para es...; salvia-officinalis [beneficios] ...re el aceite de salvia concluye que sus beneficios no superan sus riesgos. EFSA marca la a...; taraxacum-officinale [garantiza] ...MA no registra interacciones, lo que no garantiza su ausencia....	OBS	
+API-14	seguridad en safety.text: 14 coincidencias; p. ej. abutilon-theophrasti [segura] ...goría «nontoxic»); este dato no la hace segura....; brassica-cretica-subsp-cretica [no tóxica] ...PPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; l...; brassica-oleracea-var-capitata [no tóxica] ...PPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica» en...	OBS	

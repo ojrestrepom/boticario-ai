@@ -1,0 +1,793 @@
+{
+  "aliases": [
+    "peperomia-pelucida"
+  ],
+  "bundleHash": "sha256:5924c8ebd017cd2b56256be2a76757b82e7d7659be4e1813106887f41c83271a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:1281-2"
+      ],
+      "text": "Yerba de la plata"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1281-1"
+      ],
+      "text": "Pepper elder"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Peperomia pellucida"
+    ],
+    "value": "Hierba anual de raíces poco profundas que suele medir de 15 a 45 cm de alto, con tallos suculentos, hojas brillantes, carnosas y en forma de corazón, y pequeñas semillas en espigas. Al machacarse despide un aroma parecido al de la mostaza."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:1281-2"
+    ],
+    "value": "Yerba de la plata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2556385"
+    ],
+    "value": "Piperaceae"
+  },
+  "goals": [],
+  "id": "peperomia-pellucida",
+  "image": {
+    "attributionRequired": true,
+    "author": "Aris riyanto",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:(arya)_Peperomia_pellucida_(suruhan)_in_Pilangsari_2019_4.jpg",
+    "refs": [
+      "commons:File:(arya) Peperomia pellucida (suruhan) in Pilangsari 2019 4.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/%28arya%29_Peperomia_pellucida_%28suruhan%29_in_Pilangsari_2019_4.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2556385"
+    ],
+    "value": "Brasil, Caribe, América Central, México, Sudamérica, África tropical, sudeste de Estados Unidos y oeste del océano Índico"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:(arya) Peperomia pellucida (suruhan) in Pilangsari 2019 4.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:(arya) Peperomia pellucida (suruhan) in Pilangsari 2019 4.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:(arya)_Peperomia_pellucida_(suruhan)_in_Pilangsari_2019_4.jpg"
+    },
+    "usda_common_name:1281-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pepper elder»",
+      "license": "CC0"
+    },
+    "usda_common_name:1281-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yerba de la plata»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:11421": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11421",
+      "license": "CC0"
+    },
+    "usda_use:12358": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12358",
+      "license": "CC0"
+    },
+    "usda_use:12359": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12359",
+      "license": "CC0"
+    },
+    "usda_use:14076": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14076",
+      "license": "CC0"
+    },
+    "usda_use:15621": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15621",
+      "license": "CC0"
+    },
+    "usda_use:15622": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15622",
+      "license": "CC0"
+    },
+    "usda_use:16893": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16893",
+      "license": "CC0"
+    },
+    "usda_use:25041": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25041",
+      "license": "CC0"
+    },
+    "usda_use:25876": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25876",
+      "license": "CC0"
+    },
+    "usda_use:27675": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27675",
+      "license": "CC0"
+    },
+    "usda_use:36317": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36317",
+      "license": "CC0"
+    },
+    "usda_use:3930": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3930",
+      "license": "CC0"
+    },
+    "usda_use:40446": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40446",
+      "license": "CC0"
+    },
+    "usda_use:45011": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45011",
+      "license": "CC0"
+    },
+    "usda_use:45462": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45462",
+      "license": "CC0"
+    },
+    "usda_use:5250": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5250",
+      "license": "CC0"
+    },
+    "usda_use:60095": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60095",
+      "license": "CC0"
+    },
+    "usda_use:60096": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60096",
+      "license": "CC0"
+    },
+    "usda_use:60097": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60097",
+      "license": "CC0"
+    },
+    "usda_use:60098": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60098",
+      "license": "CC0"
+    },
+    "usda_use:60101": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60101",
+      "license": "CC0"
+    },
+    "usda_use:65392": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65392",
+      "license": "CC0"
+    },
+    "usda_use:66376": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66376",
+      "license": "CC0"
+    },
+    "usda_use:67757": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67757",
+      "license": "CC0"
+    },
+    "usda_use:71084": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71084",
+      "license": "CC0"
+    },
+    "usda_use:71352": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71352",
+      "license": "CC0"
+    },
+    "usda_use:7771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7771",
+      "license": "CC0"
+    },
+    "usda_use:94": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 94",
+      "license": "CC0"
+    },
+    "usda_use:95": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 95",
+      "license": "CC0"
+    },
+    "wcvp:2502273": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micropiper pellucidum (L.) Miq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2556385": {
+      "dataset": "wcvp",
+      "label": "WCVP: Peperomia pellucida (L.) Kunth",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2569465": {
+      "dataset": "wcvp",
+      "label": "WCVP: Piper pellucidum L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Peperomia pellucida": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Peperomia pellucida",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Peperomia_pellucida"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA etiqueta como inglés el nombre «Yerba de la plata», que parece español; se registra como español por su forma.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Kunth",
+    "name": "Peperomia pellucida",
+    "refs": [
+      "wcvp:2556385"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Miq.",
+      "name": "Micropiper pellucidum",
+      "refs": [
+        "wcvp:2502273"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Piper pellucidum",
+      "refs": [
+        "wcvp:2569465"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Abdomen",
+      "activitySource": "Abdomen",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:94",
+        "usda_use:95",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27675",
+        "usda_use:60095",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Pecho",
+      "activitySource": "Chest",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11421",
+        "usda_use:60097",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12358",
+        "usda_use:12359",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14076",
+        "usda_use:67757",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15621",
+        "usda_use:15622",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16893",
+        "usda_use:60098",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Java"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25041",
+        "usda_use:71084",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25876",
+        "usda_use:71352",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Dolor de garganta",
+      "activitySource": "Sore(Throat)",
+      "citations": [
+        {
+          "key": "Eb30:",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45462",
+        "usda_use:60101",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Java"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60096",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3930",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5250",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65392",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Forúnculo",
+      "activitySource": "Boil",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7771",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
+      "activitySource": "Cancer(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Nigeria"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66376",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36317",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Refrescante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40446",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45011",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

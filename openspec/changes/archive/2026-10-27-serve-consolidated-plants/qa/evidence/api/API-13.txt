@@ -1,0 +1,550 @@
+PASA  lavanda: displayName Lavanda y Lavanda primero entre los comunes 
+PASA  lavanda: cita completa de Steinmetz en useGroups Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam.
+PASA  lavanda: uses[].reference.citation sigue siendo la etiqueta 'USDA Dr. Duke: referencia Steinmetz' 
+PASA  lavanda: grupo de 2 registros con 2 paises antes que los de 1 y orden por actividad 
+PASA  lavanda: objetivos de la EMA (mejorar-el-sueno, relajacion-estres) con area y cita 
+PASA  lavanda: credito de Wikipedia con CC BY-SA 4.0, URL de licencia y enlace al articulo; EMA con licenseUrl null 
+--- detalle de lavandula-angustifolia (id, displayName, synonyms, description, origin, oil, image)
+GET /v1/plants/lavandula-angustifolia
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "lavandula-angustifolia",
+ "displayName": "Lavanda",
+ "synonyms": [],
+ "description": "Especie de planta sufruticosa perenne del género Lavandula, de la familia Lamiaceae.",
+ "origin": "Sureste y suroeste de Europa.",
+ "oil": {
+  "type": "Esencial"
+ },
+ "image": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg",
+  "pageUrl": "https://commons.wikimedia.org/wiki/File:Lavandula_angustifolia_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-087.jpg",
+  "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+  "license": "Public domain",
+  "licenseUrl": null,
+  "attributionRequired": false
+ }
+}
+
+--- detalle de lavandula-angustifolia (goals, credits)
+GET /v1/plants/lavandula-angustifolia
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "goals": [
+  {
+   "id": "mejorar-el-sueno",
+   "name": "Mejorar el sueño",
+   "subarea": null,
+   "area": "Trastornos del sueño e insomnio pasajero",
+   "evidence": "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:lavandulae-aetheroleum",
+     "citation": "EMA: Lavandulae aetheroleum"
+    },
+    {
+     "id": "ema_herbal:lavandulae-flos",
+     "citation": "EMA: Lavandulae flos"
+    }
+   ]
+  },
+  {
+   "id": "relajacion-estres",
+   "name": "Relajación / Estrés",
+   "subarea": null,
+   "area": "Estrés mental y trastornos del ánimo",
+   "evidence": "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:lavandulae-aetheroleum",
+     "citation": "EMA: Lavandulae aetheroleum"
+    },
+    {
+     "id": "ema_herbal:lavandulae-flos",
+     "citation": "EMA: Lavandulae flos"
+    }
+   ]
+  }
+ ],
+ "credits": [
+  {
+   "name": "EFSA Compendium of Botanicals",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "attribution": "EFSA (2016). EFSA's compendium of botanicals. Zenodo. https://doi.org/10.5281/zenodo.996024",
+   "url": "https://doi.org/10.5281/zenodo.996024"
+  },
+  {
+   "name": "EMA: Herbal medicines for human use (listado)",
+   "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+   "licenseUrl": null,
+   "attribution": "European Medicines Agency (EMA). Herbal medicines for human use. https://www.ema.europa.eu/",
+   "url": "https://www.ema.europa.eu/"
+  },
+  {
+   "name": "EMA: monografías y declaraciones públicas del HMPC",
+   "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+   "licenseUrl": null,
+   "attribution": "European Medicines Agency (EMA). Herbal medicines for human use: monografías y declaraciones públicas del HMPC. https://www.ema.europa.eu/",
+   "url": "https://www.ema.europa.eu/"
+  },
+  {
+   "name": "TPPT, Toxic Plants and Phytotoxins database (Agroscope)",
+   "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)",
+   "licenseUrl": null,
+   "attribution": "Agroscope (Swiss Confederation). TPPT, Toxic Plants and Phytotoxins database. https://www.agroscope.admin.ch/",
+   "url": "https://www.agroscope.admin.ch/"
+  },
+  {
+   "name": "USDA Dr. Duke's Phytochemical and Ethnobotanical Databases",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attribution": "Duke, James A. (2016). Dr. Duke's Phytochemical and Ethnobotanical Databases. Ag Data Commons. https://doi.org/10.15482/USDA.ADC/1239279",
+   "url": "https://doi.org/10.15482/USDA.ADC/1239279"
+  },
+  {
+   "name": "Wikipedia en español",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "attribution": "Colaboradores de Wikipedia en español (https://es.wikipedia.org). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.",
+   "url": "https://es.wikipedia.org/wiki/Lavandula_angustifolia"
+  },
+  {
+   "name": "World Checklist of Vascular Plants (WCVP)",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "attribution": "Royal Botanic Gardens, Kew. World Checklist of Vascular Plants (WCVP), v16. https://powo.science.kew.org/",
+   "url": "https://powo.science.kew.org/"
+  }
+ ]
+}
+
+PASA  matricaria-chamomilla: 200, displayName en espanol y usos presentes displayName=Manzanilla grupos=20 usos=40
+--- detalle de matricaria-chamomilla (id, scientificName, displayName, synonyms, goals, safety)
+GET /v1/plants/matricaria-chamomilla
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "matricaria-chamomilla",
+ "scientificName": "Matricaria chamomilla",
+ "displayName": "Manzanilla",
+ "synonyms": [
+  "Chamaemelum chamomilla",
+  "Chamomilla officinalis",
+  "Chrysanthemum chamomilla"
+ ],
+ "goals": [
+  {
+   "id": "alivio-respiratorio",
+   "name": "Alivio respiratorio",
+   "subarea": null,
+   "area": "Tos y resfriado",
+   "evidence": "La EMA tiene una monografía de la flor en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:matricariae-flos",
+     "citation": "EMA: Matricariae flos"
+    }
+   ]
+  },
+  {
+   "id": "cuidado-de-la-piel",
+   "name": "Cuidado de la piel",
+   "subarea": null,
+   "area": "Trastornos de la piel y heridas leves",
+   "evidence": "La EMA tiene una monografía de la flor y otra del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:matricariae-aetheroleum",
+     "citation": "EMA: Matricariae aetheroleum"
+    },
+    {
+     "id": "ema_herbal:matricariae-flos",
+     "citation": "EMA: Matricariae flos"
+    }
+   ]
+  },
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Boca y garganta",
+   "area": "Trastornos de boca y garganta",
+   "evidence": "La EMA tiene una monografía de la flor en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:matricariae-flos",
+     "citation": "EMA: Matricariae flos"
+    }
+   ]
+  },
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Digestión",
+   "area": "Trastornos gastrointestinales",
+   "evidence": "La EMA tiene una monografía de la flor en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:matricariae-flos",
+     "citation": "EMA: Matricariae flos"
+    }
+   ]
+  }
+ ],
+ "safety": {
+  "level": "bajo",
+  "text": "TPPT la califica de alergénica (planta entera; la lactona sesquiterpénica antecotulida es alergénica). La EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa y a otras plantas de la familia Asteraceae (Compositae), y los baños completos en caso de heridas abiertas, lesiones cutáneas extensas, enfermedades agudas de la piel, fiebre alta, infecciones graves, trastornos circulatorios graves e insuficiencia cardíaca; los baños parciales también en caso 
+... (recortado, 3564 caracteres)
+
+PASA  chamaemelum-nobile: 200, displayName en espanol y usos presentes displayName=Manzanilla grupos=19 usos=33
+--- detalle de chamaemelum-nobile (id, scientificName, displayName, synonyms, goals, safety)
+GET /v1/plants/chamaemelum-nobile
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "chamaemelum-nobile",
+ "scientificName": "Chamaemelum nobile",
+ "displayName": "Manzanilla",
+ "synonyms": [
+  "Anthemis nobilis",
+  "Chamomilla nobilis",
+  "Ormenis nobilis"
+ ],
+ "goals": [
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Digestión",
+   "area": "Trastornos gastrointestinales",
+   "evidence": "La EMA tiene una monografía de la flor en esta área",
+   "references": [
+    {
+     "id": "ema_herbal:chamomillae-romanae-flos",
+     "citation": "EMA: Chamomillae romanae flos"
+    }
+   ]
+  }
+ ],
+ "safety": {
+  "level": null,
+  "text": "La monografía de la EMA para la flor registra como contraindicación la hipersensibilidad a la sustancia activa y a otras plantas de la familia Asteraceae (Compositae). Entre sus advertencias figura que no se ha establecido su uso en niños menores de 12 años, y no registra interacciones.",
+  "references": [
+   {
+    "id": "ema_pdf:chamomillae-romanae-flos:4.3",
+    "citation": "EMA: monografía de chamomillae-romanae-flos, sección 4.3 (Contraindications)"
+   },
+   {
+    "id": "ema_pdf:chamomillae-romanae-flos:4.4",
+    "citation": "EMA: monografía de chamomillae-romanae-flos, sección 4.4 (Special warnings and precautions for use)"
+   },
+   {
+    "id": "ema_pdf:chamomillae-romanae-flos:4.5",
+    "citation": "EMA: monografía de chamomillae-romanae-flos, sección 4.5 (Interactions with other medicinal products and other forms of interaction)"
+   }
+  ]
+ }
+}
+
+PASA  mentha-x-piperita: 200, displayName en espanol y usos presentes displayName=Menta piperita grupos=20 usos=31
+--- detalle de mentha-x-piperita (id, scientificName, displayName, synonyms, goals, safety)
+GET /v1/plants/mentha-x-piperita
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "mentha-x-piperita",
+ "scientificName": "Mentha × piperita",
+ "displayName": "Menta piperita",
+ "synonyms": [
+  "Mentha aquatica f. piperita",
+  "Mentha aquatica var. piperita",
+  "Mentha glomerata var. piperita",
+  "Mentha × viridis var. piperita"
+ ],
+ "goals": [
+  {
+   "id": "alivio-respiratorio",
+   "name": "Alivio respiratorio",
+   "subarea": null,
+   "area": "Tos y resfriado",
+   "evidence": "La EMA tiene una monografía del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:menthae-piperitae-aetheroleum",
+     "citation": "EMA: Menthae piperitae aetheroleum"
+    }
+   ]
+  },
+  {
+   "id": "cuidado-de-la-piel",
+   "name": "Cuidado de la piel",
+   "subarea": null,
+   "area": "Trastornos de la piel y heridas leves",
+   "evidence": "La EMA tiene una monografía del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:menthae-piperitae-aetheroleum",
+     "citation": "EMA: Menthae piperitae aetheroleum"
+    }
+   ]
+  },
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Digestión",
+   "area": "Trastornos gastrointestinales",
+   "evidence": "La EMA tiene una monografía de la hoja y otra del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:menthae-piperitae-aetheroleum",
+     "citation": "EMA: Menthae piperitae aetheroleum"
+    },
+    {
+     "id": "ema_herbal:menthae-piperitae-folium",
+     "citation": "EMA: Menthae piperitae folium"
+    }
+   ]
+  },
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Dolor e inflamación",
+   "area": "Dolor e inflamación",
+   "evidence": "La EMA tiene una monografía del aceite esencial en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:menthae-piperitae-aetheroleum",
+     "citation": "EMA: Menthae piperitae aetheroleum"
+    }
+   ]
+  }
+ ],
+ "safety": {
+  "level": "medio",
+  "text": "EFSA incluye el (R)-(+)-mentofurano, la cumarina y la pulegona de las partes aéreas entre las sustancias de alta preocupación, con límites de ingesta o toxicidad conocida. La EMA registra como contraindicaciones del aceite esencial la hipersensibilidad al aceite de menta o al mentol, la enfermedad hepá
+... (recortado, 4357 caracteres)
+
+PASA  hiperico: sin relajacion-estres en goals, resto del detalle completo ['cuidado-de-la-piel', 'otros-objetivos']
+--- detalle de hypericum-perforatum (id, displayName, goals, safety)
+GET /v1/plants/hypericum-perforatum
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "hypericum-perforatum",
+ "displayName": "Hierba de San Juan",
+ "goals": [
+  {
+   "id": "cuidado-de-la-piel",
+   "name": "Cuidado de la piel",
+   "subarea": null,
+   "area": "Trastornos de la piel y heridas leves",
+   "evidence": "La EMA tiene una monografía en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:hyperici-herba-0",
+     "citation": "EMA: Hyperici herba"
+    }
+   ]
+  },
+  {
+   "id": "otros-objetivos",
+   "name": "Otros objetivos",
+   "subarea": "Digestión",
+   "area": "Trastornos gastrointestinales",
+   "evidence": "La EMA tiene una monografía en esta área.",
+   "references": [
+    {
+     "id": "ema_herbal:hyperici-herba-0",
+     "citation": "EMA: Hyperici herba"
+    }
+   ]
+  }
+ ],
+ "safety": {
+  "level": "alto",
+  "text": "La EMA registra interacciones graves: las preparaciones de la hierba inducen enzimas del citocromo P450 y la glicoproteína P, y está contraindicado su uso simultáneo con anticoagulantes de tipo cumarínico, ciclosporina, everolimus, sirolimus, tacrolimus sistémico, inhibidores de la proteasa, inhibidores de la transcriptasa inversa análogos de nucleósidos, irinotecán, imatinib y otros citostáticos; también registra efectos serotoninérgicos al combinarse con antidepresivos y una posible reducción de las concentraciones plasmáticas de los anticonceptivos hormonales. Entre las advertencias, la EMA registra la exposición intensa a la radiación UV y que no se recomienda en menores de 18 años (en el uso cutáneo, menores de 12 años) por falta de datos. TPPT la clasifica como fototóxica (planta entera; los derivados antracénicos fotosensibilizantes son tóxicos) y tóxica en animales. EFSA registra hiperforina, hipericina, seudohipericina y derivados de xantona como sustancias de evidencia. Advertencia: registrada como abortiva en usos tradicionales. Advertencia: registrada como fototóxica. Advertencia: registrada como veneno en usos tradicionales.",
+  "references": [
+   {
+    "id": "efsa_botanic:248",
+    "citation": "EFSA Compendium of Botanicals: hypericin"
+   },
+   {
+    "id": "efsa_botanic:249",
+    "citation": "EFSA Compendium of Botanicals: pseudohypericin"
+   },
+   {
+    "id": "efsa_botanic:250",
+    "citation": "EFSA Compendium of Botanicals: hyperforin"
+   },
+   {
+    "id": "efsa_botanic:251",
+    "citation": "EFSA Compendium of Botanicals: xanthone derivatives"
+   },
+   {
+    "id": "ema_pdf:hyperici-herba-0:4.3",
+    "citation": "EMA: monografía de hyperici-herba-0, sección 4.3 (Contraindications)"
+   },
+
+... (recortado, 3254 caracteres)
+
+PASA  existen plantas de nivel alto (112) y todas sirven texto y citas 112
+--- detalle de aconitum-napellus (id, displayName, safety, goals)
+GET /v1/plants/aconitum-napellus
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "aconitum-napellus",
+ "displayName": "Acónito",
+ "safety": {
+  "level": "alto",
+  "text": "TPPT la clasifica como muy tóxica para las personas: la parte tóxica es la planta entera, con las mayores concentraciones en la raíz y la semilla, y la toxina principal es la aconitina, un alcaloide diterpénico. EFSA incluye la aconitina entre las sustancias de alta preocupación (venenos potentes) de la planta viva y registra además ésteres de alcaloides norditerpenoides. Advertencia: registrada como veneno en usos tradicionales (una de las filas lo registra como veneno de flechas).",
+  "references": [
+   {
+    "id": "efsa_botanic:847",
+    "citation": "EFSA Compendium of Botanicals: norditerpenoid alkaloid esters"
+   },
+   {
+    "id": "efsa_botanic:893",
+    "citation": "EFSA Compendium of Botanicals: aconitine"
+   },
+   {
+    "id": "tppt_plant:P58",
+    "citation": "TPPT (Agroscope): Aconitum napellus aggr. (A. compactum (Rchb.) Gayer and A. neomontanum Wulfen)"
+   },
+   {
+    "id": "usda_use:37600",
+    "citation": "USDA Dr. Duke: uso etnobotánico 37600"
+   },
+   {
+    "id": "usda_use:37601",
+    "citation": "USDA Dr. Duke: uso etnobotánico 37601"
+   },
+   {
+    "id": "usda_use:37602",
+    "citation": "USDA Dr. Duke: uso etnobotánico 37602"
+   },
+   {
+    "id": "usda_use:38463",
+    "citation": "USDA Dr. Duke: uso etnobotánico 38463"
+   },
+   {
+    "id": "usda_use:74932",
+    "citation": "USDA Dr. Duke: uso etnobotánico 74932"
+   },
+   {
+    "id": "usda_use:74933",
+    "citation": "USDA Dr. Duke: uso etnobotánico 74933"
+   },
+   {
+    "id": "usda_use:75248",
+    "citation": "USDA Dr. Duke: uso etnobotánico 75248"
+   }
+  ]
+ },
+ "goals": []
+}
+
+PASA  planta sin datos (angelica-laxiflora): 200 con useGroups, goals, uses, parts y synonyms vacios, safety, image, description, origin, oil y family null 41 plantas sin ningun dato consolidado
+--- detalle de angelica-laxiflora
+GET /v1/plants/angelica-laxiflora
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "angelica-laxiflora",
+ "scientificName": "Angelica laxiflora",
+ "displayName": "Angelica laxiflora",
+ "family": null,
+ "names": [
+  {
+   "text": "Angelica laxiflora",
+   "kind": "scientific",
+   "language": "la"
+  },
+  {
+   "text": "Tu Huo",
+   "kind": "common",
+   "language": "en"
+  }
+ ],
+ "parts": [],
+ "uses": [],
+ "synonyms": [],
+ "description": null,
+ "origin": null,
+ "oil": null,
+ "useGroups": [],
+ "goals": [],
+ "safety": null,
+ "image": null,
+ "credits": [
+  {
+   "name": "USDA Dr. Duke's Phytochemical and Ethnobotanical Databases",
+   "license": "CC0",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "attribution": "Duke, James A. (2016). Dr. Duke's Phytochemical and Ethnobotanical Databases. Ag Data Commons. https://doi.org/10.15482/USDA.ADC/1239279",
+   "url": "https://doi.org/10.15482/USDA.ADC/1239279"
+  }
+ ]
+}
+
+plantas de solo genero (nombre cientifico termina en ' sp'): 43
+PASA  abutilon-theophrasti: displayName cientifico y Velvetleaf entre los comunes sin destacar 
+--- detalle de abutilon-theophrasti (id, displayName, names)
+GET /v1/plants/abutilon-theophrasti
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json"}
+{
+ "id": "abutilon-theophrasti",
+ "displayName": "Abutilon theophrasti",
+ "names": [
+  {
+   "text": "Abutilon theophrasti",
+   "kind": "scientific",
+   "language": "la"
+  },
+  {
+   "text": "Malva abutilon",
+   "kind": "scientific",
+   "language": "la"
+  },
+  {
+   "text": "Sida abutilon",
+   "kind": "scientific",
+   "language": "la"
+  },
+  {
+   "text": "Abutilon-Hemp",
+   "kind": "common",
+   "language": "en"
+  },
+  {
+   "text": "Butterprint",
+   "kind": "common",
+   "language": "en"
+  },
+  {
+   "text": "Chinesische Samtpappel",
+   "kind": "common",
+   "language": "de"
+  },
+  {
+   "text": "Indian-Mallow",
+   "kind": "common",
+   "language": "en"
+  },
+  {
+   "text": "Velvet Leaf",
+   "kind": "common",
+   "language": "en"
+  },
+  {
+   "text": "Velvetleaf",
+   "kind": "common",
+   "language": "en"
+  }
+ ]
+}
+
+plantas con displayName = nombre cientifico: 1195 (se esperan unas 1.195)
+PASA  unas 1.195 plantas con displayName = nombre cientifico 1195

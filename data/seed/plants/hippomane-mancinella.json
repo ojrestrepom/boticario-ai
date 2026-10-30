@@ -1,0 +1,811 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:370583f5a4363ef32e2821232494ca5af8c5d08b0859ffeb7e074e842c93d66d",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hippomane mancinella"
+      ],
+      "text": "Árbol de la muerte"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hippomane mancinella"
+      ],
+      "text": "Manzanilla de la muerte"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hippomane mancinella"
+      ],
+      "text": "Manzanillo de playa"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:475-1"
+      ],
+      "text": "Manchineel"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Hippomane mancinella"
+    ],
+    "value": "Especie de la familia de las euforbiáceas, nativa de Mesoamérica, el Caribe, el sur de Florida y el norte de América del Sur."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Hippomane mancinella"
+    ],
+    "value": "Árbol de la muerte"
+  },
+  "family": {
+    "refs": [
+      "wcvp:99370"
+    ],
+    "value": "Euphorbiaceae"
+  },
+  "goals": [],
+  "id": "hippomane-mancinella",
+  "image": {
+    "attributionRequired": true,
+    "author": "Hans Hillewaert",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hippomane_mancinella_(fruit).jpg",
+    "refs": [
+      "commons:File:Hippomane mancinella (fruit).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Hippomane_mancinella_%28fruit%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:99370"
+    ],
+    "value": "Caribe, América Central, México, norte de Sudamérica, sureste de Estados Unidos y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hippomane mancinella (fruit).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hippomane mancinella (fruit).jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hippomane_mancinella_(fruit).jpg"
+    },
+    "efsa_botanic:1219": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Phorbol esters",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1220": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: physostigmine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:475-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Manchineel»",
+      "license": "CC0"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Standley,Steyermark": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley,Steyermark",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11121": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11121",
+      "license": "CC0"
+    },
+    "usda_use:11122": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11122",
+      "license": "CC0"
+    },
+    "usda_use:18112": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18112",
+      "license": "CC0"
+    },
+    "usda_use:18113": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18113",
+      "license": "CC0"
+    },
+    "usda_use:18114": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18114",
+      "license": "CC0"
+    },
+    "usda_use:19145": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19145",
+      "license": "CC0"
+    },
+    "usda_use:21181": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21181",
+      "license": "CC0"
+    },
+    "usda_use:23688": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23688",
+      "license": "CC0"
+    },
+    "usda_use:29385": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29385",
+      "license": "CC0"
+    },
+    "usda_use:37170": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37170",
+      "license": "CC0"
+    },
+    "usda_use:37970": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37970",
+      "license": "CC0"
+    },
+    "usda_use:37971": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37971",
+      "license": "CC0"
+    },
+    "usda_use:37972": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37972",
+      "license": "CC0"
+    },
+    "usda_use:37973": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37973",
+      "license": "CC0"
+    },
+    "usda_use:37974": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37974",
+      "license": "CC0"
+    },
+    "usda_use:37975": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37975",
+      "license": "CC0"
+    },
+    "usda_use:37976": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37976",
+      "license": "CC0"
+    },
+    "usda_use:38505": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38505",
+      "license": "CC0"
+    },
+    "usda_use:4717": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4717",
+      "license": "CC0"
+    },
+    "usda_use:4718": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4718",
+      "license": "CC0"
+    },
+    "usda_use:49261": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49261",
+      "license": "CC0"
+    },
+    "usda_use:49262": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49262",
+      "license": "CC0"
+    },
+    "usda_use:49718": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49718",
+      "license": "CC0"
+    },
+    "usda_use:54350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54350",
+      "license": "CC0"
+    },
+    "usda_use:54898": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54898",
+      "license": "CC0"
+    },
+    "usda_use:55420": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55420",
+      "license": "CC0"
+    },
+    "usda_use:58618": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58618",
+      "license": "CC0"
+    },
+    "usda_use:58619": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58619",
+      "license": "CC0"
+    },
+    "usda_use:58620": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58620",
+      "license": "CC0"
+    },
+    "usda_use:63481": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63481",
+      "license": "CC0"
+    },
+    "usda_use:64897": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64897",
+      "license": "CC0"
+    },
+    "usda_use:66240": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66240",
+      "license": "CC0"
+    },
+    "usda_use:66820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66820",
+      "license": "CC0"
+    },
+    "usda_use:68402": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68402",
+      "license": "CC0"
+    },
+    "usda_use:69908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69908",
+      "license": "CC0"
+    },
+    "usda_use:72244": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72244",
+      "license": "CC0"
+    },
+    "usda_use:72258": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72258",
+      "license": "CC0"
+    },
+    "usda_use:75219": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75219",
+      "license": "CC0"
+    },
+    "usda_use:79908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79908",
+      "license": "CC0"
+    },
+    "usda_use:80216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80216",
+      "license": "CC0"
+    },
+    "usda_use:81391": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81391",
+      "license": "CC0"
+    },
+    "wcvp:99370": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hippomane mancinella L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Hippomane mancinella": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Hippomane mancinella",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Hippomane_mancinella"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "efsa_botanic:1219",
+      "efsa_botanic:1220",
+      "usda_use:37970",
+      "usda_use:37971",
+      "usda_use:37972",
+      "usda_use:37973",
+      "usda_use:37974",
+      "usda_use:37975",
+      "usda_use:37976",
+      "usda_use:58620",
+      "usda_use:63481",
+      "usda_use:38505",
+      "usda_use:75219",
+      "usda_use:58618",
+      "usda_use:23688",
+      "usda_use:72258"
+    ],
+    "text": "EFSA registra los ésteres de forbol de la parte aérea y la fisostigmina del fruto como sustancias de evidencia. Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como causante de dermatitis. Advertencia: se registran casos mortales. Advertencia: registrada como veneno homicida en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Hippomane mancinella",
+    "refs": [
+      "wcvp:99370"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Flecha",
+      "activitySource": "Arrow",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Guatemala",
+        "México"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4717",
+        "usda_use:4718",
+        "usda_use:64897",
+        "usda_reference:Duke",
+        "usda_reference:Standley",
+        "usda_reference:Standley,Steyermark"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11121",
+        "usda_use:11122",
+        "usda_use:66820",
+        "usda_reference:Liogier",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18112",
+        "usda_use:18113",
+        "usda_use:18114",
+        "usda_reference:Duke",
+        "usda_reference:Liogier",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19145",
+        "usda_use:58619",
+        "usda_reference:Liogier",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21181",
+        "usda_use:69908",
+        "usda_reference:Altschul",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sífilis",
+      "activitySource": "Syphilis",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49261",
+        "usda_use:49262",
+        "usda_reference:Liogier",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tétanos",
+      "activitySource": "Tetanus",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Cuba",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49718",
+        "usda_use:81391",
+        "usda_reference:Liogier",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Vesicante",
+      "activitySource": "Vesicant",
+      "citations": [
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Guatemala"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54898",
+        "usda_use:80216",
+        "usda_reference:Standley,Steyermark",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Paraguay"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66240",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68402",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Homeopatía",
+      "activitySource": "Homeopathy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72244",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Infección",
+      "activitySource": "Infection",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "Cuba"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29385",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37170",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Venéreo",
+      "activitySource": "Venereal",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79908",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Vermífugo",
+      "activitySource": "Vermifuge",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54350",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Cuba"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55420",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

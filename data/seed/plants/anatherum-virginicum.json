@@ -1,0 +1,183 @@
+{
+  "aliases": [
+    "andropogon-virginicus"
+  ],
+  "bundleHash": "sha256:8200a5c14f38915fc5f8f5dcb807b273cea2c99952554cf13ab761786adf2211",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2207-1"
+      ],
+      "text": "Broomsedge"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Andropogon virginicus"
+    ],
+    "value": "Especie de hierba gramínea originaria del sureste de los Estados Unidos y de zonas tan al norte como los Grandes Lagos. Se la conoce como especie introducida en California y Hawái, donde es una maleza."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:391869"
+    ],
+    "value": "Anatherum virginicum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:391869"
+    ],
+    "value": "Poaceae"
+  },
+  "goals": [],
+  "id": "anatherum-virginicum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Thomas Mesaglio",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Anatherum_virginicum_-_Thomas_Mesaglio_-_122911271.jpeg",
+    "refs": [
+      "commons:File:Anatherum virginicum - Thomas Mesaglio - 122911271.jpeg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Anatherum_virginicum_-_Thomas_Mesaglio_-_122911271.jpeg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:391869"
+    ],
+    "value": "Caribe, América Central, México, este de Canadá, norte de Sudamérica y varias regiones de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Anatherum virginicum - Thomas Mesaglio - 122911271.jpeg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Anatherum virginicum - Thomas Mesaglio - 122911271.jpeg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Anatherum_virginicum_-_Thomas_Mesaglio_-_122911271.jpeg"
+    },
+    "usda_common_name:2207-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Broomsedge»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:70754": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70754",
+      "license": "CC0"
+    },
+    "wcvp:391869": {
+      "dataset": "wcvp",
+      "label": "WCVP: Anatherum virginicum (L.) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:393606": {
+      "dataset": "wcvp",
+      "label": "WCVP: Andropogon virginicus L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:443725": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sorghum virginicum (L.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Andropogon virginicus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Andropogon virginicus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Andropogon_virginicus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Spreng.",
+    "name": "Anatherum virginicum",
+    "refs": [
+      "wcvp:391869"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Andropogon virginicus",
+      "refs": [
+        "wcvp:393606"
+      ]
+    },
+    {
+      "authors": "(L.) Kuntze",
+      "name": "Sorghum virginicum",
+      "refs": [
+        "wcvp:443725"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb29: 314",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 314"
+        }
+      ],
+      "countries": [
+        "Bahamas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70754",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

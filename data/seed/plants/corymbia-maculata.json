@@ -1,0 +1,164 @@
+{
+  "aliases": [
+    "eucalyptus-maculata"
+  ],
+  "bundleHash": "sha256:d12caa1bf9d5fbb1e4c7d83336e12605b05600c70d1fcdc4af44add78ef07be1",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Corymbia maculata"
+      ],
+      "text": "Gomero manchado"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1376-1"
+      ],
+      "text": "Gum"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Corymbia maculata"
+    ],
+    "value": "Árbol de Australia conocido comúnmente como gomero manchado."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Corymbia maculata"
+    ],
+    "value": "Gomero manchado"
+  },
+  "family": {
+    "refs": [
+      "wcvp:48059"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "corymbia-maculata",
+  "image": {
+    "attributionRequired": true,
+    "author": "Melburnian",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Corymbia_maculata.jpg",
+    "refs": [
+      "commons:File:Corymbia maculata.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Corymbia_maculata.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1376-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:48059"
+    ],
+    "value": "Nativa de Australia (Nueva Gales del Sur y Victoria)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Corymbia maculata.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Corymbia maculata.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Corymbia_maculata.jpg"
+    },
+    "usda_common_name:1376-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Gum»",
+      "license": "CC0"
+    },
+    "usda_part:1376-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:3312433": {
+      "dataset": "wcvp",
+      "label": "WCVP: Blakella maculata (Hook.) Crisp & L.G.Cook",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:48059": {
+      "dataset": "wcvp",
+      "label": "WCVP: Corymbia maculata (Hook.) K.D.Hill & L.A.S.Johnson",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73319": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus maculata Hook.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Corymbia maculata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Corymbia maculata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Corymbia_maculata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el brote, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Hook.) K.D.Hill & L.A.S.Johnson",
+    "name": "Corymbia maculata",
+    "refs": [
+      "wcvp:48059"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Hook.) Crisp & L.G.Cook",
+      "name": "Blakella maculata",
+      "refs": [
+        "wcvp:3312433"
+      ]
+    },
+    {
+      "authors": "Hook.",
+      "name": "Eucalyptus maculata",
+      "refs": [
+        "wcvp:73319"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

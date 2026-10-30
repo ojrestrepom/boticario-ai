@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9c5d111aec92d740be83f735de2a2a7ac7ca995fd17d403a9be9262e2a44076e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:818-1"
+      ],
+      "text": "Nude Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171064"
+    ],
+    "value": "Pycnanthemum nudum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171064"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-nudum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alexander Abair",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_nudum_inflorescence.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum nudum inflorescence.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Pycnanthemum_nudum_inflorescence.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:818-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171064"
+    ],
+    "value": "Nativa del sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum nudum inflorescence.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum nudum inflorescence.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_nudum_inflorescence.jpg"
+    },
+    "usda_common_name:818-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Nude Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:818-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106188": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia nuda (Nutt.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171064": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum nudum Nutt.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Nutt.",
+    "name": "Pycnanthemum nudum",
+    "refs": [
+      "wcvp:171064"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Nutt.) Kuntze",
+      "name": "Koellia nuda",
+      "refs": [
+        "wcvp:106188"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,179 @@
+name: Deploy backend
+
+# Verifica el backend (fmt, clippy y pruebas, via backend-ci.yml) y, solo si pasa, construye la imagen
+# amd64, la publica en Artifact Registry y la despliega en Cloud Run.
+# Solo corre desde main (o a mano) y cuando cambia algo que entra en la imagen o este mismo workflow.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - 'data/migrations/**'
+      - 'data/seed/**'
+      - 'Dockerfile'
+      - 'mise.toml'
+      - '.dockerignore'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
+
+# Minimo privilegio: a nivel de workflow solo lectura del repositorio. El id-token para pedir el
+# token OIDC (Workload Identity Federation) se concede unicamente al job deploy, no a verify.
+permissions:
+  contents: read
+
+# Los despliegues se serializan y uno en curso no se interrumpe a medias (a diferencia de flutter.yml).
+concurrency:
+  group: deploy-backend
+  cancel-in-progress: false
+
+jobs:
+  # Puerta de calidad: workflow reutilizable con fmt, clippy y pruebas. Si falla, deploy se omite
+  # y no se publica ninguna imagen ni se crea ninguna revision.
+  verify:
+    name: Verificar el backend
+    uses: ./.github/workflows/backend-ci.yml
+    permissions:
+      contents: read
+
+  deploy:
+    name: Build, push y deploy a Cloud Run
+    needs: verify
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
+    # La compilacion de Rust sin cache tarda varios minutos.
+    timeout-minutes: 45
+    env:
+      SERVICE: boticario-api
+      IMAGE: ${{ vars.GCP_ARTIFACT_REPOSITORY }}/boticario-api
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Autenticacion por Workload Identity Federation. token_format genera ademas un access token
+      # de corta duracion que se usa para iniciar sesion en Artifact Registry.
+      - name: Autenticar en Google Cloud
+        id: auth
+        uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_DEPLOYER_SERVICE_ACCOUNT }}
+          token_format: access_token
+
+      - name: Iniciar sesion en Artifact Registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ${{ vars.GCP_REGION }}-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
+
+      - name: Configurar Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      # provenance y sbom en false: por defecto buildx publica un indice OCI con atestaciones
+      # (manifiestos extra con arquitectura "unknown"). Se publica un manifiesto simple linux/amd64,
+      # que Cloud Run acepta sin ambiguedad y que Artifact Registry lista como una sola imagen.
+      # La cache de capas va en GitHub Actions; las monturas de cache de cargo del Dockerfile no persisten.
+      - name: Construir y publicar la imagen
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
+          provenance: false
+          sbom: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # El despliegue usa la etiqueta del SHA (inmutable en la practica), no latest.
+      # Los flags fijan explicitamente la configuracion del servicio; --allow-unauthenticated
+      # (API publica) y --cpu-throttling (facturacion por peticion) no dependen de valores por defecto.
+      # API_TOKENS viene de Secret Manager con la version fijada (nunca latest: instancias del mismo
+      # servicio podrian arrancar con valores distintos durante una rotacion). Rotar el token es cambiar
+      # ese numero en un commit, que ademas despliega; ver docs/deploy/cloud-run.md (diseno D4 y D7).
+      # La sonda de arranque espera 1 s antes del primer intento (initialDelaySeconds=1): la API escucha
+      # ~0,2 s despues de crear la instancia; sin retardo el primer intento fallaba y el siguiente
+      # llegaba a los 2 s (periodSeconds=2). Con 1 s el primer intento ya tiene exito.
+      - name: Desplegar en Cloud Run
+        id: deploy
+        uses: google-github-actions/deploy-cloudrun@2028e2d7d30a78c6910e0632e48dd561b064884d # v3.0.1
+        with:
+          service: ${{ env.SERVICE }}
+          region: ${{ vars.GCP_REGION }}
+          image: ${{ env.IMAGE }}:${{ github.sha }}
+          flags: >-
+            --allow-unauthenticated
+            --execution-environment=gen1
+            --cpu=1
+            --memory=256Mi
+            --min-instances=0
+            --max-instances=2
+            --cpu-throttling
+            --port=8080
+            --service-account=boticario-runtime@${{ vars.GCP_PROJECT_ID }}.iam.gserviceaccount.com
+            --set-secrets=API_TOKENS=boticario-api-tokens:1
+            --startup-probe=httpGet.path=/health,httpGet.port=8080,initialDelaySeconds=1,periodSeconds=2,timeoutSeconds=1,failureThreshold=10
+
+      # Verificacion posterior: falla el job si la API no responde lo esperado. Los reintentos absorben
+      # el arranque en frio. No hay rollback automatico: Cloud Run conserva la revision anterior.
+      # La ruta de salud es /health y no /healthz: Cloud Run reserva algunas rutas terminadas en «z»
+      # (como /healthz) en la URL publica y responde su propio 404 sin llegar al contenedor. El detalle
+      # de una planta ejercita ademas la base de datos.
+      # Tres consultas: /health sin token (200), el detalle con el token de CI (200) y el mismo detalle
+      # sin token (401: prueba que la autorizacion esta activa; un 200 significaria servicio abierto).
+      # El token entra por env, nunca en la linea de comandos: la cabecera se pasa a curl por stdin
+      # (-H @-), asi que no aparece en la lista de procesos ni en un eco; sin set -x. GitHub ademas
+      # enmascara el valor del secreto en el log.
+      - name: Verificar el servicio desplegado
+        shell: bash
+        env:
+          SERVICE_URL: ${{ steps.deploy.outputs.url }}
+          API_VERIFY_TOKEN: ${{ secrets.API_VERIFY_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${API_VERIFY_TOKEN}" ]; then
+            echo "::error::Falta el secreto de GitHub API_VERIFY_TOKEN (un token de CI de los que contiene boticario-api-tokens); ver docs/deploy/cloud-run.md"
+            exit 1
+          fi
+          plant=/v1/plants/lavandula-angustifolia
+
+          # Con reintentos para el arranque en frio; --fail convierte un 4xx/5xx en reintento y error.
+          expect_200() {
+            status="$(curl --fail --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \
+              --output /dev/null --write-out '%{http_code}' "$@")"
+            echo "GET ${path} -> ${status}"
+            if [ "$status" != "200" ]; then
+              echo "::error::${path} respondio ${status} y se esperaba 200"
+              exit 1
+            fi
+          }
+
+          path=/health
+          expect_200 "${SERVICE_URL}${path}"
+
+          path="$plant"
+          printf 'Authorization: Bearer %s\n' "$API_VERIFY_TOKEN" |
+            expect_200 -H @- "${SERVICE_URL}${path}"
+
+          # Sin token debe dar 401. Sin --fail ni reintentos: un 401 es el resultado correcto y un
+          # fallo de red debe fallar el job, no reintentarse hasta parecer otra cosa. El servicio
+          # ya respondio dos veces, asi que no hay arranque en frio que absorber.
+          status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' \
+            "${SERVICE_URL}${plant}")"
+          echo "GET ${plant} (sin token) -> ${status}"
+          if [ "$status" = "200" ]; then
+            echo "::error::${plant} respondio 200 sin token: el servicio estaria abierto, la autorizacion no esta activa"
+            exit 1
+          fi
+          if [ "$status" != "401" ]; then
+            echo "::error::${plant} sin token respondio ${status} y se esperaba 401"
+            exit 1
+          fi
+          echo "Servicio disponible en ${SERVICE_URL}"

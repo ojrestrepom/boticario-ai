@@ -1,0 +1,1025 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1f2b4e8c03582a51fa53e0799e16432576bd2663f5b1c297b90f046124f5675a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Panax ginseng"
+      ],
+      "text": "Ginseng"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:691-1"
+      ],
+      "text": "Chinese Ginseng"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:691-4"
+      ],
+      "text": "Korean Ginseng"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:691-2"
+      ],
+      "text": "Oriental Ginseng"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Panax ginseng"
+    ],
+    "value": "Especie del género Panax que en la medicina tradicional china se conoce normalmente como ginseng."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Panax ginseng"
+    ],
+    "value": "Ginseng"
+  },
+  "family": {
+    "refs": [
+      "wcvp:146697"
+    ],
+    "value": "Araliaceae"
+  },
+  "goals": [
+    {
+      "area": "Fatiga y debilidad",
+      "evidence": "La EMA tiene una monografía de la raíz en esta área.",
+      "goal": "cansancio-y-fatiga",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:ginseng-radix"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "panax-ginseng",
+  "image": {
+    "attributionRequired": true,
+    "author": "FloraFarm GmbH / Katharina Lohrie",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ginsengpflanze.jpg",
+    "refs": [
+      "commons:File:Ginsengpflanze.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Ginsengpflanze.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:691-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:146697"
+    ],
+    "value": "China, Asia oriental y el Lejano Oriente ruso"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:ginseng-radix"
+      ],
+      "value": "Raíz"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ginsengpflanze.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ginsengpflanze.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ginsengpflanze.jpg"
+    },
+    "ema_herbal:ginseng-radix": {
+      "dataset": "ema_json",
+      "label": "EMA: Ginseng radix",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/ginseng-radix"
+    },
+    "ema_pdf:ginseng-radix:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de ginseng-radix, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-panax-ginseng-camey-radix-revision-1_en.pdf"
+    },
+    "ema_pdf:ginseng-radix:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de ginseng-radix, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-panax-ginseng-camey-radix-revision-1_en.pdf"
+    },
+    "usda_common_name:691-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Ginseng»",
+      "license": "CC0"
+    },
+    "usda_common_name:691-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Oriental Ginseng»",
+      "license": "CC0"
+    },
+    "usda_common_name:691-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Korean Ginseng»",
+      "license": "CC0"
+    },
+    "usda_part:691-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:10264": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10264",
+      "license": "CC0"
+    },
+    "usda_use:10265": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10265",
+      "license": "CC0"
+    },
+    "usda_use:14686": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14686",
+      "license": "CC0"
+    },
+    "usda_use:14769": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14769",
+      "license": "CC0"
+    },
+    "usda_use:16061": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16061",
+      "license": "CC0"
+    },
+    "usda_use:16105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16105",
+      "license": "CC0"
+    },
+    "usda_use:20472": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20472",
+      "license": "CC0"
+    },
+    "usda_use:2208": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2208",
+      "license": "CC0"
+    },
+    "usda_use:25014": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25014",
+      "license": "CC0"
+    },
+    "usda_use:2877": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2877",
+      "license": "CC0"
+    },
+    "usda_use:34512": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34512",
+      "license": "CC0"
+    },
+    "usda_use:34513": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34513",
+      "license": "CC0"
+    },
+    "usda_use:35575": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35575",
+      "license": "CC0"
+    },
+    "usda_use:35576": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35576",
+      "license": "CC0"
+    },
+    "usda_use:4529": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4529",
+      "license": "CC0"
+    },
+    "usda_use:4530": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4530",
+      "license": "CC0"
+    },
+    "usda_use:4531": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4531",
+      "license": "CC0"
+    },
+    "usda_use:46831": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46831",
+      "license": "CC0"
+    },
+    "usda_use:46832": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46832",
+      "license": "CC0"
+    },
+    "usda_use:49810": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49810",
+      "license": "CC0"
+    },
+    "usda_use:49811": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49811",
+      "license": "CC0"
+    },
+    "usda_use:50765": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50765",
+      "license": "CC0"
+    },
+    "usda_use:50766": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50766",
+      "license": "CC0"
+    },
+    "usda_use:50767": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50767",
+      "license": "CC0"
+    },
+    "usda_use:50768": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50768",
+      "license": "CC0"
+    },
+    "usda_use:51639": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51639",
+      "license": "CC0"
+    },
+    "usda_use:51640": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51640",
+      "license": "CC0"
+    },
+    "usda_use:5238": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5238",
+      "license": "CC0"
+    },
+    "usda_use:59974": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59974",
+      "license": "CC0"
+    },
+    "usda_use:64775": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64775",
+      "license": "CC0"
+    },
+    "usda_use:67752": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67752",
+      "license": "CC0"
+    },
+    "usda_use:67978": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67978",
+      "license": "CC0"
+    },
+    "usda_use:69673": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69673",
+      "license": "CC0"
+    },
+    "usda_use:77765": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77765",
+      "license": "CC0"
+    },
+    "usda_use:78987": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78987",
+      "license": "CC0"
+    },
+    "usda_use:81815": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81815",
+      "license": "CC0"
+    },
+    "usda_use:8676": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8676",
+      "license": "CC0"
+    },
+    "usda_use:8677": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8677",
+      "license": "CC0"
+    },
+    "usda_use:9629": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9629",
+      "license": "CC0"
+    },
+    "usda_use:9818": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9818",
+      "license": "CC0"
+    },
+    "usda_use:9819": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9819",
+      "license": "CC0"
+    },
+    "wcvp:14081": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aralia ginseng (C.A.Mey.) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:146697": {
+      "dataset": "wcvp",
+      "label": "WCVP: Panax ginseng C.A.Mey.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:452293": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aralia quinquefolia var. ginseng (C.A.Mey.) Anon.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:452337": {
+      "dataset": "wcvp",
+      "label": "WCVP: Panax quinquefolius var. ginseng (C.A.Mey.) Regel & Maack",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Panax ginseng": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Panax ginseng",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Panax_ginseng"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:ginseng-radix:4.3",
+      "ema_pdf:ginseng-radix:4.4",
+      "usda_use:14686"
+    ],
+    "text": "La monografía de la EMA registra como contraindicación la hipersensibilidad a la sustancia activa y señala que el uso en menores de 18 años no está establecido por falta de datos suficientes. Los usos tradicionales de USDA registran señales de riesgo. Advertencia: se registran muertes en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "C.A.Mey.",
+    "name": "Panax ginseng",
+    "refs": [
+      "wcvp:146697"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(C.A.Mey.) Baill.",
+      "name": "Aralia ginseng",
+      "refs": [
+        "wcvp:14081"
+      ]
+    },
+    {
+      "authors": "(C.A.Mey.) Anon.",
+      "name": "Aralia quinquefolia var. ginseng",
+      "refs": [
+        "wcvp:452293"
+      ]
+    },
+    {
+      "authors": "(C.A.Mey.) Regel & Maack",
+      "name": "Panax quinquefolius var. ginseng",
+      "refs": [
+        "wcvp:452337"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb20: 404",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 404"
+        },
+        {
+          "key": "Eb30: 13",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 13"
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50765",
+        "usda_use:50766",
+        "usda_use:50767",
+        "usda_use:50768",
+        "usda_use:78987",
+        "usda_use:81815",
+        "usda_reference:Bliss",
+        "usda_reference:EB",
+        "usda_reference:Keys",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4529",
+        "usda_use:4530",
+        "usda_use:4531",
+        "usda_reference:EB",
+        "usda_reference:Keys",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb20: 403",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 403"
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46831",
+        "usda_use:46832",
+        "usda_use:77765",
+        "usda_reference:Bliss",
+        "usda_reference:EB",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Caquexia",
+      "activitySource": "Cachexia",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8676",
+        "usda_use:8677",
+        "usda_reference:Bliss",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9818",
+        "usda_use:9819",
+        "usda_reference:Hartwell",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Cardiotónico",
+      "activitySource": "Cardiotonic",
+      "citations": [
+        {
+          "key": "Eb20: 404",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 404"
+        },
+        {
+          "key": "Eb30: 24",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 24"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Rusia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10264",
+        "usda_use:10265",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14769",
+        "usda_use:67978",
+        "usda_reference:Bliss",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: diabetes",
+      "activitySource": "Diabetes",
+      "citations": [
+        {
+          "key": "Eb20: 404",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 404"
+        },
+        {
+          "key": "Eb30: 24",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 24"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Rusia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16061",
+        "usda_use:16105",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20472",
+        "usda_use:69673",
+        "usda_reference:Bliss",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25014",
+        "usda_use:59974",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34512",
+        "usda_use:34513",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Palpitaciones",
+      "activitySource": "Palpitation",
+      "citations": [
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35575",
+        "usda_use:35576",
+        "usda_reference:EB",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Sed",
+      "activitySource": "Thirst",
+      "citations": [
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49810",
+        "usda_use:49811",
+        "usda_reference:EB",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Tranquilizante",
+      "activitySource": "Tranquilizer",
+      "citations": [
+        {
+          "key": "Eb20: 404",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 404"
+        },
+        {
+          "key": "Eb30: 24",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 24"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Rusia"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51639",
+        "usda_use:51640",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2208",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Eb20: 404",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 20: 404"
+        }
+      ],
+      "countries": [
+        "Rusia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2877",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Eb30: 22",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 22"
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64775",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5238",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de mama",
+      "activitySource": "Cancer(Breast)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9629",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:67752",
+        "usda_reference:Bliss"
+      ]
+    }
+  ]
+}

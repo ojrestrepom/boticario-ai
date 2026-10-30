@@ -1,0 +1,112 @@
+{
+  "aliases": [
+    "polygala-penaea"
+  ],
+  "bundleHash": "sha256:9ea6dd7bb9ea66b4acda67584bd229553e4ac780d3299c8cb3f46fd748d8e59e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1304-1"
+      ],
+      "text": "Glass tree"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1304-2"
+      ],
+      "text": "Tibi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2667742"
+    ],
+    "value": "Badiera penaea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2667742"
+    ],
+    "value": "Polygalaceae"
+  },
+  "goals": [],
+  "id": "badiera-penaea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2667742"
+    ],
+    "value": "Nativa del Caribe."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1304-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Glass tree»",
+      "license": "CC0"
+    },
+    "usda_common_name:1304-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tibi»",
+      "license": "CC0"
+    },
+    "wcvp:2573433": {
+      "dataset": "wcvp",
+      "label": "WCVP: Polygala penaea L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2667742": {
+      "dataset": "wcvp",
+      "label": "WCVP: Badiera penaea (L.) DC.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) DC.",
+    "name": "Badiera penaea",
+    "refs": [
+      "wcvp:2667742"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Polygala penaea",
+      "refs": [
+        "wcvp:2573433"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

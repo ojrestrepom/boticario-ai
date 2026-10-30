@@ -1,0 +1,178 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:17e7bf443495433237615ce24f8419cc5d3c22ab49c6e671cdd82d842abc1fa1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2077-1"
+      ],
+      "text": "Lemon Mint"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Monarda citriodora"
+    ],
+    "value": "Especie de planta de la familia Lamiaceae. Su epíteto alude al olor a limón que emiten sus hojas al triturarlas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:129163"
+    ],
+    "value": "Monarda citriodora"
+  },
+  "family": {
+    "refs": [
+      "wcvp:129163"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "monarda-citriodora",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Monarda_citriodora_inflorescence_1.jpg",
+    "refs": [
+      "commons:File:Monarda citriodora inflorescence 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Monarda_citriodora_inflorescence_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2077-FL",
+      "usda_part:2077-LF",
+      "usda_part:2077-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:129163"
+    ],
+    "value": "México y regiones centro-norte, centro-sur, sureste y suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Monarda citriodora inflorescence 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Monarda citriodora inflorescence 1.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Monarda_citriodora_inflorescence_1.jpg"
+    },
+    "usda_common_name:2077-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Lemon Mint»",
+      "license": "CC0"
+    },
+    "usda_part:2077-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:2077-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:2077-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:59591": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59591",
+      "license": "CC0"
+    },
+    "wcvp:129163": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda citriodora Cerv. ex Lag.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Monarda citriodora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Monarda citriodora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Monarda_citriodora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (flor, hoja y brote), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Cerv. ex Lag.",
+    "name": "Monarda citriodora",
+    "refs": [
+      "wcvp:129163"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Eb31: 353",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 353"
+        }
+      ],
+      "countries": [
+        "México (Kickapoo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59591",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

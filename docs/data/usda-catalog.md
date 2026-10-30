@@ -1,151 +1,65 @@
-# Catálogo local: procedencia y reproducción
+# Fuente USDA en la semilla del catálogo
 
-Esta guía documenta el asset curado `app/assets/data/plant_catalog.json` (schema 1). No es una importación completa de la base USDA ni una afirmación sobre la vigencia taxonómica o clínica de sus datos.
+Esta guía documenta la fuente USDA Dr. Duke's Phytochemical and Ethnobotanical Databases tal como la usa la semilla consolidada del catálogo (`data/seed/`): de dónde sale, qué datos aporta, qué límites tienen y cómo se asignan sus usos a las plantas. No es una afirmación sobre la vigencia taxonómica o clínica de los datos de la fuente. Las demás fuentes y sus licencias están en [fuentes y licencias](fuentes-y-licencias.md); cómo se arma la semilla y cómo se convierte en `catalog.db` está en el [modelo de datos](modelo-de-datos.md).
 
-## Fuente, archivo y fechas
+USDA ya no se convierte en `catalog.db` por un adaptador del backend. Ahora es una de las fuentes que alimentan los paquetes por planta de las herramientas (`tools/catalog-seed/`), y un LLM consolida esos paquetes en un registro por planta que el backend solo lee.
+
+## Procedencia
 
 - Dataset archivado: [USDA Dr. Duke's Phytochemical and Ethnobotanical Databases, Ag Data Commons, artículo 24660351, versión 1](https://agdatacommons.nal.usda.gov/articles/dataset/Dr_Duke_s_Phytochemical_and_Ethnobotanical_Databases/24660351).
-- Archivo original: [`Duke-Source-CSV.zip`, file ID 43363335](https://ndownloader.figshare.com/files/43363335) (6,033,990 bytes; MD5 `45ae44a0544586b8ac22a232beaac344`). La ficha de API del artículo es [v2](https://api.figshare.com/v2/articles/24660351).
-- Diccionario de datos del artículo: [file ID 43363338](https://ndownloader.figshare.com/files/43363338) (archivo complementario; no se empaqueta en el asset).
+- Archivo original: [`Duke-Source-CSV.zip`, file ID 43363335](https://ndownloader.figshare.com/files/43363335) (6.033.990 bytes; MD5 `45ae44a0544586b8ac22a232beaac344`). La ficha de API del artículo es [v2](https://api.figshare.com/v2/articles/24660351).
 - Licencia declarada por USDA: [CC0](https://phytochem.nal.usda.gov/about).
-- Inspección del ZIP y del asset: 2026-10-01. `inspectedOn` es la fecha de esa inspección, no una fecha de publicación, captura ni periodo cubierto.
-- Cita del artículo registrada por la API de Figshare y reflejada en el asset: Duke, James A. (2016). *Dr. Duke's Phytochemical and Ethnobotanical Databases*. Ag Data Commons. Dataset. <https://doi.org/10.15482/USDA.ADC/1239279>.
+- Cita registrada por la API de Figshare: Duke, James A. (2016). *Dr. Duke's Phytochemical and Ethnobotanical Databases*. Ag Data Commons. Dataset. <https://doi.org/10.15482/USDA.ADC/1239279>. Es la atribución que lleva la fuente `usda` en `tools/catalog-seed/sources.json` y en el manifiesto de la semilla.
 - La página [About de USDA](https://phytochem.nal.usda.gov/about) recomienda citar el recurso como 1992–2016. Ese rango pertenece a la recomendación de cita de USDA, no al texto de cita de la API del artículo; tampoco establece la cobertura temporal efectiva de este ZIP, que no fue determinada.
+- Verificación: `python3 -I tools/catalog-seed/cli.py download --source usda` descarga el ZIP a `data/.cache/usda/` solo si coincide con el tamaño y el MD5 de `sources.json`. La caché está ignorada por Git y no va en la imagen de Docker.
 
-El tamaño medido del asset es **80,391 bytes**. No es el tamaño del archivo empaquetado por Flutter/SDK, ni del ZIP de origen. El ID de planta `usdaPlantId` refleja el valor fuente `FNFNUM` del catálogo; no se expande el acrónimo FNF, cuyo significado no se verificó, ni se presenta como identificador universal. Los nombres comunes en español (`Lavanda`, `Eucalipto`, `Romero`, `Manzanilla`, `Menta`) son etiquetas editoriales tomadas del mockup, no nombres traducidos/verificados por USDA. El texto científico mantiene literalmente la forma archivada; no se valida sinonimia vigente.
+El identificador de planta de la fuente es `FNFNUM`; no se expande el acrónimo FNF, cuyo significado no se verificó, ni se presenta como identificador universal. El texto científico (`TAXON`) y los nombres comunes de la fuente se conservan literalmente en los paquetes. Los textos que ve el usuario (actividades, nombres comunes mostrados) los consolida el LLM en español y siempre conservan el original: `activitySource` guarda la etiqueta de USDA tal cual.
 
-## Qué conserva el asset
+## Qué aporta
 
-El JSON tiene `schemaVersion`, `provenance`, `references` y `plants`. Cada planta contiene identidad (`usdaPlantId`, `editorialCommonName`, `sourceScientificName`, `kind`), `origin` y `description` (actualmente `null`), `identitySource`, `parts` con selectores de fila fuente, `traditionalUses` con selector de origen y `referenceIds`, y `propertiesNotEvaluated: true`. Las referencias llevan `id`, cita literal y selector `REFERENCES`.
+`python3 -I tools/catalog-seed/cli.py extract --source usda` vuelca el ZIP, sin red, a `data/work/sources.db` con estas filas (cifras de la extracción de referencia):
 
-Resumen de las filas curadas (usos son filas, no actividades únicas):
+| Dato | Tabla de origen | Filas |
+| --- | --- | --- |
+| Plantas (`usda_taxon`) | `FNFTAX` | 2.376 |
+| Nombres comunes (`usda_common_name`) | `COMMON_NAMES` | 2.920 |
+| Partes con compuestos (`usda_part`) | `FARMACY_NEW` cruzada con `PARTS` por `PPCO` | 6.740 |
+| Usos (`usda_use`) | `ETHNOBOT` | 82.873 |
+| Referencias (`usda_reference`) | `REFERENCES` | 2.043 |
 
-| FNFNUM | Nombre editorial | Nombre científico literal | Partes | Usos elegibles | Referencias usadas |
-|---:|---|---|---:|---:|---|
-| 544 | Lavanda | `Lavandula angustifolia` | 4 | 10 | Steinmetz |
-| 401 | Eucalipto | `Eucalyptus globulus` | 15 | 51 | FontQuer, Hartwell, Krochmal, Leung, Martinez, Pittier, Steinmetz, Uphof |
-| 873 | Romero | `Rosmarinus officinalis` | 9 | 60 | Altschul, Brutus, FontQuer, Gupta, Hartwell, Leung, Martinez, Pittier, Steinmetz, Takeda, Uphof |
-| 605 | Manzanilla | `Matricaria recutita` | 3 | 0 | — |
-| 619 | Menta | `Mentha x piperita subsp. nothosubsp. piperita` | 5 | 0 | — |
+Los nombres comunes de USDA no declaran idioma: un nombre que termina en una etiqueta entre paréntesis (`Rumberry (Eng.)`) se marca `und` y el resto `en`, y el texto nunca se modifica. Las actividades de `ETHNOBOT` están en inglés.
 
-En conjunto son 36 entradas de parte, 121 usos elegibles y 12 referencias bibliográficas distintas.
+## Límites de los datos
 
-Cada fila de parte traza a `FARMACY_NEW(FNFNUM,PPCO)` y al nombre de código `PARTS(PPCO,PPNA)`. `FARMACY_NEW` es registro fitoquímico/componente; no respalda por sí mismo eficacia o propiedad medicinal. Sus nombres como `Essential Oil` tampoco crean una ficha de aceite: el catálogo de aceites queda vacío y `kind` es `plant`, incluso cuando una etiqueta de parte menciona aceite esencial.
+- `FARMACY_NEW` es un registro fitoquímico por planta y parte; no respalda por sí mismo eficacia o propiedad medicinal. Sus nombres de parte como `Essential Oil` no crean una ficha de aceite por sí solos. Para el aceite, el compuesto `EO` y sus variantes cuentan como indicio de aceite esencial (`hasEo`), y si el registro se apoya solo en ese indicio lleva el `reviewFlag` `aceite-por-compuesto-eo`.
+- Cada uso es una fila de `ETHNOBOT` con `GENUS`, `SPECIES`, `TAXON`, `ACTIVITY`, `REFERENCE` y `ETHNO`. Son, como máximo, registros tradicionales atribuidos por esa base; no son consejo, dosis, recomendación ni evidencia clínica. Las herramientas no incorporan dosis y el validador avisa de expresiones de dosis o eficacia en los textos visibles.
+- Las actividades sensibles tienen un trato especial (`tools/catalog-seed/sensitive-activities.json`). Una enfermedad grave como el cáncer se redacta «Uso tradicional, sin eficacia demostrada: cáncer de mama» y conserva el original en `activitySource`. Una señal de riesgo como `Poison` o `Abortifacient` no se publica como uso: pasa a `safety` como advertencia.
+- `ETHNOBOT` no tiene `FNFNUM`: solo trae el nombre (`TAXON`) y el autor (`TAXAUTHOR`). Por eso la asignación a plantas depende de la resolución de nombres (véase la sección siguiente).
+- El `LONGREF` propio de `ETHNOBOT` está vacío en todas las filas, y la cita completa solo existe en `REFERENCES`. Del total de filas, 31.629 (38 %, 899 claves distintas) citan una clave `REFERENCE` que no coincide exactamente con ninguna de las 2.043 de `REFERENCES`: unas 6.055 solo difieren en formato (`Burkill,1966` frente a `Burkill, 1966`), 9.576 son `Woi.<n>` (existe `WOI`, «The Wealth of India»), 10.992 son `Eb<vol>:<pág>` (existe `EB`, «Economic Botany»), 3.040 son `Woi.Syria`, de obra poco clara, y 1.966 son otras.
+- El flujo anterior descartaba esas filas. Ahora el paquete de cada planta suma, por clave corta, hasta 5 referencias candidatas (la exacta, las de clave normalizada igual y las que comparten el prefijo alfabético) y el LLM decide a cuál corresponde cada clave. Si ninguna corresponde, la cita queda como «(sin resolver)» junto a la clave con un `reviewFlag` `cita-sin-resolver`. Se espera que queden sin resolver unas 5.000 filas (6 %).
+- Un grupo de usos sin ninguna cita resuelta queda con `pendingReview` verdadero: se guarda en la semilla y en `plant_use_group`, pero no genera filas en `plant_use` y la API no lo sirve. Un grupo con al menos una cita resuelta se muestra aunque conserve claves «(sin resolver)». La revisión humana de los pendientes queda fuera de alcance.
+- Que una planta no tenga usos de USDA no significa que carezca de usos: significa que ninguna fila de `ETHNOBOT` se asignó a ella con este criterio.
 
-Cada uso conserva `ETHNOBOT` con `GENUS`, `SPECIES`, `TAXON`, `ACTIVITY`, `REFERENCE` y `ETHNO`, junto a su clave bibliográfica resoluble. Las cadenas `ACTIVITY` y `LONGREF` se conservan como aparecen en el archivo (incluidos errores tipográficos presentes en la fuente; no se corrigen ni traducen). La fecha de inspección y trazabilidad no hacen que esas entradas sean evidencia médica. Son, como máximo, registros tradicionales atribuidos por esa base; no son consejo, dosis, recomendación ni afirmaciones clínicas sustentadas por la cita genérica de USDA.
+## Cruce de usos por sinónimos resueltos
 
-## Selector y criterio de curación
+Antes, los usos se cruzaban de forma exacta por `GENUS`, `SPECIES` y `TAXON`, y una fila registrada bajo un sinónimo se perdía. La asignación actual (`catalog_seed/usda_assign.py`) usa la resolución taxonómica:
 
-1. Leer `FNFTAX.csv` y localizar por `FNFNUM` las cinco identidades. `TAXON`, `GENUS`, `SPECIES` y, cuando exista, `SUBSPECIES` se comparan como campos de identidad. El `TAXON` fuente da el nombre científico literal. No se sustituyen formas por nomenclatura actual.
-2. Para cada FNFNUM, tomar los códigos `PPCO` asociados a ese número en `FARMACY_NEW.csv`; resolver cada código por `PPCO` en `PARTS.csv` y guardar el `PPNA` archivado. Se conserva la etiqueta fuente, sin traducirla. Esto solo documenta asociaciones fitoquímicas/partes del dataset.
-3. `ETHNOBOT.csv` no tiene FNFNUM. Cruzar los cinco registros de identidad con `GENUS`, `SPECIES` **y `TAXON` exactos**; no usar coincidencia parcial, alias o solo nombre común. Guardar la fila individual seleccionada, en particular su `ACTIVITY`, `REFERENCE` y `ETHNO`.
-4. Resolver `REFERENCE` en `REFERENCES.csv` mediante una única coincidencia de clave no vacía y `LONGREF` no vacío. Se requiere una resolución inequívoca. Excluir usos cuyo taxón no coincide exactamente, cuya fila es ambigua, o cuyo `REFERENCE` falta/no resuelve. No se descarta ni altera la cita fuente una vez resuelta.
+1. Los nombres comunes y las partes traen `FNFNUM` y se asignan por la entrada `usda:<FNFNUM>` del universo de plantas.
+2. Las filas de uso se asignan con la resolución de `TAXON` y `TAXAUTHOR` a un nombre aceptado de WCVP (con WFO como respaldo). Cada par distinto se resuelve una sola vez. Una fila bajo un sinónimo (*Matricaria recutita*) llega a la planta del aceptado (*Matricaria chamomilla*), y una fila bajo un sinónimo heterotípico fusionado por la regla de colisiones llega a la planta en la que se fusionó.
+3. Una fila que no se asigna queda registrada con su motivo (`sin-resolver`, `fuera-del-universo`, `sin-asignar` o `fnfnum-sin-planta`) y no entra en ningún paquete.
+4. Cada fila asignada conserva su ref `usda_use:<ETHNO>`, y las citas candidatas conservan `usda_reference:<REFERENCE>`, de modo que cada dato del registro final cita la fila de USDA de la que sale.
 
-El criterio anterior produce para estos cinco taxones, en el ZIP verificado: Lavandula 13 coincidencias taxonómicas exactas, 10 elegibles y 3 referencias no resolubles excluidas; Eucalyptus 57, 51 y 6; Rosmarinus 92, 60 y 32; Matricaria 0, 0 y 0; Mentha 0, 0 y 0. Las filas excluidas no se incorporan al asset. En particular, Manzanilla y Menta sin usos elegibles solo significa que no se encontraron filas ETHNOBOT que satisfagan este cruce y criterio; no significa que esas plantas carezcan de usos.
+Resultado medido con los datos reales (universo de 2.355 plantas, tarea 3.2 de `consolidate-catalog-seed`):
 
-La normalización usada al preparar selectores textuales es limitarse a quitar espacios exteriores (`strip`/`trim`) al leer y comparar celdas; no se cambia mayúsculas, puntuación, acentos, taxón, actividad ni texto bibliográfico. La salida JSON registra los valores exactos de selección tras ese recorte, por lo que la documentación distingue la forma almacenada de posibles espacios externos del CSV original. No se completa `origin` ni `description`; ambas ausencias son `null`. No se incorporan dosis. `propertiesNotEvaluated: true` indica que este catálogo no evaluó propiedades medicinales.
+| Cifra | Valor |
+| --- | --- |
+| Filas de uso | 82.873 en 13.899 pares (`TAXON`, `TAXAUTHOR`) |
+| Filas de uso asignadas a una planta | 35.935 |
+| Filas de uso sin asignar | 46.938, de las cuales 42.635 resuelven a una especie fuera del universo y 4.272 no resuelven |
+| Plantas con datos de USDA | 2.316 |
+| Manzanilla (`matricaria-chamomilla`) | de 0 a 91 usos (0 con el cruce exacto) |
+| Menta (`mentha-x-piperita`) | de 0 a 49 usos (0 con el cruce exacto) |
 
-### Ejemplo de traza en el JSON
+Antes del cambio, 1.196 de las 2.376 plantas (50 %) no tenían ningún uso en `catalog.db`. Las cifras de arriba son filas de USDA asignadas por planta, no los usos que sirve la API: tras la consolidación, los usos pasan a ser grupos por actividad en español, y los grupos pendientes de revisión no se sirven.
 
-```json
-{"usdaPlantId":544,"identitySource":{"table":"FNFTAX","selectors":{"FNFNUM":544,"TAXON":"Lavandula angustifolia","GENUS":"Lavandula","SPECIES":"angustifolia"}},"parts":[{"name":"Flower","sourceCode":"FL","sources":[{"table":"FARMACY_NEW","selectors":{"FNFNUM":544,"PPCO":"FL"}},{"table":"PARTS","selectors":{"PPCO":"FL","PPNA":"Flower"}}]}],"traditionalUses":[{"activity":"Carminative","source":{"table":"ETHNOBOT","selectors":{"GENUS":"Lavandula","SPECIES":"angustifolia","TAXON":"Lavandula angustifolia","ACTIVITY":"Carminative","REFERENCE":"Steinmetz","ETHNO":"10546"}},"referenceIds":["Steinmetz"]}]}
-```
-
-El mismo patrón de selectores permite reproducir las relaciones de cada fila del asset sin duplicar aquí las 121 filas de uso. El ejemplo no atribuye eficacia a la actividad.
-
-## Correspondencia con P04 (Explorar)
-
-La lista de P04 presenta el catálogo local; cada fila se corresponde con un registro `plants` del JSON y sus valores se muestran así:
-
-| Elemento de P04 | Campo/origen | Alcance y límite |
-|---|---|---|
-| Nombre principal (por ejemplo, «Lavanda») | `editorialCommonName` | Etiqueta editorial del mockup en español; no es traducción ni nombre común validado por USDA. |
-| Nombre secundario | `sourceScientificName`, copiado de `identitySource.selectors.TAXON` | Forma taxonómica literal del archivo inspeccionado; no se actualiza ni valida sinonimia vigente. |
-| Identidad usada al seleccionar una fila | `usdaPlantId`, correspondiente al `FNFNUM` archivado | Identificador interno del catálogo/app, no identificador universal; el toque llama al callback con este valor. La ruta destino aún no forma parte de esta correspondencia. |
-| Icono de flor | Decoración local `Icons.local_florist` | Icono Material genérico; no es una fotografía ni una ilustración identificativa de la especie. |
-| Búsqueda | Normalización de consulta y comparación contra `editorialCommonName` y `sourceScientificName` | Coincidencia por texto normalizado (mayúsculas/minúsculas, acentos y espacios repetidos/exteriores), no alias ni búsqueda en USDA/red. No se inventa un nombre común en español a partir de la fuente. |
-| Filtros «Todas», «Plantas», «Aceites» | Filtro `kind` de los registros | El catálogo actual contiene cinco registros `plant` y ningún registro `oil`: «Aceites» muestra su estado vacío. Una parte llamada `Essential Oil` en `parts` no convierte la planta en aceite ni crea un producto/ficha de aceite. |
-
-P04 inicia en «Todas» con consulta vacía. Carga, error local con «Reintentar», catálogo sin resultados y filtro de aceites vacío son estados distintos; ninguno rellena contenido ausente ni afirma ausencia real de plantas/aceites fuera de este conjunto curado. La fila solo expone identidad editorial/científica y selección: no muestra partes, usos ni propiedades. Los límites de los datos de partes/usos y su trazabilidad descritos arriba no cambian por aparecer la planta en la lista.
-
-## Correspondencia con P05 (Pasaporte)
-
-P05 resuelve `usdaPlantId` contra los cinco registros de `plants` del asset. En `General`, origen y descripción `null` se muestran literalmente como «No disponible en fuente»; las partes muestran sus nombres/códigos registrados desde `FARMACY_NEW` + `PARTS`, no recomendaciones. El tipo de aceite figura como no aplicable: los registros de parte `Essential Oil` no son identidad de un aceite. La pestaña `Propiedades` indica que no hay propiedades medicinales evaluadas en este catálogo: `FARMACY_NEW` no es evaluación de propiedades.
-
-Los campos de procedencia visibles en `General` (fuente, licencia CC0, versión, IDs de dataset/archivo, URL, fecha `inspectedOn` y cita recomendada) describen metadata del snapshot. La fecha de inspección no indica cobertura temporal; el rango 1992–2016 pertenece a la cita recomendada de USDA. Ni esos metadatos ni la cita general USDA son respaldo clínico de los usos.
-
-En `Usos`, cada fila elegible muestra el `ETHNOBOT.ACTIVITY` literal en inglés, con la etiqueta «Registro tradicional» y la aclaración «No es una recomendación de uso ni evidencia de eficacia clínica». Cada actividad corresponde a su fila identificada por `GENUS`, `SPECIES`, `TAXON`, `ACTIVITY`, `REFERENCE` y `ETHNO`; cada `referenceId` debe resolver a una entrada `REFERENCES` con `LONGREF`. La bibliografía de `General` se deduplica por ID de referencia entre los usos de la planta; en `Usos` la cita vuelve a aparecer junto a cada registro que la usa. Tanto la actividad como la cita conservan el texto fuente, incluidos errores tipográficos, sin traducir ni corregir.
-
-El asset contiene 10 usos elegibles para Lavanda, 51 para Eucalipto, 60 para Romero y cero para Manzanilla y Menta. Para ambas P05 muestra «No hay usos tradicionales con referencia verificable disponibles». Esto indica exactamente que no hay usos elegibles en este cruce taxonómico y bibliográfico del snapshot; no significa ausencia general de usos. Las exclusiones por identidad ambigua/no exacta o referencia ausente/no resoluble siguen aplicándose como se describe en «Selector y criterio de curación». No se añaden dosis, equivalencias modernas ni otras fuentes.
-
-## Validación opcional desde la raíz del repositorio
-
-El bloque siguiente usa solo Python estándar. Para esta validación opcional, descarga el archivo público una vez y lo mantiene en memoria, verifica su tamaño/MD5, inspecciona las tablas CSV sin extraerlas a disco, y valida los selectores/relaciones y el recuento de cada fila actual del asset. Ejecútese desde la raíz del repo. Requiere conectividad para descargarlo durante esa validación; no guarda ni requiere almacenar el ZIP en el repositorio, instalar paquetes, agregar scripts, cambiar CI ni habilitar HTTP en la app. No es una verificación offline ni debe usarse como test offline.
-
-```sh
-python3 - <<'PY'
-import csv, hashlib, io, json, urllib.request, zipfile
-
-asset = json.load(open('app/assets/data/plant_catalog.json', encoding='utf-8'))
-url = 'https://ndownloader.figshare.com/files/43363335'
-data = urllib.request.urlopen(url, timeout=60).read()
-assert len(data) == asset['provenance']['fileSizeBytes'] == 6033990
-assert hashlib.md5(data).hexdigest() == asset['provenance']['md5'] == '45ae44a0544586b8ac22a232beaac344'
-archive = zipfile.ZipFile(io.BytesIO(data))
-
-def table(name):
-    # CSV tables in this source archive decode as Windows-1252.
-    with archive.open(name + '.csv') as stream:
-        text = stream.read().decode('cp1252')
-    return list(csv.DictReader(io.StringIO(text)))
-
-fnftax, farmacy, parts = table('FNFTAX'), table('FARMACY_NEW'), table('PARTS')
-ethnobot, references = table('ETHNOBOT'), table('REFERENCES')
-def val(row, key):
-    value = row.get(key, '')
-    return value.strip() if isinstance(value, str) else value
-
-ref_rows = {}
-for row in references:
-    key = val(row, 'REFERENCE')
-    if key and val(row, 'LONGREF'):
-        ref_rows.setdefault(key, []).append(val(row, 'LONGREF'))
-curated_refs = {r['id']: r for r in asset['references']}
-curated_plants = asset['plants']
-assert len(curated_plants) == 5
-counts = []
-for plant in curated_plants:
-    identity = plant['identitySource']['selectors']
-    taxon_rows = [r for r in fnftax if val(r, 'FNFNUM') == str(identity['FNFNUM'])]
-    assert len(taxon_rows) == 1
-    taxon = taxon_rows[0]
-    assert all(val(taxon, k) == str(identity[k]) for k in ('FNFNUM', 'TAXON', 'GENUS', 'SPECIES'))
-    assert plant['sourceScientificName'] == identity['TAXON']
-    for part in plant['parts']:
-        farmacy_sel = part['sources'][0]['selectors']
-        assert farmacy_sel['FNFNUM'] == plant['usdaPlantId']
-        assert farmacy_sel['PPCO'] == part['sourceCode']
-        assert any(val(r, 'FNFNUM') == str(plant['usdaPlantId']) and val(r, 'PPCO') == part['sourceCode'] for r in farmacy)
-        part_sel = part['sources'][1]['selectors']
-        assert part_sel['PPCO'] == part['sourceCode'] and part_sel['PPNA'] == part['name']
-        assert any(val(r, 'PPCO') == part_sel['PPCO'] and val(r, 'PPNA') == part_sel['PPNA'] for r in parts)
-    exact = [r for r in ethnobot if all(val(r, k) == val(taxon, k) for k in ('GENUS', 'SPECIES', 'TAXON'))]
-    eligible = [r for r in exact if val(r, 'REFERENCE') and len(ref_rows.get(val(r, 'REFERENCE'), [])) == 1]
-    uses = plant['traditionalUses']
-    assert len(uses) == len(eligible)
-    for use in uses:
-        sel = use['source']['selectors']
-        matches = [r for r in eligible if all(val(r, k) == str(sel[k]) for k in ('GENUS', 'SPECIES', 'TAXON', 'ACTIVITY', 'REFERENCE', 'ETHNO'))]
-        assert len(matches) == 1
-        assert use['referenceIds'] == [sel['REFERENCE']]
-        ref = curated_refs[sel['REFERENCE']]
-        ref_sel = ref['source']['selectors']
-        assert ref_sel['REFERENCE'] == sel['REFERENCE']
-        assert ref_sel['LONGREF'] == ref['citation'] == ref_rows[sel['REFERENCE']][0]
-    counts.append((plant['usdaPlantId'], len(exact), len(eligible), len(exact) - len(eligible)))
-assert counts == [(544, 13, 10, 3), (401, 57, 51, 6), (873, 92, 60, 32), (605, 0, 0, 0), (619, 0, 0, 0)]
-print('OK; asset bytes:', len(open('app/assets/data/plant_catalog.json', 'rb').read()), '; (FNFNUM, exact, eligible, excluded):', counts)
-PY
-```
-
-Tests de fixture y pruebas CI del catálogo leen el JSON local; no descargan ni requieren el ZIP, y siguen siendo ejecutables sin red. El mapeo visual de P04 documentado arriba corresponde a la implementación actual de la lista. La correspondencia descrita para P05 documenta la pantalla y sus límites, no es una declaración de release ni implica que el recorrido integrado de Android esté listo: la navegación de las tareas OpenSpec 4.x sigue pendiente.
+La identidad también cambia. El ID de una planta ya no es el slug del `TAXON` de USDA sino el del nombre aceptado en WCVP, fijo en la semilla; el slug del `TAXON` anterior queda como alias en `plant_alias` (por ejemplo `matricaria-recutita` para `matricaria-chamomilla`). Los detalles de la resolución, la regla de colisiones y los números por planta están en el [README de las herramientas](../../tools/catalog-seed/README.md).

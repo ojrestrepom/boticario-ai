@@ -1,0 +1,949 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:53a001c029158dbe07b52299f1f715de195ee1aedf215b3a957f3a31d7f90547",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Chelidonium majus",
+        "wikidata:Q156807"
+      ],
+      "text": "Celidonia mayor"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Chelidonium majus"
+      ],
+      "text": "hierba golondrinera"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "celidonia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "golondrinera"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "pedigüeña"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "celidueña"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "cedueña"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "celdueña"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "celedonia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q156807"
+      ],
+      "text": "celedonio"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P129"
+      ],
+      "text": "Greater celandine"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:248-1"
+      ],
+      "text": "Celandine"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P129"
+      ],
+      "text": "Schoellkraut"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Chelidonium majus"
+    ],
+    "value": "Planta herbácea perenne de la familia de las amapolas (Papaveraceae), única especie del género Chelidonium."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q156807"
+    ],
+    "value": "Celidonia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2716702"
+    ],
+    "value": "Papaveraceae"
+  },
+  "goals": [],
+  "id": "chelidonium-majus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:248-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2716702"
+    ],
+    "value": "Cáucaso, Asia central, China, Asia oriental, Europa oriental, Macaronesia, Europa central, Mongolia, África septentrional, Europa septentrional, Lejano Oriente ruso, Siberia, Europa sudoriental, Europa suroccidental y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:chelidonii-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:1630": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: chelidonine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1631": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: chelerythrine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1632": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: sanguinarine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1633": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: protopine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1634": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: berberine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1635": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: stylopine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1636": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: coptisine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:693": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Chelidonium majus L.",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:chelidonii-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Chelidonii herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/chelidonii-herba"
+    },
+    "ema_pdf:chelidonii-herba:CONCLUSIONS": {
+      "dataset": "ema_pdf",
+      "label": "EMA: declaración pública de chelidonii-herba, conclusiones",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-chelidonium-majus-l-herba_en.pdf"
+    },
+    "tppt_plant:P129": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Chelidonium majus L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:248-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Celandine»",
+      "license": "CC0"
+    },
+    "usda_part:248-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11589",
+      "license": "CC0"
+    },
+    "usda_use:13453": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13453",
+      "license": "CC0"
+    },
+    "usda_use:13454": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13454",
+      "license": "CC0"
+    },
+    "usda_use:15428": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15428",
+      "license": "CC0"
+    },
+    "usda_use:16171": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16171",
+      "license": "CC0"
+    },
+    "usda_use:1714": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1714",
+      "license": "CC0"
+    },
+    "usda_use:17760": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17760",
+      "license": "CC0"
+    },
+    "usda_use:2391": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2391",
+      "license": "CC0"
+    },
+    "usda_use:30659": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30659",
+      "license": "CC0"
+    },
+    "usda_use:34250": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34250",
+      "license": "CC0"
+    },
+    "usda_use:37763": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37763",
+      "license": "CC0"
+    },
+    "usda_use:42974": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42974",
+      "license": "CC0"
+    },
+    "usda_use:42975": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42975",
+      "license": "CC0"
+    },
+    "usda_use:43598": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43598",
+      "license": "CC0"
+    },
+    "usda_use:45645": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45645",
+      "license": "CC0"
+    },
+    "usda_use:55311": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55311",
+      "license": "CC0"
+    },
+    "usda_use:55312": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55312",
+      "license": "CC0"
+    },
+    "usda_use:55313": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55313",
+      "license": "CC0"
+    },
+    "usda_use:55314": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55314",
+      "license": "CC0"
+    },
+    "usda_use:55315": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55315",
+      "license": "CC0"
+    },
+    "usda_use:57281": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57281",
+      "license": "CC0"
+    },
+    "usda_use:57282": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57282",
+      "license": "CC0"
+    },
+    "usda_use:57283": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57283",
+      "license": "CC0"
+    },
+    "usda_use:57284": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57284",
+      "license": "CC0"
+    },
+    "usda_use:57285": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57285",
+      "license": "CC0"
+    },
+    "usda_use:57286": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57286",
+      "license": "CC0"
+    },
+    "usda_use:66179": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66179",
+      "license": "CC0"
+    },
+    "usda_use:68861": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68861",
+      "license": "CC0"
+    },
+    "usda_use:71423": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71423",
+      "license": "CC0"
+    },
+    "usda_use:73033": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73033",
+      "license": "CC0"
+    },
+    "usda_use:75259": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75259",
+      "license": "CC0"
+    },
+    "usda_use:80342": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80342",
+      "license": "CC0"
+    },
+    "usda_use:80343": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80343",
+      "license": "CC0"
+    },
+    "usda_use:80975": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80975",
+      "license": "CC0"
+    },
+    "usda_use:80976": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80976",
+      "license": "CC0"
+    },
+    "usda_use:8950": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8950",
+      "license": "CC0"
+    },
+    "usda_use:9793": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9793",
+      "license": "CC0"
+    },
+    "wcvp:2716702": {
+      "dataset": "wcvp",
+      "label": "WCVP: Chelidonium majus L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q156807": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q156807",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q156807"
+    },
+    "wikipedia_es:Chelidonium majus": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Chelidonium majus",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Chelidonium_majus"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "tppt_plant:P129",
+      "efsa_botanic:1634",
+      "efsa_botanic:1631",
+      "efsa_botanic:1630",
+      "efsa_botanic:1636",
+      "efsa_botanic:1633",
+      "efsa_botanic:1632",
+      "efsa_botanic:1635",
+      "efsa_endpoint:693",
+      "ema_pdf:chelidonii-herba:CONCLUSIONS",
+      "usda_use:57283",
+      "usda_use:37763",
+      "usda_use:75259"
+    ],
+    "text": "TPPT clasifica la planta entera como muy tóxica para las personas (toxicidad fuerte) y atribuye la toxicidad a alcaloides isoquinolínicos. EFSA registra como evidencia berberina, queleritrina, quelidonina, coptisina, protopina, sanguinarina y estilopina, y un estudio con casos de hepatitis. En una declaración pública, la EMA concluye que, ante numerosas reacciones adversas hepatobiliares notificadas espontáneamente y la retirada de productos en Estados miembros por motivos de seguridad, la relación beneficio-riesgo del uso oral es negativa para establecer una monografía comunitaria. Advertencia: se registran casos mortales. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Chelidonium majus",
+    "refs": [
+      "wcvp:2716702"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estonia",
+        "Finlandia",
+        "Alemania",
+        "Japón (Ainu)",
+        "Lituania",
+        "Marruecos",
+        "Noruega",
+        "España (islas Baleares)",
+        "Reino Unido",
+        "Alemania Occidental (Badan)"
+      ],
+      "n": 10,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55311",
+        "usda_use:55312",
+        "usda_use:55313",
+        "usda_use:55314",
+        "usda_use:55315",
+        "usda_use:57285",
+        "usda_use:57286",
+        "usda_use:80342",
+        "usda_use:80343",
+        "usda_use:80976",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Austria",
+        "Estados Unidos (amerindios)",
+        "URSS"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8950",
+        "usda_use:57281",
+        "usda_use:66179",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Callo",
+      "activitySource": "Corn",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Guatemala",
+        "Uruguay"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13453",
+        "usda_use:13454",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17760",
+        "usda_use:68861",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42974",
+        "usda_use:42975",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1714",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Analgésico",
+      "activitySource": "Analgesic",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57282",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2391",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Japón"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9793",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11589",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15428",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16171",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80975",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Peca",
+      "activitySource": "Freckle",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71423",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Ictericia",
+      "activitySource": "Jaundice",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30659",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73033",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34250",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57284",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43598",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45645",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

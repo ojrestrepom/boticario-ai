@@ -1,0 +1,434 @@
+{
+  "aliases": [
+    "ferula-sumbul"
+  ],
+  "bundleHash": "sha256:dcc6de3059c8c4bc0a3c3c09e9bc7242f5595fef4f191cf181f419035ba15e7c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:416-1"
+      ],
+      "text": "Sumbul"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2808547"
+    ],
+    "value": "Ferula moschata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2808547"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "ferula-moschata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:416-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2808547"
+    ],
+    "value": "Asia central y China"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:416-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sumbul»",
+      "license": "CC0"
+    },
+    "usda_part:416-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:29179": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29179",
+      "license": "CC0"
+    },
+    "usda_use:34679": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34679",
+      "license": "CC0"
+    },
+    "usda_use:34801": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34801",
+      "license": "CC0"
+    },
+    "usda_use:34802": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34802",
+      "license": "CC0"
+    },
+    "usda_use:3894": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3894",
+      "license": "CC0"
+    },
+    "usda_use:4248": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4248",
+      "license": "CC0"
+    },
+    "usda_use:43034": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43034",
+      "license": "CC0"
+    },
+    "usda_use:43035": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43035",
+      "license": "CC0"
+    },
+    "usda_use:45709": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45709",
+      "license": "CC0"
+    },
+    "usda_use:46687": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46687",
+      "license": "CC0"
+    },
+    "usda_use:46688": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46688",
+      "license": "CC0"
+    },
+    "usda_use:46689": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46689",
+      "license": "CC0"
+    },
+    "usda_use:50489": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50489",
+      "license": "CC0"
+    },
+    "usda_use:72365": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72365",
+      "license": "CC0"
+    },
+    "usda_use:81267": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81267",
+      "license": "CC0"
+    },
+    "wcvp:2473678": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sumbulus moschatus H.Reinsch",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2808547": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ferula moschata (H.Reinsch) Koso-Pol.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se muestra el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(H.Reinsch) Koso-Pol.",
+    "name": "Ferula moschata",
+    "refs": [
+      "wcvp:2808547"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "H.Reinsch",
+      "name": "Sumbulus moschatus",
+      "refs": [
+        "wcvp:2473678"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34801",
+        "usda_use:34802",
+        "usda_use:81267",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46687",
+        "usda_use:46688",
+        "usda_use:46689",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29179",
+        "usda_use:72365",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43034",
+        "usda_use:43035",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Antiespasmódico",
+      "activitySource": "Antispasmodic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3894",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Woi.4",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 4"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4248",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Nervios",
+      "activitySource": "Nerves",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34679",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45709",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50489",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

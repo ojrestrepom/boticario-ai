@@ -1,0 +1,149 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e9ae56877a41aa05d19cec1f310c31f86b9949b3d0b5efe65915f75f500d66b0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:983-1"
+      ],
+      "text": "Buckbush"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2486027"
+    ],
+    "value": "Symphoricarpos orbiculatus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2486027"
+    ],
+    "value": "Caprifoliaceae"
+  },
+  "goals": [],
+  "id": "symphoricarpos-orbiculatus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Cillas",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Symphoricarpos_orbiculatus_HRM1.JPG",
+    "refs": [
+      "commons:File:Symphoricarpos orbiculatus HRM1.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Symphoricarpos_orbiculatus_HRM1.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2486027"
+    ],
+    "value": "México y las regiones centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Symphoricarpos orbiculatus HRM1.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Symphoricarpos orbiculatus HRM1.JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Symphoricarpos_orbiculatus_HRM1.JPG"
+    },
+    "usda_common_name:983-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Buckbush»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:70626": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70626",
+      "license": "CC0"
+    },
+    "wcvp:2340705": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lonicera symphoricarpos L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2486027": {
+      "dataset": "wcvp",
+      "label": "WCVP: Symphoricarpos orbiculatus Moench",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Moench",
+    "name": "Symphoricarpos orbiculatus",
+    "refs": [
+      "wcvp:2486027"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Lonicera symphoricarpos",
+      "refs": [
+        "wcvp:2340705"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Ojo",
+      "activitySource": "Eye",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70626",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

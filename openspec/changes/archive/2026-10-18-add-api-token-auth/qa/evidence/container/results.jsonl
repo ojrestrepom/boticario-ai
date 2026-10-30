@@ -1,0 +1,55 @@
+{"case": "CFG-01", "check": "código de salida 2", "ok": true, "detail": "2"}
+{"case": "CFG-01", "check": "el mensaje nombra API_TOKENS", "ok": true, "detail": "error de configuración: API_TOKENS es obligatoria para servir la API; define uno o más tokens separados por comas\n"}
+{"case": "CFG-02", "check": "vacía: código 2 y mensaje con API_TOKENS", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS es obligatoria para servir la API; define uno o más tokens separados por comas\\n')"}
+{"case": "CFG-02", "check": "solo espacios: código 2 y mensaje con API_TOKENS", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS está vacía; define uno o más tokens separados por comas\\n')"}
+{"case": "CFG-02", "check": "solo salto de línea: código 2 y mensaje con API_TOKENS", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS está vacía; define uno o más tokens separados por comas\\n')"}
+{"case": "CFG-03", "check": "31 caracteres: código 2", "ok": true, "detail": "2"}
+{"case": "CFG-03", "check": "31 caracteres: el mensaje indica el límite", "ok": true, "detail": "error de configuración: API_TOKENS: el token 1 es demasiado corto; la longitud mínima es 32 caracteres\n"}
+{"case": "CFG-03", "check": "31 caracteres: el mensaje no contiene el valor", "ok": true, "detail": ""}
+{"case": "CFG-03", "check": "257 caracteres: código 2", "ok": true, "detail": "2"}
+{"case": "CFG-03", "check": "257 caracteres: el mensaje indica el límite", "ok": true, "detail": "error de configuración: API_TOKENS: el token 1 es demasiado largo; la longitud máxima es 256 caracteres\n"}
+{"case": "CFG-03", "check": "257 caracteres: el mensaje no contiene el valor", "ok": true, "detail": ""}
+{"case": "CFG-04", "check": "32 caracteres: arranca, acepta el token y rechaza otro", "ok": true, "detail": "(True, 200, 401)"}
+{"case": "CFG-04", "check": "256 caracteres: arranca, acepta el token y rechaza otro", "ok": true, "detail": "(True, 200, 401)"}
+{"case": "CFG-05", "check": "elemento vacío en medio (a,,b): código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS tiene un elemento vacío en la posición 2; quita las comas sobrantes\\n')"}
+{"case": "CFG-05", "check": "coma final: código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS tiene un elemento vacío en la posición 2; quita las comas sobrantes\\n')"}
+{"case": "CFG-05", "check": "coma inicial: código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS tiene un elemento vacío en la posición 1; quita las comas sobrantes\\n')"}
+{"case": "CFG-05", "check": "carácter @: código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS: el token 1 tiene un carácter no permitido; solo se admiten letras, dígitos y -._~+/\\n')"}
+{"case": "CFG-05", "check": "espacio interior: código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS: el token 1 tiene un carácter no permitido; solo se admiten letras, dígitos y -._~+/\\n')"}
+{"case": "CFG-05", "check": "carácter no ASCII: código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS: el token 1 tiene un carácter no permitido; solo se admiten letras, dígitos y -._~+/\\n')"}
+{"case": "CFG-05", "check": "un token malo entre buenos: código 2, nombra API_TOKENS, sin el valor", "ok": true, "detail": "(2, 'error de configuración: API_TOKENS: el token 2 es demasiado corto; la longitud mínima es 32 caracteres\\n')"}
+{"case": "CFG-06", "check": "arranca con un token de 64 hex y acepta ese token", "ok": true, "detail": ""}
+{"case": "CFG-06", "check": "rechaza otro token", "ok": true, "detail": ""}
+{"case": "CFG-07", "check": "espacios alrededor de la coma y salto final: acepta ambos y rechaza un tercero", "ok": true, "detail": "(True, 200, 200, 401)"}
+{"case": "CFG-07", "check": "CRLF final: acepta ambos y rechaza un tercero", "ok": true, "detail": "(True, 200, 200, 401)"}
+{"case": "CFG-08", "check": "--help sin API_TOKENS: código 0 e imprime la ayuda", "ok": true, "detail": "0"}
+{"case": "CFG-08", "check": "--openapi sin API_TOKENS: código 0 e imprime el documento", "ok": true, "detail": "0"}
+{"case": "CFG-08", "check": "el documento impreso coincide con backend/openapi.json", "ok": true, "detail": ""}
+{"case": "CFG-09", "check": "los mensajes de CFG-01 a CFG-05 no contienen valores de token (comprobado en cada caso)", "ok": true, "detail": ""}
+{"case": "CON-01", "check": "falla (código distinto de 0)", "ok": true, "detail": "1"}
+{"case": "CON-01", "check": "el mensaje nombra API_TOKENS", "ok": true, "detail": ""}
+{"case": "CON-01", "check": "no se creó ningún contenedor", "ok": true, "detail": ""}
+{"case": "CON-01", "check": "no existe .env en la raíz", "ok": true, "detail": ""}
+{"case": "CON-01", "check": "docker compose config con API_TOKENS definido: pasa", "ok": true, "detail": ""}
+{"case": "CON-02", "check": "GET /health -> 200", "ok": true, "detail": ""}
+{"case": "CON-02", "check": "GET /v1/plants sin token -> 401", "ok": true, "detail": ""}
+{"case": "CON-02", "check": "GET /v1/plants con token -> 200", "ok": true, "detail": ""}
+{"case": "CON-03", "check": "q=lavand -> 200 con resultados reales", "ok": true, "detail": "7"}
+{"case": "CON-03", "check": "detalle de lavandula-angustifolia -> 200 con datos reales", "ok": true, "detail": "200"}
+{"case": "CON-04", "check": "PORT=9090: /health 200 en 9090", "ok": true, "detail": ""}
+{"case": "CON-04", "check": "el puerto 8080 del anfitrión no está publicado", "ok": true, "detail": ""}
+{"case": "CON-04", "check": "401 sin token también en 9090", "ok": true, "detail": ""}
+{"case": "CON-05", "check": "con warn no aparece «escuchando»", "ok": true, "detail": ""}
+{"case": "CON-05", "check": "con el valor por defecto aparece «escuchando»", "ok": true, "detail": ""}
+{"case": "CON-06", "check": "T1 y T2 -> 200, otro valor -> 401", "ok": true, "detail": "(200, 200, 401)"}
+{"case": "CON-07", "check": "la imagen no define API_TOKENS", "ok": true, "detail": "[\"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\",\"HOST=0.0.0.0\",\"PORT=8080\",\"CATALOG_DB=/app/catalog.db\",\"RUST_LOG=info\"]\n"}
+{"case": "CON-07", "check": "docker history sin API_TOKENS con valor ni tokens locales", "ok": true, "detail": ""}
+{"case": "CON-07", "check": "0 archivos del sistema de archivos de la imagen contienen un token local", "ok": true, "detail": "0"}
+{"case": "CON-08", "check": "existe el binario /app/catalog-api y la base /app/catalog.db", "ok": true, "detail": ""}
+{"case": "CON-08", "check": "no existen cargo, rustc, ZIP, base cruda ni código fuente", "ok": true, "detail": "[]"}
+{"case": "CON-09", "check": "detalle con token en red sin salida -> 200 con datos", "ok": true, "detail": "0"}
+{"case": "CON-09", "check": "sin token -> 401", "ok": true, "detail": "  HTTP/1.1 401 Unauthorized\nwget: server returned error: HTTP/1.1 401 Unauthorized\n"}
+{"case": "CON-09", "check": "la red de prueba no tiene salida a Internet", "ok": true, "detail": "1"}
+{"case": "CON-10", "check": "0 apariciones de tokens (válidos, inválidos, prefijos) en 13 líneas de log trace", "ok": true, "detail": "{'T1': 0, 'T2': 0, 'T3': 0, 'T3[:40]': 0, 'T1[:32]': 0, 'T2[:32]': 0}"}
+{"case": "CON-10", "check": "el 401 se registra a nivel debug con la clase del fallo", "ok": true, "detail": ""}
+{"case": "CON-10", "check": "no se registra el valor de la cabecera Authorization", "ok": true, "detail": ""}

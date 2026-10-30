@@ -1,0 +1,315 @@
+caso	comprobacion	resultado	detalle
+API-01	200, application/json y cumple el esquema de openapi.json	PASA	
+API-01	la raiz es un array (decision: array en la raiz)	PASA	
+API-01	los objetivos del catalogo en su orden, con id y nombre en espanol	PASA	[('relajacion-estres', 'Relajación / Estrés'), ('mejorar-el-sueno', 'Mejorar el sueño'), ('cuidado-de-la-piel', 'Cuidado de la piel'), ('alivio-respiratorio', 'Alivio respiratorio'), ('cansancio-y-fatiga', 'Cansancio y fatiga'), ('otros-objetivos', 'Otros objetivos')]
+API-01	nombres exactos de P06 y sin 'Concentracion'	PASA	
+API-01	claves camelCase (id, name, plantCount, subareas) y nada mas	PASA	
+API-01	plantCount = plantas distintas visibles segun la base	PASA	{'relajacion-estres': 17, 'mejorar-el-sueno': 8, 'cuidado-de-la-piel': 32, 'alivio-respiratorio': 52, 'cansancio-y-fatiga': 8, 'otros-objetivos': 135}
+API-01	conteos reales de design.md (17, 8, 32, 52, 8, 135)	PASA	
+API-01	solo otros-objetivos trae subareas; los demas, lista vacia (no null)	PASA	
+API-02	seis subareas en el orden del catalogo con nombre en espanol	PASA	[('digestion', 'Digestión'), ('vias-urinarias-y-genitales', 'Vías urinarias y genitales'), ('dolor-e-inflamacion', 'Dolor e inflamación'), ('boca-y-garganta', 'Boca y garganta'), ('circulacion', 'Circulación'), ('molestias-oculares', 'Molestias oculares')]
+API-02	nombres de P06: Digestion, Vias urinarias y genitales, Dolor e inflamacion, Boca y garganta, Circulacion, Molestias oculares	PASA	
+API-02	plantCount de cada subarea segun la base (68, 42, 22, 20, 17, 1)	PASA	
+API-02	claves de subarea: id, name, plantCount	PASA	
+API-02	el conteo del objetivo es la union sin repetir (135 < suma de subareas 170)	PASA	suma de subareas 170
+API-02	hay plantas en dos subareas y cuentan una vez (32 segun el diseno)	PASA	32 plantas, p. ej. ['achillea-millefolium', 'aesculus-hippocastanum', 'agrimonia-eupatoria']
+API-03	relajacion-estres: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 17	PASA	status 200
+API-03	relajacion-estres: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion)	PASA	
+API-03	mejorar-el-sueno: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 8	PASA	status 200
+API-03	mejorar-el-sueno: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion)	PASA	
+API-03	cuidado-de-la-piel: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 32	PASA	status 200
+API-03	cuidado-de-la-piel: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion)	PASA	
+API-03	alivio-respiratorio: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 52	PASA	status 200
+API-03	alivio-respiratorio: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion)	PASA	
+API-03	cansancio-y-fatiga: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 8	PASA	status 200
+API-03	cansancio-y-fatiga: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion)	PASA	
+API-03	otros-objetivos: 200, esquema, goal, subarea null, limit 20 por defecto, offset 0 y total 135	PASA	status 200
+API-03	otros-objetivos: cada elemento solo trae id, scientificName, displayName, commonNames, family, areas, safetyLevel, hasSafety, image (sin dosis ni descripcion)	PASA	
+API-04	digestion: subarea con id y name, total 68	PASA	{'id': 'digestion', 'name': 'Digestión'}
+API-04	digestion: solo plantas de esa subarea (conjunto igual al de la base)	PASA	
+API-04	digestion: areas solo las de esa subarea	PASA	
+API-04	vias-urinarias-y-genitales: subarea con id y name, total 42	PASA	{'id': 'vias-urinarias-y-genitales', 'name': 'Vías urinarias y genitales'}
+API-04	vias-urinarias-y-genitales: solo plantas de esa subarea (conjunto igual al de la base)	PASA	
+API-04	vias-urinarias-y-genitales: areas solo las de esa subarea	PASA	
+API-04	dolor-e-inflamacion: subarea con id y name, total 22	PASA	{'id': 'dolor-e-inflamacion', 'name': 'Dolor e inflamación'}
+API-04	dolor-e-inflamacion: solo plantas de esa subarea (conjunto igual al de la base)	PASA	
+API-04	dolor-e-inflamacion: areas solo las de esa subarea	PASA	
+API-04	boca-y-garganta: subarea con id y name, total 20	PASA	{'id': 'boca-y-garganta', 'name': 'Boca y garganta'}
+API-04	boca-y-garganta: solo plantas de esa subarea (conjunto igual al de la base)	PASA	
+API-04	boca-y-garganta: areas solo las de esa subarea	PASA	
+API-04	circulacion: subarea con id y name, total 17	PASA	{'id': 'circulacion', 'name': 'Circulación'}
+API-04	circulacion: solo plantas de esa subarea (conjunto igual al de la base)	PASA	
+API-04	circulacion: areas solo las de esa subarea	PASA	
+API-04	molestias-oculares: subarea con id y name, total 1	PASA	{'id': 'molestias-oculares', 'name': 'Molestias oculares'}
+API-04	molestias-oculares: solo plantas de esa subarea (conjunto igual al de la base)	PASA	
+API-04	molestias-oculares: areas solo las de esa subarea	PASA	
+API-04	molestias-oculares: una planta (limite inferior)	PASA	['hamamelis-virginiana']
+API-05	135 plantas, cada una una vez	PASA	
+API-05	areas = union de las areas de todas sus subareas (como conjunto)	PASA	
+API-05	plantas en dos subareas aparecen una vez con areas reunidas	PASA	32 plantas
+API-05	32 plantas en mas de una subarea traen mas de un area en la union; ejemplo vaccinium-myrtillus: ['Trastornos circulatorios', 'Trastornos de boca y garganta', 'Trastornos gastrointestinales']	OBS	
+API-06	subarea de otro objetivo en un objetivo con subareas? (sin subareas): 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea de otro objetivo en un objetivo con subareas? (sin subareas): cuerpo cumple el esquema de error	PASA	
+API-06	subarea inexistente en otros-objetivos: 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea inexistente en otros-objetivos: cuerpo cumple el esquema de error	PASA	
+API-06	subarea sobre un objetivo sin subareas: 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea sobre un objetivo sin subareas: cuerpo cumple el esquema de error	PASA	
+API-06	subarea vacia: 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea vacia: cuerpo cumple el esquema de error	PASA	
+API-06	subarea con mayusculas: 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea con mayusculas: cuerpo cumple el esquema de error	PASA	
+API-06	subarea con espacio final: 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea con espacio final: cuerpo cumple el esquema de error	PASA	
+API-06	subarea con id de objetivo: 400 problem+json con param=subarea	PASA	400 subarea
+API-06	subarea con id de objetivo: cuerpo cumple el esquema de error	PASA	
+API-07	id inexistente: 404 problem+json	PASA	404
+API-07	id inexistente: cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-07	id con mayusculas: 404 problem+json	PASA	404
+API-07	id con mayusculas: cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-07	id con caracteres reservados: 404 problem+json	PASA	404
+API-07	id con caracteres reservados: cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-07	id con acento: 404 problem+json	PASA	404
+API-07	id con acento: cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-07	id con punto y coma: 404 problem+json	PASA	404
+API-07	id con punto y coma: cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-07	id muy largo (300): 404 problem+json	PASA	404
+API-07	id muy largo (300): cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-07	inexistente con subarea: 404 problem+json	PASA	404
+API-07	inexistente con subarea: cuerpo cumple el esquema de error y no refleja el id	PASA	
+API-08	limit=1: 200 con 1 elementos (el objetivo tiene 52) y limit=1	PASA	200
+API-08	limit=2: 200 con 2 elementos (el objetivo tiene 52) y limit=2	PASA	200
+API-08	limit=19: 200 con 19 elementos (el objetivo tiene 52) y limit=19	PASA	200
+API-08	limit=20: 200 con 20 elementos (el objetivo tiene 52) y limit=20	PASA	200
+API-08	limit=99: 200 con 52 elementos (el objetivo tiene 52) y limit=99	PASA	200
+API-08	limit=100: 200 con 52 elementos (el objetivo tiene 52) y limit=100	PASA	200
+API-08	limit='0': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='-1': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='101': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='1000': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='abc': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='1.5': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='%20': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='9999999999999999999999': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit='1e2': 400 problem+json con param=limit	PASA	400 limit
+API-08	limit=+5 -> 400 (cadena '+5' se interpreta como invalida)	OBS	
+API-08	offset=0: 200, 5 elementos y total 52 conservado	PASA	200 5
+API-08	offset=1: 200, 5 elementos y total 52 conservado	PASA	200 5
+API-08	offset=51: 200, 1 elementos y total 52 conservado	PASA	200 1
+API-08	offset=52: 200, 0 elementos y total 52 conservado	PASA	200 0
+API-08	offset=53: 200, 0 elementos y total 52 conservado	PASA	200 0
+API-08	offset=1000: 200, 0 elementos y total 52 conservado	PASA	200 0
+API-08	offset=2147483647: 200, 0 elementos y total 52 conservado	PASA	200 0
+API-08	offset='-1': 400 problem+json con param=offset	PASA	400 offset
+API-08	offset='abc': 400 problem+json con param=offset	PASA	400 offset
+API-08	offset='1.5': 400 problem+json con param=offset	PASA	400 offset
+API-08	offset='': 400 problem+json con param=offset	PASA	400 offset
+API-08	offset='99999999999999999999999': 400 problem+json con param=offset	PASA	400 offset
+API-08	offset='9223372036854775807': 400 problem+json con param=offset	PASA	400 offset
+API-08	offset='4294967296': 400 problem+json con param=offset	PASA	400 offset
+API-08	mismas reglas de limit/offset que GET /v1/plants (mismo estado para 10 entradas)	PASA	[]
+API-08	parametro repetido limit=5&limit=10 -> 200 (items 8); GET /v1/plants da 200	OBS	
+API-08	parametro repetido limit=5&limit=abc -> 400 (items -); GET /v1/plants da 400	OBS	
+API-08	parametro desconocido foo=bar -> 200	OBS	
+API-09	relajacion-estres limit=5: cada planta una vez y la union tiene total (17) elementos	PASA	17 vistas
+API-09	relajacion-estres limit=7: cada planta una vez y la union tiene total (17) elementos	PASA	17 vistas
+API-09	relajacion-estres: las paginas de 5 y la de 100 dan la misma secuencia	PASA	
+API-09	mejorar-el-sueno limit=5: cada planta una vez y la union tiene total (8) elementos	PASA	8 vistas
+API-09	mejorar-el-sueno limit=7: cada planta una vez y la union tiene total (8) elementos	PASA	8 vistas
+API-09	mejorar-el-sueno: las paginas de 5 y la de 100 dan la misma secuencia	PASA	
+API-09	cuidado-de-la-piel limit=5: cada planta una vez y la union tiene total (32) elementos	PASA	32 vistas
+API-09	cuidado-de-la-piel limit=7: cada planta una vez y la union tiene total (32) elementos	PASA	32 vistas
+API-09	cuidado-de-la-piel: las paginas de 5 y la de 100 dan la misma secuencia	PASA	
+API-09	alivio-respiratorio limit=5: cada planta una vez y la union tiene total (52) elementos	PASA	52 vistas
+API-09	alivio-respiratorio limit=7: cada planta una vez y la union tiene total (52) elementos	PASA	52 vistas
+API-09	alivio-respiratorio: las paginas de 5 y la de 100 dan la misma secuencia	PASA	
+API-09	cansancio-y-fatiga limit=5: cada planta una vez y la union tiene total (8) elementos	PASA	8 vistas
+API-09	cansancio-y-fatiga limit=7: cada planta una vez y la union tiene total (8) elementos	PASA	8 vistas
+API-09	cansancio-y-fatiga: las paginas de 5 y la de 100 dan la misma secuencia	PASA	
+API-09	otros-objetivos limit=5: cada planta una vez y la union tiene total (135) elementos	PASA	135 vistas
+API-09	otros-objetivos limit=7: cada planta una vez y la union tiene total (135) elementos	PASA	135 vistas
+API-09	otros-objetivos: las paginas de 5 y la de 100 dan la misma secuencia	PASA	
+API-09	digestion limit=5: 68 elementos sin repeticion	PASA	
+API-10	relajacion-estres: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente)	PASA	
+API-10	relajacion-estres: displayName = plant_profile.display_name	PASA	
+API-10	mejorar-el-sueno: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente)	PASA	
+API-10	mejorar-el-sueno: displayName = plant_profile.display_name	PASA	
+API-10	cuidado-de-la-piel: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente)	PASA	
+API-10	cuidado-de-la-piel: displayName = plant_profile.display_name	PASA	
+API-10	alivio-respiratorio: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente)	PASA	
+API-10	alivio-respiratorio: displayName = plant_profile.display_name	PASA	
+API-10	cansancio-y-fatiga: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente)	PASA	
+API-10	cansancio-y-fatiga: displayName = plant_profile.display_name	PASA	
+API-10	otros-objetivos: orden por displayName normalizado, cientifico normalizado e id (oraculo independiente)	PASA	
+API-10	otros-objetivos: displayName = plant_profile.display_name	PASA	
+API-10	otros-objetivos/digestion: mismo orden total	PASA	
+API-10	otros-objetivos/vias-urinarias-y-genitales: mismo orden total	PASA	
+API-10	otros-objetivos/dolor-e-inflamacion: mismo orden total	PASA	
+API-10	otros-objetivos/boca-y-garganta: mismo orden total	PASA	
+API-10	otros-objetivos/circulacion: mismo orden total	PASA	
+API-10	otros-objetivos/molestias-oculares: mismo orden total	PASA	
+API-10	otros-objetivos: el orden no es el binario (mayusculas y acentos no mueven la posicion)	PASA	
+API-10	en otros-objetivos 22 plantas tienen el cientifico como displayName y se mezclan en el orden; ejemplo: ['Actaea racemosa', 'Capsicum annuum var. aviculare', 'Crataegus pentagyna']	OBS	
+API-10	cuidado-de-la-piel: empates de displayName normalizado resueltos por cientifico e id: ['ortiga']	OBS	
+API-10	alivio-respiratorio: empates de displayName normalizado resueltos por cientifico e id: ['gordolobo', 'primavera', 'regaliz']	OBS	
+API-10	otros-objetivos: empates de displayName normalizado resueltos por cientifico e id: ['gordolobo', 'manzanilla', 'ortiga', 'regaliz']	OBS	
+API-10	orden estable: dos peticiones iguales devuelven el mismo cuerpo	PASA	
+API-11	relajacion-estres: plantCount (17) = total (17)	PASA	
+API-11	mejorar-el-sueno: plantCount (8) = total (8)	PASA	
+API-11	cuidado-de-la-piel: plantCount (32) = total (32)	PASA	
+API-11	alivio-respiratorio: plantCount (52) = total (52)	PASA	
+API-11	cansancio-y-fatiga: plantCount (8) = total (8)	PASA	
+API-11	otros-objetivos: plantCount (135) = total (135)	PASA	
+API-11	otros-objetivos/digestion: plantCount (68) = total (68)	PASA	
+API-11	otros-objetivos/vias-urinarias-y-genitales: plantCount (42) = total (42)	PASA	
+API-11	otros-objetivos/dolor-e-inflamacion: plantCount (22) = total (22)	PASA	
+API-11	otros-objetivos/boca-y-garganta: plantCount (20) = total (20)	PASA	
+API-11	otros-objetivos/circulacion: plantCount (17) = total (17)	PASA	
+API-11	otros-objetivos/molestias-oculares: plantCount (1) = total (1)	PASA	
+API-12	el hiperico no esta en relajacion-estres (17 de 18)	PASA	
+API-12	la unica fila pendiente en la base es la del hiperico en relajacion-estres	PASA	
+API-12	el detalle del hiperico responde 200	PASA	
+API-12	el detalle no lista relajacion-estres entre sus objetivos (misma regla)	PASA	
+API-12	el hiperico sigue en el listado GET /v1/plants?q=hypericum	PASA	
+API-12	el hiperico si aparece en cuidado-de-la-piel (su fila no esta pendiente)	PASA	
+API-12	el hiperico si aparece en otros-objetivos (su fila no esta pendiente)	PASA	
+API-12	hiperico en otros-objetivos/digestion	PASA	
+API-12	ningun reviewFlag distinto de la marca por objetivo oculta plantas: las de 'sin-datos-de-seguridad' con objetivos siguen visibles	PASA	0 plantas
+API-13	ninguna planta tipo 'objetivos-omitidos-por-toxicidad' ni conium-maculatum aparece en ningun objetivo	PASA	['conium-maculatum', 'cucurbita-pepo', 'glycine-max', 'phaseolus-vulgaris', 'ricinus-communis', 'solanum-dulcamara']
+API-13	la union de los seis objetivos son exactamente las 175 plantas con filas visibles en la base	PASA	175
+API-13	ninguna de las plantas con nivel alto y sin objetivos en la base aparece	PASA	99 plantas
+API-13	aconitum-napellus no aparece en ningun objetivo	PASA	
+API-13	ricinus-communis no aparece en ningun objetivo	PASA	
+API-13	abrus-precatorius no aparece en ningun objetivo	PASA	
+API-13	angelica-laxiflora no aparece en ningun objetivo	PASA	
+API-13	la union de las seis subareas es la lista sin subarea (135)	PASA	
+API-13	plantas en dos objetivos aparecen en ambos con solo las areas de cada uno (71 plantas)	PASA	
+API-13	lavandula-angustifolia: sueno -> 'Trastornos del sueno...', estres -> 'Estres mental...' (cada uno solo la suya)	PASA	
+API-14	252 filas objetivo x planta: scientificName, family, commonNames, areas, safetyLevel, hasSafety e image coinciden con la base	PASA	{}
+API-14	el orden de 'areas' dentro de una planta difiere del orden de la base (position) en 0 filas; la spec no fija ese orden	OBS	
+API-14	image.author puede ser null (planta con autor nulo y objetivo)	PASA	
+API-14	image null y hasSafety false no se mezclan: plantas sin imagen traen image null (20 de 175)	PASA	
+API-14	ejemplos de plantas sin imagen: ['capsicum-annuum-var-aviculare', 'fragaria-x-ananassa', 'glycyrrhiza-inflata']	OBS	
+API-14	ninguna URL de imagen es distinta de upload.wikimedia.org (la API no deriva miniaturas)	PASA	
+API-15	eucalyptus-globulus: safetyLevel null y hasSafety true (precauciones sin nivel)	PASA	
+API-15	distribucion 13 alto, 30 medio, 21 bajo, 111 sin nivel; hasSafety verdadero en las 175	PASA	{(None, True): 111, ('medio', True): 30, ('bajo', True): 21, ('alto', True): 13}
+API-15	hasSafety=false no ocurre en ninguna planta real con objetivo: el caso se cubre solo con fixtures de la app (tarea 5.2); no hay forma de probarlo con la API real	OBS	
+API-16	ninguna area (16 valores distintos) contiene lenguaje de dosis o eficacia	PASA	[]
+API-16	los valores de areas son los 13 del diseno mas los 3 compuestos con '; '	PASA	set()
+API-16	areas compuestas tal cual (decision tomada): {'Pérdida de apetito; Trastornos gastrointestinales': 9, 'Trastornos gastrointestinales; Trastornos digestivos': 1, 'Estreñimiento; Trastornos gastrointestinales': 1}	OBS	
+API-16	los textos del catalogo de objetivos tampoco contienen lenguaje de dosis	PASA	
+API-17	/v1/goals: sin token -> 401 problem+json con WWW-Authenticate: Bearer	PASA	401
+API-17	/v1/goals: el 401 cumple el esquema de error y no revela si el objetivo existe	PASA	
+API-17	/v1/goals: token incorrecto -> 401 problem+json	PASA	401
+API-17	/v1/goals: token con el ultimo caracter cambiado -> 401	PASA	
+API-17	/v1/goals: esquema Basic con el token correcto -> 401	PASA	401
+API-17	/v1/goals: esquema 'bearer' en minusculas -> 200	OBS	
+API-17	/v1/goals: 'Bearer ' sin token -> 401	PASA	401
+API-17	/v1/goals: token en X-Api-Key (no admitido) -> 401	PASA	
+API-17	/v1/goals: token en la query (no admitido) -> 401	PASA	
+API-17	/v1/goals/mejorar-el-sueno/plants: sin token -> 401 problem+json con WWW-Authenticate: Bearer	PASA	401
+API-17	/v1/goals/mejorar-el-sueno/plants: el 401 cumple el esquema de error y no revela si el objetivo existe	PASA	
+API-17	/v1/goals/mejorar-el-sueno/plants: token incorrecto -> 401 problem+json	PASA	401
+API-17	/v1/goals/mejorar-el-sueno/plants: token con el ultimo caracter cambiado -> 401	PASA	
+API-17	/v1/goals/mejorar-el-sueno/plants: esquema Basic con el token correcto -> 401	PASA	401
+API-17	/v1/goals/mejorar-el-sueno/plants: esquema 'bearer' en minusculas -> 200	OBS	
+API-17	/v1/goals/mejorar-el-sueno/plants: 'Bearer ' sin token -> 401	PASA	401
+API-17	/v1/goals/mejorar-el-sueno/plants: token en X-Api-Key (no admitido) -> 401	PASA	
+API-17	/v1/goals/mejorar-el-sueno/plants: token en la query (no admitido) -> 401	PASA	
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: sin token -> 401 problem+json con WWW-Authenticate: Bearer	PASA	401
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: el 401 cumple el esquema de error y no revela si el objetivo existe	PASA	
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: token incorrecto -> 401 problem+json	PASA	401
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: token con el ultimo caracter cambiado -> 401	PASA	
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: esquema Basic con el token correcto -> 401	PASA	401
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: esquema 'bearer' en minusculas -> 200	OBS	
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: 'Bearer ' sin token -> 401	PASA	401
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: token en X-Api-Key (no admitido) -> 401	PASA	
+API-17	/v1/goals/otros-objetivos/plants?subarea=digestion: token en la query (no admitido) -> 401	PASA	
+API-17	/v1/goals/no-existe/plants: sin token -> 401 problem+json con WWW-Authenticate: Bearer	PASA	401
+API-17	/v1/goals/no-existe/plants: el 401 cumple el esquema de error y no revela si el objetivo existe	PASA	
+API-17	/v1/goals/no-existe/plants: token incorrecto -> 401 problem+json	PASA	401
+API-17	/v1/goals/no-existe/plants: token con el ultimo caracter cambiado -> 401	PASA	
+API-17	/v1/goals/no-existe/plants: esquema Basic con el token correcto -> 401	PASA	401
+API-17	/v1/goals/no-existe/plants: esquema 'bearer' en minusculas -> 404	OBS	
+API-17	/v1/goals/no-existe/plants: 'Bearer ' sin token -> 401	PASA	401
+API-17	/v1/goals/no-existe/plants: token en X-Api-Key (no admitido) -> 401	PASA	
+API-17	/v1/goals/no-existe/plants: token en la query (no admitido) -> 401	PASA	
+API-17	Authorization con espacio doble antes del token -> 200	OBS	
+API-18	POST /v1/goals con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	POST /v1/goals: el 405 cumple el esquema	PASA	
+API-18	PUT /v1/goals con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	PUT /v1/goals: el 405 cumple el esquema	PASA	
+API-18	PATCH /v1/goals con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	PATCH /v1/goals: el 405 cumple el esquema	PASA	
+API-18	DELETE /v1/goals con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	DELETE /v1/goals: el 405 cumple el esquema	PASA	
+API-18	POST /v1/goals sin token -> 401 (la autenticacion va antes que el metodo)	PASA	401
+API-18	POST /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	POST /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema	PASA	
+API-18	PUT /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	PUT /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema	PASA	
+API-18	PATCH /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	PATCH /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema	PASA	
+API-18	DELETE /v1/goals/mejorar-el-sueno/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	DELETE /v1/goals/mejorar-el-sueno/plants: el 405 cumple el esquema	PASA	
+API-18	POST /v1/goals/mejorar-el-sueno/plants sin token -> 401 (la autenticacion va antes que el metodo)	PASA	401
+API-18	POST /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	POST /v1/goals/no-existe/plants: el 405 cumple el esquema	PASA	
+API-18	PUT /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	PUT /v1/goals/no-existe/plants: el 405 cumple el esquema	PASA	
+API-18	PATCH /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	PATCH /v1/goals/no-existe/plants: el 405 cumple el esquema	PASA	
+API-18	DELETE /v1/goals/no-existe/plants con token -> 405 problem+json con Allow: GET	PASA	405 allow=GET
+API-18	DELETE /v1/goals/no-existe/plants: el 405 cumple el esquema	PASA	
+API-18	POST /v1/goals/no-existe/plants sin token -> 401 (la autenticacion va antes que el metodo)	PASA	401
+API-18	HEAD /v1/goals con token -> 200 allow=None cuerpo=0 bytes	OBS	
+API-18	HEAD /v1/goals/mejorar-el-sueno/plants con token -> 200 allow=None cuerpo=0 bytes	OBS	
+API-18	OPTIONS /v1/goals con token -> 405 allow=GET cuerpo=145 bytes	OBS	
+API-18	OPTIONS /v1/goals/mejorar-el-sueno/plants con token -> 405 allow=GET cuerpo=169 bytes	OBS	
+API-19	/openapi.json servido (sin token) es igual al backend/openapi.json versionado	PASA	
+API-19	las rutas nuevas son solo /v1/goals y /v1/goals/{goalId}/plants	PASA	['/v1/goals', '/v1/goals/{goalId}/plants']
+API-19	ninguna ruta existente cambia	PASA	
+API-19	ningun esquema existente cambia	PASA	[]
+API-19	esquemas nuevos: ['GoalPlantDto', 'GoalPlantsPageDto', 'GoalRefDto', 'GoalSummaryDto', 'SubareaRefDto', 'SubareaSummaryDto']	OBS	
+API-19	/v1/goals: Bearer en security	PASA	[{'bearerAuth': []}]
+API-19	/v1/goals: respuestas documentadas ['200', '401', '405', '500']	PASA	tiene ['200', '401', '405', '500']
+API-19	/v1/goals: 405 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals: 401 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals: 500 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals/{goalId}/plants: Bearer en security	PASA	[{'bearerAuth': []}]
+API-19	/v1/goals/{goalId}/plants: respuestas documentadas ['200', '400', '401', '404', '405', '500']	PASA	tiene ['200', '400', '401', '404', '405', '500']
+API-19	/v1/goals/{goalId}/plants: 405 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals/{goalId}/plants: 401 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals/{goalId}/plants: 400 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals/{goalId}/plants: 500 como application/problem+json	PASA	['application/problem+json']
+API-19	/v1/goals/{goalId}/plants: 404 como application/problem+json	PASA	['application/problem+json']
+API-19	el parametro subarea, limit y offset estan documentados en la ruta de plantas	PASA	
+API-19	/health y /openapi.json siguen sin seguridad; /v1/* con seguridad	PASA	
+API-20	GET /v1/plants sigue cumpliendo su esquema (total 2354, limit 20)	PASA	
+API-20	los elementos de GET /v1/plants conservan sus campos	PASA	
+API-20	GET /v1/plants/{id} cumple PlantDto en 6 plantas (incluido un alias y una sin datos)	PASA	6/6
+API-20	el detalle de la lavanda conserva los objetivos 'Mejorar el sueno' y 'Relajacion / Estres'	PASA	['Mejorar el sueño', 'Relajación / Estrés']
+API-20	la busqueda sin resultados sigue devolviendo 200 con total 0	PASA	
+API-21	/health sigue publica -> 200	PASA	
+API-21	/openapi.json sigue publica -> 200	PASA	
+API-21	/goals sin token: no es una ruta publica con datos (no 200)	PASA	404
+API-21	/goals con token -> 404 application/problem+json	OBS	
+API-21	/goals/mejorar-el-sueno/plants sin token: no es una ruta publica con datos (no 200)	PASA	404
+API-21	/goals/mejorar-el-sueno/plants con token -> 404 application/problem+json	OBS	
+API-21	/v2/goals sin token: no es una ruta publica con datos (no 200)	PASA	404
+API-21	/v2/goals con token -> 404 application/problem+json	OBS	
+API-21	/v1/goals/mejorar-el-sueno sin token: no es una ruta publica con datos (no 200)	PASA	401
+API-21	/v1/goals/mejorar-el-sueno con token -> 404 application/problem+json	OBS	
+API-21	/v1/goals/mejorar-el-sueno/plants/extra sin token: no es una ruta publica con datos (no 200)	PASA	401
+API-21	/v1/goals/mejorar-el-sueno/plants/extra con token -> 404 application/problem+json	OBS	
+API-21	/v1/goal sin token: no es una ruta publica con datos (no 200)	PASA	401
+API-21	/v1/goal con token -> 404 application/problem+json	OBS	
+API-21	barra final /v1/goals/ con token -> 404	OBS	
+API-21	barra final /v1/goals/mejorar-el-sueno/plants/ con token -> 404	OBS	
+API-21	los logs del contenedor no contienen el token	PASA	1 lineas
+API-21	con RUST_LOG=info la API solo registra el arranque; el barrido con nivel debug va en API-23	OBS	
+API-22	/v1/goals: cinco GET devuelven el mismo cuerpo byte a byte	PASA	
+API-22	/v1/goals/relajacion-estres/plants: cinco GET devuelven el mismo cuerpo byte a byte	PASA	
+API-22	/v1/goals/otros-objetivos/plants?limit=100: cinco GET devuelven el mismo cuerpo byte a byte	PASA	
+API-22	/v1/goals/otros-objetivos/plants?subarea=digestion: cinco GET devuelven el mismo cuerpo byte a byte	PASA	
+API-22	pagina de 100 de otros-objetivos responde en < 500 ms	PASA	

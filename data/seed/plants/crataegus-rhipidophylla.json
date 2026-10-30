@@ -1,0 +1,105 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7a79cb51d3e412a99348a5085e0b313ce90d9610038c99e3a6f99683f59f3ace",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2211-1"
+      ],
+      "text": "Hawthorn"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2947081"
+    ],
+    "value": "Crataegus rhipidophylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2947081"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [],
+  "id": "crataegus-rhipidophylla",
+  "image": {
+    "attributionRequired": true,
+    "author": "Knud Ib Christensen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Crataegus-rhipidophylla-fruit.jpg",
+    "refs": [
+      "commons:File:Crataegus-rhipidophylla-fruit.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Crataegus-rhipidophylla-fruit.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2947081"
+    ],
+    "value": "Nativa del norte, centro, este, sureste y suroeste de Europa, el Cáucaso y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Crataegus-rhipidophylla-fruit.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Crataegus-rhipidophylla-fruit.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Crataegus-rhipidophylla-fruit.jpg"
+    },
+    "usda_common_name:2211-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hawthorn»",
+      "license": "CC0"
+    },
+    "wcvp:2947081": {
+      "dataset": "wcvp",
+      "label": "WCVP: Crataegus rhipidophylla Gand.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Gand.",
+    "name": "Crataegus rhipidophylla",
+    "refs": [
+      "wcvp:2947081"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

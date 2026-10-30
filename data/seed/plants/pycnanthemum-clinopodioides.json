@@ -1,0 +1,98 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5afab640f94226d17c676a8eeefae78623852e704da1192541fcd6e094629d7e",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:811-1"
+      ],
+      "text": "Clinopod Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171039"
+    ],
+    "value": "Pycnanthemum clinopodioides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171039"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-clinopodioides",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:171039"
+    ],
+    "value": "Noreste, centro-sur y sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:811-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clinopod Mountain Mint»",
+      "license": "CC0"
+    },
+    "wcvp:106175": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia clinopodioides (Torr. & A.Gray) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171039": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum clinopodioides Torr. & A.Gray",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Torr. & A.Gray",
+    "name": "Pycnanthemum clinopodioides",
+    "refs": [
+      "wcvp:171039"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Torr. & A.Gray) Kuntze",
+      "name": "Koellia clinopodioides",
+      "refs": [
+        "wcvp:106175"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

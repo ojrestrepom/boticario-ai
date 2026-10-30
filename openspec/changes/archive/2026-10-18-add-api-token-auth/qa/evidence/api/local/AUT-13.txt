@@ -1,0 +1,41 @@
+# AUT-13 Escrituras sin token (objetivo: local)
+
+### POST /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### PUT /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### PATCH /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### DELETE /v1/plants   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+allow: GET,HEAD
+content-length: 129
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}

@@ -1,0 +1,130 @@
+--- listado por defecto
+GET /v1/plants
+Authorization: Bearer <token-app>
+-> 200 {"content-type": "application/json", "content-length": "6418"}
+{
+ "items": [
+  {
+   "id": "abelmoschus-esculentus",
+   "scientificName": "Abelmoschus esculentus",
+   "displayName": "Quimbombó",
+   "commonNames": [
+    {
+     "text": "Quimbombó",
+     "language": "es"
+    },
+    {
+     "text": "abelmosco",
+     "language": "es"
+    },
+    {
+     "text": "Bolondrón",
+     "language": "es"
+    },
+    {
+     "text": "candia",
+     "language": "es"
+    },
+    {
+     "text": "chingambó",
+     "language": "es"
+    },
+    {
+     "text": "Gambo",
+     "language": "es"
+    },
+    {
+     "text": "gombó",
+     "language": "es"
+    },
+    {
+     "text": "guingambó",
+     "language": "es"
+    },
+    {
+     "text": "molondrón",
+     "language": "es"
+    },
+    {
+     "text": "Naju",
+     "language": "es"
+    },
+    {
+     "text": "ñajú",
+     "language": "es"
+    },
+    {
+     "text": "ocra",
+     "language": "es"
+    },
+    {
+     "text": "ocro",
+     "language": "es"
+    },
+    {
+     "text": "Okra",
+     "language": "en"
+    },
+    {
+     "text": "okra",
+     "language": "es"
+    },
+    {
+     "text": "quimbombó",
+     "language": "es"
+    },
+    {
+     "text": "quingombó",
+     "language": "es"
+    },
+    {
+     "text": "Yambo",
+     "language": "es"
+    },
+    {
+     "text": "Yerba de culebra",
+     "language": "es"
+    }
+   ],
+   "family": "Malvaceae"
+  },
+  {
+   "id": "abelmoschus-manihot",
+   "scientificName": "Abelmoschus manihot",
+   "displayName": "Aibika",
+   "commonNames": [
+    {
+     "text": "Aibika",
+     "language": "es"
+    },
+    {
+     "text": "Manioc Hibiscus",
+     "language": "en"
+    },
+    {
+     "text": "sunset hibiscus",
+     "language": "en"
+    },
+    {
+     "text": "sunset muskmallow",
+     "language": "en"
+    }
+   ],
+   "family": "Malvaceae"
+  },
+  {
+   "id": "abelmoschus-moschatus",
+   "scientificName": "Abelmosch
+... (recortado, 9281 caracteres)
+
+PASA  200 y cumple PageDto_PlantSummaryDto 
+PASA  total = 2354 2354
+PASA  todos los elementos llevan displayName (texto no vacio) 
+PASA  familia presente como texto o null en cada elemento 
+PASA  recorrido completo (limit=100) sin errores de contrato 
+PASA  2354 ids unicos en el orden de nombre cientifico e id 2354 elementos
+PASA  displayName = plant_profile.display_name en las 2.354 plantas []
+OBS   plantas cuyo displayName no es un nombre comun (nombre cientifico): 1195; de ellas con comunes en otros idiomas: 571
+PASA  commonNames: displayName primero (el es antes en un empate) y el resto sin distinguir mayusculas ni acentos, por texto e idioma; sin destacado si displayName es cientifico 0 desvios, p. ej. []
+PASA  planta sin nombres comunes: displayName = nombre cientifico y commonNames vacio []
+tiempo del listado (limit=100): mediana 1.8 ms, max 3.3 ms, 24 paginas

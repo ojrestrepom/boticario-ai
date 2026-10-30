@@ -1,0 +1,118 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:0cc032008b67b8bd2ac21c5714e298d5be9856fcfae5b9832c8637d8da2e990a",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q71549"
+      ],
+      "text": "Ñame"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:367-1"
+      ],
+      "text": "Wild Yam"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Dioscorea"
+    ],
+    "value": "Género de plantas de la familia Dioscoreaceae con más de 600 especies aceptadas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q71549"
+    ],
+    "value": "Ñame"
+  },
+  "family": null,
+  "goals": [],
+  "id": "dioscorea-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kod B",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Early_yam_rack_07.jpg",
+    "refs": [
+      "commons:File:Early yam rack 07.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Early_yam_rack_07.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Early yam rack 07.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Early yam rack 07.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Early_yam_rack_07.jpg"
+    },
+    "usda_common_name:367-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wild Yam»",
+      "license": "CC0"
+    },
+    "wikidata:Q71549": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q71549",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q71549"
+    },
+    "wikipedia_es:Dioscorea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Dioscorea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Dioscorea"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Dioscorea sp.",
+    "refs": [
+      "wikidata:Q71549"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

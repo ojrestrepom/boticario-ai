@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:boticario_ai/app/app.dart';
 import 'package:boticario_ai/app/theme.dart';
-import 'package:boticario_ai/features/catalog/data/plant_catalog_repository.dart';
-import 'package:boticario_ai/features/catalog/domain/plant.dart';
-import 'package:boticario_ai/features/catalog/domain/plant_catalog_provenance.dart';
+import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
 import 'package:boticario_ai/features/explore/presentation/explore_page.dart';
 import 'package:boticario_ai/features/goal_search/presentation/goal_search_page.dart';
 import 'package:boticario_ai/features/home/presentation/home_page.dart';
@@ -15,52 +13,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
+import '../support/fake_catalog_api.dart';
+
 /// Router real de la app a través de su API pública, sin tocar campos privados.
 GoRouter _currentRouter(WidgetTester tester) {
   return GoRouter.of(tester.element(find.byType(HomePage)));
 }
 
-final _testCatalog = PlantCatalog(
-  provenance: PlantCatalogProvenance(
-    sourceName: 'test',
-    license: 'CC0',
-    version: 'test',
-    sourceUrl: '',
-    datasetId: '',
-    downloadUrl: '',
-    fileId: '',
-    fileName: '',
-    fileSizeBytes: 0,
-    md5: '',
-    inspectedOn: DateTime(2026),
-    recommendedCitation: '',
-  ),
-  plants: [
-    for (final item in [
-      (544, 'Lavanda', 'Lavandula angustifolia'),
-      (401, 'Eucalipto', 'Eucalyptus globulus'),
-      (873, 'Romero', 'Rosmarinus officinalis'),
-      (605, 'Manzanilla', 'Matricaria recutita'),
-      (619, 'Menta', 'Mentha x piperita subsp. nothosubsp. piperita'),
-    ])
-      Plant(
-        usdaPlantId: item.$1,
-        editorialCommonName: item.$2,
-        sourceScientificName: item.$3,
-      ),
-  ],
-);
-
-Future<void> _mount(WidgetTester tester) async {
+Future<FakeCatalogApi> _mount(WidgetTester tester) async {
+  final api = FakeCatalogApi(requiredToken: testApiToken);
   await tester.pumpWidget(
     ProviderScope(
       overrides: [
-        plantCatalogProvider.overrideWith((ref) async => _testCatalog),
+        httpClientProvider.overrideWithValue(api.client),
+        apiTokenProvider.overrideWithValue(testApiToken),
       ],
       child: const BoticarioApp(),
     ),
   );
   await tester.pumpAndSettle();
+  return api;
 }
 
 void main() {
@@ -135,9 +107,9 @@ void main() {
       expect(find.byType(ExplorePage), findsOneWidget);
       expect(logs, ['[Home] Explorar plantas y aceites']);
 
-      await tester.tap(find.text('Lavanda').last);
+      await tester.tap(find.text('English Lavender').last);
       await tester.pumpAndSettle();
-      expect(router.state.uri.path, '/explore/544');
+      expect(router.state.uri.path, '/explore/lavandula-angustifolia');
       expect(find.byType(PlantPassportPage), findsOneWidget);
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
@@ -231,41 +203,103 @@ void main() {
     expect(secondRouter.state.uri.path, '/');
   });
 
-  testWidgets('cada fila abre su ficha y pop retorna a Explorar', (
-    tester,
-  ) async {
+  testWidgets('cada fila abre su ficha por id de texto y pop retorna a '
+      'Explorar', (tester) async {
     await _mount(tester);
     final router = _currentRouter(tester);
     unawaited(router.push('/explore'));
     await tester.pumpAndSettle();
+    // Primary name shown in each row of the fixture list, with its API id.
     for (final item in [
-      (544, 'Lavanda'),
-      (401, 'Eucalipto'),
-      (873, 'Romero'),
-      (605, 'Manzanilla'),
-      (619, 'Menta'),
+      ('English Lavender', 'lavandula-angustifolia'),
+      ('Aspic', 'lavandula-latifolia'),
+      ('Lavender', 'lavandula-sp'),
+      ('Lavandula spica', 'lavandula-spica'),
+      ('Hybrid Lavender', 'lavandula-x-hybrida'),
+      ('Dutch Lavender', 'lavandula-x-intermedia'),
+      ('Lavender Rosemary', 'rosmarinus-x-lavandulaceus'),
     ]) {
       final plantRow = find.descendant(
         of: find.byType(ExplorePage),
-        matching: find.text(item.$2),
+        matching: find.text(item.$1),
       );
-      await tester.ensureVisible(plantRow.last);
+      await tester.scrollUntilVisible(
+        plantRow,
+        100,
+        scrollable: find
+            .descendant(
+              of: find.byType(ExplorePage),
+              matching: find.byType(Scrollable),
+            )
+            .first,
+      );
       await tester.tap(plantRow.last);
       await tester.pumpAndSettle();
-      expect(router.state.uri.path, '/explore/${item.$1}');
-      expect(find.byType(PlantPassportPage), findsOneWidget);
-      expect(
-        find.descendant(
-          of: find.byType(PlantPassportPage),
-          matching: find.text(item.$2),
-        ),
-        findsAtLeastNWidgets(1),
-      );
+      expect(router.state.uri.path, '/explore/${item.$2}');
+      // Only some fixture plants have a detail; the others are a safe 404.
+      if (FakeCatalogApi.plantIds.contains(item.$2)) {
+        expect(find.byType(PlantPassportPage), findsOneWidget);
+        expect(
+          find.descendant(
+            of: find.byType(PlantPassportPage),
+            matching: find.text(item.$1),
+          ),
+          findsAtLeastNWidgets(1),
+        );
+      } else {
+        expect(find.text('Planta no encontrada'), findsOneWidget);
+      }
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
       expect(router.state.uri.path, '/explore');
       expect(find.byType(ExplorePage), findsOneWidget);
     }
+  });
+
+  testWidgets('salir de Explorar a Inicio reinicia consulta y filtro', (
+    tester,
+  ) async {
+    final api = await _mount(tester);
+    final router = _currentRouter(tester);
+    unawaited(router.push('/explore'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Plantas'));
+    await tester.enterText(find.byType(TextField), 'lavandula');
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.pumpAndSettle();
+    expect(find.text('English Lavender'), findsOneWidget);
+
+    await tester.tap(find.text('Inicio').last);
+    await tester.pumpAndSettle();
+    expect(router.state.uri.path, '/');
+
+    unawaited(router.push('/explore'));
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<TextField>(find.byType(TextField)).controller!.text,
+      isEmpty,
+    );
+    expect(
+      tester
+          .widget<ChoiceChip>(find.widgetWithText(ChoiceChip, 'Todas'))
+          .selected,
+      isTrue,
+    );
+    expect(find.text('English Lavender'), findsOneWidget);
+    expect(api.requests.last.url.queryParameters.containsKey('q'), isFalse);
+  });
+
+  testWidgets('el id de la ruta llega codificado a la API', (tester) async {
+    final api = await _mount(tester);
+    final router = _currentRouter(tester);
+    router.go('/explore/a%20b%2Fc');
+    await tester.pumpAndSettle();
+    expect(find.text('Planta no encontrada'), findsOneWidget);
+    final details = [
+      for (final r in api.requests)
+        if (r.url.pathSegments.length == 3) r.url.path,
+    ];
+    expect(details, ['/v1/plants/a%20b%2Fc']);
   });
 
   testWidgets(
@@ -282,7 +316,8 @@ void main() {
       unawaited(router.push('/explore'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Plantas'));
-      await tester.enterText(find.byType(TextField), 'a');
+      await tester.enterText(find.byType(TextField), 'lavandula');
+      await tester.pump(const Duration(milliseconds: 300));
       tester.testTextInput.hide();
       tester.binding.focusManager.primaryFocus?.unfocus();
       tester.view.viewInsets = FakeViewPadding.zero;
@@ -291,7 +326,7 @@ void main() {
           .widget<TextField>(find.byType(TextField))
           .controller!;
       await tester.pumpAndSettle();
-      expect(queryController.text, 'a');
+      expect(queryController.text, 'lavandula');
       expect(
         find.byWidgetPredicate(
           (w) =>
@@ -303,9 +338,9 @@ void main() {
       );
 
       for (final useFrameworkBack in [false, true]) {
-        final mentaRow = find.descendant(
+        final plantRow = find.descendant(
           of: find.byType(ExplorePage),
-          matching: find.text('Menta'),
+          matching: find.text('English Lavender'),
         );
         final listScroll = find
             .descendant(
@@ -313,7 +348,7 @@ void main() {
               matching: find.byType(Scrollable),
             )
             .first;
-        await tester.drag(listScroll, const Offset(0, -180));
+        await tester.drag(listScroll, const Offset(0, -100));
         await tester.pumpAndSettle();
         final currentExploreScroll = tester
             .widget<CustomScrollView>(
@@ -325,14 +360,14 @@ void main() {
             .controller!;
         final offset = currentExploreScroll.offset;
         expect(offset, greaterThan(0));
-        await tester.tap(mentaRow.last);
+        await tester.tap(plantRow.last);
         await tester.pumpAndSettle();
-        expect(router.state.uri.path, '/explore/619');
+        expect(router.state.uri.path, '/explore/lavandula-angustifolia');
         expect(find.byType(PlantPassportPage), findsOneWidget);
         expect(
           find.descendant(
             of: find.byType(PlantPassportPage),
-            matching: find.text('Menta'),
+            matching: find.text('English Lavender'),
           ),
           findsAtLeastNWidgets(1),
         );
@@ -371,7 +406,7 @@ void main() {
               ),
             )
             .controller!;
-        expect(currentQuery.text, 'a');
+        expect(currentQuery.text, 'lavandula');
         expect(identical(currentQuery, queryController), isTrue);
         expect(
           find.byWidgetPredicate(
@@ -390,7 +425,7 @@ void main() {
     tester,
   ) async {
     for (final entry in [
-      ('/explore/619', 'Menta'),
+      ('/explore/lavandula-angustifolia', 'English Lavender'),
       ('/explore/not-a-plant', 'Planta no encontrada'),
     ]) {
       for (final useFrameworkBack in [false, true]) {
@@ -462,7 +497,7 @@ void main() {
     expect(router.canPop(), isFalse);
     unawaited(router.push('/explore'));
     await tester.pumpAndSettle();
-    unawaited(router.push('/explore/619'));
+    unawaited(router.push('/explore/lavandula-angustifolia'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Inicio').last);
     await tester.pumpAndSettle();

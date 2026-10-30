@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a3b99407e132bcc4cf82c6b10e3199dfed7c33b4d930530b53a0c9442936ddf9",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2055-1"
+      ],
+      "text": "Woundwort"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Stachys"
+    ],
+    "value": "Género de unas 380 especies de plantas y arbustos herbáceos, anuales y perennes, de la familia Lamiaceae, que se extienden por Europa, Asia, África, Australia, parte de Oceanía y Norteamérica."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q156294"
+    ],
+    "value": "Stachys sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "stachys-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Kurt Stüber [1]",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Stachys_monnieri0.jpg",
+    "refs": [
+      "commons:File:Stachys monnieri0.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Stachys_monnieri0.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Stachys monnieri0.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Stachys monnieri0.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Stachys_monnieri0.jpg"
+    },
+    "usda_common_name:2055-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Woundwort»",
+      "license": "CC0"
+    },
+    "wikidata:Q156294": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q156294",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q156294"
+    },
+    "wikipedia_es:Stachys": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Stachys",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Stachys"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Stachys sp",
+    "refs": [
+      "wikidata:Q156294"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

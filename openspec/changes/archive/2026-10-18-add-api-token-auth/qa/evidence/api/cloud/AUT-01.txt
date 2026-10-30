@@ -1,0 +1,12 @@
+# AUT-01 Token válido en el listado (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [Bearer <válido>]
+status=200
+content-type: application/json
+x-cloud-trace-context: 042dc2afdfcbe0637a6038971ba897a6;o=1
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}

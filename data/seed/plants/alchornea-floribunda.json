@@ -1,0 +1,100 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7c644502a2e534d5ea63dd329dc5625cfe230430ee6aefe002a7762a82340c38",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:46-1"
+      ],
+      "text": "Niando"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Alchornea floribunda"
+    ],
+    "value": "Especie de la familia de las euforbiáceas, originaria del África tropical, desde Sudán y Uganda hasta Sierra Leona."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:5737"
+    ],
+    "value": "Alchornea floribunda"
+  },
+  "family": {
+    "refs": [
+      "wcvp:5737"
+    ],
+    "value": "Euphorbiaceae"
+  },
+  "goals": [],
+  "id": "alchornea-floribunda",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:5737"
+    ],
+    "value": "África tropical (oriental, occidental y central)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:46-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Niando»",
+      "license": "CC0"
+    },
+    "wcvp:5737": {
+      "dataset": "wcvp",
+      "label": "WCVP: Alchornea floribunda Müll.Arg.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Alchornea floribunda": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Alchornea floribunda",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Alchornea_floribunda"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Müll.Arg.",
+    "name": "Alchornea floribunda",
+    "refs": [
+      "wcvp:5737"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

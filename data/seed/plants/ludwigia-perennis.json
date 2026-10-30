@@ -1,0 +1,185 @@
+{
+  "aliases": [
+    "ludwigia-parviflora"
+  ],
+  "bundleHash": "sha256:cdcdb2d3e9424ce168fb7f582e04f3af323e62260d5cfd7a3ce50e5a2d986825",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1317-1"
+      ],
+      "text": "Perennial ludwigia"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2493837"
+    ],
+    "value": "Ludwigia perennis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2493837"
+    ],
+    "value": "Onagraceae"
+  },
+  "goals": [],
+  "id": "ludwigia-perennis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Dinesh Valke from Thane, India",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_perennis_(1443986132).jpg",
+    "refs": [
+      "commons:File:Ludwigia perennis (1443986132).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Ludwigia_perennis_%281443986132%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2493837"
+    ],
+    "value": "Nativa de África tropical y austral, Asia (central, oriental, occidental, el subcontinente indio e Indochina), China, Malesia, Papuasia, Australia y el Pacífico suroccidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ludwigia perennis (1443986132).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ludwigia perennis (1443986132).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ludwigia_perennis_(1443986132).jpg"
+    },
+    "usda_common_name:1317-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Perennial ludwigia»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:24812": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24812",
+      "license": "CC0"
+    },
+    "usda_use:24813": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24813",
+      "license": "CC0"
+    },
+    "wcvp:2332200": {
+      "dataset": "wcvp",
+      "label": "WCVP: Jussiaea perennis (L.) Brenan",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2493837": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ludwigia perennis L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2494012": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ludwigia parviflora Roxb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Ludwigia parviflora) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Ludwigia perennis",
+    "refs": [
+      "wcvp:2493837"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Roxb.",
+      "name": "Ludwigia parviflora",
+      "refs": [
+        "wcvp:2494012"
+      ]
+    },
+    {
+      "authors": "(L.) Brenan",
+      "name": "Jussiaea perennis",
+      "refs": [
+        "wcvp:2332200"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb32: 306",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 32: 306"
+        },
+        {
+          "key": "Woi.6",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 6"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24812",
+        "usda_use:24813",
+        "usda_reference:EB",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

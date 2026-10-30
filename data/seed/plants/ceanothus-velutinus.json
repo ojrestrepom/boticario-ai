@@ -1,0 +1,173 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:39cb0c15dcb5a5b8da4a27557e1c7ab00a3de531cd0fa4ec8f124519174ececc",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2706917"
+    ],
+    "value": "Ceanothus velutinus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2706917"
+    ],
+    "value": "Rhamnaceae"
+  },
+  "goals": [],
+  "id": "ceanothus-velutinus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Walter Siegmund (talk)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ceanothus_velutinus_4687.JPG",
+    "refs": [
+      "commons:File:Ceanothus velutinus 4687.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ceanothus_velutinus_4687.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2706917"
+    ],
+    "value": "Oeste de Canadá y centro-norte, noroeste y suroeste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ceanothus velutinus 4687.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ceanothus velutinus 4687.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ceanothus_velutinus_4687.JPG"
+    },
+    "usda_reference:Hart": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hart",
+      "license": "CC0"
+    },
+    "usda_use:38934": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38934",
+      "license": "CC0"
+    },
+    "usda_use:77046": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77046",
+      "license": "CC0"
+    },
+    "usda_use:8522": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8522",
+      "license": "CC0"
+    },
+    "wcvp:2706917": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ceanothus velutinus Douglas ex Hook.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Douglas ex Hook.",
+    "name": "Ceanothus velutinus",
+    "refs": [
+      "wcvp:2706917"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8522",
+        "usda_reference:Hart"
+      ]
+    },
+    {
+      "activity": "Cataplasma",
+      "activitySource": "Poultice",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38934",
+        "usda_reference:Hart"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Hart",
+          "ref": "usda_reference:Hart",
+          "text": "Hart, J.A. 1979. The ethnobotany of the Flathead Indians of Western Montana. Botanical Museum Leaflet 27(10). Harvard University."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Flathead)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77046",
+        "usda_reference:Hart"
+      ]
+    }
+  ]
+}

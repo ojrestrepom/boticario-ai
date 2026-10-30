@@ -1,0 +1,161 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ac4219dee7ede5d209b15e253d7bbff8db388a15b024e90cc8bf5cbaaf7b8b00",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1347-1"
+      ],
+      "text": "Indonesian cinnamon"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2721361"
+    ],
+    "value": "Cinnamomum javanicum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2721361"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "cinnamomum-javanicum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Arckenhausen.; Blume, Karl Ludwig; Henry, Aimé; Henry, AimeÌ; Payen.; Sulpke, C. G.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rumphia,_sive,_Commentationes_botanic%C3%A6%C2%A6_imprimis_de_plantis_Indi%C3%A6%C2%A6_Orientalis_(8329485945).jpg",
+    "refs": [
+      "commons:File:Rumphia, sive, Commentationes botanicæ¦ imprimis de plantis Indiæ¦ Orientalis (8329485945).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Rumphia%2C_sive%2C_Commentationes_botanic%C3%A6%C2%A6_imprimis_de_plantis_Indi%C3%A6%C2%A6_Orientalis_%288329485945%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2721361"
+    ],
+    "value": "Región nativa: Malesia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rumphia, sive, Commentationes botanicæ¦ imprimis de plantis Indiæ¦ Orientalis (8329485945).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rumphia, sive, Commentationes botanicæ¦ imprimis de plantis Indiæ¦ Orientalis (8329485945).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Rumphia,_sive,_Commentationes_botanic%C3%A6%C2%A6_imprimis_de_plantis_Indi%C3%A6%C2%A6_Orientalis_(8329485945).jpg"
+    },
+    "usda_common_name:1347-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Indonesian cinnamon»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_use:46172": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46172",
+      "license": "CC0"
+    },
+    "usda_use:74409": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74409",
+      "license": "CC0"
+    },
+    "wcvp:2721361": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cinnamomum javanicum Blume",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Blume",
+    "name": "Cinnamomum javanicum",
+    "refs": [
+      "wcvp:2721361"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Perak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74409",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Esplenomegalia",
+      "activitySource": "Splenomegaly",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "Perak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46172",
+        "usda_reference:Burkill, 1966"
+      ]
+    }
+  ]
+}

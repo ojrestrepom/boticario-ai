@@ -1,0 +1,88 @@
+{
+  "aliases": [
+    "tovomita-pyrifolia"
+  ],
+  "bundleHash": "sha256:5a392d5bc5453b2779069718069f7f6a8c3971b0cabf5425014e1573fa51c8da",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2431387"
+    ],
+    "value": "Tovomita macrophylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2431387"
+    ],
+    "value": "Clusiaceae"
+  },
+  "goals": [],
+  "id": "tovomita-macrophylla",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2431387"
+    ],
+    "value": "Brasil y el norte y el oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2372368": {
+      "dataset": "wcvp",
+      "label": "WCVP: Marialva macrophylla Poepp.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2431387": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tovomita macrophylla (Poepp.) Walp.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Poepp.) Walp.",
+    "name": "Tovomita macrophylla",
+    "refs": [
+      "wcvp:2431387"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Poepp.",
+      "name": "Marialva macrophylla",
+      "refs": [
+        "wcvp:2372368"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

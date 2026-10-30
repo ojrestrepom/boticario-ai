@@ -1,0 +1,81 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:81be56d513f516c1cbfb8db5a6dafe399c3667c0d8ba37538c7df2ba52ed0889",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:853-1"
+      ],
+      "text": "Dulse"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q104919807"
+    ],
+    "value": "Rhodymenia palmata"
+  },
+  "family": null,
+  "goals": [],
+  "id": "rhodymenia-palmata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:853-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dulse»",
+      "license": "CC0"
+    },
+    "wikidata:Q104919807": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q104919807",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q104919807"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-resolucion",
+      "message": "El nombre no aparece en ningún backbone.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Rhodymenia palmata",
+    "refs": [
+      "wikidata:Q104919807"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

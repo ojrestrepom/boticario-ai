@@ -1,0 +1,184 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a93902bb14c6646e64aa5340d54714db046774daba73357318777c2203620884",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Oxalis tuberosa",
+        "usda_common_name:683-1"
+      ],
+      "text": "Oca"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Oxalis tuberosa"
+      ],
+      "text": "Papa oca"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Oxalis tuberosa"
+      ],
+      "text": "Ibia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:683-2"
+      ],
+      "text": "Papa Roja"
+    },
+    {
+      "language": "und",
+      "refs": [
+        "usda_common_name:683-3"
+      ],
+      "text": "Quiba"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Oxalis tuberosa"
+    ],
+    "value": "Planta que se cultiva principalmente en la puna de los Andes centrales y meridionales y, entre los 3000 y los 3900 m s. n. m., en los Andes septentrionales, por su tubérculo comestible rico en almidón."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Oxalis tuberosa"
+    ],
+    "value": "Oca"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2394426"
+    ],
+    "value": "Oxalidaceae"
+  },
+  "goals": [],
+  "id": "oxalis-tuberosa",
+  "image": {
+    "attributionRequired": true,
+    "author": "Frank Vincentz",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Kluse_-_Oxalis_tuberosa_12_ies.jpg",
+    "refs": [
+      "commons:File:Kluse - Oxalis tuberosa 12 ies.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Kluse_-_Oxalis_tuberosa_12_ies.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2394426"
+    ],
+    "value": "Sudamérica occidental y meridional."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Kluse - Oxalis tuberosa 12 ies.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Kluse - Oxalis tuberosa 12 ies.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Kluse_-_Oxalis_tuberosa_12_ies.jpg"
+    },
+    "usda_common_name:683-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Oca»",
+      "license": "CC0"
+    },
+    "usda_common_name:683-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Papa Roja»",
+      "license": "CC0"
+    },
+    "usda_common_name:683-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Quiba»",
+      "license": "CC0"
+    },
+    "wcvp:2394426": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oxalis tuberosa Molina",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2467808": {
+      "dataset": "wcvp",
+      "label": "WCVP: Xanthoxalis tuberosa (Molina) Holub",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2617185": {
+      "dataset": "wcvp",
+      "label": "WCVP: Acetosella tuberosa (Molina) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Oxalis tuberosa": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Oxalis tuberosa",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Oxalis_tuberosa"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "No es seguro que el nombre «Quiba» del paquete sea español; se registra con idioma indeterminado.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Molina",
+    "name": "Oxalis tuberosa",
+    "refs": [
+      "wcvp:2394426"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Molina) Kuntze",
+      "name": "Acetosella tuberosa",
+      "refs": [
+        "wcvp:2617185"
+      ]
+    },
+    {
+      "authors": "(Molina) Holub",
+      "name": "Xanthoxalis tuberosa",
+      "refs": [
+        "wcvp:2467808"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

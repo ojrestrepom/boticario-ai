@@ -1,0 +1,7 @@
+PASA  /v1/goals: cinco GET devuelven el mismo cuerpo byte a byte 
+PASA  /v1/goals/relajacion-estres/plants: cinco GET devuelven el mismo cuerpo byte a byte 
+PASA  /v1/goals/otros-objetivos/plants?limit=100: cinco GET devuelven el mismo cuerpo byte a byte 
+PASA  /v1/goals/otros-objetivos/plants?subarea=digestion: cinco GET devuelven el mismo cuerpo byte a byte 
+tiempos (20 peticiones, contenedor local): mediana 1.0 ms, max 2.5 ms
+tamano de la pagina de 100 por objetivo (bytes): {"relajacion-estres": 12758, "mejorar-el-sueno": 7026, "cuidado-de-la-piel": 26207, "alivio-respiratorio": 41008, "cansancio-y-fatiga": 5487, "otros-objetivos": 85557}
+PASA  pagina de 100 de otros-objetivos responde en < 500 ms 

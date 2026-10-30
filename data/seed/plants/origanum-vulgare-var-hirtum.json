@@ -1,0 +1,112 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:600ac1bb83ea24b430e1f130a1e082aa27cdb3263dc70c51f4d3be6ba2eb41ea",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2083-1"
+      ],
+      "text": "Istanbul Kekigi"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2083-2"
+      ],
+      "text": "Turkish Oregano"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:143958"
+    ],
+    "value": "Origanum vulgare var. hirtum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:143958"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "origanum-vulgare-var-hirtum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2083-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2083-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Istanbul Kekigi»",
+      "license": "CC0"
+    },
+    "usda_common_name:2083-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Turkish Oregano»",
+      "license": "CC0"
+    },
+    "usda_part:2083-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:143958": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum vulgare var. hirtum (Schur) Soó",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico Origanum vulgare var. hirtum.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Schur) Soó",
+    "name": "Origanum vulgare var. hirtum",
+    "refs": [
+      "wcvp:143958"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:975b993bfb2df6b8b874ea961678182857c7fd8ccd7d3e629f7f8fdb1fd93d76",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2696189"
+    ],
+    "value": "Canavalia galeata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2696189"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "canavalia-galeata",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2696189"
+    ],
+    "value": "Nativa de Hawái, en el Pacífico centro-norte."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:41930": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41930",
+      "license": "CC0"
+    },
+    "usda_use:72741": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72741",
+      "license": "CC0"
+    },
+    "usda_use:76720": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76720",
+      "license": "CC0"
+    },
+    "wcvp:2696189": {
+      "dataset": "wcvp",
+      "label": "WCVP: Canavalia galeata (Gaudich.) Vogel",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774348": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolichos galeatus Gaudich.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Gaudich.) Vogel",
+    "name": "Canavalia galeata",
+    "refs": [
+      "wcvp:2696189"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Gaudich.",
+      "name": "Dolichos galeatus",
+      "refs": [
+        "wcvp:2774348"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Picazón",
+      "activitySource": "Itch",
+      "citations": [
+        {
+          "key": "Eb25: 247",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 247"
+        }
+      ],
+      "countries": [
+        "Hawái"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72741",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Tiña",
+      "activitySource": "Ringworm",
+      "citations": [
+        {
+          "key": "Eb25: 247",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 247"
+        }
+      ],
+      "countries": [
+        "Hawái"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41930",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Eb25: 247",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 247"
+        }
+      ],
+      "countries": [
+        "Hawái"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76720",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "aliases": [
+    "teucrium-divaricatum-var-canescens"
+  ],
+  "bundleHash": "sha256:7257dce2219c02c870ab692f8fe7c5572a7133f764e2a4a4baf04a9b88db4605",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2059-1"
+      ],
+      "text": "Hoary Divaricate Germander"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:202870"
+    ],
+    "value": "Teucrium divaricatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:202870"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-divaricatum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Gideon Pisanty ( Gidip )",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Teucrium_divaricatum_2.jpg",
+    "refs": [
+      "commons:File:Teucrium divaricatum 2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Teucrium_divaricatum_2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2059-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:202870"
+    ],
+    "value": "Norte de África, sureste de Europa y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Teucrium divaricatum 2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Teucrium divaricatum 2.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Teucrium_divaricatum_2.jpg"
+    },
+    "usda_common_name:2059-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hoary Divaricate Germander»",
+      "license": "CC0"
+    },
+    "usda_part:2059-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:202870": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium divaricatum Sieber ex Heldr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Sieber ex Heldr.",
+    "name": "Teucrium divaricatum",
+    "refs": [
+      "wcvp:202870"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

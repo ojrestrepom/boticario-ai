@@ -1,0 +1,966 @@
+{
+  "aliases": [
+    "cassia-tora"
+  ],
+  "bundleHash": "sha256:eca404f3a8af3e018f23cd961eaf2362029330567e6b186c63fc8873768df531",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q21872227"
+      ],
+      "text": "Chiquichiqui"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:217-1"
+      ],
+      "text": "Sickle Senna"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Senna tora"
+    ],
+    "value": "Leguminosa de la subfamilia Caesalpinioideae. Crece silvestre en la mayoría de los trópicos y se considera una mala hierba en muchos lugares. Se confunde a menudo con Senna obtusifolia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q21872227"
+    ],
+    "value": "Chiquichiqui"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2492022"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "senna-tora",
+  "image": {
+    "attributionRequired": true,
+    "author": "Nikitakamka",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cassia_Tora_(the_seeds).JPG",
+    "refs": [
+      "commons:File:Cassia Tora (the seeds).JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Cassia_Tora_%28the_seeds%29.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2492022"
+    ],
+    "value": "Nativa de Belice y El Salvador (América Central)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cassia Tora (the seeds).JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cassia Tora (the seeds).JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Cassia_Tora_(the_seeds).JPG"
+    },
+    "usda_common_name:217-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sickle Senna»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11190": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11190",
+      "license": "CC0"
+    },
+    "usda_use:12001": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12001",
+      "license": "CC0"
+    },
+    "usda_use:12002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12002",
+      "license": "CC0"
+    },
+    "usda_use:12003": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12003",
+      "license": "CC0"
+    },
+    "usda_use:12155": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12155",
+      "license": "CC0"
+    },
+    "usda_use:23453": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23453",
+      "license": "CC0"
+    },
+    "usda_use:23454": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23454",
+      "license": "CC0"
+    },
+    "usda_use:28529": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28529",
+      "license": "CC0"
+    },
+    "usda_use:28530": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28530",
+      "license": "CC0"
+    },
+    "usda_use:30457": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30457",
+      "license": "CC0"
+    },
+    "usda_use:35273": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35273",
+      "license": "CC0"
+    },
+    "usda_use:39605": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39605",
+      "license": "CC0"
+    },
+    "usda_use:39606": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 39606",
+      "license": "CC0"
+    },
+    "usda_use:41899": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41899",
+      "license": "CC0"
+    },
+    "usda_use:41942": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41942",
+      "license": "CC0"
+    },
+    "usda_use:41943": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41943",
+      "license": "CC0"
+    },
+    "usda_use:41944": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41944",
+      "license": "CC0"
+    },
+    "usda_use:43588": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43588",
+      "license": "CC0"
+    },
+    "usda_use:43589": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43589",
+      "license": "CC0"
+    },
+    "usda_use:44534": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44534",
+      "license": "CC0"
+    },
+    "usda_use:52046": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52046",
+      "license": "CC0"
+    },
+    "usda_use:52047": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52047",
+      "license": "CC0"
+    },
+    "usda_use:52048": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52048",
+      "license": "CC0"
+    },
+    "usda_use:53312": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53312",
+      "license": "CC0"
+    },
+    "usda_use:53313": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53313",
+      "license": "CC0"
+    },
+    "usda_use:54789": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54789",
+      "license": "CC0"
+    },
+    "usda_use:54790": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 54790",
+      "license": "CC0"
+    },
+    "usda_use:57177": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57177",
+      "license": "CC0"
+    },
+    "usda_use:57197": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57197",
+      "license": "CC0"
+    },
+    "usda_use:63684": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63684",
+      "license": "CC0"
+    },
+    "usda_use:63725": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63725",
+      "license": "CC0"
+    },
+    "usda_use:6422": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6422",
+      "license": "CC0"
+    },
+    "usda_use:66879": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66879",
+      "license": "CC0"
+    },
+    "usda_use:6827": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6827",
+      "license": "CC0"
+    },
+    "usda_use:72745": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72745",
+      "license": "CC0"
+    },
+    "usda_use:75550": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75550",
+      "license": "CC0"
+    },
+    "usda_use:76730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76730",
+      "license": "CC0"
+    },
+    "usda_use:77044": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77044",
+      "license": "CC0"
+    },
+    "usda_use:80946": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80946",
+      "license": "CC0"
+    },
+    "wcvp:2492022": {
+      "dataset": "wcvp",
+      "label": "WCVP: Senna tora (L.) Roxb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2704119": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cassia tora L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2763544": {
+      "dataset": "wcvp",
+      "label": "WCVP: Diallobus tora (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2788347": {
+      "dataset": "wcvp",
+      "label": "WCVP: Emelista tora (L.) Britton & Rose",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q21872227": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q21872227",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q21872227"
+    },
+    "wikipedia_es:Senna tora": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Senna tora",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Senna_tora"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) Roxb.",
+    "name": "Senna tora",
+    "refs": [
+      "wcvp:2492022"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Cassia tora",
+      "refs": [
+        "wcvp:2704119"
+      ]
+    },
+    {
+      "authors": "(L.) Raf.",
+      "name": "Diallobus tora",
+      "refs": [
+        "wcvp:2763544"
+      ]
+    },
+    {
+      "authors": "(L.) Britton & Rose",
+      "name": "Emelista tora",
+      "refs": [
+        "wcvp:2788347"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tiña",
+      "activitySource": "Ringworm",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb25: 418",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 418"
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India",
+        "Malaya",
+        "México"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41899",
+        "usda_use:41942",
+        "usda_use:41943",
+        "usda_use:41944",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Duke",
+        "usda_reference:EB",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "India",
+        "México"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43588",
+        "usda_use:43589",
+        "usda_use:57197",
+        "usda_use:76730",
+        "usda_reference:Duke",
+        "usda_reference:Martinez",
+        "usda_reference:Standley",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12001",
+        "usda_use:12002",
+        "usda_use:12003",
+        "usda_reference:Duke",
+        "usda_reference:Standley",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Purgante",
+      "activitySource": "Purgative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        }
+      ],
+      "countries": [
+        "China",
+        "Haití",
+        "México"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:39605",
+        "usda_use:39606",
+        "usda_use:75550",
+        "usda_reference:Bliss",
+        "usda_reference:Liogier",
+        "usda_reference:Martinez"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "India",
+        "Sri Lanka"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52046",
+        "usda_use:52047",
+        "usda_use:52048",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Ojos",
+      "activitySource": "Eye",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23453",
+        "usda_use:23454",
+        "usda_reference:Bliss",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatitis",
+      "activitySource": "Hepatitis",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28529",
+        "usda_use:28530",
+        "usda_reference:Keys",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Picazón",
+      "activitySource": "Itch",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Malaya",
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30457",
+        "usda_use:72745",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Oftalmía",
+      "activitySource": "Ophthalmia",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China",
+        "Malaya"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35273",
+        "usda_use:80946",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb24: 248",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 248"
+        }
+      ],
+      "countries": [
+        "China",
+        "India (Santal)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44534",
+        "usda_use:77044",
+        "usda_reference:Bliss",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Úlcera",
+      "activitySource": "Ulcer",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53312",
+        "usda_use:53313",
+        "usda_reference:Duke",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Vértigo",
+      "activitySource": "Vertigo",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:54789",
+        "usda_use:54790",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dolor de oído",
+      "activitySource": "Ache(Ear)",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63684",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dolor de cabeza",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63725",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6422",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Picadura de insecto",
+      "activitySource": "Bite(Bug)",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6827",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Eb24: 248",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 248"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57177",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11190",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Queloide",
+      "activitySource": "Cheloid",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66879",
+        "usda_reference:Duke"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Eb25: 418",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 418"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12155",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

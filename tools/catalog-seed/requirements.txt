@@ -1,0 +1,10 @@
+# Dependencias de las extracciones de EFSA (.xls) y de los PDF de la EMA. Solo las usa el desarrollador.
+# Las demás herramientas y pruebas funcionan con la biblioteca estándar; las pruebas que necesitan estas se omiten si no están instaladas.
+xlrd==2.0.2
+pdfminer.six==20251107
+# Dependencias de pdfminer.six, fijadas para que el entorno sea reproducible.
+charset-normalizer==3.5.2
+cryptography==50.0.2
+cffi==2.0.0
+pycparser==2.23
+typing_extensions==4.16.0

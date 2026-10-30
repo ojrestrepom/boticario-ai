@@ -1,0 +1,403 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:319d2fb7c3127f0823e3221e5e332c08c44fb7c6b17a20ddaff2e259f3e5cd21",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2176-1"
+      ],
+      "text": "Yellowroot"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Xanthorhiza simplicissima"
+    ],
+    "value": "Única especie del género Xanthorhiza y una de las pocas de la familia Ranunculaceae con tallo leñoso, al igual que Clematis. Es nativa del este de Estados Unidos."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2471067"
+    ],
+    "value": "Xanthorhiza simplicissima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2471067"
+    ],
+    "value": "Ranunculaceae"
+  },
+  "goals": [],
+  "id": "xanthorhiza-simplicissima",
+  "image": {
+    "attributionRequired": true,
+    "author": "TheAlphaWolf",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Yellowroot-_Xanthorhiza_simplicissima.JPG",
+    "refs": [
+      "commons:File:Yellowroot- Xanthorhiza simplicissima.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Yellowroot-_Xanthorhiza_simplicissima.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2471067"
+    ],
+    "value": "Nordeste, centro-sur y sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Yellowroot- Xanthorhiza simplicissima.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Yellowroot- Xanthorhiza simplicissima.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Yellowroot-_Xanthorhiza_simplicissima.JPG"
+    },
+    "efsa_botanic:1798": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: liriodenine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1799": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: palmatine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:1800": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: berberine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2176-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yellowroot»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_use:20567": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20567",
+      "license": "CC0"
+    },
+    "usda_use:36113": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36113",
+      "license": "CC0"
+    },
+    "usda_use:48101": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48101",
+      "license": "CC0"
+    },
+    "usda_use:62782": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62782",
+      "license": "CC0"
+    },
+    "usda_use:62783": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62783",
+      "license": "CC0"
+    },
+    "usda_use:63401": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63401",
+      "license": "CC0"
+    },
+    "usda_use:63905": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63905",
+      "license": "CC0"
+    },
+    "usda_use:72856": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72856",
+      "license": "CC0"
+    },
+    "usda_use:79103": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79103",
+      "license": "CC0"
+    },
+    "usda_use:82652": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82652",
+      "license": "CC0"
+    },
+    "wcvp:2471067": {
+      "dataset": "wcvp",
+      "label": "WCVP: Xanthorhiza simplicissima Marshall",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Xanthorhiza simplicissima": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Xanthorhiza simplicissima",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Xanthorhiza_simplicissima"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:1800",
+      "efsa_botanic:1798",
+      "efsa_botanic:1799"
+    ],
+    "text": "EFSA registra como sustancias de evidencia la berberina, la liriodenina y la palmatina en raíces y otras partes subterráneas; las fuentes no fijan un nivel de precaución para esta planta."
+  },
+  "scientificName": {
+    "authors": "Marshall",
+    "name": "Xanthorhiza simplicissima",
+    "refs": [
+      "wcvp:2471067"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63905",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82652",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20567",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Ictericia",
+      "activitySource": "Jaundice",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72856",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 334",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 334"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63401",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Parto",
+      "activitySource": "Parturition",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36113",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62782",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Estomatitis",
+      "activitySource": "Stomatitis",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48101",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Garganta",
+      "activitySource": "Throat",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62783",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79103",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

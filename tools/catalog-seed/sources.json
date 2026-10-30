@@ -1,0 +1,1377 @@
+{
+  "sources": [
+    {
+      "id": "usda",
+      "name": "USDA Dr. Duke's Phytochemical and Ethnobotanical Databases",
+      "pageUrl": "https://doi.org/10.15482/USDA.ADC/1239279",
+      "version": "Ag Data Commons 24660351, v1 (Duke-Source-CSV.zip, file ID 43363335)",
+      "url": "https://ndownloader.figshare.com/files/43363335",
+      "filename": "Duke-Source-CSV.zip",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Duke, James A. (2016). Dr. Duke's Phytochemical and Ethnobotanical Databases. Ag Data Commons. https://doi.org/10.15482/USDA.ADC/1239279",
+      "size": 6033990,
+      "checksum": {"algorithm": "md5", "value": "45ae44a0544586b8ac22a232beaac344"},
+      "enabled": true
+    },
+    {
+      "id": "wcvp",
+      "name": "World Checklist of Vascular Plants (WCVP)",
+      "pageUrl": "https://powo.science.kew.org/",
+      "version": "WCVP v16 (wcvp.zip, Kew SFTP; coincide con el piloto)",
+      "url": "https://sftp.kew.org/pub/data-repositories/WCVP/wcvp.zip",
+      "filename": "wcvp.zip",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "attribution": "Royal Botanic Gardens, Kew. World Checklist of Vascular Plants (WCVP), v16. https://powo.science.kew.org/",
+      "size": 88179649,
+      "checksum": {"algorithm": "sha256", "value": "d32ea2b3a85e489b14e83bcc9eae7274532e1d113753f7be290d4b2dfde573fa"},
+      "enabled": true
+    },
+    {
+      "id": "wfo",
+      "name": "World Flora Online (WFO)",
+      "pageUrl": "https://zenodo.org/records/20782718",
+      "version": "World Flora Online Plant List 2026-06 (Zenodo 20782718, _DwC_backbone_R.zip)",
+      "url": "https://zenodo.org/api/records/20782718/files/_DwC_backbone_R.zip/content",
+      "filename": "_DwC_backbone_R.zip",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "World Flora Online (2026). WFO Plant List, June 2026. Zenodo. https://zenodo.org/records/20782718",
+      "size": 121660019,
+      "checksum": {"algorithm": "md5", "value": "0e4486945cd9f7af548ca87eb9a870ed"},
+      "enabled": true
+    },
+    {
+      "id": "ema_json",
+      "name": "EMA: Herbal medicines for human use (listado)",
+      "pageUrl": "https://www.ema.europa.eu/",
+      "version": "Snapshot fijado el 2026-10-20, meta.timestamp 2026-10-20T18:00:54Z",
+      "url": "https://www.ema.europa.eu/en/documents/report/medicines-output-herbal_medicines-report-output-json_en.json",
+      "filename": "herbal_medicines.json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "licenseUrl": null,
+      "attribution": "European Medicines Agency (EMA). Herbal medicines for human use. https://www.ema.europa.eu/",
+      "size": 202757,
+      "checksum": {"algorithm": "sha256", "value": "e2b19f2fe9114514d593940d77684d39ab9977d22cbccb8a54354db2c93eee17"},
+      "enabled": true
+    },
+    {
+      "id": "ema_pdf",
+      "name": "EMA: monografías y declaraciones públicas del HMPC",
+      "pageUrl": "https://www.ema.europa.eu/",
+      "version": "PDF de las páginas de las fichas del snapshot de ema_json (meta.timestamp 2026-10-20T18:00:54Z); monografía final de la UE o borrador y declaración pública final, registrados por el comando ema-pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "licenseUrl": null,
+      "attribution": "European Medicines Agency (EMA). Herbal medicines for human use: monografías y declaraciones públicas del HMPC. https://www.ema.europa.eu/",
+      "enabled": true,
+      "files": [
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf",
+          "filename": "fragariae-folium__monograph-final__final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier--0acb790a88.pdf",
+          "size": 229939,
+          "checksum": {"algorithm": "sha256", "value": "12d62817c2062a01829eddd26fd8ff54222228b7d318c3220f13da482c5598e5"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf",
+          "filename": "liquiritiae-radix__monograph-final__final-european-union-herbal-monograph-glycyrrhiza-glabra-l-glycyrrhiza-inflata-bat-glycyrrhiza-uralensis-fisch-radix-revision-1_en.pdf",
+          "size": 323830,
+          "checksum": {"algorithm": "sha256", "value": "6268fc46479f2a55f474a2533811e5dddd27548334dba8b774bf252267137989"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycine-max-l-merr-lecithinum_en.pdf",
+          "filename": "lecithinum-ex-soya__monograph-final__final-european-union-herbal-monograph-glycine-max-l-merr-lecithinum_en.pdf",
+          "size": 122236,
+          "checksum": {"algorithm": "sha256", "value": "4a92040c2d9cb9ff65f32e0955ffef5b81be2b121fee121079e0705025a73456"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-cortex_en.pdf",
+          "filename": "hamamelidis-cortex__monograph-final__final-community-herbal-monograph-hamamelis-virginiana-l-cortex_en.pdf",
+          "size": 132779,
+          "checksum": {"algorithm": "sha256", "value": "8b2fb285bc0baeca6dbd01c5df3ae931699b09da575cceff837d7696f600b50a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-folium_en.pdf",
+          "filename": "hamamelidis-folium__monograph-final__final-community-herbal-monograph-hamamelis-virginiana-l-folium_en.pdf",
+          "size": 141450,
+          "checksum": {"algorithm": "sha256", "value": "4c372934afdb85fb96cca1bf33bf5998e0dd8f2e669c5e40ebcf7674f2e5a630"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-hamamelis-virginiana-l-folium-cortex-aut-ramunculus-destillatum_en.pdf",
+          "filename": "hamamelidis-folium-et-cortex-aut-ramunculus-destillatum__monograph-final__final-community-herbal-monograph-hamamelis-virginiana-l-folium-cortex-aut-ramunculus-destillatum_en.pdf",
+          "size": 141279,
+          "checksum": {"algorithm": "sha256", "value": "50d8bb7228021b12589cbf738fecc9dc462858fc3deaf129b8c7912468f27534"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-centaurium-erythraea-rafn-sl-herba_en.pdf",
+          "filename": "centaurii-herba__monograph-final__european-union-herbal-monograph-centaurium-erythraea-rafn-sl-herba_en.pdf",
+          "size": 154267,
+          "checksum": {"algorithm": "sha256", "value": "8b24f0dfcc10d6b04ced2a6da684a8b7a3324d4224fad1bb06780895a205acd5"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-ruscus-aculeatus-l-rhizoma-revision-1_en.pdf",
+          "filename": "rusci-rhizoma__monograph-final__european-union-herbal-monograph-ruscus-aculeatus-l-rhizoma-revision-1_en.pdf",
+          "size": 125969,
+          "checksum": {"algorithm": "sha256", "value": "0523b7fce5789cd5c77e9118d4369756bb636652a78e7c6d9b9e48714f71ab76"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-potentilla-erecta-l-raeusch-rhizoma_en.pdf",
+          "filename": "tormentillae-rhizoma__monograph-final__final-community-herbal-monograph-potentilla-erecta-l-raeusch-rhizoma_en.pdf",
+          "size": 128434,
+          "checksum": {"algorithm": "sha256", "value": "aebec4bcdc39c1230081211e864ae9ac183d2052211637ebc824280bc75ab02b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-leonurus-cardiaca-l-herba_en.pdf",
+          "filename": "leonuri-cardiacae-herba__monograph-final__final-community-herbal-monograph-leonurus-cardiaca-l-herba_en.pdf",
+          "size": 127979,
+          "checksum": {"algorithm": "sha256", "value": "4be2ff1c1a3c64783b8bb5e29edd90cd6f3443c546c071f95b2c9fdc83bebc9b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-thymus-vulgaris-l-thymus-zygis-l-aetheroleum-revision-1_en.pdf",
+          "filename": "thymi-aetheroleum__monograph-final__final-european-union-herbal-monograph-thymus-vulgaris-l-thymus-zygis-l-aetheroleum-revision-1_en.pdf",
+          "size": 154496,
+          "checksum": {"algorithm": "sha256", "value": "e5f988ece41c2725ae6b796a1c0385da782f757df411395a93476e5256684fea"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-radix-cum-herba_en.pdf",
+          "filename": "taraxaci-radix-cum-herba__monograph-final__final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-radix-cum-herba_en.pdf",
+          "size": 144228,
+          "checksum": {"algorithm": "sha256", "value": "fc67aadfcd90b0a3708b064ae7be7ecc5f8a2fc2d10d5efbb9d13d7d05dbddee"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-folium_en.pdf",
+          "filename": "taraxaci-folium__monograph-final__final-community-herbal-monograph-taraxacum-officinale-weber-ex-wigg-folium_en.pdf",
+          "size": 131834,
+          "checksum": {"algorithm": "sha256", "value": "359dda558b472be1282949088d4352c218b1e20c64ddbdf3ac5021eceffc7cbe"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-tanacetum-parthenium-l-schulz-bip-herba-revision-1_en.pdf",
+          "filename": "tanaceti-parthenii-herba__monograph-final__final-european-union-herbal-monograph-tanacetum-parthenium-l-schulz-bip-herba-revision-1_en.pdf",
+          "size": 186072,
+          "checksum": {"algorithm": "sha256", "value": "d83d3122a218b96fe17f4d71d3d19aa3cdcc30c80b3b6242afb7927f0ab33dd4"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf",
+          "filename": "quercus-cortex__monograph-final__final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf",
+          "size": 131452,
+          "checksum": {"algorithm": "sha256", "value": "c6ced9b44e850881606e4b82742bb14c23b8a511a51f3032bfbd91f409231283"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-phaseolus-vulgaris-l-fructus-sine-semine_en.pdf",
+          "filename": "phaseoli-fructus-sine-semine__monograph-final__final-community-herbal-monograph-phaseolus-vulgaris-l-fructus-sine-semine_en.pdf",
+          "size": 120411,
+          "checksum": {"algorithm": "sha256", "value": "9c95e30d4ac8e522e20c92216fd2351ca118e82ca419f47ee86648da68514ce1"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-community-herbal-monograph-achillea-millefolium-l-herba_en.pdf",
+          "filename": "millefolii-herba__monograph-draft__draft-community-herbal-monograph-achillea-millefolium-l-herba_en.pdf",
+          "size": 135429,
+          "checksum": {"algorithm": "sha256", "value": "81ef211e78d315aa980aab2aadb90e79d4ee2fe6b4ac9581f9bd609297fb068f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-achillea-millefolium-l-flos_en.pdf",
+          "filename": "millefolii-flos__monograph-final__final-community-herbal-monograph-achillea-millefolium-l-flos_en.pdf",
+          "size": 102738,
+          "checksum": {"algorithm": "sha256", "value": "fc6cb30ae1d4822e13a6835d4803d1de38fcf047082d86b516442ebc90b87c5c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-mentha-x-piperita-l-folium-revision-1_en.pdf",
+          "filename": "menthae-piperitae-folium__monograph-final__european-union-herbal-monograph-mentha-x-piperita-l-folium-revision-1_en.pdf",
+          "size": 133572,
+          "checksum": {"algorithm": "sha256", "value": "5746975f54c3b283013253774d84f5ae2251fdd6f032da817d488116150c6deb"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-mentha-x-piperita-l-aetheroleum-revision-1_en.pdf",
+          "filename": "menthae-piperitae-aetheroleum__monograph-final__european-union-herbal-monograph-mentha-x-piperita-l-aetheroleum-revision-1_en.pdf",
+          "size": 182423,
+          "checksum": {"algorithm": "sha256", "value": "21af051cc4426ebb812a910b7e1a69dfec420e16418f78447ec7eec9af33c399"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-herniaria-glabra-l-h-hirsuta-l-h-incana-lam-herba_en.pdf",
+          "filename": "herniariae-herba__monograph-final__final-european-union-herbal-monograph-herniaria-glabra-l-h-hirsuta-l-h-incana-lam-herba_en.pdf",
+          "size": 133326,
+          "checksum": {"algorithm": "sha256", "value": "392d70477edd70b437376b0899bfa8011dc5d3ac4745ef5837bb79d409f0b0ad"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-herba-first-version_en.pdf",
+          "filename": "filipendulae-ulmariae-herba__monograph-final__final-community-herbal-monograph-filipendula-ulmaria-l-maxim-herba-first-version_en.pdf",
+          "size": 114941,
+          "checksum": {"algorithm": "sha256", "value": "d64cf5127a598f11f61c487ccae7dd06559db56e6404d4d4a735ae7c9b0700a5"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-flos-first-version_en.pdf",
+          "filename": "filipendulae-ulmariae-flos__monograph-final__final-community-herbal-monograph-filipendula-ulmaria-l-maxim-flos-first-version_en.pdf",
+          "size": 112925,
+          "checksum": {"algorithm": "sha256", "value": "53bd7a0b38ee32b99f10251dca7b9e5e93a0d4bc6f638323647235be5ac28299"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-chamaemelum-nobile-l-all-flos_en.pdf",
+          "filename": "chamomillae-romanae-flos__monograph-final__final-community-herbal-monograph-chamaemelum-nobile-l-all-flos_en.pdf",
+          "size": 112684,
+          "checksum": {"algorithm": "sha256", "value": "02de282746959d4865d7626f35c9c9929bece8ba3dd4cb99b5048abfde254a5d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-arctium-lappa-l-radix_en.pdf",
+          "filename": "arctii-radix__monograph-final__final-community-herbal-monograph-arctium-lappa-l-radix_en.pdf",
+          "size": 156627,
+          "checksum": {"algorithm": "sha256", "value": "4f4822fee4e9e25c8b1c8db03611972fc7ee93b17435e9f02d1b643f734215cf"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-artemisia-absinthium-l-herba_en.pdf",
+          "filename": "absinthii-herba__monograph-final__final-european-union-herbal-monograph-artemisia-absinthium-l-herba_en.pdf",
+          "size": 149190,
+          "checksum": {"algorithm": "sha256", "value": "66d72deb66d6cc0d86cbe1a51aa25ed3f7b9189fa80d8ccc076548eebdf76ea0"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-zingiber-officinale-roscoe-rhizoma-revision-1_en.pdf",
+          "filename": "zingiberis-rhizoma__monograph-final__final-european-union-herbal-monograph-zingiber-officinale-roscoe-rhizoma-revision-1_en.pdf",
+          "size": 279909,
+          "checksum": {"algorithm": "sha256", "value": "1047711b384c85c0ab5f50ef283f5b5a164c73db0101e9c7cec26ce27fcb7f4d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-trigonella-foenum-graecum-l-semen-revision-1_en.pdf",
+          "filename": "trigonellae-foenugraeci-semen__monograph-final__european-union-herbal-monograph-trigonella-foenum-graecum-l-semen-revision-1_en.pdf",
+          "size": 285124,
+          "checksum": {"algorithm": "sha256", "value": "e94310b548775f4768c9dc1b12769e97eb97db15e74795534712b94e8c183021"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rosmarinus-officinalis-l-folium-revision-1_en.pdf",
+          "filename": "rosmarini-folium__monograph-final__final-european-union-herbal-monograph-rosmarinus-officinalis-l-folium-revision-1_en.pdf",
+          "size": 287056,
+          "checksum": {"algorithm": "sha256", "value": "a99c6f1c06cc61cf5f1d3bc8a1499d2fa65417f83c8a7a072cccfd0a54e92373"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rosmarinus-officinalis-l-aetheroleum-revision-1_en.pdf",
+          "filename": "rosmarini-aetheroleum__monograph-final__final-european-union-herbal-monograph-rosmarinus-officinalis-l-aetheroleum-revision-1_en.pdf",
+          "size": 268738,
+          "checksum": {"algorithm": "sha256", "value": "aaf0cf735db63a7e59bc8dcc903da9d73ed021ce0b9ffb67629c9a98d17b4d16"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-pilosella-officinarum-vall-syn-hieracium-pilosella-l-herba-cum-radice-revision-1_en.pdf",
+          "filename": "pilosellae-herba-cum-radice__monograph-final__final-european-union-herbal-monograph-pilosella-officinarum-vall-syn-hieracium-pilosella-l-herba-cum-radice-revision-1_en.pdf",
+          "size": 242634,
+          "checksum": {"algorithm": "sha256", "value": "ab76b10d2e0f194871df53bba4d5af6a8c9ac582283a03694c5becc1586952de"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-panax-ginseng-camey-radix-revision-1_en.pdf",
+          "filename": "ginseng-radix__monograph-final__final-european-union-herbal-monograph-panax-ginseng-camey-radix-revision-1_en.pdf",
+          "size": 286380,
+          "checksum": {"algorithm": "sha256", "value": "27b315a297e44a9893caa86691ee7fad8dbd513b998a66b6f84769891bb360a9"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cnicus-benedictus-l-herba_en.pdf",
+          "filename": "cnici-benedicti-herba__monograph-final__final-european-union-herbal-monograph-cnicus-benedictus-l-herba_en.pdf",
+          "size": 211134,
+          "checksum": {"algorithm": "sha256", "value": "816194eb7c458c9aa86c353f7b5696e16a38ea21fadd0896bc04c69b2efad058"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-valeriana-officinalis-l-radix_en.pdf",
+          "filename": "valerianae-radix__monograph-final__final-european-union-herbal-monograph-valeriana-officinalis-l-radix_en.pdf",
+          "size": 135509,
+          "checksum": {"algorithm": "sha256", "value": "a69cc050171e07c01a2b77afdbecc34990e7dfba161bbfc194405fe1119596cb"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-european-union-herbal-monograph-hypericum-perforatum-l-herba-cimicifuga-racemosa-l-nutt-rhizoma_en.pdf",
+          "filename": "hyperici-herba__monograph-draft__draft-european-union-herbal-monograph-hypericum-perforatum-l-herba-cimicifuga-racemosa-l-nutt-rhizoma_en.pdf",
+          "size": 350165,
+          "checksum": {"algorithm": "sha256", "value": "752d97d31833de9ad4e0936ad81a0ce4a97e0d052dcae0d890e4e404e9a44880"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-ribes-nigrum-l-folium_en.pdf",
+          "filename": "ribis-nigri-folium__monograph-final__final-european-union-herbal-monograph-ribes-nigrum-l-folium_en.pdf",
+          "size": 117956,
+          "checksum": {"algorithm": "sha256", "value": "2d3a19c49d3e221ef588d8322d3a37c4df6826563c3ac57e465eb02e36d65e2f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-oenothera-biennis-l-oenothera-lamarckiana-l-oleum-revision-1_en.pdf",
+          "filename": "oenotherae-oleum__monograph-final__final-european-union-herbal-monograph-oenothera-biennis-l-oenothera-lamarckiana-l-oleum-revision-1_en.pdf",
+          "size": 137599,
+          "checksum": {"algorithm": "sha256", "value": "ef82b7af22c6e0b952abab358244f01bfbb07dccf2e9ada22de23816fb29f4ab"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cimicifuga-racemosa-l-nutt-rhizome-revision-1_en.pdf",
+          "filename": "cimicifugae-rhizoma__monograph-final__final-european-union-herbal-monograph-cimicifuga-racemosa-l-nutt-rhizome-revision-1_en.pdf",
+          "size": 139651,
+          "checksum": {"algorithm": "sha256", "value": "716b3d6026a9358a1dca837feef1e6f37efbbd8be7c6376929dfa36be642b80f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-curcuma-longa-l-rhizoma-revision-1_en.pdf",
+          "filename": "curcumae-longae-rhizoma__monograph-final__final-european-union-herbal-monograph-curcuma-longa-l-rhizoma-revision-1_en.pdf",
+          "size": 145210,
+          "checksum": {"algorithm": "sha256", "value": "d825d8af0460f44690504c7d813f2375fa62f685e82e1e49344df31e3d915119"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-carum-carvi-l-fructus_en.pdf",
+          "filename": "carvi-fructus__monograph-final__final-european-union-herbal-monograph-carum-carvi-l-fructus_en.pdf",
+          "size": 188461,
+          "checksum": {"algorithm": "sha256", "value": "b031a648724cae9f800a6cca9c9d0f7afaf7424fa1993037feaba3bfd992c10b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-carum-carvi-l-aetheroleum_en.pdf",
+          "filename": "carvi-aetheroleum__monograph-final__final-european-union-herbal-monograph-carum-carvi-l-aetheroleum_en.pdf",
+          "size": 189894,
+          "checksum": {"algorithm": "sha256", "value": "020f267014014959291a3b4bda3a43aaa810debf0fd8d3508c2374174d298404"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-althaea-officinalis-l-radix_en.pdf",
+          "filename": "althaeae-radix__monograph-final__final-european-union-herbal-monograph-althaea-officinalis-l-radix_en.pdf",
+          "size": 136147,
+          "checksum": {"algorithm": "sha256", "value": "aaca639967f5922ac4af84bde27aba8b569005844ce640d2545f6969f2e237cf"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-primula-veris-l-and-or-primula-elatior-l-hill-radix_en.pdf",
+          "filename": "primulae-radix__monograph-final__final-community-herbal-monograph-primula-veris-l-and-or-primula-elatior-l-hill-radix_en.pdf",
+          "size": 133681,
+          "checksum": {"algorithm": "sha256", "value": "ef96f16f47e7efe948ab1550b876324ad21f9a80b6f175945feee2bc0f65cf3f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-primula-veris-l-and-or-primula-elatior-l-hill-flos_en.pdf",
+          "filename": "primulae-flos__monograph-final__final-community-herbal-monograph-primula-veris-l-and-or-primula-elatior-l-hill-flos_en.pdf",
+          "size": 125394,
+          "checksum": {"algorithm": "sha256", "value": "244f0c59ba8b581decc17011d1bb8c4b903368062b77e6d1126a0419a1f0329e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-plantaginis-lanceolatae-folium-revision-1_en.pdf",
+          "filename": "plantaginis-lanceolatae-folium__monograph-final__final-european-union-herbal-monograph-plantaginis-lanceolatae-folium-revision-1_en.pdf",
+          "size": 273777,
+          "checksum": {"algorithm": "sha256", "value": "1b40bf5c50f939df7790cfc79100d9777cbe4f910928f676982007927ea291ef"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-european-union-herbal-monograph-zea-mays-l-stigma_en.pdf",
+          "filename": "maydis-stigma__monograph-draft__draft-european-union-herbal-monograph-zea-mays-l-stigma_en.pdf",
+          "size": 244547,
+          "checksum": {"algorithm": "sha256", "value": "509151c3ba6bdeae9700266e6584bba4a3d20416a14756332489e8d478c173e3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-calendula-officinalis-l-flos-revision-1_en.pdf",
+          "filename": "calendulae-flos__monograph-final__final-european-union-herbal-monograph-calendula-officinalis-l-flos-revision-1_en.pdf",
+          "size": 122927,
+          "checksum": {"algorithm": "sha256", "value": "e4c7ccf26c8963367f0d20a9340eec6a6f5589e972af892f909f0539c1229bef"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-species-pectorales-first-version_en.pdf",
+          "filename": "combination-species-pectorales__monograph-final__final-european-union-herbal-monograph-species-pectorales-first-version_en.pdf",
+          "size": 312803,
+          "checksum": {"algorithm": "sha256", "value": "91d184d406d2720155c60c074d6bb33681af261a56ccb760014bcb46edf0395d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-species-diureticae_en.pdf",
+          "filename": "species-diureticae__monograph-final__final-european-union-herbal-monograph-species-diureticae_en.pdf",
+          "size": 217968,
+          "checksum": {"algorithm": "sha256", "value": "e255b190057c2b21eb96b999bc01a8ec739e9562ec4842a13adaf312ab7e3d37"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-public-statement-cannabis-sativa-l-flos_en.pdf",
+          "filename": "cannabis-flos__public-statement__draft-public-statement-cannabis-sativa-l-flos_en.pdf",
+          "size": 141419,
+          "checksum": {"algorithm": "sha256", "value": "f1dddf1c5448409ab02d4a029c5036b6e44f43eb38c031f9d66ca82215d3c93d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vitis-vinifera-l-folium-revision-1_en.pdf",
+          "filename": "vitis-viniferae-folium__monograph-final__final-european-union-herbal-monograph-vitis-vinifera-l-folium-revision-1_en.pdf",
+          "size": 154960,
+          "checksum": {"algorithm": "sha256", "value": "94ada55995ff00b41baaffa6ca89f365508d2e2e93a6ef5dd1cf4e5530b09f8c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-ononis-spinosa-l-radix_en.pdf",
+          "filename": "ononidis-radix__monograph-final__final-community-herbal-monograph-ononis-spinosa-l-radix_en.pdf",
+          "size": 117705,
+          "checksum": {"algorithm": "sha256", "value": "0385920d7a582d86003bf2fdc4706aa068570fefb8ad6ad13dcd8250a073ea2a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-arctostaphylos-uva-ursi-l-spreng-folium-revision-2_en.pdf",
+          "filename": "uvae-ursi-folium__monograph-final__final-european-union-herbal-monograph-arctostaphylos-uva-ursi-l-spreng-folium-revision-2_en.pdf",
+          "size": 132059,
+          "checksum": {"algorithm": "sha256", "value": "b3675ab61c5771f570a13e7c9aa563b2762964c110c38f955c730e853bcf261e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-melilotus-officinalis-l-lam-herba_en.pdf",
+          "filename": "meliloti-herba__monograph-final__final-european-union-herbal-monograph-melilotus-officinalis-l-lam-herba_en.pdf",
+          "size": 128399,
+          "checksum": {"algorithm": "sha256", "value": "068f75ba403692f6c91cbeeed1464a2551ec00b67840b771a60dddf3a1c5195f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-humulus-lupulus-l-flos-revision-1_en.pdf",
+          "filename": "lupuli-flos__monograph-final__final-community-herbal-monograph-humulus-lupulus-l-flos-revision-1_en.pdf",
+          "size": 120226,
+          "checksum": {"algorithm": "sha256", "value": "c05c9e4d6d7aa527b7cfe5c9f41b611a532a78157ea4d31f3c42c78cb3c267fb"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-herbal-monograph-gentiana-lutea-l-radix-revision-1_en.pdf",
+          "filename": "gentianae-radix__monograph-final__european-herbal-monograph-gentiana-lutea-l-radix-revision-1_en.pdf",
+          "size": 125765,
+          "checksum": {"algorithm": "sha256", "value": "ea97f1acfc77c41cb20c3b21133c6e57c82d43e417a0f24088b4cf6ceae45033"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cisti-cretici-herba-first-version_en.pdf",
+          "filename": "cisti-cretici-herba__monograph-final__final-european-union-herbal-monograph-cisti-cretici-herba-first-version_en.pdf",
+          "size": 266165,
+          "checksum": {"algorithm": "sha256", "value": "719a1f9988438ceaec6f67f1f9cacaf6d6fff57de73fac2f61ed63d8c18577de"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-allium-sativum-l-bulbus_en.pdf",
+          "filename": "allii-sativi-bulbus__monograph-final__final-european-union-herbal-monograph-allium-sativum-l-bulbus_en.pdf",
+          "size": 132497,
+          "checksum": {"algorithm": "sha256", "value": "05f30df4f6487c78da66ab2746e0544e15031751125d3b7de5471f1fcd59ef51"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-arnica-montana-l-flos_en.pdf",
+          "filename": "arnicae-flos__monograph-final__final-community-herbal-monograph-arnica-montana-l-flos_en.pdf",
+          "size": 115156,
+          "checksum": {"algorithm": "sha256", "value": "2542ce3685e40f248279fbab2c41f3ebc7d546f0451b5fc8385842bdb567a61b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-crataegus-spp-folium-cum-flore_en.pdf",
+          "filename": "crataegi-folium-cum-flore__monograph-final__final-european-union-herbal-monograph-crataegus-spp-folium-cum-flore_en.pdf",
+          "size": 127074,
+          "checksum": {"algorithm": "sha256", "value": "f28c7db45c5c9d26185859bfa1f322e64391153712a33070f5bdcb980d4a99d3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salix-various-species-including-s-purpurea-l-s-daphnoides-vill-s-fragilis-l-cortex_en.pdf",
+          "filename": "salicis-cortex__monograph-final__final-european-union-herbal-monograph-salix-various-species-including-s-purpurea-l-s-daphnoides-vill-s-fragilis-l-cortex_en.pdf",
+          "size": 162688,
+          "checksum": {"algorithm": "sha256", "value": "d4e9bcc150ab4f8863d6b8b5e1755322291e8b84fba9fe0d159fd9058dec11db"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-afra-l-et-plantago-indica-l-semen_en.pdf",
+          "filename": "psyllii-semen__monograph-final__final-community-herbal-monograph-plantago-afra-l-et-plantago-indica-l-semen_en.pdf",
+          "size": 147418,
+          "checksum": {"algorithm": "sha256", "value": "9c44884f75380ea969fd32c232237806d03779448cb18cf13c48052c9bcfbec1"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf",
+          "filename": "harpagophyti-radix__monograph-final__final-european-union-herbal-monograph-harpagophytum-procumbens-dc-andor-harpagophytum-zeyheri-decne-radix_en.pdf",
+          "size": 127434,
+          "checksum": {"algorithm": "sha256", "value": "c3661a0e6c70a552fa85ec920e0669ad992e2f18bab03d13d5c93eaa7721bd8d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-equisetum-arvense-l-herba_en.pdf",
+          "filename": "equiseti-herba__monograph-final__final-european-union-herbal-monograph-equisetum-arvense-l-herba_en.pdf",
+          "size": 131645,
+          "checksum": {"algorithm": "sha256", "value": "c040e5e97fb483c82bd262f5da6038d2909ba3f6452851bae3448661608271a7"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-valeriana-officinalis-l-radix-and-humulus-lupulus-l-flos-revision-1_en.pdf",
+          "filename": "valerianae-radix-lupuli-flos__monograph-final__final-european-union-herbal-monograph-valeriana-officinalis-l-radix-and-humulus-lupulus-l-flos-revision-1_en.pdf",
+          "size": 148361,
+          "checksum": {"algorithm": "sha256", "value": "d1d5df432d9a6dcd2c4bc9807849545ab1287ae917ba11995b2e3475ff09077c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-olea-europaea-l-folium-first-version_en.pdf",
+          "filename": "oleae-folium__monograph-final__final-european-union-herbal-monograph-olea-europaea-l-folium-first-version_en.pdf",
+          "size": 119787,
+          "checksum": {"algorithm": "sha256", "value": "1c5d7be960d3164a14e7fe4a124a51953901a0b4fa8893bc9943b3341f7f1b2f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cynara-cardunculus-l-syn-cynara-scolymus-l-folium_en.pdf",
+          "filename": "cynarae-folium__monograph-final__final-european-union-herbal-monograph-cynara-cardunculus-l-syn-cynara-scolymus-l-folium_en.pdf",
+          "size": 144014,
+          "checksum": {"algorithm": "sha256", "value": "0eebd635ba4d410cac60b22c8e8409ab75bf6d44c8263d7aae1819a01e24b43e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-avena-sativa-l-herba_en.pdf",
+          "filename": "avenae-herba__monograph-final__final-community-herbal-monograph-avena-sativa-l-herba_en.pdf",
+          "size": 81054,
+          "checksum": {"algorithm": "sha256", "value": "0321598b113a903a5272b6cba27ac76928f3699328cfa775806baa378ae4a3e3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-avena-sativa-l-fructus_en.pdf",
+          "filename": "avenae-fructus__monograph-final__final-community-herbal-monograph-avena-sativa-l-fructus_en.pdf",
+          "size": 78875,
+          "checksum": {"algorithm": "sha256", "value": "17942f6f2227b234632c6b5f0bde13f6b28b9c992b8c1252a311f382a648c2ce"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-verbascum-thapsus-l-v-densiflorum-bertol-v-thapsiforme-schrad-and-v-phlomoides-l-flos_en.pdf",
+          "filename": "verbasci-flos__monograph-final__final-european-union-herbal-monograph-verbascum-thapsus-l-v-densiflorum-bertol-v-thapsiforme-schrad-and-v-phlomoides-l-flos_en.pdf",
+          "size": 113079,
+          "checksum": {"algorithm": "sha256", "value": "d9803f8eb761d4706b461704cc393ec9a05a690b7030ad19fc60c563667831a0"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sambucus-nigra-l-flos-revision-1_en.pdf",
+          "filename": "sambuci-flos__monograph-final__final-european-union-herbal-monograph-sambucus-nigra-l-flos-revision-1_en.pdf",
+          "size": 123202,
+          "checksum": {"algorithm": "sha256", "value": "cb1dc2f01554c4719119a415a66d277621d2a62b78976ca0f8d4f1924418a96d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-polypodium-vulgare-l-rhizome_en.pdf",
+          "filename": "polypodii-rhizoma__monograph-final__final-community-herbal-monograph-polypodium-vulgare-l-rhizome_en.pdf",
+          "size": 74498,
+          "checksum": {"algorithm": "sha256", "value": "e6d1e46afbab80608bbc8121c68a85e35dd35c07a72082b774d23844db8ba2b0"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-linum-usitatissimum-l-semen_en.pdf",
+          "filename": "lini-semen__monograph-final__final-community-herbal-monograph-linum-usitatissimum-l-semen_en.pdf",
+          "size": 127284,
+          "checksum": {"algorithm": "sha256", "value": "4680a197b276cea7a180c83f6bddf2797e1b0f063a5344e05c383eebe79a17c4"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-radix-revision-1_en.pdf",
+          "filename": "urticae-radix__monograph-final__final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-radix-revision-1_en.pdf",
+          "size": 275332,
+          "checksum": {"algorithm": "sha256", "value": "63691169217367738f24b0e3182f4b117b6b541e648a36c5318918fcc0a8938d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-herba-revision-1_en.pdf",
+          "filename": "urticae-herba__monograph-final__final-european-union-herbal-monograph-urtica-dioica-l-urtica-urens-l-herba-revision-1_en.pdf",
+          "size": 319180,
+          "checksum": {"algorithm": "sha256", "value": "d96e722477c8eb1a2bc6bc52c4ae20297ec2674b09b3ef25bef152c854641420"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf",
+          "filename": "eucalypti-aetheroleum__monograph-final__final-european-union-herbal-monograph-eucalyptus-globulus-labill-eucalyptus-polybractea-rt-baker-eucalyptus-smithii-rt-baker-aetheroleum-revision-1_en.pdf",
+          "size": 287433,
+          "checksum": {"algorithm": "sha256", "value": "5413cd5e482411a1b872985f706cb15a50ef4437e0899e7e416d31b0bea937c2"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-betula-pendula-roth-betula-pubescens-ehrh-folium_en.pdf",
+          "filename": "betulae-folium__monograph-final__final-european-union-herbal-monograph-betula-pendula-roth-betula-pubescens-ehrh-folium_en.pdf",
+          "size": 202732,
+          "checksum": {"algorithm": "sha256", "value": "01d2f23d96bc530b5d37ce5973d07b6d9c220dd3015699378e393ed0f7d0b309"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-eleutherococcus-senticosus-rupr-et-maxim-maxim-radix_en.pdf",
+          "filename": "eleutherococci-radix__monograph-final__final-community-herbal-monograph-eleutherococcus-senticosus-rupr-et-maxim-maxim-radix_en.pdf",
+          "size": 125756,
+          "checksum": {"algorithm": "sha256", "value": "e6d88b35fc5fefb741d7cf84c0a9314c9d14efeb8e071c59756a07d6e275a422"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf",
+          "filename": "hederae-helicis-folium__monograph-final__final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf",
+          "size": 116373,
+          "checksum": {"algorithm": "sha256", "value": "459030a656416295cb7f963eebc4c863b04e889f1fcfc4e4f22a93845459e46a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-passiflora-incarnata-l-herba_en.pdf",
+          "filename": "passiflorae-herba__monograph-final__final-community-herbal-monograph-passiflora-incarnata-l-herba_en.pdf",
+          "size": 131184,
+          "checksum": {"algorithm": "sha256", "value": "7b333e0bf306b67440e9e56474580b812ba18169c74020c95cbd2424a4cd90d6"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-public-statement-tribulus-terrestris-l-herba-first-version_en.pdf",
+          "filename": "tribuli-terrestris-herba__public-statement__draft-public-statement-tribulus-terrestris-l-herba-first-version_en.pdf",
+          "size": 124006,
+          "checksum": {"algorithm": "sha256", "value": "bc3c322ea86a1ccdf6cfbccf1cf2b5553b9cce163e1f8da148204c520a36cc1e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-avium-l-prunus-cerasus-l-peduncle_en.pdf",
+          "filename": "prunus-avium-peduncle__monograph-final__final-european-union-herbal-monograph-prunus-avium-l-prunus-cerasus-l-peduncle_en.pdf",
+          "size": 255012,
+          "checksum": {"algorithm": "sha256", "value": "15decceef9e244fcd253db4e131924a451a95296e25800eb9e512d227985c687"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-valeriana-officinalis-l-aetheroleum_en.pdf",
+          "filename": "valerianae-aetheroleum__monograph-final__final-european-union-herbal-monograph-valeriana-officinalis-l-aetheroleum_en.pdf",
+          "size": 137539,
+          "checksum": {"algorithm": "sha256", "value": "50df519b59df5e5083bc5c865e3d803593046ccc008c4ff767d54bd4d2eaa349"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-salvia-officinalis-l-folium-revision-1_en.pdf",
+          "filename": "salviae-officinalis-folium__monograph-final__final-european-union-herbal-monograph-salvia-officinalis-l-folium-revision-1_en.pdf",
+          "size": 172017,
+          "checksum": {"algorithm": "sha256", "value": "c18f4a01b04b859a73507835562bb43b77849a6285a9292fd3f2002283c4022f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-pimpinella-anisum-l-fructus_en.pdf",
+          "filename": "anisi-fructus__monograph-final__final-community-herbal-monograph-pimpinella-anisum-l-fructus_en.pdf",
+          "size": 141995,
+          "checksum": {"algorithm": "sha256", "value": "93325a0d9eba7fb482ae8c01f0633bcdcecdc2aaf369f86675e4b0cafcc91210"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-pimpinella-anisum-l-aetheroleum_en.pdf",
+          "filename": "anisi-aetheroleum__monograph-final__final-community-herbal-monograph-pimpinella-anisum-l-aetheroleum_en.pdf",
+          "size": 144945,
+          "checksum": {"algorithm": "sha256", "value": "6d100a907798defaffd9ca278407b42b5d74f8758635ae681033e2d8d0b7249a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-peumus-boldus-molina-folium_en.pdf",
+          "filename": "boldi-folium__monograph-final__final-european-union-herbal-monograph-peumus-boldus-molina-folium_en.pdf",
+          "size": 119883,
+          "checksum": {"algorithm": "sha256", "value": "0bcfa1ccea536bc1ba924ab74493d13e2de8ba4e9bcabf08752275b1da1f0f86"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-glycine-max-l-merr-oleum-raffinatum_en.pdf",
+          "filename": "soiae-oleum-raffinatum__monograph-final__final-european-union-herbal-monograph-glycine-max-l-merr-oleum-raffinatum_en.pdf",
+          "size": 142045,
+          "checksum": {"algorithm": "sha256", "value": "bbca1eff6504a96c1d43645cc21bde441fa7dbc65d76d923abdfe4fdbc10d2ac"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-pistacia-lentiscus-l-resin-mastic_en.pdf",
+          "filename": "mastic__monograph-final__final-european-union-herbal-monograph-pistacia-lentiscus-l-resin-mastic_en.pdf",
+          "size": 133626,
+          "checksum": {"algorithm": "sha256", "value": "ef3deb65afc9bd0a9447bfdfaa6265b2c6aadc0f60de1dcd1e0f0d148c1f81c5"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/draft-community-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-fructus_en.pdf",
+          "filename": "foeniculi-amari-fructus-aetheroleum__monograph-draft__draft-community-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-fructus_en.pdf",
+          "size": 51196,
+          "checksum": {"algorithm": "sha256", "value": "8e6ac848a14968ae514c240d71b3d95b649fe156d80ccef5dc796a1ca4538468"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-aetheroleum-revision-1_en.pdf",
+          "filename": "foeniculi-amari-fructus-aetheroleum__public-statement__final-public-statement-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-aetheroleum-revision-1_en.pdf",
+          "size": 141499,
+          "checksum": {"algorithm": "sha256", "value": "a6fc5ea551efad1e04b4089931fca203e19bb31c24ea78abe456c3b76339406a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-pelargonium-sidoides-dc-pelargonium-reniforme-curt-radix-revision-2_en.pdf",
+          "filename": "pelargonii-radix__monograph-final__final-european-union-herbal-monograph-pelargonium-sidoides-dc-pelargonium-reniforme-curt-radix-revision-2_en.pdf",
+          "size": 196934,
+          "checksum": {"algorithm": "sha256", "value": "0d6a62a5370433967f35a7a20f5505d20d9016902ec8e48c4b7d798ba6012538"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rhodiola-rosea-l-rhizoma-et-radix-revision-1_en.pdf",
+          "filename": "rhodiolae-roseae-rhizoma-et-radix__monograph-final__final-european-union-herbal-monograph-rhodiola-rosea-l-rhizoma-et-radix-revision-1_en.pdf",
+          "size": 249407,
+          "checksum": {"algorithm": "sha256", "value": "6181cb79762a9045a4e65ae300db48ec74d52cdd24bb084e2b477f27488f7347"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-aesculus-hippocastanum-l-cortex-revision-1_en.pdf",
+          "filename": "hippocastani-cortex__monograph-final__final-european-union-herbal-monograph-aesculus-hippocastanum-l-cortex-revision-1_en.pdf",
+          "size": 173158,
+          "checksum": {"algorithm": "sha256", "value": "65f061dbc0b89d27deb29609fd5373c7777754673cbd6b7836a701411d9f21d5"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-malva-sylvestris-l-flos-first-version_en.pdf",
+          "filename": "malvae-sylvestris-flos__monograph-final__final-european-union-herbal-monograph-malva-sylvestris-l-flos-first-version_en.pdf",
+          "size": 117252,
+          "checksum": {"algorithm": "sha256", "value": "86eba1f755bb8e87babbe7ef2f90058d7d176a24b46d07fa1affaa9a0a1f544b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-malva-sylvestris-l-andor-malva-neglecta-wallr-folium-first-version_en.pdf",
+          "filename": "malvae-folium__monograph-final__final-european-union-herbal-monograph-malva-sylvestris-l-andor-malva-neglecta-wallr-folium-first-version_en.pdf",
+          "size": 116776,
+          "checksum": {"algorithm": "sha256", "value": "b46ddd8c63cf346acacb8efa69e8888a247b5f4d1e26dcd7908563a5ec952a40"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-melissa-officinalis-l-folium_en.pdf",
+          "filename": "melissae-folium__monograph-final__final-community-herbal-monograph-melissa-officinalis-l-folium_en.pdf",
+          "size": 123717,
+          "checksum": {"algorithm": "sha256", "value": "082be7d035cacca8f551adbaa8362facb7e66079336ca6c525e88dd1b9d2f6f0"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-commiphora-molmol-engler-gummi-resina_en.pdf",
+          "filename": "myrrha__monograph-final__final-community-herbal-monograph-commiphora-molmol-engler-gummi-resina_en.pdf",
+          "size": 100240,
+          "checksum": {"algorithm": "sha256", "value": "78311f66a0f71a211e61b6a1ab53efcef819aff12534ea9bfdba7db5d0270463"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-symphytum-officinale-l-radix_en.pdf",
+          "filename": "symphyti-radix__monograph-final__final-european-union-herbal-monograph-symphytum-officinale-l-radix_en.pdf",
+          "size": 175497,
+          "checksum": {"algorithm": "sha256", "value": "aa23fc2a1f15d76343c43b6a8c764c9e6910a0d8c2208d44fb302452bd6c0896"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-silybum-marianum-l-gaertn-fructus_en.pdf",
+          "filename": "silybi-mariani-fructus__monograph-final__final-european-union-herbal-monograph-silybum-marianum-l-gaertn-fructus_en.pdf",
+          "size": 144822,
+          "checksum": {"algorithm": "sha256", "value": "afeb326dfda9fa0cb5d3f661dff6b7e0bd1a235957885d9b7528edd7ef95ca92"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba-and-primula-veris-l-and-primula-elatior-l-hill-radix_en.pdf",
+          "filename": "thymi-herba-primulae-radix__monograph-final__final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba-and-primula-veris-l-and-primula-elatior-l-hill-radix_en.pdf",
+          "size": 146438,
+          "checksum": {"algorithm": "sha256", "value": "2bd64c6d85b2b2e0fb67c64db07af5e327e2ac6278f25e3d8d45e4f436208b5c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-fructus-revision-1_en.pdf",
+          "filename": "foeniculi-amari-fructus__monograph-final__final-european-union-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-vulgare-fructus-revision-1_en.pdf",
+          "size": 253257,
+          "checksum": {"algorithm": "sha256", "value": "7909a85f672ed97e737d110874f91b1f81eb012e6c720cb1c1dfbd171776160a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-dulce-mill-batt-trab-fructus-revision-1_en.pdf",
+          "filename": "foeniculi-dulcis-fructus__monograph-final__final-european-union-herbal-monograph-foeniculum-vulgare-miller-subsp-vulgare-var-dulce-mill-batt-trab-fructus-revision-1_en.pdf",
+          "size": 212272,
+          "checksum": {"algorithm": "sha256", "value": "b49ca707f435a7a780a1cc31e82ad32e5340932888461ec6b692b97ec419253c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fumaria-officinalis-l-herba-revision-1_en.pdf",
+          "filename": "fumariae-herba__monograph-final__final-european-union-herbal-monograph-fumaria-officinalis-l-herba-revision-1_en.pdf",
+          "size": 243966,
+          "checksum": {"algorithm": "sha256", "value": "ed9d054c7a18218261425e76987b06c8259c2554388742a15a893f3d98b4b1e1"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-purpurea-l-moench-herba-recens_en.pdf",
+          "filename": "echinaceae-purpureae-herba__monograph-final__final-european-union-herbal-monograph-echinacea-purpurea-l-moench-herba-recens_en.pdf",
+          "size": 184680,
+          "checksum": {"algorithm": "sha256", "value": "89b058e95d3f3ed56475dfa3da9f33ab96c97cba08202902f4830b6de2f936a0"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-onechinacea-purpurea-l-moench-radix-revision-1_en.pdf",
+          "filename": "echinaceae-purpureae-radix__monograph-final__final-european-union-herbal-monograph-onechinacea-purpurea-l-moench-radix-revision-1_en.pdf",
+          "size": 125069,
+          "checksum": {"algorithm": "sha256", "value": "db3307a2e718c2416b4a37489343bbfcc0967ec640d98cb509bd5bc1b96317ce"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-echinacea-angustifolia-dc-radix_en.pdf",
+          "filename": "echinaceae-angustifoliae-radix__monograph-final__final-community-herbal-monograph-echinacea-angustifolia-dc-radix_en.pdf",
+          "size": 119072,
+          "checksum": {"algorithm": "sha256", "value": "388bb0f61b501fbba9952241723e547157265e1747f77c4f96cf52508904ef80"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-pallida-nutt-nutt-radix-revision-1_en.pdf",
+          "filename": "echinaceae-pallidae-radix__monograph-final__final-european-union-herbal-monograph-echinacea-pallida-nutt-nutt-radix-revision-1_en.pdf",
+          "size": 124686,
+          "checksum": {"algorithm": "sha256", "value": "e48b88c4b2201fca84c4d8b206a24a0fc45a04c8721386ebe133f20a33052c20"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vitex-agnus-castus-l-fructus-revision-1_en.pdf",
+          "filename": "agni-casti-fructus__monograph-final__final-european-union-herbal-monograph-vitex-agnus-castus-l-fructus-revision-1_en.pdf",
+          "size": 150001,
+          "checksum": {"algorithm": "sha256", "value": "eb83b8f829787b3af27c25a9f96081b8caae7326ced1158bb597b5570d66dc3d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-seminis-tegumentum_en.pdf",
+          "filename": "plantaginis-ovatae-seminis-tegumentum__monograph-final__final-community-herbal-monograph-plantago-ovata-forssk-seminis-tegumentum_en.pdf",
+          "size": 153813,
+          "checksum": {"algorithm": "sha256", "value": "b86a862b5324a7167ee4d98fc58432a1c8a158bc3fd41cade74dfa676f12628e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-plantago-ovata-forssk-semen_en.pdf",
+          "filename": "plantaginis-ovatae-semen__monograph-final__final-community-herbal-monograph-plantago-ovata-forssk-semen_en.pdf",
+          "size": 145447,
+          "checksum": {"algorithm": "sha256", "value": "39a176bd67181a7662349d120e50bd9eaa879dda95a76a89f22cce24c86a4969"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-matricaria-recutita-l-aetheroleum-first-version_en.pdf",
+          "filename": "matricariae-aetheroleum__monograph-final__final-european-union-herbal-monograph-matricaria-recutita-l-aetheroleum-first-version_en.pdf",
+          "size": 107548,
+          "checksum": {"algorithm": "sha256", "value": "fc45af19f09a6aaa999ee0ae01163c7abdb67d7ebf7662af8d715227f30c7e6f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rosa-gallica-l-rosa-centifolia-l-rosa-damascena-mill-flos_en.pdf",
+          "filename": "rosae-flos__monograph-final__final-community-herbal-monograph-rosa-gallica-l-rosa-centifolia-l-rosa-damascena-mill-flos_en.pdf",
+          "size": 120473,
+          "checksum": {"algorithm": "sha256", "value": "ea264141aa63e42188c2e49d4565851d59e9ec5dd8c41f05acf385e0f6ca3176"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf",
+          "filename": "sideritis-herba__monograph-final__final-european-union-herbal-monograph-sideritis-scardica-griseb-sideritis-clandestina-bory-chaub-hayek-sideritis-raeseri-boiss-heldr-sideritis-syriaca-l-herba_en.pdf",
+          "size": 122831,
+          "checksum": {"algorithm": "sha256", "value": "f9a0e751cd9c3d34a13747dfec6652c70c6360e969a90bb62c71e3bf1721d3a3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-prunus-africana-hook-f-kalkm-cortex_en.pdf",
+          "filename": "pruni-africanae-cortex__monograph-final__final-european-union-herbal-monograph-prunus-africana-hook-f-kalkm-cortex_en.pdf",
+          "size": 117412,
+          "checksum": {"algorithm": "sha256", "value": "b8eedb6e8bedbeacdbc2e61fc83c9ff47d9c5b3fbdc4ced232e0a9b954184eca"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-origanum-majorana-l-herba_en.pdf",
+          "filename": "origani-majoranae-herba__monograph-final__final-european-union-herbal-monograph-origanum-majorana-l-herba_en.pdf",
+          "size": 141284,
+          "checksum": {"algorithm": "sha256", "value": "40036da7e10902c146af1cddabe3c197f65bf30edadee1403a2855a9434ddf5c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-melaleuca-alternifolia-maiden-and-betch-cheel-m-linariifolia-smith-m-dissitiflora-f-mueller-and-or-other-species-melaleuca-aetheroleum-first-version_en.pdf",
+          "filename": "melaleucae-aetheroleum__monograph-final__final-european-union-herbal-monograph-melaleuca-alternifolia-maiden-and-betch-cheel-m-linariifolia-smith-m-dissitiflora-f-mueller-and-or-other-s-42d34aec2c.pdf",
+          "size": 287320,
+          "checksum": {"algorithm": "sha256", "value": "1a0454bf9ec510df8321713862b3fa72c9a790bac755f03c5a1ff9dc835d1140"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-capsicum-annuum-l-var-minimum-miller-heiser-and-small-fruited-varieties-capsicum-frutescens-l-fructus_en.pdf",
+          "filename": "capsici-fructus__monograph-final__final-european-union-herbal-monograph-capsicum-annuum-l-var-minimum-miller-heiser-and-small-fruited-varieties-capsicum-frutescens-l-fructus_en.pdf",
+          "size": 134403,
+          "checksum": {"algorithm": "sha256", "value": "c24ccd88cfdc7198bbf39bfaadf2d336ee6405f8f6b26597873f95614ab9c0be"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rubus-idaeus-l-folium_en.pdf",
+          "filename": "rubi-idaei-folium__monograph-final__final-community-herbal-monograph-rubus-idaeus-l-folium_en.pdf",
+          "size": 118624,
+          "checksum": {"algorithm": "sha256", "value": "61ec70f3c65512f89e77d2540bb541053c44ae25bbe7fb066299f7d9b62a40fd"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-siccus_en.pdf",
+          "filename": "myrtilli-fructus-siccus__monograph-final__final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-siccus_en.pdf",
+          "size": 174800,
+          "checksum": {"algorithm": "sha256", "value": "bb9fad7f020b1b6ac118a68f65053a89ea10c20049630af9fa87408cee337c8d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-recens_en.pdf",
+          "filename": "myrtilli-fructus-recens__monograph-final__final-european-union-herbal-monograph-vaccinium-myrtillus-l-fructus-recens_en.pdf",
+          "size": 170500,
+          "checksum": {"algorithm": "sha256", "value": "5910d46393e44636e34f75fe60b4ddd50f249a37d290b1ce25ce4f8514406e93"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-sisymbrium-officinale-l-scop-herba_en.pdf",
+          "filename": "sisymbrii-officinalis-herba__monograph-final__final-european-union-herbal-monograph-sisymbrium-officinale-l-scop-herba_en.pdf",
+          "size": 197916,
+          "checksum": {"algorithm": "sha256", "value": "5f6badbb08e91bd4ef05ad5385e3fb4f17033171ea808ada4b4933ef0a604a0f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-ricinus-communis-l-oleum_en.pdf",
+          "filename": "ricini-oleum__monograph-final__final-european-union-herbal-monograph-ricinus-communis-l-oleum_en.pdf",
+          "size": 118514,
+          "checksum": {"algorithm": "sha256", "value": "f9b0ad3c3adf332a4d0818324dea89c261c5eb983c6434cc7eecde2df188e7c3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf",
+          "filename": "juniperi-galbulus-pseudo-fructus__monograph-final__final-european-union-herbal-monograph-juniperus-communis-l-pseudo-fructus-galbulus-revision-1_en.pdf",
+          "size": 333219,
+          "checksum": {"algorithm": "sha256", "value": "302dc6d62177837c2025d2e77c999a18b80b05500750df199cce4b461d9bcd3e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-helichrysum-arenarium-l-moench-flos_en.pdf",
+          "filename": "helichrysi-flos__monograph-final__final-european-union-herbal-monograph-helichrysum-arenarium-l-moench-flos_en.pdf",
+          "size": 119724,
+          "checksum": {"algorithm": "sha256", "value": "e4dd11745e208d10690a7c96b8bf4e21b5e2cdfd29dd3492d618d9458db49c75"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hypericum-perforatum-l-herba-revision-1_en.pdf",
+          "filename": "hyperici-herba-0__monograph-final__final-european-union-herbal-monograph-hypericum-perforatum-l-herba-revision-1_en.pdf",
+          "size": 328884,
+          "checksum": {"algorithm": "sha256", "value": "2225d1b960f790ec8efe81c61c431a54ed96d2d0b827a0a75c0088c24774bfaf"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-macrocarpon-aiton-fructus_en.pdf",
+          "filename": "vaccinii-macrocarpi-fructus__monograph-final__final-european-union-herbal-monograph-vaccinium-macrocarpon-aiton-fructus_en.pdf",
+          "size": 294643,
+          "checksum": {"algorithm": "sha256", "value": "5f61fe8336ebd5237bcaa995f837a6ea30d8b416102d2a1d0e342433fee84e01"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-agrimonia-eupatoria-l-herba-first-version_en.pdf",
+          "filename": "agrimoniae-herba__monograph-final__final-european-union-herbal-monograph-agrimonia-eupatoria-l-herba-first-version_en.pdf",
+          "size": 200329,
+          "checksum": {"algorithm": "sha256", "value": "614f456b48681bc01a4240f1426eb12daf4043037ab0576deb140fdfbef9d41d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-tilia-cordata-miller-tilia-platyphyllos-scop-tilia-x-vulgaris-heyne-or-their-mixtures-flos-first-version_en.pdf",
+          "filename": "tiliae-flos__monograph-final__final-community-herbal-monograph-tilia-cordata-miller-tilia-platyphyllos-scop-tilia-x-vulgaris-heyne-or-their-mixtures-flos-first-version_en.pdf",
+          "size": 120026,
+          "checksum": {"algorithm": "sha256", "value": "3aa78330e3e068ef2638896aa26c6d2425e5afed31a2a4e01e8997676475fc56"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-paullinia-cupana-kunth-ex-hbk-var-sorbilis-mart-ducke-semen-first-version_en.pdf",
+          "filename": "paulliniae-semen__monograph-final__final-community-herbal-monograph-paullinia-cupana-kunth-ex-hbk-var-sorbilis-mart-ducke-semen-first-version_en.pdf",
+          "size": 114718,
+          "checksum": {"algorithm": "sha256", "value": "230926ce62dc7ca0a30f8562b6a502b27740f0ff7d5ccbe7360d260ffbd79b77"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-eschscholzia-californica-cham-herba_en.pdf",
+          "filename": "eschscholziae-herba__monograph-final__final-european-union-herbal-monograph-eschscholzia-californica-cham-herba_en.pdf",
+          "size": 113070,
+          "checksum": {"algorithm": "sha256", "value": "1a66324cb8ad1bbe6165e26c1bb912f140522afc2886e1810463ba178d1b876c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-species-digestivae_en.pdf",
+          "filename": "species-digestivae__monograph-final__european-union-herbal-monograph-species-digestivae_en.pdf",
+          "size": 355598,
+          "checksum": {"algorithm": "sha256", "value": "8d27c1cde09558250ab765dd1396c21b21f9ff679a5b0cdd72bea0c41810c539"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-epilobium-angustifolium-l-andor-epilobium-parviflorum-schreb-herba_en.pdf",
+          "filename": "epilobii-herba__monograph-final__final-european-union-herbal-monograph-epilobium-angustifolium-l-andor-epilobium-parviflorum-schreb-herba_en.pdf",
+          "size": 118898,
+          "checksum": {"algorithm": "sha256", "value": "020fe66c673351b96f9516b2c37ad641bc790246546ee000574d1cabec5b57a8"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-epilobium-angustifolium-l-and-or-epilobium-parviflorum-schreb-herba_en.pdf",
+          "filename": "epilobii-herba__monograph-final__european-union-herbal-monograph-epilobium-angustifolium-l-and-or-epilobium-parviflorum-schreb-herba_en.pdf",
+          "size": 129804,
+          "checksum": {"algorithm": "sha256", "value": "eb6681b8b5128ca2bce44c5492e768cf5cd6db614b1a252c0b6c741f5a7afbf7"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-juglans-regia-l-folium_en.pdf",
+          "filename": "juglandis-folium__monograph-final__final-community-herbal-monograph-juglans-regia-l-folium_en.pdf",
+          "size": 116002,
+          "checksum": {"algorithm": "sha256", "value": "c7a37ad1fd678295890c948d13619f174c24a6089e8fb05e67f318d85d4a2b54"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-curcuma-xanthorrhiza-roxb-c-xanthorrhiza-d-dietrich-rhizoma_en.pdf",
+          "filename": "curcumae-xanthorrhizae-rhizoma__monograph-final__final-community-herbal-monograph-curcuma-xanthorrhiza-roxb-c-xanthorrhiza-d-dietrich-rhizoma_en.pdf",
+          "size": 121548,
+          "checksum": {"algorithm": "sha256", "value": "736671b9da3bdd50057b57f194289a294216fbddeb0eceb8048a6c1adffc736b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-agropyron-repens-l-p-beauv-rhizoma-revision-1_en.pdf",
+          "filename": "agropyri-repentis-rhizoma__monograph-final__european-union-herbal-monograph-agropyron-repens-l-p-beauv-rhizoma-revision-1_en.pdf",
+          "size": 272446,
+          "checksum": {"algorithm": "sha256", "value": "b2d3d5d3d78e1e712e90c026cd167aa998b390b51d205f5b24d01839cd6de7e3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-camellia-sinensis-l-kuntze-non-fermentatum-folium_en.pdf",
+          "filename": "camelliae-sinensis-non-fermentatum-folium__monograph-final__final-community-herbal-monograph-camellia-sinensis-l-kuntze-non-fermentatum-folium_en.pdf",
+          "size": 120213,
+          "checksum": {"algorithm": "sha256", "value": "6679693db4ec30cbf56b1a37e56021456a0d66f68f7e21e80a419d86d616d550"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-centella-asiatica-l-urb-herba-revision-1_en.pdf",
+          "filename": "centellae-asiaticae-herba__monograph-final__european-union-herbal-monograph-centella-asiatica-l-urb-herba-revision-1_en.pdf",
+          "size": 267336,
+          "checksum": {"algorithm": "sha256", "value": "f2c9e8e24b52679a4b6a64f8d9faf7048112f5681b7c8c41b8435b1bb16b0861"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-origanum-dictamnus-l-herba-first-version_en.pdf",
+          "filename": "origani-dictamni-herba__monograph-final__final-community-herbal-monograph-origanum-dictamnus-l-herba-first-version_en.pdf",
+          "size": 124920,
+          "checksum": {"algorithm": "sha256", "value": "f020005b98028e316e4ce3e8a0859238fe8dffa9ab8506510385d43c01ff59a7"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-marrubium-vulgare-l-herba-first-version_en.pdf",
+          "filename": "marrubii-herba__monograph-final__final-community-herbal-monograph-marrubium-vulgare-l-herba-first-version_en.pdf",
+          "size": 123413,
+          "checksum": {"algorithm": "sha256", "value": "908f77264f59afcc49d4ec0ebbb60f81edee205381a3e6853a05dba52186b63a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-cetraria-islandica-l-acharius-sl-thallus-first-version_en.pdf",
+          "filename": "lichen-islandicus__monograph-final__final-european-union-herbal-monograph-cetraria-islandica-l-acharius-sl-thallus-first-version_en.pdf",
+          "size": 127081,
+          "checksum": {"algorithm": "sha256", "value": "deea05a94d1da7a493dea29edefd005cb94311847c7a83f8fa8ac423c015cc14"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-saccharomyces-cerevisiae-cbs-5926_en.pdf",
+          "filename": "saccharomyces-cerevisiae-cbs-5926__public-statement__final-public-statement-saccharomyces-cerevisiae-cbs-5926_en.pdf",
+          "size": 135062,
+          "checksum": {"algorithm": "sha256", "value": "b0c4dff3446844a7d0b192b4eda753fc0c63f565a82a9c1b553137a05040e8eb"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-salvia-miltiorrhiza-bunge-radix-et-rhizoma_en.pdf",
+          "filename": "salviae-miltiorrhizae-radix-et-rhizoma__public-statement__public-statement-salvia-miltiorrhiza-bunge-radix-et-rhizoma_en.pdf",
+          "size": 130186,
+          "checksum": {"algorithm": "sha256", "value": "310c927ded4d94c0bbc87a446dfba93155160b2e4aa15df5278c4a7dab349e0f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-taraxacum-officinale-fh-wigg-radix_en.pdf",
+          "filename": "taraxaci-officinalis-radix__monograph-final__final-european-union-herbal-monograph-taraxacum-officinale-fh-wigg-radix_en.pdf",
+          "size": 262356,
+          "checksum": {"algorithm": "sha256", "value": "745b71ac0ec1d5ae5b13588d7def6f5f5be8b937391eb12831d818370e727b40"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-taraxacum-officinale-fh-wigg-radix_en.pdf",
+          "filename": "taraxaci-officinalis-radix-0__monograph-final__final-european-union-herbal-monograph-taraxacum-officinale-fh-wigg-radix_en.pdf",
+          "size": 262356,
+          "checksum": {"algorithm": "sha256", "value": "745b71ac0ec1d5ae5b13588d7def6f5f5be8b937391eb12831d818370e727b40"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-folium-revision-1_en.pdf",
+          "filename": "sennae-folium__monograph-final__final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-folium-revision-1_en.pdf",
+          "size": 266796,
+          "checksum": {"algorithm": "sha256", "value": "4d7c2e0e0bfc3156c73f7e90699413dccc2bb7bbb98329677632116988562c9c"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rhamnus-purshiana-dc-cortex-revision-1_en.pdf",
+          "filename": "rhamni-purshianae-cortex__monograph-final__final-european-union-herbal-monograph-rhamnus-purshiana-dc-cortex-revision-1_en.pdf",
+          "size": 163098,
+          "checksum": {"algorithm": "sha256", "value": "41d8b4e83e6bcb5a0e15db90728b243e7dfed759b6644ab13a2c9cf8b5cac92a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-fructus-revision-1_en.pdf",
+          "filename": "sennae-fructus__monograph-final__final-european-union-herbal-monograph-senna-alexandrina-mill-cassia-senna-l-cassia-angustifolia-vahl-fructus-revision-1_en.pdf",
+          "size": 252897,
+          "checksum": {"algorithm": "sha256", "value": "9a76f8b9fffb62e8bdb316e517132646d9b8613baf8bdb0f1dfe6b7eebd08224"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-rheum-palmatum-l-and-rheum-officinale-baillon-radix-revision-1_en.pdf",
+          "filename": "rhei-radix__monograph-final__final-european-union-herbal-monograph-rheum-palmatum-l-and-rheum-officinale-baillon-radix-revision-1_en.pdf",
+          "size": 192038,
+          "checksum": {"algorithm": "sha256", "value": "77e0276cd20cc9e90938917f11d6d31a6e19fa0d59d83a1b751835888fdafdb3"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-aloe-barbadensis-mill-and-aloe-various-species-mainly-aloe-ferox-mill-and-its-hybrids-folii-succus-siccatus_en.pdf",
+          "filename": "aloes-folii-succus-siccatus__monograph-final__final-european-union-herbal-monograph-aloe-barbadensis-mill-and-aloe-various-species-mainly-aloe-ferox-mill-and-its-hybrids-folii-succus-siccatus_en.pdf",
+          "size": 159215,
+          "checksum": {"algorithm": "sha256", "value": "1794624fcff7f308b65fbe7d485a5c613b41b46ba9fbd38a926717e217583bad"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-rhamnus-frangula-l-cortex-revision-1_en.pdf",
+          "filename": "frangulae-cortex__monograph-final__european-union-herbal-monograph-rhamnus-frangula-l-cortex-revision-1_en.pdf",
+          "size": 150506,
+          "checksum": {"algorithm": "sha256", "value": "338c8dbfcc4c7f17665bd49e0d28a0c20c99732243c5276b0a3dc1347fd4b532"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-urtica-dioica-l-urtica-urens-l-folium_en.pdf",
+          "filename": "urticae-folium__monograph-final__final-community-herbal-monograph-urtica-dioica-l-urtica-urens-l-folium_en.pdf",
+          "size": 143218,
+          "checksum": {"algorithm": "sha256", "value": "fb1370462d45824526b97460ae6b9f2a2eaed13611394af6be82779d5aaf672f"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-cichorium-intybus-l-radix_en.pdf",
+          "filename": "cichorii-intybi-radix__monograph-final__final-community-herbal-monograph-cichorium-intybus-l-radix_en.pdf",
+          "size": 113352,
+          "checksum": {"algorithm": "sha256", "value": "46e7d094de9d267acb17e9c629a6fffca8abdbf8c8d18e063d3aa89b2a24b73d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-fucus-vesiculosus-l-thallus_en.pdf",
+          "filename": "fucus__monograph-final__final-community-herbal-monograph-fucus-vesiculosus-l-thallus_en.pdf",
+          "size": 133307,
+          "checksum": {"algorithm": "sha256", "value": "976ca7a07493954412c6ed15710d6e0d88544dc774001c4cd7da28697fe4d6fd"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-cucurbita-pepo-l-semen_en.pdf",
+          "filename": "cucurbitae-semen__monograph-final__final-community-herbal-monograph-cucurbita-pepo-l-semen_en.pdf",
+          "size": 116884,
+          "checksum": {"algorithm": "sha256", "value": "95e0a81958fc5ccfe315023c7831f0ce8f04c8aacf7296913f6d60d8cc3faa29"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-fraxinus-excelsior-l-or-fraxinus-angustifolia-vahl-folium_en.pdf",
+          "filename": "fraxini-folium__monograph-final__final-community-herbal-monograph-fraxinus-excelsior-l-or-fraxinus-angustifolia-vahl-folium_en.pdf",
+          "size": 94419,
+          "checksum": {"algorithm": "sha256", "value": "85624e103ce5e8880875e2e2c17e5e1cfec342b6a0c9ee3ec4bcb1361a0ad87e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-eucalyptus-globulus-labill-folium_en.pdf",
+          "filename": "eucalypti-folium__monograph-final__final-community-herbal-monograph-eucalyptus-globulus-labill-folium_en.pdf",
+          "size": 132319,
+          "checksum": {"algorithm": "sha256", "value": "96e9313ccaf30083b3a3b71c6bf49ee843cbff7daa59083fa2e50b4e80e92030"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-grindelia-robusta-nutt-grindelia-squarrosa-pursh-dunal-grindelia-humilis-hook-et-arn-grindelia-camporum-greene-herba_en.pdf",
+          "filename": "grindeliae-herba__monograph-final__final-community-herbal-monograph-grindelia-robusta-nutt-grindelia-squarrosa-pursh-dunal-grindelia-humilis-hook-et-arn-grindelia-camporum-greene-herba_en.pdf",
+          "size": 120940,
+          "checksum": {"algorithm": "sha256", "value": "884a3d34d7d1d16fab3d835d565aeca62fd7080b933cde57ce5ad77a8387f2ab"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-polygonum-aviculare-l-herba_en.pdf",
+          "filename": "polygoni-avicularis-herba__monograph-final__final-european-union-herbal-monograph-polygonum-aviculare-l-herba_en.pdf",
+          "size": 126476,
+          "checksum": {"algorithm": "sha256", "value": "8855b61ade9c73fbebf5cef8089ddfdc74945431706676c4a54ecaa9193dff93"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-matricaria-recutita-l-flos-first-version_en.pdf",
+          "filename": "matricariae-flos__monograph-final__final-european-union-herbal-monograph-matricaria-recutita-l-flos-first-version_en.pdf",
+          "size": 162389,
+          "checksum": {"algorithm": "sha256", "value": "cdc63d61626f49a639c3a5ec2e768a8fa46933b5393e8fa2c9cb0518e10b0ffb"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-ginkgo-biloba-l-folium_en.pdf",
+          "filename": "ginkgo-folium__monograph-final__final-european-union-herbal-monograph-ginkgo-biloba-l-folium_en.pdf",
+          "size": 190378,
+          "checksum": {"algorithm": "sha256", "value": "c9a638ea0a54d8cb04800aa5af939386bd2153721acb16fe3971e118036fd95d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-orthosiphon-aristatus-blume-miq-var-aristatus-folium-revision-1_en.pdf",
+          "filename": "orthosiphonis-folium__monograph-final__european-union-herbal-monograph-orthosiphon-aristatus-blume-miq-var-aristatus-folium-revision-1_en.pdf",
+          "size": 265298,
+          "checksum": {"algorithm": "sha256", "value": "9d77252417b40a9f999dbf453469e914390f83342d45c6f57b2f64371c2f1288"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-ilex-paraguariensis-st-hil-folium-first-version_en.pdf",
+          "filename": "mate-folium__monograph-final__final-community-herbal-monograph-ilex-paraguariensis-st-hil-folium-first-version_en.pdf",
+          "size": 126414,
+          "checksum": {"algorithm": "sha256", "value": "ab4dbf3cedea8550c80cc327e94793cbba8594994ffa5db3a7b3eba485d3cc34"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-citrus-bergamia-risso-et-poiteau-aetheroleum_en.pdf",
+          "filename": "citri-bergamiae-aetheroleum__public-statement__final-public-statement-citrus-bergamia-risso-et-poiteau-aetheroleum_en.pdf",
+          "size": 75376,
+          "checksum": {"algorithm": "sha256", "value": "b85c3ca96f9cf5548ef4f1497b6493d6aacd677bcf385987baadad78bafe4d42"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-species-sedativae_en.pdf",
+          "filename": "species-sedativae__monograph-final__final-european-union-herbal-monograph-species-sedativae_en.pdf",
+          "size": 184344,
+          "checksum": {"algorithm": "sha256", "value": "4d68c1a24455f22446d901d959527bb10f1e5c795117d17d506954024012629a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-species-amarae_en.pdf",
+          "filename": "species-amarae__monograph-final__final-european-union-herbal-monograph-species-amarae_en.pdf",
+          "size": 276502,
+          "checksum": {"algorithm": "sha256", "value": "0ea2c5660aedadf675968b78f77edc644cc8e932b43567acc578bb103dc67af5"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-viola-tricolor-l_en.pdf",
+          "filename": "violae-herba-cum-flore__monograph-final__final-community-herbal-monograph-viola-tricolor-l_en.pdf",
+          "size": 130029,
+          "checksum": {"algorithm": "sha256", "value": "7db1f3efe00a3b02c7aca960fc3dc6b9a2063179eb3b4f6b4fa77a2f16054ea1"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-serenoa-repens-w-bartram-small-fructus_en.pdf",
+          "filename": "sabalis-serrulatae-fructus__monograph-final__final-european-union-herbal-monograph-serenoa-repens-w-bartram-small-fructus_en.pdf",
+          "size": 120917,
+          "checksum": {"algorithm": "sha256", "value": "1d9827c8ebe4f65d4ea30a8e57a0dd31ac1c3910be7626f150774c98bdf4a3be"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-syzygium-aromaticum-l-merill-et-lm-perry-flos_en.pdf",
+          "filename": "caryophylli-flos__public-statement__public-statement-syzygium-aromaticum-l-merill-et-lm-perry-flos_en.pdf",
+          "size": 58680,
+          "checksum": {"algorithm": "sha256", "value": "233dc5dab68a0dcaf6ca781a83421c025a4e77849260bfb49580ec95db9db56d"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-syzygium-aromaticum-l-merill-et-l-m-perry-floris-aetheroleum_en.pdf",
+          "filename": "caryophylli-floris-aetheroleum__monograph-final__final-community-herbal-monograph-syzygium-aromaticum-l-merill-et-l-m-perry-floris-aetheroleum_en.pdf",
+          "size": 116321,
+          "checksum": {"algorithm": "sha256", "value": "9657a567fd74d4351e9e833d113ffb8e71a0ef84484b29e95582134667d6d777"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-salvia-fruticosa-mill-folium_en.pdf",
+          "filename": "salviae-trilobae-folium__public-statement__public-statement-salvia-fruticosa-mill-folium_en.pdf",
+          "size": 77794,
+          "checksum": {"algorithm": "sha256", "value": "b0793ae1a00e9a18825f129e92b6910cc63aaa11569373ff68dd54e7fdeb20de"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-piper-methysticum-g-forst-rhizoma_en.pdf",
+          "filename": "piperis-methystici-rhizoma__public-statement__public-statement-piper-methysticum-g-forst-rhizoma_en.pdf",
+          "size": 77103,
+          "checksum": {"algorithm": "sha256", "value": "4a33b26aee6d9c6c5d1444f6520674640db243499f15c1b8bcbc96a7d763c184"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-levisticum-officinale-koch-radix_en.pdf",
+          "filename": "levistici-radix__monograph-final__final-community-herbal-monograph-levisticum-officinale-koch-radix_en.pdf",
+          "size": 123752,
+          "checksum": {"algorithm": "sha256", "value": "7a8eb09acf3619f904bcd50c3ee778b40e0383aa757a1bcb5fb8cc81d6fe7094"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-paeonia-lactiflora-pall-andor-paeonia-veitchii-lynch-radix-paeoniae-radix-rubra_en.pdf",
+          "filename": "paeoniae-radix-rubra__public-statement__final-public-statement-paeonia-lactiflora-pall-andor-paeonia-veitchii-lynch-radix-paeoniae-radix-rubra_en.pdf",
+          "size": 77764,
+          "checksum": {"algorithm": "sha256", "value": "871771758e442ccf5a948cafa95d69340b19f7e1d57f8a3637fd6876724a2f3b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-paeonia-lactiflora-pallas-radix-paeoniae-radix-alba_en.pdf",
+          "filename": "paeoniae-radix-alba__public-statement__final-public-statement-paeonia-lactiflora-pallas-radix-paeoniae-radix-alba_en.pdf",
+          "size": 77432,
+          "checksum": {"algorithm": "sha256", "value": "b0922dd9f41bf78cc9e863e584c0fd37df50182fa5046f2712d5f385917d795e"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-aloysia-citrodora-palau-syn-aloysia-triphylla-lher-kuntze-verbena-triphylla-lher-lippia-citriodora-kunth-folium_en.pdf",
+          "filename": "verbenae-citriodorae-folium__monograph-final__final-european-union-herbal-monograph-aloysia-citrodora-palau-syn-aloysia-triphylla-lher-kuntze-verbena-triphylla-lher-lippia-citriodora-ku-232a53189a.pdf",
+          "size": 288181,
+          "checksum": {"algorithm": "sha256", "value": "933914ac41b30b43becc6dc39f4f782466ee21ce4c521c3ec217a45095e50232"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-menyanthes-trifoliata-l-folium_en.pdf",
+          "filename": "menyanthidis-trifoliatae-folium__monograph-final__final-european-union-herbal-monograph-menyanthes-trifoliata-l-folium_en.pdf",
+          "size": 215247,
+          "checksum": {"algorithm": "sha256", "value": "ddc82a7487b0c0555436fc5b45b683568182c43fee9fafd6b677cd52d797b96b"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-cola-nitida-vent-schott-et-endl-and-its-varieties-and-cola-acuminata-p-beauv-schott-et-endl-semen_en.pdf",
+          "filename": "colae-semen__monograph-final__final-community-herbal-monograph-cola-nitida-vent-schott-et-endl-and-its-varieties-and-cola-acuminata-p-beauv-schott-et-endl-semen_en.pdf",
+          "size": 117158,
+          "checksum": {"algorithm": "sha256", "value": "c3f634f136ecd650d33ad665e48393563601ca4f0c66379d9d9ed9f15b80647a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/community-herbal-monograph-cinnamomum-verum-js-presl-corticis-aetheroleum_en.pdf",
+          "filename": "cinnamomi-corticis-aetheroleum__monograph-final__community-herbal-monograph-cinnamomum-verum-js-presl-corticis-aetheroleum_en.pdf",
+          "size": 136450,
+          "checksum": {"algorithm": "sha256", "value": "fbc3810850723ed0b4d8dfa635652dd2657b94cdf126ab3c45f461e8232c85c8"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/community-herbal-monograph-cinnamomum-verum-js-presl-cortex_en.pdf",
+          "filename": "cinnamomi-cortex__monograph-final__community-herbal-monograph-cinnamomum-verum-js-presl-cortex_en.pdf",
+          "size": 140728,
+          "checksum": {"algorithm": "sha256", "value": "4829dd063b22b8fb1bd35cf6f20dd46bd6a91f597c46d57550219a57bab172cb"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-p-mill-flos_en.pdf",
+          "filename": "lavandulae-flos__monograph-final__final-community-herbal-monograph-lavandula-angustifolia-p-mill-flos_en.pdf",
+          "size": 91508,
+          "checksum": {"algorithm": "sha256", "value": "24fc44f118f40c4c638040e47f777b0ba4a755ad1faf700cff504f782053b1ad"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-solanum-dulcamara-l-stipites_en.pdf",
+          "filename": "solani-dulcamarae-stipites__monograph-final__final-community-herbal-monograph-solanum-dulcamara-l-stipites_en.pdf",
+          "size": 116099,
+          "checksum": {"algorithm": "sha256", "value": "027de39287764ae1d30980d3e792aad3ff21a494cab2b29dfa99c0351555d520"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-solidago-virgaurea-l-herba_en.pdf",
+          "filename": "solidaginis-virgaureae-herba__monograph-final__final-community-herbal-monograph-solidago-virgaurea-l-herba_en.pdf",
+          "size": 81408,
+          "checksum": {"algorithm": "sha256", "value": "39c12e99f91a8876432e8e5902077005f20dc9df931c2ae031e5dc136a2a4269"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-juniperus-communis-l-aetheroleum_en.pdf",
+          "filename": "juniperi-aetheroleum__monograph-final__final-community-herbal-monograph-juniperus-communis-l-aetheroleum_en.pdf",
+          "size": 141105,
+          "checksum": {"algorithm": "sha256", "value": "64764be371426c48a0e321b5e49270ea53664f8ac7e04487b3f748ac441cd263"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-aesculus-hippocastanum-l-semen-final-revision-1_en.pdf",
+          "filename": "hippocastani-semen__monograph-final__european-union-herbal-monograph-aesculus-hippocastanum-l-semen-final-revision-1_en.pdf",
+          "size": 146182,
+          "checksum": {"algorithm": "sha256", "value": "bcd4500e57621ebe7f938b2f42251119c97b51ee4769c7450cff43141f138cdf"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-adhatoda-vasica-nees-folium-first-version_en.pdf",
+          "filename": "adhatodae-vasicae-folium__public-statement__final-public-statement-adhatoda-vasica-nees-folium-first-version_en.pdf",
+          "size": 103647,
+          "checksum": {"algorithm": "sha256", "value": "0dbfd8f807b188c7c84a70aee8e57e13a762c5d58c25d133cb1834a85bee3840"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-capsella-bursa-pastoris-l-medikus-herba-first-version_en.pdf",
+          "filename": "bursae-pastoris-herba__monograph-final__final-community-herbal-monograph-capsella-bursa-pastoris-l-medikus-herba-first-version_en.pdf",
+          "size": 99733,
+          "checksum": {"algorithm": "sha256", "value": "2317da5e480c491e05a170c932669fd53aaf83c85cbe02d86562dd79a17a3665"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-glycine-max-l-merr-semen-first-version_en.pdf",
+          "filename": "glycini-semen__public-statement__final-public-statement-glycine-max-l-merr-semen-first-version_en.pdf",
+          "size": 83976,
+          "checksum": {"algorithm": "sha256", "value": "adcd8334cc3c484d02e6684be36d7d9316086e66748868c44a55bcd308943042"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-angelica-sinensis-oliv-diels-radix-first-version_en.pdf",
+          "filename": "angelicae-sinensis-radix__public-statement__final-public-statement-angelica-sinensis-oliv-diels-radix-first-version_en.pdf",
+          "size": 77843,
+          "checksum": {"algorithm": "sha256", "value": "2f11fef215dc3a7ece1e267bbcdb7527e174300d1d1c69dba68ebca8bb889a8a"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-andrographis-paniculata-nees-folium-first-version_en.pdf",
+          "filename": "andrographidis-paniculatae-folium__public-statement__final-public-statement-andrographis-paniculata-nees-folium-first-version_en.pdf",
+          "size": 74929,
+          "checksum": {"algorithm": "sha256", "value": "619564e7658327a5645a3e618611e35ba8b31bbd3ce6b92c0cae1700c4907b65"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-withania-somnifera-l-dunal-radix-first-version_en.pdf",
+          "filename": "withaniae-somniferae-radix__public-statement__final-public-statement-withania-somnifera-l-dunal-radix-first-version_en.pdf",
+          "size": 78055,
+          "checksum": {"algorithm": "sha256", "value": "4ea1bb81cfb89ab381fc452901ebd0c22a3d179da6d55601e0afba9a3c519005"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba_en.pdf",
+          "filename": "thymi-herba__monograph-final__final-community-herbal-monograph-thymus-vulgaris-l-and-thymus-zygis-l-herba_en.pdf",
+          "size": 131503,
+          "checksum": {"algorithm": "sha256", "value": "77ee37a0980e71e737d526a1d245e6f256ee0ca41320977f6bb9daa9a59421f9"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-myroxylon-balsamum-l-harms-var-pereirae-royle-harms-balsamum_en.pdf",
+          "filename": "balsamum-peruvianum__public-statement__public-statement-myroxylon-balsamum-l-harms-var-pereirae-royle-harms-balsamum_en.pdf",
+          "size": 81648,
+          "checksum": {"algorithm": "sha256", "value": "19c2161426274df52973703b74ddd7823cf30b41cc956f85d1c6963666105c57"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-uncaria-tomentosa-willd-ex-schult-dc-cortex_en.pdf",
+          "filename": "uncariae-tomentosae-cortex__public-statement__final-public-statement-uncaria-tomentosa-willd-ex-schult-dc-cortex_en.pdf",
+          "size": 78143,
+          "checksum": {"algorithm": "sha256", "value": "62e3f392291098fb996b86e55a72c5975b48d50a3fe23cd35e2a176dffe606c9"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-picrorhiza-kurroa-royle-ex-benth-radix_en.pdf",
+          "filename": "picrorhizae-kurroae-rhizoma-et-radix__public-statement__final-public-statement-picrorhiza-kurroa-royle-ex-benth-radix_en.pdf",
+          "size": 75927,
+          "checksum": {"algorithm": "sha256", "value": "1bd6ba0d95bbad39c26825148c58a7cc68a37d3b6ffe846e118e7e59ce4ddba9"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-lavandula-angustifolia-miller-aetheroleum_en.pdf",
+          "filename": "lavandulae-aetheroleum__monograph-final__final-community-herbal-monograph-lavandula-angustifolia-miller-aetheroleum_en.pdf",
+          "size": 97422,
+          "checksum": {"algorithm": "sha256", "value": "149cdc06003e11ba64de90d30793af29ed99017c079bf810c872e5bfa4761929"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-sambucus-nigra-l-fructus_en.pdf",
+          "filename": "sambuci-fructus__public-statement__final-public-statement-sambucus-nigra-l-fructus_en.pdf",
+          "size": 76008,
+          "checksum": {"algorithm": "sha256", "value": "bb090fef4d7ca1338bc3ed31f828891d3d1ed51447a4e55e3095bdf32c536646"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-viscum-album-l-herba_en.pdf",
+          "filename": "visci-albi-herba__public-statement__final-public-statement-viscum-album-l-herba_en.pdf",
+          "size": 75252,
+          "checksum": {"algorithm": "sha256", "value": "9dd130cc8a0eb7c9b6c30e2e7e7839895f6f0ccbb8cdad91a98c5552e1f174b1"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-tilia-tomentosa-moench-flos_en.pdf",
+          "filename": "tiliae-tomentosae-flos__public-statement__final-public-statement-tilia-tomentosa-moench-flos_en.pdf",
+          "size": 74878,
+          "checksum": {"algorithm": "sha256", "value": "20f8fc92418d49035083bfae0e5b75d553d10f37f90a73fad49d0d64fb4733be"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-allium-cepa-l-bulbus_en.pdf",
+          "filename": "allii-cepae-bulbus__public-statement__final-public-statement-allium-cepa-l-bulbus_en.pdf",
+          "size": 74932,
+          "checksum": {"algorithm": "sha256", "value": "d54c09db155d04a4fe9c9d63fc5f1931f0ec7d49e4e700be6ecb030847690711"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-chelidonium-majus-l-herba_en.pdf",
+          "filename": "chelidonii-herba__public-statement__final-public-statement-chelidonium-majus-l-herba_en.pdf",
+          "size": 78197,
+          "checksum": {"algorithm": "sha256", "value": "5157c3f32b41549504598889563f47fa4c3c6d765deab0e2c237e91b2a98a0a4"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/final-public-statement-euphrasia-officinalis-l-and-euphrasia-rostkoviana-hayne-herba_en.pdf",
+          "filename": "euphrasiae-herba__public-statement__final-public-statement-euphrasia-officinalis-l-and-euphrasia-rostkoviana-hayne-herba_en.pdf",
+          "size": 72777,
+          "checksum": {"algorithm": "sha256", "value": "cfb71c4df444d5e7fc71b8b61bd10466c9c4cc3cd4dcb7762db3c0d72cb372fd"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-euphrasia-officinalis-l-and-euphrasia-rostkoviana-hayne-herba_en.pdf",
+          "filename": "euphrasiae-herba__public-statement__public-statement-euphrasia-officinalis-l-and-euphrasia-rostkoviana-hayne-herba_en.pdf",
+          "size": 42475,
+          "checksum": {"algorithm": "sha256", "value": "6e401607566b9b345f2dfbddd8afe8b8faced978114c037a97d43e21fa3f45f7"}
+        },
+        {
+          "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-salvia-officinalis-l-aetheroleum_en.pdf",
+          "filename": "salviae-officinalis-aetheroleum__public-statement__public-statement-salvia-officinalis-l-aetheroleum_en.pdf",
+          "size": 77065,
+          "checksum": {"algorithm": "sha256", "value": "281138ce290a8cce5138a8ceac1f013d516f1553646e3f73f020597860ad1895"}
+        }
+      ]
+    },
+    {
+      "id": "tppt",
+      "name": "TPPT, Toxic Plants and Phytotoxins database (Agroscope)",
+      "pageUrl": "https://www.agroscope.admin.ch/",
+      "version": "Snapshot fijado el 2026-10-20: tppt-db.zip (SQLite, base tppt-db.db fechada 2026-05-11 en el ZIP)",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)",
+      "licenseUrl": null,
+      "attribution": "Agroscope (Swiss Confederation). TPPT, Toxic Plants and Phytotoxins database. https://www.agroscope.admin.ch/",
+      "enabled": true,
+      "files": [
+        {
+          "url": "https://www.agroscope.admin.ch/dam/en/sd-web/NBRXfMO1Wj9m/tppt-db.zip",
+          "filename": "tppt-db.zip",
+          "size": 1188682,
+          "checksum": {"algorithm": "sha256", "value": "8c16c7c5f8032ddd20ebcbb06f35ed1d9fb94ee10a91bd1384cc504465a47b85"}
+        }
+      ]
+    },
+    {
+      "id": "efsa",
+      "name": "EFSA Compendium of Botanicals",
+      "pageUrl": "https://doi.org/10.5281/zenodo.996024",
+      "version": "EFSA Compendium of Botanicals 2016 (Zenodo 996024, publicado 2016-07-05)",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "EFSA (2016). EFSA's compendium of botanicals. Zenodo. https://doi.org/10.5281/zenodo.996024",
+      "enabled": true,
+      "files": [
+        {
+          "url": "https://zenodo.org/api/records/996024/files/BOTANIC.xls/content",
+          "filename": "BOTANIC.xls",
+          "size": 1297920,
+          "checksum": {"algorithm": "md5", "value": "5f906c745071266a3726421db6a0deb0"}
+        },
+        {
+          "url": "https://zenodo.org/api/records/996024/files/ENDPOINTSTUDY.xls/content",
+          "filename": "ENDPOINTSTUDY.xls",
+          "size": 468992,
+          "checksum": {"algorithm": "md5", "value": "d0c10ece17f726470b34cf2fe6d313e6"}
+        }
+      ]
+    },
+    {
+      "id": "wikidata",
+      "name": "Wikidata",
+      "pageUrl": "https://www.wikidata.org",
+      "version": "Wikidata Query Service, consulta dirigida por nombre científico (P225); cada respuesta se guarda en la caché con su fecha",
+      "url": "https://query.wikidata.org/sparql",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "attribution": "Colaboradores de Wikidata (https://www.wikidata.org). Datos estructurados bajo CC0 1.0.",
+      "enabled": true
+    },
+    {
+      "id": "wikipedia_es",
+      "name": "Wikipedia en español",
+      "pageUrl": "https://es.wikipedia.org",
+      "version": "API REST de es.wikipedia.org (page/summary) de los artículos enlazados desde Wikidata; cada respuesta se guarda en la caché con su revisión y fecha",
+      "url": "https://es.wikipedia.org/api/rest_v1/page/summary/",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Colaboradores de Wikipedia en español (https://es.wikipedia.org). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.",
+      "enabled": true
+    },
+    {
+      "id": "commons",
+      "name": "Wikimedia Commons",
+      "pageUrl": "https://commons.wikimedia.org",
+      "version": "API de Wikimedia Commons (imageinfo con extmetadata) de las imágenes P18 de Wikidata; cada respuesta se guarda en la caché con su fecha",
+      "url": "https://commons.wikimedia.org/w/api.php",
+      "license": "por archivo: CC0, dominio público, CC BY o CC BY-SA",
+      "licenseUrl": null,
+      "attribution": "Autor, página y licencia de cada archivo de Wikimedia Commons, según sus metadatos.",
+      "enabled": true
+    }
+  ]
+}

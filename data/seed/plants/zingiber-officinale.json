@@ -1,0 +1,1625 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1ff32c7286ee753b93732b5e579407fa40f78cf27d592391a7475f2eb01c4ed6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Zingiber officinale",
+        "wikidata:Q35625"
+      ],
+      "text": "Jengibre"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q35625",
+        "wikipedia_es:Zingiber officinale"
+      ],
+      "text": "Kion"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q35625"
+      ],
+      "text": "Kión"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q35625"
+      ],
+      "text": "Ajengibre"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q35625"
+      ],
+      "text": "Canacoros"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q35625"
+      ],
+      "text": "Cañacoros"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q35625"
+      ],
+      "text": "Gengibre"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Zingiber officinale"
+      ],
+      "text": "luya"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1078-1"
+      ],
+      "text": "Ginger"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Zingiber officinale"
+    ],
+    "value": "El jengibre es una planta de la familia de las zingiberáceas, cuyo tallo subterráneo es un rizoma horizontal muy apreciado por su aroma y sabor picante. El jengibre joven se consume fresco, se procesa para hacer encurtidos y se usa como ingrediente en bebidas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Zingiber officinale",
+      "wikidata:Q35625"
+    ],
+    "value": "Jengibre"
+  },
+  "family": {
+    "refs": [
+      "wcvp:273361"
+    ],
+    "value": "Zingiberaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía del rizoma en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:zingiberis-rhizoma"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "zingiber-officinale",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg",
+    "refs": [
+      "commons:File:Koeh-146-no text.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Koeh-146-no_text.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1078-RE",
+      "usda_part:1078-RH",
+      "usda_part:1078-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:273361"
+    ],
+    "value": "Nativa de China y el subcontinente indio."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:zingiberis-rhizoma"
+      ],
+      "value": "Rizoma"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Koeh-146-no text.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Koeh-146-no text.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
+    },
+    "efsa_botanic:2823": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: gingerols",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3339": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: shogaols",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3340": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: paradol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3341": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: zingerone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:906": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Ginger",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:931": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Ginger",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:960": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Ginger",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:zingiberis-rhizoma": {
+      "dataset": "ema_json",
+      "label": "EMA: Zingiberis rhizoma",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/zingiberis-rhizoma"
+    },
+    "ema_pdf:zingiberis-rhizoma:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de zingiberis-rhizoma, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-zingiber-officinale-roscoe-rhizoma-revision-1_en.pdf"
+    },
+    "ema_pdf:zingiberis-rhizoma:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de zingiberis-rhizoma, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-zingiber-officinale-roscoe-rhizoma-revision-1_en.pdf"
+    },
+    "ema_pdf:zingiberis-rhizoma:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de zingiberis-rhizoma, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-zingiber-officinale-roscoe-rhizoma-revision-1_en.pdf"
+    },
+    "usda_common_name:1078-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ginger»",
+      "license": "CC0"
+    },
+    "usda_part:1078-RE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Resin, Exudate, Sap»",
+      "license": "CC0"
+    },
+    "usda_part:1078-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_part:1078-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Li": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Li",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Tackholm": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Tackholm",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:10796": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10796",
+      "license": "CC0"
+    },
+    "usda_use:10797": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10797",
+      "license": "CC0"
+    },
+    "usda_use:10819": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10819",
+      "license": "CC0"
+    },
+    "usda_use:10820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10820",
+      "license": "CC0"
+    },
+    "usda_use:12795": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12795",
+      "license": "CC0"
+    },
+    "usda_use:12796": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12796",
+      "license": "CC0"
+    },
+    "usda_use:1334": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1334",
+      "license": "CC0"
+    },
+    "usda_use:1335": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1335",
+      "license": "CC0"
+    },
+    "usda_use:14293": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14293",
+      "license": "CC0"
+    },
+    "usda_use:14294": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14294",
+      "license": "CC0"
+    },
+    "usda_use:14295": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14295",
+      "license": "CC0"
+    },
+    "usda_use:17164": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17164",
+      "license": "CC0"
+    },
+    "usda_use:17165": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17165",
+      "license": "CC0"
+    },
+    "usda_use:20076": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20076",
+      "license": "CC0"
+    },
+    "usda_use:20572": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20572",
+      "license": "CC0"
+    },
+    "usda_use:20573": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20573",
+      "license": "CC0"
+    },
+    "usda_use:25627": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25627",
+      "license": "CC0"
+    },
+    "usda_use:25628": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25628",
+      "license": "CC0"
+    },
+    "usda_use:25629": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25629",
+      "license": "CC0"
+    },
+    "usda_use:27597": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27597",
+      "license": "CC0"
+    },
+    "usda_use:2871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2871",
+      "license": "CC0"
+    },
+    "usda_use:32276": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32276",
+      "license": "CC0"
+    },
+    "usda_use:34562": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34562",
+      "license": "CC0"
+    },
+    "usda_use:34563": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34563",
+      "license": "CC0"
+    },
+    "usda_use:38275": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38275",
+      "license": "CC0"
+    },
+    "usda_use:4635": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4635",
+      "license": "CC0"
+    },
+    "usda_use:47040": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47040",
+      "license": "CC0"
+    },
+    "usda_use:47041": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47041",
+      "license": "CC0"
+    },
+    "usda_use:47042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47042",
+      "license": "CC0"
+    },
+    "usda_use:47043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47043",
+      "license": "CC0"
+    },
+    "usda_use:47407": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47407",
+      "license": "CC0"
+    },
+    "usda_use:48004": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48004",
+      "license": "CC0"
+    },
+    "usda_use:48005": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48005",
+      "license": "CC0"
+    },
+    "usda_use:48006": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48006",
+      "license": "CC0"
+    },
+    "usda_use:48007": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48007",
+      "license": "CC0"
+    },
+    "usda_use:48008": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48008",
+      "license": "CC0"
+    },
+    "usda_use:48663": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48663",
+      "license": "CC0"
+    },
+    "usda_use:48667": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48667",
+      "license": "CC0"
+    },
+    "usda_use:51585": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51585",
+      "license": "CC0"
+    },
+    "usda_use:6282": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6282",
+      "license": "CC0"
+    },
+    "usda_use:62868": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62868",
+      "license": "CC0"
+    },
+    "usda_use:62870": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62870",
+      "license": "CC0"
+    },
+    "usda_use:62874": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62874",
+      "license": "CC0"
+    },
+    "usda_use:62875": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62875",
+      "license": "CC0"
+    },
+    "usda_use:62877": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62877",
+      "license": "CC0"
+    },
+    "usda_use:62880": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62880",
+      "license": "CC0"
+    },
+    "usda_use:62883": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62883",
+      "license": "CC0"
+    },
+    "usda_use:62888": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62888",
+      "license": "CC0"
+    },
+    "usda_use:62892": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62892",
+      "license": "CC0"
+    },
+    "usda_use:62898": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62898",
+      "license": "CC0"
+    },
+    "usda_use:62900": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62900",
+      "license": "CC0"
+    },
+    "usda_use:62908": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62908",
+      "license": "CC0"
+    },
+    "usda_use:62909": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62909",
+      "license": "CC0"
+    },
+    "usda_use:62912": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62912",
+      "license": "CC0"
+    },
+    "usda_use:62913": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62913",
+      "license": "CC0"
+    },
+    "usda_use:63167": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63167",
+      "license": "CC0"
+    },
+    "usda_use:63595": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63595",
+      "license": "CC0"
+    },
+    "usda_use:63907": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63907",
+      "license": "CC0"
+    },
+    "usda_use:64362": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64362",
+      "license": "CC0"
+    },
+    "usda_use:66722": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66722",
+      "license": "CC0"
+    },
+    "usda_use:66723": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66723",
+      "license": "CC0"
+    },
+    "usda_use:67360": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67360",
+      "license": "CC0"
+    },
+    "usda_use:69561": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69561",
+      "license": "CC0"
+    },
+    "usda_use:69709": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69709",
+      "license": "CC0"
+    },
+    "usda_use:71889": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71889",
+      "license": "CC0"
+    },
+    "usda_use:7311": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7311",
+      "license": "CC0"
+    },
+    "usda_use:73315": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73315",
+      "license": "CC0"
+    },
+    "usda_use:76196": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76196",
+      "license": "CC0"
+    },
+    "usda_use:77827": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77827",
+      "license": "CC0"
+    },
+    "usda_use:77828": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77828",
+      "license": "CC0"
+    },
+    "usda_use:79229": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79229",
+      "license": "CC0"
+    },
+    "usda_use:82684": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82684",
+      "license": "CC0"
+    },
+    "usda_use:82686": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82686",
+      "license": "CC0"
+    },
+    "usda_use:82687": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82687",
+      "license": "CC0"
+    },
+    "usda_use:82689": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82689",
+      "license": "CC0"
+    },
+    "usda_use:82695": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82695",
+      "license": "CC0"
+    },
+    "usda_use:82697": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82697",
+      "license": "CC0"
+    },
+    "wcvp:219561": {
+      "dataset": "wcvp",
+      "label": "WCVP: Amomum zingiber L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:273361": {
+      "dataset": "wcvp",
+      "label": "WCVP: Zingiber officinale Roscoe",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q35625": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q35625",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q35625"
+    },
+    "wikipedia_es:Zingiber officinale": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Zingiber officinale",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Zingiber_officinale"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Resin/Exudate/Sap, Rhizome y Root), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Ache(Tooth)» tiene claves de cita sin candidata en el paquete (Gen). El grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[8]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Anodyne» tiene claves de cita sin candidata en el paquete (Eb2). El grupo conserva citas resueltas y se muestra.",
+      "target": "traditionalUses[9]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:38275",
+      "usda_use:63595",
+      "ema_pdf:zingiberis-rhizoma:4.3",
+      "ema_pdf:zingiberis-rhizoma:4.4",
+      "ema_pdf:zingiberis-rhizoma:4.5",
+      "efsa_botanic:2823",
+      "efsa_botanic:3340",
+      "efsa_botanic:3339",
+      "efsa_botanic:3341",
+      "efsa_endpoint:906",
+      "efsa_endpoint:931",
+      "efsa_endpoint:960"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. Advertencia: registrada como abortiva en usos tradicionales. La monografía de la EMA registra como contraindicación la hipersensibilidad al principio activo. Entre sus advertencias figuran que el uso en niños y adolescentes no está establecido o no se recomienda por datos insuficientes, que el dolor articular con hinchazón, enrojecimiento o fiebre debe ser examinado por un médico y que, si los síntomas empeoran, se debe consultar a un profesional. Sus interacciones figuran como no conocidas. EFSA anota gingeroles, paradol, shogaoles y zingerona como sustancias de evidencia y recoge, en ratas, un mayor porcentaje de implantaciones reabsorbidas con una infusión de jengibre fresco sin signos de toxicidad materna, un efecto genotóxico y clastogénico del 6-gingerol in vitro en células de hepatoma humano y, en ensayos clínicos, eventos adversos sobre todo gastrointestinales, en general leves o moderados y poco frecuentes."
+  },
+  "scientificName": {
+    "authors": "Roscoe",
+    "name": "Zingiber officinale",
+    "refs": [
+      "wcvp:273361"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Amomum zingiber",
+      "refs": [
+        "wcvp:219561"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.11",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 11"
+        }
+      ],
+      "countries": [
+        "Asia",
+        "China",
+        "Egipto",
+        "Otros lugares",
+        "México",
+        "Turquía"
+      ],
+      "n": 8,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47040",
+        "usda_use:47041",
+        "usda_use:47042",
+        "usda_use:47043",
+        "usda_use:62908",
+        "usda_use:62909",
+        "usda_use:77827",
+        "usda_use:77828",
+        "usda_reference:Bliss",
+        "usda_reference:Keys",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz",
+        "usda_reference:Tackholm",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.11",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 11"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Asia",
+        "China",
+        "Otros lugares",
+        "Haití",
+        "Trinidad",
+        "Turquía"
+      ],
+      "n": 7,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10796",
+        "usda_use:10797",
+        "usda_use:10819",
+        "usda_use:10820",
+        "usda_use:62880",
+        "usda_use:66722",
+        "usda_use:66723",
+        "usda_reference:Bliss",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "China",
+        "Haití",
+        "Turquía",
+        "Venezuela"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48004",
+        "usda_use:48005",
+        "usda_use:48006",
+        "usda_use:48007",
+        "usda_use:48008",
+        "usda_use:82697",
+        "usda_reference:Brutus",
+        "usda_reference:Keys",
+        "usda_reference:Liogier",
+        "usda_reference:Pittier",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Eb33: 33",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 33"
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "China",
+        "Etiopía",
+        "Malaya",
+        "Trinidad"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1334",
+        "usda_use:1335",
+        "usda_use:47407",
+        "usda_use:62868",
+        "usda_use:63907",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:EB",
+        "usda_reference:Leung",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Eb24: 267",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 267"
+        },
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Malaya",
+        "Trinidad"
+      ],
+      "n": 5,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25627",
+        "usda_use:25628",
+        "usda_use:25629",
+        "usda_use:62892",
+        "usda_use:82689",
+        "usda_reference:Brutus",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Woi.11",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 11"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Java",
+        "México"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12795",
+        "usda_use:12796",
+        "usda_use:67360",
+        "usda_use:82684",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Duke",
+        "usda_reference:Martinez",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Eb24: 267",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 267"
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China",
+        "Malaya"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14293",
+        "usda_use:14294",
+        "usda_use:14295",
+        "usda_use:62883",
+        "usda_reference:Bliss",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:EB",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Woi.11",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 11"
+        }
+      ],
+      "countries": [
+        "China",
+        "Egipto",
+        "Otros lugares",
+        "Malaya"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20572",
+        "usda_use:20573",
+        "usda_use:62888",
+        "usda_use:69709",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Li",
+        "usda_reference:Tackholm",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dolor de muelas",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Eb29: 275",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 275"
+        },
+        {
+          "key": "Gen",
+          "ref": null,
+          "text": "Gen (sin resolver)"
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China",
+        "República Dominicana",
+        "Nueva Guinea"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51585",
+        "usda_use:62913",
+        "usda_use:79229",
+        "usda_reference:EB",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb2",
+          "ref": null,
+          "text": "Eb2 (sin resolver)"
+        },
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2871",
+        "usda_use:62875",
+        "usda_use:64362",
+        "usda_reference:Duke",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Eb24: 267",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 267"
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17164",
+        "usda_use:17165",
+        "usda_use:82686",
+        "usda_reference:EB",
+        "usda_reference:Hunan",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Eb21: 257",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 21: 257"
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20076",
+        "usda_use:69561",
+        "usda_use:82687",
+        "usda_reference:Bliss",
+        "usda_reference:EB",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Licor",
+      "activitySource": "Liqueur",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Asia",
+        "Egipto",
+        "Otros lugares"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32276",
+        "usda_use:62898",
+        "usda_use:73315",
+        "usda_reference:Duke",
+        "usda_reference:Tackholm",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Náusea",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34562",
+        "usda_use:34563",
+        "usda_use:62900",
+        "usda_reference:Bliss",
+        "usda_reference:Keys",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        },
+        {
+          "key": "Tackholm",
+          "ref": "usda_reference:Tackholm",
+          "text": "Tackholm, Vivi and Gunnar. 1973 (reprint). Flora of Egypt. Vol. 1-4. Originally published in Foriad I Univ. Bulletin of the Faculty of Science, vol. 17, Cairo, 1941."
+        }
+      ],
+      "countries": [
+        "China",
+        "Egipto",
+        "Malaya"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63167",
+        "usda_use:76196",
+        "usda_use:82695",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Leung",
+        "usda_reference:Tackholm"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Haití",
+        "Trinidad"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48663",
+        "usda_use:48667",
+        "usda_use:62912",
+        "usda_reference:Brutus",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4635",
+        "usda_use:62877",
+        "usda_reference:Ayensu",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6282",
+        "usda_use:62870",
+        "usda_reference:Bliss",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Mordedura de serpiente",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Eb24: 267",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 267"
+        },
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7311",
+        "usda_use:62874",
+        "usda_reference:EB",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Resfriado de cabeza",
+      "activitySource": "Cold(Head)",
+      "citations": [
+        {
+          "key": "Eb30: 114",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 114"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27597",
+        "usda_use:71889",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    }
+  ]
+}

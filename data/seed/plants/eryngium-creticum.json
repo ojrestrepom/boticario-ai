@@ -1,0 +1,223 @@
+{
+  "aliases": [
+    "eryngium-creticus"
+  ],
+  "bundleHash": "sha256:2fa6f8f48dbdd8194529e012bd026e6b4555d50b283737902b07f1795a48763c",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1285-1"
+      ],
+      "text": "Cretan culantro"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2799205"
+    ],
+    "value": "Eryngium creticum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2799205"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "eryngium-creticum",
+  "image": {
+    "attributionRequired": true,
+    "author": "איתן פרמן",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eryngium_creticum_011.jpg",
+    "refs": [
+      "commons:File:Eryngium creticum 011.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Eryngium_creticum_011.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2799205"
+    ],
+    "value": "Nativa del norte de África, el sureste de Europa y el oeste de Asia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eryngium creticum 011.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eryngium creticum 011.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eryngium_creticum_011.jpg"
+    },
+    "usda_common_name:1285-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cretan culantro»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:12600": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12600",
+      "license": "CC0"
+    },
+    "usda_use:19126": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19126",
+      "license": "CC0"
+    },
+    "usda_use:2196": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2196",
+      "license": "CC0"
+    },
+    "usda_use:52193": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52193",
+      "license": "CC0"
+    },
+    "wcvp:2799205": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eryngium creticum Lam.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo uno en inglés); se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Lam.",
+    "name": "Eryngium creticum",
+    "refs": [
+      "wcvp:2799205"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2196",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12600",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Hidropesía",
+      "activitySource": "Dropsy",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Kurdistán"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19126",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Líbano"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52193",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

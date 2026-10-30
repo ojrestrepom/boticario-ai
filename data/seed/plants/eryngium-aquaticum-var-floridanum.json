@@ -1,0 +1,100 @@
+{
+  "aliases": [
+    "eryngium-floridanum"
+  ],
+  "bundleHash": "sha256:95db990c238b77d98d1d5745a2238a37376eb3efeaa5d80dd63d2fa878515d7f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:389-1"
+      ],
+      "text": "Florida Eryngium"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2799106"
+    ],
+    "value": "Eryngium aquaticum var. floridanum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2799106"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "eryngium-aquaticum-var-floridanum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2799106"
+    ],
+    "value": "Nativa del sureste de Estados Unidos (Florida)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:389-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Florida Eryngium»",
+      "license": "CC0"
+    },
+    "wcvp:2799106": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eryngium aquaticum var. floridanum (J.M.Coult. & Rose) Mathias & Constance",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2799281": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eryngium floridanum J.M.Coult. & Rose",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo uno en inglés); se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(J.M.Coult. & Rose) Mathias & Constance",
+    "name": "Eryngium aquaticum var. floridanum",
+    "refs": [
+      "wcvp:2799106"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "J.M.Coult. & Rose",
+      "name": "Eryngium floridanum",
+      "refs": [
+        "wcvp:2799281"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

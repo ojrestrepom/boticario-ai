@@ -1,0 +1,61 @@
+--------- beginning of main
+10-18 19:26:50.004 I/le.boticario_ai( 3494): Late-enabling -Xcheck:jni
+10-18 19:26:50.034 I/le.boticario_ai( 3494): Using CollectorTypeCMC GC.
+10-18 19:26:50.053 D/nativeloader( 3494): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-18 19:26:50.084 D/ApplicationLoaders( 3494): Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+10-18 19:26:50.085 D/ApplicationLoaders( 3494): Returning zygote-cached class loader: /system_ext/framework/androidx.window.sidecar.jar
+10-18 19:26:50.202 D/nativeloader( 3494): Configuring clns-9 for other apk /data/app/~~9pbuj5DuzsLxIfwu-9-8BA==/com.example.boticario_ai-mfFXilbETPcwN52X7Slavg==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~9pbuj5DuzsLxIfwu-9-8BA==/com.example.boticario_ai-mfFXilbETPcwN52X7Slavg==/lib/arm64:/data/app/~~9pbuj5DuzsLxIfwu-9-8BA==/com.example.boticario_ai-mfFXilbETPcwN52X7Slavg==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.example.boticario_ai
+10-18 19:26:50.207 I/le.boticario_ai( 3494): AssetManager2(0xb400006e62a68b38) locale list changing from [] to [en-US]
+10-18 19:26:50.216 V/GraphicsEnvironment( 3494): Currently set values for:
+10-18 19:26:50.216 V/GraphicsEnvironment( 3494):   angle_gl_driver_selection_pkgs=[]
+10-18 19:26:50.217 V/GraphicsEnvironment( 3494):   angle_gl_driver_selection_values=[]
+10-18 19:26:50.217 V/GraphicsEnvironment( 3494): com.example.boticario_ai is not listed in per-application setting
+10-18 19:26:50.217 V/GraphicsEnvironment( 3494): ANGLE allowlist from config: com.dreamgames.royalmatch com.dts.freefiremax com.dxx.firenow com.gramgames.mergedragons com.ludo.king com.mojang.minecraftpe com.my.defense com.nintendo.zaka com.os.airforce com.playrix.fishdomdd.gplay io.teslatech.callbreak jp.konami.prospia net.peakgames.toonblast
+10-18 19:26:50.217 V/GraphicsEnvironment( 3494): com.example.boticario_ai is not listed in ANGLE allowlist or settings, returning default
+10-18 19:26:50.217 V/GraphicsEnvironment( 3494): Neither updatable production driver nor prerelease driver is supported.
+10-18 19:26:50.250 I/le.boticario_ai( 3494): AssetManager2(0xb400006e62a6cff8) locale list changing from [] to [en-US]
+--------- beginning of system
+10-18 19:26:50.251 I/DisplayManager( 3494): Choreographer implicitly registered for the refresh rate.
+10-18 19:26:50.265 E/ashmem  ( 3494): Pinning is deprecated since Android Q. Please use trim or other methods.
+10-18 19:26:50.273 I/FlutterActivityAndFragmentDelegate( 3494): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+10-18 19:26:50.286 I/ResourceExtractor( 3494): Found extracted resources res_timestamp-1-1792368436145
+10-18 19:26:50.286 I/ResourceExtractor( 3494): Resource version mismatch res_timestamp-1-1792369609816
+10-18 19:26:50.286 D/FlutterJNI( 3494): Beginning load of flutter...
+10-18 19:26:50.296 D/nativeloader( 3494): Load /data/app/~~9pbuj5DuzsLxIfwu-9-8BA==/com.example.boticario_ai-mfFXilbETPcwN52X7Slavg==/base.apk!/lib/arm64-v8a/libflutter.so using class loader ns clns-9 (caller=/data/app/~~9pbuj5DuzsLxIfwu-9-8BA==/com.example.boticario_ai-mfFXilbETPcwN52X7Slavg==/base.apk): ok
+10-18 19:26:50.297 D/FlutterJNI( 3494): flutter (null) was loaded normally!
+10-18 19:26:50.299 D/skia    ( 3494): [SkFontMgr Android Parser] '/product/etc/fonts_customization.xml' could not be opened
+10-18 19:26:50.302 I/EGL_emulation( 3494): Opening libGLESv1_CM_emulation.so
+10-18 19:26:50.302 I/EGL_emulation( 3494): Opening libGLESv2_emulation.so
+10-18 19:26:50.308 W/HWUI    ( 3494): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-18 19:26:50.308 W/HWUI    ( 3494): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-18 19:26:50.679 I/ResourceExtractor( 3494): Extracted baseline resource assets/flutter_assets/kernel_blob.bin
+10-18 19:26:50.679 I/ResourceExtractor( 3494): Extracted baseline resource assets/flutter_assets/vm_snapshot_data
+10-18 19:26:50.707 I/ResourceExtractor( 3494): Extracted baseline resource assets/flutter_assets/isolate_snapshot_data
+10-18 19:26:50.714 I/le.boticario_ai( 3494): AssetManager2(0xb400006e62a697b8) locale list changing from [] to [en-US]
+10-18 19:26:50.716 W/le.boticario_ai( 3494): type=1400 audit(0.0:20): avc:  denied  { read } for  name="max_map_count" dev="proc" ino=20741 scontext=u:r:untrusted_app:s0:c222,c256,c512,c768 tcontext=u:object_r:proc_max_map_count:s0 tclass=file permissive=0 app=com.example.boticario_ai
+10-18 19:26:50.727 D/DesktopModeFlags( 3494): Toggle override initialized to: OVERRIDE_UNSET
+10-18 19:26:50.732 I/flutter ( 3494): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+10-18 19:26:50.770 I/flutter ( 3494): The Dart VM service is listening on http://127.0.0.1:36841/I1Ewr_rbYek=/
+10-18 19:26:50.867 I/le.boticario_ai( 3494): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported,test-api) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 19:26:50.867 I/le.boticario_ai( 3494): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 19:26:50.867 I/le.boticario_ai( 3494): hiddenapi: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 19:26:50.867 I/le.boticario_ai( 3494): hiddenapi: Accessing hidden method Landroid/util/LongArray;->get(I)J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app) using reflection: allowed
+10-18 19:26:50.868 D/AccessibilityBridge( 3494): Setting not found: accessibility_display_inversion_enabled, using default: 0
+10-18 19:26:50.875 D/FlutterRenderer( 3494): Width is zero. 0,0
+10-18 19:26:50.877 D/CompatChangeReporter( 3494): Compat change id reported: 377864165; UID 10222; state: ENABLED
+10-18 19:26:50.886 W/HWUI    ( 3494): Unknown dataspace 0
+10-18 19:26:51.298 I/WindowExtensionsImpl( 3494): Initializing Window Extensions, vendor API level=9, activity embedding enabled=true
+10-18 19:26:51.307 D/FlutterRenderer( 3494): Width is zero. 0,0
+10-18 19:26:51.309 I/le.boticario_ai( 3494): Compiler allocated 5111KB to compile void android.view.ViewRootImpl.performTraversals()
+10-18 19:26:51.313 D/FlutterJNI( 3494): Sending viewport metrics to the engine.
+10-18 19:26:51.571 D/FlutterJNI( 3494): Sending viewport metrics to the engine.
+10-18 19:26:51.573 D/WindowLayoutComponentImpl( 3494): Register WindowLayoutInfoListener on Context=com.example.boticario_ai.MainActivity@9a829e5, of which baseContext=android.app.ContextImpl@cb8af47
+10-18 19:26:51.596 D/FlutterJNI( 3494): Sending viewport metrics to the engine.
+10-18 19:26:51.825 D/InsetsController( 3494): hide(ime(), fromIme=false)
+10-18 19:26:51.825 I/ImeTracker( 3494): com.example.boticario_ai:4e1fe7f8: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-18 19:26:56.068 D/ProfileInstaller( 3494): Installing profile for com.example.boticario_ai
+10-18 19:26:58.923 I/flutter ( 3494): [Home] Explorar plantas y aceites
+10-18 19:26:59.077 I/le.boticario_ai( 3494): AssetManager2(0xb400006e62a93dd8) locale list changing from [] to [en-US]
+10-18 19:27:20.633 W/WindowOnBackDispatcher( 3494): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@80c17d
+10-18 19:27:23.555 I/flutter ( 3494): [Home] Buscar por objetivo
+10-18 19:27:29.838 W/WindowOnBackDispatcher( 3494): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@80c17d

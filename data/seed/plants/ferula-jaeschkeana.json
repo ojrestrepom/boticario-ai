@@ -1,0 +1,210 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:894e3fad1bf5b7b4952944339b62a6092117ae772148fec00c680dd2e26d48ca",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:415-1"
+      ],
+      "text": "Jaechke's Ferula"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ferula jaeschkeana"
+    ],
+    "value": "Especie de la familia de las apiáceas, originaria de Afganistán y Pakistán."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2808466"
+    ],
+    "value": "Ferula jaeschkeana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2808466"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "ferula-jaeschkeana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ferula_jaeschkeana_kz01.jpg",
+    "refs": [
+      "commons:File:Ferula jaeschkeana kz01.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ferula_jaeschkeana_kz01.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:415-FR",
+      "usda_part:415-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2808466"
+    ],
+    "value": "Asia central y occidental, China y el subcontinente indio"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Ferula jaeschkeana kz01.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Ferula jaeschkeana kz01.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Ferula_jaeschkeana_kz01.jpg"
+    },
+    "usda_common_name:415-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Jaechke's Ferula»",
+      "license": "CC0"
+    },
+    "usda_part:415-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_part:415-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:55949": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55949",
+      "license": "CC0"
+    },
+    "usda_use:8356": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8356",
+      "license": "CC0"
+    },
+    "wcvp:2403844": {
+      "dataset": "wcvp",
+      "label": "WCVP: Peucedanum jaeschkeanum (Vatke) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2808466": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ferula jaeschkeana Vatke",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Ferula jaeschkeana": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ferula jaeschkeana",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ferula_jaeschkeana"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se muestra el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el fruto y la raíz, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Vatke",
+    "name": "Ferula jaeschkeana",
+    "refs": [
+      "wcvp:2808466"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Vatke) Baill.",
+      "name": "Peucedanum jaeschkeanum",
+      "refs": [
+        "wcvp:2403844"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Cachemira"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8356",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Cachemira"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55949",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

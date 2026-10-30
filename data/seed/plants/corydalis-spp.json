@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:336848985d8a7d42c19b52b95f17152d57da50b6ba67f6a69c8676f9a8e17b13",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:313-1"
+      ],
+      "text": "Fumewort"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Corydalis"
+    ],
+    "value": "Género de alrededor de 300 especies de plantas herbáceas anuales o perennes, de la subfamilia Fumarioideae, familia Papaveraceae. Son nativas de las zonas templadas del hemisferio norte y del sur de África."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q159568"
+    ],
+    "value": "Corydalis spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "corydalis-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "arudhio",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Corydalis_ambigua.jpg",
+    "refs": [
+      "commons:File:Corydalis ambigua.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Corydalis_ambigua.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Corydalis ambigua.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Corydalis ambigua.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Corydalis_ambigua.jpg"
+    },
+    "usda_common_name:313-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Fumewort»",
+      "license": "CC0"
+    },
+    "wikidata:Q159568": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q159568",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q159568"
+    },
+    "wikipedia_es:Corydalis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Corydalis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Corydalis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Corydalis spp",
+    "refs": [
+      "wikidata:Q159568"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

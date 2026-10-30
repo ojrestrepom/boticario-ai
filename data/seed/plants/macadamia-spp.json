@@ -1,0 +1,84 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7a17662abab537600d6c120e6ae7e9afff115f451ec4acc94f8829d1956f5ca6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Macadamia",
+        "wikidata:Q310041"
+      ],
+      "text": "Macadamia"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Macadamia"
+    ],
+    "value": "Género de plantas arbóreas de la familia de las proteáceas. Tiene descritas 14 especies, de las cuales solo 5 se consideran válidas y aceptadas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Macadamia",
+      "wikidata:Q310041"
+    ],
+    "value": "Macadamia"
+  },
+  "family": null,
+  "goals": [],
+  "id": "macadamia-spp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wikidata:Q310041": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q310041",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q310041"
+    },
+    "wikipedia_es:Macadamia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Macadamia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Macadamia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Macadamia spp",
+    "refs": [
+      "wikidata:Q310041"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

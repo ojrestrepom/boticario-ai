@@ -1,0 +1,194 @@
+{
+  "aliases": [
+    "cyrtosperma-chamissonis"
+  ],
+  "bundleHash": "sha256:a616327e6f52d2a718960551f2c26a5d9ed7d7b876bbb92f3212a44a6985890a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:348-1"
+      ],
+      "text": "Swamp Taro"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:54892"
+    ],
+    "value": "Cyrtosperma merkusii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:54892"
+    ],
+    "value": "Araceae"
+  },
+  "goals": [],
+  "id": "cyrtosperma-merkusii",
+  "image": {
+    "attributionRequired": true,
+    "author": "Tauʻolunga",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Babai.jpg",
+    "refs": [
+      "commons:File:Babai.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Babai.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:54892"
+    ],
+    "value": "Malesia, Papuasia y regiones del Pacífico"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Babai.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Babai.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Babai.jpg"
+    },
+    "usda_common_name:348-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Swamp Taro»",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:20771": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20771",
+      "license": "CC0"
+    },
+    "usda_use:21448": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21448",
+      "license": "CC0"
+    },
+    "usda_use:70036": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70036",
+      "license": "CC0"
+    },
+    "wcvp:108421": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lasia merkusii Hassk.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:54892": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cyrtosperma merkusii (Hassk.) Schott",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Hassk.) Schott",
+    "name": "Cyrtosperma merkusii",
+    "refs": [
+      "wcvp:54892"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Hassk.",
+      "name": "Lasia merkusii",
+      "refs": [
+        "wcvp:108421"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Malaya"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21448",
+        "usda_use:70036",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Ecbólico",
+      "activitySource": "Ecbolic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20771",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

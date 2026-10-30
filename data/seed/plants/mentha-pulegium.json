@@ -1,0 +1,875 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:010a6044290f8a852e08e13b329bf27cc75eb22fc3bc3519c346ee52ef49c184",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Mentha pulegium"
+      ],
+      "text": "poleo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161235"
+      ],
+      "text": "Menta poleo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q161235"
+      ],
+      "text": "Poleio"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P534"
+      ],
+      "text": "Pennyroyal"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:617-1"
+      ],
+      "text": "European Pennyroyal"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P534"
+      ],
+      "text": "Polei-Minze"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Mentha pulegium"
+    ],
+    "value": "Una de las especies más conocidas del género Mentha, de la familia de las labiadas. Es una planta perenne cespitosa, de raíces rizomatosas, que crece bien en sitios húmedos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Mentha pulegium"
+    ],
+    "value": "Poleo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:125243"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "mentha-pulegium",
+  "image": {
+    "attributionRequired": true,
+    "author": "Raffi Kojian",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Gardenology.org-IMG_2751_rbgs11jan.jpg",
+    "refs": [
+      "commons:File:Gardenology.org-IMG 2751 rbgs11jan.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gardenology.org-IMG_2751_rbgs11jan.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:617-LF",
+      "usda_part:617-PL",
+      "usda_part:617-SH",
+      "usda_part:617-TC"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:125243"
+    ],
+    "value": "Europa, el norte de África, el Cáucaso, Asia occidental y Macaronesia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Gardenology.org-IMG 2751 rbgs11jan.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Gardenology.org-IMG 2751 rbgs11jan.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Gardenology.org-IMG_2751_rbgs11jan.jpg"
+    },
+    "efsa_botanic:3254": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: pulegone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3256": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: (R)-(+)-Menthofuran",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3257": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3265": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: alpha-thujone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3288": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: beta-thujone",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P534": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Mentha pulegium L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:617-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «European Pennyroyal»",
+      "license": "CC0"
+    },
+    "usda_part:617-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:617-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_part:617-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_part:617-TC": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Tissue Culture»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Martinez": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Martinez",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10602": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10602",
+      "license": "CC0"
+    },
+    "usda_use:12670": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12670",
+      "license": "CC0"
+    },
+    "usda_use:16267": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16267",
+      "license": "CC0"
+    },
+    "usda_use:17282": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17282",
+      "license": "CC0"
+    },
+    "usda_use:21456": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21456",
+      "license": "CC0"
+    },
+    "usda_use:29987": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29987",
+      "license": "CC0"
+    },
+    "usda_use:34699": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34699",
+      "license": "CC0"
+    },
+    "usda_use:36240": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36240",
+      "license": "CC0"
+    },
+    "usda_use:3702": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3702",
+      "license": "CC0"
+    },
+    "usda_use:42467": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42467",
+      "license": "CC0"
+    },
+    "usda_use:46794": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46794",
+      "license": "CC0"
+    },
+    "usda_use:46795": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46795",
+      "license": "CC0"
+    },
+    "usda_use:47228": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47228",
+      "license": "CC0"
+    },
+    "usda_use:48504": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48504",
+      "license": "CC0"
+    },
+    "usda_use:59487": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59487",
+      "license": "CC0"
+    },
+    "usda_use:59496": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59496",
+      "license": "CC0"
+    },
+    "usda_use:65530": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65530",
+      "license": "CC0"
+    },
+    "usda_use:66658": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66658",
+      "license": "CC0"
+    },
+    "usda_use:66977": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66977",
+      "license": "CC0"
+    },
+    "usda_use:70068": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70068",
+      "license": "CC0"
+    },
+    "usda_use:77750": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77750",
+      "license": "CC0"
+    },
+    "usda_use:81664": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81664",
+      "license": "CC0"
+    },
+    "usda_use:81667": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81667",
+      "license": "CC0"
+    },
+    "wcvp:124114": {
+      "dataset": "wcvp",
+      "label": "WCVP: Melissa pulegium (L.) Griseb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:125243": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha pulegium L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:128628": {
+      "dataset": "wcvp",
+      "label": "WCVP: Minthe pulegia (L.) St.-Lag.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:170982": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pulegium vulgare Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:342269": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha pulegium var. vulgaris (Mill.) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:350599": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha pulegium subsp. vulgaris (Mill.) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q161235": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q161235",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q161235"
+    },
+    "wikipedia_es:Mentha pulegium": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Mentha pulegium",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Mentha_pulegium"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave Woi.Syria no tiene candidata y queda sin resolver.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La única clave, Woi.Syria, no tiene candidata; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[10]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La única clave, Woi.Syria, no tiene candidata; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[11]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "La única clave, Woi.Syria, no tiene candidata; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[13]"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:3256",
+      "efsa_botanic:3265",
+      "efsa_botanic:3288",
+      "efsa_botanic:3254",
+      "efsa_botanic:3257",
+      "tppt_plant:P534"
+    ],
+    "text": "El Compendio de Botánicos de la EFSA registra, en la parte aérea de la planta, sustancias del grupo de tóxicos con límite: (R)-(+)-mentofurano, alfa-tuyona, beta-tuyona y pulegona; el 1,8-cineol figura como sustancia de evidencia. TPPT la califica de tóxica (parte aérea; también tóxica para animales) y anota un aceite esencial tóxico que contiene, entre otras sustancias, pulegona, mentofurano y mentona; las toxinas principales registradas son el mentofurano, la mentona y la pulegona."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Mentha pulegium",
+    "refs": [
+      "wcvp:125243"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Griseb.",
+      "name": "Melissa pulegium",
+      "refs": [
+        "wcvp:124114"
+      ]
+    },
+    {
+      "authors": "(Mill.) Briq.",
+      "name": "Mentha pulegium subsp. vulgaris",
+      "refs": [
+        "wcvp:350599"
+      ]
+    },
+    {
+      "authors": "(Mill.) Briq.",
+      "name": "Mentha pulegium var. vulgaris",
+      "refs": [
+        "wcvp:342269"
+      ]
+    },
+    {
+      "authors": "(L.) St.-Lag.",
+      "name": "Minthe pulegia",
+      "refs": [
+        "wcvp:128628"
+      ]
+    },
+    {
+      "authors": "Mill.",
+      "name": "Pulegium vulgare",
+      "refs": [
+        "wcvp:170982"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Martinez",
+          "ref": "usda_reference:Martinez",
+          "text": "Martinez, Maximino. 1969. Las Plantas Medinales de Mexico."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "México",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46794",
+        "usda_use:46795",
+        "usda_use:77750",
+        "usda_reference:Martinez",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10602",
+        "usda_use:66658",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21456",
+        "usda_use:70068",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3702",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Picadura (insecto)",
+      "activitySource": "Bite(Bug)",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65530",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Colagogo",
+      "activitySource": "Cholagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66977",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12670",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16267",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17282",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81664",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Gota",
+      "activitySource": "Gout",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:59487"
+      ]
+    },
+    {
+      "activity": "Nervios",
+      "activitySource": "Nerves",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:34699"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36240",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Repelente (insectos)",
+      "activitySource": "Repellant(Insect)",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:29987"
+      ]
+    },
+    {
+      "activity": "Esclerosis (vientre)",
+      "activitySource": "Sclerosis(Belly)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42467",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81667",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estómago",
+      "activitySource": "Stomach",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47228",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        }
+      ],
+      "countries": [
+        "España"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59496",
+        "usda_reference:FontQuer"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48504",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

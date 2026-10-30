@@ -3,26 +3,48 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:boticario_ai/app/theme.dart';
-import 'package:boticario_ai/features/catalog/data/plant_catalog_asset_data_source.dart';
-import 'package:boticario_ai/features/catalog/data/plant_catalog_repository.dart';
+import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
+import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
-import 'package:boticario_ai/features/catalog/domain/plant_catalog_provenance.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/testing.dart';
+
+import '../../support/fake_catalog_api.dart';
+import 'passport_test_support.dart' show consolidatedPlant, plainText;
+
+const _tabNames = ['General', 'Propiedades', 'Usos', 'Fuentes'];
+const _lavender = 'lavandula-angustifolia';
+const _rosemary = 'rosmarinus-officinalis';
+const _noCommonNames = 'abies-spectabilis';
+const _noFamily = 'chondrus-crispus';
+const _noUses = 'abies-sachalinensis';
+
+/// Visible names (primary, secondary) of each fixture plant.
+const _names = <String, (String, String?)>{
+  _lavender: ('English Lavender', 'Lavandula angustifolia'),
+  _rosemary: ('Rosemary', 'Rosmarinus officinalis'),
+  _noCommonNames: ('Abies spectabilis', null),
+  _noFamily: ('Irish Moss', 'Chondrus crispus'),
+  _noUses: ('Japanese Fir', 'Abies sachalinensis'),
+};
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  late PlantCatalog catalog;
-  late String catalogJson;
+  late Map<String, Plant> plants;
   const insets = EdgeInsets.fromLTRB(8, 24, 8, 20);
 
   setUpAll(() async {
-    catalogJson = await rootBundle.loadString(plantCatalogAssetPath);
-    catalog = PlantCatalogAssetDataSource.parse(catalogJson);
+    plants = {
+      for (final id in FakeCatalogApi.plantIds)
+        id: parsePlant(apiFixture('plant_$id.json')),
+    };
     final loader = FontLoader('Roboto');
     for (final name in ['Roboto-Regular.ttf', 'Roboto-Medium.ttf']) {
       loader.addFont(
@@ -36,27 +58,52 @@ void main() {
     await loader.load();
   });
 
-  Widget pageFor(int id, {VoidCallback? onBack, VoidCallback? onHome}) =>
-      PlantPassportPage(
-        plant: catalog.findById(id)!,
-        provenance: catalog.provenance,
-        onBack: onBack ?? () {},
-        onHome: onHome ?? () {},
-      );
+  Widget pageFor(
+    Object plantOrId, {
+    VoidCallback? onBack,
+    VoidCallback? onHome,
+  }) => PlantPassportPage(
+    plant: plantOrId is Plant ? plantOrId : plants[plantOrId]!,
+    onBack: onBack ?? () {},
+    onHome: onHome ?? () {},
+  );
 
   Future<void> show(
     WidgetTester tester,
-    int id, {
+    Object plantOrId, {
     VoidCallback? onBack,
     VoidCallback? onHome,
   }) async {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildBoticarioTheme(),
-        home: pageFor(id, onBack: onBack, onHome: onHome),
+        home: pageFor(plantOrId, onBack: onBack, onHome: onHome),
       ),
     );
   }
+
+  /// Route entry backed by a fake API (or any client).
+  Widget route(
+    String id, {
+    required http.Client client,
+    Key? key,
+    VoidCallback? onBack,
+    VoidCallback? onHome,
+  }) => ProviderScope(
+    overrides: [
+      httpClientProvider.overrideWithValue(client),
+      apiTokenProvider.overrideWithValue(testApiToken),
+    ],
+    child: MaterialApp(
+      theme: buildBoticarioTheme(),
+      home: PlantPassportRoutePage(
+        key: key,
+        plantId: id,
+        onBack: onBack ?? () {},
+        onHome: onHome ?? () {},
+      ),
+    ),
+  );
 
   Future<void> setCompactViewport(
     WidgetTester tester, {
@@ -77,7 +124,7 @@ void main() {
           ),
           child: child!,
         ),
-        home: pageFor(544),
+        home: pageFor(_lavender),
       ),
     );
   }
@@ -233,36 +280,75 @@ void main() {
     }
   }
 
-  testWidgets('General muestra identidad, ausencias y procedencia', (
+  const emptyUses =
+      'No hay usos tradicionales con referencia verificable disponibles';
+
+  testWidgets('General muestra identidad, familia, nombres, partes y sin '
+      'procedencia', (tester) async {
+    await setCompactViewport(tester);
+    expect(find.text('English Lavender'), findsNWidgets(2));
+    expect(find.text('Lavandula angustifolia'), findsOneWidget);
+    expect(find.text('Familia'), findsOneWidget);
+    expect(find.text('Lamiaceae'), findsOneWidget);
+    expect(find.text('Otros nombres comunes'), findsOneWidget);
+    // The older backend has no display name: the first common name is the
+    // `Nombre común` and is not repeated among the others.
+    expect(find.text('English Lavender (en)'), findsNothing);
+    expect(find.text('Flower, Leaf, Plant, Seed'), findsOneWidget);
+    expect(find.text('Tipo de aceite'), findsOneWidget);
+    for (final removed in [
+      'No aplicable: ficha de planta',
+      'Procedencia',
+      'Licencia',
+      'Versión',
+      'Dataset',
+      'Archivo',
+      'URL de fuente',
+      'Nombre común editorial',
+      'Nombre científico de fuente',
+      'Fecha de inspección (no cobertura temporal)',
+      'Cita recomendada de la fuente',
+    ]) {
+      expect(find.text(removed), findsNothing, reason: removed);
+    }
+    expect(find.textContaining('CC0'), findsNothing);
+    expect(find.textContaining('MD5'), findsNothing);
+    // `General` has no reference list: citations live in `Usos`.
+    expect(find.text('Referencias bibliográficas'), findsNothing);
+    expect(find.text('Steinmetz'), findsNothing);
+    expect(find.textContaining('codex Vegetabilis'), findsNothing);
+  });
+
+  testWidgets('a null family is stated as not available in the source', (
     tester,
   ) async {
-    await setCompactViewport(tester);
-    expect(find.text('Lavanda'), findsNWidgets(2));
-    expect(find.text('Lavandula angustifolia'), findsNWidgets(2));
-    expect(find.text('Nombre común editorial'), findsOneWidget);
-    expect(find.text('No disponible en fuente'), findsNWidgets(2));
-    expect(find.textContaining('Flower (FL)'), findsOneWidget);
-    expect(find.text('No aplicable: ficha de planta'), findsOneWidget);
-    expect(find.text(catalog.provenance.sourceName), findsOneWidget);
-    expect(find.text(catalog.provenance.license), findsOneWidget);
-    expect(find.text(catalog.provenance.version), findsOneWidget);
-    expect(find.text(catalog.provenance.datasetId), findsOneWidget);
-    expect(
-      find.textContaining(
-        '${catalog.provenance.fileName} (ID ${catalog.provenance.fileId})',
-      ),
-      findsOneWidget,
-    );
-    expect(find.text(catalog.provenance.sourceUrl), findsOneWidget);
-    expect(find.text(catalog.provenance.recommendedCitation), findsOneWidget);
-    expect(
-      find.textContaining('45ae44a0544586b8ac22a232beaac344'),
-      findsNothing,
-    );
+    await show(tester, _noFamily);
+    expect(find.text('Familia'), findsOneWidget);
+    // Familia, origen, tipo de aceite and descripción.
+    expect(find.text('No disponible en fuente'), findsNWidgets(4));
+    expect(find.text('Referencias bibliográficas'), findsNothing);
+  });
+
+  testWidgets('a plant without common names has the scientific name as the '
+      'only name', (tester) async {
+    await show(tester, _noCommonNames);
+    expect(find.text('Abies spectabilis'), findsOneWidget);
+    expect(find.text('Otros nombres comunes'), findsOneWidget);
+    expect(find.text('No hay nombres comunes registrados'), findsOneWidget);
+    expect(find.text('Leaf, Plant, Wood'), findsOneWidget);
+  });
+
+  testWidgets('common names keep their text and language code', (tester) async {
+    await show(tester, _noUses);
+    expect(find.text('Shin-Yo-Yu (en)'), findsOneWidget);
+    // Header and `Nombre común`: the primary name is not repeated in the list.
+    expect(find.text('Japanese Fir'), findsNWidgets(2));
+    expect(find.text('Japanese Fir (en)'), findsNothing);
+    expect(find.text('Abies sachalinensis'), findsOneWidget);
   });
 
   testWidgets('Propiedades no afirma eficacia medicinal', (tester) async {
-    await show(tester, 544);
+    await show(tester, _lavender);
     await tester.tap(find.text('Propiedades'));
     await tester.pumpAndSettle();
     expect(
@@ -270,107 +356,89 @@ void main() {
       findsOneWidget,
     );
     expect(
-      find.text('sin propiedades medicinales evaluadas en este catálogo'),
+      find.text('No hay objetivos registrados por la EMA para esta planta'),
       findsOneWidget,
     );
     expect(find.textContaining('eficaz'), findsNothing);
   });
 
-  testWidgets('an empty parts collection is stated explicitly', (tester) async {
-    final lavender = catalog.findById(544)!;
-    final withoutParts = Plant(
-      usdaPlantId: lavender.usdaPlantId,
-      editorialCommonName: lavender.editorialCommonName,
-      sourceScientificName: lavender.sourceScientificName,
-      identitySource: lavender.identitySource,
-      parts: const [],
-      traditionalUses: lavender.traditionalUses,
-    );
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: buildBoticarioTheme(),
-        home: PlantPassportPage(
-          plant: withoutParts,
-          provenance: catalog.provenance,
-          onBack: () {},
-          onHome: () {},
-        ),
-      ),
-    );
-    await tester.scrollUntilVisible(
-      find.text('No hay partes registradas en fuente'),
-      100,
-    );
-    expect(find.text('No hay partes registradas en fuente'), findsOneWidget);
-  });
-
-  testWidgets('Usos conserva actividad y cita en cada registro', (
+  testWidgets('empty parts and common names are stated explicitly', (
     tester,
   ) async {
-    await show(tester, 544);
-    await tester.tap(find.text('Usos'));
-    await tester.pumpAndSettle();
-    expect(find.text('Registros tradicionales'), findsOneWidget);
-    expect(
-      find.text(
-        'No es una recomendación de uso ni evidencia de eficacia clínica',
-      ),
-      findsOneWidget,
+    final bare = Plant(
+      id: 'bare-plant',
+      scientificName: 'Bare plant',
+      family: 'Familia X',
+      names: const [],
+      parts: const [],
+      uses: const [],
     );
-    expect(find.text('Carminative'), findsOneWidget);
-    final lavender = catalog.findById(544)!;
-    expect(lavender.traditionalUses, hasLength(10));
-    for (final use in lavender.traditionalUses) {
-      expect(find.text(use.activity), findsWidgets);
-      for (final reference in use.references) {
-        expect(find.text(reference.citation), findsWidgets);
-      }
-    }
-    expect(find.textContaining('no disponible'), findsNothing);
+    await show(tester, bare);
+    expect(find.text('No hay partes registradas en fuente'), findsOneWidget);
+    expect(find.text('No hay nombres comunes registrados'), findsOneWidget);
+    expect(find.text('Familia X'), findsOneWidget);
+    expect(find.text('Bare plant'), findsOneWidget);
   });
 
-  testWidgets(
-    'Romero presenta usos sin limitar la lista y menta/manzanilla vacías',
-    (tester) async {
-      await show(tester, 873);
+  testWidgets('Usos conserva actividad, etiqueta y cita en cada registro', (
+    tester,
+  ) async {
+    await show(tester, _lavender);
+    await tester.tap(find.text('Usos'));
+    await tester.pumpAndSettle();
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    expect(find.text('Carminative'), findsOneWidget);
+    final lavender = plants[_lavender]!;
+    expect(lavender.uses, hasLength(10));
+    expect(find.text('Registro tradicional'), findsNWidgets(10));
+    for (final use in lavender.uses) {
+      expect(find.text(use.activity), findsWidgets);
+      expect(find.text(use.reference.citation), findsWidgets);
+    }
+    expect(find.text(emptyUses), findsNothing);
+  });
+
+  testWidgets('Romero presenta todos sus usos sin truncar y sin usos queda '
+      'vacío explícito', (tester) async {
+    await show(tester, _rosemary);
+    await tester.tap(find.text('Usos'));
+    await tester.pumpAndSettle();
+    final rosemary = plants[_rosemary]!;
+    expect(rosemary.uses, hasLength(59));
+    // The older backend sends `uses` only: one derived group per activity.
+    expect(rosemary.useGroups, hasLength(46));
+    expect(find.text('Registro tradicional'), findsNWidgets(46));
+    expect(
+      find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
+      findsOneWidget,
+    );
+    // The last use is reachable by scrolling.
+    final last = rosemary.uses.last;
+    await tester.scrollUntilVisible(
+      find.text(last.reference.citation).last,
+      200,
+    );
+    expect(find.text(last.reference.citation), findsWidgets);
+
+    for (final id in [_noUses, _noFamily]) {
+      await show(tester, id);
       await tester.tap(find.text('Usos'));
       await tester.pumpAndSettle();
-      expect(find.text('Registro tradicional'), findsNWidgets(60));
+      expect(find.text(emptyUses), findsOneWidget, reason: id);
+      expect(find.text('Registro tradicional'), findsNothing);
       expect(
         find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
         findsOneWidget,
       );
-      await show(tester, 605);
-      await tester.tap(find.text('Usos'));
-      await tester.pumpAndSettle();
-      expect(
-        find.text(
-          'No hay usos tradicionales con referencia verificable disponibles',
-        ),
-        findsOneWidget,
-      );
-      expect(
-        find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
-        findsOneWidget,
-      );
-      await show(tester, 619);
-      await tester.tap(find.text('Usos'));
-      await tester.pumpAndSettle();
-      expect(
-        find.text(
-          'No hay usos tradicionales con referencia verificable disponibles',
-        ),
-        findsOneWidget,
-      );
-    },
-  );
+    }
+  });
 
   testWidgets('Back/Home callbacks and unavailable actions are inert', (
     tester,
   ) async {
     var backs = 0;
     var homes = 0;
-    await show(tester, 544, onBack: () => backs++, onHome: () => homes++);
+    await show(tester, _lavender, onBack: () => backs++, onHome: () => homes++);
     await tester.tap(find.byTooltip('Volver a Explorar'));
     expect(
       tester.widget<OutlinedButton>(find.byType(OutlinedButton)).onPressed,
@@ -382,183 +450,243 @@ void main() {
     expect(homes, 1);
   });
 
+  testWidgets('cuatro pestañas con General inicial y Fuentes como cuarta', (
+    tester,
+  ) async {
+    await show(tester, _lavender);
+    final chips = tester.widgetList<ChoiceChip>(find.byType(ChoiceChip));
+    expect([for (final chip in chips) (chip.label as Text).data], _tabNames);
+    expect(
+      [for (final chip in chips) chip.selected],
+      [true, false, false, false],
+    );
+  });
+
+  testWidgets('las pestañas no se mueven ni cambian de tamaño al elegir una', (
+    tester,
+  ) async {
+    for (final scale in [1.0, 2.0]) {
+      await setCompactViewport(tester, scale: scale);
+      await scrollTop(tester);
+      Map<String, Rect> rects() => {
+        for (final tab in _tabNames)
+          tab: tester.getRect(find.widgetWithText(ChoiceChip, tab)),
+      };
+      final before = rects();
+      for (final tab in [..._tabNames, ..._tabNames.reversed]) {
+        await selectTab(tester, tab);
+        await scrollTop(tester);
+        expect(rects(), before, reason: 'tras elegir $tab al $scale');
+        final chip = tester.widget<ChoiceChip>(
+          find.widgetWithText(ChoiceChip, tab),
+        );
+        expect(chip.selected, isTrue);
+        expect(chip.showCheckmark, isFalse);
+        // The selection is not only a fill: the border turns green.
+        expect((chip.side as BorderSide).color, const Color(0xFF236335));
+        expect(
+          tester
+              .getSemantics(find.widgetWithText(ChoiceChip, tab))
+              .flagsCollection
+              .isSelected,
+          ui.Tristate.isTrue,
+        );
+      }
+      // Selected and not selected chips are told apart by border and fill.
+      final others = tester.widgetList<ChoiceChip>(find.byType(ChoiceChip));
+      expect(others.where((c) => c.selected), hasLength(1));
+      expect(
+        others
+            .where((c) => !c.selected)
+            .every((c) => c.side!.color != const Color(0xFF236335)),
+        isTrue,
+      );
+    }
+  });
+
+  testWidgets('Fuentes solo aparece con su pestaña y no bajo las otras tres', (
+    tester,
+  ) async {
+    // The `plant_*` fixtures predate credits: use a consolidated plant.
+    final plant = consolidatedPlant(_lavender);
+    final credit = plant.credits.first;
+    await tester.pumpWidget(
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(plant)),
+    );
+    Future<void> expectSourcesAbsent(String tab) async {
+      // Scroll the whole tab so lazily built rows cannot hide a section.
+      final scroll = passportScroll();
+      final position = tester.state<ScrollableState>(scroll).position;
+      for (var i = 0; i < 60; i++) {
+        expect(
+          find.text(PassportTexts.sourcesIntro),
+          findsNothing,
+          reason: tab,
+        );
+        expect(plainText(credit.name), findsNothing, reason: tab);
+        expect(find.text('Licencia: ${credit.license}'), findsNothing);
+        expect(find.text(PassportTexts.imageSourceTitle), findsNothing);
+        if (position.pixels >= position.maxScrollExtent) break;
+        await tester.drag(scroll, const Offset(0, -300));
+        await tester.pump();
+      }
+    }
+
+    await expectSourcesAbsent('General');
+    for (final tab in ['Propiedades', 'Usos']) {
+      await selectTab(tester, tab);
+      await expectSourcesAbsent(tab);
+    }
+    await selectTab(tester, 'Fuentes');
+    expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
+    expect(plainText(credit.name), findsOneWidget);
+  });
+
   testWidgets('identity change resets selected tab to General', (tester) async {
     await tester.pumpWidget(
-      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(544)),
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_lavender)),
     );
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Registros tradicionales'), findsOneWidget);
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
     await tester.pumpWidget(
-      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(619)),
+      MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_noFamily)),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Nombre común editorial'), findsOneWidget);
-    expect(
-      find.text(
-        'No hay usos tradicionales con referencia verificable disponibles',
-      ),
-      findsNothing,
-    );
+    expect(find.text('Familia'), findsOneWidget);
+    expect(find.text(emptyUses), findsNothing);
   });
 
-  testWidgets('route entry resolves a known catalog identity', (tester) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          plantCatalogAssetDataSourceProvider.overrideWithValue(
-            PlantCatalogAssetDataSource(loadAsset: (_) async => catalogJson),
-          ),
-        ],
-        child: MaterialApp(
-          theme: buildBoticarioTheme(),
-          home: PlantPassportRoutePage(
-            plantId: '544',
-            onBack: () {},
-            onHome: () {},
-          ),
-        ),
-      ),
-    );
+  testWidgets('route entry resolves a known catalog identity by slug', (
+    tester,
+  ) async {
+    final api = FakeCatalogApi();
+    await tester.pumpWidget(route(_lavender, client: api.client));
+    expect(find.text('Cargando planta...'), findsOneWidget);
     await tester.pumpAndSettle();
-    expect(find.text('Lavanda'), findsWidgets);
+    expect(find.text('English Lavender'), findsWidgets);
+    expect(find.text('Lavandula angustifolia'), findsWidgets);
+    expect(api.requests.single.url.path, '/v1/plants/$_lavender');
+    expect(find.text('Cargando planta...'), findsNothing);
   });
 
-  testWidgets(
-    'route entry resolves five valid IDs and handles all bad IDs safely',
-    (tester) async {
-      var backs = 0;
-      var homes = 0;
-      const expected = <String, String>{
-        '544': 'Lavanda',
-        '401': 'Eucalipto',
-        '873': 'Romero',
-        '605': 'Manzanilla',
-        '619': 'Menta',
-      };
-      Widget route(String id) => ProviderScope(
-        overrides: [
-          plantCatalogAssetDataSourceProvider.overrideWithValue(
-            PlantCatalogAssetDataSource(loadAsset: (_) async => catalogJson),
-          ),
-        ],
-        child: MaterialApp(
-          theme: buildBoticarioTheme(),
-          home: PlantPassportRoutePage(
-            plantId: id,
-            onBack: () => backs++,
-            onHome: () => homes++,
-          ),
-        ),
-      );
+  testWidgets('route entry resolves every fixture id and handles unknown ids '
+      'safely', (tester) async {
+    var backs = 0;
+    var homes = 0;
+    final api = FakeCatalogApi();
+    Widget entry(String id) => route(
+      id,
+      client: api.client,
+      onBack: () => backs++,
+      onHome: () => homes++,
+    );
 
-      await tester.pumpWidget(route('544'));
+    for (final item in _names.entries) {
+      await tester.pumpWidget(entry(item.key));
       await tester.pumpAndSettle();
-      for (final item in expected.entries) {
-        await tester.pumpWidget(route(item.key));
-        await tester.pumpAndSettle();
-        expect(find.text(item.value), findsWidgets, reason: 'ID ${item.key}');
-        expect(tester.takeException(), isNull);
+      expect(find.text(item.value.$1), findsWidgets, reason: 'ID ${item.key}');
+      if (item.value.$2 != null) {
+        expect(find.text(item.value.$2!), findsWidgets);
       }
+      expect(tester.takeException(), isNull);
+    }
 
-      for (final id in [
-        '999999',
-        'not-an-id',
-        '-544',
-        '99999999999999999999999999999999999999999999999999',
-      ]) {
-        await tester.pumpWidget(route(id));
-        await tester.pumpAndSettle();
-        expect(find.text('Planta no encontrada'), findsOneWidget, reason: id);
-        for (final name in expected.values) {
-          expect(
-            find.text(name),
-            findsNothing,
-            reason: 'unexpected plant for $id',
-          );
-        }
-        await tester.tap(find.byTooltip('Volver a Explorar'));
-        await tester.tap(find.bySemanticsLabel('Inicio'));
-        expect(tester.takeException(), isNull);
+    for (final id in [
+      '999999',
+      'not-an-id',
+      '-544',
+      'a' * 300,
+      'lavandula-angustifolia-x',
+    ]) {
+      await tester.pumpWidget(entry(id));
+      await tester.pumpAndSettle();
+      expect(find.text('Planta no encontrada'), findsOneWidget, reason: id);
+      expect(find.text('No se pudo cargar la planta'), findsNothing);
+      for (final names in _names.values) {
+        expect(find.text(names.$1), findsNothing, reason: 'unexpected for $id');
       }
-      expect(backs, 4);
-      expect(homes, 4);
-    },
-  );
+      await tester.tap(find.byTooltip('Volver a Explorar'));
+      await tester.tap(find.bySemanticsLabel('Inicio'));
+      expect(tester.takeException(), isNull);
+    }
+    expect(backs, 5);
+    expect(homes, 5);
+  });
 
   testWidgets('route ID changes known → unknown → known and resets General', (
     tester,
   ) async {
     const key = ValueKey('route-entry');
-    Widget route(String id) => ProviderScope(
-      overrides: [
-        plantCatalogAssetDataSourceProvider.overrideWithValue(
-          PlantCatalogAssetDataSource(loadAsset: (_) async => catalogJson),
-        ),
-      ],
-      child: MaterialApp(
-        theme: buildBoticarioTheme(),
-        home: PlantPassportRoutePage(
-          key: key,
-          plantId: id,
-          onBack: () {},
-          onHome: () {},
-        ),
-      ),
-    );
+    final api = FakeCatalogApi();
+    Widget entry(String id) => route(id, client: api.client, key: key);
 
-    await tester.pumpWidget(route('544'));
+    await tester.pumpWidget(entry(_lavender));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Registros tradicionales'), findsOneWidget);
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
 
-    await tester.pumpWidget(route('999999'));
+    await tester.pumpWidget(entry('999999'));
     await tester.pumpAndSettle();
     expect(find.text('Planta no encontrada'), findsOneWidget);
-    await tester.pumpWidget(route('401'));
+    await tester.pumpWidget(entry(_noUses));
     await tester.pumpAndSettle();
-    expect(find.text('Eucalipto'), findsWidgets);
-    expect(find.text('Nombre común editorial'), findsOneWidget);
-    expect(find.text('Registros tradicionales'), findsNothing);
+    expect(find.text('Japanese Fir'), findsWidgets);
+    expect(find.text('Familia'), findsOneWidget);
+    expect(find.text(PassportTexts.usesNotice), findsNothing);
   });
 
-  testWidgets('retry waits for Completer and actions work in loading/error', (
+  testWidgets('a 401 shows unauthorized, not "not found", with retry', (
+    tester,
+  ) async {
+    final api = FakeCatalogApi(failure: FakeApiFailure.unauthorized);
+    await tester.pumpWidget(route(_rosemary, client: api.client));
+    await tester.pumpAndSettle();
+    expect(find.text('No se pudo cargar la planta'), findsOneWidget);
+    expect(find.textContaining('no está autorizada'), findsOneWidget);
+    expect(find.textContaining(testApiToken), findsNothing);
+    expect(find.text('Planta no encontrada'), findsNothing);
+    expect(find.text('Reintentar'), findsOneWidget);
+    expect(api.requests, hasLength(1), reason: 'no automatic retry');
+    expect(tester.takeException(), isNull);
+
+    api.failure = FakeApiFailure.none;
+    await tester.tap(find.text('Reintentar'));
+    await tester.pumpAndSettle();
+    expect(api.requests, hasLength(2));
+    expect(find.text('No se pudo cargar la planta'), findsNothing);
+  });
+
+  testWidgets('retry waits for the request and actions work in loading/error', (
     tester,
   ) async {
     var backs = 0;
     var homes = 0;
     var attempts = 0;
-    final secondRead = Completer<String>();
+    final second = Completer<http.Response>();
+    final fake = FakeCatalogApi();
+    final client = MockClient((request) {
+      attempts++;
+      if (attempts == 1) {
+        return Future.value(http.Response('{"title":"x","status":500}', 500));
+      }
+      if (attempts == 2) return second.future;
+      return fake.client.get(request.url).then((r) => r);
+    });
     await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          plantCatalogAssetDataSourceProvider.overrideWithValue(
-            PlantCatalogAssetDataSource(
-              loadAsset: (_) {
-                attempts++;
-                if (attempts == 1) {
-                  return Future<String>.error(StateError('private raw error'));
-                }
-                return secondRead.future;
-              },
-            ),
-          ),
-        ],
-        child: MaterialApp(
-          theme: buildBoticarioTheme(),
-          home: PlantPassportRoutePage(
-            plantId: '401',
-            onBack: () => backs++,
-            onHome: () => homes++,
-          ),
-        ),
+      route(
+        _rosemary,
+        client: client,
+        onBack: () => backs++,
+        onHome: () => homes++,
       ),
     );
-    expect(find.text('Cargando catálogo...'), findsOneWidget);
+    expect(find.text('Cargando planta...'), findsOneWidget);
     await tester.pumpAndSettle();
-    expect(find.text('No se pudo cargar el catálogo'), findsOneWidget);
-    expect(find.textContaining('private raw error'), findsNothing);
+    expect(find.text('No se pudo cargar la planta'), findsOneWidget);
+    expect(find.textContaining('HTTP 500'), findsOneWidget);
+    expect(find.text('Planta no encontrada'), findsNothing);
     expect(attempts, 1, reason: 'there must be no automatic retry');
     await tester.tap(find.byTooltip('Volver a Explorar'));
     await tester.tap(find.bySemanticsLabel('Inicio'));
@@ -568,17 +696,24 @@ void main() {
     await tester.tap(find.text('Reintentar'));
     await tester.pump();
     expect(attempts, 2);
-    expect(find.text('Cargando catálogo...'), findsOneWidget);
+    expect(find.text('Cargando planta...'), findsOneWidget);
+    expect(find.text('Planta no encontrada'), findsNothing);
     await tester.tap(find.byTooltip('Volver a Explorar'));
     await tester.tap(find.bySemanticsLabel('Inicio'));
     expect(backs, 2);
     expect(homes, 2);
-    expect(find.text('No se pudo cargar el catálogo'), findsNothing);
+    expect(find.text('No se pudo cargar la planta'), findsNothing);
 
-    secondRead.complete(catalogJson);
+    second.complete(
+      http.Response(
+        apiFixture('plant_$_rosemary.json'),
+        200,
+        headers: {'content-type': 'application/json; charset=utf-8'},
+      ),
+    );
     await tester.pumpAndSettle();
-    expect(find.text('Eucalipto'), findsWidgets);
-    expect(find.text('Lavanda'), findsNothing);
+    expect(find.text('Rosemary'), findsWidgets);
+    expect(find.text('English Lavender'), findsNothing);
     expect(attempts, 2);
   });
 
@@ -587,23 +722,19 @@ void main() {
     (tester) async {
       var backs = 0;
       var homes = 0;
-      await show(tester, 544, onBack: () => backs++, onHome: () => homes++);
-      for (final tab in ['General', 'Propiedades', 'Usos']) {
+      await show(
+        tester,
+        _lavender,
+        onBack: () => backs++,
+        onHome: () => homes++,
+      );
+      for (final tab in _tabNames) {
         await tester.tap(find.text(tab));
         await tester.pumpAndSettle();
-        expect(
-          tester
-              .widget<ChoiceChip>(
-                find
-                    .ancestor(
-                      of: find.text(tab),
-                      matching: find.byType(ChoiceChip),
-                    )
-                    .first,
-              )
-              .selected,
-          isTrue,
-        );
+        Finder chip() => find
+            .ancestor(of: find.text(tab), matching: find.byType(ChoiceChip))
+            .first;
+        expect(tester.widget<ChoiceChip>(chip()).selected, isTrue);
         for (final action in [
           find.bySemanticsLabel('Favorito no disponible'),
           find.bySemanticsLabel('Ver formulaciones relacionadas no disponible'),
@@ -621,22 +752,10 @@ void main() {
           expect(find.byType(AlertDialog), findsNothing);
           expect(find.byType(SnackBar), findsNothing);
         }
-        expect(
-          tester
-              .widget<ChoiceChip>(
-                find
-                    .ancestor(
-                      of: find.text(tab),
-                      matching: find.byType(ChoiceChip),
-                    )
-                    .first,
-              )
-              .selected,
-          isTrue,
-        );
+        expect(tester.widget<ChoiceChip>(chip()).selected, isTrue);
       }
 
-      await show(tester, 544);
+      await show(tester, _lavender);
       for (final label in [
         'Dosis',
         'Recomendación',
@@ -649,7 +768,7 @@ void main() {
       await tester.tap(find.text('Propiedades'));
       await tester.pumpAndSettle();
       expect(
-        find.text('sin propiedades medicinales evaluadas en este catálogo'),
+        find.text('No hay objetivos registrados por la EMA para esta planta'),
         findsOneWidget,
       );
     },
@@ -660,39 +779,26 @@ void main() {
     (tester) async {
       var backs = 0;
       var homes = 0;
-      var attempts = 0;
-      final loaded = rootBundle.loadString(plantCatalogAssetPath);
+      final api = FakeCatalogApi(failure: FakeApiFailure.connection);
       await tester.pumpWidget(
-        ProviderScope(
-          overrides: [
-            plantCatalogAssetDataSourceProvider.overrideWithValue(
-              PlantCatalogAssetDataSource(
-                loadAsset: (_) async {
-                  attempts++;
-                  if (attempts == 1) throw StateError('private raw error');
-                  return loaded;
-                },
-              ),
-            ),
-          ],
-          child: MaterialApp(
-            theme: buildBoticarioTheme(),
-            home: PlantPassportRoutePage(
-              plantId: '123456',
-              onBack: () => backs++,
-              onHome: () => homes++,
-            ),
-          ),
+        route(
+          '123456',
+          client: api.client,
+          onBack: () => backs++,
+          onHome: () => homes++,
         ),
       );
-      expect(find.text('Cargando catálogo...'), findsOneWidget);
+      expect(find.text('Cargando planta...'), findsOneWidget);
       await tester.pumpAndSettle();
-      expect(find.text('No se pudo cargar el catálogo'), findsOneWidget);
-      expect(find.text('private raw error'), findsNothing);
+      expect(find.text('No se pudo cargar la planta'), findsOneWidget);
+      expect(find.textContaining('No se pudo conectar'), findsOneWidget);
+      expect(find.textContaining('Connection refused'), findsNothing);
+      api.failure = FakeApiFailure.none;
       await tester.tap(find.text('Reintentar'));
       await tester.pumpAndSettle();
-      expect(attempts, 2);
+      expect(api.requests, hasLength(2));
       expect(find.text('Planta no encontrada'), findsOneWidget);
+      expect(find.text('Reintentar'), findsNothing);
       await tester.tap(find.byTooltip('Volver a Explorar'));
       await tester.tap(find.text('Inicio'));
       expect(backs, 1);
@@ -701,29 +807,19 @@ void main() {
   );
 
   testWidgets(
-    'all five source identities, parts and 200% layouts remain readable',
+    'all fixture identities, parts and 200% layouts remain readable',
     (tester) async {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
-      final expected = <int, (String, String)>{
-        544: ('Lavanda', 'Lavandula angustifolia'),
-        401: ('Eucalipto', 'Eucalyptus globulus'),
-        873: ('Romero', 'Rosmarinus officinalis'),
-        605: ('Manzanilla', 'Matricaria recutita'),
-        619: ('Menta', 'Mentha x piperita subsp. nothosubsp. piperita'),
-      };
-      for (final entry in expected.entries) {
-        final plant = catalog.findById(entry.key)!;
-        expect((
-          plant.editorialCommonName,
-          plant.sourceScientificName,
-        ), entry.value);
+      for (final entry in _names.entries) {
+        final plant = plants[entry.key]!;
+        expect((plant.primaryName, plant.secondaryName), entry.value);
         for (final scale in [1.0, 2.0]) {
           tester.view.physicalSize = const Size(360, 640);
           tester.view.devicePixelRatio = 1;
           await tester.pumpWidget(
             MaterialApp(
-              key: ValueKey('layout-${plant.usdaPlantId}-$scale'),
+              key: ValueKey('layout-${plant.id}-$scale'),
               theme: buildBoticarioTheme(),
               builder: (context, child) => MediaQuery(
                 data: MediaQuery.of(context).copyWith(
@@ -733,16 +829,13 @@ void main() {
                 ),
                 child: child!,
               ),
-              home: PlantPassportPage(
-                plant: plant,
-                provenance: catalog.provenance,
-                onBack: () {},
-                onHome: () {},
-              ),
+              home: pageFor(plant),
             ),
           );
           expect(find.text(entry.value.$1), findsWidgets);
-          expect(find.text(entry.value.$2), findsWidgets);
+          if (entry.value.$2 != null) {
+            expect(find.text(entry.value.$2!), findsWidgets);
+          }
           expect(
             tester.getRect(find.byTooltip('Volver a Explorar')).top,
             greaterThanOrEqualTo(24),
@@ -751,12 +844,7 @@ void main() {
             tester.getRect(find.bySemanticsLabel('Inicio')).bottom,
             lessThanOrEqualTo(616),
           );
-          await tester.scrollUntilVisible(
-            find.text('Nombre común editorial'),
-            100,
-          );
-          expect(find.text(entry.value.$1), findsWidgets);
-          expect(find.text(entry.value.$2), findsWidgets);
+          await tester.scrollUntilVisible(find.text('Familia'), 100);
           expect(tester.takeException(), isNull);
           expect(
             find.bySemanticsLabel(
@@ -767,19 +855,33 @@ void main() {
           if (scale == 1) {
             final expectedParts = plant.parts.isEmpty
                 ? 'No hay partes registradas en fuente'
-                : plant.parts
-                      .map((part) => '${part.name} (${part.sourceCode})')
-                      .join(', ');
-            await tester.scrollUntilVisible(
-              find.textContaining(expectedParts),
-              100,
-            );
+                : plant.parts.join(', ');
+            await tester.scrollUntilVisible(find.text(expectedParts), 100);
             expect(find.text(expectedParts), findsOneWidget);
           }
         }
       }
     },
   );
+
+  testWidgets('bottom bar lays out 2x2 without splitting labels at 200%', (
+    tester,
+  ) async {
+    await setCompactViewport(tester, scale: 2);
+    final tops = <String, double>{};
+    for (final label in ['Inicio', 'Favoritos', 'Historial', 'Perfil']) {
+      final finder = find.text(label);
+      final paragraph = tester.renderObject<RenderParagraph>(finder);
+      final lines = paragraph.getBoxesForSelection(
+        TextSelection(baseOffset: 0, extentOffset: label.length),
+      );
+      expect(lines, hasLength(1), reason: '$label must stay on one line');
+      tops[label] = tester.getTopLeft(finder).dy;
+    }
+    expect(tops['Favoritos'], tops['Inicio']);
+    expect(tops['Perfil'], tops['Historial']);
+    expect(tops['Historial']!, greaterThan(tops['Inicio']!));
+  });
 
   testWidgets(
     'disabled controls have a single accessible label and 48dp targets',
@@ -864,7 +966,7 @@ void main() {
               child: child!,
             ),
             home: pageFor(
-              544,
+              _lavender,
               onBack: () => backCount++,
               onHome: () => homeCount++,
             ),
@@ -882,7 +984,7 @@ void main() {
         await tester.tap(back);
         expect(backCount, 1);
 
-        for (final tabName in ['General', 'Propiedades', 'Usos']) {
+        for (final tabName in _tabNames) {
           await selectTab(tester, tabName);
           final tab = find.widgetWithText(ChoiceChip, tabName);
           final tabSemantics = tester.getSemantics(tab);
@@ -946,10 +1048,7 @@ void main() {
           expect(tester.getRect(home).shortestSide, greaterThanOrEqualTo(48));
           expect(home.hitTestable(), findsOneWidget);
           await tester.tap(home);
-          expect(
-            homeCount,
-            ['General', 'Propiedades', 'Usos'].indexOf(tabName) + 1,
-          );
+          expect(homeCount, _tabNames.indexOf(tabName) + 1);
         }
         expect(tester.takeException(), isNull);
       },
@@ -959,15 +1058,8 @@ void main() {
       'P05 essential content and citations remain readable at $scale',
       (tester) async {
         await setCompactViewport(tester, scale: scale);
-        const expected = <int, (String, String)>{
-          544: ('Lavanda', 'Lavandula angustifolia'),
-          401: ('Eucalipto', 'Eucalyptus globulus'),
-          873: ('Romero', 'Rosmarinus officinalis'),
-          605: ('Manzanilla', 'Matricaria recutita'),
-          619: ('Menta', 'Mentha x piperita subsp. nothosubsp. piperita'),
-        };
-        for (final entry in expected.entries) {
-          final plant = catalog.findById(entry.key)!;
+        for (final entry in _names.entries) {
+          final plant = plants[entry.key]!;
           await tester.pumpWidget(
             MaterialApp(
               theme: buildBoticarioTheme(),
@@ -979,15 +1071,10 @@ void main() {
                 ),
                 child: child!,
               ),
-              home: PlantPassportPage(
-                plant: plant,
-                provenance: catalog.provenance,
-                onBack: () {},
-                onHome: () {},
-              ),
+              home: pageFor(plant),
             ),
           );
-          for (final tabName in ['General', 'Propiedades', 'Usos']) {
+          for (final tabName in _tabNames) {
             await selectTab(tester, tabName);
             final chip = find.widgetWithText(ChoiceChip, tabName);
             final renderedLabel = find.descendant(
@@ -1000,7 +1087,10 @@ void main() {
           await selectTab(tester, 'General');
 
           final footerRow = find
-              .ancestor(of: find.text('Inicio'), matching: find.byType(Row))
+              .ancestor(
+                of: find.text('Inicio'),
+                matching: find.byType(Material),
+              )
               .first;
           final footerRect = tester.getRect(footerRow);
           expect(footerRect.left, greaterThanOrEqualTo(insets.left));
@@ -1022,39 +1112,32 @@ void main() {
 
           for (final text in [
             entry.value.$1,
-            entry.value.$2,
-            'Nombre común editorial',
-            'Nombre científico de fuente',
-            'Origen',
-            'Descripción',
-            'No disponible en fuente',
-            'Partes registradas en fuente',
+            ?entry.value.$2,
+            'Familia',
+            plant.family ?? 'No disponible en fuente',
+            'Otros nombres comunes',
+            if (plant.commonNames
+                .skip(plant.primaryName == plant.scientificName ? 0 : 1)
+                .isEmpty)
+              'No hay nombres comunes registrados'
+            else
+              for (final name in plant.commonNames.skip(
+                plant.primaryName == plant.scientificName ? 0 : 1,
+              ))
+                '${name.text} (${name.language})',
+            'Parte utilizada',
             plant.parts.isEmpty
                 ? 'No hay partes registradas en fuente'
-                : plant.parts
-                      .map((part) => '${part.name} (${part.sourceCode})')
-                      .join(', '),
+                : plant.parts.join(', '),
             'Tipo de aceite',
-            'No aplicable: ficha de planta',
-            'Procedencia',
-            'Fuente',
-            catalog.provenance.sourceName,
-            'Licencia',
-            catalog.provenance.license,
-            'Versión',
-            catalog.provenance.version,
-            'Dataset',
-            catalog.provenance.datasetId,
-            'Archivo',
-            '${catalog.provenance.fileName} (ID ${catalog.provenance.fileId})',
-            'URL de fuente',
-            catalog.provenance.sourceUrl,
-            'Fecha de inspección (no cobertura temporal)',
-            '2026-10-01',
-            'Cita recomendada de la fuente',
-            catalog.provenance.recommendedCitation,
           ]) {
             final target = find.text(text);
+            // Rows are built lazily: scroll until the text exists.
+            if (target.evaluate().isEmpty) await scrollTop(tester);
+            for (var i = 0; i < 80 && target.evaluate().isEmpty; i++) {
+              await tester.drag(passportScroll(), const Offset(0, -150));
+              await tester.pump();
+            }
             expect(target, findsWidgets, reason: 'Texto esencial: $text');
             await assertParagraphReadable(tester, target.first);
           }
@@ -1062,34 +1145,27 @@ void main() {
           await selectTab(tester, 'Propiedades');
           await assertParagraphReadable(
             tester,
-            find.text('sin propiedades medicinales evaluadas en este catálogo'),
+            find.text(
+              'No hay objetivos registrados por la EMA para esta planta',
+            ),
           );
           await selectTab(tester, 'Usos');
-          if (plant.traditionalUses.isEmpty) {
-            await assertParagraphReadable(
-              tester,
-              find.text(
-                'No hay usos tradicionales con referencia verificable disponibles',
-              ),
-            );
+          if (plant.uses.isEmpty) {
+            await assertParagraphReadable(tester, find.text(emptyUses));
           } else {
             await assertParagraphReadable(
               tester,
-              find.text(
-                'No es una recomendación de uso ni evidencia de eficacia clínica',
-              ),
+              find.text(PassportTexts.usesNotice),
             );
-            for (final use in plant.traditionalUses) {
+            for (final use in plant.uses) {
               await assertParagraphReadable(
                 tester,
                 find.text(use.activity).first,
               );
-              for (final reference in use.references) {
-                await assertParagraphReadable(
-                  tester,
-                  find.text(reference.citation).first,
-                );
-              }
+              await assertParagraphReadable(
+                tester,
+                find.text(use.reference.citation).first,
+              );
             }
           }
           expect(tester.takeException(), isNull);
@@ -1104,34 +1180,26 @@ void main() {
         tester.view.devicePixelRatio = 1;
         addTearDown(tester.view.resetPhysicalSize);
         addTearDown(tester.view.resetDevicePixelRatio);
-        final base = catalog.findById(544)!;
+        final base = plants[_lavender]!;
         final citation = List.generate(
           90,
           (index) =>
               'Segmento $index: referencia bibliográfica extensa verificable.',
         ).join(' ');
         final plant = Plant(
-          usdaPlantId: base.usdaPlantId,
-          editorialCommonName: base.editorialCommonName,
-          sourceScientificName: base.sourceScientificName,
-          identitySource: base.identitySource,
-          traditionalUses: [
-            TraditionalUse(
+          id: base.id,
+          scientificName: base.scientificName,
+          family: base.family,
+          names: base.names,
+          parts: const [],
+          uses: [
+            PlantUse(
               activity: 'QA uso tradicional',
-              source: SourceRecord(
-                table: 'ETHNOBOT',
-                selectors: const {'ACTIVITY': 'QA uso tradicional'},
+              language: 'en',
+              reference: UseReference(
+                id: 'QA referencia larga',
+                citation: citation,
               ),
-              references: [
-                PlantReference(
-                  id: 'QA referencia larga',
-                  citation: citation,
-                  source: SourceRecord(
-                    table: 'REFERENCES',
-                    selectors: {'LONGREF': citation},
-                  ),
-                ),
-              ],
             ),
           ],
         );
@@ -1146,25 +1214,21 @@ void main() {
               ),
               child: child!,
             ),
-            home: PlantPassportPage(
-              plant: plant,
-              provenance: catalog.provenance,
-              onBack: () {},
-              onHome: () {},
-            ),
+            home: pageFor(plant),
           ),
         );
         await assertParagraphReadable(
           tester,
           find.text('No hay partes registradas en fuente'),
         );
+        // `General` has no reference list: the citation is in `Usos` only.
+        expect(find.text(citation), findsNothing);
+        await selectTab(tester, 'Usos');
         await assertParagraphReadable(tester, find.text(citation));
         expect(
           tester.getSize(find.text(citation)).height,
           greaterThan(tester.getSize(find.byType(CustomScrollView)).height),
         );
-        await selectTab(tester, 'Usos');
-        await assertParagraphReadable(tester, find.text(citation));
         expect(tester.takeException(), isNull);
       },
     );
@@ -1180,24 +1244,23 @@ void main() {
         var backCount = 0;
         var homeCount = 0;
         var reads = 0;
-        final pending = Completer<String>();
+        final pending = Completer<http.Response>();
+        final fake = FakeCatalogApi();
+        final client = MockClient((request) {
+          reads++;
+          if (state == 'loading') return pending.future;
+          if (state == 'error') {
+            return reads == 1
+                ? Future.value(http.Response('{"status":500}', 500))
+                : pending.future;
+          }
+          return fake.client.get(request.url);
+        });
         await tester.pumpWidget(
           ProviderScope(
             overrides: [
-              plantCatalogAssetDataSourceProvider.overrideWithValue(
-                PlantCatalogAssetDataSource(
-                  loadAsset: (_) {
-                    reads++;
-                    if (state == 'loading') return pending.future;
-                    if (state == 'error') {
-                      return reads == 1
-                          ? Future<String>.error(StateError('private error'))
-                          : pending.future;
-                    }
-                    return Future.value(catalogJson);
-                  },
-                ),
-              ),
+              httpClientProvider.overrideWithValue(client),
+              apiTokenProvider.overrideWithValue(testApiToken),
             ],
             child: MaterialApp(
               theme: buildBoticarioTheme(),
@@ -1210,7 +1273,7 @@ void main() {
                 child: child!,
               ),
               home: PlantPassportRoutePage(
-                plantId: state == 'notfound' ? '999999' : '544',
+                plantId: state == 'notfound' ? '999999' : _lavender,
                 onBack: () => backCount++,
                 onHome: () => homeCount++,
               ),
@@ -1219,12 +1282,15 @@ void main() {
         );
         if (state != 'loading') await tester.pumpAndSettle();
         final title = switch (state) {
-          'loading' => 'Cargando catálogo...',
-          'error' => 'No se pudo cargar el catálogo',
+          'loading' => 'Cargando planta...',
+          'error' => 'No se pudo cargar la planta',
           _ => 'Planta no encontrada',
         };
         expect(find.text(title), findsOneWidget);
         expect(find.textContaining('private error'), findsNothing);
+        if (state == 'error') {
+          expect(find.textContaining('HTTP 500'), findsOneWidget);
+        }
         final titleParagraph = tester.renderObject<RenderParagraph>(
           find.text(title),
         );
@@ -1276,7 +1342,8 @@ void main() {
             'Perfil no disponible',
           ])
             find.bySemanticsLabel(label),
-          if (state == 'error') find.widgetWithText(TextButton, 'Reintentar'),
+          if (state == 'error')
+            find.widgetWithText(OutlinedButton, 'Reintentar'),
         ];
         for (final control in controls) {
           expect(
@@ -1292,7 +1359,7 @@ void main() {
           expect(rect.right, lessThanOrEqualTo(360 - insets.right));
         }
         final retryRect = state == 'error'
-            ? tester.getRect(find.widgetWithText(TextButton, 'Reintentar'))
+            ? tester.getRect(find.widgetWithText(OutlinedButton, 'Reintentar'))
             : null;
         final homeSemantics = tester
             .getSemantics(find.bySemanticsLabel('Inicio'))
@@ -1318,11 +1385,28 @@ void main() {
           await tester.tap(find.text('Reintentar'));
           await tester.pump();
           expect(reads, 2);
-          expect(find.text('Cargando catálogo...'), findsOneWidget);
+          expect(find.text('Cargando planta...'), findsOneWidget);
           expect(retryRect!.shortestSide, greaterThanOrEqualTo(48));
-          pending.complete(catalogJson);
+          pending.complete(
+            http.Response(
+              apiFixture('plant_$_lavender.json'),
+              200,
+              headers: {'content-type': 'application/json; charset=utf-8'},
+            ),
+          );
           await tester.pumpAndSettle();
-          expect(find.text('Lavanda'), findsWidgets);
+          expect(find.text('English Lavender'), findsWidgets);
+        }
+        if (!pending.isCompleted) {
+          // Lets the repository's 10 s timeout timer end with the request.
+          pending.complete(
+            http.Response(
+              apiFixture('plant_$_lavender.json'),
+              200,
+              headers: {'content-type': 'application/json; charset=utf-8'},
+            ),
+          );
+          await tester.pumpAndSettle();
         }
         expect(tester.takeException(), isNull);
       });

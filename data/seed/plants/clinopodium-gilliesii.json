@@ -1,0 +1,139 @@
+{
+  "aliases": [
+    "satureja-parvifolia"
+  ],
+  "bundleHash": "sha256:f80199d7f18ae95f1b6dbc6597deab052f1f3cb674706e128a473fa95f86983a",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2040-1"
+      ],
+      "text": "Small-Leaf Pampa Savory"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:43532"
+    ],
+    "value": "Clinopodium gilliesii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:43532"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "clinopodium-gilliesii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2040-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:43532"
+    ],
+    "value": "Sur y oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2040-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Small-Leaf Pampa Savory»",
+      "license": "CC0"
+    },
+    "usda_part:2040-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:127228": {
+      "dataset": "wcvp",
+      "label": "WCVP: Micromeria gilliesii Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185642": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja gilliesii (Benth.) Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185841": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja oligantha Briq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:43532": {
+      "dataset": "wcvp",
+      "label": "WCVP: Clinopodium gilliesii (Benth.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Benth.) Kuntze",
+    "name": "Clinopodium gilliesii",
+    "refs": [
+      "wcvp:43532"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Benth.",
+      "name": "Micromeria gilliesii",
+      "refs": [
+        "wcvp:127228"
+      ]
+    },
+    {
+      "authors": "(Benth.) Briq.",
+      "name": "Satureja gilliesii",
+      "refs": [
+        "wcvp:185642"
+      ]
+    },
+    {
+      "authors": "Briq.",
+      "name": "Satureja oligantha",
+      "refs": [
+        "wcvp:185841"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

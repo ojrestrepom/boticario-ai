@@ -1,0 +1,160 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:63a4ce38fd9e84036428a69fad32ecc8a18fe2ec934444137e7d204a113d1be0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:964-1"
+      ],
+      "text": "Downy Woundwort"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Stachys germanica"
+    ],
+    "value": "Especie de planta de la familia de las lamiáceas."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:195092"
+    ],
+    "value": "Stachys germanica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:195092"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "stachys-germanica",
+  "image": {
+    "attributionRequired": false,
+    "author": "Fornax at German Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Stachys_germanica2_eF.jpg",
+    "refs": [
+      "commons:File:Stachys germanica2 eF.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Stachys_germanica2_eF.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:964-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:195092"
+    ],
+    "value": "Europa, norte de África, Macaronesia, Cáucaso y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Stachys germanica2 eF.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Stachys germanica2 eF.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Stachys_germanica2_eF.jpg"
+    },
+    "usda_common_name:964-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Downy Woundwort»",
+      "license": "CC0"
+    },
+    "usda_part:964-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:109525": {
+      "dataset": "wcvp",
+      "label": "WCVP: Leonurus germanica (L.) Gueldenst.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:195092": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stachys germanica L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:71795": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eriostomum germanicum (L.) Hoffmanns. & Link",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Stachys germanica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Stachys germanica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Stachys_germanica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Stachys germanica",
+    "refs": [
+      "wcvp:195092"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Hoffmanns. & Link",
+      "name": "Eriostomum germanicum",
+      "refs": [
+        "wcvp:71795"
+      ]
+    },
+    {
+      "authors": "(L.) Gueldenst.",
+      "name": "Leonurus germanica",
+      "refs": [
+        "wcvp:109525"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

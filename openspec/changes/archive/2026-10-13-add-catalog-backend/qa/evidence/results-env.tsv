@@ -1,0 +1,16 @@
+ENV-001	PASS	Sin HOST ni PORT escucha en 127.0.0.1:8080 (base por defecto data/build/catalog.db)	
+ENV-002	PASS	Base ausente: sale con código 1 y el mensaje indica ruta y cómo construirla	
+ENV-003	PASS	schema_version distinta: no arranca, indica versión encontrada y soportada	
+ENV-004	PASS	Bases inválidas (schema_version no numérica, metadata vacía o ausente, archivo basura, vacío, directorio): salen con código 1 y mensaje, sin pánico	
+ENV-005	PASS	El argumento --db tiene prioridad sobre CATALOG_DB	
+ENV-006	PASS	PORT/HOST inválidos o puerto ocupado: salen con código 1 y mensaje sin pánico	
+ENV-007	PASS	catalog-api --openapi imprime el documento versionado	
+ENV-008	PASS	Argumento desconocido no arranca el servidor; --help sale con 0	
+ENV-009	PASS	La API funciona con la base de solo lectura (0444) en directorio sin escritura y no crea archivos auxiliares	
+ENV-010	PASS	Empate de nombre científico (5 plantas con el mismo nombre en una copia): orden por id y paginación sin repetidos ni omisiones	
+ENV-011	PASS	Dato aportado por dos fuentes (copia con fuente fixture2 añadida): el detalle indica ambas	
+ENV-012	PASS	Base con una única fuente distinta de USDA (copia con la fuente renombrada) funciona sin cambios de código	
+ENV-013	PASS	Fallo interno (tablas rotas en una copia): 500 problem+json genérico sin detalles; el detalle va al log; el servicio sigue vivo	
+ENV-015	FAIL	El arranque con una base ilegible (no SQLite, directorio) falla rápido	base no SQLite falla en menos de 5 s; ruta que es un directorio falla en menos de 5 s
+ENV-016	FAIL	El arranque con una base que no es SQLite no inunda la salida con errores repetidos	el arranque con base no SQLite no inunda el log (menos de 100 líneas)
+ENV-014	PASS	La base real data/build/catalog.db no cambió durante las pruebas de entorno	

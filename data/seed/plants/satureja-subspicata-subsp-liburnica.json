@@ -1,0 +1,113 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:cec4de899a984ce700e2d78d64fb7fdd443ffa3387df8399eb6d2908d6ee5ad0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2041-1"
+      ],
+      "text": "Yugoslav Savory"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:185969"
+    ],
+    "value": "Satureja subspicata subsp. liburnica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:185969"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "satureja-subspicata-subsp-liburnica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2041-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:185969"
+    ],
+    "value": "Sudeste de Europa"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2041-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yugoslav Savory»",
+      "license": "CC0"
+    },
+    "usda_part:2041-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:185969": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja subspicata subsp. liburnica Šilic",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:185970": {
+      "dataset": "wcvp",
+      "label": "WCVP: Satureja subspicata f. liburnica (Šilic) Šilic",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de aceite esencial de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Šilic",
+    "name": "Satureja subspicata subsp. liburnica",
+    "refs": [
+      "wcvp:185969"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Šilic) Šilic",
+      "name": "Satureja subspicata f. liburnica",
+      "refs": [
+        "wcvp:185970"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

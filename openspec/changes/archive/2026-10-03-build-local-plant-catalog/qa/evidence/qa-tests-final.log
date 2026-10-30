@@ -1,0 +1,81 @@
+2026-10-02T02:45:45Z
+$ dart format "$QA/flutter/explore_qa_test.dart"
+Formatted /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart
+Formatted 1 file (1 changed) in 0.01 seconds.
+$ flutter test --no-pub --reporter expanded "$QA/flutter/explore_qa_test.dart"
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/explore_qa_test.dart
+00:00 +0: QA01 exact source labels, order and all five callback IDs
+00:00 +1: QA02 reactive substring normalization on both visible names
+00:00 +2: QA03 filter-query decisions and clear retain Aceites/Plantas
+00:00 +3: QA04 malformed asset, repeated local retry and preserved query/filter
+00:00 +4: QA05 loading dominates empty Aceites until resolution
+00:00 +5: QA06 scale 1.0 disabled tab semantics and no mutation/overlays
+00:00 +6: QA07 scale 1.0 safe areas, reachable long names, 48dp controls
+QA07 scale=1.0 target=Found 1 widget with type "IconButton" that are ancestors of widget with icon "IconData(U+0E15E)": [
+  IconButton(tooltip: Volver a Inicio, disabled, disabled, color: Color(alpha: 1.0000, red: 0.1373, green: 0.3882, blue: 0.2078, colorSpace: ColorSpace.sRGB), dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#f4c2f], _ScrollableScope]),
+] widgetSize=Size(48.0, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 48.0, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "TextField": [
+  TextField(controller: TextEditingController#dafde(TextEditingValue(text: ┤├, selection: TextSelection.invalid, composing: TextRange(start: -1, end: -1))), decoration: InputDecoration(hint: ExcludeSemantics(excluding: true), hintMaxLines: "4", prefixIcon: Icon(IconData(U+0E567)), filled: true, fillColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), border: OutlineInputBorder()), textInputAction: search, dependencies: [DefaultSelectionStyle, InheritedCupertinoTheme, MediaQuery, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#f4c2f], _ScrollableScope], state: _TextFieldState#663d3),
+] widgetSize=Size(312.0, 72.0) semanticsRect=Rect.fromLTRB(0.0, 24.0, 312.0, 96.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Todas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#f4c2f], _ScrollableScope]),
+] widgetSize=Size(124.5, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 124.5, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Plantas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#f4c2f], _ScrollableScope]),
+] widgetSize=Size(132.7, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 132.7, 48.0)
+QA07 scale=1.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Aceites": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#f4c2f], _ScrollableScope]),
+] widgetSize=Size(132.7, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 132.7, 48.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Lavanda, Lavandula angustifolia": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Lavanda, Lavandula angustifolia", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#8d7c0 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Eucalipto, Eucalyptus globulus": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Eucalipto, Eucalyptus globulus", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#2a82b relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Romero, Rosmarinus officinalis": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Romero, Rosmarinus officinalis", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#92ca7 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Manzanilla, Matricaria recutita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Manzanilla, Matricaria recutita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#a0b90 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 88.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 88.0)
+QA07 scale=1.0 target=Found 1 widget with a semantics label named "Menta, Mentha x piperita subsp. nothosubsp. piperita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Menta, Mentha x piperita subsp. nothosubsp. piperita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#b5ab3 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 128.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 128.0)
+00:01 +7: QA08 scale 1.0 error text and retry reachable within safe viewport
+00:01 +8: QA06 scale 2.0 disabled tab semantics and no mutation/overlays
+00:01 +9: QA07 scale 2.0 safe areas, reachable long names, 48dp controls
+QA07 scale=2.0 target=Found 1 widget with type "IconButton" that are ancestors of widget with icon "IconData(U+0E15E)": [
+  IconButton(tooltip: Volver a Inicio, disabled, disabled, color: Color(alpha: 1.0000, red: 0.1373, green: 0.3882, blue: 0.2078, colorSpace: ColorSpace.sRGB), dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#0f26d], _ScrollableScope]),
+] widgetSize=Size(48.0, 48.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 48.0, 48.0)
+QA07 scale=2.0 target=Found 1 widget with type "TextField": [
+  TextField(controller: TextEditingController#a1fa5(TextEditingValue(text: ┤├, selection: TextSelection.invalid, composing: TextRange(start: -1, end: -1))), decoration: InputDecoration(hint: ExcludeSemantics(excluding: true), hintMaxLines: "4", prefixIcon: Icon(IconData(U+0E567)), filled: true, fillColor: Color(alpha: 1.0000, red: 1.0000, green: 1.0000, blue: 1.0000, colorSpace: ColorSpace.sRGB), border: OutlineInputBorder()), textInputAction: search, dependencies: [DefaultSelectionStyle, InheritedCupertinoTheme, MediaQuery, UnmanagedRestorationScope, _InheritedTheme, _LocalizationsScope-[GlobalKey#0f26d], _ScrollableScope], state: _TextFieldState#70810),
+] widgetSize=Size(312.0, 192.0) semanticsRect=Rect.fromLTRB(0.0, 124.0, 312.0, 316.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Todas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#0f26d], _ScrollableScope]),
+] widgetSize=Size(206.5, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 206.5, 58.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Plantas": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#0f26d], _ScrollableScope]),
+] widgetSize=Size(222.7, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 222.7, 58.0)
+QA07 scale=2.0 target=Found 1 widget with type "ChoiceChip" that are ancestors of widget with text "Aceites": [
+  ChoiceChip(dependencies: [InheritedCupertinoTheme, MediaQuery, _InheritedTheme, _LocalizationsScope-[GlobalKey#0f26d], _ScrollableScope]),
+] widgetSize=Size(222.7, 58.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 222.7, 58.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Lavanda, Lavandula angustifolia": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Lavanda, Lavandula angustifolia", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#097b6 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Eucalipto, Eucalyptus globulus": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Eucalipto, Eucalyptus globulus", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#98dfd relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Romero, Rosmarinus officinalis": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Romero, Rosmarinus officinalis", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#3f621 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 232.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 232.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Manzanilla, Matricaria recutita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Manzanilla, Matricaria recutita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#4fd57 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 280.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 280.0)
+QA07 scale=2.0 target=Found 1 widget with a semantics label named "Menta, Mentha x piperita subsp. nothosubsp. piperita": [
+  Semantics(container: false, properties: SemanticsProperties, label: "Menta, Mentha x piperita subsp. nothosubsp. piperita", dependencies: [Directionality, _ScrollableScope], renderObject: RenderSemanticsAnnotations#602e1 relayoutBoundary=up10),
+] widgetSize=Size(312.0, 392.0) semanticsRect=Rect.fromLTRB(0.0, 0.0, 312.0, 392.0)
+00:01 +10: QA08 scale 2.0 error text and retry reachable within safe viewport
+00:01 +11: QA09 local file source works with HTTP denied and no external Image
+00:01 +12: QA10 scale 1.0 loading and empty messages remain readable
+00:01 +13: QA10 scale 2.0 loading and empty messages remain readable
+00:01 +14: All tests passed!

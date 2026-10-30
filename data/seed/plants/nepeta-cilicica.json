@@ -1,0 +1,140 @@
+{
+  "aliases": [
+    "nepeta-cilicia"
+  ],
+  "bundleHash": "sha256:72d4b95cdd9c1256a78610bad3637e52e7f9d5db64d59ef5e709d2a69bf871bb",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2233-1"
+      ],
+      "text": "Cilician Catmint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:134517"
+    ],
+    "value": "Nepeta cilicica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:134517"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "nepeta-cilicica",
+  "image": {
+    "attributionRequired": true,
+    "author": "Gideon Pisanty ( Gidip )",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Nepeta_cilicia_1.jpg",
+    "refs": [
+      "commons:File:Nepeta cilicia 1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Nepeta_cilicia_1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2233-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:134517"
+    ],
+    "value": "Asia occidental (Líbano-Siria y Turquía)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Nepeta cilicia 1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Nepeta cilicia 1.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Nepeta_cilicia_1.jpg"
+    },
+    "usda_common_name:2233-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cilician Catmint»",
+      "license": "CC0"
+    },
+    "usda_part:2233-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:134517": {
+      "dataset": "wcvp",
+      "label": "WCVP: Nepeta cilicica Boiss. ex Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:90071": {
+      "dataset": "wcvp",
+      "label": "WCVP: Glechoma cilicica (Boiss. ex Benth.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boiss. ex Benth.",
+    "name": "Nepeta cilicica",
+    "refs": [
+      "wcvp:134517"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Boiss. ex Benth.) Kuntze",
+      "name": "Glechoma cilicica",
+      "refs": [
+        "wcvp:90071"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

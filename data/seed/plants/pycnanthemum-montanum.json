@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:87f00895eac49358c89bb6ce5bc4a3b90af69a38eb47d280ee9315348c5a0842",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:816-1"
+      ],
+      "text": "Montane Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171061"
+    ],
+    "value": "Pycnanthemum montanum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171061"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-montanum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_montanum_702585552.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum montanum 702585552.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Pycnanthemum_montanum_702585552.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:816-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171061"
+    ],
+    "value": "Nativa del noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum montanum 702585552.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum montanum 702585552.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_montanum_702585552.jpg"
+    },
+    "usda_common_name:816-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Montane Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:816-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:106186": {
+      "dataset": "wcvp",
+      "label": "WCVP: Koellia montana (Michx.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:171061": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum montanum Michx.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Michx.",
+    "name": "Pycnanthemum montanum",
+    "refs": [
+      "wcvp:171061"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Michx.) Kuntze",
+      "name": "Koellia montana",
+      "refs": [
+        "wcvp:106186"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

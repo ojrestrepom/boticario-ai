@@ -1,0 +1,177 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:519c0682dfbd6fdfbc01e58e907af22a2aa0cf2791fe9600d492e111fab0881b",
+  "commonNames": [
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P222"
+      ],
+      "text": "Deutscher Ginster"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P222"
+      ],
+      "text": "Cat-whin"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Genista germanica"
+    ],
+    "value": "Especie del género Genista perteneciente a la familia de las fabáceas, originaria de Europa."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2819244"
+    ],
+    "value": "Genista germanica"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2819244"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "genista-germanica",
+  "image": {
+    "attributionRequired": true,
+    "author": "Herbarium of the University of Coimbra (COI)",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:COI00053812_-_Genista_germanica_-_Lindemann,_Eduard_Emanuilovitch_von_-_s.n..jpg",
+    "refs": [
+      "commons:File:COI00053812 - Genista germanica - Lindemann, Eduard Emanuilovitch von - s.n..jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/COI00053812_-_Genista_germanica_-_Lindemann%2C_Eduard_Emanuilovitch_von_-_s.n..jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2819244"
+    ],
+    "value": "Europa (zonas oriental, central, septentrional, sudoriental y suroccidental)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:COI00053812 - Genista germanica - Lindemann, Eduard Emanuilovitch von - s.n..jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:COI00053812 - Genista germanica - Lindemann, Eduard Emanuilovitch von - s.n..jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:COI00053812_-_Genista_germanica_-_Lindemann,_Eduard_Emanuilovitch_von_-_s.n..jpg"
+    },
+    "tppt_plant:P222": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Genista germanica L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "wcvp:2346481": {
+      "dataset": "wcvp",
+      "label": "WCVP: Lissera germanica (L.) Fourr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2452622": {
+      "dataset": "wcvp",
+      "label": "WCVP: Voglera germanica (L.) Fourr.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2754681": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cytisus germanicus (L.) Vis.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2805379": {
+      "dataset": "wcvp",
+      "label": "WCVP: Euteline germanica (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2819244": {
+      "dataset": "wcvp",
+      "label": "WCVP: Genista germanica L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Genista germanica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Genista germanica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Genista_germanica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P222"
+    ],
+    "text": "TPPT registra la planta entera como tóxica para las personas y para los animales; señala que los alcaloides quinolizidínicos son tóxicos y que hay alcaloides piperidínicos. Entre las toxinas registra lupanina, esparteína, anagirina, citisina, N-metilcitisina, retamina y alfa-isoesparteína."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Genista germanica",
+    "refs": [
+      "wcvp:2819244"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Vis.",
+      "name": "Cytisus germanicus",
+      "refs": [
+        "wcvp:2754681"
+      ]
+    },
+    {
+      "authors": "(L.) Raf.",
+      "name": "Euteline germanica",
+      "refs": [
+        "wcvp:2805379"
+      ]
+    },
+    {
+      "authors": "(L.) Fourr.",
+      "name": "Lissera germanica",
+      "refs": [
+        "wcvp:2346481"
+      ]
+    },
+    {
+      "authors": "(L.) Fourr.",
+      "name": "Voglera germanica",
+      "refs": [
+        "wcvp:2452622"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

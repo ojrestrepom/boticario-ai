@@ -1,0 +1,62 @@
+
+## ROT-01 A: solo el viejo (t1)
+$ API_TOKENS=<token-local-1> docker compose up -d
+Network boticario-ai_default Creating 
+ Network boticario-ai_default Creating 
+ Network boticario-ai_default Created 
+ Network boticario-ai_default Created 
+ Container boticario-ai-api-1 Creating 
+ Container boticario-ai-api-1 Created 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started
+matriz: {'t1': 200, 't2': 401, 't3': 401, 'sin token': 401, '/health': 200}   esperado: {'t1': 200, 't2': 401, 't3': 401, 'sin token': 401, '/health': 200}
+PASS ROT-01 A: solo el viejo (t1)
+
+## ROT-02 B: nuevo y viejo (t2,t1), ambos aceptan
+$ API_TOKENS=<token-local-2>,<token-local-1> docker compose up -d
+Container boticario-ai-api-1 Recreate 
+ Container boticario-ai-api-1 Recreated 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started
+matriz: {'t1': 200, 't2': 200, 't3': 401, 'sin token': 401, '/health': 200}   esperado: {'t1': 200, 't2': 200, 't3': 401, 'sin token': 401}
+PASS ROT-02 B: nuevo y viejo (t2,t1), ambos aceptan
+ROT-05: contenedor A=f697e8494284 B=fc06536faf3f; salida de compose menciona Recreate: True; sin «Building» en la salida: True
+PASS ROT-05
+
+## ROT-03 C: se retira el viejo (solo t2)
+$ API_TOKENS=<token-local-2> docker compose up -d
+Container boticario-ai-api-1 Recreate 
+ Container boticario-ai-api-1 Recreated 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started
+matriz: {'t1': 401, 't2': 200, 't3': 401, 'sin token': 401, '/health': 200}   esperado: {'t1': 401, 't2': 200, 't3': 401, 'sin token': 401}
+PASS ROT-03 C: se retira el viejo (solo t2)
+
+## ROT-04 D: segunda rotación (t3,t2)
+$ API_TOKENS=<token-local-3>,<token-local-2> docker compose up -d
+Container boticario-ai-api-1 Recreate 
+ Container boticario-ai-api-1 Recreated 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started
+matriz: {'t1': 401, 't2': 200, 't3': 200, 'sin token': 401, '/health': 200}   esperado: {'t1': 401, 't2': 200, 't3': 200, 'sin token': 401}
+PASS ROT-04 D: segunda rotación (t3,t2)
+
+## ROT-04 E: tres tokens (t1,t2,t3): primero, medio y último
+$ API_TOKENS=<token-local-1>,<token-local-2>,<token-local-3> docker compose up -d
+Container boticario-ai-api-1 Recreate 
+ Container boticario-ai-api-1 Recreated 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started
+matriz: {'t1': 200, 't2': 200, 't3': 200, 'sin token': 401, '/health': 200}   esperado: {'t1': 200, 't2': 200, 't3': 200, 'sin token': 401}
+PASS ROT-04 E: tres tokens (t1,t2,t3): primero, medio y último
+
+## ROT-04 F: se retira el del medio (t1,t3)
+$ API_TOKENS=<token-local-1>,<token-local-3> docker compose up -d
+Container boticario-ai-api-1 Recreate 
+ Container boticario-ai-api-1 Recreated 
+ Container boticario-ai-api-1 Starting 
+ Container boticario-ai-api-1 Started
+matriz: {'t1': 200, 't2': 401, 't3': 200, 'sin token': 401, '/health': 200}   esperado: {'t1': 200, 't2': 401, 't3': 200, 'sin token': 401}
+PASS ROT-04 F: se retira el del medio (t1,t3)
+
+7 PASS, 0 FAIL

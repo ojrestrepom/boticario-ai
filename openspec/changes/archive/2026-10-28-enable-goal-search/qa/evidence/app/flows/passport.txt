@@ -1,0 +1,9 @@
+=== passport
+PASA  UI-07 al tocar «Grindelia squarrosa» se abre su pasaporte
+PASA  UI-07 el botón Atrás del pasaporte dice «Volver», no «Volver a Explorar» ['Volver']
+PASA  UI-07 al volver no aparece el estado de carga de P07 (no recarga la primera página)
+PASA  UI-07 al volver, la tarjeta tocada sigue en su misma posición (±60 px por miniaturas que terminan de cargar) con el mismo texto antes y=537, después y=537
+OBS   comparación píxel a píxel de P07 antes y después del pasaporte: idéntica
+PASA  UI-07 la tarjeta tocada sigue en su sitio con el mismo texto
+PASA  UI-07 desde una subárea: al volver conserva 'Para: Digestión' y la tarjeta tocada sigue en su posición (±200 px por miniaturas que terminan de cargar) antes y=839, después y=899
+OBS   las tarjetas cambian de alto cuando la miniatura termina de cargar (aparece la línea de atribución): el contenido bajo ella se desplaza unos 10 dp; es la consecuencia de mostrar la atribución solo con la imagen cargada

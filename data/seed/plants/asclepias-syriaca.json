@@ -1,0 +1,828 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:198f59540db032e3d0f10654f7e1d42bbfb6c9be1ac1418784c7cf27bab06146",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Asclepias syriaca"
+      ],
+      "text": "thlalayotl"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P469"
+      ],
+      "text": "Common milkweed"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:132-1"
+      ],
+      "text": "Milkweed"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P469"
+      ],
+      "text": "Syrische Seidenpflanze"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Asclepias syriaca"
+    ],
+    "value": "Especie de plantas de la familia de las apocináceas, conocida en México como thlalayotl. Fue una de las primeras especies de América del Norte descritas, por Cornut en 1635."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Asclepias syriaca"
+    ],
+    "value": "Thlalayotl"
+  },
+  "family": {
+    "refs": [
+      "wcvp:501428"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "asclepias-syriaca",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:501428"
+    ],
+    "value": "Canadá (este y oeste) y Estados Unidos (centro-norte, noreste, noroeste y sureste)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:2483": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: asclepin",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P469": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Asclepias syriaca L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:132-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Milkweed»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_use:11075": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11075",
+      "license": "CC0"
+    },
+    "usda_use:11076": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11076",
+      "license": "CC0"
+    },
+    "usda_use:11835": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11835",
+      "license": "CC0"
+    },
+    "usda_use:13685": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13685",
+      "license": "CC0"
+    },
+    "usda_use:16149": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16149",
+      "license": "CC0"
+    },
+    "usda_use:16150": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16150",
+      "license": "CC0"
+    },
+    "usda_use:1685": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1685",
+      "license": "CC0"
+    },
+    "usda_use:17570": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17570",
+      "license": "CC0"
+    },
+    "usda_use:17571": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17571",
+      "license": "CC0"
+    },
+    "usda_use:20299": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20299",
+      "license": "CC0"
+    },
+    "usda_use:21049": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21049",
+      "license": "CC0"
+    },
+    "usda_use:21050": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21050",
+      "license": "CC0"
+    },
+    "usda_use:21051": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21051",
+      "license": "CC0"
+    },
+    "usda_use:22937": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22937",
+      "license": "CC0"
+    },
+    "usda_use:24091": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24091",
+      "license": "CC0"
+    },
+    "usda_use:33466": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33466",
+      "license": "CC0"
+    },
+    "usda_use:37492": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37492",
+      "license": "CC0"
+    },
+    "usda_use:37686": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37686",
+      "license": "CC0"
+    },
+    "usda_use:40972": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40972",
+      "license": "CC0"
+    },
+    "usda_use:40973": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40973",
+      "license": "CC0"
+    },
+    "usda_use:44460": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44460",
+      "license": "CC0"
+    },
+    "usda_use:5018": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5018",
+      "license": "CC0"
+    },
+    "usda_use:55271": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55271",
+      "license": "CC0"
+    },
+    "usda_use:55272": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55272",
+      "license": "CC0"
+    },
+    "usda_use:56798": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56798",
+      "license": "CC0"
+    },
+    "usda_use:56802": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56802",
+      "license": "CC0"
+    },
+    "usda_use:56803": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56803",
+      "license": "CC0"
+    },
+    "usda_use:56804": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56804",
+      "license": "CC0"
+    },
+    "usda_use:56811": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56811",
+      "license": "CC0"
+    },
+    "usda_use:68801": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68801",
+      "license": "CC0"
+    },
+    "usda_use:70423": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70423",
+      "license": "CC0"
+    },
+    "usda_use:73020": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73020",
+      "license": "CC0"
+    },
+    "usda_use:74895": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74895",
+      "license": "CC0"
+    },
+    "usda_use:8040": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8040",
+      "license": "CC0"
+    },
+    "usda_use:8881": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8881",
+      "license": "CC0"
+    },
+    "wcvp:501428": {
+      "dataset": "wcvp",
+      "label": "WCVP: Asclepias syriaca L.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Asclepias syriaca": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Asclepias syriaca",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Asclepias_syriaca"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "tppt_plant:P469",
+      "efsa_botanic:2483",
+      "usda_use:37686"
+    ],
+    "text": "TPPT registra la planta como tóxica para las personas: la parte tóxica es el látex y el rizoma (o la planta entera) y la toxina principal es la asclepina (asclepiadina), un cardenólido; TPPT advierte que la información disponible es insuficiente. EFSA registra la asclepina en raíces y otras partes subterráneas dentro del grupo de venenos potentes. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Asclepias syriaca",
+    "refs": [
+      "wcvp:501428"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21049",
+        "usda_use:21050",
+        "usda_use:21051",
+        "usda_use:56802",
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17570",
+        "usda_use:17571",
+        "usda_use:68801",
+        "usda_reference:EB",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22937",
+        "usda_use:56803",
+        "usda_use:70423",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5018",
+        "usda_use:56798",
+        "usda_reference:EB",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11075",
+        "usda_use:11076",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16149",
+        "usda_use:16150",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Neumonía",
+      "activitySource": "Pneumonia",
+      "citations": [
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37492",
+        "usda_use:74895",
+        "usda_reference:EB",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40972",
+        "usda_use:40973",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Estados Unidos (pamunkey)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44460",
+        "usda_use:56811",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        },
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)",
+        "Estados Unidos (rappahannock)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55271",
+        "usda_use:55272",
+        "usda_reference:EB",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1685",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8040",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Eb29: 176",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 176"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (pamunkey)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8881",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Cicatrizante",
+      "activitySource": "Cicatrizant",
+      "citations": [
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11835",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13685",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20299",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb33: 119",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 119"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24091",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Gonorrea",
+      "activitySource": "Gonorrhea",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56804",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73020",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33466",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

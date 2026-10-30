@@ -1,0 +1,402 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6dbe5dfdf3ad95f58a51548d3db90d553118074143b77ec4c3020b906d7b1505",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:202-1"
+      ],
+      "text": "Jack Bean"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2696172"
+    ],
+    "value": "Canavalia ensiformis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2696172"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "canavalia-ensiformis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Lígia Prado",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Canava1.jpg",
+    "refs": [
+      "commons:File:Canava1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Canava1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2696172"
+    ],
+    "value": "Nativa de Brasil, el Caribe, Centroamérica, México, el sur y oeste de Sudamérica y regiones del centro, sudeste y suroeste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Canava1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Canava1.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Canava1.jpg"
+    },
+    "usda_common_name:202-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Jack Bean»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Lewis": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Lewis",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11992": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11992",
+      "license": "CC0"
+    },
+    "usda_use:11993": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11993",
+      "license": "CC0"
+    },
+    "usda_use:13285": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13285",
+      "license": "CC0"
+    },
+    "usda_use:17217": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17217",
+      "license": "CC0"
+    },
+    "usda_use:2376": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2376",
+      "license": "CC0"
+    },
+    "usda_use:33491": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33491",
+      "license": "CC0"
+    },
+    "usda_use:34042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34042",
+      "license": "CC0"
+    },
+    "usda_use:37737": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37737",
+      "license": "CC0"
+    },
+    "usda_use:37738": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37738",
+      "license": "CC0"
+    },
+    "usda_use:38611": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38611",
+      "license": "CC0"
+    },
+    "usda_use:50222": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50222",
+      "license": "CC0"
+    },
+    "usda_use:55596": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55596",
+      "license": "CC0"
+    },
+    "usda_use:57088": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57088",
+      "license": "CC0"
+    },
+    "wcvp:2696172": {
+      "dataset": "wcvp",
+      "label": "WCVP: Canavalia ensiformis (L.) DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774317": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolichos ensiformis L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:37737",
+      "usda_use:37738",
+      "usda_use:38611"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(L.) DC.",
+    "name": "Canavalia ensiformis",
+    "refs": [
+      "wcvp:2696172"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Dolichos ensiformis",
+      "refs": [
+        "wcvp:2774317"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Woi.2",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 2"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11992",
+        "usda_use:11993",
+        "usda_reference:Duke",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Eb24: 248",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 248"
+        }
+      ],
+      "countries": [
+        "India (Santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2376",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Convalecencia",
+      "activitySource": "Convalescence",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13285",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17217",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Riñón",
+      "activitySource": "Kidney",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57088",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb29: 286",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 29: 286"
+        }
+      ],
+      "countries": [
+        "Panamá (Cuna)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33491",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Mitogénico",
+      "activitySource": "Mitogenic",
+      "citations": [
+        {
+          "key": "Lewis",
+          "ref": "usda_reference:Lewis",
+          "text": "Lewis and Elvin-Lewis, Medical Botany, ca 1977"
+        }
+      ],
+      "countries": [
+        "Indias Occidentales"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34042",
+        "usda_reference:Lewis"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50222",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Destete",
+      "activitySource": "Weaning",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55596",
+        "usda_reference:Brutus"
+      ]
+    }
+  ]
+}

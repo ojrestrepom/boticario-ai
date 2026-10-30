@@ -1,0 +1,92 @@
+{
+  "aliases": [
+    "lycopodium-erythraeum"
+  ],
+  "bundleHash": "sha256:1f22e938eea7f032abcbecf4e2019426b8f7c7416c031201a5e822cc474e061b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2240-1"
+      ],
+      "text": "Clubmoss"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3267492"
+    ],
+    "value": "Huperzia crassa var. crassa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3267492"
+    ],
+    "value": "Lycopodiaceae"
+  },
+  "goals": [],
+  "id": "huperzia-crassa-var-crassa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3267492"
+    ],
+    "value": "América Central, México y el norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2240-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clubmoss»",
+      "license": "CC0"
+    },
+    "wcvp:3267492": {
+      "dataset": "wcvp",
+      "label": "WCVP: Huperzia crassa var. crassa",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Huperzia crassa var. crassa",
+    "refs": [
+      "wcvp:3267492"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

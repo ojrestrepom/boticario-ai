@@ -1,0 +1,880 @@
+{
+  "aliases": [
+    "ocimum-canum"
+  ],
+  "bundleHash": "sha256:f015ff40fe0253ee301ab074fa3123d6035e795cb4dea29ca168ebe1875ec54e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ocimum americanum"
+      ],
+      "text": "Albahaca lima"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2019-1"
+      ],
+      "text": "Hoary Basil"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ocimum americanum"
+    ],
+    "value": "Planta herbácea anual de la familia de las lamiáceas, con flores de color blanco o lavanda, originaria y ampliamente distribuida en los trópicos del Viejo Mundo."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Ocimum americanum"
+    ],
+    "value": "Albahaca lima"
+  },
+  "family": {
+    "refs": [
+      "wcvp:136802"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "ocimum-americanum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2019-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:136802"
+    ],
+    "value": "África tropical y austral, sur y sudeste de Asia, China, Australia y Papuasia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:2230": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2019-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hoary Basil»",
+      "license": "CC0"
+    },
+    "usda_part:2019-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_reference:Ayensu": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Ayensu",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:10628": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10628",
+      "license": "CC0"
+    },
+    "usda_use:10815": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10815",
+      "license": "CC0"
+    },
+    "usda_use:10982": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10982",
+      "license": "CC0"
+    },
+    "usda_use:10983": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10983",
+      "license": "CC0"
+    },
+    "usda_use:11750": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11750",
+      "license": "CC0"
+    },
+    "usda_use:14053": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14053",
+      "license": "CC0"
+    },
+    "usda_use:14054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14054",
+      "license": "CC0"
+    },
+    "usda_use:16850": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16850",
+      "license": "CC0"
+    },
+    "usda_use:16851": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16851",
+      "license": "CC0"
+    },
+    "usda_use:19787": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19787",
+      "license": "CC0"
+    },
+    "usda_use:19788": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19788",
+      "license": "CC0"
+    },
+    "usda_use:19789": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19789",
+      "license": "CC0"
+    },
+    "usda_use:19791": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 19791",
+      "license": "CC0"
+    },
+    "usda_use:20464": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20464",
+      "license": "CC0"
+    },
+    "usda_use:29688": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29688",
+      "license": "CC0"
+    },
+    "usda_use:29689": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29689",
+      "license": "CC0"
+    },
+    "usda_use:35741": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35741",
+      "license": "CC0"
+    },
+    "usda_use:35742": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35742",
+      "license": "CC0"
+    },
+    "usda_use:43796": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43796",
+      "license": "CC0"
+    },
+    "usda_use:46820": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46820",
+      "license": "CC0"
+    },
+    "usda_use:47058": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47058",
+      "license": "CC0"
+    },
+    "usda_use:51472": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51472",
+      "license": "CC0"
+    },
+    "usda_use:52427": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52427",
+      "license": "CC0"
+    },
+    "usda_use:59825": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59825",
+      "license": "CC0"
+    },
+    "usda_use:59827": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59827",
+      "license": "CC0"
+    },
+    "usda_use:59828": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59828",
+      "license": "CC0"
+    },
+    "usda_use:59832": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59832",
+      "license": "CC0"
+    },
+    "usda_use:59842": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59842",
+      "license": "CC0"
+    },
+    "usda_use:63785": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63785",
+      "license": "CC0"
+    },
+    "usda_use:64646": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64646",
+      "license": "CC0"
+    },
+    "usda_use:65422": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65422",
+      "license": "CC0"
+    },
+    "usda_use:65631": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65631",
+      "license": "CC0"
+    },
+    "usda_use:6912": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6912",
+      "license": "CC0"
+    },
+    "usda_use:7181": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7181",
+      "license": "CC0"
+    },
+    "usda_use:79486": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79486",
+      "license": "CC0"
+    },
+    "usda_use:8183": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8183",
+      "license": "CC0"
+    },
+    "wcvp:136802": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocimum americanum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:136838": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocimum canum Sims",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Ocimum americanum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ocimum americanum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ocimum_americanum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Ocimum canum) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Shoot), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:2230"
+    ],
+    "text": "EFSA incluye el estragol (parte aérea) entre las sustancias de alta preocupación, del grupo de las genotóxicas o carcinógenas."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Ocimum americanum",
+    "refs": [
+      "wcvp:136802"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Sims",
+      "name": "Ocimum canum",
+      "refs": [
+        "wcvp:136838"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Malaya",
+        "Trinidad"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14053",
+        "usda_use:14054",
+        "usda_use:59827",
+        "usda_use:59828",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:EB",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Ghana",
+        "Trinidad"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:19787",
+        "usda_use:19788",
+        "usda_use:19789",
+        "usda_use:19791",
+        "usda_reference:Ayensu",
+        "usda_reference:EB",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Mordedura (serpiente)",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Eb24: 259",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 259"
+        }
+      ],
+      "countries": [
+        "Ghana",
+        "India (santal)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7181",
+        "usda_use:65631",
+        "usda_reference:Ayensu",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10628",
+        "usda_use:10815",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Catarro",
+      "activitySource": "Catarrh",
+      "citations": [
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Malaya"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10982",
+        "usda_use:10983",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16850",
+        "usda_use:16851",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20464",
+        "usda_use:59832",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Inhalante",
+      "activitySource": "Inhalant",
+      "citations": [
+        {
+          "key": "Eb30: 137",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 137"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29688",
+        "usda_use:29689",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Parasiticida",
+      "activitySource": "Parasiticide",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Sudán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35741",
+        "usda_use:35742",
+        "usda_reference:Ayensu",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Ayensu",
+          "ref": "usda_reference:Ayensu",
+          "text": "Ayensu, Edward S. 1978. Medicinal plants of West Africa. Reference Publications, Inc."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "India",
+        "Sudán"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43796",
+        "usda_use:59842",
+        "usda_reference:Ayensu",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46820",
+        "usda_use:47058",
+        "usda_reference:WOI",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Guayana Francesa",
+        "Antillas"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52427",
+        "usda_use:79486",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Dolor (cabeza)",
+      "activitySource": "Ache(Head)",
+      "citations": [
+        {
+          "key": "Eb24: 259",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 259"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63785",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Dolor (muela)",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51472",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64646",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Ardor",
+      "activitySource": "Ardor",
+      "citations": [
+        {
+          "key": "Eb24: 259",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 259"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59825",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65422",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Mordedura (perro)",
+      "activitySource": "Bite(Dog)",
+      "citations": [
+        {
+          "key": "Eb24: 259",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 259"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6912",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8183",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cólera",
+      "activitySource": "Cholera",
+      "citations": [
+        {
+          "key": "Eb24: 259",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 259"
+        }
+      ],
+      "countries": [
+        "India (santal)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11750",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

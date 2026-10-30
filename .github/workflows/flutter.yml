@@ -1,0 +1,123 @@
+name: Flutter CI
+
+# Se dispara con cambios de codigo del proyecto o del propio pin.
+on:
+  push:
+    paths:
+      - 'app/**'
+      - '.flutter-version'
+      - '.github/workflows/flutter.yml'
+  pull_request:
+    paths:
+      - 'app/**'
+      - '.flutter-version'
+      - '.github/workflows/flutter.yml'
+
+# Minimo privilegio: solo lectura del repositorio.
+permissions:
+  contents: read
+
+# Cancela ejecuciones previas de la misma ref para no encolar trabajo obsoleto.
+concurrency:
+  group: flutter-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Format, analyze y tests (unit/widget)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    # Los comandos del proyecto se ejecutan desde app/.
+    defaults:
+      run:
+        working-directory: app
+    env:
+      # Sin telemetria ni ruido de "Welcome" en CI.
+      FLUTTER_SUPPRESS_ANALYTICS: 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Leer y validar el pin .flutter-version
+        id: pin
+        shell: bash
+        working-directory: ${{ github.workspace }}
+        run: |
+          set -euo pipefail
+          pin_file="$GITHUB_WORKSPACE/.flutter-version"
+          if [ ! -f "$pin_file" ]; then
+            echo "::error::No existe el pin .flutter-version en la raiz"
+            exit 1
+          fi
+          # Lectura literal: solo se descarta el newline final del archivo.
+          version="$(< "$pin_file")"
+          # Rechaza contenido multilinea o con CR antes de validar el formato.
+          if [[ "$version" == *$'\n'* || "$version" == *$'\r'* ]]; then
+            echo "::error::Pin invalido en .flutter-version: se espera una sola linea NN.NN.NN"
+            exit 1
+          fi
+          # Ancla la cadena completa (sin semantica por linea); no imprime el contenido.
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Pin invalido en .flutter-version: se espera una sola linea NN.NN.NN"
+            exit 1
+          fi
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+          echo "Pin Flutter validado: $version"
+
+      - name: Instalar SDK Flutter exacto (stable)
+        uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          channel: stable
+          flutter-version: ${{ steps.pin.outputs.version }}
+          cache: false
+
+      - name: Verificar la version efectiva de Flutter contra el pin
+        shell: bash
+        env:
+          EXPECTED_FLUTTER_VERSION: ${{ steps.pin.outputs.version }}
+        run: |
+          set -euo pipefail
+          flutter --version --machine > "$RUNNER_TEMP/flutter-version.json"
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+
+          expected = os.environ["EXPECTED_FLUTTER_VERSION"]
+          path = os.path.join(os.environ["RUNNER_TEMP"], "flutter-version.json")
+          with open(path, encoding="utf-8") as fh:
+              text = fh.read()
+
+          # Tolerar ruido previo en stdout: tomar el primer objeto JSON valido.
+          start = text.find("{")
+          if start == -1:
+              sys.stderr.write("::error::flutter --version --machine no emitio JSON\n")
+              sys.exit(1)
+          data, _ = json.JSONDecoder().raw_decode(text[start:])
+
+          actual = data.get("flutterVersion") or data.get("frameworkVersion")
+          if actual != expected:
+              sys.stderr.write(
+                  "::error::Flutter efectivo %r no coincide con el pin %r\n"
+                  % (actual, expected)
+              )
+              sys.exit(1)
+
+          dart = data.get("dartSdkVersion")
+          channel = data.get("channel")
+          print("Flutter %s coincide con el pin (canal %s, Dart %s)" % (actual, channel, dart))
+          PY
+
+      - name: flutter pub get (lockfile enforced)
+        run: flutter pub get --enforce-lockfile
+
+      - name: dart format (check)
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: flutter analyze
+        run: flutter analyze
+
+      - name: flutter test (unit y widget)
+        run: flutter test test/

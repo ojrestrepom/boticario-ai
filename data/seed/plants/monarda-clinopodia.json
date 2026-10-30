@@ -1,0 +1,133 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:76f3948cec2bd6402450b0bbe430b2c29b4ae76ad674661f6e8ea77413f35617",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:633-1"
+      ],
+      "text": "Clinopod Bergamot"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:129169"
+    ],
+    "value": "Monarda clinopodia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:129169"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "monarda-clinopodia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Monarda_clinopodia_543677159.jpg",
+    "refs": [
+      "commons:File:Monarda clinopodia 543677159.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Monarda_clinopodia_543677159.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:633-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:129169"
+    ],
+    "value": "Regiones centro-norte, noreste y sureste de Estados Unidos"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Monarda clinopodia 543677159.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Monarda clinopodia 543677159.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Monarda_clinopodia_543677159.jpg"
+    },
+    "usda_common_name:633-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Clinopod Bergamot»",
+      "license": "CC0"
+    },
+    "usda_part:633-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:129169": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda clinopodia L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:129189": {
+      "dataset": "wcvp",
+      "label": "WCVP: Monarda fistulosa var. clinopodia (L.) Cooperr.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (planta entera), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Monarda clinopodia",
+    "refs": [
+      "wcvp:129169"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Cooperr.",
+      "name": "Monarda fistulosa var. clinopodia",
+      "refs": [
+        "wcvp:129189"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,47 @@
+Waiting for another flutter command to release the startup lock...
+Resolving dependencies...
+Downloading packages...
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.3 (1.19.0 available)
+  test_api 0.7.12 (0.7.14 available)
+  vector_math 2.4.0 (2.4.3 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/home_flow_qa_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: HQ01 ten inert actions twice: literal logs, immutable Home, no overlays
+unhandled error during finalization of test:
+/Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/home_flow_qa_test.dart
+TestDeviceException(Shell subprocess crashed with SIGTERM (-15).)
+#0      FlutterTesterTestDevice.finished (package:flutter_tools/src/test/flutter_tester_device.dart:256:5)
+<asynchronous suspension>
+#1      FlutterTesterTestDevice.kill (package:flutter_tools/src/test/flutter_tester_device.dart:238:5)
+<asynchronous suspension>
+#2      FlutterPlatform._startTest.<anonymous closure> (package:flutter_tools/src/test/flutter_platform.dart:689:9)
+<asynchronous suspension>
+#3      FlutterPlatform._startTest.finalize (package:flutter_tools/src/test/flutter_platform.dart:591:11)
+<asynchronous suspension>
+#4      asyncGuard.<anonymous closure> (package:flutter_tools/src/base/async_guard.dart:108:24)
+<asynchronous suspension>
+
+unhandled error during finalization of test:
+/Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/home_flow_qa_test.dart
+PathNotFoundException: Deletion failed, path = '/var/folders/1x/gxw5xrxs1x12swr4t_4wwmf00000gn/T/flutter_tools.IY2EGO/flutter_test_listener.h1TXNG' (OS Error: No such file or directory, errno = 2)
+#0      _Directory._deleteSync (dart:io/directory_impl.dart:216:7)
+#1      FileSystemEntity.deleteSync (dart:io/file_system_entity.dart:425:7)
+#2      ForwardingFileSystemEntity.deleteSync (package:file/src/forwarding/forwarding_file_system_entity.dart:70:16)
+#3      ErrorHandlingDirectory.deleteSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:717:22)
+#4      _runSync (package:flutter_tools/src/base/error_handling_io.dart:1118:16)
+#5      ErrorHandlingDirectory.deleteSync (package:flutter_tools/src/base/error_handling_io.dart:716:12)
+#6      FlutterPlatform._createListenerDart.<anonymous closure> (package:flutter_tools/src/test/flutter_platform.dart:786:15)
+#7      FlutterPlatform._startTest.finalize (package:flutter_tools/src/test/flutter_platform.dart:591:26)
+<asynchronous suspension>
+#8      asyncGuard.<anonymous closure> (package:flutter_tools/src/base/async_guard.dart:108:24)
+<asynchronous suspension>
+
+01:58 +0: HQ01 ten inert actions twice: literal logs, immutable Home, no overlays - did not complete [E]
+01:58 +0: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/home_flow_qa_test.dart: HQ01 ten inert actions twice: literal logs, immutable Home, no overlays (did not complete)

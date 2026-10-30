@@ -1,0 +1,127 @@
+{
+  "aliases": [
+    "eucalyptus-fasiculosa"
+  ],
+  "bundleHash": "sha256:273585f4082bcfe9f9037dca099b6e5e0c2704048c80b75eda1542dfc8efc6e8",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72927"
+    ],
+    "value": "Eucalyptus fasciculosa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72927"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-fasciculosa",
+  "image": {
+    "attributionRequired": false,
+    "author": "Dinkum",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_fasciculosa.JPG",
+    "refs": [
+      "commons:File:Eucalyptus fasciculosa.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Eucalyptus_fasciculosa.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2116-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72927"
+    ],
+    "value": "Nativa de Australia (Australia Meridional y Victoria)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus fasciculosa.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus fasciculosa.JPG",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_fasciculosa.JPG"
+    },
+    "usda_part:2116-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "wcvp:72927": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus fasciculosa F.Muell.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73565": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus paniculata var. fasciculosa (F.Muell.) Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "F.Muell.",
+    "name": "Eucalyptus fasciculosa",
+    "refs": [
+      "wcvp:72927"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(F.Muell.) Benth.",
+      "name": "Eucalyptus paniculata var. fasciculosa",
+      "refs": [
+        "wcvp:73565"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

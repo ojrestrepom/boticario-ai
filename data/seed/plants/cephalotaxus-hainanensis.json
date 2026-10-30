@@ -1,0 +1,98 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:cc1019597ddfa2f5a9820f6045aee17d859a1d014246784b14b303ab26ea5ce1",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:239-1"
+      ],
+      "text": "Hainan Plum Yew"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:382741"
+    ],
+    "value": "Cephalotaxus hainanensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:382741"
+    ],
+    "value": "Cephalotaxaceae"
+  },
+  "goals": [],
+  "id": "cephalotaxus-hainanensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:382741"
+    ],
+    "value": "China e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:239-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hainan Plum Yew»",
+      "license": "CC0"
+    },
+    "wcvp:381355": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cephalotaxus sinensis subsp. hainanensis (H.L.Li) Silba",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:382741": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cephalotaxus hainanensis H.L.Li",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "H.L.Li",
+    "name": "Cephalotaxus hainanensis",
+    "refs": [
+      "wcvp:382741"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(H.L.Li) Silba",
+      "name": "Cephalotaxus sinensis subsp. hainanensis",
+      "refs": [
+        "wcvp:381355"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9b074e680339a2e9605e3972edeed5505413332bedafa99d22231167bd20e0eb",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:461-1"
+      ],
+      "text": "Hispid Pennyroyal"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:96477"
+    ],
+    "value": "Hedeoma hispida"
+  },
+  "family": {
+    "refs": [
+      "wcvp:96477"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "hedeoma-hispida",
+  "image": {
+    "attributionRequired": true,
+    "author": "Matt Lavin from Bozeman, Montana, USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hedeoma_hispida_(7495951720).jpg",
+    "refs": [
+      "commons:File:Hedeoma hispida (7495951720).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Hedeoma_hispida_%287495951720%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:461-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:96477"
+    ],
+    "value": "Canadá oriental y occidental y el centro-norte, noreste, noroeste, centro-sur y sudeste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hedeoma hispida (7495951720).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hedeoma hispida (7495951720).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Hedeoma_hispida_(7495951720).jpg"
+    },
+    "usda_common_name:461-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hispid Pennyroyal»",
+      "license": "CC0"
+    },
+    "usda_part:461-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:215869": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ziziphora hispida (Pursh) Schult.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:52316": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cunila hispida (Pursh) Spreng.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:96477": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedeoma hispida Pursh",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Pursh",
+    "name": "Hedeoma hispida",
+    "refs": [
+      "wcvp:96477"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Pursh) Spreng.",
+      "name": "Cunila hispida",
+      "refs": [
+        "wcvp:52316"
+      ]
+    },
+    {
+      "authors": "(Pursh) Schult.",
+      "name": "Ziziphora hispida",
+      "refs": [
+        "wcvp:215869"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

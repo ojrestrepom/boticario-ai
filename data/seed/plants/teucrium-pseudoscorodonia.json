@@ -1,0 +1,145 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7ff3eb799a7207f6b137ffb3bc3ca68a8179e4d0bc9c3b5fe08f6a0f3dd32c2d",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Teucrium pseudoscorodonia"
+    ],
+    "value": "Especie de planta herbácea de la familia Lamiaceae, originaria de la región del Mediterráneo."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q15373012"
+    ],
+    "value": "Teucrium pseudoscorodonia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:203300"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-pseudoscorodonia",
+  "image": {
+    "attributionRequired": false,
+    "author": "Desfontaines, René; Redouté, Henri Joseph; Redouté, Pierre Joseph",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flora_Atlantica,_sive,_Historia_plantarum_quae_in_Atlante,_agro_Tunetano_et_Algeriensi_crescunt_(Plate_119)_(7456032606).jpg",
+    "refs": [
+      "commons:File:Flora Atlantica, sive, Historia plantarum quae in Atlante, agro Tunetano et Algeriensi crescunt (Plate 119) (7456032606).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Flora_Atlantica%2C_sive%2C_Historia_plantarum_quae_in_Atlante%2C_agro_Tunetano_et_Algeriensi_crescunt_%28Plate_119%29_%287456032606%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2064-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:203300"
+    ],
+    "value": "Nativa del norte de África y el suroeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flora Atlantica, sive, Historia plantarum quae in Atlante, agro Tunetano et Algeriensi crescunt (Plate 119) (7456032606).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flora Atlantica, sive, Historia plantarum quae in Atlante, agro Tunetano et Algeriensi crescunt (Plate 119) (7456032606).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Flora_Atlantica,_sive,_Historia_plantarum_quae_in_Atlante,_agro_Tunetano_et_Algeriensi_crescunt_(Plate_119)_(7456032606).jpg"
+    },
+    "usda_part:2064-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:203300": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium pseudoscorodonia Desf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:460097": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium scorodonia var. pseudoscorodonia (Desf.) Willk.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q15373012": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q15373012",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q15373012"
+    },
+    "wikipedia_es:Teucrium pseudoscorodonia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Teucrium pseudoscorodonia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Teucrium_pseudoscorodonia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Desf.",
+    "name": "Teucrium pseudoscorodonia",
+    "refs": [
+      "wcvp:203300"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Desf.) Willk.",
+      "name": "Teucrium scorodonia var. pseudoscorodonia",
+      "refs": [
+        "wcvp:460097"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

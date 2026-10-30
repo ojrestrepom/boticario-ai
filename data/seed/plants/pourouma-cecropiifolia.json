@@ -1,0 +1,192 @@
+{
+  "aliases": [
+    "pourouma-cecropiaefolia"
+  ],
+  "bundleHash": "sha256:db345f4a275f4cfda11d28b7997264c791577b3d33ba35104786fbf7ceddd39e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pourouma cecropiifolia"
+      ],
+      "text": "caimarón"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Pourouma cecropiifolia"
+      ],
+      "text": "Uvilla"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1251-1"
+      ],
+      "text": "Tree Grape"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Pourouma cecropiifolia"
+    ],
+    "value": "Árbol frutal originario de la selva amazónica, cuyo fruto se llama caimarona o uva de monte. Los pueblos amerindios lo cultivan desde antes de la llegada de los europeos y aún se encuentran variedades silvestres."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Pourouma cecropiifolia"
+    ],
+    "value": "Caimarón"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2408635"
+    ],
+    "value": "Urticaceae"
+  },
+  "goals": [],
+  "id": "pourouma-cecropiifolia",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ictoon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pourouma_cecropiifolia.jpg",
+    "refs": [
+      "commons:File:Pourouma cecropiifolia.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Pourouma_cecropiifolia.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2408635"
+    ],
+    "value": "Brasil, América Central y el norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pourouma cecropiifolia.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pourouma cecropiifolia.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pourouma_cecropiifolia.jpg"
+    },
+    "usda_common_name:1251-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tree Grape»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:30347": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30347",
+      "license": "CC0"
+    },
+    "usda_use:33329": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33329",
+      "license": "CC0"
+    },
+    "wcvp:2408635": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pourouma cecropiifolia Mart.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Pourouma cecropiifolia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Pourouma cecropiifolia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Pourouma_cecropiifolia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Mart.",
+    "name": "Pourouma cecropiifolia",
+    "refs": [
+      "wcvp:2408635"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Intoxicante",
+      "activitySource": "Intoxicant",
+      "citations": [
+        {
+          "key": "Eb33: 263",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 33: 263"
+        }
+      ],
+      "countries": [
+        "Amazonía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30347",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Masticatorio",
+      "activitySource": "Masticatory",
+      "citations": [
+        {
+          "key": "Eb24: 184",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 184"
+        }
+      ],
+      "countries": [
+        "Colombia (Cubeo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33329",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

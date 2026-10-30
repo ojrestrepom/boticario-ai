@@ -1,0 +1,237 @@
+{
+  "aliases": [
+    "ravensara-aromatica"
+  ],
+  "bundleHash": "sha256:651486361d53794c6782f8adc2e30fbb3e0448598b6236d1f75af8a533196563",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2232-1"
+      ],
+      "text": "Ravensara"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2606836"
+    ],
+    "value": "Cryptocarya agathophylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2606836"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "cryptocarya-agathophylla",
+  "image": {
+    "attributionRequired": false,
+    "author": "Descourtilz, J. Theodore.; Descourtilz, M. E.; Pichard.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(10559238443).jpg",
+    "refs": [
+      "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10559238443).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%2810559238443%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2232-BK",
+      "usda_part:2232-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2606836"
+    ],
+    "value": "Nativa de Madagascar (Océano Índico occidental)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10559238443).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flore médicale des Antilles, ou, Traité des plantes usuelles (10559238443).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(10559238443).jpg"
+    },
+    "efsa_botanic:2396": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estragole",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2397": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2232-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ravensara»",
+      "license": "CC0"
+    },
+    "usda_part:2232-BK": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Bark»",
+      "license": "CC0"
+    },
+    "usda_part:2232-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:30358": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30358",
+      "license": "CC0"
+    },
+    "usda_use:60899": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60899",
+      "license": "CC0"
+    },
+    "wcvp:2428724": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ravensara aromatica Sonn.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2606836": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cryptocarya agathophylla van der Werff",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2805653": {
+      "dataset": "wcvp",
+      "label": "WCVP: Evodia aromatica (Sonn.) Pers.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3014038": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agathophyllum aromaticum (Sonn.) Schreb. ex Forsyth f.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (partes Bark y Leaf), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:2396",
+      "efsa_botanic:2397"
+    ],
+    "text": "EFSA registra en las hojas las sustancias estragol y metileugenol, que pertenecen a su grupo de sustancias genotóxicas o carcinógenas."
+  },
+  "scientificName": {
+    "authors": "van der Werff",
+    "name": "Cryptocarya agathophylla",
+    "refs": [
+      "wcvp:2606836"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Sonn.) Schreb. ex Forsyth f.",
+      "name": "Agathophyllum aromaticum",
+      "refs": [
+        "wcvp:3014038"
+      ]
+    },
+    {
+      "authors": "(Sonn.) Pers.",
+      "name": "Evodia aromatica",
+      "refs": [
+        "wcvp:2805653"
+      ]
+    },
+    {
+      "authors": "Sonn.",
+      "name": "Ravensara aromatica",
+      "refs": [
+        "wcvp:2428724"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Intoxicante",
+      "activitySource": "Intoxicant",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Madagascar"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30358",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Especia",
+      "activitySource": "Spice",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Madagascar"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60899",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "aliases": [
+    "sarcostemma-acidum"
+  ],
+  "bundleHash": "sha256:1d341ba3b9dc971e59d4aa4e4a625a2cecc3f9cd2e5b18950e74bc58f4ec47c0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:899-1"
+      ],
+      "text": "Soma"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:504296"
+    ],
+    "value": "Cynanchum viminale subsp. viminale"
+  },
+  "family": {
+    "refs": [
+      "wcvp:504296"
+    ],
+    "value": "Apocynaceae"
+  },
+  "goals": [],
+  "id": "cynanchum-viminale-subsp-viminale",
+  "image": {
+    "attributionRequired": true,
+    "author": "Lalithamba",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Sarcostemma_acidum(Roxb)Voigt.jpg",
+    "refs": [
+      "commons:File:Sarcostemma acidum(Roxb)Voigt.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Sarcostemma_acidum%28Roxb%29Voigt.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:504296"
+    ],
+    "value": "China, África tropical oriental, subcontinente indio, Indochina y océano Índico occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Sarcostemma acidum(Roxb)Voigt.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Sarcostemma acidum(Roxb)Voigt.jpg",
+      "license": "CC BY 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Sarcostemma_acidum(Roxb)Voigt.jpg"
+    },
+    "usda_common_name:899-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Soma»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:29868": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29868",
+      "license": "CC0"
+    },
+    "usda_use:3161": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3161",
+      "license": "CC0"
+    },
+    "usda_use:61291": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61291",
+      "license": "CC0"
+    },
+    "usda_use:6917": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6917",
+      "license": "CC0"
+    },
+    "wcvp:504296": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cynanchum viminale subsp. viminale",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:61291"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": null,
+    "name": "Cynanchum viminale subsp. viminale",
+    "refs": [
+      "wcvp:504296"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3161",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Mordedura (perro)",
+      "activitySource": "Bite(Dog)",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6917",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Insecticida",
+      "activitySource": "Insecticide",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29868",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,895 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:21394de55e3d97d1b9e0b583bb11b666dedc87dd0bc479f1785bd03f1d64c812",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Laurus nobilis",
+        "wikidata:Q26006"
+      ],
+      "text": "Laurel"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26006"
+      ],
+      "text": "Los Laureles"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26006"
+      ],
+      "text": "Lauredo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26006"
+      ],
+      "text": "Lloreo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26006"
+      ],
+      "text": "Árbol de Apolo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26006"
+      ],
+      "text": "Choriu"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P45"
+      ],
+      "text": "Edel-Lorbeer"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P45"
+      ],
+      "text": "Bay laurel"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:543-6"
+      ],
+      "text": "Bay"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:543-4"
+      ],
+      "text": "Bay Laurel"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:543-1"
+      ],
+      "text": "Bayleaf"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:543-3"
+      ],
+      "text": "Grecian Laurel"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:543-2"
+      ],
+      "text": "Sweet Bay"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Laurus nobilis"
+    ],
+    "value": "Especie de planta perenne de la familia de las lauráceas, originaria de la región del mar Mediterráneo y de la mitad norte de la costa atlántica de la península ibérica."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Laurus nobilis",
+      "wikidata:Q26006"
+    ],
+    "value": "Laurel"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2349094"
+    ],
+    "value": "Lauraceae"
+  },
+  "goals": [],
+  "id": "laurus-nobilis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:543-BK",
+      "usda_part:543-FL",
+      "usda_part:543-FR",
+      "usda_part:543-LF",
+      "usda_part:543-WD"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2349094"
+    ],
+    "value": "Norte de África, sureste de Europa, suroeste de Europa y oeste de Asia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:3003": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: methyleugenol",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:3004": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: 1,8-cineole",
+      "license": "CC BY 4.0"
+    },
+    "tppt_plant:P45": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Laurus nobilis L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:543-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bayleaf»",
+      "license": "CC0"
+    },
+    "usda_common_name:543-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sweet Bay»",
+      "license": "CC0"
+    },
+    "usda_common_name:543-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Grecian Laurel»",
+      "license": "CC0"
+    },
+    "usda_common_name:543-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bay Laurel»",
+      "license": "CC0"
+    },
+    "usda_common_name:543-6": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bay»",
+      "license": "CC0"
+    },
+    "usda_part:543-BK": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Bark»",
+      "license": "CC0"
+    },
+    "usda_part:543-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:543-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_part:543-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:543-WD": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Wood»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10545": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10545",
+      "license": "CC0"
+    },
+    "usda_use:12656": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12656",
+      "license": "CC0"
+    },
+    "usda_use:18233": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18233",
+      "license": "CC0"
+    },
+    "usda_use:21220": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21220",
+      "license": "CC0"
+    },
+    "usda_use:21730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21730",
+      "license": "CC0"
+    },
+    "usda_use:29187": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29187",
+      "license": "CC0"
+    },
+    "usda_use:29188": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29188",
+      "license": "CC0"
+    },
+    "usda_use:34819": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34819",
+      "license": "CC0"
+    },
+    "usda_use:45737": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45737",
+      "license": "CC0"
+    },
+    "usda_use:46246": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46246",
+      "license": "CC0"
+    },
+    "usda_use:46747": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46747",
+      "license": "CC0"
+    },
+    "usda_use:47737": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47737",
+      "license": "CC0"
+    },
+    "usda_use:47738": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47738",
+      "license": "CC0"
+    },
+    "usda_use:47739": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47739",
+      "license": "CC0"
+    },
+    "usda_use:55616": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55616",
+      "license": "CC0"
+    },
+    "usda_use:59048": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59048",
+      "license": "CC0"
+    },
+    "usda_use:59049": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59049",
+      "license": "CC0"
+    },
+    "usda_use:64765": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64765",
+      "license": "CC0"
+    },
+    "usda_use:65674": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65674",
+      "license": "CC0"
+    },
+    "usda_use:66644": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66644",
+      "license": "CC0"
+    },
+    "usda_use:76412": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76412",
+      "license": "CC0"
+    },
+    "usda_use:76955": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76955",
+      "license": "CC0"
+    },
+    "usda_use:77741": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77741",
+      "license": "CC0"
+    },
+    "usda_use:80236": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80236",
+      "license": "CC0"
+    },
+    "usda_use:81525": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81525",
+      "license": "CC0"
+    },
+    "wcvp:2349094": {
+      "dataset": "wcvp",
+      "label": "WCVP: Laurus nobilis L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q26006": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q26006",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q26006"
+    },
+    "wikipedia_es:Laurus nobilis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Laurus nobilis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Laurus_nobilis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "Una o más claves de cita del grupo «Carminative» no tienen candidata y quedan sin resolver.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Una o más claves de cita del grupo «Hysteria» no tienen candidata y quedan sin resolver.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Una o más claves de cita del grupo «Stimulant» no tienen candidata y quedan sin resolver.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Amenorrhea» tiene candidata; queda pendiente de revisión.",
+      "target": "traditionalUses[16]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Colic» tiene candidata; queda pendiente de revisión.",
+      "target": "traditionalUses[17]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Narcotic» tiene candidata; queda pendiente de revisión.",
+      "target": "traditionalUses[18]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Ninguna clave de cita del grupo «Sprain» tiene candidata; queda pendiente de revisión.",
+      "target": "traditionalUses[19]"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": "medio",
+    "refs": [
+      "efsa_botanic:3003",
+      "efsa_botanic:3004",
+      "tppt_plant:P45"
+    ],
+    "text": "EFSA registra metileugenol en las hojas, una sustancia del grupo de preocupación genotóxica o carcinógena, y 1,8-cineol como sustancia de evidencia. TPPT la registra como alergénica (fruto y hoja), con riesgo de alergia en personas sensibles."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Laurus nobilis",
+    "refs": [
+      "wcvp:2349094"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47737",
+        "usda_use:47738",
+        "usda_use:47739",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syri",
+          "ref": null,
+          "text": "Woi.Syri (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10545",
+        "usda_use:66644",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29187",
+        "usda_use:29188",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46747",
+        "usda_use:77741",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64765",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Principio amargo",
+      "activitySource": "Bitter-Principle",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65674",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18233",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21220",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21730",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Medicina (veterinaria)",
+      "activitySource": "Medicine (Veterinary)",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:80236",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34819",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Esclerosis (hígado)",
+      "activitySource": "Sclerosis(Liver)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76412",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Jabón",
+      "activitySource": "Soap",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76955",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45737",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59049",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Wen",
+      "activitySource": "Wen",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55616",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Amenorrea",
+      "activitySource": "Amenorrhea",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:59048"
+      ]
+    },
+    {
+      "activity": "Cólico",
+      "activitySource": "Colic",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:12656"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:81525"
+      ]
+    },
+    {
+      "activity": "Esguince",
+      "activitySource": "Sprain",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:46246"
+      ]
+    }
+  ]
+}

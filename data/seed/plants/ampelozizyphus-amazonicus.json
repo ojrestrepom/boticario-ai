@@ -1,0 +1,143 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:46bf0c5a6815219f86ff63e6653cccda3a2feae8040899e093840dcbae03d0a2",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2634618"
+    ],
+    "value": "Ampelozizyphus amazonicus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2634618"
+    ],
+    "value": "Rhamnaceae"
+  },
+  "goals": [],
+  "id": "ampelozizyphus-amazonicus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2634618"
+    ],
+    "value": "Brasil y norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:44170": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44170",
+      "license": "CC0"
+    },
+    "usda_use:44171": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44171",
+      "license": "CC0"
+    },
+    "usda_use:6962": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6962",
+      "license": "CC0"
+    },
+    "wcvp:2634618": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ampelozizyphus amazonicus Ducke",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; la etiqueta de Wikidata es solo el nombre del género, así que el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Ducke",
+    "name": "Ampelozizyphus amazonicus",
+    "refs": [
+      "wcvp:2634618"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Jabón",
+      "activitySource": "Soap",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44170",
+        "usda_use:44171",
+        "usda_reference:Altschul",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Mordedura (serpiente)",
+      "activitySource": "Bite(Snake)",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        }
+      ],
+      "countries": [
+        "Venezuela"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6962",
+        "usda_reference:Altschul"
+      ]
+    }
+  ]
+}

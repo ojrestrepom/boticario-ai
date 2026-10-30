@@ -1,0 +1,624 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:12d947554b52ce08baf829641a3bf14f4e8de4d30d666960d741aa63c15c3f1c",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q146604"
+      ],
+      "text": "Grosella negra"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ribes nigrum",
+        "wikidata:Q146604"
+      ],
+      "text": "Casis"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ribes nigrum"
+      ],
+      "text": "Cassis"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ribes nigrum",
+        "wikidata:Q146604"
+      ],
+      "text": "Grosellero negro"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ribes nigrum"
+      ],
+      "text": "Zarzaparrilla negra"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Ribes nigrum"
+      ],
+      "text": "Parrilla negra"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:858-1"
+      ],
+      "text": "Black Currant"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Ribes nigrum"
+    ],
+    "value": "Arbusto frondoso, no espinoso, de unos 1,50 m de alto."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q146604"
+    ],
+    "value": "Grosella negra"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2426569"
+    ],
+    "value": "Grossulariaceae"
+  },
+  "goals": [
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:ribis-nigri-folium"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:ribis-nigri-folium"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "ribes-nigrum",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Schwarzejohannisbeere.jpg",
+    "refs": [
+      "commons:File:Schwarzejohannisbeere.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Schwarzejohannisbeere.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:858-BU",
+      "usda_part:858-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2426569"
+    ],
+    "value": "Nativa de Europa, Asia central, Mongolia, Siberia y el Lejano Oriente ruso."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:ribis-nigri-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Schwarzejohannisbeere.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Schwarzejohannisbeere.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Schwarzejohannisbeere.jpg"
+    },
+    "ema_herbal:ribis-nigri-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Ribis nigri folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/ribis-nigri-folium"
+    },
+    "ema_pdf:ribis-nigri-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de ribis-nigri-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-ribes-nigrum-l-folium_en.pdf"
+    },
+    "ema_pdf:ribis-nigri-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de ribis-nigri-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-ribes-nigrum-l-folium_en.pdf"
+    },
+    "usda_common_name:858-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Black Currant»",
+      "license": "CC0"
+    },
+    "usda_part:858-BU": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Bulb»",
+      "license": "CC0"
+    },
+    "usda_part:858-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:14157": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14157",
+      "license": "CC0"
+    },
+    "usda_use:14158": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14158",
+      "license": "CC0"
+    },
+    "usda_use:14555": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14555",
+      "license": "CC0"
+    },
+    "usda_use:15663": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15663",
+      "license": "CC0"
+    },
+    "usda_use:18619": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18619",
+      "license": "CC0"
+    },
+    "usda_use:18620": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18620",
+      "license": "CC0"
+    },
+    "usda_use:32257": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32257",
+      "license": "CC0"
+    },
+    "usda_use:40497": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40497",
+      "license": "CC0"
+    },
+    "usda_use:42838": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42838",
+      "license": "CC0"
+    },
+    "usda_use:48569": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48569",
+      "license": "CC0"
+    },
+    "usda_use:49639": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 49639",
+      "license": "CC0"
+    },
+    "usda_use:68311": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68311",
+      "license": "CC0"
+    },
+    "usda_use:68726": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68726",
+      "license": "CC0"
+    },
+    "usda_use:78598": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78598",
+      "license": "CC0"
+    },
+    "usda_use:79531": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79531",
+      "license": "CC0"
+    },
+    "wcvp:2426569": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ribes nigrum L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2527542": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ribesium nigrum (L.) Medik.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2680611": {
+      "dataset": "wcvp",
+      "label": "WCVP: Botrycarpum nigrum (L.) Spach",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2833709": {
+      "dataset": "wcvp",
+      "label": "WCVP: Grossularia nigra (L.) Rupr.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q146604": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q146604",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q146604"
+    },
+    "wikipedia_es:Ribes nigrum": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Ribes nigrum",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Ribes_nigrum"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el bulbo y la hoja, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:ribis-nigri-folium:4.3",
+      "ema_pdf:ribis-nigri-folium:4.4",
+      "usda_use:14555"
+    ],
+    "text": "La monografía de la EMA para la hoja registra como contraindicaciones la hipersensibilidad a la sustancia activa y, para la indicación urinaria, las condiciones en que se recomienda una ingesta reducida de líquidos (por ejemplo, enfermedad cardíaca o renal grave). Como advertencias registra que el uso en menores de 18 años no está establecido por falta de datos, y menciona el dolor articular con hinchazón, enrojecimiento o fiebre y los síntomas urinarios como fiebre, disuria, espasmos o sangre en la orina. Advertencia: registrada como cianogénica."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Ribes nigrum",
+    "refs": [
+      "wcvp:2426569"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Spach",
+      "name": "Botrycarpum nigrum",
+      "refs": [
+        "wcvp:2680611"
+      ]
+    },
+    {
+      "authors": "(L.) Rupr.",
+      "name": "Grossularia nigra",
+      "refs": [
+        "wcvp:2833709"
+      ]
+    },
+    {
+      "authors": "(L.) Medik.",
+      "name": "Ribesium nigrum",
+      "refs": [
+        "wcvp:2527542"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14157",
+        "usda_use:14158",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18619",
+        "usda_use:18620",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Té",
+      "activitySource": "Tea",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:49639",
+        "usda_use:78598",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15663",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Detergente",
+      "activitySource": "Detergent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68311",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Digestivo",
+      "activitySource": "Digestive",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:68726",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Licor",
+      "activitySource": "Liqueur",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32257",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Refrescante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40497",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42838",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48569",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:79531",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

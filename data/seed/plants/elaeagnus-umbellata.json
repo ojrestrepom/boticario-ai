@@ -1,0 +1,243 @@
+{
+  "aliases": [
+    "elaeagnus-umbellatus"
+  ],
+  "bundleHash": "sha256:805e56cad41cb3d4addb058d31e136596f645f107dd409c333b22405f9ab22d4",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1154-1"
+      ],
+      "text": "Russian Olive"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2785255"
+    ],
+    "value": "Elaeagnus umbellata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2785255"
+    ],
+    "value": "Elaeagnaceae"
+  },
+  "goals": [],
+  "id": "elaeagnus-umbellata",
+  "image": {
+    "attributionRequired": true,
+    "author": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Elaeagnus_umbellata1.jpg",
+    "refs": [
+      "commons:File:Elaeagnus umbellata1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Elaeagnus_umbellata1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2785255"
+    ],
+    "value": "Nativa de Asia oriental y occidental y del subcontinente indio."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Elaeagnus umbellata1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Elaeagnus umbellata1.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Elaeagnus_umbellata1.jpg"
+    },
+    "usda_common_name:1154-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Russian Olive»",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10103": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10103",
+      "license": "CC0"
+    },
+    "usda_use:13842": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13842",
+      "license": "CC0"
+    },
+    "usda_use:32613": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 32613",
+      "license": "CC0"
+    },
+    "usda_use:5661": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5661",
+      "license": "CC0"
+    },
+    "usda_use:57987": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57987",
+      "license": "CC0"
+    },
+    "wcvp:2785255": {
+      "dataset": "wcvp",
+      "label": "WCVP: Elaeagnus umbellata Thunb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "variante-ortografica",
+      "message": "El nombre resolvió por una variante ortográfica del epíteto.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete solo trae un nombre común en inglés; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Thunb.",
+    "name": "Elaeagnus umbellata",
+    "refs": [
+      "wcvp:2785255"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5661",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Cardíaco",
+      "activitySource": "Cardiac",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10103",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13842",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Pulmón",
+      "activitySource": "Lung",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:32613",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Woi.3",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 3"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57987",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

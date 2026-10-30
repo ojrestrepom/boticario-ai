@@ -1,0 +1,817 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8fe232635df316a39f4ff4be9008404bba25f3d63db32f0c5490460f57e23b71",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Panax quinquefolius",
+        "wikidata:Q2737217"
+      ],
+      "text": "Ginseng americano"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:694-1"
+      ],
+      "text": "American Ginseng"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:694-2"
+      ],
+      "text": "Ginseng"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Panax quinquefolius"
+    ],
+    "value": "Especie de ginseng nativa del este de Norteamérica, planta perenne y dicotiledónea de la familia Araliaceae."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Panax quinquefolius"
+    ],
+    "value": "Ginseng americano"
+  },
+  "family": {
+    "refs": [
+      "wcvp:146781"
+    ],
+    "value": "Araliaceae"
+  },
+  "goals": [],
+  "id": "panax-quinquefolius",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Panax_quinquefolius.jpg",
+    "refs": [
+      "commons:File:Panax quinquefolius.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Panax_quinquefolius.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:694-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:146781"
+    ],
+    "value": "Nativa del este de Canadá y del centro-norte, noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Panax quinquefolius.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Panax quinquefolius.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Panax_quinquefolius.jpg"
+    },
+    "usda_common_name:694-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «American Ginseng»",
+      "license": "CC0"
+    },
+    "usda_common_name:694-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ginseng»",
+      "license": "CC0"
+    },
+    "usda_part:694-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Leung": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Leung",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:13247": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13247",
+      "license": "CC0"
+    },
+    "usda_use:15025": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15025",
+      "license": "CC0"
+    },
+    "usda_use:22205": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22205",
+      "license": "CC0"
+    },
+    "usda_use:26002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26002",
+      "license": "CC0"
+    },
+    "usda_use:27547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27547",
+      "license": "CC0"
+    },
+    "usda_use:33655": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33655",
+      "license": "CC0"
+    },
+    "usda_use:34707": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34707",
+      "license": "CC0"
+    },
+    "usda_use:35577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 35577",
+      "license": "CC0"
+    },
+    "usda_use:40859": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40859",
+      "license": "CC0"
+    },
+    "usda_use:40860": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40860",
+      "license": "CC0"
+    },
+    "usda_use:4293": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4293",
+      "license": "CC0"
+    },
+    "usda_use:4532": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4532",
+      "license": "CC0"
+    },
+    "usda_use:4533": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4533",
+      "license": "CC0"
+    },
+    "usda_use:46833": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46833",
+      "license": "CC0"
+    },
+    "usda_use:46834": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46834",
+      "license": "CC0"
+    },
+    "usda_use:47060": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47060",
+      "license": "CC0"
+    },
+    "usda_use:50770": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50770",
+      "license": "CC0"
+    },
+    "usda_use:59970": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59970",
+      "license": "CC0"
+    },
+    "usda_use:59971": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59971",
+      "license": "CC0"
+    },
+    "usda_use:59980": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 59980",
+      "license": "CC0"
+    },
+    "usda_use:64839": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64839",
+      "license": "CC0"
+    },
+    "usda_use:72623": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72623",
+      "license": "CC0"
+    },
+    "usda_use:74004": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74004",
+      "license": "CC0"
+    },
+    "usda_use:75844": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75844",
+      "license": "CC0"
+    },
+    "usda_use:76096": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76096",
+      "license": "CC0"
+    },
+    "usda_use:78989": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 78989",
+      "license": "CC0"
+    },
+    "usda_use:79110": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79110",
+      "license": "CC0"
+    },
+    "usda_use:81813": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81813",
+      "license": "CC0"
+    },
+    "usda_use:8678": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8678",
+      "license": "CC0"
+    },
+    "wcvp:14218": {
+      "dataset": "wcvp",
+      "label": "WCVP: Aralia quinquefolia (L.) Decne. & Planch.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:146781": {
+      "dataset": "wcvp",
+      "label": "WCVP: Panax quinquefolius L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:89888": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ginseng quinquefolium (L.) Alph.Wood",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q2737217": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q2737217",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q2737217"
+    },
+    "wikipedia_es:Panax quinquefolius": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Panax quinquefolius",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Panax_quinquefolius"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la raíz, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Panax quinquefolius",
+    "refs": [
+      "wcvp:146781"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Decne. & Planch.",
+      "name": "Aralia quinquefolia",
+      "refs": [
+        "wcvp:14218"
+      ]
+    },
+    {
+      "authors": "(L.) Alph.Wood",
+      "name": "Ginseng quinquefolium",
+      "refs": [
+        "wcvp:89888"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos",
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4532",
+        "usda_use:4533",
+        "usda_use:59970",
+        "usda_use:64839",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China",
+        "Estados Unidos (Apalaches)",
+        "URSS"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50770",
+        "usda_use:59980",
+        "usda_use:78989",
+        "usda_use:79110",
+        "usda_reference:Krochmal",
+        "usda_reference:Hunan",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos",
+        "URSS"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46833",
+        "usda_use:46834",
+        "usda_use:47060",
+        "usda_reference:Krochmal",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Reconstituyente",
+      "activitySource": "Restorative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40859",
+        "usda_use:40860",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Aperitivo",
+      "activitySource": "Apertif",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4293",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Caquexia",
+      "activitySource": "Cachexia",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8678",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Anticonceptivo",
+      "activitySource": "Contraceptive",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13247",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Convalecencia",
+      "activitySource": "Convalescence",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:59971",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15025",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Energía",
+      "activitySource": "Energy",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22205",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81813",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Olvido",
+      "activitySource": "Forgetfulness",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26002",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Resaca",
+      "activitySource": "Hangover",
+      "citations": [
+        {
+          "key": "Leung",
+          "ref": "usda_reference:Leung",
+          "text": "Leung, Albert Y. 1980. Encyclopedia of common natural ingredients. John Wiley and Sons, N.Y."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27547",
+        "usda_reference:Leung"
+      ]
+    },
+    {
+      "activity": "Insomnio",
+      "activitySource": "Insomnia",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:72623",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33655",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74004",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Nervios",
+      "activitySource": "Nerves",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34707",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Palpitaciones",
+      "activitySource": "Palpitation",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:35577",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Rejuvenecimiento",
+      "activitySource": "Rejuvenation",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75844",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76096",
+        "usda_reference:Krochmal"
+      ]
+    }
+  ]
+}

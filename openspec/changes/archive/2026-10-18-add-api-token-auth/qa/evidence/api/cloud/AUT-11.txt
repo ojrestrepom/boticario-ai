@@ -1,0 +1,36 @@
+# AUT-11 Ruta inexistente (objetivo: cloud)
+
+### GET /v1/no-existe   [sin Authorization]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: d1b63ba3f90a4e25755e4cdc6b776b8a
+server: Google Frontend
+content-length: 132
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/no-existe"}
+
+### GET /v1/no-existe   [Bearer <válido>]
+status=404
+content-type: application/problem+json
+x-cloud-trace-context: 44f93bc9a82363f568ea1e4b2deddfa9
+server: Google Frontend
+content-length: 125
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Not Found","status":404,"detail":"el recurso solicitado no existe","instance":"/v1/no-existe"}
+
+### GET /v1/a%22b   [sin Authorization, ruta con comillas codificadas]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: eb933088c3285ffc9f23deec7b065e85
+server: Google Frontend
+content-length: 128
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/a%22b"}

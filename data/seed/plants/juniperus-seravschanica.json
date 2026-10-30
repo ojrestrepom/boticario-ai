@@ -1,0 +1,268 @@
+{
+  "aliases": [
+    "juniperus-macropoda"
+  ],
+  "bundleHash": "sha256:91d390603ac2e3c2099c7514e1ae4829c976ea853ea79ad79ce4f3299d1dffbe",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Juniperus seravschanica"
+      ],
+      "text": "enebro pastún"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1202-1"
+      ],
+      "text": "Himalayan Juniper"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1202-2"
+      ],
+      "text": "Indian Juniper"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Juniperus seravschanica"
+    ],
+    "value": "Especie de enebro originaria de las zonas montañosas de Asia Central."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Juniperus seravschanica"
+    ],
+    "value": "Enebro pastún"
+  },
+  "family": {
+    "refs": [
+      "wcvp:377336"
+    ],
+    "value": "Cupressaceae"
+  },
+  "goals": [],
+  "id": "juniperus-seravschanica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1202-FR"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:377336"
+    ],
+    "value": "Península arábiga, Asia central, subcontinente indio y Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1202-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Himalayan Juniper»",
+      "license": "CC0"
+    },
+    "usda_common_name:1202-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Indian Juniper»",
+      "license": "CC0"
+    },
+    "usda_part:1202-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_use:26741": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26741",
+      "license": "CC0"
+    },
+    "usda_use:43722": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43722",
+      "license": "CC0"
+    },
+    "usda_use:73243": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73243",
+      "license": "CC0"
+    },
+    "wcvp:377336": {
+      "dataset": "wcvp",
+      "label": "WCVP: Juniperus seravschanica Kom.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:381308": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sabina seravschanica (Kom.) Nevski",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:385715": {
+      "dataset": "wcvp",
+      "label": "WCVP: Juniperus polycarpos var. seravschanica (Kom.) Kitam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:385716": {
+      "dataset": "wcvp",
+      "label": "WCVP: Juniperus excelsa subsp. seravschanica (Kom.) Imkhan.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:521210": {
+      "dataset": "wcvp",
+      "label": "WCVP: Juniperus excelsa var. seravschanica (Kom.) R.P.Adams",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Juniperus seravschanica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Juniperus seravschanica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Juniperus_seravschanica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita Woi.Syria en el grupo «Gleet»; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita Woi.Syria en el grupo «Leucorrhea»; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita Woi.Syria en el grupo «Skin»; el grupo queda pendiente de revisión.",
+      "target": "traditionalUses[2]"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Kom.",
+    "name": "Juniperus seravschanica",
+    "refs": [
+      "wcvp:377336"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Kom.) Imkhan.",
+      "name": "Juniperus excelsa subsp. seravschanica",
+      "refs": [
+        "wcvp:385716"
+      ]
+    },
+    {
+      "authors": "(Kom.) R.P.Adams",
+      "name": "Juniperus excelsa var. seravschanica",
+      "refs": [
+        "wcvp:521210"
+      ]
+    },
+    {
+      "authors": "(Kom.) Kitam.",
+      "name": "Juniperus polycarpos var. seravschanica",
+      "refs": [
+        "wcvp:385715"
+      ]
+    },
+    {
+      "authors": "(Kom.) Nevski",
+      "name": "Sabina seravschanica",
+      "refs": [
+        "wcvp:381308"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Flujo uretral crónico",
+      "activitySource": "Gleet",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:26741"
+      ]
+    },
+    {
+      "activity": "Leucorrea",
+      "activitySource": "Leucorrhea",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:73243"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:43722"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:08e8e59dea69a3edddbdacad6e11b6a8c770aafc4c1e0462ee276cef0a5a987b",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:21791"
+    ],
+    "value": "Betula utilis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:21791"
+    ],
+    "value": "Betulaceae"
+  },
+  "goals": [],
+  "id": "betula-utilis",
+  "image": {
+    "attributionRequired": true,
+    "author": "J.M.Garg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Silver_Birch_(Bhojpatra)_I_IMG_3405.jpg",
+    "refs": [
+      "commons:File:Silver Birch (Bhojpatra) I IMG 3405.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Silver_Birch_%28Bhojpatra%29_I_IMG_3405.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:21791"
+    ],
+    "value": "Nativa de Asia central, China, el subcontinente indio, Indochina y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Silver Birch (Bhojpatra) I IMG 3405.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Silver Birch (Bhojpatra) I IMG 3405.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Silver_Birch_(Bhojpatra)_I_IMG_3405.jpg"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:13228": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13228",
+      "license": "CC0"
+    },
+    "usda_use:55797": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55797",
+      "license": "CC0"
+    },
+    "usda_use:8513": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8513",
+      "license": "CC0"
+    },
+    "wcvp:21791": {
+      "dataset": "wcvp",
+      "label": "WCVP: Betula utilis D.Don",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "D.Don",
+    "name": "Betula utilis",
+    "refs": [
+      "wcvp:21791"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Eb25: 417",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 417"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8513",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Anticonceptivo",
+      "activitySource": "Contraceptive",
+      "citations": [
+        {
+          "key": "Eb25: 417",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 417"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13228",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Eb25: 417",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 417"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55797",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

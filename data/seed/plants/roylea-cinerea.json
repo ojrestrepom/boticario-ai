@@ -1,0 +1,198 @@
+{
+  "aliases": [
+    "roylea-elegans"
+  ],
+  "bundleHash": "sha256:b8cd1657a9fa016ecbd7014141fcf73fe8a967eee542c2f26f14f4da7bb3269c",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:180129"
+    ],
+    "value": "Roylea cinerea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:180129"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "roylea-cinerea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:180129"
+    ],
+    "value": "India, Nepal y Himalaya occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:25276": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25276",
+      "license": "CC0"
+    },
+    "usda_use:36952": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36952",
+      "license": "CC0"
+    },
+    "usda_use:40501": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40501",
+      "license": "CC0"
+    },
+    "usda_use:61067": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61067",
+      "license": "CC0"
+    },
+    "wcvp:180129": {
+      "dataset": "wcvp",
+      "label": "WCVP: Roylea cinerea (D.Don) Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:19583": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ballota cinerea D.Don",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(D.Don) Baill.",
+    "name": "Roylea cinerea",
+    "refs": [
+      "wcvp:180129"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "D.Don",
+      "name": "Ballota cinerea",
+      "refs": [
+        "wcvp:19583"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25276",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Granos",
+      "activitySource": "Pimple",
+      "citations": [
+        {
+          "key": "Eb25: 422",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 422"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36952",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Refrescante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Eb25: 422",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 25: 422"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40501",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61067",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

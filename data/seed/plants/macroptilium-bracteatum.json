@@ -1,0 +1,123 @@
+{
+  "aliases": [
+    "macroptylium-bracteatum"
+  ],
+  "bundleHash": "sha256:9413d6d58e1060f6a77e854c24e8aab1fa88f544f8a34ffe2ed7813666333dcd",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2366211"
+    ],
+    "value": "Macroptilium bracteatum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2366211"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "macroptilium-bracteatum",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2366211"
+    ],
+    "value": "Nativa de Brasil, el sur de Sudamérica y el oeste de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:81871": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81871",
+      "license": "CC0"
+    },
+    "wcvp:2366211": {
+      "dataset": "wcvp",
+      "label": "WCVP: Macroptilium bracteatum (Nees & Mart.) Maréchal & Baudet",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2537768": {
+      "dataset": "wcvp",
+      "label": "WCVP: Phaseolus bracteatus Nees & Mart.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Nees & Mart.) Maréchal & Baudet",
+    "name": "Macroptilium bracteatum",
+    "refs": [
+      "wcvp:2366211"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Nees & Mart.",
+      "name": "Phaseolus bracteatus",
+      "refs": [
+        "wcvp:2537768"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Esterilizante",
+      "activitySource": "Sterilizant",
+      "citations": [
+        {
+          "key": "Eb31: 305",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 31: 305"
+        }
+      ],
+      "countries": [
+        "Paraguay"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81871",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# AUT-21 Separadores entre esquema y token (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [dos espacios]
+status=200
+content-type: application/json
+x-cloud-trace-context: b3c25b200047cbf1ce2c9de72f05761b
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}
+
+### GET /v1/plants?limit=2   [tabulador]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 633ba85cea768a624e94973f313a6f32
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [token con espacio final]
+status=200
+content-type: application/json
+x-cloud-trace-context: 0a8b17156c2d54b0322bf9d5c8c26170
+server: Google Frontend
+content-length: 336
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}

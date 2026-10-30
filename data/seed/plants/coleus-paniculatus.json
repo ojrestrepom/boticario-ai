@@ -1,0 +1,134 @@
+{
+  "aliases": [
+    "plectranthus-coleoides"
+  ],
+  "bundleHash": "sha256:e5e8c53ab55325aa2fab38c37b7b35990a8072e02c5442972e7b859f8b110cf4",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:46050"
+    ],
+    "value": "Coleus paniculatus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:46050"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "coleus-paniculatus",
+  "image": {
+    "attributionRequired": true,
+    "author": "Jerzy Opioła",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Plectranthus_coleoides_a2.JPG",
+    "refs": [
+      "commons:File:Plectranthus coleoides a2.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Plectranthus_coleoides_a2.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2026-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:46050"
+    ],
+    "value": "Nativa del subcontinente indio e Indochina."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Plectranthus coleoides a2.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Plectranthus coleoides a2.JPG",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Plectranthus_coleoides_a2.JPG"
+    },
+    "usda_part:2026-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:117953": {
+      "dataset": "wcvp",
+      "label": "WCVP: Majana paniculata (Benth.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:192884": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solenostemon paniculatus (Benth.) Guillaumet & A.Cornet",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:46050": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coleus paniculatus Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Benth.",
+    "name": "Coleus paniculatus",
+    "refs": [
+      "wcvp:46050"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth.) Kuntze",
+      "name": "Majana paniculata",
+      "refs": [
+        "wcvp:117953"
+      ]
+    },
+    {
+      "authors": "(Benth.) Guillaumet & A.Cornet",
+      "name": "Solenostemon paniculatus",
+      "refs": [
+        "wcvp:192884"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

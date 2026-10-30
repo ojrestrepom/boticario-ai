@@ -1,0 +1,179 @@
+{
+  "aliases": [
+    "taxus-sumatrana",
+    "taxus-yunnanensis"
+  ],
+  "bundleHash": "sha256:385f384c91a09435ab443e4ed8e9fb2bbbabb25c284ad0196ed8b5bf76047bfa",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2172-1"
+      ],
+      "text": "Himalayan Yew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2171-1"
+      ],
+      "text": "Sumatran Yew"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2173-1"
+      ],
+      "text": "Yunnan Yew"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:378675"
+    ],
+    "value": "Taxus wallichiana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:378675"
+    ],
+    "value": "Taxaceae"
+  },
+  "goals": [],
+  "id": "taxus-wallichiana",
+  "image": {
+    "attributionRequired": false,
+    "author": "Daderot",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Taxus_sumatrana_-_Quarryhill_Botanical_Garden_-_DSC03460.JPG",
+    "refs": [
+      "commons:File:Taxus sumatrana - Quarryhill Botanical Garden - DSC03460.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Taxus_sumatrana_-_Quarryhill_Botanical_Garden_-_DSC03460.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:378675"
+    ],
+    "value": "Nativa de China, el subcontinente indio, Indochina y Malesia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Taxus sumatrana - Quarryhill Botanical Garden - DSC03460.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Taxus sumatrana - Quarryhill Botanical Garden - DSC03460.JPG",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Taxus_sumatrana_-_Quarryhill_Botanical_Garden_-_DSC03460.JPG"
+    },
+    "usda_common_name:2171-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Sumatran Yew»",
+      "license": "CC0"
+    },
+    "usda_common_name:2172-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Himalayan Yew»",
+      "license": "CC0"
+    },
+    "usda_common_name:2173-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Yunnan Yew»",
+      "license": "CC0"
+    },
+    "wcvp:378675": {
+      "dataset": "wcvp",
+      "label": "WCVP: Taxus wallichiana Zucc.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:379355": {
+      "dataset": "wcvp",
+      "label": "WCVP: Taxus yunnanensis W.C.Cheng & L.K.Fu",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:379462": {
+      "dataset": "wcvp",
+      "label": "WCVP: Taxus sumatrana (Miq.) de Laub.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:386703": {
+      "dataset": "wcvp",
+      "label": "WCVP: Taxus baccata subsp. wallichiana (Zucc.) Pilg.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Taxus sumatrana, Taxus yunnanensis) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no debe presentarse como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Zucc.",
+    "name": "Taxus wallichiana",
+    "refs": [
+      "wcvp:378675"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Miq.) de Laub.",
+      "name": "Taxus sumatrana",
+      "refs": [
+        "wcvp:379462"
+      ]
+    },
+    {
+      "authors": "W.C.Cheng & L.K.Fu",
+      "name": "Taxus yunnanensis",
+      "refs": [
+        "wcvp:379355"
+      ]
+    },
+    {
+      "authors": "(Zucc.) Pilg.",
+      "name": "Taxus baccata subsp. wallichiana",
+      "refs": [
+        "wcvp:386703"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

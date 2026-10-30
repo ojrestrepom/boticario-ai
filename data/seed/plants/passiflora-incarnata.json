@@ -1,0 +1,911 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:462c0c93c3aefc105f38d8b96ac8cd9c44a6fcf733d1e26657f12def5a844ed8",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q128939"
+      ],
+      "text": "Pasiflora"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q128939"
+      ],
+      "text": "Burucuya"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q128939"
+      ],
+      "text": "Burucuyá"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:700-1"
+      ],
+      "text": "Manzana de Mayo"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:700-2"
+      ],
+      "text": "Mayapple"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:700-3"
+      ],
+      "text": "Passionflower"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Passiflora incarnata"
+    ],
+    "value": "Planta trepadora de rápido crecimiento del género Passiflora, cuya principal característica es la peculiar forma de sus flores."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q128939"
+    ],
+    "value": "Pasiflora"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2560416"
+    ],
+    "value": "Passifloraceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos del sueño e insomnio pasajero",
+      "evidence": "La EMA tiene una monografía de la parte aérea en esta área.",
+      "goal": "mejorar-el-sueno",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:passiflorae-herba"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía de la parte aérea en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:passiflorae-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "passiflora-incarnata",
+  "image": {
+    "attributionRequired": false,
+    "author": "Hans-Simon Holtzbecker",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Gc2_passiflora_incarnata.jpg",
+    "refs": [
+      "commons:File:Gc2 passiflora incarnata.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Gc2_passiflora_incarnata.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2560416"
+    ],
+    "value": "Caribe y regiones del este y sur de Estados Unidos."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:passiflorae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Gc2 passiflora incarnata.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Gc2 passiflora incarnata.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Gc2_passiflora_incarnata.jpg"
+    },
+    "ema_herbal:passiflorae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Passiflorae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/passiflorae-herba"
+    },
+    "ema_pdf:passiflorae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de passiflorae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-passiflora-incarnata-l-herba_en.pdf"
+    },
+    "ema_pdf:passiflorae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de passiflorae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-passiflora-incarnata-l-herba_en.pdf"
+    },
+    "usda_common_name:700-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Manzana de Mayo»",
+      "license": "CC0"
+    },
+    "usda_common_name:700-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mayapple»",
+      "license": "CC0"
+    },
+    "usda_common_name:700-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Passionflower»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Krochmal": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Krochmal",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:20193": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20193",
+      "license": "CC0"
+    },
+    "usda_use:20194": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20194",
+      "license": "CC0"
+    },
+    "usda_use:22459": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22459",
+      "license": "CC0"
+    },
+    "usda_use:22460": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22460",
+      "license": "CC0"
+    },
+    "usda_use:30053": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30053",
+      "license": "CC0"
+    },
+    "usda_use:30054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30054",
+      "license": "CC0"
+    },
+    "usda_use:30055": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30055",
+      "license": "CC0"
+    },
+    "usda_use:33657": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33657",
+      "license": "CC0"
+    },
+    "usda_use:34052": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34052",
+      "license": "CC0"
+    },
+    "usda_use:34350": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34350",
+      "license": "CC0"
+    },
+    "usda_use:34351": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34351",
+      "license": "CC0"
+    },
+    "usda_use:34967": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34967",
+      "license": "CC0"
+    },
+    "usda_use:36444": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36444",
+      "license": "CC0"
+    },
+    "usda_use:43155": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43155",
+      "license": "CC0"
+    },
+    "usda_use:43806": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43806",
+      "license": "CC0"
+    },
+    "usda_use:44375": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44375",
+      "license": "CC0"
+    },
+    "usda_use:4539": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4539",
+      "license": "CC0"
+    },
+    "usda_use:45817": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45817",
+      "license": "CC0"
+    },
+    "usda_use:45818": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45818",
+      "license": "CC0"
+    },
+    "usda_use:60039": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60039",
+      "license": "CC0"
+    },
+    "usda_use:60043": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60043",
+      "license": "CC0"
+    },
+    "usda_use:67897": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67897",
+      "license": "CC0"
+    },
+    "usda_use:70601": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70601",
+      "license": "CC0"
+    },
+    "usda_use:72625": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72625",
+      "license": "CC0"
+    },
+    "usda_use:73953": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73953",
+      "license": "CC0"
+    },
+    "usda_use:74152": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74152",
+      "license": "CC0"
+    },
+    "usda_use:74169": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74169",
+      "license": "CC0"
+    },
+    "usda_use:76600": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76600",
+      "license": "CC0"
+    },
+    "usda_use:77461": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77461",
+      "license": "CC0"
+    },
+    "usda_use:81828": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81828",
+      "license": "CC0"
+    },
+    "usda_use:81829": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81829",
+      "license": "CC0"
+    },
+    "usda_use:8586": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8586",
+      "license": "CC0"
+    },
+    "wcvp:2560416": {
+      "dataset": "wcvp",
+      "label": "WCVP: Passiflora incarnata L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2831678": {
+      "dataset": "wcvp",
+      "label": "WCVP: Granadilla incarnata (L.) Medik.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q128939": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q128939",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q128939"
+    },
+    "wikipedia_es:Passiflora incarnata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Passiflora incarnata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Passiflora_incarnata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "«Manzana de Mayo» viene etiquetado como inglés en USDA, pero es un nombre claramente en español; se registra como español.",
+      "target": "commonNames"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:passiflorae-herba:4.3",
+      "ema_pdf:passiflorae-herba:4.4",
+      "usda_use:67897"
+    ],
+    "text": "La EMA registra como contraindicación la hipersensibilidad a la sustancia activa y, en advertencias, que no se ha establecido el uso en menores de 12 años por falta de datos. Advertencia: registrada como cianogénica."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Passiflora incarnata",
+    "refs": [
+      "wcvp:2560416"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Medik.",
+      "name": "Granadilla incarnata",
+      "refs": [
+        "wcvp:2831678"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Insomnio",
+      "activitySource": "Insomnia",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30053",
+        "usda_use:30054",
+        "usda_use:30055",
+        "usda_use:72625",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34350",
+        "usda_use:34351",
+        "usda_use:73953",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Neuralgia",
+      "activitySource": "Neuralgia",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34967",
+        "usda_use:74152",
+        "usda_use:81829",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45817",
+        "usda_use:45818",
+        "usda_use:77461",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Turquía",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20193",
+        "usda_use:20194",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: epilepsia",
+      "activitySource": "Epilepsy",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22459",
+        "usda_use:22460",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43155",
+        "usda_use:76600",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4539",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8586",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60039",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Erupción",
+      "activitySource": "Eruption",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81828",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Ojo",
+      "activitySource": "Eye",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70601",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Eb22: 333",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 22: 333"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (Apalaches)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33657",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Morfinismo",
+      "activitySource": "Morphinism",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34052",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Neurosis",
+      "activitySource": "Neurosis",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74169",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Perfume",
+      "activitySource": "Perfume",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Bermudas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36444",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Piles",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60043",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Krochmal",
+          "ref": "usda_reference:Krochmal",
+          "text": "Krochmal, Arnold and Connie. 1973. A guide to the medicinal plants of the United States. Quadrangle/The N.Y. Times Book Co."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43806",
+        "usda_reference:Krochmal"
+      ]
+    },
+    {
+      "activity": "Soporífero",
+      "activitySource": "Soporific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44375",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

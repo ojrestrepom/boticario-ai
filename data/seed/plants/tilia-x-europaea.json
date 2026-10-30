@@ -1,0 +1,289 @@
+{
+  "aliases": [
+    "tilia-x-vulgaris"
+  ],
+  "bundleHash": "sha256:6bd3dd62ef921527c9b1a20f612720aa0fbf3a45cb17373a18037def9e51ea6b",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2518295"
+    ],
+    "value": "Tilia × europaea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2518295"
+    ],
+    "value": "Malvaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía de la flor en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:tiliae-flos"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Estrés mental y trastornos del ánimo",
+      "evidence": "La EMA tiene una monografía de la flor en esta área.",
+      "goal": "relajacion-estres",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:tiliae-flos"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "tilia-x-europaea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2518295"
+    ],
+    "value": "Europa"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:tiliae-flos"
+      ],
+      "value": "Flor"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:tiliae-flos": {
+      "dataset": "ema_json",
+      "label": "EMA: Tiliae flos",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/tiliae-flos"
+    },
+    "ema_pdf:tiliae-flos:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de tiliae-flos, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-tilia-cordata-miller-tilia-platyphyllos-scop-tilia-x-vulgaris-heyne-or-their-mixtures-flos-first-version_en.pdf"
+    },
+    "ema_pdf:tiliae-flos:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de tiliae-flos, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-tilia-cordata-miller-tilia-platyphyllos-scop-tilia-x-vulgaris-heyne-or-their-mixtures-flos-first-version_en.pdf"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:29226": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29226",
+      "license": "CC0"
+    },
+    "usda_use:29358": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29358",
+      "license": "CC0"
+    },
+    "usda_use:62162": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62162",
+      "license": "CC0"
+    },
+    "usda_use:72373": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72373",
+      "license": "CC0"
+    },
+    "usda_use:76630": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76630",
+      "license": "CC0"
+    },
+    "usda_use:9841": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9841",
+      "license": "CC0"
+    },
+    "wcvp:2518295": {
+      "dataset": "wcvp",
+      "label": "WCVP: Tilia × europaea L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:tiliae-flos:4.3",
+      "ema_pdf:tiliae-flos:4.4"
+    ],
+    "text": "La EMA registra como contraindicación la hipersensibilidad a la sustancia activa. En las advertencias señala que no se ha establecido el uso en menores de 4 años (indicación respiratoria) ni en menores de 12 años (indicación de estrés y ánimo) por falta de datos."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Tilia × europaea",
+    "refs": [
+      "wcvp:2518295"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29226",
+        "usda_use:72373",
+        "usda_reference:Standley",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9841",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62162",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Indigestión",
+      "activitySource": "Indigestion",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29358",
+        "usda_reference:Standley"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Woi.10",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 10"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76630",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

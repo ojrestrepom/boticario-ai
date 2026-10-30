@@ -1,0 +1,962 @@
+{
+  "aliases": [
+    "justicia-pectoralis"
+  ],
+  "bundleHash": "sha256:9b33235644ae24eea44c6cc42a4406eca260a67864564f209518b0a7dbacaeb0",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis"
+      ],
+      "text": "Tila"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis",
+        "wikidata:Q131298316"
+      ],
+      "text": "Tilo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis"
+      ],
+      "text": "Curibano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis",
+        "wikidata:Q131298316"
+      ],
+      "text": "Carpintero"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis",
+        "wikidata:Q131298316"
+      ],
+      "text": "Curia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis"
+      ],
+      "text": "Hierba de la trinidad"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis"
+      ],
+      "text": "Piri piri"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis",
+        "wikidata:Q131298316"
+      ],
+      "text": "Tapir"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis"
+      ],
+      "text": "Té criollo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Dianthera pectoralis",
+        "wikidata:Q131298316"
+      ],
+      "text": "Yuquilla"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:523-1"
+      ],
+      "text": "Angel Of Death"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:523-2"
+      ],
+      "text": "Bolek Hena"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Dianthera pectoralis"
+    ],
+    "value": "Especie de planta con flores de la familia de las acantáceas, que crece en la Amazonia."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Dianthera pectoralis",
+      "wikidata:Q131298316"
+    ],
+    "value": "Tilo"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2763694"
+    ],
+    "value": "Acanthaceae"
+  },
+  "goals": [],
+  "id": "dianthera-pectoralis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Descourtilz, J. Theodore.; Descourtilz, M. E.; Pichard.",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(9920476304).jpg",
+    "refs": [
+      "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (9920476304).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%289920476304%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2763694"
+    ],
+    "value": "Nativa de México, Centroamérica y Sudamérica (incluido Brasil)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Flore médicale des Antilles, ou, Traité des plantes usuelles (9920476304).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Flore médicale des Antilles, ou, Traité des plantes usuelles (9920476304).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Flore_m%C3%A9dicale_des_Antilles,_ou,_Trait%C3%A9_des_plantes_usuelles_(9920476304).jpg"
+    },
+    "usda_common_name:523-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Angel Of Death»",
+      "license": "CC0"
+    },
+    "usda_common_name:523-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Bolek Hena»",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Wong": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Wong",
+      "license": "CC0"
+    },
+    "usda_use:11480": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11480",
+      "license": "CC0"
+    },
+    "usda_use:11481": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11481",
+      "license": "CC0"
+    },
+    "usda_use:1216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1216",
+      "license": "CC0"
+    },
+    "usda_use:13946": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13946",
+      "license": "CC0"
+    },
+    "usda_use:13947": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13947",
+      "license": "CC0"
+    },
+    "usda_use:13948": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13948",
+      "license": "CC0"
+    },
+    "usda_use:24730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24730",
+      "license": "CC0"
+    },
+    "usda_use:24731": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 24731",
+      "license": "CC0"
+    },
+    "usda_use:25840": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 25840",
+      "license": "CC0"
+    },
+    "usda_use:28346": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28346",
+      "license": "CC0"
+    },
+    "usda_use:28347": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28347",
+      "license": "CC0"
+    },
+    "usda_use:34485": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34485",
+      "license": "CC0"
+    },
+    "usda_use:34486": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34486",
+      "license": "CC0"
+    },
+    "usda_use:34816": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34816",
+      "license": "CC0"
+    },
+    "usda_use:36186": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36186",
+      "license": "CC0"
+    },
+    "usda_use:37530": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37530",
+      "license": "CC0"
+    },
+    "usda_use:40751": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40751",
+      "license": "CC0"
+    },
+    "usda_use:43069": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43069",
+      "license": "CC0"
+    },
+    "usda_use:44129": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 44129",
+      "license": "CC0"
+    },
+    "usda_use:4492": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4492",
+      "license": "CC0"
+    },
+    "usda_use:4493": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4493",
+      "license": "CC0"
+    },
+    "usda_use:56034": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56034",
+      "license": "CC0"
+    },
+    "usda_use:58931": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58931",
+      "license": "CC0"
+    },
+    "usda_use:58941": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58941",
+      "license": "CC0"
+    },
+    "usda_use:58943": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58943",
+      "license": "CC0"
+    },
+    "usda_use:63239": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63239",
+      "license": "CC0"
+    },
+    "usda_use:66909": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66909",
+      "license": "CC0"
+    },
+    "usda_use:71862": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71862",
+      "license": "CC0"
+    },
+    "usda_use:74495": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74495",
+      "license": "CC0"
+    },
+    "usda_use:80535": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80535",
+      "license": "CC0"
+    },
+    "usda_use:80581": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 80581",
+      "license": "CC0"
+    },
+    "usda_use:81492": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81492",
+      "license": "CC0"
+    },
+    "usda_use:8664": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8664",
+      "license": "CC0"
+    },
+    "wcvp:2329088": {
+      "dataset": "wcvp",
+      "label": "WCVP: Justicia pectoralis Jacq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2341792": {
+      "dataset": "wcvp",
+      "label": "WCVP: Leptostachya pectoralis (Jacq.) Nees & Mart.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2406765": {
+      "dataset": "wcvp",
+      "label": "WCVP: Psacadocalymma pectorale (Jacq.) Bremek.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2421251": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhytiglossa pectoralis (Jacq.) Nees",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2478232": {
+      "dataset": "wcvp",
+      "label": "WCVP: Stethoma pectoralis (Jacq.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2763694": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dianthera pectoralis (Jacq.) J.F.Gmel.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2780908": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ecbolium pectorale (Jacq.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q131298316": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q131298316",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q131298316"
+    },
+    "wikipedia_es:Dianthera pectoralis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Dianthera pectoralis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Dianthera_pectoralis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Jacq.) J.F.Gmel.",
+    "name": "Dianthera pectoralis",
+    "refs": [
+      "wcvp:2763694"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Jacq.) Kuntze",
+      "name": "Ecbolium pectorale",
+      "refs": [
+        "wcvp:2780908"
+      ]
+    },
+    {
+      "authors": "Jacq.",
+      "name": "Justicia pectoralis",
+      "refs": [
+        "wcvp:2329088"
+      ]
+    },
+    {
+      "authors": "(Jacq.) Nees & Mart.",
+      "name": "Leptostachya pectoralis",
+      "refs": [
+        "wcvp:2341792"
+      ]
+    },
+    {
+      "authors": "(Jacq.) Bremek.",
+      "name": "Psacadocalymma pectorale",
+      "refs": [
+        "wcvp:2406765"
+      ]
+    },
+    {
+      "authors": "(Jacq.) Nees",
+      "name": "Rhytiglossa pectoralis",
+      "refs": [
+        "wcvp:2421251"
+      ]
+    },
+    {
+      "authors": "(Jacq.) Raf.",
+      "name": "Stethoma pectoralis",
+      "refs": [
+        "wcvp:2478232"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Trinidad"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13946",
+        "usda_use:13947",
+        "usda_use:13948",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Herida",
+      "activitySource": "Wound",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Trinidad",
+        "Venezuela"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:56034",
+        "usda_use:80535",
+        "usda_use:80581",
+        "usda_reference:EB",
+        "usda_reference:Liogier",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Dolor de estómago",
+      "activitySource": "Ache(Stomach)",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1216",
+        "usda_use:58931",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4492",
+        "usda_use:4493",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Resfriado de pecho",
+      "activitySource": "Chest-Cold",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11480",
+        "usda_use:11481",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:24730",
+        "usda_use:24731",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Gripe",
+      "activitySource": "Flu",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:25840",
+        "usda_use:58941",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Hemostático",
+      "activitySource": "Hemostat",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28346",
+        "usda_use:28347",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34485",
+        "usda_use:34486",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Pectoral",
+      "activitySource": "Pectoral",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "Haití",
+        "Venezuela"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36186",
+        "usda_use:74495",
+        "usda_reference:Brutus",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Neumonía",
+      "activitySource": "Pneumonia",
+      "citations": [
+        {
+          "key": "Eb30: 139",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 139"
+        },
+        {
+          "key": "Wong",
+          "ref": "usda_reference:Wong",
+          "text": "Wong, W. 1976. Some folk medicinal plants from Trinidad. Economic Botany 30(2): 103-142."
+        }
+      ],
+      "countries": [
+        "Trinidad"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37530",
+        "usda_use:58943",
+        "usda_reference:EB",
+        "usda_reference:Wong"
+      ]
+    },
+    {
+      "activity": "Rapé",
+      "activitySource": "Snuff",
+      "citations": [
+        {
+          "key": "Eb26: 234",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 26: 234"
+        },
+        {
+          "key": "Eb30: 58",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 58"
+        }
+      ],
+      "countries": [
+        "Brasil (Waika)",
+        "Brasil (Yanomamo)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:44129",
+        "usda_use:81492",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Caquexia",
+      "activitySource": "Cachexia",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8664",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Pecho",
+      "activitySource": "Chest",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66909",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Alucinógeno",
+      "activitySource": "Hallucinogen",
+      "citations": [
+        {
+          "key": "Eb30: 58",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 30: 58"
+        }
+      ],
+      "countries": [
+        "Brasil (Yanomamo)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71862",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34816",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Resolutivo",
+      "activitySource": "Resolvent",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40751",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43069",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Vulnerario",
+      "activitySource": "Vulnerary",
+      "citations": [
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "Venezuela"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63239",
+        "usda_reference:Pittier"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+PASA  /openapi.json servido (sin token) es igual al backend/openapi.json versionado 
+PASA  las rutas nuevas son solo /v1/goals y /v1/goals/{goalId}/plants ['/v1/goals', '/v1/goals/{goalId}/plants']
+PASA  ninguna ruta existente cambia 
+PASA  ningun esquema existente cambia []
+OBS   esquemas nuevos: ['GoalPlantDto', 'GoalPlantsPageDto', 'GoalRefDto', 'GoalSummaryDto', 'SubareaRefDto', 'SubareaSummaryDto']
+PASA  /v1/goals: Bearer en security [{'bearerAuth': []}]
+PASA  /v1/goals: respuestas documentadas ['200', '401', '405', '500'] tiene ['200', '401', '405', '500']
+PASA  /v1/goals: 405 como application/problem+json ['application/problem+json']
+PASA  /v1/goals: 401 como application/problem+json ['application/problem+json']
+PASA  /v1/goals: 500 como application/problem+json ['application/problem+json']
+PASA  /v1/goals/{goalId}/plants: Bearer en security [{'bearerAuth': []}]
+PASA  /v1/goals/{goalId}/plants: respuestas documentadas ['200', '400', '401', '404', '405', '500'] tiene ['200', '400', '401', '404', '405', '500']
+PASA  /v1/goals/{goalId}/plants: 405 como application/problem+json ['application/problem+json']
+PASA  /v1/goals/{goalId}/plants: 401 como application/problem+json ['application/problem+json']
+PASA  /v1/goals/{goalId}/plants: 400 como application/problem+json ['application/problem+json']
+PASA  /v1/goals/{goalId}/plants: 500 como application/problem+json ['application/problem+json']
+PASA  /v1/goals/{goalId}/plants: 404 como application/problem+json ['application/problem+json']
+PASA  el parametro subarea, limit y offset estan documentados en la ruta de plantas 
+PASA  /health y /openapi.json siguen sin seguridad; /v1/* con seguridad 

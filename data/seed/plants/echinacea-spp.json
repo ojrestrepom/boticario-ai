@@ -1,0 +1,115 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c8fdd0bd80065f475037099e4b89772f9ec4f5181e4018fde54a893cbeabda51",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:376-1"
+      ],
+      "text": "Coneflower"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:376-2"
+      ],
+      "text": "Echinacea"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "usda_common_name:376-2"
+    ],
+    "value": "Echinacea spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "echinacea-spp",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:376-FL",
+      "usda_part:376-LF",
+      "usda_part:376-RT"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:376-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Coneflower»",
+      "license": "CC0"
+    },
+    "usda_common_name:376-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Echinacea»",
+      "license": "CC0"
+    },
+    "usda_part:376-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_part:376-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:376-RT": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Root»",
+      "license": "CC0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "wikidata-sin-item",
+      "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+      "target": "wikidata"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete solo trae nombres comunes en inglés; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la flor, la hoja y la raíz, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Echinacea spp",
+    "refs": [
+      "usda_common_name:376-2"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

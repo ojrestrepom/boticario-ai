@@ -1,0 +1,291 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b1aa4c6250ddb105fe7061a7e4e7f8cb092366a2d87be744e13a12febb0bba00",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Quercus petraea",
+        "wikidata:Q158608"
+      ],
+      "text": "Roble albar"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Roble"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Marfueyo"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Roble comun"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Roble de fruto sentado y axilar"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Roble montano"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Vecena"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q158608"
+      ],
+      "text": "Veceña"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P178"
+      ],
+      "text": "Sessile oak"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P178"
+      ],
+      "text": "Trauben-Eiche"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Quercus petraea"
+    ],
+    "value": "Árbol de fronda de la familia de las fagáceas, muy parecido a Quercus robur, aunque suele ser menos robusto y alcanza más altura en bosque denso, creciendo más recto. Sus bellotas maduran en 6 meses y sus hojas tienen lóbulos redondeados."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Quercus petraea",
+      "wikidata:Q158608"
+    ],
+    "value": "Roble albar"
+  },
+  "family": {
+    "refs": [
+      "wcvp:174374"
+    ],
+    "value": "Fagaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "subarea": null
+    },
+    {
+      "area": "Trastornos circulatorios",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "subarea": "circulacion"
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía para la corteza en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "quercus-petraea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:174374"
+    ],
+    "value": "Nativa de Europa, el Cáucaso y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:quercus-cortex"
+      ],
+      "value": "Corteza"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:quercus-cortex": {
+      "dataset": "ema_json",
+      "label": "EMA: Quercus cortex",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/quercus-cortex"
+    },
+    "ema_pdf:quercus-cortex:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de quercus-cortex, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf"
+    },
+    "ema_pdf:quercus-cortex:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de quercus-cortex, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf"
+    },
+    "ema_pdf:quercus-cortex:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de quercus-cortex, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-quercus-robur-l-quercus-petraea-matt-liebl-quercus-pubescens-willd-cortex_en.pdf"
+    },
+    "tppt_plant:P178": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Quercus petraea Liebl.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:55487": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 55487",
+      "license": "CC0"
+    },
+    "wcvp:174374": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus petraea (Matt.) Liebl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:174832": {
+      "dataset": "wcvp",
+      "label": "WCVP: Quercus robur var. petraea Matt.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q158608": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q158608",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q158608"
+    },
+    "wikipedia_es:Quercus petraea": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Quercus petraea",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Quercus_petraea"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P178",
+      "ema_pdf:quercus-cortex:4.3",
+      "ema_pdf:quercus-cortex:4.4",
+      "ema_pdf:quercus-cortex:4.5"
+    ],
+    "text": "TPPT la califica de débilmente tóxica y registra como partes la corteza, el fruto y la hoja, con taninos y catequinas; anota que las especies de Quercus no son tóxicas para las personas, pero sí pueden serlo para animales; este dato no la hace segura. La monografía de la EMA para la corteza registra como contraindicaciones la hipersensibilidad a la sustancia activa y, en el uso como aditivo de baño, las heridas abiertas, las lesiones extensas de piel y mucosas y las infecciones de piel y mucosas. Como advertencias registra que el uso en menores de 18 años no se recomienda por falta de datos y que los baños calientes no deben usarse en enfermedades febriles o infecciosas, insuficiencia cardíaca e hipertensión. Como interacción registra que la absorción interna de otros medicamentos tomados a la vez puede retrasarse."
+  },
+  "scientificName": {
+    "authors": "(Matt.) Liebl.",
+    "name": "Quercus petraea",
+    "refs": [
+      "wcvp:174374"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Matt.",
+      "name": "Quercus robur var. petraea",
+      "refs": [
+        "wcvp:174832"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Verruga",
+      "activitySource": "Wart",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:55487",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

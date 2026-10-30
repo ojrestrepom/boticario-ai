@@ -1,0 +1,130 @@
+{
+  "bundleHash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+  "bundleVersion": "1",
+  "identity": {
+    "accepted": {
+      "wcvp": {
+        "authors": "L.",
+        "family": "Hypericaceae",
+        "id": "2",
+        "name": "Hypericum perforatum",
+        "rank": "Species",
+        "ref": "wcvp:2",
+        "status": "Accepted"
+      }
+    },
+    "aliases": [],
+    "authors": "L.",
+    "collision": null,
+    "family": "Hypericaceae",
+    "flags": [
+      {
+        "code": "wikidata-sin-item",
+        "message": "Wikidata respondió, pero ningún ítem pasa el filtro de homónimos para esta planta.",
+        "target": "wikidata"
+      }
+    ],
+    "kind": "resolved",
+    "name": "Hypericum perforatum",
+    "nameSet": [
+      {
+        "authors": "L.",
+        "backbone": "wcvp",
+        "name": "Hypericum perforatum",
+        "reason": "universe",
+        "ref": "wcvp:2"
+      }
+    ],
+    "notes": [],
+    "primaryBackbone": "wcvp",
+    "proposedId": "hypericum-perforatum",
+    "universe": []
+  },
+  "plantKey": "hypericum-perforatum",
+  "refs": {
+    "ema_herbal:hyperici-herba-0": {
+      "dataset": "ema_json",
+      "label": "EMA: Hyperici herba",
+      "license": "Reutilización citando a la EMA",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/hyperici-herba-0"
+    },
+    "ema_pdf:hyperici-herba-0:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de Hyperici herba, sección 4.5",
+      "license": "Reutilización citando a la EMA",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/ejemplo-hyperici-herba-0_en.pdf"
+    },
+    "wcvp:2": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hypericum perforatum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "sections": {
+    "descriptions": [],
+    "distribution": null,
+    "images": [],
+    "names": [],
+    "parts": [],
+    "regulatory": [
+      {
+        "botanicalName": "Hypericum perforatum L.",
+        "combination": "No",
+        "englishName": "St. John's wort",
+        "goalCandidates": [
+          {
+            "area": "Mental stress and mood disorders",
+            "areaEs": "Estrés mental y trastornos del ánimo",
+            "goal": "relajacion-estres",
+            "subarea": null
+          }
+        ],
+        "latinName": "Hyperici herba",
+        "outcome": "European Union herbal monograph",
+        "ref": "ema_herbal:hyperici-herba-0",
+        "slug": "hyperici-herba-0",
+        "status": "F: Assessment finalised",
+        "therapeuticAreas": [
+          "Mental stress and mood disorders"
+        ],
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/hyperici-herba-0"
+      }
+    ],
+    "safety": [
+      {
+        "documentKind": "monograph-final",
+        "heading": "Interactions",
+        "interactionClass": "severe",
+        "level": "alto",
+        "pages": [
+          5,
+          5
+        ],
+        "ref": "ema_pdf:hyperici-herba-0:4.5",
+        "section": "4.5",
+        "severeInteractions": true,
+        "slug": "hyperici-herba-0",
+        "source": "ema_pdf",
+        "text": "Interactions with other medicinal products (resumen de fixture)."
+      }
+    ],
+    "taxonomy": [
+      {
+        "authors": "L.",
+        "backbone": "wcvp",
+        "family": "Hypericaceae",
+        "id": "2",
+        "name": "Hypericum perforatum",
+        "rank": "Species",
+        "ref": "wcvp:2",
+        "role": "aceptado",
+        "status": "Accepted"
+      }
+    ],
+    "uses": [],
+    "wikidata": {
+      "items": [],
+      "status": "sin-item"
+    }
+  }
+}

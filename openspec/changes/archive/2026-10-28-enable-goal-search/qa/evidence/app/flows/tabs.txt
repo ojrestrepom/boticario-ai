@@ -1,0 +1,28 @@
+=== passport
+PASA  UI-07 al tocar «Hiedra común» se abre su pasaporte
+PASA  UI-07 el botón Atrás del pasaporte dice «Volver», no «Volver a Explorar» ['Volver']
+PASA  UI-07 al volver no aparece el estado de carga de P07 (no recarga la primera página)
+PASA  UI-07 al volver, P07 está en la misma posición con las mismas tarjetas (píxel a píxel) diferencia en None
+PASA  UI-07 la tarjeta tocada sigue en su sitio con el mismo texto
+FALLA UI-07 desde una subárea: al volver conserva 'Para: Digestión' y la tarjeta tocada sigue en su posición (±120 px por miniaturas que terminan de cargar) antes y=983, después y=1043
+OBS   las tarjetas cambian de alto cuando la miniatura termina de cargar (aparece la línea de atribución): el contenido bajo ella se desplaza unos 10 dp; es la consecuencia de mostrar la atribución solo con la imagen cargada
+=== stack
+PASA  UI-08 Inicio, P06, Otros objetivos, Digestión y una planta: se llega al pasaporte
+PASA  UI-08 botón Volver de la app: paso 1 vuelve a P07
+PASA  UI-08 botón Volver de la app: paso 2 vuelve a subáreas
+PASA  UI-08 botón Volver de la app: paso 3 vuelve a P06
+PASA  UI-08 botón Volver de la app: paso 4 vuelve a Inicio
+PASA  UI-08 Atrás del sistema: paso 1 vuelve a P07
+PASA  UI-08 Atrás del sistema: paso 2 vuelve a subáreas
+PASA  UI-08 Atrás del sistema: paso 3 vuelve a P06
+PASA  UI-08 Atrás del sistema: paso 4 vuelve a Inicio
+=== tabs
+PASA  UI-09 pestaña Inicio desde P06: vuelve a la raíz
+PASA  UI-09 pestaña Inicio desde P06: la pila queda limpia (Atrás sale de la app)
+PASA  UI-09 pestaña Inicio desde subáreas: vuelve a la raíz
+PASA  UI-09 pestaña Inicio desde subáreas: la pila queda limpia (Atrás sale de la app)
+PASA  UI-09 pestaña Inicio desde P07: vuelve a la raíz
+PASA  UI-09 pestaña Inicio desde P07: la pila queda limpia (Atrás sale de la app)
+PASA  UI-09 pestaña Inicio desde el pasaporte: vuelve a la raíz
+PASA  UI-09 pestaña Inicio desde el pasaporte: la pila queda limpia (Atrás sale de la app)
+PASA  UI-09 Favoritos, Historial y Perfil en P06 no cambian ruta, selección ni interfaz

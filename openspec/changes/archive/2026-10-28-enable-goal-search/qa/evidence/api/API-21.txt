@@ -1,0 +1,19 @@
+PASA  /health sigue publica -> 200 
+PASA  /openapi.json sigue publica -> 200 
+PASA  /goals sin token: no es una ruta publica con datos (no 200) 404
+OBS   /goals con token -> 404 application/problem+json
+PASA  /goals/mejorar-el-sueno/plants sin token: no es una ruta publica con datos (no 200) 404
+OBS   /goals/mejorar-el-sueno/plants con token -> 404 application/problem+json
+PASA  /v2/goals sin token: no es una ruta publica con datos (no 200) 404
+OBS   /v2/goals con token -> 404 application/problem+json
+PASA  /v1/goals/mejorar-el-sueno sin token: no es una ruta publica con datos (no 200) 401
+OBS   /v1/goals/mejorar-el-sueno con token -> 404 application/problem+json
+PASA  /v1/goals/mejorar-el-sueno/plants/extra sin token: no es una ruta publica con datos (no 200) 401
+OBS   /v1/goals/mejorar-el-sueno/plants/extra con token -> 404 application/problem+json
+PASA  /v1/goal sin token: no es una ruta publica con datos (no 200) 401
+OBS   /v1/goal con token -> 404 application/problem+json
+OBS   barra final /v1/goals/ con token -> 404
+OBS   barra final /v1/goals/mejorar-el-sueno/plants/ con token -> 404
+PASA  los logs del contenedor no contienen el token 1 lineas
+OBS   con RUST_LOG=info la API solo registra el arranque; el barrido con nivel debug va en API-23
+2026-10-28T02:18:59.857081Z  INFO catalog_api: escuchando addr=0.0.0.0:8080 db=/app/catalog.db

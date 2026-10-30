@@ -1,0 +1,27 @@
+Simulación de «Rotar el token de CI» con doble de gcloud y gh (tokens ficticios, sin GCP). Salida de los bloques de la guía, en orden:
+--- bloque 1
+--- bloque 2
+Created version [2] of the secret [boticario-api-tokens].
+1 enabled
+2 enabled
+--- bloque 3
+✓ Set Actions secret API_VERIFY_TOKEN
+API_VERIFY_TOKEN  updated 2026-10-19T00:39:47Z
+--- bloque 4
+Created version [3] of the secret [boticario-api-tokens].
+1 enabled
+2 enabled
+3 enabled
+--- bloque 5
+Disabled version [1].
+Disabled version [2].
+1 disabled
+2 disabled
+3 enabled
+
+PASS v1 = app,ci-viejo (estado inicial)
+PASS v2 = app,ci-nuevo,ci-viejo (paso 2)
+PASS v3 = app,ci-nuevo (paso 5)
+PASS API_VERIFY_TOKEN pasa a ci-nuevo (paso 4)
+PASS versiones 1 y 2 desactivadas y la 3 habilitada (paso 6)
+PASS en todo momento el token de la app se conserva (v2 y v3)

@@ -1,0 +1,45 @@
+# AUT-14 Escrituras con token (objetivo: local)
+
+### POST /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+content-length: 147
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### PUT /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+content-length: 147
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### PATCH /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+content-length: 147
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### DELETE /v1/plants   [Bearer <válido>]
+status=405
+content-type: application/problem+json
+allow: GET
+content-length: 147
+connection: close
+
+{"type":"about:blank","title":"Method Not Allowed","status":405,"detail":"método no permitido: la API es de solo lectura","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [Bearer <válido>]
+status=200
+content-type: application/json
+content-length: 336
+connection: close
+
+{"items":[{"id":"abelmoschus-esculentus","scientificName":"Abelmoschus esculentus","commonNames":[{"text":"Okra","language":"en"}],"family":"Malvaceae"},{"id":"abelmoschus-manihot","scientificName":"Abelmoschus manihot","commonNames":[{"text":"Manioc Hibiscus","language":"en"}],"family":"Malvaceae"}],"total":2376,"limit":2,"offset":0}

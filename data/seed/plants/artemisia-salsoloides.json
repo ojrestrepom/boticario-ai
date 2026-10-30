@@ -1,0 +1,132 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5cab6d297c40b530fbec69a86e8c365de5df4654cdc636cbea127065d13829bb",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3108686"
+    ],
+    "value": "Artemisia salsoloides"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3108686"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "artemisia-salsoloides",
+  "image": {
+    "attributionRequired": true,
+    "author": "GalinaGouz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%80%D0%B5%D0%B9%D0%B4%D1%8F%D0%BD%D1%96_%D0%B2%D1%96%D0%B4%D1%81%D0%BB%D0%BE%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F_Artemisia_salsoloides.jpg",
+    "refs": [
+      "commons:File:Крейдяні відслонення Artemisia salsoloides.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/%D0%9A%D1%80%D0%B5%D0%B9%D0%B4%D1%8F%D0%BD%D1%96_%D0%B2%D1%96%D0%B4%D1%81%D0%BB%D0%BE%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F_Artemisia_salsoloides.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:5001-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:3108686"
+    ],
+    "value": "Cáucaso, Asia central, Europa oriental y subcontinente indio"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Крейдяні відслонення Artemisia salsoloides.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Крейдяні відслонення Artemisia salsoloides.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%80%D0%B5%D0%B9%D0%B4%D1%8F%D0%BD%D1%96_%D0%B2%D1%96%D0%B4%D1%81%D0%BB%D0%BE%D0%BD%D0%B5%D0%BD%D0%BD%D1%8F_Artemisia_salsoloides.jpg"
+    },
+    "usda_part:5001-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:3108684": {
+      "dataset": "wcvp",
+      "label": "WCVP: Draconia salsoloides (Willd.) Soják",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3108685": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oligosporus salsoloides (Willd.) Poljakov",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3108686": {
+      "dataset": "wcvp",
+      "label": "WCVP: Artemisia salsoloides Willd.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Willd.",
+    "name": "Artemisia salsoloides",
+    "refs": [
+      "wcvp:3108686"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Willd.) Soják",
+      "name": "Draconia salsoloides",
+      "refs": [
+        "wcvp:3108684"
+      ]
+    },
+    {
+      "authors": "(Willd.) Poljakov",
+      "name": "Oligosporus salsoloides",
+      "refs": [
+        "wcvp:3108685"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

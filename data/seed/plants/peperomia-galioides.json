@@ -1,0 +1,179 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f67d35da202b17f4f3861927be3bfc38ec82fe8c34b4a73630af25208d955c97",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2267-1"
+      ],
+      "text": "Congona"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "usda_common_name:2267-1"
+    ],
+    "value": "Congona"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2557042"
+    ],
+    "value": "Piperaceae"
+  },
+  "goals": [],
+  "id": "peperomia-galioides",
+  "image": {
+    "attributionRequired": true,
+    "author": "Salicyna",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Peperomia_galioides_2019-04-16_0828.jpg",
+    "refs": [
+      "commons:File:Peperomia galioides 2019-04-16 0828.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Peperomia_galioides_2019-04-16_0828.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2557042"
+    ],
+    "value": "Brasil, Caribe, América Central, México y norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Peperomia galioides 2019-04-16 0828.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Peperomia galioides 2019-04-16 0828.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Peperomia_galioides_2019-04-16_0828.jpg"
+    },
+    "usda_common_name:2267-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Congona»",
+      "license": "CC0"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:36603": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36603",
+      "license": "CC0"
+    },
+    "usda_use:74614": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74614",
+      "license": "CC0"
+    },
+    "wcvp:2557042": {
+      "dataset": "wcvp",
+      "label": "WCVP: Peperomia galioides Kunth",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2558019": {
+      "dataset": "wcvp",
+      "label": "WCVP: Piper galioides (Kunth) Poir.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2900464": {
+      "dataset": "wcvp",
+      "label": "WCVP: Peperomia inaequalifolia var. galioides (Kunth) Pino",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA etiqueta como inglés el nombre «Congona», que parece español; se registra como español por su forma.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Kunth",
+    "name": "Peperomia galioides",
+    "refs": [
+      "wcvp:2557042"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Kunth) Pino",
+      "name": "Peperomia inaequalifolia var. galioides",
+      "refs": [
+        "wcvp:2900464"
+      ]
+    },
+    {
+      "authors": "(Kunth) Poir.",
+      "name": "Piper galioides",
+      "refs": [
+        "wcvp:2558019"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Filtro de amor",
+      "activitySource": "Philter",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        },
+        {
+          "key": "Eb24: 362",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 362"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Panamá (Chocó)"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36603",
+        "usda_use:74614",
+        "usda_reference:Duke",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

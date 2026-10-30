@@ -1,0 +1,136 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f9b75a850fe8ad14b2ff19d7daa969e7642fb2b0280bcfbdd87d4c1b0f5a86e7",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2419773"
+    ],
+    "value": "Rhododendron falconeri"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2419773"
+    ],
+    "value": "Ericaceae"
+  },
+  "goals": [],
+  "id": "rhododendron-falconeri",
+  "image": {
+    "attributionRequired": false,
+    "author": "Daderot",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rhododendron_falconeri_ssp._eximium_-_Trebah_Garden_-_Cornwall,_England_-_DSC01337.jpg",
+    "refs": [
+      "commons:File:Rhododendron falconeri ssp. eximium - Trebah Garden - Cornwall, England - DSC01337.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Rhododendron_falconeri_ssp._eximium_-_Trebah_Garden_-_Cornwall%2C_England_-_DSC01337.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2419773"
+    ],
+    "value": "Himalaya oriental, Myanmar y Nepal"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rhododendron falconeri ssp. eximium - Trebah Garden - Cornwall, England - DSC01337.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rhododendron falconeri ssp. eximium - Trebah Garden - Cornwall, England - DSC01337.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Rhododendron_falconeri_ssp._eximium_-_Trebah_Garden_-_Cornwall,_England_-_DSC01337.jpg"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:37298": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37298",
+      "license": "CC0"
+    },
+    "wcvp:2419773": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhododendron falconeri Hook.f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2667087": {
+      "dataset": "wcvp",
+      "label": "WCVP: Azalea falconeri (Hook.f.) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Hook.f.",
+    "name": "Rhododendron falconeri",
+    "refs": [
+      "wcvp:2419773"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Hook.f.) Kuntze",
+      "name": "Azalea falconeri",
+      "refs": [
+        "wcvp:2667087"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Piscicida",
+      "activitySource": "Piscicide",
+      "citations": [
+        {
+          "key": "Woi.9",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 9"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:37298",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

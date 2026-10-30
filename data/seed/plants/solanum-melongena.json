@@ -1,0 +1,824 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4980479cda20952eeed4c33de8fefe3dea22d9e38a35df072b826b5c7a285100",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q7540"
+      ],
+      "text": "berenjena"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:942-2",
+        "tppt_plant:P514"
+      ],
+      "text": "Eggplant"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:942-1"
+      ],
+      "text": "Aubergine"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P514"
+      ],
+      "text": "Aubergine"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Solanum melongena"
+    ],
+    "value": "Planta de fruto comestible, generalmente anual, del género Solanum, dentro de la familia de las solanáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q7540",
+      "wikipedia_es:Solanum melongena"
+    ],
+    "value": "Berenjena"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3032200"
+    ],
+    "value": "Solanaceae"
+  },
+  "goals": [],
+  "id": "solanum-melongena",
+  "image": {
+    "attributionRequired": true,
+    "author": "BeraDigle",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Des_aubergines_violettes.jpg",
+    "refs": [
+      "commons:File:Des aubergines violettes.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Des_aubergines_violettes.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3032200"
+    ],
+    "value": "Nativa de China, el subcontinente indio, Indochina, Malesia y el océano Índico occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Des aubergines violettes.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Des aubergines violettes.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Des_aubergines_violettes.jpg"
+    },
+    "tppt_plant:P514": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Solanum melongena L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:942-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Aubergine»",
+      "license": "CC0"
+    },
+    "usda_common_name:942-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Eggplant»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Brutus": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Brutus",
+      "license": "CC0"
+    },
+    "usda_reference:Burkill, 1966": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Burkill, 1966",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Pittier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Pittier",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Takeda": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Takeda",
+      "license": "CC0"
+    },
+    "usda_use:10743": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10743",
+      "license": "CC0"
+    },
+    "usda_use:2218": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2218",
+      "license": "CC0"
+    },
+    "usda_use:2797": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2797",
+      "license": "CC0"
+    },
+    "usda_use:3170": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3170",
+      "license": "CC0"
+    },
+    "usda_use:36910": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36910",
+      "license": "CC0"
+    },
+    "usda_use:40525": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40525",
+      "license": "CC0"
+    },
+    "usda_use:45194": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45194",
+      "license": "CC0"
+    },
+    "usda_use:45195": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45195",
+      "license": "CC0"
+    },
+    "usda_use:4604": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4604",
+      "license": "CC0"
+    },
+    "usda_use:467": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 467",
+      "license": "CC0"
+    },
+    "usda_use:51547": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51547",
+      "license": "CC0"
+    },
+    "usda_use:51548": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51548",
+      "license": "CC0"
+    },
+    "usda_use:52662": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52662",
+      "license": "CC0"
+    },
+    "usda_use:52663": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52663",
+      "license": "CC0"
+    },
+    "usda_use:6162": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6162",
+      "license": "CC0"
+    },
+    "usda_use:61630": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61630",
+      "license": "CC0"
+    },
+    "usda_use:61636": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61636",
+      "license": "CC0"
+    },
+    "usda_use:61642": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61642",
+      "license": "CC0"
+    },
+    "usda_use:63703": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63703",
+      "license": "CC0"
+    },
+    "usda_use:64952": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64952",
+      "license": "CC0"
+    },
+    "usda_use:65709": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65709",
+      "license": "CC0"
+    },
+    "usda_use:66329": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66329",
+      "license": "CC0"
+    },
+    "usda_use:66565": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66565",
+      "license": "CC0"
+    },
+    "usda_use:69151": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69151",
+      "license": "CC0"
+    },
+    "usda_use:74702": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74702",
+      "license": "CC0"
+    },
+    "usda_use:75831": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75831",
+      "license": "CC0"
+    },
+    "usda_use:77259": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77259",
+      "license": "CC0"
+    },
+    "usda_use:79552": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79552",
+      "license": "CC0"
+    },
+    "usda_use:8619": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8619",
+      "license": "CC0"
+    },
+    "usda_use:9465": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9465",
+      "license": "CC0"
+    },
+    "wcvp:3032200": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solanum melongena L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q7540": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q7540",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q7540"
+    },
+    "wikipedia_es:Solanum melongena": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Solanum melongena",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Solanum_melongena"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "El grupo «Ache(Tooth)» tiene una clave de cita sin resolver.",
+      "target": "traditionalUses[3]"
+    }
+  ],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "tppt_plant:P514"
+    ],
+    "text": "TPPT registra toxicidad humana fuerte para la planta entera; sus toxinas principales son los alcaloides esteroidales solamargina y solasonina."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Solanum melongena",
+    "refs": [
+      "wcvp:3032200"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Bélgica",
+        "Grecia",
+        "Indias Occidentales"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9465",
+        "usda_use:61642",
+        "usda_use:66329",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "China",
+        "República Dominicana",
+        "Malaya"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45194",
+        "usda_use:45195",
+        "usda_use:77259",
+        "usda_reference:Bliss",
+        "usda_reference:Burkill, 1966",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        },
+        {
+          "key": "Pittier",
+          "ref": "usda_reference:Pittier",
+          "text": "Pittier, H. 1926. Manual de las Plantas Usuales de Venezuela. Litografia del Comercio, Caracas, Venezuela."
+        }
+      ],
+      "countries": [
+        "China",
+        "Venezuela"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52662",
+        "usda_use:52663",
+        "usda_use:79552",
+        "usda_reference:Hartwell",
+        "usda_reference:Pittier"
+      ]
+    },
+    {
+      "activity": "Dolor de muelas",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "China",
+        "Guyana"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51547",
+        "usda_use:51548",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Quemadura",
+      "activitySource": "Burn",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        },
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8619",
+        "usda_use:61630",
+        "usda_reference:Brutus",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Hemorroides",
+      "activitySource": "Piles",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Burkill,1966",
+          "ref": "usda_reference:Burkill, 1966",
+          "text": "Burkill, J .D. 1966. A Dictionary of the Economic Products of the Malay Peninsula. Art Printing Works, Kuala Lumpur. 2 vols."
+        }
+      ],
+      "countries": [
+        "China",
+        "Malaya"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36910",
+        "usda_use:74702",
+        "usda_reference:Bliss",
+        "usda_reference:Burkill, 1966"
+      ]
+    },
+    {
+      "activity": "Refrigerante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "China",
+        "Haití"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40525",
+        "usda_use:75831",
+        "usda_reference:Bliss",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Absceso",
+      "activitySource": "Abscess",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:467",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Dolor de oído",
+      "activitySource": "Ache(Ear)",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:63703",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Analgésico",
+      "activitySource": "Analgesic",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61636",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Anemia",
+      "activitySource": "Anemia",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2218",
+        "usda_reference:Brutus"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2797",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Takeda",
+          "ref": "usda_reference:Takeda",
+          "text": "ANON. 1978. List of Plants. Kyoto Herbal Garden, Parmacognostic Research Lab., Central Research Division, Takeda Chem. Industries, Ltd., Ichijoji, Sakyoku, Kyoto, Japan."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3170",
+        "usda_reference:Takeda"
+      ]
+    },
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Eb24: 83",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 83"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4604",
+        "usda_reference:EB"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64952",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6162",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Vejiga",
+      "activitySource": "Bladder",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65709",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Caries",
+      "activitySource": "Caries",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66565",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10743",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Brutus",
+          "ref": "usda_reference:Brutus",
+          "text": "Brutus, T.C., and A.V. Pierce-Noel. 1960. Les Plantes et les Legumes d'Hati qui Guerissent. Imprimerie De L'Etat, Port-Au-Prince, Haiti."
+        }
+      ],
+      "countries": [
+        "Haití"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69151",
+        "usda_reference:Brutus"
+      ]
+    }
+  ]
+}

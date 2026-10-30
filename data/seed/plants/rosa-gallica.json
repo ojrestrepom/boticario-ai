@@ -1,0 +1,680 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:ac4a3548f54d3acca972157128c58962d73446b99a869645c2f0b56b7c77cf11",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rosa gallica",
+        "wikidata:Q157668"
+      ],
+      "text": "Rosa de Castilla"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q157668"
+      ],
+      "text": "Rosal de Castilla"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rosa gallica",
+        "wikidata:Q157668"
+      ],
+      "text": "Rosal de Francia"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Rosa gallica",
+        "wikidata:Q157668"
+      ],
+      "text": "Rosal de Provins"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:868-1"
+      ],
+      "text": "French Rose"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Rosa gallica"
+    ],
+    "value": "Especie de rosal, de nombres coloquiales rosa de Castilla, rosal de Francia o rosal de Provins, originario de Europa central y meridional y de Asia occidental, desde Turquía hasta el Cáucaso."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Rosa gallica",
+      "wikidata:Q157668"
+    ],
+    "value": "Rosa de Castilla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2969349"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos de boca y garganta",
+      "evidence": "La EMA tiene una monografía para la flor en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rosae-flos"
+      ],
+      "subarea": "boca-y-garganta"
+    },
+    {
+      "area": "Trastornos de la piel y heridas leves",
+      "evidence": "La EMA tiene una monografía para la flor en esta área.",
+      "goal": "cuidado-de-la-piel",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:rosae-flos"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "rosa-gallica",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:868-FL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2969349"
+    ],
+    "value": "Nativa de Europa, el Cáucaso y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:rosae-flos"
+      ],
+      "value": "Flor"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:863": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Proanthocyanidins (condensed tannins)",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:rosae-flos": {
+      "dataset": "ema_json",
+      "label": "EMA: Rosae flos",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/rosae-flos"
+    },
+    "ema_pdf:rosae-flos:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rosae-flos, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rosa-gallica-l-rosa-centifolia-l-rosa-damascena-mill-flos_en.pdf"
+    },
+    "ema_pdf:rosae-flos:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de rosae-flos, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-rosa-gallica-l-rosa-centifolia-l-rosa-damascena-mill-flos_en.pdf"
+    },
+    "usda_common_name:868-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «French Rose»",
+      "license": "CC0"
+    },
+    "usda_part:868-FL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Flower»",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10221": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10221",
+      "license": "CC0"
+    },
+    "usda_use:34122": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34122",
+      "license": "CC0"
+    },
+    "usda_use:34860": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34860",
+      "license": "CC0"
+    },
+    "usda_use:40500": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 40500",
+      "license": "CC0"
+    },
+    "usda_use:47905": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47905",
+      "license": "CC0"
+    },
+    "usda_use:52587": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52587",
+      "license": "CC0"
+    },
+    "usda_use:6087": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6087",
+      "license": "CC0"
+    },
+    "usda_use:6088": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6088",
+      "license": "CC0"
+    },
+    "usda_use:6089": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6089",
+      "license": "CC0"
+    },
+    "usda_use:61039": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61039",
+      "license": "CC0"
+    },
+    "usda_use:61053": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61053",
+      "license": "CC0"
+    },
+    "usda_use:65075": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65075",
+      "license": "CC0"
+    },
+    "usda_use:66693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66693",
+      "license": "CC0"
+    },
+    "usda_use:76828": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76828",
+      "license": "CC0"
+    },
+    "usda_use:79034": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 79034",
+      "license": "CC0"
+    },
+    "usda_use:82133": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82133",
+      "license": "CC0"
+    },
+    "usda_use:8231": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8231",
+      "license": "CC0"
+    },
+    "usda_use:9384": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9384",
+      "license": "CC0"
+    },
+    "wcvp:2969349": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rosa gallica L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q157668": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q157668",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q157668"
+    },
+    "wikipedia_es:Rosa gallica": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Rosa gallica",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Rosa_gallica"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Astringent»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Tonic»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[1]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Asthma»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[2]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Bowel»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[3]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Bronchitis»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[4]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Debility»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[8]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Mucus»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[9]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Sin candidata para la clave de cita «Woi.Syria» del grupo «Skin»; queda sin resolver para revisión humana.",
+      "target": "traditionalUses[12]"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la flor, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:rosae-flos:4.3",
+      "ema_pdf:rosae-flos:4.4",
+      "efsa_botanic:863"
+    ],
+    "text": "La monografía de la EMA para la flor registra como contraindicación la hipersensibilidad a la sustancia activa y, como advertencia, que el uso en menores de 12 años no está establecido por falta de datos. EFSA registra como sustancia de evidencia en la flor las proantocianidinas (taninos condensados)."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Rosa gallica",
+    "refs": [
+      "wcvp:2969349"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6087",
+        "usda_use:6088",
+        "usda_use:6089",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tónico",
+      "activitySource": "Tonic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Europa"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61053",
+        "usda_use:79034",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:65075"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Bowel",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:61039"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:8231"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9384",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Cardiotónico",
+      "activitySource": "Cardiotonic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10221",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66693",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Debilidad",
+      "activitySource": "Debility",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:82133"
+      ]
+    },
+    {
+      "activity": "Mucosidad",
+      "activitySource": "Mucus",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:34122"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34860",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Refrescante",
+      "activitySource": "Refrigerant",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:40500",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Piel",
+      "activitySource": "Skin",
+      "citations": [
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": true,
+      "refs": [
+        "usda_use:76828"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47905",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52587",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

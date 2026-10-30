@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bf716d77e1a69880b2875ef2bc4ca1bdaf56a0d16b0cbced4c6b7dda0a33ec61",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:822-1"
+      ],
+      "text": "Slenderleaf Mountain Mint"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:171075"
+    ],
+    "value": "Pycnanthemum tenuifolium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:171075"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "pycnanthemum-tenuifolium",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_tenuifolium_inflorescence_and_upper_cauline_leaves.jpg",
+    "refs": [
+      "commons:File:Pycnanthemum tenuifolium inflorescence and upper cauline leaves.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Pycnanthemum_tenuifolium_inflorescence_and_upper_cauline_leaves.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:822-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:171075"
+    ],
+    "value": "Nativa del este de Canadá y del centro-norte, noreste, centro-sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Pycnanthemum tenuifolium inflorescence and upper cauline leaves.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Pycnanthemum tenuifolium inflorescence and upper cauline leaves.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Pycnanthemum_tenuifolium_inflorescence_and_upper_cauline_leaves.jpg"
+    },
+    "usda_common_name:822-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Slenderleaf Mountain Mint»",
+      "license": "CC0"
+    },
+    "usda_part:822-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:171075": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pycnanthemum tenuifolium Schrad.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Schrad.",
+    "name": "Pycnanthemum tenuifolium",
+    "refs": [
+      "wcvp:171075"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

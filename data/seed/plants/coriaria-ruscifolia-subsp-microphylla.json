@@ -1,0 +1,245 @@
+{
+  "aliases": [
+    "coriaria-thymifolia"
+  ],
+  "bundleHash": "sha256:4e38caa921604b8dead7c8a95be1ef3d4fc642f275f7c7a22da8f1537f635f63",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:310-1"
+      ],
+      "text": "Ground Toot"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:310-2"
+      ],
+      "text": "Shanshi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:47228"
+    ],
+    "value": "Coriaria ruscifolia subsp. microphylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:47228"
+    ],
+    "value": "Coriariaceae"
+  },
+  "goals": [],
+  "id": "coriaria-ruscifolia-subsp-microphylla",
+  "image": {
+    "attributionRequired": true,
+    "author": "Gabriele Kothe-Heinrich",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Coriaria_ruscifolia_subsp_microphylla_Irazu_2.jpg",
+    "refs": [
+      "commons:File:Coriaria ruscifolia subsp microphylla Irazu 2.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Coriaria_ruscifolia_subsp_microphylla_Irazu_2.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:47228"
+    ],
+    "value": "América Central, México, norte y oeste de Sudamérica y Papuasia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Coriaria ruscifolia subsp microphylla Irazu 2.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Coriaria ruscifolia subsp microphylla Irazu 2.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Coriaria_ruscifolia_subsp_microphylla_Irazu_2.jpg"
+    },
+    "efsa_botanic:394": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: coriamyrtin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:395": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: coriatine",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:396": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: tutine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:310-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ground Toot»",
+      "license": "CC0"
+    },
+    "usda_common_name:310-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Shanshi»",
+      "license": "CC0"
+    },
+    "usda_reference:Standley": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley",
+      "license": "CC0"
+    },
+    "usda_reference:Standley,Steyermark": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Standley,Steyermark",
+      "license": "CC0"
+    },
+    "usda_use:37806": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37806",
+      "license": "CC0"
+    },
+    "usda_use:37807": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37807",
+      "license": "CC0"
+    },
+    "usda_use:63480": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 63480",
+      "license": "CC0"
+    },
+    "usda_use:75730": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75730",
+      "license": "CC0"
+    },
+    "usda_use:9945": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9945",
+      "license": "CC0"
+    },
+    "usda_use:9946": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9946",
+      "license": "CC0"
+    },
+    "wcvp:47219": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coriaria microphylla Poir.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:47228": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coriaria ruscifolia subsp. microphylla (Poir.) J.E.Skog",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:394",
+      "efsa_botanic:395",
+      "efsa_botanic:396",
+      "usda_use:37806",
+      "usda_use:37807",
+      "usda_use:63480"
+    ],
+    "text": "La EFSA registra coriamyrtin, coriatine y tutine en la parte aérea de la planta. Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(Poir.) J.E.Skog",
+    "name": "Coriaria ruscifolia subsp. microphylla",
+    "refs": [
+      "wcvp:47228"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Poir.",
+      "name": "Coriaria microphylla",
+      "refs": [
+        "wcvp:47219"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Canicida",
+      "activitySource": "Canicide",
+      "citations": [
+        {
+          "key": "Standley",
+          "ref": "usda_reference:Standley",
+          "text": "Standley, Paul C. Trees and shrubs of Mexico. Contributions U.S. National Herbarium, vol. 23. Govt. Printing Office, Washington, D.C."
+        },
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9945",
+        "usda_use:9946",
+        "usda_reference:Standley",
+        "usda_reference:Standley,Steyermark"
+      ]
+    },
+    {
+      "activity": "Raticida",
+      "activitySource": "Raticide",
+      "citations": [
+        {
+          "key": "Standley,Steyermark",
+          "ref": "usda_reference:Standley,Steyermark",
+          "text": "Standley, P.C., and J.A. Steyermark. 1952. Flora of Guatemala. Fieldiana Botany, vol, 24, pt. 3. Museum of Natl. History, Chicago."
+        }
+      ],
+      "countries": [
+        "México"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75730",
+        "usda_reference:Standley,Steyermark"
+      ]
+    }
+  ]
+}

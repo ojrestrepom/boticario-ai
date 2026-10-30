@@ -1,0 +1,333 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:66cc7e0fc50b38639cdc29626ef3663e321eb60ef7a044da9c5bf64b588da363",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:675-1"
+      ],
+      "text": "Hercules All Heal"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:675-2"
+      ],
+      "text": "Opopanax"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2390877"
+    ],
+    "value": "Opopanax chironium"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2390877"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "opopanax-chironium",
+  "image": {
+    "attributionRequired": true,
+    "author": "Magnus Manske",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Opopanax_chironium_2007-06-02_(flower).jpg",
+    "refs": [
+      "commons:File:Opopanax chironium 2007-06-02 (flower).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Opopanax_chironium_2007-06-02_%28flower%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:675-RE"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2390877"
+    ],
+    "value": "Nativa del sureste y el suroeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Opopanax chironium 2007-06-02 (flower).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Opopanax chironium 2007-06-02 (flower).jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Opopanax_chironium_2007-06-02_(flower).jpg"
+    },
+    "usda_common_name:675-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Hercules All Heal»",
+      "license": "CC0"
+    },
+    "usda_common_name:675-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Opopanax»",
+      "license": "CC0"
+    },
+    "usda_part:675-RE": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Resin, Exudate, Sap»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:33646": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33646",
+      "license": "CC0"
+    },
+    "usda_use:3717": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3717",
+      "license": "CC0"
+    },
+    "usda_use:45805": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45805",
+      "license": "CC0"
+    },
+    "usda_use:46825": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 46825",
+      "license": "CC0"
+    },
+    "usda_use:77455": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77455",
+      "license": "CC0"
+    },
+    "usda_use:9267": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9267",
+      "license": "CC0"
+    },
+    "wcvp:2340921": {
+      "dataset": "wcvp",
+      "label": "WCVP: Laserpitium chironium L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2365397": {
+      "dataset": "wcvp",
+      "label": "WCVP: Maspeton chironium (L.) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2390877": {
+      "dataset": "wcvp",
+      "label": "WCVP: Opopanax chironium (L.) W.D.J.Koch",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2775470": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dorema chironium (L.) M.Hiroe",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(L.) W.D.J.Koch",
+    "name": "Opopanax chironium",
+    "refs": [
+      "wcvp:2390877"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) M.Hiroe",
+      "name": "Dorema chironium",
+      "refs": [
+        "wcvp:2775470"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Laserpitium chironium",
+      "refs": [
+        "wcvp:2340921"
+      ]
+    },
+    {
+      "authors": "(L.) Raf.",
+      "name": "Maspeton chironium",
+      "refs": [
+        "wcvp:2365397"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "España"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45805",
+        "usda_use:77455",
+        "usda_reference:FontQuer",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3717",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9267",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Medicina",
+      "activitySource": "Medicine",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Europa"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33646",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:46825",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

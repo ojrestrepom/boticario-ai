@@ -1,0 +1,9 @@
+# CON-05
+
+RUST_LOG=warn, logs:
+
+PASS con warn no aparece «escuchando»
+RUST_LOG por defecto, logs:
+2026-10-18T23:52:08.954673Z  INFO catalog_api: escuchando addr=0.0.0.0:8080 db=/app/catalog.db
+
+PASS con el valor por defecto aparece «escuchando»

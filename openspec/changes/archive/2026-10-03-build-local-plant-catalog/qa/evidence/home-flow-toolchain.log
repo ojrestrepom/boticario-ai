@@ -1,0 +1,62 @@
+2026-10-03T13:00:16Z
+Flutter 3.47.6 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 5fc346839b (3 days ago) • 2026-09-30 15:02:49 -0700
+Engine • hash b8c8d3d8d5d0095127057f8a29ca8cc53da2167c (revision 692136cb65) (3 days ago) • 2026-09-30 00:56:59.000Z
+Tools • Dart 3.13.5 • DevTools 2.60.0
+Found 3 connected devices:
+  SM G998B (mobile) • R5CR70M9GEE • android-arm64  • Android 15 (API 35)
+  macOS (desktop)   • macos       • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+  Chrome (web)      • chrome      • web-javascript • Google Chrome 154.0.8037.95
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+[✓] Flutter (Channel stable, 3.47.6, on macOS 27.0.1 26A434 darwin-arm64, locale es-CO) [707ms]
+    • Flutter version 3.47.6 on channel stable at /opt/homebrew/share/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 5fc346839b (3 days ago), 2026-09-30 15:02:49 -0700
+    • Engine revision 692136cb65
+    • Dart version 3.13.5
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+
+[!] Android toolchain - develop for Android devices (Android SDK version 36.0.0) [5,0s]
+    • Android SDK at /Users/jsrc1115/Library/Android/sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    ✗ cmdline-tools component is missing.
+      Try installing or updating Android Studio.
+      Alternatively, download the tools from https://developer.android.com/studio#command-line-tools-only and make sure to set the ANDROID_HOME environment variable.
+      See https://developer.android.com/studio/command-line for more details.
+    ✗ Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/macos-android-setup for more details.
+
+[!] Xcode - develop for iOS and macOS [57ms]
+    ✗ Xcode installation is incomplete; a full installation is necessary for iOS and macOS development.
+      Download at: https://developer.apple.com/xcode/
+      Or install Xcode via the App Store.
+      Once installed, run:
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+        sudo xcodebuild -runFirstLaunch
+    ! CocoaPods not installed.
+        CocoaPods is a package manager for iOS or macOS platform code.
+        Without CocoaPods, plugins will not work on iOS or macOS.
+        For more info, see https://flutter.dev/to/platform-plugins
+      For installation instructions, see https://guides.cocoapods.org/using/getting-started.html#installation
+
+[✓] Chrome - develop for the web [24ms]
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Connected device (3 available) [222ms]
+    • SM G998B (mobile) • R5CR70M9GEE • android-arm64  • Android 15 (API 35)
+    • macOS (desktop)   • macos       • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+    • Chrome (web)      • chrome      • web-javascript • Google Chrome 154.0.8037.95
+
+[✓] Network resources [573ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.

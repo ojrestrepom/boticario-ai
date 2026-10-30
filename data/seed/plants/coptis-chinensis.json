@@ -1,0 +1,624 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:6b94bb1c6493d0fb4b3e1256d7c7033b2986f6c55c02934b31ae97bb16c058db",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:304-1"
+      ],
+      "text": "Chinese Goldthread"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:304-2"
+      ],
+      "text": "Huang-Lian"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:304-3"
+      ],
+      "text": "Huang-Lien"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Coptis chinensis"
+    ],
+    "value": "Especie de planta medicinal de la familia Ranunculaceae, nativa de China y Vietnam."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2736105"
+    ],
+    "value": "Coptis chinensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2736105"
+    ],
+    "value": "Ranunculaceae"
+  },
+  "goals": [],
+  "id": "coptis-chinensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2736105"
+    ],
+    "value": "China y Vietnam."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "efsa_botanic:940": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: berberine",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:304-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Chinese Goldthread»",
+      "license": "CC0"
+    },
+    "usda_common_name:304-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Huang-Lian»",
+      "license": "CC0"
+    },
+    "usda_common_name:304-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Huang-Lien»",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:13030": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13030",
+      "license": "CC0"
+    },
+    "usda_use:16556": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16556",
+      "license": "CC0"
+    },
+    "usda_use:16557": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16557",
+      "license": "CC0"
+    },
+    "usda_use:20343": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20343",
+      "license": "CC0"
+    },
+    "usda_use:2113": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2113",
+      "license": "CC0"
+    },
+    "usda_use:22518": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22518",
+      "license": "CC0"
+    },
+    "usda_use:27840": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 27840",
+      "license": "CC0"
+    },
+    "usda_use:42245": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42245",
+      "license": "CC0"
+    },
+    "usda_use:45662": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 45662",
+      "license": "CC0"
+    },
+    "usda_use:57539": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 57539",
+      "license": "CC0"
+    },
+    "usda_use:6427": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6427",
+      "license": "CC0"
+    },
+    "usda_use:70294": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70294",
+      "license": "CC0"
+    },
+    "usda_use:70852": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70852",
+      "license": "CC0"
+    },
+    "usda_use:71961": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71961",
+      "license": "CC0"
+    },
+    "usda_use:73989": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73989",
+      "license": "CC0"
+    },
+    "usda_use:75915": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 75915",
+      "license": "CC0"
+    },
+    "usda_use:77058": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77058",
+      "license": "CC0"
+    },
+    "usda_use:81056": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81056",
+      "license": "CC0"
+    },
+    "usda_use:9796": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9796",
+      "license": "CC0"
+    },
+    "usda_use:9961": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9961",
+      "license": "CC0"
+    },
+    "wcvp:2736105": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coptis chinensis Franch.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2890949": {
+      "dataset": "wcvp",
+      "label": "WCVP: Coptis teeta var. chinensis (Franch.) Finet & Gagnep.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Coptis chinensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Coptis chinensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Coptis_chinensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:940"
+    ],
+    "text": "La EFSA registra la berberina como sustancia de evidencia en esta planta; no fija un nivel de riesgo."
+  },
+  "scientificName": {
+    "authors": "Franch.",
+    "name": "Coptis chinensis",
+    "refs": [
+      "wcvp:2736105"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Franch.) Finet & Gagnep.",
+      "name": "Coptis teeta var. chinensis",
+      "refs": [
+        "wcvp:2890949"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diarrea",
+      "activitySource": "Diarrhea",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16556",
+        "usda_use:16557",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Hemorragia nasal",
+      "activitySource": "Epistaxis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22518",
+        "usda_use:70294",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Vómito de sangre",
+      "activitySource": "Hematemesis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:27840",
+        "usda_use:71961",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Alexitérico",
+      "activitySource": "Alexiteric",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81056",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Analgésico",
+      "activitySource": "Analgesic",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2113",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6427",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de estómago",
+      "activitySource": "Cancer(Stomach)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9796",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Canker",
+      "activitySource": "Canker",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9961",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Conjuntivitis",
+      "activitySource": "Conjunctivitis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13030",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Dispepsia",
+      "activitySource": "Dyspepsia",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20343",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Emaciación",
+      "activitySource": "Emaciation",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:57539",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:70852",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:73989",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Inquietud",
+      "activitySource": "Restlessness",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:75915",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Sarna",
+      "activitySource": "Scabies",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42245",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Llaga",
+      "activitySource": "Sore",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77058",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Espasmo",
+      "activitySource": "Spasm",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:45662",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

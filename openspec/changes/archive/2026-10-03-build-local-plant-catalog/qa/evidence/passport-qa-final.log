@@ -1,0 +1,78 @@
+2026-10-02T03:22:03Z
+$ flutter test --no-pub --reporter expanded ../openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+00:00 +0: loading /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart
+00:00 +0: PQA01-544 General identity, absences, provenance and tabs
+00:00 +1: PQA02-544 every eligible row has exact activity and resolved LONGREF
+00:00 +2: PQA01-401 General identity, absences, provenance and tabs
+00:00 +3: PQA02-401 every eligible row has exact activity and resolved LONGREF
+00:00 +4: PQA01-873 General identity, absences, provenance and tabs
+00:00 +5: PQA02-873 every eligible row has exact activity and resolved LONGREF
+00:00 +6: PQA01-605 General identity, absences, provenance and tabs
+00:00 +7: PQA02-605 every eligible row has exact activity and resolved LONGREF
+00:00 +8: PQA01-619 General identity, absences, provenance and tabs
+00:00 +9: PQA02-619 every eligible row has exact activity and resolved LONGREF
+00:00 +10: PQA03 identity update resets General but same identity retains tab
+00:00 +11: PQA08-1.0 complete tab labels with no clipped glyphs
+PQA08 scale=1.0 label=General size=Size(98.7, 20.0) softWrap=false overflow=TextOverflow.fade
+PQA08 scale=1.0 label=Propiedades size=Size(155.1, 20.0) softWrap=false overflow=TextOverflow.fade
+PQA08 scale=1.0 label=Usos size=Size(56.4, 20.0) softWrap=false overflow=TextOverflow.fade
+00:01 +12: PQA04-1.0 disabled semantics, no actions, persistent CTA, callbacks
+00:01 +13: PQA05-544-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=544 scale=1.0: all texts/lines traversed; footer persists
+00:01 +14: PQA05-401-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=401 scale=1.0: all texts/lines traversed; footer persists
+00:01 +15: PQA05-873-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=873 scale=1.0: all texts/lines traversed; footer persists
+00:01 +16: PQA05-605-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=605 scale=1.0: all texts/lines traversed; footer persists
+00:01 +17: PQA05-619-1.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=619 scale=1.0: all texts/lines traversed; footer persists
+00:02 +18: PQA06-1.0 unusually long citation readable in scroll segments, absent parts explicit
+00:02 +19: PQA08-2.0 complete tab labels with no clipped glyphs
+PQA08 scale=2.0 label=General size=Size(196.7, 40.0) softWrap=false overflow=TextOverflow.fade
+PQA08 scale=2.0 label=Propiedades size=Size(246.0, 40.0) softWrap=false overflow=TextOverflow.fade
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value less than or equal to <246.15>
+  Actual: <309.1499938964844>
+   Which: is not a value less than or equal to <246.15>
+Propiedades
+
+When the exception was thrown, this was the stack:
+#4      main.readParagraph (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:150:7)
+<asynchronous suspension>
+#5      main.<anonymous closure> (file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart:388:9)
+<asynchronous suspension>
+#6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart line 150
+The test description was:
+  PQA08-2.0 complete tab labels with no clipped glyphs
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +19 -1: PQA08-2.0 complete tab labels with no clipped glyphs [E]
+  Test failed. See exception logs above.
+  The test description was: PQA08-2.0 complete tab labels with no clipped glyphs
+  
+00:02 +19 -1: PQA04-2.0 disabled semantics, no actions, persistent CTA, callbacks
+00:02 +20 -1: PQA05-544-2.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=544 scale=2.0: all texts/lines traversed; footer persists
+00:02 +21 -1: PQA05-401-2.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=401 scale=2.0: all texts/lines traversed; footer persists
+00:02 +22 -1: PQA05-873-2.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=873 scale=2.0: all texts/lines traversed; footer persists
+00:03 +23 -1: PQA05-605-2.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=605 scale=2.0: all texts/lines traversed; footer persists
+00:03 +24 -1: PQA05-619-2.0 safe areas, 48dp and complete scroll reading all tabs
+PQA05 ID=619 scale=2.0: all texts/lines traversed; footer persists
+00:03 +25 -1: PQA06-2.0 unusually long citation readable in scroll segments, absent parts explicit
+00:03 +26 -1: PQA07 all five local passports and tabs with HTTP denied, provisional icons only
+00:03 +27 -1: Some tests failed.
+
+Failing tests:
+  /Users/jsrc1115/Code/boticario-ai/openspec/changes/build-local-plant-catalog/qa/flutter/passport_qa_test.dart: PQA08-2.0 complete tab labels with no clipped glyphs

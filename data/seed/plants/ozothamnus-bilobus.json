@@ -1,0 +1,88 @@
+{
+  "aliases": [
+    "helichrysum-bilobum"
+  ],
+  "bundleHash": "sha256:97cc360a8e24f25ff9660e44c1ea28ab0e7647e74d9e5a33c8ad94fd24135f55",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3088468"
+    ],
+    "value": "Ozothamnus bilobus"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3088468"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "ozothamnus-bilobus",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3088468"
+    ],
+    "value": "Australia (Australia Meridional y Victoria)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:3088468": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ozothamnus bilobus (N.A.Wakef.) Anderb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3088469": {
+      "dataset": "wcvp",
+      "label": "WCVP: Helichrysum bilobum N.A.Wakef.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(N.A.Wakef.) Anderb.",
+    "name": "Ozothamnus bilobus",
+    "refs": [
+      "wcvp:3088468"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "N.A.Wakef.",
+      "name": "Helichrysum bilobum",
+      "refs": [
+        "wcvp:3088469"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,893 @@
+{
+  "aliases": [
+    "agropyron-repens",
+    "elytrigia-repens"
+  ],
+  "bundleHash": "sha256:b9d267ef0be7f550141c53d69db9b179f12fb79c3526c19eef95cfbec7580352",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Elymus repens"
+      ],
+      "text": "grama"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:379-1"
+      ],
+      "text": "Couchgrass"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:379-2"
+      ],
+      "text": "Doggrass"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:379-3"
+      ],
+      "text": "Quackgrass"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:379-5"
+      ],
+      "text": "Twitchgrass"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:379-4"
+      ],
+      "text": "Wheatgrass"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Elymus repens"
+    ],
+    "value": "Especie muy común de hierba, nativa de Europa."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Elymus repens"
+    ],
+    "value": "Grama"
+  },
+  "family": {
+    "refs": [
+      "wcvp:411505"
+    ],
+    "value": "Poaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía en esta área para el rizoma.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:agropyri-repentis-rhizoma"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "elymus-repens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Matt Lavin from Bozeman, Montana, USA",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Elymus_repens_(3739414296).jpg",
+    "refs": [
+      "commons:File:Elymus repens (3739414296).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Elymus_repens_%283739414296%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:379-RH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:411505"
+    ],
+    "value": "Europa, norte de África y gran parte de Asia (Cáucaso, Asia occidental y central, Siberia, China, Mongolia y subcontinente indio)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:agropyri-repentis-rhizoma"
+      ],
+      "value": "Rizoma"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Elymus repens (3739414296).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Elymus repens (3739414296).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Elymus_repens_(3739414296).jpg"
+    },
+    "ema_herbal:agropyri-repentis-rhizoma": {
+      "dataset": "ema_json",
+      "label": "EMA: Agropyri repentis rhizoma",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/agropyri-repentis-rhizoma"
+    },
+    "ema_pdf:agropyri-repentis-rhizoma:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agropyri-repentis-rhizoma, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-agropyron-repens-l-p-beauv-rhizoma-revision-1_en.pdf"
+    },
+    "ema_pdf:agropyri-repentis-rhizoma:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agropyri-repentis-rhizoma, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-agropyron-repens-l-p-beauv-rhizoma-revision-1_en.pdf"
+    },
+    "ema_pdf:agropyri-repentis-rhizoma:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de agropyri-repentis-rhizoma, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-agropyron-repens-l-p-beauv-rhizoma-revision-1_en.pdf"
+    },
+    "usda_common_name:379-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Couchgrass»",
+      "license": "CC0"
+    },
+    "usda_common_name:379-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Doggrass»",
+      "license": "CC0"
+    },
+    "usda_common_name:379-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Quackgrass»",
+      "license": "CC0"
+    },
+    "usda_common_name:379-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Wheatgrass»",
+      "license": "CC0"
+    },
+    "usda_common_name:379-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Twitchgrass»",
+      "license": "CC0"
+    },
+    "usda_part:379-RH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Rhizome»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:11986": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11986",
+      "license": "CC0"
+    },
+    "usda_use:13641": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13641",
+      "license": "CC0"
+    },
+    "usda_use:14600": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14600",
+      "license": "CC0"
+    },
+    "usda_use:14896": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14896",
+      "license": "CC0"
+    },
+    "usda_use:14897": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14897",
+      "license": "CC0"
+    },
+    "usda_use:15351": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15351",
+      "license": "CC0"
+    },
+    "usda_use:15352": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15352",
+      "license": "CC0"
+    },
+    "usda_use:17446": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17446",
+      "license": "CC0"
+    },
+    "usda_use:17447": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17447",
+      "license": "CC0"
+    },
+    "usda_use:17448": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17448",
+      "license": "CC0"
+    },
+    "usda_use:17449": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17449",
+      "license": "CC0"
+    },
+    "usda_use:17451": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17451",
+      "license": "CC0"
+    },
+    "usda_use:18335": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18335",
+      "license": "CC0"
+    },
+    "usda_use:21761": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21761",
+      "license": "CC0"
+    },
+    "usda_use:21943": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21943",
+      "license": "CC0"
+    },
+    "usda_use:21944": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21944",
+      "license": "CC0"
+    },
+    "usda_use:42515": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42515",
+      "license": "CC0"
+    },
+    "usda_use:43125": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43125",
+      "license": "CC0"
+    },
+    "usda_use:48313": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48313",
+      "license": "CC0"
+    },
+    "usda_use:48314": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 48314",
+      "license": "CC0"
+    },
+    "usda_use:51884": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51884",
+      "license": "CC0"
+    },
+    "usda_use:5414": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5414",
+      "license": "CC0"
+    },
+    "usda_use:56511": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 56511",
+      "license": "CC0"
+    },
+    "usda_use:64709": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 64709",
+      "license": "CC0"
+    },
+    "usda_use:67925": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67925",
+      "license": "CC0"
+    },
+    "usda_use:68011": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68011",
+      "license": "CC0"
+    },
+    "usda_use:7357": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7357",
+      "license": "CC0"
+    },
+    "usda_use:7358": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 7358",
+      "license": "CC0"
+    },
+    "usda_use:8823": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8823",
+      "license": "CC0"
+    },
+    "wcvp:388535": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agropyron junceum var. repens (L.) T.Marsson",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:388761": {
+      "dataset": "wcvp",
+      "label": "WCVP: Agropyron repens (L.) P.Beauv.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:411505": {
+      "dataset": "wcvp",
+      "label": "WCVP: Elymus repens (L.) Gould",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:411910": {
+      "dataset": "wcvp",
+      "label": "WCVP: Elytrigia repens (L.) Nevski",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:417298": {
+      "dataset": "wcvp",
+      "label": "WCVP: Frumentum repens (L.) E.H.L.Krause",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:448941": {
+      "dataset": "wcvp",
+      "label": "WCVP: Triticum repens L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:450430": {
+      "dataset": "wcvp",
+      "label": "WCVP: Zeia repens (L.) Lunell",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Elymus repens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Elymus repens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Elymus_repens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[0]"
+    },
+    {
+      "code": "cita-sin-resolver",
+      "message": "Clave de cita sin candidata en el paquete: Woi.Syria.",
+      "target": "traditionalUses[1]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:agropyri-repentis-rhizoma:4.3",
+      "ema_pdf:agropyri-repentis-rhizoma:4.4",
+      "ema_pdf:agropyri-repentis-rhizoma:4.5"
+    ],
+    "text": "La EMA registra en la monografía del rizoma (uso tradicional) la hipersensibilidad a la sustancia activa como contraindicación. Entre las advertencias, indica que no se ha establecido el uso en menores de 12 años (preparados a) ni de 18 años (b y c), que ante fiebre, disuria, espasmos o sangre en la orina se debe consultar a un médico o profesional sanitario, que los extractos con etanol deben llevar el etiquetado correspondiente y que no se recomienda en personas a quienes un médico indica reducir la ingesta de líquidos. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "(L.) Gould",
+    "name": "Elymus repens",
+    "refs": [
+      "wcvp:411505"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) T.Marsson",
+      "name": "Agropyron junceum var. repens",
+      "refs": [
+        "wcvp:388535"
+      ]
+    },
+    {
+      "authors": "(L.) P.Beauv.",
+      "name": "Agropyron repens",
+      "refs": [
+        "wcvp:388761"
+      ]
+    },
+    {
+      "authors": "(L.) Nevski",
+      "name": "Elytrigia repens",
+      "refs": [
+        "wcvp:411910"
+      ]
+    },
+    {
+      "authors": "(L.) E.H.L.Krause",
+      "name": "Frumentum repens",
+      "refs": [
+        "wcvp:417298"
+      ]
+    },
+    {
+      "authors": "L.",
+      "name": "Triticum repens",
+      "refs": [
+        "wcvp:448941"
+      ]
+    },
+    {
+      "authors": "(L.) Lunell",
+      "name": "Zeia repens",
+      "refs": [
+        "wcvp:450430"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "España"
+      ],
+      "n": 6,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17446",
+        "usda_use:17447",
+        "usda_use:17448",
+        "usda_use:17449",
+        "usda_use:17451",
+        "usda_use:18335",
+        "usda_reference:Steinmetz",
+        "usda_reference:Al-Rawi",
+        "usda_reference:FontQuer",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Demulcente",
+      "activitySource": "Demulcent",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        },
+        {
+          "key": "Woi.Syria",
+          "ref": null,
+          "text": "Woi.Syria (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Irak",
+        "Turquía"
+      ],
+      "n": 4,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14896",
+        "usda_use:14897",
+        "usda_use:56511",
+        "usda_use:68011",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Vejiga",
+      "activitySource": "Bladder",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:7357",
+        "usda_use:7358",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Cistitis",
+      "activitySource": "Cystitis",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14600",
+        "usda_use:67925",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15351",
+        "usda_use:15352",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Emoliente",
+      "activitySource": "Emollient",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak",
+        "Estados Unidos"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21943",
+        "usda_use:21944",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:48313",
+        "usda_use:48314",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Aperient",
+      "activitySource": "Aperient",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:64709",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5414",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Finlandia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8823",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Café",
+      "activitySource": "Coffee",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11986",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13641",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21761",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Esclerosis (píloro)",
+      "activitySource": "Sclerosis(Pylorus)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Italia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42515",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43125",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Chile"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51884",
+        "usda_reference:Hartwell"
+      ]
+    }
+  ]
+}

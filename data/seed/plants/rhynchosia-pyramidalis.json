@@ -1,0 +1,184 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:23d33900c650f485d4a439cc52c9223dd85462b2fb29671d36413b99273ed9a1",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2427844"
+    ],
+    "value": "Rhynchosia pyramidalis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2427844"
+    ],
+    "value": "Fabaceae"
+  },
+  "goals": [],
+  "id": "rhynchosia-pyramidalis",
+  "image": {
+    "attributionRequired": false,
+    "author": "Secundum naturam",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Rhynchosia_phaseoloides.JPG",
+    "refs": [
+      "commons:File:Rhynchosia phaseoloides.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Rhynchosia_phaseoloides.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2427844"
+    ],
+    "value": "Nativa de México, América Central, el Caribe y el oeste de América del Sur."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Rhynchosia phaseoloides.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Rhynchosia phaseoloides.JPG",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Rhynchosia_phaseoloides.JPG"
+    },
+    "usda_reference:Liogier": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Liogier",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:34372": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34372",
+      "license": "CC0"
+    },
+    "usda_use:38259": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38259",
+      "license": "CC0"
+    },
+    "usda_use:4577": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4577",
+      "license": "CC0"
+    },
+    "wcvp:2427844": {
+      "dataset": "wcvp",
+      "label": "WCVP: Rhynchosia pyramidalis (Lam.) Urb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774173": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolicholus pyramidalis (Lam.) Britton & P.Wilson",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2774520": {
+      "dataset": "wcvp",
+      "label": "WCVP: Dolichos pyramidalis Lam.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "usda_use:38259"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales."
+  },
+  "scientificName": {
+    "authors": "(Lam.) Urb.",
+    "name": "Rhynchosia pyramidalis",
+    "refs": [
+      "wcvp:2427844"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lam.) Britton & P.Wilson",
+      "name": "Dolicholus pyramidalis",
+      "refs": [
+        "wcvp:2774173"
+      ]
+    },
+    {
+      "authors": "Lam.",
+      "name": "Dolichos pyramidalis",
+      "refs": [
+        "wcvp:2774520"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Liogier",
+          "ref": "usda_reference:Liogier",
+          "text": "Liogier, Alain Henri. 1974. Diccionario Botanico de Nombres Vulgares de la Espanola. Universidad Nacional Pedro Henriquez Urena, Santo Domingo."
+        }
+      ],
+      "countries": [
+        "República Dominicana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4577",
+        "usda_reference:Liogier"
+      ]
+    },
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "México (zapoteca)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34372",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

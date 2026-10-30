@@ -1,0 +1,186 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:10458bcb6a28cd11e23ab1c32fed94d169212e4ef9f5228ae37d37e6a4f852b0",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2183-1"
+      ],
+      "text": "Corsican Mint"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2183-2"
+      ],
+      "text": "Mentha di Requien"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Mentha requienii"
+    ],
+    "value": "Especie de planta herbácea de la familia de las lamiáceas, originaria de Córcega, Cerdeña, Francia e Italia."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:125274"
+    ],
+    "value": "Mentha requienii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:125274"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "mentha-requienii",
+  "image": {
+    "attributionRequired": true,
+    "author": "SB Johnny",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mentha_requienii_8601.JPG",
+    "refs": [
+      "commons:File:Mentha requienii 8601.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Mentha_requienii_8601.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:125274"
+    ],
+    "value": "Córcega, Cerdeña e Italia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Mentha requienii 8601.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Mentha requienii 8601.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Mentha_requienii_8601.JPG"
+    },
+    "usda_common_name:2183-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Corsican Mint»",
+      "license": "CC0"
+    },
+    "usda_common_name:2183-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Mentha di Requien»",
+      "license": "CC0"
+    },
+    "wcvp:125274": {
+      "dataset": "wcvp",
+      "label": "WCVP: Mentha requienii Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:125616": {
+      "dataset": "wcvp",
+      "label": "WCVP: Menthella requienii (Benth.) Pérard",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:170978": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pulegium parviflorum (Req.) Samp.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:17916": {
+      "dataset": "wcvp",
+      "label": "WCVP: Audibertia parviflora (Req.) Nyman",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:205224": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus parviflorus Req.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Mentha requienii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Mentha requienii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Mentha_requienii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "«Mentha di Requien» figura como inglés en la fuente, pero parece italiano.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Benth.",
+    "name": "Mentha requienii",
+    "refs": [
+      "wcvp:125274"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Req.) Nyman",
+      "name": "Audibertia parviflora",
+      "refs": [
+        "wcvp:17916"
+      ]
+    },
+    {
+      "authors": "(Benth.) Pérard",
+      "name": "Menthella requienii",
+      "refs": [
+        "wcvp:125616"
+      ]
+    },
+    {
+      "authors": "(Req.) Samp.",
+      "name": "Pulegium parviflorum",
+      "refs": [
+        "wcvp:170978"
+      ]
+    },
+    {
+      "authors": "Req.",
+      "name": "Thymus parviflorus",
+      "refs": [
+        "wcvp:205224"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,138 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:f9880b7a2126072c9ec436aa0e852aa08375fdf7e0b54badc303ac252f6814e8",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:201-1"
+      ],
+      "text": "Java-Olive"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:201-2"
+      ],
+      "text": "Manila Elemi"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2695906"
+    ],
+    "value": "Canarium indicum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2695906"
+    ],
+    "value": "Burseraceae"
+  },
+  "goals": [],
+  "id": "canarium-indicum",
+  "image": {
+    "attributionRequired": false,
+    "author": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Canarium_indicum_-_Icica_icicariba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-171.jpg",
+    "refs": [
+      "commons:File:Canarium indicum - Icica icicariba - Köhler–s Medizinal-Pflanzen-171.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Canarium_indicum_-_Icica_icicariba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-171.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:201-GU",
+      "usda_part:201-EO"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2695906"
+    ],
+    "value": "Nativa de Indochina, Malesia, Papuasia y el suroeste del Pacífico."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Canarium indicum - Icica icicariba - Köhler–s Medizinal-Pflanzen-171.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Canarium indicum - Icica icicariba - Köhler–s Medizinal-Pflanzen-171.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Canarium_indicum_-_Icica_icicariba_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-171.jpg"
+    },
+    "usda_common_name:201-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Java-Olive»",
+      "license": "CC0"
+    },
+    "usda_common_name:201-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Manila Elemi»",
+      "license": "CC0"
+    },
+    "usda_part:201-EO": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Essential Oil»",
+      "license": "CC0"
+    },
+    "usda_part:201-GU": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Gum»",
+      "license": "CC0"
+    },
+    "wcvp:2695906": {
+      "dataset": "wcvp",
+      "label": "WCVP: Canarium indicum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo de datos químicos de USDA (compuesto EO en la goma y parte «Essential Oil»), sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Canarium indicum",
+    "refs": [
+      "wcvp:2695906"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:739e223c277f3281331181e8aedbb2ca33ee5427db1fe0e2a2a93138d2255575",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1065-1"
+      ],
+      "text": "Parica"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2452012"
+    ],
+    "value": "Virola calophylla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2452012"
+    ],
+    "value": "Myristicaceae"
+  },
+  "goals": [],
+  "id": "virola-calophylla",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2452012"
+    ],
+    "value": "Brasil y el norte y oeste de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1065-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Parica»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:34410": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34410",
+      "license": "CC0"
+    },
+    "usda_use:62647": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 62647",
+      "license": "CC0"
+    },
+    "wcvp:2452012": {
+      "dataset": "wcvp",
+      "label": "WCVP: Virola calophylla (Spruce) Warb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2500657": {
+      "dataset": "wcvp",
+      "label": "WCVP: Myristica calophylla Spruce",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2552528": {
+      "dataset": "wcvp",
+      "label": "WCVP: Palala calophylla (Spruce) Kuntze",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Spruce) Warb.",
+    "name": "Virola calophylla",
+    "refs": [
+      "wcvp:2452012"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Spruce",
+      "name": "Myristica calophylla",
+      "refs": [
+        "wcvp:2500657"
+      ]
+    },
+    {
+      "authors": "(Spruce) Kuntze",
+      "name": "Palala calophylla",
+      "refs": [
+        "wcvp:2552528"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Narcótico",
+      "activitySource": "Narcotic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Colombia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34410",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Rapé",
+      "activitySource": "Snuff",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Brasil"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:62647",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

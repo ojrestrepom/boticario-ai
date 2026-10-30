@@ -1,0 +1,140 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:8578a18184583a237f42e376ce827eaa6849913613b12df5e2aff9ed05a5dbef",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Fragaria"
+      ],
+      "text": "Fresa"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Fragaria"
+      ],
+      "text": "Frutilla"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:422-1"
+      ],
+      "text": "Strawberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Fragaria"
+    ],
+    "value": "Género de plantas rastreras estoloníferas de la familia Rosaceae, cultivadas por su fruto comestible, llamado fresa o, en algunos países hispanoamericanos, frutilla."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Fragaria"
+    ],
+    "value": "Fresa"
+  },
+  "family": null,
+  "goals": [],
+  "id": "fragaria-spp",
+  "image": {
+    "attributionRequired": false,
+    "author": "Amédée Masclef",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:103_Fragaria_vesca_L.jpg",
+    "refs": [
+      "commons:File:103 Fragaria vesca L.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/103_Fragaria_vesca_L.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:422-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:103 Fragaria vesca L.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:103 Fragaria vesca L.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:103_Fragaria_vesca_L.jpg"
+    },
+    "usda_common_name:422-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Strawberry»",
+      "license": "CC0"
+    },
+    "usda_part:422-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wikidata:Q745": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q745",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q745"
+    },
+    "wikipedia_es:Fragaria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Fragaria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Fragaria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la planta, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Fragaria spp",
+    "refs": [
+      "wikidata:Q745"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

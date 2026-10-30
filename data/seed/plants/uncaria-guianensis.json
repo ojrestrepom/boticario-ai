@@ -1,0 +1,243 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:c9c4bdda38c6058e0903a5a9f5971aacd3dfbc6a09bacded395cfcc8eacd01a6",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Uncaria guianensis"
+      ],
+      "text": "Uña de gato"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2124-2"
+      ],
+      "text": "Una de Gato"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2124-3"
+      ],
+      "text": "Garabato Colorado"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "usda_common_name:2124-4"
+      ],
+      "text": "Tambor Huasca"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2124-1"
+      ],
+      "text": "Cat's Claw"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2124-5"
+      ],
+      "text": "Ungunagi"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Uncaria guianensis"
+    ],
+    "value": "Especie del género Uncaria que se encuentra en Guyana."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Uncaria guianensis"
+    ],
+    "value": "Uña de gato"
+  },
+  "family": {
+    "refs": [
+      "wcvp:209803"
+    ],
+    "value": "Rubiaceae"
+  },
+  "goals": [],
+  "id": "uncaria-guianensis",
+  "image": {
+    "attributionRequired": true,
+    "author": "Vojtěch Zavadil",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:12138-Uncaria_guianensis-Cacuri.jpg",
+    "refs": [
+      "commons:File:12138-Uncaria guianensis-Cacuri.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/12138-Uncaria_guianensis-Cacuri.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:209803"
+    ],
+    "value": "Brasil, el Caribe y el norte, oeste y sur de Sudamérica"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:12138-Uncaria guianensis-Cacuri.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:12138-Uncaria guianensis-Cacuri.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:12138-Uncaria_guianensis-Cacuri.jpg"
+    },
+    "usda_common_name:2124-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cat's Claw»",
+      "license": "CC0"
+    },
+    "usda_common_name:2124-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Una de Gato»",
+      "license": "CC0"
+    },
+    "usda_common_name:2124-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Garabato Colorado»",
+      "license": "CC0"
+    },
+    "usda_common_name:2124-4": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tambor Huasca»",
+      "license": "CC0"
+    },
+    "usda_common_name:2124-5": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ungunagi»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:82540": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 82540",
+      "license": "CC0"
+    },
+    "wcvp:133194": {
+      "dataset": "wcvp",
+      "label": "WCVP: Nauclea guianensis (Aubl.) Lam. ex Forsyth f.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:144844": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ourouparia guianensis Aubl.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:209803": {
+      "dataset": "wcvp",
+      "label": "WCVP: Uncaria guianensis (Aubl.) J.F.Gmel.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:464387": {
+      "dataset": "wcvp",
+      "label": "WCVP: Uruparia guianensis (Aubl.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Uncaria guianensis": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Uncaria guianensis",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Uncaria_guianensis"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA marca como inglés los nombres «Una de Gato», «Garabato Colorado» y «Tambor Huasca», que parecen españoles, y «Ungunagi», cuyo idioma no es claro; se registran como español los tres primeros y «Ungunagi» conserva el idioma del paquete.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Aubl.) J.F.Gmel.",
+    "name": "Uncaria guianensis",
+    "refs": [
+      "wcvp:209803"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Aubl.) Lam. ex Forsyth f.",
+      "name": "Nauclea guianensis",
+      "refs": [
+        "wcvp:133194"
+      ]
+    },
+    {
+      "authors": "Aubl.",
+      "name": "Ourouparia guianensis",
+      "refs": [
+        "wcvp:144844"
+      ]
+    },
+    {
+      "authors": "(Aubl.) Kuntze",
+      "name": "Uruparia guianensis",
+      "refs": [
+        "wcvp:464387"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Disentería",
+      "activitySource": "Dysentery",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Guayana"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:82540",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

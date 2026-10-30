@@ -1,0 +1,30 @@
+# AUT-22 Cabecera no ASCII y cabecera enorme (objetivo: cloud)
+
+### GET /v1/plants?limit=2   [bytes no ASCII]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: efbde2c7274e9d14742a1a983a513859
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [valor de 16 KB]
+status=401
+content-type: application/problem+json
+www-authenticate: Bearer
+x-cloud-trace-context: 4868166a62c8c78a4f79c615add424f5
+server: Google Frontend
+content-length: 129
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+connection: close
+
+{"type":"about:blank","title":"Unauthorized","status":401,"detail":"se requiere un token de API válido","instance":"/v1/plants"}
+
+### GET /v1/plants?limit=2   [valor de 100 KB]
+status=0
+
+

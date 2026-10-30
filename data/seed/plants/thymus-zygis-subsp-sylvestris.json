@@ -1,0 +1,137 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:9e20d9a88298c9826766f4e1c30597f3b5fbe2d9b591cb24ce56e12d3aad02ef",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2096-1"
+      ],
+      "text": "'Portuguese' Thyme"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:205685"
+    ],
+    "value": "Thymus zygis subsp. sylvestris"
+  },
+  "family": {
+    "refs": [
+      "wcvp:205685"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "thymus-zygis-subsp-sylvestris",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2096-PL"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:205685"
+    ],
+    "value": "Suroeste de Europa."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:2096-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «'Portuguese' Thyme»",
+      "license": "CC0"
+    },
+    "usda_part:2096-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:143926": {
+      "dataset": "wcvp",
+      "label": "WCVP: Origanum sylvestre (Hoffmanns. & Link) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:205563": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus sylvestris Hoffmanns. & Link",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:205685": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus zygis subsp. sylvestris (Hoffmanns. & Link) Cout.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:460423": {
+      "dataset": "wcvp",
+      "label": "WCVP: Thymus zygis var. sylvestris (Hoffmanns. & Link) Brot.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA (parte Plant), sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Hoffmanns. & Link) Cout.",
+    "name": "Thymus zygis subsp. sylvestris",
+    "refs": [
+      "wcvp:205685"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Hoffmanns. & Link) Kuntze",
+      "name": "Origanum sylvestre",
+      "refs": [
+        "wcvp:143926"
+      ]
+    },
+    {
+      "authors": "Hoffmanns. & Link",
+      "name": "Thymus sylvestris",
+      "refs": [
+        "wcvp:205563"
+      ]
+    },
+    {
+      "authors": "(Hoffmanns. & Link) Brot.",
+      "name": "Thymus zygis var. sylvestris",
+      "refs": [
+        "wcvp:460423"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

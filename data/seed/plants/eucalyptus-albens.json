@@ -1,0 +1,135 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a9d25e2a6a704ab7a6d55cba47aaeaed28d902fc2eb01f81170141000186b7b3",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Eucalyptus albens"
+    ],
+    "value": "Especie de eucalipto de la familia de las mirtáceas, conocida en inglés como white box."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:72397"
+    ],
+    "value": "Eucalyptus albens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:72397"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-albens",
+  "image": {
+    "attributionRequired": true,
+    "author": "rickjpelleg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_albens_at_Ilanot_arboretum-RJP.jpg",
+    "refs": [
+      "commons:File:Eucalyptus albens at Ilanot arboretum-RJP.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Eucalyptus_albens_at_Ilanot_arboretum-RJP.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1365-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:72397"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus albens at Ilanot arboretum-RJP.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus albens at Ilanot arboretum-RJP.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_albens_at_Ilanot_arboretum-RJP.jpg"
+    },
+    "usda_part:1365-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:72397": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus albens Benth.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:73090": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus hemiphloia var. albens (Benth.) Maiden",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Eucalyptus albens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Eucalyptus albens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Eucalyptus_albens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Benth.",
+    "name": "Eucalyptus albens",
+    "refs": [
+      "wcvp:72397"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Benth.) Maiden",
+      "name": "Eucalyptus hemiphloia var. albens",
+      "refs": [
+        "wcvp:73090"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

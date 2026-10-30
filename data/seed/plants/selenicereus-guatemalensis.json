@@ -1,0 +1,129 @@
+{
+  "aliases": [
+    "hylocereus-guatemalensis"
+  ],
+  "bundleHash": "sha256:e1f413df3dab885efaec528da2a1c06c7ae9079fbed1f95f9abddfdf6f2c807d",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1229-1"
+      ],
+      "text": "Guatemala Cereus"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1229-2"
+      ],
+      "text": "Nopalito De Guatemala"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:3016252"
+    ],
+    "value": "Selenicereus guatemalensis"
+  },
+  "family": {
+    "refs": [
+      "wcvp:3016252"
+    ],
+    "value": "Cactaceae"
+  },
+  "goals": [],
+  "id": "selenicereus-guatemalensis",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:3016252"
+    ],
+    "value": "Nativa de América Central."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:1229-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Guatemala Cereus»",
+      "license": "CC0"
+    },
+    "usda_common_name:1229-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Nopalito De Guatemala»",
+      "license": "CC0"
+    },
+    "wcvp:2712471": {
+      "dataset": "wcvp",
+      "label": "WCVP: Cereus trigonus var. guatemalensis Eichlam ex Weing.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2856859": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hylocereus guatemalensis (Eichlam ex Weing.) Britton & Rose",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3016252": {
+      "dataset": "wcvp",
+      "label": "WCVP: Selenicereus guatemalensis (Eichlam ex Weing.) D.R.Hunt",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "idioma-de-nombre-dudoso",
+      "message": "USDA da «Nopalito De Guatemala» como inglés, pero parece español; no se usa como displayName.",
+      "target": "commonNames"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Eichlam ex Weing.) D.R.Hunt",
+    "name": "Selenicereus guatemalensis",
+    "refs": [
+      "wcvp:3016252"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Eichlam ex Weing.",
+      "name": "Cereus trigonus var. guatemalensis",
+      "refs": [
+        "wcvp:2712471"
+      ]
+    },
+    {
+      "authors": "(Eichlam ex Weing.) Britton & Rose",
+      "name": "Hylocereus guatemalensis",
+      "refs": [
+        "wcvp:2856859"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

@@ -1,0 +1,31 @@
+2026-10-02T02:36:44Z
+$ flutter --version
+Flutter 3.47.6 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 5fc346839b (29 hours ago) • 2026-09-30 15:02:49 -0700
+Engine • hash b8c8d3d8d5d0095127057f8a29ca8cc53da2167c (revision 692136cb65) (2 days ago) • 2026-09-30 00:56:59.000Z
+Tools • Dart 3.13.5 • DevTools 2.60.0
+$ flutter devices
+Found 3 connected devices:
+  SM G998B (mobile) • R5CR70M9GEE • android-arm64  • Android 15 (API 35)
+  macOS (desktop)   • macos       • darwin-arm64   • macOS 27.0.1 26A434 darwin-arm64
+  Chrome (web)      • chrome      • web-javascript • Google Chrome 154.0.8037.93
+
+Checking for wireless devices...
+
+No wireless devices were found.
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.
+$ flutter emulators
+No emulators available.
+
+To create a new emulator, run 'flutter emulators --create [--name xyz]'.
+
+You can find more information on managing emulators at the links below:
+  https://developer.android.com/studio/run/managing-avds
+  https://developer.android.com/studio/command-line/avdmanager
+$ ~/Library/Android/sdk/platform-tools/adb devices -l
+List of devices attached
+R5CR70M9GEE            device usb:1048576X product:p3sxxx model:SM_G998B device:p3s transport_id:3
+

@@ -1,0 +1,14 @@
+# Caché (docker build, builder qa-backend, copia exportada de git; y compose en el repo)
+B_nochange: real 0.64 CACHED=10 Compiling=0 descargado=0 ya_verificado=0
+C_docs: real 0.66 CACHED=10 Compiling=0 descargado=0 ya_verificado=0
+D_api: real 3.08 CACHED=5 Compiling=3 descargado=0 ya_verificado=0
+E_ingest: real 1.58 CACHED=5 Compiling=1 descargado=0 ya_verificado=1
+F_api: real 1.49 CACHED=5 Compiling=1 descargado=0 ya_verificado=0
+G_core: real 2.90 CACHED=7 Compiling=3 descargado=0 ya_verificado=0
+repo/compose con cambio en catalog-api/src/main.rs:
+   Compiling catalog-api v0.1.0 (/src/backend/catalog-api)
+    Finished `release` profile [optimized] target(s) in 0.57s
+repo/compose tras restaurar: 10 CACHED, 0 Compiling
+E_ingest catálogo:
+usda: ya estaba y está verificado: /data/.cache/Duke-Source-CSV.zip
+hash: 48d71b6b0221787add6a8474b6a6b1b6567915d435cb3d1660e8335da3a5812d

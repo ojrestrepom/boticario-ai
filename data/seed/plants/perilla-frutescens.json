@@ -1,0 +1,806 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:2489ca4633dc7dbc2c96874b7fc612aa0d82782bbefbf70b768843ac8c291f4f",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:709-1"
+      ],
+      "text": "Perilla"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Perilla frutescens"
+    ],
+    "value": "Planta anual de la familia de las lamiáceas, con hojas que se asemejan a las de la ortiga y aceites esenciales que le dan su aroma."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:150299"
+    ],
+    "value": "Perilla frutescens"
+  },
+  "family": {
+    "refs": [
+      "wcvp:150299"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "perilla-frutescens",
+  "image": {
+    "attributionRequired": true,
+    "author": "Alex Abair",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Perilla_frutescens_frutescens_732814283.jpg",
+    "refs": [
+      "commons:File:Perilla frutescens frutescens 732814283.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Perilla_frutescens_frutescens_732814283.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:709-LF",
+      "usda_part:709-PL",
+      "usda_part:709-ST"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:150299"
+    ],
+    "value": "China, Asia oriental, subcontinente indio, Indochina, Malesia y Lejano Oriente ruso"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Perilla frutescens frutescens 732814283.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Perilla frutescens frutescens 732814283.jpg",
+      "license": "CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Perilla_frutescens_frutescens_732814283.jpg"
+    },
+    "efsa_botanic:2202": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Perilla ketone",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:423": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: myristicin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:597": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Perilla",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:709-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Perilla»",
+      "license": "CC0"
+    },
+    "usda_part:709-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_part:709-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "usda_part:709-ST": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Stem»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:10645": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10645",
+      "license": "CC0"
+    },
+    "usda_use:11227": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11227",
+      "license": "CC0"
+    },
+    "usda_use:11422": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11422",
+      "license": "CC0"
+    },
+    "usda_use:12360": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 12360",
+      "license": "CC0"
+    },
+    "usda_use:14077": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 14077",
+      "license": "CC0"
+    },
+    "usda_use:16288": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16288",
+      "license": "CC0"
+    },
+    "usda_use:16289": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16289",
+      "license": "CC0"
+    },
+    "usda_use:23216": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23216",
+      "license": "CC0"
+    },
+    "usda_use:23924": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 23924",
+      "license": "CC0"
+    },
+    "usda_use:2681": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 2681",
+      "license": "CC0"
+    },
+    "usda_use:3142": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3142",
+      "license": "CC0"
+    },
+    "usda_use:3143": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3143",
+      "license": "CC0"
+    },
+    "usda_use:34517": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 34517",
+      "license": "CC0"
+    },
+    "usda_use:3728": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3728",
+      "license": "CC0"
+    },
+    "usda_use:3729": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3729",
+      "license": "CC0"
+    },
+    "usda_use:3967": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3967",
+      "license": "CC0"
+    },
+    "usda_use:47837": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47837",
+      "license": "CC0"
+    },
+    "usda_use:47838": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 47838",
+      "license": "CC0"
+    },
+    "usda_use:5256": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5256",
+      "license": "CC0"
+    },
+    "usda_use:60109": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60109",
+      "license": "CC0"
+    },
+    "usda_use:60111": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60111",
+      "license": "CC0"
+    },
+    "usda_use:60112": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60112",
+      "license": "CC0"
+    },
+    "usda_use:60113": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 60113",
+      "license": "CC0"
+    },
+    "usda_use:65947": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65947",
+      "license": "CC0"
+    },
+    "usda_use:67215": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 67215",
+      "license": "CC0"
+    },
+    "usda_use:69986": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 69986",
+      "license": "CC0"
+    },
+    "usda_use:96": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 96",
+      "license": "CC0"
+    },
+    "wcvp:136910": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ocimum frutescens L.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:150299": {
+      "dataset": "wcvp",
+      "label": "WCVP: Perilla frutescens (L.) Britton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:162166": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pogostemon perilloides Mansf.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Perilla frutescens": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Perilla frutescens",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Perilla_frutescens"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2202",
+      "efsa_botanic:423",
+      "efsa_endpoint:597"
+    ],
+    "text": "EFSA registra como sustancias de evidencia la perilla cetona y la miristicina (hojas y semillas), y un estudio en ganado bovino describe una neumonía intersticial atípica por intoxicación con la planta."
+  },
+  "scientificName": {
+    "authors": "(L.) Britton",
+    "name": "Perilla frutescens",
+    "refs": [
+      "wcvp:150299"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Ocimum frutescens",
+      "refs": [
+        "wcvp:136910"
+      ]
+    },
+    {
+      "authors": "Mansf.",
+      "name": "Pogostemon perilloides",
+      "refs": [
+        "wcvp:162166"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Antídoto",
+      "activitySource": "Antidote",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3142",
+        "usda_use:3143",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3728",
+        "usda_use:3729",
+        "usda_reference:Keys",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Asma",
+      "activitySource": "Asthma",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5256",
+        "usda_use:60111",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Resfriado",
+      "activitySource": "Cold",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:12360",
+        "usda_use:67215",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "China",
+        "Otros lugares"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16288",
+        "usda_use:16289",
+        "usda_reference:Bliss",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Náuseas",
+      "activitySource": "Nausea",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:34517",
+        "usda_use:60113",
+        "usda_reference:Hunan",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Estomacal",
+      "activitySource": "Stomachic",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:47837",
+        "usda_use:47838",
+        "usda_reference:Bliss",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Abdomen",
+      "activitySource": "Abdomen",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:96",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Anodino",
+      "activitySource": "Anodyne",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:2681",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Antídoto (pescado)",
+      "activitySource": "Antidote(Fish)",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60109",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Antitusivo",
+      "activitySource": "Antitussive",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3967",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Bronquitis",
+      "activitySource": "Bronchitis",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65947",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10645",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Cefalalgia",
+      "activitySource": "Cephalgia",
+      "citations": [
+        {
+          "key": "Woi.7",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 7"
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11227",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Pecho",
+      "activitySource": "Chest",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11422",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cólera",
+      "activitySource": "Cholera",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:60112",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Tos",
+      "activitySource": "Cough",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:14077",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Emission",
+      "activitySource": "Emission",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:69986",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Expectorante",
+      "activitySource": "Expectorant",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23216",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Feto",
+      "activitySource": "Fetus",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:23924",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

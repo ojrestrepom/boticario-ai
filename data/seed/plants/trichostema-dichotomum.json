@@ -1,0 +1,169 @@
+{
+  "aliases": [
+    "isanthus-brachiatus",
+    "trichostemma-dichotomum"
+  ],
+  "bundleHash": "sha256:c0ac4ad6b72486b9f0b2ae7ce41d52ab9d4d58a4263a90f43d4014c30d62c3b7",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2073-1"
+      ],
+      "text": "Blue Curls"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:506-1"
+      ],
+      "text": "False Pennyroyal"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:208478"
+    ],
+    "value": "Trichostema dichotomum"
+  },
+  "family": {
+    "refs": [
+      "wcvp:208478"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "trichostema-dichotomum",
+  "image": {
+    "attributionRequired": true,
+    "author": "Bob Peterson from North Palm Beach, Florida, Planet Earth!",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Forked_bluecurls_(Trichostema_dichotomum)_(6269418054).jpg",
+    "refs": [
+      "commons:File:Forked bluecurls (Trichostema dichotomum) (6269418054).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Forked_bluecurls_%28Trichostema_dichotomum%29_%286269418054%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:506-PL",
+      "usda_part:2073-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:208478"
+    ],
+    "value": "Este de Canadá y centro, noreste, sur y sureste de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Forked bluecurls (Trichostema dichotomum) (6269418054).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Forked bluecurls (Trichostema dichotomum) (6269418054).jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Forked_bluecurls_(Trichostema_dichotomum)_(6269418054).jpg"
+    },
+    "usda_common_name:2073-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Blue Curls»",
+      "license": "CC0"
+    },
+    "usda_common_name:506-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «False Pennyroyal»",
+      "license": "CC0"
+    },
+    "usda_part:2073-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "usda_part:506-PL": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Plant»",
+      "license": "CC0"
+    },
+    "wcvp:102746": {
+      "dataset": "wcvp",
+      "label": "WCVP: Isanthus brachiatus (L.) Britton, Sterns & Poggenb.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:208478": {
+      "dataset": "wcvp",
+      "label": "WCVP: Trichostema dichotomum L.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "coincidencia-aproximada",
+      "message": "El nombre resolvió por coincidencia aproximada (errata probable); requiere revisión.",
+      "target": "scientificName"
+    },
+    {
+      "code": "fusion-heterotipica",
+      "message": "Se fusionaron con el aceptado los sinónimos heterotípicos (Isanthus brachiatus) sin artículo propio en Wikipedia en español; requiere revisión humana.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español (solo «Blue Curls» y «False Pennyroyal», en inglés); el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en las partes Plant y Shoot, sin ficha aetheroleum de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L.",
+    "name": "Trichostema dichotomum",
+    "refs": [
+      "wcvp:208478"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L.) Britton, Sterns & Poggenb.",
+      "name": "Isanthus brachiatus",
+      "refs": [
+        "wcvp:102746"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

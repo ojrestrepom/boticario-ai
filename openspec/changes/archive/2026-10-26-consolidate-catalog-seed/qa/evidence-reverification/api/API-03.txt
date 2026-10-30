@@ -1,0 +1,246 @@
+PASA  nombre cientifico exacto: q='lavandula angustifolia' encuentra lavandula-angustifolia 200 total=1 posicion=1
+--- nombre cientifico exacto
+GET /v1/plants?q=lavandula%20angustifolia
+-> 200 {"content-type": "application/json", "content-length": "353"}
+{
+ "total": 1,
+ "ids": [
+  "lavandula-angustifolia"
+ ]
+}
+
+PASA  nombre cientifico con mayusculas: q='LAVANDULA Angustifolia' encuentra lavandula-angustifolia 200 total=1 posicion=1
+--- nombre cientifico con mayusculas
+GET /v1/plants?q=LAVANDULA%20Angustifolia
+-> 200 {"content-type": "application/json", "content-length": "353"}
+{
+ "total": 1,
+ "ids": [
+  "lavandula-angustifolia"
+ ]
+}
+
+PASA  fragmento cientifico: q='angustif' encuentra lavandula-angustifolia 200 total=11 posicion=7
+--- fragmento cientifico
+GET /v1/plants?q=angustif
+-> 200 {"content-type": "application/json", "content-length": "3184"}
+{
+ "total": 11,
+ "ids": [
+  "dictamnus-albus",
+  "echinacea-angustifolia",
+  "elaeagnus-angustifolia",
+  "epilobium-angustifolium",
+  "fraxinus-angustifolia",
+  "helichrysum-litoreum",
+  "lavandula-angustifolia",
+  "lupinus-angustifolius",
+  "phillyrea-latifolia",
+  "sphenostylis-angustifolia",
+  "theobroma-angustifolium"
+ ]
+}
+
+PASA  sinonimo cientifico (Rosmarinus officinalis): q='rosmarinus officinalis' encuentra salvia-rosmarinus 200 total=3 posicion=2
+--- sinonimo cientifico (Rosmarinus officinalis)
+GET /v1/plants?q=rosmarinus%20officinalis
+-> 200 {"content-type": "application/json", "content-length": "853"}
+{
+ "total": 3,
+ "ids": [
+  "salvia-jordanii",
+  "salvia-rosmarinus",
+  "salvia-x-lavandulacea"
+ ]
+}
+
+PASA  nombre aceptado nuevo: q='salvia rosmarinus' encuentra salvia-rosmarinus 200 total=1 posicion=1
+--- nombre aceptado nuevo
+GET /v1/plants?q=salvia%20rosmarinus
+-> 200 {"content-type": "application/json", "content-length": "526"}
+{
+ "total": 1,
+ "ids": [
+  "salvia-rosmarinus"
+ ]
+}
+
+FALLA sinonimo anterior de manzanilla: q='matricaria recutita' encuentra matricaria-chamomilla 200 total=0 posicion=None
+--- sinonimo anterior de manzanilla
+GET /v1/plants?q=matricaria%20recutita
+-> 200 {"content-type": "application/json", "content-length": "45"}
+{
+ "total": 0,
+ "ids": []
+}
+
+PASA  nombre aceptado de manzanilla: q='matricaria chamomilla' encuentra matricaria-chamomilla 200 total=1 posicion=1
+--- nombre aceptado de manzanilla
+GET /v1/plants?q=matricaria%20chamomilla
+-> 200 {"content-type": "application/json", "content-length": "840"}
+{
+ "total": 1,
+ "ids": [
+  "matricaria-chamomilla"
+ ]
+}
+
+PASA  comun es: manzanilla: q='manzanilla' encuentra matricaria-chamomilla 200 total=3 posicion=3
+--- comun es: manzanilla
+GET /v1/plants?q=manzanilla
+-> 200 {"content-type": "application/json", "content-length": "1542"}
+{
+ "total": 3,
+ "ids": [
+  "chamaemelum-nobile",
+  "hippomane-mancinella",
+  "matricaria-chamomilla"
+ ]
+}
+
+PASA  comun es: menta: q='menta' encuentra mentha-x-piperita 200 total=20 posicion=14
+--- comun es: menta
+GET /v1/plants?q=menta
+-> 200 {"content-type": "application/json", "content-length": "12206"}
+{
+ "total": 20,
+ "ids": [
+  "aframomum-melegueta",
+  "agastache-rugosa",
+  "ageratum-conyzoides",
+  "coleus-amboinicus",
+  "elsholtzia-ciliata",
+  "eucalyptus-nova-anglica",
+  "galeopsis-tetrahit",
+  "lycopus-europaeus",
+  "melissa-officinalis",
+  "mentha-aquatica",
+  "mentha-longifolia",
+  "mentha-pulegium"
+ ]
+}
+
+PASA  comun es: lavanda: q='lavanda' encuentra lavandula-angustifolia 200 total=2 posicion=1
+--- comun es: lavanda
+GET /v1/plants?q=lavanda
+-> 200 {"content-type": "application/json", "content-length": "616"}
+{
+ "total": 2,
+ "ids": [
+  "lavandula-angustifolia",
+  "lavandula-sp"
+ ]
+}
+
+PASA  comun es: romero: q='romero' encuentra salvia-rosmarinus 200 total=3 posicion=3
+--- comun es: romero
+GET /v1/plants?q=romero
+-> 200 {"content-type": "application/json", "content-length": "932"}
+{
+ "total": 3,
+ "ids": [
+  "salvia-granatensis",
+  "salvia-jordanii",
+  "salvia-rosmarinus"
+ ]
+}
+
+PASA  comun es con acento (hipérico): q='hipérico' encuentra hypericum-perforatum 200 total=1 posicion=1
+--- comun es con acento (hipérico)
+GET /v1/plants?q=hip%C3%A9rico
+-> 200 {"content-type": "application/json", "content-length": "2010"}
+{
+ "total": 1,
+ "ids": [
+  "hypericum-perforatum"
+ ]
+}
+
+PASA  comun es sin acento (hiperico): q='hiperico' encuentra hypericum-perforatum 200 total=1 posicion=1
+--- comun es sin acento (hiperico)
+GET /v1/plants?q=hiperico
+-> 200 {"content-type": "application/json", "content-length": "2010"}
+{
+ "total": 1,
+ "ids": [
+  "hypericum-perforatum"
+ ]
+}
+
+PASA  comun es: hierba de san juan: q='hierba de san juan' encuentra hypericum-perforatum 200 total=3 posicion=2
+--- comun es: hierba de san juan
+GET /v1/plants?q=hierba%20de%20san%20juan
+-> 200 {"content-type": "application/json", "content-length": "3275"}
+{
+ "total": 3,
+ "ids": [
+  "artemisia-vulgaris",
+  "hypericum-perforatum",
+  "tridax-procumbens"
+ ]
+}
+
+PASA  comun en: English Lavender: q='english lavender' encuentra lavandula-angustifolia 200 total=1 posicion=1
+--- comun en: English Lavender
+GET /v1/plants?q=english%20lavender
+-> 200 {"content-type": "application/json", "content-length": "353"}
+{
+ "total": 1,
+ "ids": [
+  "lavandula-angustifolia"
+ ]
+}
+
+PASA  espacios repetidos y exteriores: q='  rosmarinus    officinalis  ' encuentra salvia-rosmarinus 200 total=3 posicion=2
+--- espacios repetidos y exteriores
+GET /v1/plants?q=%20%20rosmarinus%20%20%20%20officinalis%20%20
+-> 200 {"content-type": "application/json", "content-length": "853"}
+{
+ "total": 3,
+ "ids": [
+  "salvia-jordanii",
+  "salvia-rosmarinus",
+  "salvia-x-lavandulacea"
+ ]
+}
+
+FALLA sinonimo: Mentha piperita: q='mentha piperita' encuentra mentha-x-piperita 200 total=0 posicion=None
+--- sinonimo: Mentha piperita
+GET /v1/plants?q=mentha%20piperita
+-> 200 {"content-type": "application/json", "content-length": "45"}
+{
+ "total": 0,
+ "ids": []
+}
+
+PASA  hibrido escrito con x ASCII (Mentha x piperita): q='mentha x piperita' encuentra mentha-x-piperita 200 total=1 posicion=1
+--- hibrido escrito con x ASCII (Mentha x piperita)
+GET /v1/plants?q=mentha%20x%20piperita
+-> 200 {"content-type": "application/json", "content-length": "500"}
+{
+ "total": 1,
+ "ids": [
+  "mentha-x-piperita"
+ ]
+}
+
+PASA  hibrido escrito con el signo × (Mentha × piperita): q='mentha × piperita' encuentra mentha-x-piperita 200 total=1 posicion=1
+--- hibrido escrito con el signo × (Mentha × piperita)
+GET /v1/plants?q=mentha%20%C3%97%20piperita
+-> 200 {"content-type": "application/json", "content-length": "500"}
+{
+ "total": 1,
+ "ids": [
+  "mentha-x-piperita"
+ ]
+}
+
+PASA  sin coincidencias: total 0 200 0
+PASA  vacio no filtra: total = 2354 200 2354
+PASA  solo espacios no filtra: total = 2354 200 2354
+PASA  % literal no actua como comodin 200 total=0
+PASA  _ literal no actua como comodin 200 total=1
+PASA  q de 201 caracteres -> 400 400
+PASA  q con caracter de control -> 400 400
+PASA  300 plantas al azar se encuentran por su nombre cientifico []
+PASA  300 plantas al azar se encuentran por un nombre comun en espanol []

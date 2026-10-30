@@ -1,0 +1,161 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:410b1eaba47d90ea1c73f0a850a0f82ab10d513705e5a82d461e712fcf9152f8",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2804740"
+    ],
+    "value": "Eurya acuminata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2804740"
+    ],
+    "value": "Pentaphylacaceae"
+  },
+  "goals": [],
+  "id": "eurya-acuminata",
+  "image": {
+    "attributionRequired": false,
+    "author": "Royle, J. Forbes",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Illustrations_of_the_botany_and_other_branches_of_the_natural_history_of_the_Himalayan_Mountains_(Pl._24)_(7128123155).jpg",
+    "refs": [
+      "commons:File:Illustrations of the botany and other branches of the natural history of the Himalayan Mountains (Pl. 24) (7128123155).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Illustrations_of_the_botany_and_other_branches_of_the_natural_history_of_the_Himalayan_Mountains_%28Pl._24%29_%287128123155%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2804740"
+    ],
+    "value": "China, Asia oriental, subcontinente indio, Indochina y Malesia"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Illustrations of the botany and other branches of the natural history of the Himalayan Mountains (Pl. 24) (7128123155).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Illustrations of the botany and other branches of the natural history of the Himalayan Mountains (Pl. 24) (7128123155).jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Illustrations_of_the_botany_and_other_branches_of_the_natural_history_of_the_Himalayan_Mountains_(Pl._24)_(7128123155).jpg"
+    },
+    "usda_reference:Altschul": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Altschul",
+      "license": "CC0"
+    },
+    "usda_use:50012": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 50012",
+      "license": "CC0"
+    },
+    "usda_use:58182": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58182",
+      "license": "CC0"
+    },
+    "wcvp:2804740": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eurya acuminata DC.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2915443": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eurya japonica var. acuminata (DC.) Thwaites",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Eurya acuminata",
+    "refs": [
+      "wcvp:2804740"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(DC.) Thwaites",
+      "name": "Eurya japonica var. acuminata",
+      "refs": [
+        "wcvp:2915443"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Dentífrico",
+      "activitySource": "Dentifrice",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        }
+      ],
+      "countries": [
+        "Filipinas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58182",
+        "usda_reference:Altschul"
+      ]
+    },
+    {
+      "activity": "Tongue",
+      "activitySource": "Tongue",
+      "citations": [
+        {
+          "key": "Altschul",
+          "ref": "usda_reference:Altschul",
+          "text": "Altschul, Siri Von Reis. 1973. Drugs and foods from little-known plants. Harvard Univ. Press"
+        }
+      ],
+      "countries": [
+        "Filipinas"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:50012",
+        "usda_reference:Altschul"
+      ]
+    }
+  ]
+}

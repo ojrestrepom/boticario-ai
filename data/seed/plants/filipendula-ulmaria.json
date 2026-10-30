@@ -1,0 +1,596 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:7240f842c2aebf1941255a8e42f9bb159e2938136bff33d6c7594ba2451b5a51",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Filipendula ulmaria",
+        "wikidata:Q147176"
+      ],
+      "text": "Ulmaria"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Filipendula ulmaria",
+        "wikidata:Q147176"
+      ],
+      "text": "Reina de los prados"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:418-1"
+      ],
+      "text": "Meadowsweet"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:418-2"
+      ],
+      "text": "Queen Of The Meadow"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Filipendula ulmaria"
+    ],
+    "value": "La ulmaria o reina de los prados es una especie de planta herbácea de la familia de las rosáceas."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Filipendula ulmaria"
+    ],
+    "value": "Ulmaria"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2921975"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Dolor e inflamación",
+      "evidence": "La EMA tiene monografías de la flor y de la parte aérea en esta área",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:filipendulae-ulmariae-flos",
+        "ema_herbal:filipendulae-ulmariae-herba"
+      ],
+      "subarea": "dolor-e-inflamacion"
+    },
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene monografías de la flor y de la parte aérea en esta área",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:filipendulae-ulmariae-flos",
+        "ema_herbal:filipendulae-ulmariae-herba"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "filipendula-ulmaria",
+  "image": {
+    "attributionRequired": true,
+    "author": "W. Bulach",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:.00_7237_Echte_M%C3%A4des%C3%BC%C3%9F_(Filipendula_ulmaria).jpg",
+    "refs": [
+      "commons:File:.00 7237 Echte Mädesüß (Filipendula ulmaria).jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/.00_7237_Echte_M%C3%A4des%C3%BC%C3%9F_%28Filipendula_ulmaria%29.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2921975"
+    ],
+    "value": "Europa, Cáucaso, Asia occidental y central, Siberia, Extremo Oriente ruso, Mongolia, China y el subcontinente indio"
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:filipendulae-ulmariae-flos"
+      ],
+      "value": "Flor"
+    },
+    {
+      "refs": [
+        "ema_herbal:filipendulae-ulmariae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:.00 7237 Echte Mädesüß (Filipendula ulmaria).jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:.00 7237 Echte Mädesüß (Filipendula ulmaria).jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:.00_7237_Echte_M%C3%A4des%C3%BC%C3%9F_(Filipendula_ulmaria).jpg"
+    },
+    "ema_herbal:filipendulae-ulmariae-flos": {
+      "dataset": "ema_json",
+      "label": "EMA: Filipendulae ulmariae flos",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/filipendulae-ulmariae-flos"
+    },
+    "ema_herbal:filipendulae-ulmariae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Filipendulae ulmariae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/filipendulae-ulmariae-herba"
+    },
+    "ema_pdf:filipendulae-ulmariae-flos:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de filipendulae-ulmariae-flos, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-flos-first-version_en.pdf"
+    },
+    "ema_pdf:filipendulae-ulmariae-flos:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de filipendulae-ulmariae-flos, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-flos-first-version_en.pdf"
+    },
+    "ema_pdf:filipendulae-ulmariae-flos:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de filipendulae-ulmariae-flos, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-flos-first-version_en.pdf"
+    },
+    "ema_pdf:filipendulae-ulmariae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de filipendulae-ulmariae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-herba-first-version_en.pdf"
+    },
+    "ema_pdf:filipendulae-ulmariae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de filipendulae-ulmariae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-herba-first-version_en.pdf"
+    },
+    "ema_pdf:filipendulae-ulmariae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de filipendulae-ulmariae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-community-herbal-monograph-filipendula-ulmaria-l-maxim-herba-first-version_en.pdf"
+    },
+    "usda_common_name:418-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Meadowsweet»",
+      "license": "CC0"
+    },
+    "usda_common_name:418-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Queen Of The Meadow»",
+      "license": "CC0"
+    },
+    "usda_reference:FontQuer": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia FontQuer",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:15500": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 15500",
+      "license": "CC0"
+    },
+    "usda_use:18002": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 18002",
+      "license": "CC0"
+    },
+    "usda_use:31473": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31473",
+      "license": "CC0"
+    },
+    "usda_use:41209": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41209",
+      "license": "CC0"
+    },
+    "usda_use:43036": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 43036",
+      "license": "CC0"
+    },
+    "usda_use:5703": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5703",
+      "license": "CC0"
+    },
+    "usda_use:5704": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5704",
+      "license": "CC0"
+    },
+    "usda_use:58253": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58253",
+      "license": "CC0"
+    },
+    "usda_use:58254": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58254",
+      "license": "CC0"
+    },
+    "usda_use:58255": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58255",
+      "license": "CC0"
+    },
+    "usda_use:65194": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65194",
+      "license": "CC0"
+    },
+    "usda_use:68934": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 68934",
+      "license": "CC0"
+    },
+    "usda_use:74105": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 74105",
+      "license": "CC0"
+    },
+    "usda_use:9089": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9089",
+      "license": "CC0"
+    },
+    "wcvp:2921975": {
+      "dataset": "wcvp",
+      "label": "WCVP: Filipendula ulmaria (L.) Maxim.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2921977": {
+      "dataset": "wcvp",
+      "label": "WCVP: Spiraea ulmaria L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q147176": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q147176",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q147176"
+    },
+    "wikipedia_es:Filipendula ulmaria": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Filipendula ulmaria",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Filipendula_ulmaria"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "cita-sin-resolver",
+      "message": "La clave de cita «Upho» del grupo «Astringente» no tiene candidata en el paquete; las demás citas del grupo sí se resolvieron.",
+      "target": "traditionalUses[0]"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:filipendulae-ulmariae-flos:4.3",
+      "ema_pdf:filipendulae-ulmariae-flos:4.4",
+      "ema_pdf:filipendulae-ulmariae-flos:4.5",
+      "ema_pdf:filipendulae-ulmariae-herba:4.3",
+      "ema_pdf:filipendulae-ulmariae-herba:4.4",
+      "ema_pdf:filipendulae-ulmariae-herba:4.5"
+    ],
+    "text": "Las monografías de la EMA para la flor y la parte aérea registran como contraindicación la hipersensibilidad a los salicilatos y a la sustancia activa. Entre las advertencias registran que no se ha establecido su uso en menores de 18 años, que no se recomienda su uso junto con salicilatos y otros AINE sin consejo médico y que el producto no está previsto para la artritis aguda. En interacciones, la EMA no reporta ninguna."
+  },
+  "scientificName": {
+    "authors": "(L.) Maxim.",
+    "name": "Filipendula ulmaria",
+    "refs": [
+      "wcvp:2921975"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "L.",
+      "name": "Spiraea ulmaria",
+      "refs": [
+        "wcvp:2921977"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Upho",
+          "ref": null,
+          "text": "Upho (sin resolver)"
+        }
+      ],
+      "countries": [
+        "Otros lugares",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5703",
+        "usda_use:5704",
+        "usda_use:65194",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Diurético",
+      "activitySource": "Diuretic",
+      "citations": [
+        {
+          "key": "FontQuer",
+          "ref": "usda_reference:FontQuer",
+          "text": "Font Query, P. 1979. Plantas Medicinales el Dioscorides Renovado. Editorial Labor, S.A. Barcelona. 5th Ed."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "España",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:18002",
+        "usda_use:68934",
+        "usda_reference:FontQuer",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Antiácido",
+      "activitySource": "Antacid",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58253",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9089",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Depurativo",
+      "activitySource": "Depurative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:15500",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Fiebre",
+      "activitySource": "Fever",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58254",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31473",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Nervino",
+      "activitySource": "Nervine",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:74105",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41209",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sedante",
+      "activitySource": "Sedative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:43036",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Sudorífico",
+      "activitySource": "Sudorific",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:58255",
+        "usda_reference:Steinmetz"
+      ]
+    }
+  ]
+}

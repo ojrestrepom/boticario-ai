@@ -1,0 +1,168 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:91f17557610b662ba808db9ea2cda8b1c651043570296be18c073e53dea5095b",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2948609"
+    ],
+    "value": "Fragaria × ananassa"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2948609"
+    ],
+    "value": "Rosaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:fragariae-folium"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    },
+    {
+      "area": "Trastornos gastrointestinales",
+      "evidence": "La EMA tiene una monografía en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:fragariae-folium"
+      ],
+      "subarea": "digestion"
+    }
+  ],
+  "id": "fragaria-x-ananassa",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2948609"
+    ],
+    "value": "Nativa del oeste de Norteamérica (Canadá occidental y oeste de Estados Unidos)."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:fragariae-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "ema_herbal:fragariae-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Fragariae folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/fragariae-folium"
+    },
+    "ema_pdf:fragariae-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de fragariae-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:fragariae-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de fragariae-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf"
+    },
+    "ema_pdf:fragariae-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de fragariae-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-fragaria-vesca-l-fragaria-moschata-weston-fragaria-viridis-weston-fragaria-x-ananassa-weston-duchesne-ex-rozier-folium-revision-1_en.pdf"
+    },
+    "wcvp:2948609": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fragaria × ananassa (Duchesne ex Weston) Duchesne ex Rozier",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2948671": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fragaria chiloensis var. ananassa Duchesne ex Weston",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2948971": {
+      "dataset": "wcvp",
+      "label": "WCVP: Fragaria vesca var. ananassa (Duchesne ex Weston) Aiton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2953167": {
+      "dataset": "wcvp",
+      "label": "WCVP: Potentilla × ananassa (Duchesne ex Weston) Mabb.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:fragariae-folium:4.3",
+      "ema_pdf:fragariae-folium:4.4",
+      "ema_pdf:fragariae-folium:4.5"
+    ],
+    "text": "La monografía de la EMA para la hoja registra como contraindicación la hipersensibilidad a la sustancia activa. En advertencias indica consultar a un médico o profesional sanitario cualificado si aparecen fiebre, disuria, espasmos o sangre en la orina, o si la diarrea reaparece o hay heces con sangre; señala que no se recomienda en personas con una ingesta reducida de líquidos y que no se ha establecido su uso en menores de 12 años. En interacciones, no se han realizado estudios."
+  },
+  "scientificName": {
+    "authors": "(Duchesne ex Weston) Duchesne ex Rozier",
+    "name": "Fragaria × ananassa",
+    "refs": [
+      "wcvp:2948609"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Duchesne ex Weston",
+      "name": "Fragaria chiloensis var. ananassa",
+      "refs": [
+        "wcvp:2948671"
+      ]
+    },
+    {
+      "authors": "(Duchesne ex Weston) Aiton",
+      "name": "Fragaria vesca var. ananassa",
+      "refs": [
+        "wcvp:2948971"
+      ]
+    },
+    {
+      "authors": "(Duchesne ex Weston) Mabb.",
+      "name": "Potentilla × ananassa",
+      "refs": [
+        "wcvp:2953167"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

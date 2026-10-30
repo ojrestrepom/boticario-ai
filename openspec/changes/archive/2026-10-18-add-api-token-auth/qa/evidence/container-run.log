@@ -1,0 +1,57 @@
+PASS CFG-01 código de salida 2
+PASS CFG-01 el mensaje nombra API_TOKENS
+PASS CFG-02 vacía: código 2 y mensaje con API_TOKENS
+PASS CFG-02 solo espacios: código 2 y mensaje con API_TOKENS
+PASS CFG-02 solo salto de línea: código 2 y mensaje con API_TOKENS
+PASS CFG-03 31 caracteres: código 2
+PASS CFG-03 31 caracteres: el mensaje indica el límite
+PASS CFG-03 31 caracteres: el mensaje no contiene el valor
+PASS CFG-03 257 caracteres: código 2
+PASS CFG-03 257 caracteres: el mensaje indica el límite
+PASS CFG-03 257 caracteres: el mensaje no contiene el valor
+PASS CFG-04 32 caracteres: arranca, acepta el token y rechaza otro
+PASS CFG-04 256 caracteres: arranca, acepta el token y rechaza otro
+PASS CFG-05 elemento vacío en medio (a,,b): código 2, nombra API_TOKENS, sin el valor
+PASS CFG-05 coma final: código 2, nombra API_TOKENS, sin el valor
+PASS CFG-05 coma inicial: código 2, nombra API_TOKENS, sin el valor
+PASS CFG-05 carácter @: código 2, nombra API_TOKENS, sin el valor
+PASS CFG-05 espacio interior: código 2, nombra API_TOKENS, sin el valor
+PASS CFG-05 carácter no ASCII: código 2, nombra API_TOKENS, sin el valor
+PASS CFG-05 un token malo entre buenos: código 2, nombra API_TOKENS, sin el valor
+PASS CFG-06 arranca con un token de 64 hex y acepta ese token
+PASS CFG-06 rechaza otro token
+PASS CFG-07 espacios alrededor de la coma y salto final: acepta ambos y rechaza un tercero
+PASS CFG-07 CRLF final: acepta ambos y rechaza un tercero
+PASS CFG-08 --help sin API_TOKENS: código 0 e imprime la ayuda
+PASS CFG-08 --openapi sin API_TOKENS: código 0 e imprime el documento
+PASS CFG-08 el documento impreso coincide con backend/openapi.json
+PASS CFG-09 los mensajes de CFG-01 a CFG-05 no contienen valores de token (comprobado en cada caso)
+PASS CON-01 falla (código distinto de 0)
+PASS CON-01 el mensaje nombra API_TOKENS
+PASS CON-01 no se creó ningún contenedor
+PASS CON-01 no existe .env en la raíz
+PASS CON-01 docker compose config con API_TOKENS definido: pasa
+PASS CON-02 GET /health -> 200
+PASS CON-02 GET /v1/plants sin token -> 401
+PASS CON-02 GET /v1/plants con token -> 200
+PASS CON-03 q=lavand -> 200 con resultados reales
+PASS CON-03 detalle de lavandula-angustifolia -> 200 con datos reales
+PASS CON-04 PORT=9090: /health 200 en 9090
+PASS CON-04 el puerto 8080 del anfitrión no está publicado
+PASS CON-04 401 sin token también en 9090
+PASS CON-05 con warn no aparece «escuchando»
+PASS CON-05 con el valor por defecto aparece «escuchando»
+PASS CON-06 T1 y T2 -> 200, otro valor -> 401
+PASS CON-07 la imagen no define API_TOKENS
+PASS CON-07 docker history sin API_TOKENS con valor ni tokens locales
+PASS CON-07 0 archivos del sistema de archivos de la imagen contienen un token local
+PASS CON-08 existe el binario /app/catalog-api y la base /app/catalog.db
+PASS CON-08 no existen cargo, rustc, ZIP, base cruda ni código fuente
+PASS CON-09 detalle con token en red sin salida -> 200 con datos
+PASS CON-09 sin token -> 401
+PASS CON-09 la red de prueba no tiene salida a Internet
+PASS CON-10 0 apariciones de tokens (válidos, inválidos, prefijos) en 13 líneas de log trace
+PASS CON-10 el 401 se registra a nivel debug con la clase del fallo
+PASS CON-10 no se registra el valor de la cabecera Authorization
+
+55 PASS, 0 FAIL, 0 OBS

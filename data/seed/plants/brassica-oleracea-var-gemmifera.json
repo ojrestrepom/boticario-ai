@@ -1,0 +1,196 @@
+{
+  "aliases": [
+    "brassica-oleracea-var-gemmifera-var-gemmifera"
+  ],
+  "bundleHash": "sha256:e2930de993405ff1aa6e49ff9d1c829ac2fe59c8630c50ebe8119ee1db1dd39e",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q150463",
+        "wikipedia_es:Brassica oleracea var. gemmifera"
+      ],
+      "text": "Coles de Bruselas"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q150463"
+      ],
+      "text": "Col de Bruselas"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Brassica oleracea var. gemmifera"
+      ],
+      "text": "Repollos de Bruselas"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P357"
+      ],
+      "text": "Brussels sprouts"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:175-1"
+      ],
+      "text": "Brussels-Sprouts"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:175-2"
+      ],
+      "text": "Brussel-Sprout"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P357"
+      ],
+      "text": "Rosenkohl"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Brassica oleracea var. gemmifera"
+    ],
+    "value": "Tipo de cultivo invernal de coles, con yemas axilares comestibles de pequeño diámetro que se asemejan a diminutas coles."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikidata:Q150463",
+      "wikipedia_es:Brassica oleracea var. gemmifera"
+    ],
+    "value": "Coles de Bruselas"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2682500"
+    ],
+    "value": "Brassicaceae"
+  },
+  "goals": [],
+  "id": "brassica-oleracea-var-gemmifera",
+  "image": {
+    "attributionRequired": true,
+    "author": "Eric Hunt",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Brussels_sprout_closeup.jpg",
+    "refs": [
+      "commons:File:Brussels sprout closeup.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Brussels_sprout_closeup.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Brussels sprout closeup.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Brussels sprout closeup.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Brussels_sprout_closeup.jpg"
+    },
+    "tppt_plant:P357": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Brassica oleraceae convar. fruticosa var. gemmifera DC.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:175-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Brussels-Sprouts»",
+      "license": "CC0"
+    },
+    "usda_common_name:175-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Brussel-Sprout»",
+      "license": "CC0"
+    },
+    "wcvp:2682500": {
+      "dataset": "wcvp",
+      "label": "WCVP: Brassica oleracea var. gemmifera DC.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q150463": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q150463",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q150463"
+    },
+    "wikipedia_es:Brassica oleracea var. gemmifera": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Brassica oleracea var. gemmifera",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Brassica_oleracea_var._gemmifera"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "filas-sin-asignar",
+      "message": "Hay filas del grupo que no se pudieron asignar a ninguna planta.",
+      "target": "scientificName"
+    },
+    {
+      "code": "grupo-partido",
+      "message": "El aceptado lo comparten plantas heterotípicas; esta es una de las separadas.",
+      "target": "scientificName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "tppt_plant:P357"
+    ],
+    "text": "TPPT clasifica la toxicidad humana como «no tóxica» y la toxicidad animal como «tóxica»; la parte señalada es el fruto y la hoja (o la planta entera), y entre sus toxinas principales registra glucosinolatos (glucobrasicina, glucoiberina, gluconapina, neoglucobrasicina, progoitrina y sinigrina). La fuente anota que los glucosinolatos dan lugar a isotiocianatos, nitrilos y tiocianatos tóxicos. La clasificación de la toxicidad humana como «no tóxica» es un dato de la fuente; este dato no la hace segura."
+  },
+  "scientificName": {
+    "authors": "DC.",
+    "name": "Brassica oleracea var. gemmifera",
+    "refs": [
+      "wcvp:2682500"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

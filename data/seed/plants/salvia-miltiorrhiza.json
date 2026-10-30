@@ -1,0 +1,789 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:47f70c0117fa8e83464be35cb4473f0e1b88d831b799082a6ce45231f4eaeebe",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia miltiorrhiza"
+      ],
+      "text": "Salvia roja"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia miltiorrhiza"
+      ],
+      "text": "Salvia china"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia miltiorrhiza"
+      ],
+      "text": "Tan shen"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Salvia miltiorrhiza"
+      ],
+      "text": "Danshen"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:887-1"
+      ],
+      "text": "Dan-Shen"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:887-2"
+      ],
+      "text": "Red Sage"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:887-3"
+      ],
+      "text": "Tan-Shen"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Salvia miltiorrhiza"
+    ],
+    "value": "Planta perenne del género Salvia, muy valorada por sus raíces en la medicina tradicional china. Crece de 90 a 1200 m de elevación, en lugares cubiertos de hierba en bosques, laderas y orillas de arroyos."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Salvia miltiorrhiza"
+    ],
+    "value": "Salvia roja"
+  },
+  "family": {
+    "refs": [
+      "wcvp:183206"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "salvia-miltiorrhiza",
+  "image": {
+    "attributionRequired": true,
+    "author": "First Light ( talk )",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Salviamiltiorrhiza.jpg",
+    "refs": [
+      "commons:File:Salviamiltiorrhiza.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Salviamiltiorrhiza.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:183206"
+    ],
+    "value": "Nativa de China e Indochina."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:salviae-miltiorrhizae-radix-et-rhizoma"
+      ],
+      "value": "Raíz"
+    },
+    {
+      "refs": [
+        "ema_herbal:salviae-miltiorrhizae-radix-et-rhizoma"
+      ],
+      "value": "Rizoma"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Salviamiltiorrhiza.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Salviamiltiorrhiza.jpg",
+      "license": "CC BY 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Salviamiltiorrhiza.jpg"
+    },
+    "efsa_endpoint:7": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Salvia miltiorrhiza Bunge",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:salviae-miltiorrhizae-radix-et-rhizoma": {
+      "dataset": "ema_json",
+      "label": "EMA: Salviae miltiorrhizae radix et rhizoma",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/salviae-miltiorrhizae-radix-et-rhizoma"
+    },
+    "ema_pdf:salviae-miltiorrhizae-radix-et-rhizoma:CONCLUSIONS": {
+      "dataset": "ema_pdf",
+      "label": "EMA: declaración pública de salviae-miltiorrhizae-radix-et-rhizoma, conclusiones",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/public-statement/public-statement-salvia-miltiorrhiza-bunge-radix-et-rhizoma_en.pdf"
+    },
+    "usda_common_name:887-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Dan-Shen»",
+      "license": "CC0"
+    },
+    "usda_common_name:887-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Red Sage»",
+      "license": "CC0"
+    },
+    "usda_common_name:887-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Tan-Shen»",
+      "license": "CC0"
+    },
+    "usda_reference:Bliss": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Bliss",
+      "license": "CC0"
+    },
+    "usda_reference:Hunan": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hunan",
+      "license": "CC0"
+    },
+    "usda_reference:Keys": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Keys",
+      "license": "CC0"
+    },
+    "usda_reference:Li": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Li",
+      "license": "CC0"
+    },
+    "usda_reference:NAS2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia NAS2",
+      "license": "CC0"
+    },
+    "usda_reference:Yeh": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Yeh",
+      "license": "CC0"
+    },
+    "usda_use:11860": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11860",
+      "license": "CC0"
+    },
+    "usda_use:11916": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11916",
+      "license": "CC0"
+    },
+    "usda_use:1841": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 1841",
+      "license": "CC0"
+    },
+    "usda_use:20225": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20225",
+      "license": "CC0"
+    },
+    "usda_use:20226": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 20226",
+      "license": "CC0"
+    },
+    "usda_use:26422": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26422",
+      "license": "CC0"
+    },
+    "usda_use:26557": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 26557",
+      "license": "CC0"
+    },
+    "usda_use:28217": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28217",
+      "license": "CC0"
+    },
+    "usda_use:28581": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28581",
+      "license": "CC0"
+    },
+    "usda_use:28769": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 28769",
+      "license": "CC0"
+    },
+    "usda_use:30061": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30061",
+      "license": "CC0"
+    },
+    "usda_use:30062": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30062",
+      "license": "CC0"
+    },
+    "usda_use:33359": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 33359",
+      "license": "CC0"
+    },
+    "usda_use:4903": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4903",
+      "license": "CC0"
+    },
+    "usda_use:61183": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61183",
+      "license": "CC0"
+    },
+    "usda_use:61185": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61185",
+      "license": "CC0"
+    },
+    "usda_use:61191": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 61191",
+      "license": "CC0"
+    },
+    "usda_use:6384": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 6384",
+      "license": "CC0"
+    },
+    "usda_use:65313": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 65313",
+      "license": "CC0"
+    },
+    "usda_use:66022": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66022",
+      "license": "CC0"
+    },
+    "usda_use:71936": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 71936",
+      "license": "CC0"
+    },
+    "usda_use:72629": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 72629",
+      "license": "CC0"
+    },
+    "usda_use:73650": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 73650",
+      "license": "CC0"
+    },
+    "usda_use:9676": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9676",
+      "license": "CC0"
+    },
+    "wcvp:183206": {
+      "dataset": "wcvp",
+      "label": "WCVP: Salvia miltiorrhiza Bunge",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Salvia miltiorrhiza": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Salvia miltiorrhiza",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Salvia_miltiorrhiza"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_endpoint:7",
+      "ema_pdf:salviae-miltiorrhizae-radix-et-rhizoma:CONCLUSIONS"
+    ],
+    "text": "EFSA recoge, a partir del Botanical Safety Handbook, que las tinturas de las partes subterráneas se asocian en personas con picazón, dolor de estómago o menor apetito. La EMA indica en una declaración pública que no se puede establecer una monografía europea para la raíz y el rizoma, y esa declaración no trae datos de seguridad."
+  },
+  "scientificName": {
+    "authors": "Bunge",
+    "name": "Salvia miltiorrhiza",
+    "refs": [
+      "wcvp:183206"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Insomnio",
+      "activitySource": "Insomnia",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30061",
+        "usda_use:30062",
+        "usda_use:72629",
+        "usda_reference:Hunan",
+        "usda_reference:Li",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Dismenorrea",
+      "activitySource": "Dysmenorrhea",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        },
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:20225",
+        "usda_use:20226",
+        "usda_reference:Bliss",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Mastitis",
+      "activitySource": "Mastitis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        },
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:33359",
+        "usda_use:73650",
+        "usda_reference:Hunan",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Alterativo",
+      "activitySource": "Alterative",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:1841",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Amenorrea",
+      "activitySource": "Amenorrhea",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61185",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Artritis",
+      "activitySource": "Arthritis",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4903",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:65313",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Bactericida",
+      "activitySource": "Bactericide",
+      "citations": [
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:6384",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Sangre",
+      "activitySource": "Blood",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61183",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Contusión",
+      "activitySource": "Bruise",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66022",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer de cuello uterino",
+      "activitySource": "Cancer(Cervix)",
+      "citations": [
+        {
+          "key": "Yeh",
+          "ref": "usda_reference:Yeh",
+          "text": "Yey, S.D.J. 1973. Anticancer Chinese Herbal Medicines. Maerican Journal of Chinese Medicine 1(2): 271-274."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9676",
+        "usda_reference:Yeh"
+      ]
+    },
+    {
+      "activity": "Cicatrizante",
+      "activitySource": "Cicatrizant",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11860",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Circulación",
+      "activitySource": "Circulation",
+      "citations": [
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11916",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Dermatofitosis",
+      "activitySource": "Dermatophytosis",
+      "citations": [
+        {
+          "key": "Li",
+          "ref": "usda_reference:Li",
+          "text": "Li, C.P. 1974. Chinese Herbal Medicine. DHEW Publication No. (NIH): 75-732."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:61191",
+        "usda_reference:Li"
+      ]
+    },
+    {
+      "activity": "Forunculosis",
+      "activitySource": "Furunculosis",
+      "citations": [
+        {
+          "key": "Nas",
+          "ref": "usda_reference:NAS2",
+          "text": "Herbal pharmacology in the People's Republic of China. National Academy of Sciences, Washington, D.C."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26422",
+        "usda_reference:NAS2"
+      ]
+    },
+    {
+      "activity": "Gastralgia",
+      "activitySource": "Gastralgia",
+      "citations": [
+        {
+          "key": "Keys",
+          "ref": "usda_reference:Keys",
+          "text": "Keys, J.D. 1976. Chinese Herbs. Charles E. Tuttle Co., Tokyo."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:26557",
+        "usda_reference:Keys"
+      ]
+    },
+    {
+      "activity": "Corazón",
+      "activitySource": "Heart",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:71936",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Hemorragia",
+      "activitySource": "Hemorrhage",
+      "citations": [
+        {
+          "key": "Bliss",
+          "ref": "usda_reference:Bliss",
+          "text": "Shih-chen, Li. 1973. Chinese medinal herbs. Georgetown Press, San Francisco."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28217",
+        "usda_reference:Bliss"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: hepatitis",
+      "activitySource": "Hepatitis",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28581",
+        "usda_reference:Hunan"
+      ]
+    },
+    {
+      "activity": "Hivess",
+      "activitySource": "Hivess",
+      "citations": [
+        {
+          "key": "Hunan",
+          "ref": "usda_reference:Hunan",
+          "text": "ANON. 1974. A barefoot doctor's manual. DHEW Publication No. (NIH): 75-695."
+        }
+      ],
+      "countries": [
+        "China"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:28769",
+        "usda_reference:Hunan"
+      ]
+    }
+  ]
+}

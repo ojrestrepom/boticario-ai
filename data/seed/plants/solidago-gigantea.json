@@ -1,0 +1,134 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4df08f8a7f016cf7b86eeef01fe674a03d68ae3a13e514d9060413e43d849e7b",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P668"
+      ],
+      "text": "Giant goldenrod"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2131-1"
+      ],
+      "text": "Early Goldenrod"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P668"
+      ],
+      "text": "Spaetbluehende Goldrute"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2911104"
+    ],
+    "value": "Solidago gigantea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2911104"
+    ],
+    "value": "Asteraceae"
+  },
+  "goals": [],
+  "id": "solidago-gigantea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2911104"
+    ],
+    "value": "Canadá, Estados Unidos y México"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "tppt_plant:P668": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Solidago gigantea Aiton",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:2131-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Early Goldenrod»",
+      "license": "CC0"
+    },
+    "wcvp:2911104": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solidago gigantea Aiton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2916968": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solidago serotina var. dumertorum (Aiton) A.Gray",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3101484": {
+      "dataset": "wcvp",
+      "label": "WCVP: Solidago serotina var. gigantea (Aiton) A.Gray",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "tppt_plant:P668"
+    ],
+    "text": "TPPT la califica de alergénica para las personas, con flavonas y monoterpenoides como posibles causantes de una reacción alérgica, y registra toxicidad para caballos y vacas."
+  },
+  "scientificName": {
+    "authors": "Aiton",
+    "name": "Solidago gigantea",
+    "refs": [
+      "wcvp:2911104"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Aiton) A.Gray",
+      "name": "Solidago serotina var. dumertorum",
+      "refs": [
+        "wcvp:2916968"
+      ]
+    },
+    {
+      "authors": "(Aiton) A.Gray",
+      "name": "Solidago serotina var. gigantea",
+      "refs": [
+        "wcvp:3101484"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

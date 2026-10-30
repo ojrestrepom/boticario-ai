@@ -1,0 +1,107 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:965eccdb8f23d994c2b3def12d9bfc07933fd5850f2b06c530c03c465530a5b7",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73894"
+    ],
+    "value": "Eucalyptus siderophloia"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73894"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-siderophloia",
+  "image": {
+    "attributionRequired": false,
+    "author": "Poyt448 Peter Woodard",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_siderophloia_bark.JPG",
+    "refs": [
+      "commons:File:Eucalyptus siderophloia bark.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Eucalyptus_siderophloia_bark.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:1386-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73894"
+    ],
+    "value": "Australia (Nueva Gales del Sur y Queensland)"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus siderophloia bark.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus siderophloia bark.JPG",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_siderophloia_bark.JPG"
+    },
+    "usda_part:1386-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:73894": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus siderophloia Benth.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Benth.",
+    "name": "Eucalyptus siderophloia",
+    "refs": [
+      "wcvp:73894"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

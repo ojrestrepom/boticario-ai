@@ -1,0 +1,137 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:1f56a0fe2b23ba2692a99dcb5a663ea68468b4dde3fc2c2598196e337d62ca14",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Lamium"
+      ],
+      "text": "ortiga muerta"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Lamium"
+    ],
+    "value": "Género de una treintena de especies aceptadas de plantas herbáceas de la familia Lamiaceae, nativas de Europa, Asia y el norte de África. Varias se han convertido en malezas de tierras de cultivo y están naturalizadas en regiones templadas del mundo."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Lamium"
+    ],
+    "value": "Ortiga muerta"
+  },
+  "family": null,
+  "goals": [],
+  "id": "lamium-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "The original uploader was Pollinator at English Wikipedia .",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Lamium_8229.jpg",
+    "refs": [
+      "commons:File:Lamium 8229.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lamium_8229.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Lamium 8229.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Lamium 8229.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Lamium_8229.jpg"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_use:4496": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 4496",
+      "license": "CC0"
+    },
+    "wikidata:Q146675": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q146675",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q146675"
+    },
+    "wikipedia_es:Lamium": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Lamium",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Lamium"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Lamium sp",
+    "refs": [
+      "wikidata:Q146675"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Afrodisíaco",
+      "activitySource": "Aphrodisiac",
+      "citations": [
+        {
+          "key": "Eb24: 83",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 24: 83"
+        }
+      ],
+      "countries": [
+        "Reino Unido"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:4496",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

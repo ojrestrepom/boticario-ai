@@ -1,0 +1,23 @@
+     Running unittests src/lib.rs
+test result: ok. 145 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.40s
+     Running unittests src/main.rs
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/fixture_end_to_end.rs
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+     Running tests/plain_logs.rs
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+     Running tests/real_catalog.rs
+test a_known_alias_resolves_to_the_canonical_plant ... ignored, necesita data/build/catalog.db (se genera con `catalog-ingest build`)
+test eucalyptus_has_safety_without_level ... ignored, necesita data/build/catalog.db (se genera con `catalog-ingest build`)
+test lavender_is_found_and_has_the_consolidated_content ... ignored, necesita data/build/catalog.db (se genera con `catalog-ingest build`)
+test pending_goal_of_st_johns_wort_is_not_served ... ignored, necesita data/build/catalog.db (se genera con `catalog-ingest build`)
+test search_finds_previous_identifiers_without_duplicates ... ignored, necesita data/build/catalog.db (se genera con `catalog-ingest build`)
+test the_357_previous_names_find_their_new_plant ... ignored, necesita data/build/catalog.db (se genera con `catalog-ingest build`)
+test result: ok. 0 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/shutdown.rs
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+     Running tests/source_independence.rs
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/token_logs.rs
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

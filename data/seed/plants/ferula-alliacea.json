@@ -1,0 +1,256 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4f3f7acc30da5baf88c5d702189f754ff777ff23653b710a1fc6b89e9c215e33",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:412-1"
+      ],
+      "text": "Garlic Ferula"
+    }
+  ],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2808309"
+    ],
+    "value": "Ferula alliacea"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2808309"
+    ],
+    "value": "Apiaceae"
+  },
+  "goals": [],
+  "id": "ferula-alliacea",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:412-FR"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:2808309"
+    ],
+    "value": "Asia occidental"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "usda_common_name:412-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Garlic Ferula»",
+      "license": "CC0"
+    },
+    "usda_part:412-FR": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Fruit»",
+      "license": "CC0"
+    },
+    "usda_reference:Uphof": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Uphof",
+      "license": "CC0"
+    },
+    "usda_use:10500": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 10500",
+      "license": "CC0"
+    },
+    "usda_use:22410": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 22410",
+      "license": "CC0"
+    },
+    "usda_use:29177": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 29177",
+      "license": "CC0"
+    },
+    "usda_use:30177": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 30177",
+      "license": "CC0"
+    },
+    "usda_use:3634": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3634",
+      "license": "CC0"
+    },
+    "usda_use:77843": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77843",
+      "license": "CC0"
+    },
+    "wcvp:2808309": {
+      "dataset": "wcvp",
+      "label": "WCVP: Ferula alliacea Boiss.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se muestra el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en el fruto, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Boiss.",
+    "name": "Ferula alliacea",
+    "refs": [
+      "wcvp:2808309"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3634",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Carminativo",
+      "activitySource": "Carminative",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:10500",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: epilepsia",
+      "activitySource": "Epilepsy",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:22410",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Histeria",
+      "activitySource": "Hysteria",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:29177",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Intestino",
+      "activitySource": "Intestine",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:30177",
+        "usda_reference:Uphof"
+      ]
+    },
+    {
+      "activity": "Picadura de escorpión",
+      "activitySource": "Sting(Scorpion)",
+      "citations": [
+        {
+          "key": "Uphof",
+          "ref": "usda_reference:Uphof",
+          "text": "Uphof, J.C. Th. 1968. Dictionary of economic plants. 2nd ed. Verlag von J. Cramer."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77843",
+        "usda_reference:Uphof"
+      ]
+    }
+  ]
+}

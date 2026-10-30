@@ -1,0 +1,162 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:4f256620353d5e512b3e5e68469dfa225956205cb8c4f344e3299cd80fad514b",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Teucrium gnaphalodes"
+      ],
+      "text": "Zamarilla"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Teucrium gnaphalodes"
+      ],
+      "text": "Zamarilla lanuda"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2060-1"
+      ],
+      "text": "Iberian Germander"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Teucrium gnaphalodes"
+    ],
+    "value": "Planta herbácea de la familia Lamiaceae, conocida como zamarilla o zamarilla lanuda, endémica de la península ibérica."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Teucrium gnaphalodes"
+    ],
+    "value": "Zamarilla"
+  },
+  "family": {
+    "refs": [
+      "wcvp:202949"
+    ],
+    "value": "Lamiaceae"
+  },
+  "goals": [],
+  "id": "teucrium-gnaphalodes",
+  "image": {
+    "attributionRequired": true,
+    "author": "Ghislain118 http://www.fleurs-des-montagnes.net",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Teucrium_polium_ssp_gnaphalodes_1.JPG",
+    "refs": [
+      "commons:File:Teucrium polium ssp gnaphalodes 1.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Teucrium_polium_ssp_gnaphalodes_1.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2060-SH"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:202949"
+    ],
+    "value": "Europa suroccidental y Asia occidental."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Teucrium polium ssp gnaphalodes 1.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Teucrium polium ssp gnaphalodes 1.JPG",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Teucrium_polium_ssp_gnaphalodes_1.JPG"
+    },
+    "usda_common_name:2060-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Iberian Germander»",
+      "license": "CC0"
+    },
+    "usda_part:2060-SH": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Shoot»",
+      "license": "CC0"
+    },
+    "wcvp:202949": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium gnaphalodes L'Hér.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:477000": {
+      "dataset": "wcvp",
+      "label": "WCVP: Teucrium polium subsp. gnaphalodes (L'Hér.) Masclans ex O.Bolòs & Vigo",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Teucrium gnaphalodes": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Teucrium gnaphalodes",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Teucrium_gnaphalodes"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "conflicto-entre-fuentes",
+      "message": "Wikipedia en español la describe como endémica de la península ibérica, pero WCVP también registra como nativas áreas de Asia occidental (Irán e Irak); el origen sigue a WCVP.",
+      "target": "origin"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha aetheroleum de la EMA ni otra fuente.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "L'Hér.",
+    "name": "Teucrium gnaphalodes",
+    "refs": [
+      "wcvp:202949"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(L'Hér.) Masclans ex O.Bolòs & Vigo",
+      "name": "Teucrium polium subsp. gnaphalodes",
+      "refs": [
+        "wcvp:477000"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

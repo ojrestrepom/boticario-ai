@@ -1,0 +1,9 @@
+HTTP/2 400 
+content-type: application/problem+json
+x-cloud-trace-context: 898563a434fd464a593f7ccae58b4b40
+date: Sat, 17 Oct 2026 02:16:36 GMT
+server: Google Frontend
+content-length: 133
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+{"type":"about:blank","title":"Bad Request","status":400,"detail":"limit debe ser un entero","instance":"/v1/plants","param":"limit"}

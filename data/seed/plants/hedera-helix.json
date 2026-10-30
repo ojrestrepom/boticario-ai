@@ -1,0 +1,862 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e6db5a5083a4a189c302e44961ed427753b8cf6a6ee28db1b4617b9a7634113f",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hedera helix",
+        "wikidata:Q26354"
+      ],
+      "text": "Hiedra común"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26354"
+      ],
+      "text": "Hiedra trepadora"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikidata:Q26354"
+      ],
+      "text": "Cazuz"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "tppt_plant:P588",
+        "usda_common_name:464-1"
+      ],
+      "text": "Ivy"
+    },
+    {
+      "language": "de",
+      "refs": [
+        "tppt_plant:P588"
+      ],
+      "text": "Efeu"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Hedera helix"
+    ],
+    "value": "Especie de hiedra originaria de los bosques húmedos del oeste, el centro y el sur de Europa, el norte de África y Asia, desde la India hasta Japón."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Hedera helix",
+      "wikidata:Q26354"
+    ],
+    "value": "Hiedra común"
+  },
+  "family": {
+    "refs": [
+      "wcvp:96659"
+    ],
+    "value": "Araliaceae"
+  },
+  "goals": [
+    {
+      "area": "Tos y resfriado",
+      "evidence": "La EMA tiene una monografía para la hoja en esta área.",
+      "goal": "alivio-respiratorio",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:hederae-helicis-folium"
+      ],
+      "subarea": null
+    }
+  ],
+  "id": "hedera-helix",
+  "image": {
+    "attributionRequired": false,
+    "author": "AnRo0002",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:20121002Hedera_helix1.jpg",
+    "refs": [
+      "commons:File:20121002Hedera helix1.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/20121002Hedera_helix1.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:96659"
+    ],
+    "value": "Nativa de Europa, el Cáucaso y Asia occidental."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:hederae-helicis-folium"
+      ],
+      "value": "Hoja"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:20121002Hedera helix1.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:20121002Hedera helix1.jpg",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:20121002Hedera_helix1.jpg"
+    },
+    "efsa_botanic:355": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: alpha-hederin",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:182": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Hedera helix L.",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:85": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Hedera helix L.",
+      "license": "CC BY 4.0"
+    },
+    "ema_herbal:hederae-helicis-folium": {
+      "dataset": "ema_json",
+      "label": "EMA: Hederae helicis folium",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/hederae-helicis-folium"
+    },
+    "ema_pdf:hederae-helicis-folium:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hederae-helicis-folium, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf"
+    },
+    "ema_pdf:hederae-helicis-folium:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hederae-helicis-folium, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf"
+    },
+    "ema_pdf:hederae-helicis-folium:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de hederae-helicis-folium, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-hedera-helix-l-folium-revision-2_en.pdf"
+    },
+    "tppt_plant:P588": {
+      "dataset": "tppt",
+      "label": "TPPT (Agroscope): Hedera helix L.",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    "usda_common_name:464-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Ivy»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_reference:Steinmetz": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Steinmetz",
+      "license": "CC0"
+    },
+    "usda_reference:WOI": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia WOI",
+      "license": "CC0"
+    },
+    "usda_use:11118": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11118",
+      "license": "CC0"
+    },
+    "usda_use:11119": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11119",
+      "license": "CC0"
+    },
+    "usda_use:11564": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 11564",
+      "license": "CC0"
+    },
+    "usda_use:13481": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13481",
+      "license": "CC0"
+    },
+    "usda_use:13482": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 13482",
+      "license": "CC0"
+    },
+    "usda_use:16227": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 16227",
+      "license": "CC0"
+    },
+    "usda_use:21178": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21178",
+      "license": "CC0"
+    },
+    "usda_use:21692": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21692",
+      "license": "CC0"
+    },
+    "usda_use:21693": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 21693",
+      "license": "CC0"
+    },
+    "usda_use:31498": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 31498",
+      "license": "CC0"
+    },
+    "usda_use:36351": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 36351",
+      "license": "CC0"
+    },
+    "usda_use:3644": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3644",
+      "license": "CC0"
+    },
+    "usda_use:37955": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37955",
+      "license": "CC0"
+    },
+    "usda_use:37956": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37956",
+      "license": "CC0"
+    },
+    "usda_use:37957": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 37957",
+      "license": "CC0"
+    },
+    "usda_use:38812": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 38812",
+      "license": "CC0"
+    },
+    "usda_use:41248": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 41248",
+      "license": "CC0"
+    },
+    "usda_use:51400": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 51400",
+      "license": "CC0"
+    },
+    "usda_use:52255": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52255",
+      "license": "CC0"
+    },
+    "usda_use:52256": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52256",
+      "license": "CC0"
+    },
+    "usda_use:52257": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 52257",
+      "license": "CC0"
+    },
+    "usda_use:53741": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53741",
+      "license": "CC0"
+    },
+    "usda_use:53744": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 53744",
+      "license": "CC0"
+    },
+    "usda_use:5763": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 5763",
+      "license": "CC0"
+    },
+    "usda_use:58502": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 58502",
+      "license": "CC0"
+    },
+    "usda_use:70054": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 70054",
+      "license": "CC0"
+    },
+    "usda_use:76042": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76042",
+      "license": "CC0"
+    },
+    "usda_use:76423": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 76423",
+      "license": "CC0"
+    },
+    "usda_use:77722": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 77722",
+      "license": "CC0"
+    },
+    "usda_use:8700": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8700",
+      "license": "CC0"
+    },
+    "usda_use:8750": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 8750",
+      "license": "CC0"
+    },
+    "usda_use:9131": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 9131",
+      "license": "CC0"
+    },
+    "wcvp:96659": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hedera helix L.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q26354": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q26354",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q26354"
+    },
+    "wikipedia_es:Hedera helix": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Hedera helix",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Hedera_helix"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "bajo",
+    "refs": [
+      "usda_use:37955",
+      "usda_use:37956",
+      "usda_use:37957",
+      "usda_use:58502",
+      "tppt_plant:P588",
+      "efsa_botanic:355",
+      "efsa_endpoint:85",
+      "efsa_endpoint:182",
+      "ema_pdf:hederae-helicis-folium:4.3",
+      "ema_pdf:hederae-helicis-folium:4.4",
+      "ema_pdf:hederae-helicis-folium:4.5"
+    ],
+    "text": "Advertencia: registrada como veneno en usos tradicionales. TPPT registra la parte aérea como alergénica y tóxica para animales: las saponinas triterpénicas son tóxicas (la principal es el hederacósido C) y los poliacetilenos son alergénicos. EFSA registra la alfa-hederina en las hojas y estudios de intoxicación en humanos con el fruto. La monografía de la EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa o a las plantas de la familia Araliaceae y la edad menor de 2 años; entre sus advertencias, la tos persistente o recurrente en niños de 2 a 4 años requiere diagnóstico médico y se recomienda precaución en gastritis o úlcera gástrica. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "L.",
+    "name": "Hedera helix",
+    "refs": [
+      "wcvp:96659"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "tppt",
+      "license": "Uso abierto citando la fuente; el uso comercial requiere permiso (opendata.swiss)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Emenagogo",
+      "activitySource": "Emmenagogue",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India",
+        "Irak",
+        "Turquía"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21692",
+        "usda_use:21693",
+        "usda_use:70054",
+        "usda_reference:Al-Rawi",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: tumor",
+      "activitySource": "Tumor",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Bélgica",
+        "Italia"
+      ],
+      "n": 3,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:52255",
+        "usda_use:52256",
+        "usda_use:52257",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Catártico",
+      "activitySource": "Cathartic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11118",
+        "usda_use:11119",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Callo",
+      "activitySource": "Corn",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia",
+        "Sudáfrica"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:13481",
+        "usda_use:13482",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Reumatismo",
+      "activitySource": "Rheumatism",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India",
+        "Irak"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:41248",
+        "usda_use:76042",
+        "usda_reference:Al-Rawi",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Vasoconstrictor",
+      "activitySource": "Vasoconstrictor",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        },
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India",
+        "Turquía"
+      ],
+      "n": 2,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:53741",
+        "usda_use:53744",
+        "usda_reference:Steinmetz",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Dolor dental",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:51400",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3644",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Astringente",
+      "activitySource": "Astringent",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:5763",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Cacoethes",
+      "activitySource": "Cacoethes",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8700",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Callosidad",
+      "activitySource": "Callus",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Francia"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:8750",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Sudáfrica"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:9131",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Chirony",
+      "activitySource": "Chirony",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:11564",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Diaforético",
+      "activitySource": "Diaphoretic",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:16227",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Emético",
+      "activitySource": "Emetic",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:21178",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Laxante",
+      "activitySource": "Laxative",
+      "citations": [
+        {
+          "key": "Steinmetz",
+          "ref": "usda_reference:Steinmetz",
+          "text": "Steinmetz, E.F. 1957. codex Vegetabilis. Published by the author, Amsterdam."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:31498",
+        "usda_reference:Steinmetz"
+      ]
+    },
+    {
+      "activity": "Pediculicida",
+      "activitySource": "Pediculicide",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:36351",
+        "usda_reference:WOI"
+      ]
+    },
+    {
+      "activity": "Pólipo nasal",
+      "activitySource": "Polyp(Nose)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:38812",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Esclerosis (útero)",
+      "activitySource": "Sclerosis(Uterus)",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:76423",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Estimulante",
+      "activitySource": "Stimulant",
+      "citations": [
+        {
+          "key": "Woi.5",
+          "ref": "usda_reference:WOI",
+          "text": "The Wealth of India, vol. 5"
+        }
+      ],
+      "countries": [
+        "India"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:77722",
+        "usda_reference:WOI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:5f4a8da6317a609f9919ecfb72a4c8d9df51a8ac9872ddfdfa4b0a7575d29716",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1151-1"
+      ],
+      "text": "Silver Berry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Elaeagnus commutata"
+    ],
+    "value": "Especie de arbusto de la familia Elaeagnaceae, nativa del oeste de Norteamérica, desde Alaska hasta Quebec y Utah. Suele crecer en suelos secos a húmedos, arenosos y de grava, en estepas, praderas o bordes del bosque."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2785017"
+    ],
+    "value": "Elaeagnus commutata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2785017"
+    ],
+    "value": "Elaeagnaceae"
+  },
+  "goals": [],
+  "id": "elaeagnus-commutata",
+  "image": {
+    "attributionRequired": false,
+    "author": null,
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Elaeagnus_commutata_USDA.jpg",
+    "refs": [
+      "commons:File:Elaeagnus commutata USDA.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Elaeagnus_commutata_USDA.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2785017"
+    ],
+    "value": "Nativa de Norteamérica (Canadá y Estados Unidos)."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Elaeagnus commutata USDA.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Elaeagnus commutata USDA.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Elaeagnus_commutata_USDA.jpg"
+    },
+    "usda_common_name:1151-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Silver Berry»",
+      "license": "CC0"
+    },
+    "wcvp:2785017": {
+      "dataset": "wcvp",
+      "label": "WCVP: Elaeagnus commutata Bernh. ex Rydb.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Elaeagnus commutata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Elaeagnus commutata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Elaeagnus_commutata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete solo trae un nombre común en inglés; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Bernh. ex Rydb.",
+    "name": "Elaeagnus commutata",
+    "refs": [
+      "wcvp:2785017"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

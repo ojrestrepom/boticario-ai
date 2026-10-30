@@ -1,0 +1,192 @@
+{
+  "aliases": [
+    "picea-glauca"
+  ],
+  "bundleHash": "sha256:3660cb37a16fcff55a41db581cf6d8d70078dcb285be9e4e67c225b43b567b22",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Picea glauca",
+        "wikidata:Q128116"
+      ],
+      "text": "Pícea blanca"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:731-1"
+      ],
+      "text": "White Spruce"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Picea glauca"
+    ],
+    "value": "Árbol de la familia de las pináceas, originario del norte de Norteamérica, desde el centro de Alaska hasta el este de Terranova y, hacia el sur, hasta Montana, Míchigan y Maine."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Picea glauca"
+    ],
+    "value": "Pícea blanca"
+  },
+  "family": {
+    "refs": [
+      "wcvp:381078"
+    ],
+    "value": "Pinaceae"
+  },
+  "goals": [],
+  "id": "picea-laxa",
+  "image": {
+    "attributionRequired": true,
+    "author": "dmcdevit",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Picea_glauca_Fairbanks.jpg",
+    "refs": [
+      "commons:File:Picea glauca Fairbanks.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Picea_glauca_Fairbanks.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:731-TW"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:381078"
+    ],
+    "value": "Nativa del este y el oeste de Canadá, la América subártica y el norte de Estados Unidos."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Picea glauca Fairbanks.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Picea glauca Fairbanks.jpg",
+      "license": "CC BY-SA 2.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Picea_glauca_Fairbanks.jpg"
+    },
+    "usda_common_name:731-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «White Spruce»",
+      "license": "CC0"
+    },
+    "usda_part:731-TW": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Twig»",
+      "license": "CC0"
+    },
+    "wcvp:381078": {
+      "dataset": "wcvp",
+      "label": "WCVP: Picea laxa (Münchh.) Sarg.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:381674": {
+      "dataset": "wcvp",
+      "label": "WCVP: Abies canadensis Mill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:381857": {
+      "dataset": "wcvp",
+      "label": "WCVP: Abies laxa (Münchh.) K.Koch",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:386070": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pinus laxa Münchh.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q128116": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q128116",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q128116"
+    },
+    "wikipedia_es:Picea glauca": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Picea glauca",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Picea_glauca"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA en la ramita, sin ficha de aceite de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Münchh.) Sarg.",
+    "name": "Picea laxa",
+    "refs": [
+      "wcvp:381078"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 2.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Mill.",
+      "name": "Abies canadensis",
+      "refs": [
+        "wcvp:381674"
+      ]
+    },
+    {
+      "authors": "(Münchh.) K.Koch",
+      "name": "Abies laxa",
+      "refs": [
+        "wcvp:381857"
+      ]
+    },
+    {
+      "authors": "Münchh.",
+      "name": "Pinus laxa",
+      "refs": [
+        "wcvp:386070"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

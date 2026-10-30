@@ -1,0 +1,163 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:b1c9894ec6b8e2fab4e4a554cb31738131a0a0826d08fca986d325238f94a110",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:73123"
+    ],
+    "value": "Eucalyptus incrassata"
+  },
+  "family": {
+    "refs": [
+      "wcvp:73123"
+    ],
+    "value": "Myrtaceae"
+  },
+  "goals": [],
+  "id": "eucalyptus-incrassata",
+  "image": {
+    "attributionRequired": false,
+    "author": "Dinkum",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Eucalyptus_incrassata.JPG",
+    "refs": [
+      "commons:File:Eucalyptus incrassata.JPG"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/09/Eucalyptus_incrassata.JPG"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": {
+    "refs": [
+      "usda_part:2146-LF"
+    ],
+    "type": "Esencial"
+  },
+  "origin": {
+    "refs": [
+      "wcvp:73123"
+    ],
+    "value": "Nativa de Australia."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Eucalyptus incrassata.JPG": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Eucalyptus incrassata.JPG",
+      "license": "CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Eucalyptus_incrassata.JPG"
+    },
+    "usda_part:2146-LF": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: química de la parte «Leaf»",
+      "license": "CC0"
+    },
+    "usda_reference:Al-Rawi": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Al-Rawi",
+      "license": "CC0"
+    },
+    "usda_use:17387": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 17387",
+      "license": "CC0"
+    },
+    "usda_use:3625": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 3625",
+      "license": "CC0"
+    },
+    "wcvp:73123": {
+      "dataset": "wcvp",
+      "label": "WCVP: Eucalyptus incrassata Labill.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre mostrado es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "aceite-por-compuesto-eo",
+      "message": "El aceite esencial se deduce solo del compuesto EO de USDA, sin ficha de la EMA ni otra fuente; queda para revisión futura.",
+      "target": "oil"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "Labill.",
+    "name": "Eucalyptus incrassata",
+    "refs": [
+      "wcvp:73123"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Antiséptico",
+      "activitySource": "Antiseptic",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Irak"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:3625",
+        "usda_reference:Al-Rawi"
+      ]
+    },
+    {
+      "activity": "Desinfectante",
+      "activitySource": "Disinfectant",
+      "citations": [
+        {
+          "key": "Al-Rawi",
+          "ref": "usda_reference:Al-Rawi",
+          "text": "Al-Rawi, Ali. 1964. Medicinal Plants of Iraq. Tech. Bull. No. 15. Ministry of Agriculture, Directorate General of Agricultural Research Projects."
+        }
+      ],
+      "countries": [
+        "Turquía"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:17387",
+        "usda_reference:Al-Rawi"
+      ]
+    }
+  ]
+}

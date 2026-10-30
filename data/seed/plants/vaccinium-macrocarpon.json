@@ -1,0 +1,314 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:3783bda8cbbb43378dc69414a1a9c111b3720d1a2851c55283eaf20293b4a486",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vaccinium macrocarpon"
+      ],
+      "text": "Arándano rojo grande"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Vaccinium macrocarpon",
+        "wikidata:Q149397"
+      ],
+      "text": "Cranberry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1039-3"
+      ],
+      "text": "American Cranberry"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:1039-2"
+      ],
+      "text": "Large Cranberry"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Vaccinium macrocarpon"
+    ],
+    "value": "Planta de la familia Ericaceae, conocida como arándano rojo grande o «cranberry», nativa de los humedales del nordeste de Estados Unidos y el sudeste de Canadá."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Vaccinium macrocarpon"
+    ],
+    "value": "Arándano rojo grande"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2457729"
+    ],
+    "value": "Ericaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía en esta área para el fruto.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:vaccinii-macrocarpi-fructus"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "vaccinium-macrocarpon",
+  "image": {
+    "attributionRequired": false,
+    "author": "Photo by Keith Weller",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Cranberry_bog.jpg",
+    "refs": [
+      "commons:File:Cranberry bog.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cranberry_bog.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2457729"
+    ],
+    "value": "Nativa del este de Canadá y de zonas del centro-norte, noreste y sureste de Estados Unidos."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:vaccinii-macrocarpi-fructus"
+      ],
+      "value": "Fruto"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Cranberry bog.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Cranberry bog.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Cranberry_bog.jpg"
+    },
+    "ema_herbal:vaccinii-macrocarpi-fructus": {
+      "dataset": "ema_json",
+      "label": "EMA: Vaccinii macrocarpi fructus",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/vaccinii-macrocarpi-fructus"
+    },
+    "ema_pdf:vaccinii-macrocarpi-fructus:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de vaccinii-macrocarpi-fructus, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-macrocarpon-aiton-fructus_en.pdf"
+    },
+    "ema_pdf:vaccinii-macrocarpi-fructus:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de vaccinii-macrocarpi-fructus, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-macrocarpon-aiton-fructus_en.pdf"
+    },
+    "ema_pdf:vaccinii-macrocarpi-fructus:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de vaccinii-macrocarpi-fructus, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-vaccinium-macrocarpon-aiton-fructus_en.pdf"
+    },
+    "usda_common_name:1039-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Large Cranberry»",
+      "license": "CC0"
+    },
+    "usda_common_name:1039-3": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «American Cranberry»",
+      "license": "CC0"
+    },
+    "usda_reference:EB": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia EB",
+      "license": "CC0"
+    },
+    "usda_reference:Hartwell": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Hartwell",
+      "license": "CC0"
+    },
+    "usda_use:42888": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 42888",
+      "license": "CC0"
+    },
+    "usda_use:66347": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 66347",
+      "license": "CC0"
+    },
+    "wcvp:2387735": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oxycoccus macrocarpos (Aiton) Pursh",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2396054": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oxycoca macrocarpa (Aiton) Raf.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2457729": {
+      "dataset": "wcvp",
+      "label": "WCVP: Vaccinium macrocarpon Aiton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2596089": {
+      "dataset": "wcvp",
+      "label": "WCVP: Schollera macrocarpon (Aiton) Britton",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2937070": {
+      "dataset": "wcvp",
+      "label": "WCVP: Oxycoccus palustris var. macrocarpos (Aiton) Pers.",
+      "license": "CC BY 3.0"
+    },
+    "wikidata:Q149397": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q149397",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q149397"
+    },
+    "wikipedia_es:Vaccinium macrocarpon": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Vaccinium macrocarpon",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Vaccinium_macrocarpon"
+    }
+  },
+  "reviewFlags": [],
+  "safety": {
+    "level": "alto",
+    "refs": [
+      "ema_pdf:vaccinii-macrocarpi-fructus:4.3",
+      "ema_pdf:vaccinii-macrocarpi-fructus:4.4",
+      "ema_pdf:vaccinii-macrocarpi-fructus:4.5"
+    ],
+    "text": "La EMA registra interacciones graves: los productos de arándano rojo pueden potenciar el efecto de la warfarina y se han notificado niveles reducidos de tacrolimus con el zumo, y registra como contraindicaciones la hipersensibilidad al fruto y el uso simultáneo con tacrolimus y warfarina. En las advertencias registra que el uso no se recomienda en menores de 18 años, en hombres ni en embarazadas, y que el concentrado tiene un alto contenido de oxalato, con posible mayor riesgo de cálculos urinarios en personas con antecedentes."
+  },
+  "scientificName": {
+    "authors": "Aiton",
+    "name": "Vaccinium macrocarpon",
+    "refs": [
+      "wcvp:2457729"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Aiton) Raf.",
+      "name": "Oxycoca macrocarpa",
+      "refs": [
+        "wcvp:2396054"
+      ]
+    },
+    {
+      "authors": "(Aiton) Pursh",
+      "name": "Oxycoccus macrocarpos",
+      "refs": [
+        "wcvp:2387735"
+      ]
+    },
+    {
+      "authors": "(Aiton) Pers.",
+      "name": "Oxycoccus palustris var. macrocarpos",
+      "refs": [
+        "wcvp:2937070"
+      ]
+    },
+    {
+      "authors": "(Aiton) Britton",
+      "name": "Schollera macrocarpon",
+      "refs": [
+        "wcvp:2596089"
+      ]
+    }
+  ],
+  "traditionalUses": [
+    {
+      "activity": "Uso tradicional, sin eficacia demostrada: cáncer",
+      "activitySource": "Cancer",
+      "citations": [
+        {
+          "key": "Hartwell",
+          "ref": "usda_reference:Hartwell",
+          "text": "Hartwell, J.L. 1967-71. Plants used against cancer. A survey. Lloydia 30-34."
+        }
+      ],
+      "countries": [
+        "Estados Unidos"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:66347",
+        "usda_reference:Hartwell"
+      ]
+    },
+    {
+      "activity": "Escorbuto",
+      "activitySource": "Scurvy",
+      "citations": [
+        {
+          "key": "Eb28: 319",
+          "ref": "usda_reference:EB",
+          "text": "Economic Botany 28: 319"
+        }
+      ],
+      "countries": [
+        "Estados Unidos (amerindios)"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:42888",
+        "usda_reference:EB"
+      ]
+    }
+  ]
+}

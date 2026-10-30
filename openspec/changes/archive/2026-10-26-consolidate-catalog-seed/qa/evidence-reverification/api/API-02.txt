@@ -1,0 +1,151 @@
+--- primera pagina de 100 (se recorta)
+GET /v1/plants?limit=100&offset=0
+-> 200 {"content-type": "application/json", "content-length": "27976"}
+{
+ "items": [
+  {
+   "id": "abelmoschus-esculentus",
+   "scientificName": "Abelmoschus esculentus",
+   "commonNames": [
+    {
+     "text": "Bolondrón",
+     "language": "es"
+    },
+    {
+     "text": "Gambo",
+     "language": "es"
+    },
+    {
+     "text": "Naju",
+     "language": "es"
+    },
+    {
+     "text": "Okra",
+     "language": "en"
+    },
+    {
+     "text": "Quimbombó",
+     "language": "es"
+    },
+    {
+     "text": "Yambo",
+     "language": "es"
+    },
+    {
+     "text": "Yerba de culebra",
+     "language": "es"
+    },
+    {
+     "text": "abelmosco",
+     "language": "es"
+    },
+    {
+     "text": "candia",
+     "language": "es"
+    },
+    {
+     "text": "chingambó",
+     "language": "es"
+    },
+    {
+     "text": "gombó",
+     "language": "es"
+    },
+    {
+     "text": "guingam
+... (recortado, 41209 caracteres)
+
+PASA  recorrido completo con limit=100  paginas=24 en 0.1s
+PASA  sin duplicados 2354 ids, 2354 unicos
+PASA  el recorrido cubre exactamente los 2354 ids de la base y en su orden 
+PASA  total constante en todas las paginas {2354}
+PASA  offset = total: 200 con items vacio 200 0
+--- offset = total
+GET /v1/plants?limit=100&offset=2354
+-> 200 {"content-type": "application/json", "content-length": "51"}
+{
+ "items": [],
+ "total": 2354,
+ "limit": 100,
+ "offset": 2354
+}
+
+PASA  limit=1 offset=5 devuelve el sexto 
+PASA  limit=0 -> 400 problem+json 400
+--- limit=0
+GET /v1/plants?limit=0
+-> 400 {"content-type": "application/problem+json", "content-length": "139"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe estar entre 1 y 100",
+ "instance": "/v1/plants",
+ "param": "limit"
+}
+
+PASA  limit=101 -> 400 problem+json 400
+--- limit=101
+GET /v1/plants?limit=101
+-> 400 {"content-type": "application/problem+json", "content-length": "139"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe estar entre 1 y 100",
+ "instance": "/v1/plants",
+ "param": "limit"
+}
+
+PASA  limit=abc -> 400 problem+json 400
+--- limit=abc
+GET /v1/plants?limit=abc
+-> 400 {"content-type": "application/problem+json", "content-length": "133"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/plants",
+ "param": "limit"
+}
+
+PASA  offset=-1 -> 400 problem+json 400
+--- offset=-1
+GET /v1/plants?offset=-1
+-> 400 {"content-type": "application/problem+json", "content-length": "138"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset no puede ser negativo",
+ "instance": "/v1/plants",
+ "param": "offset"
+}
+
+PASA  limit vacio -> 400 problem+json 400
+--- limit vacio
+GET /v1/plants?limit=
+-> 400 {"content-type": "application/problem+json", "content-length": "133"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "limit debe ser un entero",
+ "instance": "/v1/plants",
+ "param": "limit"
+}
+
+PASA  offset desbordado -> 400 problem+json 400
+--- offset desbordado
+GET /v1/plants?offset=2147483648
+-> 400 {"content-type": "application/problem+json", "content-length": "136"}
+{
+ "type": "about:blank",
+ "title": "Bad Request",
+ "status": 400,
+ "detail": "offset es demasiado grande",
+ "instance": "/v1/plants",
+ "param": "offset"
+}
+

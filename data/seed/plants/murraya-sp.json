@@ -1,0 +1,134 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:e8228ab733f4d9cef95195eca7a73a4eaf371fab7e7d9c5fdeb91fb14838a9fd",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Murraya"
+    ],
+    "value": "Género de 35 especies de plantas de la familia Rutaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q1641850"
+    ],
+    "value": "Murraya sp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "murraya-sp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Michael Wolf",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Murraya_paniculata_05.jpg",
+    "refs": [
+      "commons:File:Murraya paniculata 05.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Murraya_paniculata_05.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Murraya paniculata 05.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Murraya paniculata 05.jpg",
+      "license": "CC BY-SA 3.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Murraya_paniculata_05.jpg"
+    },
+    "usda_reference:Duke": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: referencia Duke",
+      "license": "CC0"
+    },
+    "usda_use:81716": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: uso etnobotánico 81716",
+      "license": "CC0"
+    },
+    "wikidata:Q1641850": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q1641850",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q1641850"
+    },
+    "wikipedia_es:Murraya": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Murraya",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Murraya"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Murraya sp",
+    "refs": [
+      "wikidata:Q1641850"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": [
+    {
+      "activity": "Dolor (dental)",
+      "activitySource": "Ache(Tooth)",
+      "citations": [
+        {
+          "key": "Duke,1972",
+          "ref": "usda_reference:Duke",
+          "text": "Duke, James A. 1972. Isthmian ethnobotanical dictionary. Published by the author, Fulton, MD."
+        }
+      ],
+      "countries": [
+        "Otros lugares"
+      ],
+      "n": 1,
+      "pendingReview": false,
+      "refs": [
+        "usda_use:81716",
+        "usda_reference:Duke"
+      ]
+    }
+  ]
+}

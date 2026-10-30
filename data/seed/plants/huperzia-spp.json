@@ -1,0 +1,116 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:bf2ec45900c269fc306e39e63e8216dc72a7eff27dab95ecd050ddfaf607e3ce",
+  "commonNames": [
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:481-1"
+      ],
+      "text": "Cutleaf Clubmoss"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Huperzia"
+    ],
+    "value": "Género de licopodios perteneciente a la familia Lycopodiaceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wikidata:Q2111150"
+    ],
+    "value": "Huperzia spp"
+  },
+  "family": null,
+  "goals": [],
+  "id": "huperzia-spp",
+  "image": {
+    "attributionRequired": true,
+    "author": "Bernd Haynold",
+    "license": "CC BY 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Huperzia_selago_240906.jpg",
+    "refs": [
+      "commons:File:Huperzia selago 240906.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Huperzia_selago_240906.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": null,
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Huperzia selago 240906.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Huperzia selago 240906.jpg",
+      "license": "CC BY 2.5",
+      "url": "https://commons.wikimedia.org/wiki/File:Huperzia_selago_240906.jpg"
+    },
+    "usda_common_name:481-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Cutleaf Clubmoss»",
+      "license": "CC0"
+    },
+    "wikidata:Q2111150": {
+      "dataset": "wikidata",
+      "label": "Wikidata Q2111150",
+      "license": "CC0 1.0",
+      "url": "https://www.wikidata.org/wiki/Q2111150"
+    },
+    "wikipedia_es:Huperzia": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Huperzia",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Huperzia"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "solo-genero",
+      "message": "La entrada solo nombra el género.",
+      "target": "scientificName"
+    },
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el displayName es el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae ninguna información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": null,
+    "name": "Huperzia spp",
+    "refs": [
+      "wikidata:Q2111150"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY 2.5"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wikidata",
+      "license": "CC0 1.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [],
+  "traditionalUses": []
+}

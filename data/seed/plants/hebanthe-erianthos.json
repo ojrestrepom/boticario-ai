@@ -1,0 +1,226 @@
+{
+  "aliases": [
+    "pfaffia-paniculata"
+  ],
+  "bundleHash": "sha256:c40e1e2b5cc105070d449b818f4f81aea5703abdce8089ac4d308c857f0a76d7",
+  "commonNames": [
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Suma, Pfaffia paniculata"
+      ],
+      "text": "suma"
+    },
+    {
+      "language": "es",
+      "refs": [
+        "wikipedia_es:Hebanthe eriantha"
+      ],
+      "text": "ginseng de Brasil"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2165-2"
+      ],
+      "text": "Pfaffia"
+    },
+    {
+      "language": "en",
+      "refs": [
+        "usda_common_name:2165-1"
+      ],
+      "text": "Suma"
+    }
+  ],
+  "description": {
+    "refs": [
+      "wikipedia_es:Hebanthe eriantha",
+      "wikipedia_es:Suma, Pfaffia paniculata"
+    ],
+    "value": "Enredadera rastrera de la familia Amaranthaceae, con un sistema de raíces largo e intrincado, de Sudamérica. Se cita como natural de la cuenca del Amazonas y otras regiones tropicales de Brasil, Ecuador, Panamá, Paraguay, Perú y Venezuela."
+  },
+  "displayName": {
+    "language": "es",
+    "refs": [
+      "wikipedia_es:Suma, Pfaffia paniculata"
+    ],
+    "value": "Suma"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2840360"
+    ],
+    "value": "Amaranthaceae"
+  },
+  "goals": [],
+  "id": "hebanthe-erianthos",
+  "image": {
+    "attributionRequired": false,
+    "author": "Carl Friedrich Philipp von Martius",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hebanthe_eriantha_as_Hebanthe_paniculata.jpg",
+    "refs": [
+      "commons:File:Hebanthe eriantha as Hebanthe paniculata.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Hebanthe_eriantha_as_Hebanthe_paniculata.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2840360"
+    ],
+    "value": "Brasil y el sur y oeste de América del Sur"
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Hebanthe eriantha as Hebanthe paniculata.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Hebanthe eriantha as Hebanthe paniculata.jpg",
+      "license": "Public domain",
+      "url": "https://commons.wikimedia.org/wiki/File:Hebanthe_eriantha_as_Hebanthe_paniculata.jpg"
+    },
+    "efsa_botanic:2245": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Pfaffosides",
+      "license": "CC BY 4.0"
+    },
+    "efsa_botanic:2246": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: Triterpene saponins",
+      "license": "CC BY 4.0"
+    },
+    "efsa_endpoint:718": {
+      "dataset": "efsa",
+      "label": "EFSA Compendium of Botanicals: estudio de Hebanthe eriantha (Poir.) Pedersen",
+      "license": "CC BY 4.0"
+    },
+    "usda_common_name:2165-1": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Suma»",
+      "license": "CC0"
+    },
+    "usda_common_name:2165-2": {
+      "dataset": "usda",
+      "label": "USDA Dr. Duke: nombre común «Pfaffia»",
+      "license": "CC0"
+    },
+    "wcvp:2407757": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pfaffia erianthos (Poir.) Kuntze",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2409497": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pfaffia paniculata monstr. erianthos (Poir.) O.Stützer",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2829178": {
+      "dataset": "wcvp",
+      "label": "WCVP: Gomphrena erianthos (Poir.) Moq.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2840360": {
+      "dataset": "wcvp",
+      "label": "WCVP: Hebanthe erianthos (Poir.) Pedersen",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2866595": {
+      "dataset": "wcvp",
+      "label": "WCVP: Iresine erianthos Poir.",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Hebanthe eriantha": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Hebanthe eriantha",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Hebanthe_eriantha"
+    },
+    "wikipedia_es:Suma, Pfaffia paniculata": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Suma, Pfaffia paniculata",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Suma%2C_Pfaffia_paniculata"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "backbones-discrepan",
+      "message": "WCVP y WFO discrepan en el aceptado; se conserva el de WCVP.",
+      "target": "scientificName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "efsa_botanic:2245",
+      "efsa_botanic:2246",
+      "efsa_endpoint:718"
+    ],
+    "text": "EFSA registra en las raíces y otras partes subterráneas los pfafósidos y las saponinas triterpénicas, y un estudio en ratones con aumento de los niveles de progesterona, estradiol-17β y testosterona."
+  },
+  "scientificName": {
+    "authors": "(Poir.) Pedersen",
+    "name": "Hebanthe erianthos",
+    "refs": [
+      "wcvp:2840360"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "Public domain"
+    },
+    {
+      "dataset": "efsa",
+      "license": "CC BY 4.0"
+    },
+    {
+      "dataset": "usda",
+      "license": "CC0"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Poir.) Moq.",
+      "name": "Gomphrena erianthos",
+      "refs": [
+        "wcvp:2829178"
+      ]
+    },
+    {
+      "authors": "Poir.",
+      "name": "Iresine erianthos",
+      "refs": [
+        "wcvp:2866595"
+      ]
+    },
+    {
+      "authors": "(Poir.) Kuntze",
+      "name": "Pfaffia erianthos",
+      "refs": [
+        "wcvp:2407757"
+      ]
+    },
+    {
+      "authors": "(Poir.) O.Stützer",
+      "name": "Pfaffia paniculata monstr. erianthos",
+      "refs": [
+        "wcvp:2409497"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

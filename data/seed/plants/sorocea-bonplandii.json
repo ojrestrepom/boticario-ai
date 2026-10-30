@@ -1,0 +1,96 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:a12b8fa62d11d3640bd996d598c29855199d2c207202be6a60991d21dc2e263b",
+  "commonNames": [],
+  "description": {
+    "refs": [
+      "wikipedia_es:Sorocea bonplandii"
+    ],
+    "value": "Especie de planta con flor de la familia Moraceae."
+  },
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2602784"
+    ],
+    "value": "Sorocea bonplandii"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2602784"
+    ],
+    "value": "Moraceae"
+  },
+  "goals": [],
+  "id": "sorocea-bonplandii",
+  "image": null,
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2602784"
+    ],
+    "value": "Nativa de Brasil y del sur de Sudamérica."
+  },
+  "partsUsed": [],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "wcvp:2547632": {
+      "dataset": "wcvp",
+      "label": "WCVP: Pseudosorocea bonplandii Baill.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2602784": {
+      "dataset": "wcvp",
+      "label": "WCVP: Sorocea bonplandii (Baill.) W.C.Burger, Lanj. & de Boer",
+      "license": "CC BY 3.0"
+    },
+    "wikipedia_es:Sorocea bonplandii": {
+      "dataset": "wikipedia_es",
+      "label": "Wikipedia en español: Sorocea bonplandii",
+      "license": "CC BY-SA 4.0",
+      "url": "https://es.wikipedia.org/wiki/Sorocea_bonplandii"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; se usa el nombre científico.",
+      "target": "displayName"
+    },
+    {
+      "code": "sin-datos-de-seguridad",
+      "message": "El paquete no trae información de seguridad; la planta no se presenta como segura.",
+      "target": "safety"
+    }
+  ],
+  "safety": null,
+  "scientificName": {
+    "authors": "(Baill.) W.C.Burger, Lanj. & de Boer",
+    "name": "Sorocea bonplandii",
+    "refs": [
+      "wcvp:2602784"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    },
+    {
+      "dataset": "wikipedia_es",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "Baill.",
+      "name": "Pseudosorocea bonplandii",
+      "refs": [
+        "wcvp:2547632"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

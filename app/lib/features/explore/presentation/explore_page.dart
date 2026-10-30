@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../catalog/data/plant_catalog_repository.dart';
-import '../../catalog/domain/plant.dart';
-import '../../catalog/domain/plant_search.dart';
+import '../../catalog/domain/plant_summary.dart';
+import '../application/explore_controller.dart';
 
 const _green = Color(0xFF236335);
 const _ink = Color(0xFF172A1F);
 const _background = Color(0xFFF9FAF7);
 const _border = Color(0xFFD6DDD4);
 
-/// Local catalog browser. Navigation is provided by the app shell so this
-/// widget can be tested and reused without introducing a route of its own.
+/// How many rows before the end of the loaded list the next page is asked for.
+const _prefetchDistance = 5;
+
+/// Catalog browser backed by the catalog API. Navigation is provided by the
+/// app shell so this widget can be tested and reused without introducing a
+/// route of its own.
 class ExplorePage extends ConsumerStatefulWidget {
   const ExplorePage({
     required this.onBack,
@@ -22,16 +25,28 @@ class ExplorePage extends ConsumerStatefulWidget {
 
   final VoidCallback onBack;
   final VoidCallback onHome;
-  final ValueChanged<int> onPlantSelected;
+
+  /// Receives the API id (slug) of the selected plant.
+  final ValueChanged<String> onPlantSelected;
 
   @override
   ConsumerState<ExplorePage> createState() => _ExplorePageState();
 }
 
 class _ExplorePageState extends ConsumerState<ExplorePage> {
-  final _queryController = TextEditingController();
+  late final TextEditingController _queryController;
   final _scrollController = ScrollController();
-  PlantFilter _filter = PlantFilter.all;
+
+  @override
+  void initState() {
+    super.initState();
+    // Query, filter and loaded pages live in the controller, so they come
+    // back with the page; the scroll offset lives in this State, which stays
+    // mounted under the passport route.
+    _queryController = TextEditingController(
+      text: ref.read(exploreControllerProvider).query,
+    );
+  }
 
   @override
   void dispose() {
@@ -40,9 +55,12 @@ class _ExplorePageState extends ConsumerState<ExplorePage> {
     super.dispose();
   }
 
+  ExploreController get _controller =>
+      ref.read(exploreControllerProvider.notifier);
+
   @override
   Widget build(BuildContext context) {
-    final catalog = ref.watch(plantCatalogProvider);
+    final state = ref.watch(exploreControllerProvider);
     return Scaffold(
       backgroundColor: _background,
       body: SafeArea(
@@ -53,26 +71,17 @@ class _ExplorePageState extends ConsumerState<ExplorePage> {
           slivers: [
             SliverToBoxAdapter(child: _header()),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
               sliver: SliverList.list(
                 children: [
                   _searchField(),
                   const SizedBox(height: 12),
-                  _filters(),
+                  _filters(state),
                   const SizedBox(height: 12),
-                  catalog.when(
-                    loading: () => const _Message(
-                      key: ValueKey('catalog-loading'),
-                      icon: Icons.hourglass_empty,
-                      text: 'Cargando catálogo...',
-                    ),
-                    error: (error, stack) => _errorState(),
-                    data: (value) => _results(value),
-                    skipLoadingOnRefresh: false,
-                  ),
                 ],
               ),
             ),
+            ..._results(state),
           ],
         ),
       ),
@@ -117,7 +126,10 @@ class _ExplorePageState extends ConsumerState<ExplorePage> {
         label: 'Buscar planta o aceite',
         child: TextField(
           controller: _queryController,
-          onChanged: (_) => setState(() {}),
+          onChanged: (text) {
+            setState(() {});
+            _controller.setQuery(text);
+          },
           textInputAction: TextInputAction.search,
           decoration: InputDecoration(
             hint: const ExcludeSemantics(
@@ -131,6 +143,7 @@ class _ExplorePageState extends ConsumerState<ExplorePage> {
                     tooltip: 'Borrar búsqueda',
                     onPressed: () {
                       _queryController.clear();
+                      _controller.setQuery('');
                       setState(() {});
                     },
                     icon: const Icon(Icons.clear),
@@ -144,106 +157,200 @@ class _ExplorePageState extends ConsumerState<ExplorePage> {
     ],
   );
 
-  Widget _filters() => Wrap(
+  Widget _filters(ExploreState state) => Wrap(
     spacing: 8,
     runSpacing: 4,
     children: [
       for (final entry in const [
-        (PlantFilter.all, 'Todas'),
-        (PlantFilter.plants, 'Plantas'),
-        (PlantFilter.oils, 'Aceites'),
+        (ExploreFilter.all, 'Todas'),
+        (ExploreFilter.plants, 'Plantas'),
+        (ExploreFilter.oils, 'Aceites'),
       ])
         ChoiceChip(
           label: Text(entry.$2),
-          selected: _filter == entry.$1,
-          onSelected: (_) => setState(() => _filter = entry.$1),
+          selected: state.filter == entry.$1,
+          onSelected: (_) => _controller.setFilter(entry.$1),
           materialTapTargetSize: MaterialTapTargetSize.padded,
         ),
     ],
   );
 
-  Widget _results(PlantCatalog catalog) {
-    final plants = searchPlants(
-      catalog.plants,
-      query: _queryController.text,
-      filter: _filter,
+  List<Widget> _results(ExploreState state) {
+    Widget box(Widget child) => SliverPadding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      sliver: SliverToBoxAdapter(child: child),
     );
-    if (plants.isEmpty) {
-      return _Message(
-        key: ValueKey(
-          _filter == PlantFilter.oils ? 'empty-oils' : 'empty-search',
+    if (state.showsOils) {
+      return [
+        box(
+          const _Message(
+            key: ValueKey('empty-oils'),
+            icon: Icons.search_off,
+            text: 'No hay aceites disponibles en este catálogo',
+          ),
         ),
-        icon: Icons.search_off,
-        text: _filter == PlantFilter.oils
-            ? 'No hay aceites disponibles en este catálogo'
-            : 'No se encontraron plantas',
-      );
+      ];
     }
-    return Column(children: [for (final plant in plants) _plantRow(plant)]);
+    switch (state.phase) {
+      case ExplorePhase.loading:
+        return [
+          box(
+            const _Message(
+              key: ValueKey('catalog-loading'),
+              icon: Icons.hourglass_empty,
+              text: 'Cargando catálogo...',
+            ),
+          ),
+        ];
+      case ExplorePhase.error:
+        return [box(_errorState(state.errorMessage))];
+      case ExplorePhase.ready:
+        break;
+    }
+    if (state.items.isEmpty) {
+      return [
+        box(
+          const _Message(
+            key: ValueKey('empty-search'),
+            icon: Icons.search_off,
+            text: 'No se encontraron plantas',
+          ),
+        ),
+      ];
+    }
+    final count = state.items.length;
+    return [
+      SliverPadding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+        sliver: SliverList.builder(
+          itemCount: count + 1,
+          itemBuilder: (context, index) {
+            if (index == count) return _footer(state);
+            if (index >= count - _prefetchDistance) _requestMoreAfterFrame();
+            return _plantRow(state.items[index]);
+          },
+        ),
+      ),
+    ];
   }
 
-  Widget _plantRow(Plant plant) => Padding(
-    padding: const EdgeInsets.only(bottom: 8),
-    child: Material(
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: const BorderSide(color: _border),
-      ),
-      child: Semantics(
-        button: true,
-        label: '${plant.editorialCommonName}, ${plant.sourceScientificName}',
-        onTap: () => widget.onPlantSelected(plant.usdaPlantId),
-        excludeSemantics: true,
-        child: InkWell(
+  /// The list builder runs during layout, where provider state must not
+  /// change; the request waits for the end of the frame. The controller
+  /// ignores repeated calls while a page is loading or has failed.
+  void _requestMoreAfterFrame() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _controller.loadMore();
+    });
+  }
+
+  Widget _footer(ExploreState state) {
+    if (state.footerError != null) {
+      return Padding(
+        key: const ValueKey('explore-footer-error'),
+        padding: const EdgeInsets.only(top: 8),
+        child: Column(
+          children: [
+            Text(state.footerError!, textAlign: TextAlign.center),
+            const SizedBox(height: 8),
+            OutlinedButton(
+              onPressed: _controller.retryMore,
+              child: const Text('Reintentar'),
+            ),
+          ],
+        ),
+      );
+    }
+    if (state.hasMore) {
+      return Padding(
+        key: const ValueKey('explore-footer-loading'),
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Center(
+          child: Semantics(
+            label: 'Cargando más resultados',
+            child: const SizedBox.square(
+              dimension: 32,
+              child: CircularProgressIndicator(),
+            ),
+          ),
+        ),
+      );
+    }
+    return const Padding(
+      key: ValueKey('explore-footer-end'),
+      padding: EdgeInsets.symmetric(vertical: 16),
+      child: Text('No hay más resultados', textAlign: TextAlign.center),
+    );
+  }
+
+  Widget _plantRow(PlantSummary plant) {
+    final secondary = plant.secondaryName;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
-          onTap: () => widget.onPlantSelected(plant.usdaPlantId),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const ExcludeSemantics(
-                  child: Icon(Icons.local_florist, color: _green, size: 32),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        plant.editorialCommonName,
-                        style: Theme.of(context).textTheme.titleMedium
-                            ?.copyWith(color: _ink),
-                      ),
-                      Text(
-                        plant.sourceScientificName,
-                        style: Theme.of(context).textTheme.bodyMedium
-                            ?.copyWith(color: _ink),
-                      ),
-                    ],
+          side: const BorderSide(color: _border),
+        ),
+        child: Semantics(
+          button: true,
+          label: secondary == null
+              ? plant.primaryName
+              : '${plant.primaryName}, $secondary',
+          onTap: () => widget.onPlantSelected(plant.id),
+          excludeSemantics: true,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: () => widget.onPlantSelected(plant.id),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const ExcludeSemantics(
+                    child: Icon(Icons.local_florist, color: _green, size: 32),
                   ),
-                ),
-                const ExcludeSemantics(
-                  child: Icon(Icons.chevron_right, color: _green),
-                ),
-              ],
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          plant.primaryName,
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(color: _ink),
+                        ),
+                        if (secondary != null)
+                          Text(
+                            secondary,
+                            style: Theme.of(context).textTheme.bodyMedium
+                                ?.copyWith(color: _ink),
+                          ),
+                      ],
+                    ),
+                  ),
+                  const ExcludeSemantics(
+                    child: Icon(Icons.chevron_right, color: _green),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 
-  Widget _errorState() => Column(
+  Widget _errorState(String? message) => Column(
+    key: const ValueKey('catalog-error'),
     children: [
-      const _Message(
+      _Message(
         icon: Icons.error_outline,
-        text: 'No se pudo cargar el catálogo local.',
+        text: message ?? 'No se pudo cargar el catálogo.',
       ),
       const SizedBox(height: 8),
       OutlinedButton(
-        onPressed: () => ref.invalidate(plantCatalogProvider),
+        onPressed: _controller.retry,
         child: const Text('Reintentar'),
       ),
     ],

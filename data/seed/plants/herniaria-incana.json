@@ -1,0 +1,166 @@
+{
+  "aliases": [],
+  "bundleHash": "sha256:d14e1fbab91fddcaef74f4be5c638932c6f13579f461e70c6f92353490d5d683",
+  "commonNames": [],
+  "description": null,
+  "displayName": {
+    "language": "la",
+    "refs": [
+      "wcvp:2846951"
+    ],
+    "value": "Herniaria incana"
+  },
+  "family": {
+    "refs": [
+      "wcvp:2846951"
+    ],
+    "value": "Caryophyllaceae"
+  },
+  "goals": [
+    {
+      "area": "Trastornos urinarios y genitales",
+      "evidence": "La EMA tiene una monografía para la parte aérea en esta área.",
+      "goal": "otros-objetivos",
+      "pendingReview": false,
+      "refs": [
+        "ema_herbal:herniariae-herba"
+      ],
+      "subarea": "vias-urinarias-y-genitales"
+    }
+  ],
+  "id": "herniaria-incana",
+  "image": {
+    "attributionRequired": true,
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Herniaria_incana_kz02.jpg",
+    "refs": [
+      "commons:File:Herniaria incana kz02.jpg"
+    ],
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Herniaria_incana_kz02.jpg"
+  },
+  "model": "claude-sonnet-5-5",
+  "oil": null,
+  "origin": {
+    "refs": [
+      "wcvp:2846951"
+    ],
+    "value": "Nativa de Europa, el Cáucaso, Asia occidental y central y el norte de África."
+  },
+  "partsUsed": [
+    {
+      "refs": [
+        "ema_herbal:herniariae-herba"
+      ],
+      "value": "Parte aérea"
+    }
+  ],
+  "promptVersion": 7,
+  "recordVersion": 1,
+  "refs": {
+    "commons:File:Herniaria incana kz02.jpg": {
+      "dataset": "commons",
+      "label": "Wikimedia Commons: File:Herniaria incana kz02.jpg",
+      "license": "CC BY-SA 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Herniaria_incana_kz02.jpg"
+    },
+    "ema_herbal:herniariae-herba": {
+      "dataset": "ema_json",
+      "label": "EMA: Herniariae herba",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/medicines/herbal/herniariae-herba"
+    },
+    "ema_pdf:herniariae-herba:4.3": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de herniariae-herba, sección 4.3 (Contraindications)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-herniaria-glabra-l-h-hirsuta-l-h-incana-lam-herba_en.pdf"
+    },
+    "ema_pdf:herniariae-herba:4.4": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de herniariae-herba, sección 4.4 (Special warnings and precautions for use)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-herniaria-glabra-l-h-hirsuta-l-h-incana-lam-herba_en.pdf"
+    },
+    "ema_pdf:herniariae-herba:4.5": {
+      "dataset": "ema_pdf",
+      "label": "EMA: monografía de herniariae-herba, sección 4.5 (Interactions with other medicinal products and other forms of interaction)",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)",
+      "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-herniaria-glabra-l-h-hirsuta-l-h-incana-lam-herba_en.pdf"
+    },
+    "wcvp:2530368": {
+      "dataset": "wcvp",
+      "label": "WCVP: Paronychia incana (Lam.) E.H.L.Krause",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:2846951": {
+      "dataset": "wcvp",
+      "label": "WCVP: Herniaria incana Lam.",
+      "license": "CC BY 3.0"
+    },
+    "wcvp:3296945": {
+      "dataset": "wcvp",
+      "label": "WCVP: Herniaria hirsuta var. incana (Lam.) Hook.f.",
+      "license": "CC BY 3.0"
+    }
+  },
+  "reviewFlags": [
+    {
+      "code": "sin-nombre-comun-es",
+      "message": "El paquete no trae ningún nombre común en español; el nombre para mostrar es el nombre científico.",
+      "target": "displayName"
+    }
+  ],
+  "safety": {
+    "level": null,
+    "refs": [
+      "ema_pdf:herniariae-herba:4.3",
+      "ema_pdf:herniariae-herba:4.4",
+      "ema_pdf:herniariae-herba:4.5"
+    ],
+    "text": "La monografía de la EMA registra como contraindicaciones la hipersensibilidad a la sustancia activa y las condiciones en que se recomienda reducir la ingesta de líquidos (por ejemplo, enfermedad cardíaca o renal grave). Entre sus advertencias indica que no se ha establecido el uso en menores de 18 años, que se requiere una ingesta adecuada de líquidos y que, si las molestias urinarias empeoran o aparecen fiebre, disuria, espasmo o sangre en la orina, debe consultarse a un médico. No registra interacciones."
+  },
+  "scientificName": {
+    "authors": "Lam.",
+    "name": "Herniaria incana",
+    "refs": [
+      "wcvp:2846951"
+    ]
+  },
+  "sources": [
+    {
+      "dataset": "commons",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "dataset": "ema_json",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "ema_pdf",
+      "license": "Reutilización citando a la EMA (términos no verificados en el portal)"
+    },
+    {
+      "dataset": "wcvp",
+      "license": "CC BY 3.0"
+    }
+  ],
+  "synonyms": [
+    {
+      "authors": "(Lam.) Hook.f.",
+      "name": "Herniaria hirsuta var. incana",
+      "refs": [
+        "wcvp:3296945"
+      ]
+    },
+    {
+      "authors": "(Lam.) E.H.L.Krause",
+      "name": "Paronychia incana",
+      "refs": [
+        "wcvp:2530368"
+      ]
+    }
+  ],
+  "traditionalUses": []
+}

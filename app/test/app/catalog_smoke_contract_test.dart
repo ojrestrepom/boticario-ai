@@ -5,6 +5,17 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../integration_test/catalog_smoke.dart';
 import '../support/fake_catalog_api.dart';
 
+/// Lavender with glossary (derived from the real fixture) and a plant without
+/// glossary terms, which the smoke opens to check there is no explanation.
+const _detailFixtures = {
+  'lavandula-angustifolia':
+      'consolidated_lavandula-angustifolia_glossary-derived.json',
+  'anemopsis-californica': 'consolidated_anemopsis-californica_derived.json',
+};
+const _searchFixtures = {
+  'anemopsis': 'consolidated_list_anemopsis_derived.json',
+};
+
 void main() {
   // The shared flow mounts the real app over a fake HTTP client serving the
   // fixtures: no network, no backend, no asset. This is contract evidence on
@@ -16,9 +27,8 @@ void main() {
         requiredToken: testApiToken,
         goalPageFixtures: realGoalPageFixtures,
         listFixture: 'consolidated_list_lavand.json',
-        detailFixtures: const {
-          'lavandula-angustifolia': 'consolidated_lavandula-angustifolia.json',
-        },
+        searchFixtures: _searchFixtures,
+        detailFixtures: _detailFixtures,
       );
       await runCatalogSmoke(
         tester,
@@ -59,9 +69,8 @@ void main() {
         requiredToken: testApiToken,
         goalPageFixtures: realGoalPageFixtures,
         listFixture: 'consolidated_list_lavand.json',
-        detailFixtures: const {
-          'lavandula-angustifolia': 'consolidated_lavandula-angustifolia.json',
-        },
+        searchFixtures: _searchFixtures,
+        detailFixtures: _detailFixtures,
       );
       await runCatalogSmoke(
         tester,

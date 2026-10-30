@@ -380,21 +380,16 @@ Future<void> _runCatalogSmoke(
     expect(_selectedChip(tester, 'Usos'), isTrue);
     expect(find.text(PassportTexts.usesNotice), findsOneWidget);
     await _expectCitationsFold(tester);
-    final hasGlossary = await _expectGlossary(tester);
+    await _expectGlossary(tester);
     _expectSourcesHidden();
     await _tapVisible(tester, find.text('Fuentes'));
     expect(_selectedChip(tester, 'Fuentes'), isTrue);
     await _scrollUntilBuilt(tester, find.text(PassportTexts.sourcesIntro));
     expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
     _expectNoUrlText(tester);
-    if (hasGlossary) {
-      // The explanations of `Usos` are credited like any other source.
-      await _scrollUntilBuilt(tester, find.textContaining('Wik'));
-      expect(
-        find.textContaining(RegExp('Wikcionario|Wikipedia')),
-        findsWidgets,
-      );
-    }
+    // The lavender explains terms in `Usos`, so `Fuentes` credits Wikcionario.
+    await _scrollUntilBuilt(tester, _wiktionaryCredit);
+    expect(_wiktionaryCredit, findsWidgets);
     // Links sit on the names: at least one source or license is a link.
     expect(_linkSpans(tester), isNotEmpty);
     await _expectPassportDisabled(tester, router, homeLogs);
@@ -472,6 +467,9 @@ Future<void> _runCatalogSmoke(
     );
     await _waitForFirstPage(tester);
     _expectFreshExplore(tester, router);
+
+    // A plant without glossary terms shows no explanation and no Wikcionario.
+    await _expectPlantWithoutGlossary(tester, router);
 
     // Framework pop from P04 returns to Home; this is not a physical Back claim.
     await tester.binding.handlePopRoute();
@@ -595,11 +593,24 @@ Future<void> _expectCitationsFold(WidgetTester tester) async {
   await _settle(tester);
 }
 
-/// `Usos`: scrolls the whole tab and, for every group that explains its
-/// term, checks the label and the `Term: «text» (Source)` line below it.
-/// A plant with `Diurético` or `Tónico` shows them; one without terms of the
-/// glossary shows no label at all. Returns whether any explanation was seen.
-Future<bool> _expectGlossary(WidgetTester tester) async {
+/// Name of the Wikcionario credit in `Fuentes`.
+final _wiktionaryCredit = find.textContaining(
+  'Wikcionario',
+  findRichText: true,
+);
+
+/// A plant without terms of the glossary (`anemopsis-californica`).
+const _noGlossaryScientific = 'Anemopsis californica';
+const _noGlossarySearch = 'anemopsis';
+const _noGlossaryPath = '/explore/anemopsis-californica';
+
+final _glossaryLine = RegExp(
+  r'^.+: «.+» \((adaptado de )?(Wikcionario|Wikipedia)\)$',
+);
+
+/// Scrolls the whole `Usos` tab and returns how many labels and how many
+/// `Term: «text» (Source)` lines it built.
+Future<({int labels, int lines})> _countGlossary(WidgetTester tester) async {
   final position = tester
       .state<ScrollableState>(
         find
@@ -613,26 +624,72 @@ Future<bool> _expectGlossary(WidgetTester tester) async {
   position.jumpTo(0);
   await _settle(tester);
   final label = find.text(PassportTexts.glossaryLabel);
-  final line = RegExp(r'^.+: «.+» \((adaptado de )?(Wikcionario|Wikipedia)\)$');
-  var seen = 0;
-  var lines = 0;
+  final seenLines = <String>{};
+  var labels = 0;
   for (var step = 0; step < 80; step++) {
-    seen = seen < label.evaluate().length ? label.evaluate().length : seen;
+    final built = label.evaluate().length;
+    if (built > labels) labels = built;
     for (final rich in find.byType(RichText).evaluate()) {
       final text = (rich.widget as RichText).text.toPlainText(
         includeSemanticsLabels: false,
       );
-      if (line.hasMatch(text)) lines++;
+      if (_glossaryLine.hasMatch(text)) seenLines.add(text);
     }
     final before = position.pixels;
     position.jumpTo(before + 150);
     await tester.pump(const Duration(milliseconds: 50));
     if (position.pixels == before) break;
   }
-  expect(lines > 0, seen > 0, reason: 'each label comes with its line');
   position.jumpTo(0);
   await _settle(tester);
-  return seen > 0;
+  return (labels: labels, lines: seenLines.length);
+}
+
+/// `Usos` of the lavender: at least one label with its line below. It fails
+/// when the app shows no explanation.
+Future<void> _expectGlossary(WidgetTester tester) async {
+  final found = await _countGlossary(tester);
+  expect(found.labels, greaterThan(0), reason: 'labels in Usos of lavender');
+  expect(found.lines, greaterThan(0), reason: 'Term: «text» (Source) lines');
+}
+
+/// Opens the plant without glossary terms from the explorer and checks that
+/// `Usos` has no label and `Fuentes` does not list Wikcionario.
+Future<void> _expectPlantWithoutGlossary(
+  WidgetTester tester,
+  GoRouter router,
+) async {
+  await _search(tester, _noGlossarySearch);
+  final row = find.bySemanticsLabel(RegExp(', $_noGlossaryScientific\$'));
+  await _waitFor(tester, row, reason: 'the "$_noGlossaryScientific" row');
+  await _ensureVisible(tester, row);
+  await _tapPrepared(tester, row);
+  await _waitForPassport(tester);
+  _expectPath(router, _noGlossaryPath);
+  await _tapVisible(tester, find.text('Usos'));
+  expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+  final found = await _countGlossary(tester);
+  expect(found.labels, 0);
+  expect(found.lines, 0);
+  await _tapVisible(tester, find.text('Fuentes'));
+  await _scrollUntilBuilt(tester, find.text(PassportTexts.sourcesIntro));
+  expect(_wiktionaryCredit, findsNothing);
+  tester
+      .state<ScrollableState>(
+        find
+            .descendant(
+              of: find.byType(PlantPassportPage),
+              matching: find.byType(Scrollable),
+            )
+            .first,
+      )
+      .position
+      .jumpTo(0);
+  await _settle(tester);
+  await _tapVisible(tester, find.byTooltip('Volver a Explorar'));
+  await _settle(tester);
+  await _tapVisible(tester, find.byTooltip('Borrar búsqueda'));
+  await _waitForFirstPage(tester);
 }
 
 /// Scrolls the passport in steps until [finder] is built (lazy slivers

@@ -66,6 +66,7 @@ class FakeCatalogApi {
     this.requiredToken,
     this.listFixture = 'list_lavandula.json',
     this.detailFixtures = const {},
+    this.searchFixtures = const {},
     List<Map<String, Object?>>? goals,
     Map<String, String>? goalPageFixtures,
   }) : goals = goals ?? syntheticGoals(),
@@ -103,6 +104,10 @@ class FakeCatalogApi {
   /// Used to serve real responses of the consolidated backend
   /// (`consolidated_*.json`).
   final Map<String, String> detailFixtures;
+
+  /// List fixtures by lowercase text contained in `q`, checked before the
+  /// default list (e.g. `anemopsis` for a plant without glossary).
+  final Map<String, String> searchFixtures;
 
   /// Ids that have a detail fixture.
   static const plantIds = [
@@ -264,6 +269,15 @@ class FakeCatalogApi {
 
   http.Response _list(Map<String, String> query) {
     final q = query['q'];
+    for (final entry in searchFixtures.entries) {
+      if (q != null && q.toLowerCase().contains(entry.key)) {
+        return http.Response.bytes(
+          utf8.encode(apiFixture(entry.value)),
+          200,
+          headers: _jsonHeaders,
+        );
+      }
+    }
     if (q == null || q.toLowerCase().contains('lavandula')) {
       return http.Response.bytes(
         utf8.encode(apiFixture(listFixture)),

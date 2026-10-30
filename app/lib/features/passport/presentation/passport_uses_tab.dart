@@ -16,7 +16,7 @@ const _dimmedInk = Color(0xFF5B665F);
 String useGroupKey(int index, UseGroup group) =>
     '$index|${group.activity}|${group.activitySource}';
 
-/// `Usos` tab content: the fixed notice, then the use groups.
+/// `Usos` tab content: the compact notice line, then the use groups.
 class PassportUsesTab extends StatelessWidget {
   const PassportUsesTab({
     required this.plant,
@@ -51,24 +51,82 @@ class PassportUsesTab extends StatelessWidget {
   );
 }
 
+/// Compact line that replaces the always-visible box: one button of at least
+/// 48 dp that opens the full notice in a dialog.
 class _UsesNotice extends StatelessWidget {
   const _UsesNotice();
 
   @override
-  Widget build(BuildContext context) => Container(
-    width: double.infinity,
-    margin: const EdgeInsets.only(bottom: 14),
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: const Color(0xFFEAF2EC),
-      border: Border.all(color: passportGreen),
-      borderRadius: BorderRadius.circular(8),
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 6),
+    child: Align(
+      alignment: Alignment.centerLeft,
+      child: Semantics(
+        container: true,
+        button: true,
+        label: PassportTexts.usesNoticeLabel,
+        onTap: () => _showUsesNotice(context),
+        excludeSemantics: true,
+        child: InkWell(
+          key: const ValueKey('uses-notice-line'),
+          borderRadius: BorderRadius.circular(8),
+          onTap: () => _showUsesNotice(context),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.warning_amber, color: passportGreen),
+                  const SizedBox(width: 8),
+                  Flexible(
+                    child: Text(
+                      PassportTexts.usesNoticeLabel,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: passportInk,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     ),
-    child: Text(
-      PassportTexts.usesNotice,
-      style: Theme.of(context).textTheme.bodyMedium
-          ?.copyWith(color: passportInk),
+  );
+}
+
+Future<void> _showUsesNotice(BuildContext context) => showDialog<void>(
+  context: context,
+  builder: (_) => const _UsesNoticeDialog(),
+);
+
+/// Full fixed notice. Closes with «Entendido», the system back or a tap
+/// outside.
+class _UsesNoticeDialog extends StatelessWidget {
+  const _UsesNoticeDialog();
+
+  @override
+  Widget build(BuildContext context) => AlertDialog(
+    key: const ValueKey('uses-notice-dialog'),
+    title: Semantics(
+      header: true,
+      child: const Text(PassportTexts.usesNoticeLabel),
     ),
+    content: const SingleChildScrollView(child: Text(PassportTexts.usesNotice)),
+    actions: [
+      TextButton(
+        style: TextButton.styleFrom(
+          minimumSize: const Size(48, 48),
+          foregroundColor: passportGreen,
+        ),
+        onPressed: () => Navigator.of(context).pop(),
+        child: const Text(PassportTexts.usesNoticeClose),
+      ),
+    ],
   );
 }
 

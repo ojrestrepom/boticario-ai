@@ -1,9 +1,12 @@
+import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_style.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_uses_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
@@ -11,6 +14,9 @@ import '../../support/fake_catalog_api.dart';
 import '../../support/fake_url_launcher.dart';
 
 import 'passport_test_support.dart';
+
+const _line = ValueKey('uses-notice-line');
+const _dialog = ValueKey('uses-notice-dialog');
 
 Plant _synthetic({
   List<UseGroup> groups = const [],
@@ -228,21 +234,28 @@ void main() {
       expect(find.text('Registro tradicional'), findsNothing);
       expect(find.text('Países'), findsNothing);
       expect(find.text('Es un registro, no un consejo de uso.'), findsNothing);
-      expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+      expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
       await tester.tap(find.byType(TextButton).first);
       await tester.pumpAndSettle();
     }
   });
 
-  testWidgets('Aviso fijo de usos tradicionales', (tester) async {
+  testWidgets('Aviso fijo de usos tradicionales en una línea que abre el '
+      'diálogo', (tester) async {
     for (final id in [
       'lavandula-angustifolia',
       'acinos-sp',
       'eucalyptus-globulus',
     ]) {
       await showPassport(tester, consolidatedPlant(id), tab: 'Usos');
-      expect(find.text(PassportTexts.usesNotice), findsOneWidget, reason: id);
-      final notice = tester.getTopLeft(find.text(PassportTexts.usesNotice));
+      expect(
+        find.text(PassportTexts.usesNoticeLabel),
+        findsOneWidget,
+        reason: id,
+      );
+      // The full text is not in the tab, only in the dialog.
+      expect(find.text(PassportTexts.usesNotice), findsNothing, reason: id);
+      final line = tester.getTopLeft(find.text(PassportTexts.usesNoticeLabel));
       final below = find.text(
         id == 'acinos-sp'
             ? PassportTexts.noUses
@@ -250,14 +263,137 @@ void main() {
       );
       expect(
         tester.getTopLeft(below.first).dy,
-        greaterThan(notice.dy),
+        greaterThan(line.dy),
         reason: id,
       );
     }
-    // The notice is not shown in the other tabs.
+    // The line is not shown in the other tabs.
     await showPassport(tester, consolidatedPlant('acinos-sp'));
+    expect(find.text(PassportTexts.usesNoticeLabel), findsNothing);
+  });
+
+  testWidgets('la línea está también con una planta sin usos', (tester) async {
+    await showPassport(tester, _synthetic(), tab: 'Usos');
+    expect(find.byKey(_line), findsOneWidget);
+    expect(find.text(PassportTexts.noUses), findsOneWidget);
+  });
+
+  testWidgets('la línea es un botón de al menos 48 dp con su rótulo', (
+    tester,
+  ) async {
+    final handle = tester.ensureSemantics();
+    await showPassport(
+      tester,
+      consolidatedPlant('lavandula-angustifolia'),
+      tab: 'Usos',
+    );
+    final size = tester.getSize(find.byKey(_line));
+    expect(size.height, greaterThanOrEqualTo(48));
+    expect(size.width, greaterThanOrEqualTo(48));
+    final buttons = <SemanticsData>[];
+    void visit(SemanticsNode node) {
+      final data = node.getSemanticsData();
+      if (data.label == PassportTexts.usesNoticeLabel) buttons.add(data);
+      node.visitChildren((child) {
+        visit(child);
+        return true;
+      });
+    }
+
+    // The test binding builds semantics on its own (deprecated) pipeline owner.
+    // ignore: deprecated_member_use
+    visit(tester.binding.pipelineOwner.semanticsOwner!.rootSemanticsNode!);
+    expect(buttons, hasLength(1));
+    expect(buttons.single.flagsCollection.isButton, isTrue);
+    handle.dispose();
+  });
+
+  testWidgets('el diálogo muestra el texto completo y se cierra con '
+      '«Entendido»', (tester) async {
+    await showPassport(
+      tester,
+      consolidatedPlant('lavandula-angustifolia'),
+      tab: 'Usos',
+    );
+    await tester.tap(find.byKey(_line));
+    await tester.pumpAndSettle();
+    expect(find.byKey(_dialog), findsOneWidget);
+    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    expect(find.text(PassportTexts.usesNoticeLabel), findsNWidgets(2));
+    await tester.tap(find.text(PassportTexts.usesNoticeClose));
+    await tester.pumpAndSettle();
+    expect(find.byKey(_dialog), findsNothing);
     expect(find.text(PassportTexts.usesNotice), findsNothing);
   });
+
+  testWidgets('el diálogo se cierra con Atrás y tocando fuera', (tester) async {
+    await showPassport(tester, _synthetic(), tab: 'Usos');
+    await tester.tap(find.byKey(_line));
+    await tester.pumpAndSettle();
+    expect(find.byKey(_dialog), findsOneWidget);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.byKey(_dialog), findsNothing);
+
+    await tester.tap(find.byKey(_line));
+    await tester.pumpAndSettle();
+    expect(find.byKey(_dialog), findsOneWidget);
+    await tester.tapAt(const Offset(2, 2));
+    await tester.pumpAndSettle();
+    expect(find.byKey(_dialog), findsNothing);
+  });
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('la línea y el diálogo a 360x640 al ${(scale * 100).round()} '
+        '%, sin truncado', (tester) async {
+      tester.view.physicalSize = const Size(360, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildBoticarioTheme(),
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: TextScaler.linear(scale)),
+            child: child!,
+          ),
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: PassportUsesTab(
+                plant: _synthetic(),
+                expandedGroups: const {},
+                onToggleGroup: (_) {},
+              ),
+            ),
+          ),
+        ),
+      );
+      void expectNotTruncated(Finder finder) {
+        final paragraph = tester.renderObject<RenderParagraph>(finder);
+        expect(paragraph.didExceedMaxLines, isFalse);
+        expect(paragraph.overflow, isNot(TextOverflow.ellipsis));
+      }
+
+      expectNotTruncated(find.text(PassportTexts.usesNoticeLabel));
+      expect(tester.takeException(), isNull);
+      await tester.tap(find.byKey(_line));
+      await tester.pumpAndSettle();
+      expectNotTruncated(find.text(PassportTexts.usesNotice));
+      // The text can scroll inside the dialog; the button stays on screen.
+      final screen = Offset.zero & const Size(360, 640);
+      expect(
+        screen.contains(
+          tester.getBottomRight(find.text(PassportTexts.usesNoticeClose)),
+        ),
+        isTrue,
+      );
+      expect(tester.takeException(), isNull);
+      await tester.tap(find.text(PassportTexts.usesNoticeClose));
+      await tester.pumpAndSettle();
+      expect(find.byKey(_dialog), findsNothing);
+    });
+  }
 
   testWidgets('el aviso fijo aclara que las explicaciones son generales', (
     tester,
@@ -282,6 +418,8 @@ void main() {
     );
     for (final text in [
       PassportTexts.usesNotice,
+      PassportTexts.usesNoticeLabel,
+      PassportTexts.usesNoticeClose,
       PassportTexts.glossaryLabel,
       PassportTexts.hideCitations,
       PassportTexts.showCitations(1),
@@ -390,7 +528,7 @@ void main() {
       await showPassport(tester, plant, tab: 'Usos');
       expect(find.text(PassportTexts.noUses), findsOneWidget);
       expect(find.byType(TextButton), findsNothing);
-      expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+      expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
     }
   });
 

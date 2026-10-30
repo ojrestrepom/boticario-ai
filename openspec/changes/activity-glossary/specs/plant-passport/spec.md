@@ -41,7 +41,7 @@ Cuando un grupo de `Usos` trae `glossary`, la pestaña SHALL mostrar bajo el tí
 
 #### Scenario: Aclaración de que la explicación es general
 - **WHEN** se abre `Usos` de una planta cuyos grupos traen explicación
-- **THEN** el aviso fijo del inicio incluye la oración «Las explicaciones de términos son definiciones generales de diccionario o enciclopedia, no afirmaciones sobre esta planta.» y cada explicación lleva la etiqueta «Significado general del término»
+- **THEN** el aviso fijo, que se lee en el diálogo de la línea «Aviso sobre usos» del inicio, incluye la oración «Las explicaciones de términos son definiciones generales de diccionario o enciclopedia, no afirmaciones sobre esta planta.» y cada explicación lleva la etiqueta «Significado general del término»
 
 #### Scenario: Sin lenguaje de eficacia en los textos fijos
 - **WHEN** se revisan los textos fijos de la explicación («Significado general del término», las comillas y «adaptado de»)
@@ -50,7 +50,7 @@ Cuando un grupo de `Usos` trae `glossary`, la pestaña SHALL mostrar bajo el tí
 ## MODIFIED Requirements
 
 ### Requirement: Usos como registros tradicionales trazables
-La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos registrados en fuentes etnobotánicas históricas. No son recomendaciones ni están comprobados clínicamente. Algunas citas no se pudieron identificar y se muestran como «sin resolver». Las explicaciones de términos son definiciones generales de diccionario o enciclopedia, no afirmaciones sobre esta planta.», texto provisional que el usuario ajustará en la app), también cuando la planta no tiene usos. Después SHALL mostrar los grupos de uso que entrega la API, cada uno compacto: la actividad como título, una sola línea de datos con los lugares, que es el prefijo `Lugares: ` seguido de los países separados por comas (`Lugares: Guatemala, Honduras, México`) y no muestra el número de registros (sin países, el grupo no tiene línea de datos), y un control para ver las citas. La única cifra del grupo SHALL ser la del control, el número de citas del grupo (`references.length`), y la app SHALL NOT mostrar el número de registros aunque la API lo envíe. Las citas de las referencias del grupo SHALL estar plegadas por defecto; el control SHALL decir `Ver N citas` (`Ver 1 cita` si es una) y desplegarlas en el mismo sitio, y entonces decir `Ocultar citas` y plegarlas. Desplegadas, cada cita se muestra completa y una referencia sin obra identificada (`resolved` falso) SHALL mostrarse como «(sin resolver)» en un estilo atenuado y en cursiva. El grupo SHALL NOT repetir la etiqueta `Registro tradicional`, el rótulo `Países` ni la aclaración de que es un registro y no un consejo, porque el aviso fijo ya lo dice para toda la pestaña. Cada grupo SHALL conservar su estado de plegado al cambiar de pestaña y volver, y todos SHALL estar plegados al abrir un pasaporte. Los grupos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia, ni reescribir los países (un «Otros lugares» genérico se muestra tal cual), y SHALL NOT añadir lógica propia sobre actividades sensibles: muestra el texto de la actividad tal como llega. Las listas largas SHALL permanecer desplazables y sin truncar.
+La pestaña `Usos` SHALL mostrar siempre, al inicio, una línea compacta con el icono de advertencia y el rótulo «Aviso sobre usos», también cuando la planta no tiene usos. La línea SHALL ser un solo botón de al menos 48 dp que abre un diálogo titulado «Aviso sobre usos» con el aviso fijo completo («Usos registrados en fuentes etnobotánicas históricas. No son recomendaciones ni están comprobados clínicamente. Algunas citas no se pudieron identificar y se muestran como «sin resolver». Las explicaciones de términos son definiciones generales de diccionario o enciclopedia, no afirmaciones sobre esta planta.», texto provisional que el usuario ajustará en la app) y un botón «Entendido»; el diálogo SHALL cerrarse con ese botón, con Atrás del sistema y tocando fuera, y el texto del aviso SHALL NOT mostrarse en la pestaña fuera del diálogo. Después SHALL mostrar los grupos de uso que entrega la API, cada uno compacto: la actividad como título, una sola línea de datos con los lugares, que es el prefijo `Lugares: ` seguido de los países separados por comas (`Lugares: Guatemala, Honduras, México`) y no muestra el número de registros (sin países, el grupo no tiene línea de datos), y un control para ver las citas. La única cifra del grupo SHALL ser la del control, el número de citas del grupo (`references.length`), y la app SHALL NOT mostrar el número de registros aunque la API lo envíe. Las citas de las referencias del grupo SHALL estar plegadas por defecto; el control SHALL decir `Ver N citas` (`Ver 1 cita` si es una) y desplegarlas en el mismo sitio, y entonces decir `Ocultar citas` y plegarlas. Desplegadas, cada cita se muestra completa y una referencia sin obra identificada (`resolved` falso) SHALL mostrarse como «(sin resolver)» en un estilo atenuado y en cursiva. El grupo SHALL NOT repetir la etiqueta `Registro tradicional`, el rótulo `Países` ni la aclaración de que es un registro y no un consejo, porque el aviso fijo del diálogo ya lo dice para toda la pestaña. Cada grupo SHALL conservar su estado de plegado al cambiar de pestaña y volver, y todos SHALL estar plegados al abrir un pasaporte. Los grupos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia, ni reescribir los países (un «Otros lugares» genérico se muestra tal cual), y SHALL NOT añadir lógica propia sobre actividades sensibles: muestra el texto de la actividad tal como llega. Las listas largas SHALL permanecer desplazables y sin truncar.
 
 #### Scenario: Registro tradicional elegible
 - **WHEN** la planta tiene un grupo de uso con 12 registros de tres países y dos referencias
@@ -58,7 +58,7 @@ La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos regis
 
 #### Scenario: Aviso fijo de usos tradicionales
 - **WHEN** se abre la pestaña `Usos` de cualquier planta, con o sin grupos de uso
-- **THEN** el aviso fijo, con su oración final sobre las explicaciones de términos, se muestra al inicio, antes del primer grupo o del vacío explícito, y no contiene lenguaje de eficacia
+- **THEN** la línea «Aviso sobre usos» se muestra al inicio, antes del primer grupo o del vacío explícito, y el texto del aviso no se ve en la pestaña; al tocarla se abre el diálogo «Aviso sobre usos» con el texto completo del aviso fijo, con su oración final sobre las explicaciones de términos y sin lenguaje de eficacia, y se cierra con «Entendido», con Atrás o tocando fuera, sin cambiar la pestaña
 
 #### Scenario: Citas plegadas por defecto
 - **WHEN** se abre la pestaña `Usos` de una planta con grupos de uso
@@ -82,7 +82,7 @@ La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos regis
 
 #### Scenario: Sin etiqueta ni aclaración por grupo
 - **WHEN** se muestra cualquier grupo de uso, plegado o desplegado
-- **THEN** no aparece la etiqueta `Registro tradicional`, ni el rótulo `Países`, ni la aclaración `Es un registro, no un consejo de uso.`, y el aviso fijo sigue visible al inicio de la pestaña
+- **THEN** no aparece la etiqueta `Registro tradicional`, ni el rótulo `Países`, ni la aclaración `Es un registro, no un consejo de uso.`, y la línea «Aviso sobre usos» sigue al inicio de la pestaña
 
 #### Scenario: Cita sin resolver visible
 - **WHEN** un grupo de uso trae una referencia resuelta y otra con `resolved` falso y la cita «Woi.Syria (sin resolver)», y el usuario despliega las citas
@@ -107,3 +107,34 @@ La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos regis
 #### Scenario: Muchos usos
 - **WHEN** la planta tiene decenas de grupos de uso
 - **THEN** todos son alcanzables con desplazamiento, sin truncar la actividad, la línea de datos ni el control de cada uno, y al desplegar o plegar un grupo se conserva la posición de desplazamiento
+
+### Requirement: Accesibilidad del pasaporte
+El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%, también con las cuatro pestañas. Los controles, como las pestañas y los botones, SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp de alto y de ancho, y la selección de una pestaña SHALL expresarse también en la semántica y en el borde, no solo en el relleno. La línea «Aviso sobre usos» de `Usos` SHALL ser un solo botón con esa área de toque, con la etiqueta «Aviso sobre usos» y semántica de botón, y el diálogo que abre SHALL tener ese título, mostrar el texto completo sin truncar (desplazable si no cabe) y cerrarse con «Entendido», con Atrás y tocando fuera, también a 200 % de texto en 360x640 dp. El control que pliega y despliega las citas de un grupo de `Usos` SHALL ser un botón con esa área de toque, SHALL expresar en su semántica si está expandido o plegado, y su etiqueta SHALL incluir el texto visible (`Ver N citas` u `Ocultar citas`) y la actividad del grupo, de modo que la tecnología de asistencia anuncie el número de citas y distinga los grupos entre sí; el estado SHALL expresarse también con el texto del control, no solo con un icono. Un enlace en línea, que va dentro de una frase o de una línea de texto, SHALL anunciarse como enlace, con el texto visible y el destino al que lleva (por ejemplo, la página de la fuente o el texto de la licencia), y SHALL distinguirse del texto que lo rodea por algo más que el color. Los enlaces en línea quedan exentos del mínimo de 48 dp, según la excepción de WCAG 2.5.8 para enlaces dentro de una frase. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de precauciones SHALL expresarse con texto y no solo con color.
+
+#### Scenario: Ficha accesible con texto aumentado
+- **WHEN** se recorre el pasaporte mediante tecnología de asistencia a 100% o 200% en 360x640 dp
+- **THEN** los textos y controles esenciales, incluidos las cuatro pestañas, el pie de la imagen, los enlaces, la pestaña `Fuentes` y los controles de citas de `Usos`, son legibles, alcanzables, etiquetados y no quedan truncados
+
+#### Scenario: Imagen descrita
+- **WHEN** la planta tiene imagen
+- **THEN** la tecnología de asistencia anuncia una descripción que incluye el nombre de la planta
+
+#### Scenario: Nivel de precauciones sin depender del color
+- **WHEN** se muestra el nivel de precauciones `alto`, `medio` o `bajo`
+- **THEN** el nivel se presenta como texto, además de cualquier color
+
+#### Scenario: Pestañas estables al seleccionar
+- **WHEN** el usuario elige una pestaña distinta
+- **THEN** las cuatro pestañas conservan su posición y su tamaño, y la pestaña elegida se distingue por su relleno, su borde y su semántica de seleccionada
+
+#### Scenario: Enlace en línea accesible
+- **WHEN** se inspecciona con tecnología de asistencia un enlace de `Fuentes` o del pie de la imagen
+- **THEN** se anuncia como enlace con su texto visible y su destino, sin leer la URL, y no depende solo del color para distinguirse del texto que lo rodea; al ir dentro del texto, no se le exige un área de toque de 48 dp
+
+#### Scenario: Control de citas accesible
+- **WHEN** se inspecciona con tecnología de asistencia el control de citas de un grupo de `Usos`, plegado y desplegado
+- **THEN** se anuncia como botón con su estado de plegado o expandido, su etiqueta contiene el texto visible (`Ver 5 citas`, `Ocultar citas`) y la actividad del grupo, y su área de toque es de al menos 48 dp de alto y de ancho, también a 200 % de texto en 360x640 dp
+
+#### Scenario: Línea de aviso de usos accesible
+- **WHEN** se inspecciona con tecnología de asistencia la línea «Aviso sobre usos» y se abre su diálogo, a 100 % y 200 % de texto en 360x640 dp
+- **THEN** la línea se anuncia como un solo botón con la etiqueta «Aviso sobre usos» y un área de toque de al menos 48 dp de alto y de ancho, y el diálogo muestra su título y el texto completo sin truncar, con el botón «Entendido» alcanzable

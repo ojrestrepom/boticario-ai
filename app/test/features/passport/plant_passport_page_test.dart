@@ -422,7 +422,7 @@ void main() {
     await show(tester, _lavender);
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
     expect(find.text('Carminative'), findsOneWidget);
     final lavender = plants[_lavender]!;
     expect(lavender.uses, hasLength(10));
@@ -649,7 +649,7 @@ void main() {
     );
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
     await tester.pumpWidget(
       MaterialApp(theme: buildBoticarioTheme(), home: pageFor(_noFamily)),
     );
@@ -726,7 +726,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
 
     await tester.pumpWidget(entry('999999'));
     await tester.pumpAndSettle();
@@ -735,7 +735,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Japanese Fir'), findsWidgets);
     expect(find.text('Familia'), findsOneWidget);
-    expect(find.text(PassportTexts.usesNotice), findsNothing);
+    expect(find.text(PassportTexts.usesNoticeLabel), findsNothing);
   });
 
   testWidgets('a 401 shows unauthorized, not "not found", with retry', (
@@ -1256,7 +1256,7 @@ void main() {
           } else {
             await assertParagraphReadable(
               tester,
-              find.text(PassportTexts.usesNotice),
+              find.text(PassportTexts.usesNoticeLabel),
             );
             final opened = <String>{};
             for (final use in plant.uses) {

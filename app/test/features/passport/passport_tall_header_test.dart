@@ -24,7 +24,7 @@ const _tabs = ['General', 'Propiedades', 'Usos', 'Fuentes'];
 const _firstContent = {
   'General': 'Tipo de aceite',
   'Propiedades': 'Objetivos registrados por la EMA',
-  'Usos': PassportTexts.usesNotice,
+  'Usos': PassportTexts.usesNoticeLabel,
   'Fuentes': PassportTexts.sourcesIntro,
 };
 

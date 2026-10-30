@@ -378,7 +378,7 @@ Future<void> _runCatalogSmoke(
     _expectSourcesHidden();
     await _tapVisible(tester, find.text('Usos'));
     expect(_selectedChip(tester, 'Usos'), isTrue);
-    expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+    await _expectUsesNotice(tester);
     await _expectCitationsFold(tester);
     await _expectGlossary(tester);
     _expectSourcesHidden();
@@ -555,6 +555,17 @@ Future<void> _checkGoalRowsAndDisabledFooter(
   );
 }
 
+/// `Usos` starts with the «Aviso sobre usos» line; the full notice is
+/// only in the dialog, which «Entendido» closes.
+Future<void> _expectUsesNotice(WidgetTester tester) async {
+  expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
+  expect(find.text(PassportTexts.usesNotice), findsNothing);
+  await _tapVisible(tester, find.text(PassportTexts.usesNoticeLabel));
+  expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+  await _tapVisible(tester, find.text(PassportTexts.usesNoticeClose));
+  expect(find.text(PassportTexts.usesNotice), findsNothing);
+}
+
 /// `Usos`: the groups show `Ver N citas` controls, no per-group label and no
 /// records count;
 /// one opens to show its citations in place and closes again.
@@ -670,7 +681,7 @@ Future<void> _expectPlantWithoutGlossary(
   await _waitForPassport(tester);
   _expectPath(router, _noGlossaryPath);
   await _tapVisible(tester, find.text('Usos'));
-  expect(find.text(PassportTexts.usesNotice), findsOneWidget);
+  expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
   final found = await _countGlossary(tester);
   expect(found.labels, 0);
   expect(found.lines, 0);

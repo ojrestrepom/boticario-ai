@@ -47,6 +47,13 @@ abstract final class PassportTexts {
       'se pudieron identificar y se muestran como «sin resolver». Las '
       'explicaciones de términos son definiciones generales de diccionario o '
       'enciclopedia, no afirmaciones sobre esta planta.';
+
+  /// Label of the compact line (and title of the dialog) that opens
+  /// [usesNotice].
+  static const usesNoticeLabel = 'Aviso sobre usos';
+
+  /// Button that closes the dialog of [usesNotice].
+  static const usesNoticeClose = 'Entendido';
   static const noUses =
       'No hay usos tradicionales con referencia verificable disponibles';
   static const hideCitations = 'Ocultar citas';
@@ -142,6 +149,8 @@ abstract final class PassportTexts {
     levelMedium,
     levelLow,
     usesNotice,
+    usesNoticeLabel,
+    usesNoticeClose,
     noUses,
     hideCitations,
     unresolvedSuffix,

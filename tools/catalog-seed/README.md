@@ -18,6 +18,7 @@ Con el entorno creado, esos comandos se ejecutan con `tools/catalog-seed/.venv/b
 - `cli.py`: punto de entrada de línea de comandos.
 - `catalog_seed/`: paquete importable (`sources.py` valida `sources.json` y las listas de fuentes; `download.py` descarga, verifica y fija snapshots; `ema.py` lee y deduplica la EMA; `wiki.py` consulta Wikidata, Wikipedia y Commons con límite de peticiones y reanudación; `goals.py` lee el mapa y el catálogo de objetivos; `schema.py` es el validador mínimo de JSON Schema; `validate.py` valida un registro contra su paquete; `seed.py` calcula el plan de regeneración y sella el manifiesto; `workdb.py`, `usda_extract.py`, `tppt_extract.py`, `efsa_extract.py`, `ema_extract.py`, `pdf_sections.py` y `extract.py` extraen las fuentes al formato intermedio; `ema_pdf.py` descarga los PDF de la EMA; `safety.py` y `safety_report.py` aplican el mapa de seguridad; `taxonomy/` es el resolvedor taxonómico (con `collisions.py`, los datos de la regla de colisiones), `resolve_universe.py` el comando `resolve`, `collisions_decide.py` el comando `collisions-decide`, `usda_assign.py` y `citations.py` la asignación de USDA y las citas candidatas, y `wiki_assign.py` y `wiki_fetch.py` la asignación y la descarga de Wikidata, Wikipedia y Commons; `bundles.py` arma los paquetes por planta y mide su tamaño; `cli.py` define los comandos).
 - `sources.json`: registro de fuentes.
+- `glossary-terms.json`: lista versionada de términos del glosario de actividades, con la fuente, la acepción o el artículo de cada uno, los excluidos y los patrones aprobados (véase «Glosario de actividades»).
 - `schema/record.schema.json`: esquema JSON del registro v1.
 - `schema/bundle.schema.json`: esquema JSON del paquete por planta v1 (véase «Paquetes por planta»).
 - `safety-map.json`: mapa de seguridad versionado (niveles por fuente y categoría).
@@ -63,6 +64,7 @@ python3 -I tools/catalog-seed/cli.py seal --seed data/seed --from data/work/cont
 - `pin --source <id>` fija el snapshot de una fuente declarada con `size` y `checksum` en `null` (véase «Fijar un snapshot»).
 - `fetch --service <wikidata|wikipedia_es|commons> --input <archivo>` consulta lo pendiente de esos servicios (véase «Wikidata, Wikipedia en español y Commons»).
 - `wiki-fetch` descarga Wikidata (por nombre), los resúmenes de Wikipedia en español y los metadatos de Commons de las plantas del universo, y `wiki-assign` rehace sin red la asignación de esos ítems a las plantas (véase «Wikidata, Wikipedia en español y Commons»).
+- `glossary-candidates`, `glossary-fetch`, `glossary-senses`, `glossary-review` y `glossary-build` arman el glosario de actividades (véase «Glosario de actividades»).
 - `ema-pdf` descarga las páginas y los PDF de la EMA (véase «PDF de la EMA»); `extract [--source <id>]` escribe las filas normalizadas de USDA, la EMA, TPPT y EFSA en `data/work/sources.db` (véase «Extracción y formato intermedio»); `safety-report` muestra la clasificación del mapa de seguridad sobre esas filas (véase «Mapa de seguridad»).
 - `resolve` resuelve los nombres de USDA y la EMA y escribe el universo en `data/work/universe/`; lee las decisiones de colisión y no abre la red (véase «Resolvedor taxonómico y universo»). `collisions-decide` es el único paso con red de la regla de colisiones: consulta Wikipedia solo para los grupos sin decisión y agrega las decisiones a `collision-decisions.json` (véase «Regla de colisiones»).
 - `bundles` arma sin red los paquetes por planta en `data/work/bundles/` y `bundle-sizes` mide los de un directorio (véase «Paquetes por planta»).
@@ -177,6 +179,7 @@ Ejemplo con varios archivos (EFSA, abreviado):
 | `efsa` | Compendium of Botanicals 2016: `BOTANIC.xls` y `ENDPOINTSTUDY.xls` (Zenodo 996024) | CC BY 4.0 | 1.297.920 y 468.992 | md5 `5f906c745071266a3726421db6a0deb0` y `d0c10ece17f726470b34cf2fe6d313e6` (los de Zenodo) |
 | `wikidata` | Wikidata Query Service, consulta por nombre (servicio en línea) | CC0 1.0 | no aplica | no aplica (cada respuesta se guarda con su fecha) |
 | `wikipedia_es` | API REST de es.wikipedia.org, `page/summary` (servicio en línea) | CC BY-SA 4.0 | no aplica | no aplica (cada respuesta se guarda con su revisión y fecha) |
+| `wiktionary_es` | API de MediaWiki de es.wiktionary.org, `action=parse`, solo para el glosario de actividades (servicio en línea) | CC BY-SA 4.0 | no aplica | no aplica (cada respuesta se guarda con su revisión y fecha) |
 | `commons` | API de Wikimedia Commons, `imageinfo` con `extmetadata` (servicio en línea) | por archivo: CC0, dominio público, CC BY o CC BY-SA | no aplica | no aplica |
 
 Los datos de WCVP, WFO, USDA y EFSA coinciden con los del piloto o con los checksums publicados por sus repositorios. Los checksums de la EMA y TPPT los registró `pin`, porque estas fuentes no publican uno.
@@ -824,6 +827,7 @@ Campos del manifiesto:
 - `models`: los modelos distintos de los registros, ordenados (puede haber más de uno si se regeneró por tandas).
 - `plantCount`: número de plantas.
 - `reviewFlags`: para cada `code`, cuántas plantas lo tienen.
+- `glossaryHash` y `glossaryCount`: solo si existe `glossary.json`; el sha256 del JSON canónico del glosario y su número de filas. No entran en el `seedHash`. Véase «Glosario de actividades».
 - `seedHash`: `sha256:` más el sha256 de la concatenación UTF-8 de `plant\n<id>\n<JSON canónico del registro>\n` para cada registro ordenado por `id`, seguida de `goals\n<JSON canónico de goals.json>\n`. El JSON canónico tiene las claves ordenadas, separadores `,` y `:` sin espacios y caracteres sin escapar, así que no depende de la sangría de los archivos.
 
 Ejemplo resumido (semilla provisional de la tarea 6.2):
@@ -848,6 +852,52 @@ Ejemplo resumido (semilla provisional de la tarea 6.2):
 Las fuentes de servicio en línea (`wikidata`, `wikipedia_es` y `commons`) van con su descripción de versión (la consulta y que cada respuesta se guarda con su fecha en la caché) y `files` vacío, sin checksum. En el manifiesto real `reviewFlags` lista los ocho códigos presentes y `sources` las diez fuentes activas.
 
 La semilla provisional de la tarea 6.2 (`data/seed/plants/` y `manifest.json`, con los 20 registros v7 de la corrida de control) no se publica: el `push` a `main` despliega.
+
+## Glosario de actividades
+
+El glosario explica en la app los términos técnicos que aparecen como título de un grupo de `Usos` (Diurético, Astringente, Carminativo…). Sus textos salen de dos fuentes abiertas bajo CC BY-SA 4.0, nunca de conocimiento del modelo: Wikcionario en español (`wiktionary_es`) y, para los términos que este no tiene o define de forma circular o insuficiente, Wikipedia en español (`wikipedia_es`). Cambio de origen: `openspec/changes/activity-glossary/` (diseño D1 a D11).
+
+### Archivos
+
+- `glossary-terms.json`: la lista versionada. Cada término declara `activity` (la actividad tal como aparece en los grupos de uso) y `wiktionaryTitle`; `wikipediaTitle` si se consulta Wikipedia; la propuesta (`source` `wiktionary_es` con `sense`, o `wikipedia_es` con `mode` `literal` o `adapted`; un texto `adapted` lleva `text` y `evidence`) con su `reason`; y `approved` (`by`, `date`) cuando el usuario lo aprobó. Los excluidos van en `excluded` con `code`, `reason` y `date`; los patrones de eficacia que el usuario aprobó por término, en `approvedPatterns`. Solo los términos con `approved` entran en el glosario.
+- `data/seed/glossary.json` (`catalog-glossary/1`): `format`, `license` (CC BY-SA 4.0), `licenseUrl`, `changes` y `rows` ordenadas por `key` (la forma base de la actividad: el texto antes del primer paréntesis, en minúsculas NFC, sin quitar acentos). Cada fila: `key`, `term`, `text`, `sourceId`, `sourceName` (`Wikcionario` o `Wikipedia`), `adapted`, `sense` (nulo en Wikipedia), `entryUrl` (con `oldid`), `revisionId`, `revisionTimestamp` y `retrievedAt`.
+- `data/.cache/wiktionary_es/` y `data/.cache/wikipedia_es/glossary/`: las respuestas descargadas, con su revisión. Están ignoradas por Git, como las demás cachés.
+
+### Comandos
+
+```sh
+python3 -I tools/catalog-seed/cli.py glossary-candidates --limit 40
+python3 -I tools/catalog-seed/cli.py glossary-fetch --plan
+python3 -I tools/catalog-seed/cli.py glossary-fetch --wait 300
+python3 -I tools/catalog-seed/cli.py glossary-senses --term Diurético
+python3 -I tools/catalog-seed/cli.py glossary-review --out openspec/changes/activity-glossary/review/glossary-review.md
+python3 -I tools/catalog-seed/cli.py glossary-build
+python3 -I tools/catalog-seed/cli.py validate --records data/seed/plants
+python3 -I tools/catalog-seed/cli.py seal
+```
+
+- `glossary-candidates` imprime las actividades visibles de `data/build/catalog.db` (solo lectura) más frecuentes que aún no están en la lista ni en excluidos, sin las sensibles.
+- `glossary-fetch` descarga Wikcionario para todos los términos y Wikipedia solo para los que declaran `wikipediaTitle`: una petición a la vez, con pausa de al menos 1 segundo, `Retry-After`, reanudación (`_resume.json`) y el `User-Agent` genérico del proyecto, sin correo. Wikcionario cuesta dos peticiones por entrada hallada (el HTML y la hora de la revisión). `--plan` cuenta sin abrir la red; `--refresh <título>` vuelve a pedir una entrada, que es la única forma de cambiar una revisión fijada; `--source` limita a una fuente. Una segunda ejecución usa la caché y hace 0 peticiones.
+- `glossary-senses` imprime, sin red, las acepciones numeradas de Wikcionario (con su marca semántica, y «IMPROPIA» si la entrada así la marca) y el extracto de Wikipedia de cada término, para proponer la acepción o el texto.
+- `glossary-review` escribe la tabla que revisa el usuario: por término, los grupos y plantas que cubre, la fuente, la acepción o el artículo, el texto exacto, si es literal o adaptado, la URL de la revisión, las alertas del validador y la aprobación; más los excluidos y la cobertura.
+- `glossary-build` arma `data/seed/glossary.json` sin red y de forma determinista, lo valida contra la caché y solo lo escribe si no hay errores.
+- `validate` valida también `glossary.json` si existe junto a `plants/`, y comprueba que coincida con el manifiesto. `seal` agrega `glossaryHash` y `glossaryCount` al manifiesto sin tocar el `seedHash`, rechaza un glosario inválido y se niega a sellar sin el archivo si el manifiesto anterior lo declaraba.
+
+### Reglas
+
+- **Wikcionario.** El texto es literal: de la acepción elegida se retira el marcado, las notas y las listas de sinónimos, antónimos, usos y ejemplos, se normalizan los espacios y se recorta a la primera oración (sin cortar en abreviaturas como «etc.» o «p. ej.»). La acepción la propone un agente entre las reales de la entrada; no escribe texto.
+- **Wikipedia.** Si la primera oración del artículo define bien el término, es el texto (`literal`). Si no basta, un agente escribe una paráfrasis de una o dos oraciones hecha solo con el extracto guardado (`adapted`), con la `evidence` literal en que se apoya. La app la marca «adaptado de Wikipedia».
+- **Validación.** Error por dosis o posología (no se puede aprobar), por patrones de eficacia (`curar`, `tratar`, `prevenir`, `eliminar`, `aliviar`, `eficaz`, `efectivo`) salvo los aprobados por término, por enfermedades graves, por términos sensibles, por texto que no está en español o no termina en punto, por texto literal que no coincide con la caché y por evidencia que no está en el extracto. `emoliente` y `demulcente` muestran cómo se evita una mención de «tumores»: otra acepción u otro texto.
+- **Licencia.** Cada fila lleva la URL de la revisión (`oldid`), cuyo historial lista a los autores; el glosario es CC BY-SA 4.0 e indica los cambios (marcado y notas retirados, recorte, paráfrasis marcada).
+- **Cómo crece la lista.** Se agregan términos a `glossary-terms.json` (los candidatos salen de `glossary-candidates`), se ejecuta `glossary-fetch` (solo descarga lo nuevo), se propone, el usuario aprueba y se ejecutan `glossary-build`, `validate` y `seal`. El plan de regeneración no cambia, porque las fuentes del glosario no entran en los paquetes.
+
+### Resultado con los datos reales (2026-10-29)
+
+- 84 candidatos (83 de la selección por frecuencia y `Anticonceptivo`, que el usuario pidió incluir): 53 con explicación y 31 excluidos con su motivo.
+- Las 53 explicaciones: 37 literales de Wikcionario, 5 literales de Wikipedia (Expectorante, Antídoto, Insecticida, Piscicida y Estíptico) y 11 adaptadas de Wikipedia (Estimulante, Sedante, Calmante, Purgante, Vermífugo, Emoliente, Colagogo, Antitusivo, Antibiótico, Hipnótico y Catártico).
+- Cobertura por la forma base: 5.172 de los 17.160 grupos visibles (30,1 %) y 1.207 de las 1.456 plantas con usos visibles (82,9 %). Los términos excluidos habrían cubierto 915 grupos más.
+- Los seis patrones de eficacia que el usuario aprobó por término son Antiséptico («prevenir»), Bactericida («elimina»), Vulnerario («curar»), Antidiarreico («previene»), Fungicida («elimina») y Parasiticida («eliminar»).
+- La descarga tuvo varios 429 de Wikimedia, resueltos con `Retry-After`; se descargaron 83 entradas de Wikcionario (53 con acepciones, 29 sin entrada, 1 sin sección en español) y 50 consultas de Wikipedia (18 sin artículo).
 
 ## Generación completa (grupo 11)
 
@@ -920,7 +970,7 @@ El spike de la tarea 3.1 (detalle en [`tools/catalog-seed/spikes/ema-pdf/README.
 
 El verificador (`catalog_seed/sources.py`) rechaza cualquier fuente que no esté en la lista de admitidas.
 
-- Admitidas: `usda`, `wcvp`, `wfo`, `ema_json`, `ema_pdf`, `tppt`, `efsa`, `wikidata`, `wikipedia_es` y `commons`.
+- Admitidas: `usda`, `wcvp`, `wfo`, `ema_json`, `ema_pdf`, `tppt`, `efsa`, `wikidata`, `wikipedia_es`, `wiktionary_es` (solo para el glosario) y `commons`.
 - Descartadas (mensaje específico): AromaDb, EssOilDB, sCentInDB, FDA PPDB, Comisión E, OMS/WHO, NHPID, iNaturalist y DrugBank.
 
 ## Resolvedor taxonómico y universo (tareas 2.1 a 2.6)

@@ -19,6 +19,7 @@ La licencia y la atribución son las del campo `license` y `attribution` de `sou
 | `efsa` | EFSA Compendium of Botanicals | 2016 (Zenodo 996024, publicado 2016-07-05; `BOTANIC.xls` y `ENDPOINTSTUDY.xls`) | CC BY 4.0 | [doi.org/10.5281/zenodo.996024](https://doi.org/10.5281/zenodo.996024) |
 | `wikidata` | Wikidata | Wikidata Query Service, consulta por nombre científico (P225); cada respuesta se guarda con su fecha | CC0 1.0 | [wikidata.org](https://www.wikidata.org) |
 | `wikipedia_es` | Wikipedia en español | API REST `page/summary` de los artículos enlazados desde Wikidata; cada respuesta se guarda con su revisión y fecha | CC BY-SA 4.0 | [es.wikipedia.org](https://es.wikipedia.org) |
+| `wiktionary_es` | Wikcionario en español | API de MediaWiki (`action=parse`) de las entradas del glosario de actividades; cada respuesta se guarda con su revisión y fecha | CC BY-SA 4.0 | [es.wiktionary.org](https://es.wiktionary.org) |
 | `commons` | Wikimedia Commons | API `imageinfo` con `extmetadata` de las imágenes P18 de Wikidata; cada respuesta se guarda con su fecha | Por archivo: CC0, dominio público, CC BY o CC BY-SA | [commons.wikimedia.org](https://commons.wikimedia.org) |
 
 ## Qué aporta cada fuente y cómo se atribuye
@@ -30,7 +31,8 @@ La licencia y la atribución son las del campo `license` y `attribution` de `sou
 - **TPPT (Agroscope).** Toxicidad humana de las plantas, que fija el nivel de seguridad y anula los objetivos de una planta muy tóxica. Atribución: Agroscope (Swiss Confederation). TPPT, Toxic Plants and Phytotoxins database. <https://www.agroscope.admin.ch/>.
 - **EFSA (CC BY 4.0).** Sustancias de posible preocupación para la salud humana: una planta con alguna sustancia de la lista versionada de alta preocupación recibe como mínimo nivel medio de seguridad. Atribución obligatoria: EFSA (2016). EFSA's compendium of botanicals. Zenodo. <https://doi.org/10.5281/zenodo.996024>.
 - **Wikidata (CC0).** Nombres comunes en español, ítems de Wikipedia y de imagen, filtrados a los nombres que resuelven al aceptado de la planta para no mezclar homónimos.
-- **Wikipedia en español (CC BY-SA 4.0).** Resumen del artículo, que alimenta `description`, y el criterio de la regla de colisiones. Véase la nota siguiente.
+- **Wikipedia en español (CC BY-SA 4.0).** Resumen del artículo, que alimenta `description`, el criterio de la regla de colisiones y, en el glosario de actividades, la primera oración de un artículo o una paráfrasis marcada como adaptada. Véase la nota siguiente.
+- **Wikcionario en español (CC BY-SA 4.0).** Solo alimenta el glosario de actividades: las definiciones de los términos técnicos de `Usos`. Véase «Glosario de actividades: CC BY-SA 4.0».
 - **Commons (licencia por archivo).** La imagen de la planta. Véase la regla de licencias más abajo.
 
 ## Qué licencias ve el usuario
@@ -63,6 +65,16 @@ Según opendata.swiss, el uso de TPPT es abierto citando la fuente y el uso come
 El resumen de Wikipedia que alimenta `description` probablemente es una obra derivada, así que ese campo se registra con la licencia CC BY-SA 4.0 y el enlace al artículo (el ref de `wikipedia_es` con esa licencia exige `url`, y el validador lo comprueba). El resto del registro es una compilación con licencias mixtas, y cada dato conserva su ref, dataset y licencia (`reference.dataset`, `reference.license`, `reference.url` en `catalog.db`). La licencia CC BY-SA obliga a conservar la licencia en lo derivado y a atribuir a los autores, cuyo historial lista cada artículo. La pestaña `Fuentes` del pasaporte muestra estos créditos en la app (véase «Qué licencias ve el usuario»).
 
 Mantener Wikipedia fue una decisión del usuario. Retirarla después es un cambio de configuración: se pone `"enabled": false` en la fuente `wikipedia_es` de `sources.json`, `plan` marca solo las plantas afectadas y `description` queda `null` o se resume de otras fuentes del paquete.
+
+### Glosario de actividades: CC BY-SA 4.0
+
+`data/seed/glossary.json` explica los términos técnicos que titulan los grupos de `Usos` (Diurético, Astringente…). Sus textos vienen de dos fuentes con la misma licencia, CC BY-SA 4.0 (confirmada por la API de cada sitio y por los Términos de Uso de Wikimedia): Wikcionario en español (`wiktionary_es`) y Wikipedia en español (`wikipedia_es`).
+
+- **Qué exige la licencia.** Atribuir a los autores con un enlace a la entrada, cuyo historial los lista; indicar la licencia; indicar los cambios; y licenciar lo derivado con CC BY-SA o una compatible. El glosario es una obra derivada y se licencia CC BY-SA 4.0 (campos `license` y `licenseUrl` del archivo). Esta guía describe lo que el repositorio declara; no es asesoría legal.
+- **Qué guarda cada fila.** La fuente, la URL permanente de la revisión de la entrada o del artículo (`oldid`), su identificador y fecha y la fecha de descarga, además de si el texto está adaptado.
+- **Cambios que se declaran.** En Wikcionario, el texto es literal: se retiró el marcado, las notas y las listas de sinónimos, antónimos, usos y ejemplos, y se recortó a la primera oración. En Wikipedia, el texto es la primera oración del artículo (con los mismos cambios) o, si esa oración no define bien el término, una paráfrasis de una o dos oraciones hecha solo con el texto del artículo, que se marca como adaptada («adaptado de Wikipedia»). La atribución de `wiktionary_es` y la ampliada de `wikipedia_es` en `sources.json` lo dicen.
+- **Qué ve el usuario.** Bajo el título del grupo, la etiqueta «Significado del término» y `<Término>: «<definición>» (Wikcionario)` o `(Wikipedia)`, con el nombre de la fuente enlazado a la entrada o al artículo, y la pestaña `Fuentes` lista los créditos (el de Wikipedia una sola vez). Esa interfaz es parte de los grupos 5 a 7 del cambio `activity-glossary` y aún no está implementada.
+- **Cómo se valida.** Un validador propio rechaza dosis, patrones de eficacia sin aprobar por término, enfermedades graves y términos sensibles, y comprueba que el texto literal coincida con la caché. El usuario aprueba cada texto antes de sellar.
 
 ### Imágenes de Commons: licencias admitidas
 

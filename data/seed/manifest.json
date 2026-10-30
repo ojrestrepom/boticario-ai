@@ -1,5 +1,7 @@
 {
   "formatVersion": 1,
+  "glossaryCount": 53,
+  "glossaryHash": "sha256:364beaceb93da7abc937bf2bcf545cad9060606ddd45a6c20fcc96631b1b921d",
   "models": [
     "claude-sonnet-5-5"
   ],
@@ -1825,7 +1827,7 @@
       "version": "Wikidata Query Service, consulta dirigida por nombre científico (P225); cada respuesta se guarda en la caché con su fecha"
     },
     {
-      "attribution": "Colaboradores de Wikipedia en español (https://es.wikipedia.org). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores.",
+      "attribution": "Colaboradores de Wikipedia en español (https://es.wikipedia.org). Texto bajo CC BY-SA 4.0; el historial de cada artículo lista a sus autores. En el glosario de actividades, el texto es la primera oración de un artículo o una paráfrasis marcada como adaptada, hecha solo con el texto del artículo.",
       "files": [],
       "id": "wikipedia_es",
       "license": "CC BY-SA 4.0",
@@ -1833,6 +1835,16 @@
       "name": "Wikipedia en español",
       "url": "https://es.wikipedia.org",
       "version": "API REST de es.wikipedia.org (page/summary) de los artículos enlazados desde Wikidata; cada respuesta se guarda en la caché con su revisión y fecha"
+    },
+    {
+      "attribution": "Colaboradores de Wikcionario en español (https://es.wiktionary.org). Las definiciones del glosario de actividades se tomaron de Wikcionario bajo CC BY-SA 4.0, con cambios: se les retiró el marcado y las notas y se recortaron a la primera oración. El historial de cada entrada lista a sus autores.",
+      "files": [],
+      "id": "wiktionary_es",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "name": "Wikcionario en español",
+      "url": "https://es.wiktionary.org",
+      "version": "API de MediaWiki de es.wiktionary.org (action=parse) de las entradas del glosario de actividades; cada respuesta se guarda en la caché con su revisión y fecha"
     }
   ]
 }

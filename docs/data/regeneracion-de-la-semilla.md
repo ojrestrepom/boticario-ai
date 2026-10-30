@@ -69,6 +69,10 @@ El mismo plan y el mismo validador sirven para cualquier modo de ejecución del 
 
 La guía para generar con agentes de Claude Code, con el script del workflow, está en [`tools/catalog-seed/generation/README.md`](../../tools/catalog-seed/generation/README.md).
 
+## Glosario de actividades
+
+El glosario (`data/seed/glossary.json`) no depende de los paquetes ni del prompt, así que cambiarlo no pone ninguna planta en el plan de regeneración y no cambia el `seedHash`: el manifiesto lo sella con su propio `glossaryHash` y `glossaryCount`. Para agregar o cambiar términos: editar `tools/catalog-seed/glossary-terms.json`, ejecutar `glossary-fetch` (solo descarga lo nuevo; `--refresh <título>` actualiza una revisión), proponer y registrar la acepción o el texto, obtener la aprobación del usuario (`approved`), y ejecutar `glossary-build`, `validate` y `seal`. Los pasos, las reglas y los resultados están en «Glosario de actividades» de `tools/catalog-seed/README.md`.
+
 ## Versionado del prompt y del modelo
 
 - `prompt/consolidate.md` es el prompt autocontenido de la variante A: el LLM solo elige, traduce y resume lo que está en el paquete, y cada campo cita refs del paquete. Su línea `prompt-version: <n>` es la que cada registro guarda en `promptVersion`.

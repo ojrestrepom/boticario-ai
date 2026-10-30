@@ -139,7 +139,7 @@ Alternativas:
 - `mode` es `adapted` si la primera oración no basta (no define, es demasiado larga o está llena de paréntesis y datos laterales): el texto es una paráfrasis de una o dos oraciones, de hasta 300 caracteres, hecha solo con el texto del extracto guardado, sin conocimiento propio, sin dosis, sin nombres de plantas, sin afirmar nada que el extracto no diga y sin promesas sobre la planta. `evidence` copia, literal, la o las frases del extracto en las que se apoya, para que el revisor compare.
 - Si ningún texto del artículo define el término, se devuelve `null` y el término queda sin explicación.
 
-El resultado se guarda en `glossary-terms.json` (acepción o artículo, modo, texto adaptado, evidencia y razón), el usuario aprueba la tabla completa, con el texto exacto que se mostraría y su marca de literal o adaptado, y el armado posterior es determinista, sin LLM. Este es el único punto en que el modelo escribe texto, y solo parafraseando un artículo.
+El resultado se guarda en `glossary-terms.json` (acepción o artículo, modo, texto adaptado, evidencia y razón; la aprobación del usuario se registra por término en `approved: {by, date}`), el usuario aprueba la tabla completa, con el texto exacto que se mostraría y su marca de literal o adaptado, y el armado posterior es determinista, sin LLM. Este es el único punto en que el modelo escribe texto, y solo parafraseando un artículo.
 
 Alternativas:
 

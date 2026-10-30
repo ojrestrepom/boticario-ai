@@ -368,3 +368,71 @@ class SealTests(SeedCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def glossary_row(key="diurético", text="Que aumenta o facilita la producción y excreción de orina.", **overrides):
+    row = {"key": key, "term": key.capitalize(), "text": text, "sourceId": "wiktionary_es", "sourceName": "Wikcionario", "adapted": False,
+           "sense": 1, "entryUrl": "https://es.wiktionary.org/w/index.php?title=%s&oldid=7" % key, "revisionId": 7,
+           "revisionTimestamp": "2026-08-16T17:41:41Z", "retrievedAt": "2026-10-29"}
+    row.update(overrides)
+    return row
+
+
+def glossary_document(*rows):
+    return {"format": "catalog-glossary/1", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "changes": "Cambios.", "rows": sorted(rows or [glossary_row()], key=lambda r: r["key"])}
+
+
+class GlossarySealTests(SeedCase):
+    def put_glossary(self, document=None):
+        dump(os.path.join(self.seed_dir, "glossary.json"), document or glossary_document())
+
+    def test_seal_adds_glossary_hash_and_count_without_touching_the_seed_hash(self):
+        before, _ = self.seal()
+        self.put_glossary()
+        after, changed = self.seal()
+        self.assertTrue(changed)
+        self.assertEqual(after["seedHash"], before["seedHash"])
+        self.assertEqual(after["glossaryCount"], 1)
+        self.assertEqual(after["glossaryHash"], seed.glossary_hash(glossary_document()))
+        self.assertEqual(self.read_manifest()["glossaryHash"], after["glossaryHash"])
+
+    def test_seed_without_glossary_has_no_glossary_fields(self):
+        manifest, _ = self.seal()
+        self.assertNotIn("glossaryHash", manifest)
+        self.assertNotIn("glossaryCount", manifest)
+        self.assertEqual(seed.verify_glossary(self.seed_dir, manifest), [])
+
+    def test_altered_glossary_no_longer_matches(self):
+        self.put_glossary()
+        manifest, _ = self.seal()
+        self.assertEqual(seed.verify_glossary(self.seed_dir, manifest), [])
+        self.put_glossary(glossary_document(glossary_row(text="Que cambió.")))
+        self.assertIn("el hash del glosario no coincide con el del manifiesto", seed.verify_glossary(self.seed_dir, manifest))
+
+    def test_missing_glossary_is_reported_and_seal_refuses_to_drop_it(self):
+        self.put_glossary()
+        manifest, _ = self.seal()
+        os.remove(os.path.join(self.seed_dir, "glossary.json"))
+        self.assertIn("falta glossary.json", seed.verify_glossary(self.seed_dir, manifest)[0])
+        with self.assertRaises(SourceError):
+            self.seal()
+
+    def test_wrong_row_count_is_reported(self):
+        self.put_glossary()
+        manifest, _ = self.seal()
+        manifest = dict(manifest, glossaryCount=5)
+        self.assertIn("el número de filas del glosario no coincide con glossaryCount", seed.verify_glossary(self.seed_dir, manifest))
+
+    def test_seal_rejects_an_invalid_glossary(self):
+        self.put_glossary(glossary_document(glossary_row(text="Que cura la fiebre.")))
+        with self.assertRaises(SourceError) as ctx:
+            self.seal()
+        self.assertIn("patrón de eficacia", str(ctx.exception))
+        self.assertFalse(os.path.exists(os.path.join(self.seed_dir, "manifest.json")))
+
+    def test_glossary_hash_is_independent_of_file_formatting(self):
+        document = glossary_document()
+        self.assertEqual(seed.glossary_hash(document), seed.glossary_hash(json.loads(json.dumps(document, indent=4))))
+
+

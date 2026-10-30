@@ -145,7 +145,7 @@ def build_manifest(seed_dir, sources_path, schema, prompt_path, catalog=None):
     for record in records:
         for code in {flag["code"] for flag in record["reviewFlags"]}:
             flag_counts[code] = flag_counts.get(code, 0) + 1
-    return {
+    manifest = {
         "formatVersion": MANIFEST_FORMAT,
         "sources": manifest_sources(load_sources(sources_path)),
         "promptVersion": prompt_version,
@@ -155,6 +155,58 @@ def build_manifest(seed_dir, sources_path, schema, prompt_path, catalog=None):
         "reviewFlags": dict(sorted(flag_counts.items())),
         "seedHash": compute_seed_hash(records, catalog),
     }
+    manifest.update(glossary_manifest_fields(seed_dir))
+    return manifest
+
+
+GLOSSARY_FILE = "glossary.json"
+
+
+def glossary_hash(document):
+    """sha256 del JSON canónico del glosario. No entra en el `seedHash`."""
+    return "sha256:" + hashlib.sha256(canonical_json(document).encode("utf-8")).hexdigest()
+
+
+def read_glossary(seed_dir):
+    """Glosario de <seed>/glossary.json o None si no existe."""
+    path = Path(seed_dir) / GLOSSARY_FILE
+    return _read_json(path) if path.is_file() else None
+
+
+def glossary_manifest_fields(seed_dir, terms_path=None):
+    """`glossaryHash` y `glossaryCount` para el manifiesto, o {} si la semilla no tiene glosario.
+
+    Falla si el glosario no es válido (esquema, dosis, patrones sin aprobar, enfermedades graves). Los patrones aprobados salen de
+    la lista de términos. La literalidad respecto de la caché la comprueban `glossary-build` y `validate`, que sí tienen la caché.
+    """
+    from .glossary_validate import validate_glossary
+    from .glossary_terms import DEFAULT_TERMS_FILE
+    document = read_glossary(seed_dir)
+    if document is None:
+        return {}
+    try:
+        approved = _read_json(terms_path or DEFAULT_TERMS_FILE).get("approvedPatterns", {})
+    except (OSError, SourceError):
+        approved = {}
+    errors = validate_glossary(document, approved=approved)
+    if errors:
+        raise SourceError("no se puede sellar el glosario:\n  " + "\n  ".join(errors[:20]))
+    return {"glossaryHash": glossary_hash(document), "glossaryCount": len(document["rows"])}
+
+
+def verify_glossary(seed_dir, manifest):
+    """Comprueba que el glosario coincida con el manifiesto. Devuelve la lista de problemas (vacía si es íntegro o no se declara)."""
+    if "glossaryHash" not in manifest:
+        return []
+    document = read_glossary(seed_dir)
+    if document is None:
+        return ["el manifiesto declara glossaryHash pero falta %s" % GLOSSARY_FILE]
+    problems = []
+    if glossary_hash(document) != manifest["glossaryHash"]:
+        problems.append("el hash del glosario no coincide con el del manifiesto")
+    if len(document.get("rows", [])) != manifest.get("glossaryCount"):
+        problems.append("el número de filas del glosario no coincide con glossaryCount")
+    return problems
 
 
 def format_json(value):
@@ -231,6 +283,11 @@ def seal(seed_dir, sources_path, schema_path=None, prompt_path=DEFAULT_PROMPT, f
     if from_dirs:
         goals_map = goals_lib.load_goals_map(goals_map_path) if goals_map_path else goals_lib.load_goals_map()
         import_records(from_dirs, seed_dir, bundles_dir, schema, goals_map, goals_lib.load_goals_catalog(goals_path))
+    previous = seed_dir / "manifest.json"
+    if previous.is_file():
+        declared = _read_json(previous)
+        if "glossaryHash" in declared and read_glossary(seed_dir) is None:
+            raise SourceError("el manifiesto declara glossaryHash pero falta %s; no se sella sin él" % GLOSSARY_FILE)
     manifest = build_manifest(seed_dir, sources_path, schema, prompt_path)
     normalize_plants(seed_dir)
     return manifest, _write_if_changed(seed_dir / "manifest.json", format_json(manifest))

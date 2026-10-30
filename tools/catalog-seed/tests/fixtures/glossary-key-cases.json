@@ -1,0 +1,13 @@
+{
+  "description": "Casos compartidos de la forma base de una actividad (D8): texto antes del primer paréntesis, minúsculas NFC, espacios colapsados, sin quitar acentos. Los prueban Python (glossary_terms.base_key) y, en la tarea 5.3, Rust (seed_build). `links` indica si el grupo se enlaza a un término cuya clave es `key` cuando el glosario tiene esa clave.",
+  "cases": [
+    {"activity": "Diurético", "key": "diurético", "links": true},
+    {"activity": "Antídoto (escorpión)", "key": "antídoto", "links": true},
+    {"activity": "Estimulante (veterinario)", "key": "estimulante", "links": true},
+    {"activity": "  Tónico   ", "key": "tónico", "links": true},
+    {"activity": "TÓNICO", "key": "tónico", "links": true},
+    {"activity": "Tonico", "key": "tonico", "links": false},
+    {"activity": "Uso tradicional, sin eficacia demostrada: cáncer", "key": "uso tradicional, sin eficacia demostrada: cáncer", "links": false},
+    {"activity": "Fiebre", "key": "fiebre", "links": false}
+  ]
+}

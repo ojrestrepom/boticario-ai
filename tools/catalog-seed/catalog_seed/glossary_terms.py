@@ -7,7 +7,7 @@ el título de su entrada en Wikcionario y, tras la propuesta (tarea 3.3), la fue
 - `wikipedia_es`: el artículo (`wikipediaTitle`), el modo (`literal` o `adapted`) y, si es `adapted`, el texto parafraseado
   (`text`) con la evidencia literal del extracto (`evidence`).
 
-Los términos que no entran quedan en `excluded` con su motivo. Los patrones de eficacia que el usuario aprobó por término
+Cuando el usuario aprueba la tabla de revisión, cada término lleva `approved: {by, date}`; solo los aprobados entran en el glosario. Los términos que no entran quedan en `excluded` con su motivo. Los patrones de eficacia que el usuario aprobó por término
 quedan en `approvedPatterns`.
 """
 import json
@@ -88,6 +88,11 @@ def validate_term(term, sensitive):
     _require(not is_sensitive(activity, sensitive), "término '%s': es una actividad sensible de sensitive-activities.json" % activity)
     _require(not is_sensitive(term["wiktionaryTitle"], sensitive), "término '%s': su título es una actividad sensible" % activity)
     source = term.get("source")
+    approval = term.get("approved")
+    if approval is not None:
+        _require(source is not None, "término '%s': 'approved' sin propuesta" % activity)
+        _require(isinstance(approval, dict) and _text(approval.get("by")) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(approval.get("date", ""))),
+                 "término '%s': 'approved' necesita 'by' y 'date' (AAAA-MM-DD)" % activity)
     if source is None:
         # Aún sin propuesta (tarea 3.3): solo puede declarar títulos.
         for field in ("sense", "mode", "text", "evidence"):

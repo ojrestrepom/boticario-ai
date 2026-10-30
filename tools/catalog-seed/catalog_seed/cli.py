@@ -15,7 +15,8 @@ from .workdb import DEFAULT_DB
 from .ema_pdf import DEFAULT_DELAY, EmaPdfStep, pin_ema_pdfs
 from .goals import DEFAULT_GOALS_CATALOG, DEFAULT_GOALS_MAP, DEFAULT_SEED_DIR, load_goals_catalog, load_goals_map
 from .schema import DEFAULT_RECORD_SCHEMA, load_schema
-from .seed import DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, read_prompt_version, schema_version, seal
+from .seed import (DEFAULT_BUNDLES_DIR, DEFAULT_PROMPT, compute_plan, format_json, glossary_hash, read_glossary, read_prompt_version,
+                   schema_version, seal, verify_glossary)
 from . import bundles as bundles_lib
 from .collisions_decide import DEFAULT_DELAY as COLLISIONS_DELAY, run_collisions_decide
 from .resolve_universe import (DEFAULT_CATALOG_DB, DEFAULT_DECISIONS, DEFAULT_EXCEPTIONS, DEFAULT_TAXONOMY_DB, DEFAULT_UNIVERSE_DIR,
@@ -24,7 +25,9 @@ from .taxonomy import CollisionFileError, UniverseError
 from .validate import validate_directory
 from .wiki import SERVICES, make_step, read_entries
 from . import glossary_fetch, glossary_review, wiki_fetch
+from .glossary_build import build_glossary
 from .glossary_terms import DEFAULT_TERMS_FILE, GlossaryTermsError, load_terms
+from .glossary_validate import validate_glossary
 from .sources import DEFAULT_CACHE_DIR, DEFAULT_SOURCES_FILE, SourceError, load_sources
 
 
@@ -117,6 +120,10 @@ def build_parser():
     validate.add_argument("--goals-map", default=str(DEFAULT_GOALS_MAP), help="mapa de objetivos")
     validate.add_argument("--goals", default=str(DEFAULT_GOALS_CATALOG), help="catálogo de objetivos")
     validate.add_argument("--out", help="escribe el informe completo en este archivo JSON")
+    validate.add_argument("--terms", default=str(DEFAULT_TERMS_FILE), help="glossary-terms.json, para validar el glosario si existe glossary.json junto a los registros")
+    gbuild = commands.add_parser("glossary-build", help="arma data/seed/glossary.json desde la lista de términos aprobados y la caché, sin red, y lo valida antes de escribirlo")
+    gbuild.add_argument("--terms", default=str(DEFAULT_TERMS_FILE), help="glossary-terms.json")
+    gbuild.add_argument("--out", default=str(DEFAULT_SEED_DIR / "glossary.json"), help="archivo de salida (por defecto data/seed/glossary.json)")
     plan = commands.add_parser("plan", help="lista las plantas a regenerar (sin registro, otro bundleHash, otro prompt u otro esquema)")
     plan.add_argument("--bundles", default=str(DEFAULT_BUNDLES_DIR), help="directorio de paquetes")
     plan.add_argument("--seed", default=str(DEFAULT_SEED_DIR), help="directorio de la semilla (con plants/)")
@@ -147,11 +154,58 @@ def run_validate(args):
     summary = report["summary"]
     print("%d registros, %d con errores, %d errores, %d advertencias"
           % (summary["records"], summary["recordsWithErrors"], summary["errors"], summary["warnings"]))
+    glossary_errors = validate_seed_glossary(args)
     if args.out:
         with open(args.out, "w", encoding="utf-8") as handle:
             json.dump(report, handle, indent=2, ensure_ascii=False)
             handle.write("\n")
-    return 1 if summary["errors"] else 0
+    return 1 if summary["errors"] or glossary_errors else 0
+
+
+def validate_seed_glossary(args):
+    """Valida data/seed/glossary.json (junto a los registros) y su coincidencia con el manifiesto. Devuelve el número de errores."""
+    seed_dir = Path(args.records).parent
+    document = read_glossary(seed_dir)
+    manifest_path = seed_dir / "manifest.json"
+    problems = []
+    if manifest_path.is_file():
+        problems += verify_glossary(seed_dir, json.loads(manifest_path.read_text(encoding="utf-8")))
+    if document is None:
+        for message in problems:
+            print("error: glosario: %s" % message)
+        return len(problems)
+    terms = load_terms(args.terms)
+    cache = args.cache_dir if (Path(args.cache_dir) / "wiktionary_es").is_dir() else None
+    problems += validate_glossary(document, terms, cache)
+    for message in problems:
+        print("error: glosario: %s" % message)
+    print("glosario: %d filas, %d errores%s" % (len(document["rows"]), len(problems), "" if cache else " (literalidad respecto de la caché no comprobada: falta la caché)"))
+    return len(problems)
+
+
+def run_glossary_build(args):
+    document = load_terms(args.terms)
+    glossary = build_glossary(document, args.cache_dir)
+    errors = validate_glossary(glossary, document, args.cache_dir)
+    for message in errors:
+        print("error: %s" % message)
+    if errors:
+        print("no se escribe el glosario: %d errores" % len(errors))
+        return 1
+    text = format_json(glossary)
+    out = Path(args.out)
+    changed = not out.is_file() or out.read_text(encoding="utf-8") != text
+    if changed:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(text, encoding="utf-8")
+    by_source = {}
+    for row in glossary["rows"]:
+        label = "%s %s" % (row["sourceName"], "adaptado" if row["adapted"] else "literal")
+        by_source[label] = by_source.get(label, 0) + 1
+    print("glosario %s en %s: %d filas (%s)" % ("escrito" if changed else "sin cambios", out, len(glossary["rows"]),
+                                                 ", ".join("%s %d" % kv for kv in sorted(by_source.items()))))
+    print("glossaryHash %s" % glossary_hash(glossary))
+    return 0
 
 
 def run_resolve_command(args):
@@ -368,6 +422,8 @@ def main(argv=None):
             return run_wiki_fetch(args)
         if args.command == "wiki-assign":
             return run_wiki_assign(args)
+        if args.command == "glossary-build":
+            return run_glossary_build(args)
         if args.command == "glossary-candidates":
             return run_glossary_candidates(args)
         if args.command == "glossary-fetch":

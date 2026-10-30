@@ -111,7 +111,8 @@ def format_senses(document, cache_dir, only=None):
 
 def _row(term, cache_dir, approved):
     """Datos de una fila de la tabla de revisión, o None en `source` si el término aún no tiene propuesta."""
-    row = {"activity": term["activity"], "source": term.get("source"), "reason": term.get("reason", ""), "alerts": []}
+    row = {"activity": term["activity"], "source": term.get("source"), "reason": term.get("reason", ""), "alerts": [],
+           "approved": term.get("approved")}
     source = term.get("source")
     if source == "wiktionary_es":
         record = _wiktionary_record(cache_dir, term["wiktionaryTitle"])
@@ -182,14 +183,15 @@ def build_review(document, cache_dir, conn, today):
     out = ["# Revisión del glosario de actividades", "",
            "Tabla de la tarea 3.4 de `activity-glossary`, generada el %s con `glossary-review` desde la caché de descargas y `data/build/catalog.db`, sin red. Nada está sellado: `data/seed/` no se ha tocado." % today, "",
            "Cada fila muestra el texto exacto que la app mostraría bajo el título del grupo, con el formato `<Término>: «<texto>» (<fuente>)` y la etiqueta gris «Significado del término». «Literal» es texto de la fuente recortado a la primera oración; «adaptado» es una paráfrasis hecha solo con el extracto del artículo de Wikipedia y se muestra como «(adaptado de Wikipedia)».", "",
-           "Complete la columna «Aprobado» con sí o no por fila. Los patrones vigilados de Antiséptico, Bactericida, Vulnerario, Antidiarreico, Fungicida y Parasiticida ya fueron aprobados por usted el %s; cualquier otra alerta sin aprobar bloquearía la validación." % APPROVAL_DATE, "",
+           "La columna «Aprobado» registra la aprobación del usuario. Los patrones vigilados de Antiséptico, Bactericida, Vulnerario, Antidiarreico, Fungicida y Parasiticida ya fueron aprobados por usted el %s; cualquier otra alerta sin aprobar bloquearía la validación." % APPROVAL_DATE, "",
            "## Términos con explicación", "",
            "| Término | Grupos que cubre | Fuente | Acepción o artículo | Texto que se mostraría | Modo | Revisión | Alertas del validador | Aprobado |",
            "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for r in decided:
-        out.append("| %s | %s | %s | %s | %s | %s | %s | %s | |" % (
+        out.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
             _cell(r["activity"]), covers(r["activity"]), r["sourceName"], _cell(r["where"]), "«%s»" % _cell(r["text"]),
-            "adaptado" if r["mode"] == "adapted" else "literal", r["url"], _cell("; ".join(r["alerts"]) or "ninguna")))
+            "adaptado" if r["mode"] == "adapted" else "literal", r["url"], _cell("; ".join(r["alerts"]) or "ninguna"),
+            "sí (%s, %s)" % (r["approved"]["by"], r["approved"]["date"]) if r.get("approved") else ""))
     if any(r.get("evidence") for r in decided):
         out += ["", "## Evidencia y motivo de cada propuesta", ""]
         for r in decided:

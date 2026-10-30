@@ -1,0 +1,66 @@
+PASS O0 la tabla de revisión tiene 53 filas  [53]
+PASS O0b las 53 filas están aprobadas (sí (usuario, 2026-10-29))
+PASS O1 activity_glossary tiene 53 filas  [53]
+PASS O1b términos de la base == términos aprobados  [set()]
+PASS O1c texto, URL, fuente y modo de cada término == tabla aprobada
+PASS O1d 37 Wikcionario literal, 5 Wikipedia literal, 11 Wikipedia adaptado  [(37, 5, 11)]
+PASS O1e Emenagogo y Anticonceptivo presentes
+PASS O1f los 6 verbos aprobados presentes
+PASS O1g URL con oldid y https en todas
+PASS O1h clave == forma base del término
+PASS O2 glossary.json tiene 53 filas
+PASS O2b base == glossary.json (texto, URL, fuente, adaptado, clave)
+PASS O2c manifiesto declara glossaryCount 53
+PASS O3 5.172 grupos visibles con explicación  [5172]
+PASS O3b 1.207 plantas con explicación  [1207]
+PASS O3c 5.278 enlazados en total, 106 pendientes  [5278,106]
+PASS O3d 2.354 plantas  [2354]
+PASS O3e foreign_key_check vacío
+PASS O3f schema_version 3  [[('schema_version', '3')]]
+PASS O4 ninguna fórmula de enfermedad grave enlazada  [[]]
+PASS O4b enlace == regla de forma base calculada de forma independiente (sin enlaces de más ni de menos)  [[] []]
+PASS O4c existen grupos con la fórmula (el caso se ejerce)  [1309]
+PASS O5 el listado trae 2.354 plantas  [2354]
+PASS O5b las 2.354 plantas: grupos servidos de la API == grupos no pendientes de la base  [[]]
+PASS O5c forma y orden de campos de cada grupo sin cambios en las 2.354 plantas  [[]]
+PASS O5d glossary de la API == fila de la base (o null) en todos los grupos  [[]]
+PASS O5e 5.172 grupos con glossary y 1.207 plantas en la API  [5172,1207]
+PASS O5f créditos: Wikcionario si y solo si hay explicación de Wikcionario; Wikipedia presente si hay explicación de Wikipedia; sin repetir  [[]]
+PASS O5g plantas con crédito de Wikcionario == plantas con explicación de Wikcionario  [1133 vs 1133]
+INFO plantas con crédito de Wikipedia: 1581 ; sin explicación de Wikipedia (por la descripción): 754
+PASS O6 muestra de 30 grupos: API == base == glossary.json == tabla aprobada  [[]]
+  muestra: ('sinapis-alba', 'Carminativo', 'Carminativo', 'Wikcionario', False)
+  muestra: ('piper-cubeba', 'Afrodisíaco', 'Afrodisíaco', 'Wikcionario', False)
+  muestra: ('erythrina-sp', 'Hipnótico', 'Hipnótico', 'Wikipedia', True)
+  muestra: ('malva-parviflora', 'Emoliente', 'Emoliente', 'Wikipedia', True)
+  muestra: ('portulaca-oleracea', 'Vermífugo', 'Vermífugo', 'Wikipedia', True)
+  muestra: ('houttuynia-cordata', 'Anodino', 'Anodino', 'Wikcionario', False)
+  muestra: ('cucurbita-pepo', 'Demulcente', 'Demulcente', 'Wikcionario', False)
+  muestra: ('pongamia-pinnata', 'Antídoto (picadura de pez)', 'Antídoto', 'Wikipedia', False)
+  muestra: ('phaseolus-vulgaris', 'Diurético', 'Diurético', 'Wikcionario', False)
+  muestra: ('baptisia-tinctoria', 'Emético', 'Emético', 'Wikcionario', False)
+  muestra: ('heimia-salicifolia', 'Emético', 'Emético', 'Wikcionario', False)
+  muestra: ('glycyrrhiza-uralensis', 'Antitusivo', 'Antitusivo', 'Wikipedia', True)
+  muestra: ('cinnamomum-iners', 'Carminativo', 'Carminativo', 'Wikcionario', False)
+  muestra: ('peumus-boldus', 'Estomacal', 'Estomacal', 'Wikcionario', False)
+  muestra: ('eupatorium-perfoliatum', 'Laxante', 'Laxante', 'Wikcionario', False)
+  muestra: ('sabdariffa-cannabina', 'Afrodisíaco', 'Afrodisíaco', 'Wikcionario', False)
+  muestra: ('chamaelirium-luteum', 'Diurético', 'Diurético', 'Wikcionario', False)
+  muestra: ('geranium-maculatum', 'Tónico', 'Tónico', 'Wikcionario', False)
+  muestra: ('mentha-canadensis', 'Estomacal', 'Estomacal', 'Wikcionario', False)
+  muestra: ('thymus-serpyllum', 'Nervino', 'Nervino', 'Wikcionario', False)
+  muestra: ('buxus-sempervirens', 'Colagogo', 'Colagogo', 'Wikipedia', True)
+  muestra: ('fraxinus-excelsior', 'Expectorante', 'Expectorante', 'Wikipedia', False)
+  muestra: ('bacopa-monnieri', 'Nervino', 'Nervino', 'Wikcionario', False)
+  muestra: ('kalanchoe-integra', 'Purgante', 'Purgante', 'Wikipedia', True)
+  muestra: ('hibiscus-x-rosa-sinensis', 'Pectoral', 'Pectoral', 'Wikcionario', False)
+  muestra: ('daucus-carota', 'Vermífugo', 'Vermífugo', 'Wikipedia', True)
+  muestra: ('pinus-strobus', 'Laxante', 'Laxante', 'Wikcionario', False)
+  muestra: ('ocimum-tenuiflorum', 'Demulcente', 'Demulcente', 'Wikcionario', False)
+  muestra: ('digitalis-purpurea', 'Estimulante (cardíaco)', 'Estimulante', 'Wikipedia', True)
+  muestra: ('dianthus-caryophyllus', 'Cardiotónico', 'Cardiotónico', 'Wikcionario', False)
+PASS O7 ninguna de las 53 definiciones con dosis ni posología  [[]]
+INFO definiciones con verbos vigilados o de efecto: {"Anodino": ["mitiga"], "Antidiarreico": ["previene", "combat"], "Antiséptico": ["prevenir"], "Bactericida": ["elimina"], "Cordial": ["fortalece"], "Estomacal": ["fortalece", "favorece"], "Febrífugo": ["combat"], "Fungicida": ["elimina"], "Parasiticida": ["elimina"], "Tónico": ["favorece"], "Vulnerario": ["cura"]}
+OBSERVACION definiciones que mencionan a «la planta» o dan instrucciones al lector: ['Vulnerario']
+
+RESUMEN 31/31 PASS; fallos: []

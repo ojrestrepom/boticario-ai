@@ -1,0 +1,157 @@
+[
+ {
+  "name": "O0 la tabla de revisión tiene 53 filas",
+  "ok": true,
+  "detail": "53"
+ },
+ {
+  "name": "O0b las 53 filas están aprobadas (sí (usuario, 2026-10-29))",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O1 activity_glossary tiene 53 filas",
+  "ok": true,
+  "detail": "53"
+ },
+ {
+  "name": "O1b términos de la base == términos aprobados",
+  "ok": true,
+  "detail": "set()"
+ },
+ {
+  "name": "O1c texto, URL, fuente y modo de cada término == tabla aprobada",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O1d 37 Wikcionario literal, 5 Wikipedia literal, 11 Wikipedia adaptado",
+  "ok": true,
+  "detail": "(37, 5, 11)"
+ },
+ {
+  "name": "O1e Emenagogo y Anticonceptivo presentes",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O1f los 6 verbos aprobados presentes",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O1g URL con oldid y https en todas",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O1h clave == forma base del término",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O2 glossary.json tiene 53 filas",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O2b base == glossary.json (texto, URL, fuente, adaptado, clave)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O2c manifiesto declara glossaryCount 53",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O3 5.172 grupos visibles con explicación",
+  "ok": true,
+  "detail": "5172"
+ },
+ {
+  "name": "O3b 1.207 plantas con explicación",
+  "ok": true,
+  "detail": "1207"
+ },
+ {
+  "name": "O3c 5.278 enlazados en total, 106 pendientes",
+  "ok": true,
+  "detail": "5278,106"
+ },
+ {
+  "name": "O3d 2.354 plantas",
+  "ok": true,
+  "detail": "2354"
+ },
+ {
+  "name": "O3e foreign_key_check vacío",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "O3f schema_version 3",
+  "ok": true,
+  "detail": "[('schema_version', '3')]"
+ },
+ {
+  "name": "O4 ninguna fórmula de enfermedad grave enlazada",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "O4b enlace == regla de forma base calculada de forma independiente (sin enlaces de más ni de menos)",
+  "ok": true,
+  "detail": "[] []"
+ },
+ {
+  "name": "O4c existen grupos con la fórmula (el caso se ejerce)",
+  "ok": true,
+  "detail": "1309"
+ },
+ {
+  "name": "O5 el listado trae 2.354 plantas",
+  "ok": true,
+  "detail": "2354"
+ },
+ {
+  "name": "O5b las 2.354 plantas: grupos servidos de la API == grupos no pendientes de la base",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "O5c forma y orden de campos de cada grupo sin cambios en las 2.354 plantas",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "O5d glossary de la API == fila de la base (o null) en todos los grupos",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "O5e 5.172 grupos con glossary y 1.207 plantas en la API",
+  "ok": true,
+  "detail": "5172,1207"
+ },
+ {
+  "name": "O5f créditos: Wikcionario si y solo si hay explicación de Wikcionario; Wikipedia presente si hay explicación de Wikipedia; sin repetir",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "O5g plantas con crédito de Wikcionario == plantas con explicación de Wikcionario",
+  "ok": true,
+  "detail": "1133 vs 1133"
+ },
+ {
+  "name": "O6 muestra de 30 grupos: API == base == glossary.json == tabla aprobada",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "O7 ninguna de las 53 definiciones con dosis ni posología",
+  "ok": true,
+  "detail": "[]"
+ }
+]

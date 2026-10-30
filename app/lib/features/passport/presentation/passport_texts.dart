@@ -62,16 +62,10 @@ abstract final class PassportTexts {
   static const glossaryAdaptedFrom = 'adaptado de';
   static const glossarySourceDestination = 'la fuente de la explicación';
 
-  /// Record count of a use group (`1 registro`, `12 registros`).
-  static String recordCount(int count) =>
-      count == 1 ? '1 registro' : '$count registros';
-
-  /// Data line of a use group: the record count, then the countries after
-  /// ` · ` when there are any (`5 registros · China, Trinidad`).
-  static String useGroupSummary(int count, List<String> countries) =>
-      countries.isEmpty
-      ? recordCount(count)
-      : '${recordCount(count)} · ${countries.join(', ')}';
+  /// Data line of a use group: the places after `Lugares: `, as they arrive
+  /// (`Lugares: China, Trinidad`), or null when the group has no countries.
+  static String? useGroupPlaces(List<String> countries) =>
+      countries.isEmpty ? null : 'Lugares: ${countries.join(', ')}';
 
   /// Visible label of the collapsed citations control.
   static String showCitations(int count) =>

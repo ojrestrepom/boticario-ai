@@ -555,7 +555,8 @@ Future<void> _checkGoalRowsAndDisabledFooter(
   );
 }
 
-/// `Usos`: the groups show `Ver N citas` controls and no per-group label;
+/// `Usos`: the groups show `Ver N citas` controls, no per-group label and no
+/// records count;
 /// one opens to show its citations in place and closes again.
 Future<void> _expectCitationsFold(WidgetTester tester) async {
   final closed = find.byWidgetPredicate(
@@ -565,15 +566,17 @@ Future<void> _expectCitationsFold(WidgetTester tester) async {
   await _scrollUntilBuilt(tester, closed.first);
   expect(closed, findsWidgets);
   expect(find.text('Registro tradicional'), findsNothing);
+  // The data line shows only the places; the records count is not shown.
+  expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
   final label = tester.widget<Text>(closed.first).data!;
   await _tapVisible(tester, closed.first);
   final hide = find.text(PassportTexts.hideCitations);
   expect(hide, findsOneWidget);
   final group = find.ancestor(of: hide, matching: find.byType(Column)).first;
-  // Activity, data line and control, plus at least one citation.
+  // Activity and control (the places line is optional), plus a citation.
   expect(
     find.descendant(of: group, matching: find.byType(Text)).evaluate().length,
-    greaterThanOrEqualTo(4),
+    greaterThanOrEqualTo(3),
   );
   await _tapVisible(tester, hide);
   expect(find.text(PassportTexts.hideCitations), findsNothing);

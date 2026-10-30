@@ -50,11 +50,11 @@ Cuando un grupo de `Usos` trae `glossary`, la pestaña SHALL mostrar bajo el tí
 ## MODIFIED Requirements
 
 ### Requirement: Usos como registros tradicionales trazables
-La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos registrados en fuentes etnobotánicas históricas. No son recomendaciones ni están comprobados clínicamente. Algunas citas no se pudieron identificar y se muestran como «sin resolver». Las explicaciones de términos son definiciones generales de diccionario o enciclopedia, no afirmaciones sobre esta planta.», texto provisional que el usuario ajustará en la app), también cuando la planta no tiene usos. Después SHALL mostrar los grupos de uso que entrega la API, cada uno compacto: la actividad como título, una sola línea de datos con el número de registros y, si los hay, los países separados por comas (`5 registros · China, Otros lugares, Trinidad`; sin países, solo `5 registros`), y un control para ver las citas. Las citas de las referencias del grupo SHALL estar plegadas por defecto; el control SHALL decir `Ver N citas` (`Ver 1 cita` si es una) y desplegarlas en el mismo sitio, y entonces decir `Ocultar citas` y plegarlas. Desplegadas, cada cita se muestra completa y una referencia sin obra identificada (`resolved` falso) SHALL mostrarse como «(sin resolver)» en un estilo atenuado y en cursiva. El grupo SHALL NOT repetir la etiqueta `Registro tradicional`, el rótulo `Países` ni la aclaración de que es un registro y no un consejo, porque el aviso fijo ya lo dice para toda la pestaña. Cada grupo SHALL conservar su estado de plegado al cambiar de pestaña y volver, y todos SHALL estar plegados al abrir un pasaporte. Los grupos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia, ni reescribir los países (un «Otros lugares» genérico se muestra tal cual), y SHALL NOT añadir lógica propia sobre actividades sensibles: muestra el texto de la actividad tal como llega. Las listas largas SHALL permanecer desplazables y sin truncar.
+La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos registrados en fuentes etnobotánicas históricas. No son recomendaciones ni están comprobados clínicamente. Algunas citas no se pudieron identificar y se muestran como «sin resolver». Las explicaciones de términos son definiciones generales de diccionario o enciclopedia, no afirmaciones sobre esta planta.», texto provisional que el usuario ajustará en la app), también cuando la planta no tiene usos. Después SHALL mostrar los grupos de uso que entrega la API, cada uno compacto: la actividad como título, una sola línea de datos con los lugares, que es el prefijo `Lugares: ` seguido de los países separados por comas (`Lugares: Guatemala, Honduras, México`) y no muestra el número de registros (sin países, el grupo no tiene línea de datos), y un control para ver las citas. La única cifra del grupo SHALL ser la del control, el número de citas del grupo (`references.length`), y la app SHALL NOT mostrar el número de registros aunque la API lo envíe. Las citas de las referencias del grupo SHALL estar plegadas por defecto; el control SHALL decir `Ver N citas` (`Ver 1 cita` si es una) y desplegarlas en el mismo sitio, y entonces decir `Ocultar citas` y plegarlas. Desplegadas, cada cita se muestra completa y una referencia sin obra identificada (`resolved` falso) SHALL mostrarse como «(sin resolver)» en un estilo atenuado y en cursiva. El grupo SHALL NOT repetir la etiqueta `Registro tradicional`, el rótulo `Países` ni la aclaración de que es un registro y no un consejo, porque el aviso fijo ya lo dice para toda la pestaña. Cada grupo SHALL conservar su estado de plegado al cambiar de pestaña y volver, y todos SHALL estar plegados al abrir un pasaporte. Los grupos que entrega la API proceden de la semilla consolidada del catálogo, donde cada actividad está traducida al español y respaldada por la cita de su fuente. Si la planta no tiene usos, SHALL indicar explícitamente que no hay usos tradicionales con referencia verificable disponibles. SHALL NOT completar vacíos desde mockups, desde el cliente ni con contenido que la API no entrega, ni presentar dosis o eficacia, ni reescribir los países (un «Otros lugares» genérico se muestra tal cual), y SHALL NOT añadir lógica propia sobre actividades sensibles: muestra el texto de la actividad tal como llega. Las listas largas SHALL permanecer desplazables y sin truncar.
 
 #### Scenario: Registro tradicional elegible
 - **WHEN** la planta tiene un grupo de uso con 12 registros de tres países y dos referencias
-- **THEN** el grupo se muestra con su actividad como título, la línea `12 registros` con los tres países separados por comas y el control `Ver 2 citas`
+- **THEN** el grupo se muestra con su actividad como título, la línea `Lugares: ` con los tres países separados por comas, sin ninguna cifra de registros, y el control `Ver 2 citas`
 
 #### Scenario: Aviso fijo de usos tradicionales
 - **WHEN** se abre la pestaña `Usos` de cualquier planta, con o sin grupos de uso
@@ -76,6 +76,10 @@ La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos regis
 - **WHEN** un grupo de uso tiene una sola referencia
 - **THEN** el control dice `Ver 1 cita` y, al pulsarlo, se muestra esa cita
 
+#### Scenario: Registros y citas distintos
+- **WHEN** un grupo de uso llega con `count` 2 y una sola referencia
+- **THEN** el grupo muestra solo el control `Ver 1 cita` y ninguna cifra de registros
+
 #### Scenario: Sin etiqueta ni aclaración por grupo
 - **WHEN** se muestra cualquier grupo de uso, plegado o desplegado
 - **THEN** no aparece la etiqueta `Registro tradicional`, ni el rótulo `Países`, ni la aclaración `Es un registro, no un consejo de uso.`, y el aviso fijo sigue visible al inicio de la pestaña
@@ -90,11 +94,11 @@ La pestaña `Usos` SHALL mostrar siempre, al inicio, un aviso fijo («Usos regis
 
 #### Scenario: Grupo sin países
 - **WHEN** un grupo de uso no trae países
-- **THEN** la línea de datos muestra solo el número de registros, sin separador ni texto sustituto
+- **THEN** el grupo no muestra línea de datos, ni el prefijo `Lugares: ` ni texto sustituto, y conserva su título y el control de citas
 
 #### Scenario: Países tal como llegan
 - **WHEN** un grupo trae los países `China`, `Otros lugares` y `Trinidad`
-- **THEN** la línea de datos los muestra en ese orden y con ese texto, sin reescribir `Otros lugares`
+- **THEN** la línea de datos muestra `Lugares: China, Otros lugares, Trinidad`, con los países en ese orden y con ese texto, sin reescribir `Otros lugares`
 
 #### Scenario: Sin registro elegible
 - **WHEN** la planta no tiene usos

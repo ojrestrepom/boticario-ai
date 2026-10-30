@@ -100,10 +100,8 @@ class _UseGroupCard extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           if (group.glossary case final glossary?) _Glossary(glossary),
-          Text(
-            PassportTexts.useGroupSummary(group.count, group.countries),
-            style: theme.bodyMedium?.copyWith(color: passportInk),
-          ),
+          if (PassportTexts.useGroupPlaces(group.countries) case final places?)
+            Text(places, style: theme.bodyMedium?.copyWith(color: passportInk)),
           _CitationsToggle(
             activity: group.activity,
             count: group.references.length,

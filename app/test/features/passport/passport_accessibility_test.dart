@@ -421,7 +421,7 @@ void main() {
             'varias líneas.',
         'Clave larga 5 (sin resolver)',
         activity,
-        '12 registros · China, Otros lugares, Trinidad y Tobago',
+        'Lugares: China, Otros lugares, Trinidad y Tobago',
         'Ocultar citas',
       ]) {
         await _scrollTo(tester, find.text(text));
@@ -472,7 +472,7 @@ void main() {
         ],
       );
       await _pump(tester, plant, scale, 'Usos');
-      const data = '12 registros · China, Otros lugares, Trinidad y Tobago';
+      const data = 'Lugares: China, Otros lugares, Trinidad y Tobago';
       final label = find.text(PassportTexts.glossaryLabel);
       final line = plainText(row);
       for (final finder in [

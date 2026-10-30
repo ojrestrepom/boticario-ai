@@ -73,11 +73,12 @@ void main() {
     expect(plant.useGroups, hasLength(11));
     final first = plant.useGroups.first;
     expect(find.text(first.activity), findsOneWidget);
+    expect(first.countries, isNotEmpty);
     expect(
-      find.text(PassportTexts.useGroupSummary(first.count, first.countries)),
+      find.text(PassportTexts.useGroupPlaces(first.countries)!),
       findsWidgets,
     );
-    expect(first.countries, isNotEmpty);
+    expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
     expect(_toggle(_showLabel(first)), findsWidgets);
     expect(find.text(PassportTexts.noUses), findsNothing);
   });
@@ -100,23 +101,27 @@ void main() {
     );
     expect(find.text('Actividad sintetica'), findsOneWidget);
     expect(
-      find.text('12 registros · China, Otros lugares, Trinidad'),
+      find.text('Lugares: China, Otros lugares, Trinidad'),
       findsOneWidget,
     );
+    expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
+    expect(find.textContaining('·'), findsNothing);
     expect(_toggle('Ver 2 citas'), findsOneWidget);
   });
 
-  testWidgets('un registro se escribe en singular', (tester) async {
+  testWidgets('2 registros y 1 cita muestran solo Ver 1 cita', (tester) async {
     await showPassport(
       tester,
       _synthetic(
         groups: [
-          _group(count: 1, references: [_ref(1)]),
+          _group(count: 2, references: [_ref(1)]),
         ],
       ),
       tab: 'Usos',
     );
-    expect(find.text('1 registro'), findsOneWidget);
+    expect(_toggle('Ver 1 cita'), findsOneWidget);
+    expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
+    expect(find.textContaining('Ver 2'), findsNothing);
   });
 
   testWidgets('Citas plegadas por defecto', (tester) async {
@@ -281,7 +286,7 @@ void main() {
       PassportTexts.hideCitations,
       PassportTexts.showCitations(1),
       PassportTexts.showCitations(5),
-      PassportTexts.useGroupSummary(3, const ['China']),
+      PassportTexts.useGroupPlaces(const ['China'])!,
     ]) {
       expect(pattern.hasMatch(text), isFalse, reason: text);
     }
@@ -354,8 +359,10 @@ void main() {
       tab: 'Usos',
     );
     expect(find.text('Actividad sintetica'), findsOneWidget);
-    expect(find.text('3 registros'), findsOneWidget);
+    expect(find.textContaining('Lugares'), findsNothing);
+    expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
     expect(find.textContaining('·'), findsNothing);
+    expect(_toggle('Ver 1 cita'), findsOneWidget);
   });
 
   testWidgets('Países tal como llegan', (tester) async {
@@ -373,7 +380,7 @@ void main() {
       tab: 'Usos',
     );
     expect(
-      find.text('5 registros · China, Otros lugares, Trinidad'),
+      find.text('Lugares: China, Otros lugares, Trinidad'),
       findsOneWidget,
     );
   });
@@ -483,7 +490,7 @@ void main() {
     await showPassport(tester, plant, tab: 'Usos');
     expect(find.text('Carminative'), findsOneWidget);
     expect(find.text('Cita antigua'), findsNothing);
-    expect(find.text('1 registro'), findsOneWidget);
+    expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
     await tester.tap(_toggle('Ver 1 cita'));
     await tester.pumpAndSettle();
     expect(find.text('Cita antigua'), findsOneWidget);
@@ -528,7 +535,7 @@ void main() {
       final label = tester
           .getTopLeft(find.text('Significado general del término'))
           .dy;
-      final data = tester.getTopLeft(find.text('2 registros · China')).dy;
+      final data = tester.getTopLeft(find.text('Lugares: China')).dy;
       expect(title, lessThan(label));
       expect(label, lessThan(tester.getTopLeft(line(row)).dy));
       expect(tester.getTopLeft(line(row)).dy, lessThan(data));
@@ -596,7 +603,7 @@ void main() {
       expect(find.text('Significado general del término'), findsNothing);
       expect(find.textContaining(': «'), findsNothing);
       final title = tester.getBottomLeft(find.text('Fiebre')).dy;
-      final data = tester.getTopLeft(find.text('1 registro · China')).dy;
+      final data = tester.getTopLeft(find.text('Lugares: China')).dy;
       expect(data - title, lessThanOrEqualTo(4));
     });
 

@@ -57,6 +57,58 @@ void main() {
     UrlLauncherPlatform.instance = launcher;
   });
 
+  testWidgets('Fuentes: créditos de Wikcionario y Wikipedia como los demás', (
+    tester,
+  ) async {
+    const license = 'https://creativecommons.org/licenses/by-sa/4.0/';
+    final plant = _synthetic(
+      credits: const [
+        PlantCredit(
+          name: 'Wikcionario en español',
+          url: 'https://es.wiktionary.org',
+          license: 'CC BY-SA 4.0',
+          licenseUrl: license,
+          attribution:
+              'Colaboradores de Wikcionario en español '
+              '(https://es.wiktionary.org). Texto bajo CC BY-SA 4.0.',
+        ),
+        PlantCredit(
+          name: 'Wikipedia en español',
+          url: 'https://es.wikipedia.org',
+          license: 'CC BY-SA 4.0',
+          licenseUrl: license,
+          attribution: 'Colaboradores de Wikipedia en español. CC BY-SA 4.0.',
+        ),
+      ],
+    );
+    await _openSources(tester, plant);
+    for (final name in ['Wikcionario en español', 'Wikipedia en español']) {
+      expect(plainText(name), findsOneWidget, reason: name);
+      expect(_isLink(tester, name, name), isTrue, reason: name);
+    }
+    expect(plainText('Licencia: CC BY-SA 4.0'), findsNWidgets(2));
+    expect(
+      plainText(
+        'Atribución: Colaboradores de Wikcionario en español. '
+        'Texto bajo CC BY-SA 4.0.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.textContaining('http'), findsNothing);
+    expect(
+      tester
+          .widget<Text>(
+            plainText(
+              'Atribución: Colaboradores de Wikcionario en español. '
+              'Texto bajo CC BY-SA 4.0.',
+            ),
+          )
+          .style!
+          .color,
+      passportMuted,
+    );
+  });
+
   testWidgets('Fuentes de una planta: nombres y licencias enlazados', (
     tester,
   ) async {

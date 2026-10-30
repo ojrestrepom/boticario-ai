@@ -196,7 +196,35 @@ UseGroup _useGroup(Map<String, Object?> json, String where) => UseGroup(
   count: _int(json, 'count', where),
   countries: _stringList(json, 'countries', where),
   references: _references(json, where),
+  glossary: _glossary(json, where),
 );
+
+/// Absent and `null` mean no explanation; a present one must be complete.
+GlossaryEntry? _glossary(Map<String, Object?> parent, String parentWhere) {
+  final value = parent['glossary'];
+  if (value == null) return null;
+  final where = '$parentWhere.glossary';
+  final json = _asObject(value, where);
+  String required(String key) {
+    final text = _string(json, key, where);
+    if (text.trim().isEmpty) {
+      throw _invalid('el campo "$key" de $where está vacío');
+    }
+    return text;
+  }
+
+  final adapted = json['adapted'];
+  if (adapted != null && adapted is! bool) {
+    throw _invalid('el campo "adapted" de $where debe ser verdadero o falso');
+  }
+  return GlossaryEntry(
+    term: required('term'),
+    text: required('text'),
+    sourceName: required('sourceName'),
+    url: _nullableString(json, 'url', where),
+    adapted: adapted == true,
+  );
+}
 
 PlantGoal _goal(Map<String, Object?> json, String where) => PlantGoal(
   id: _string(json, 'id', where),

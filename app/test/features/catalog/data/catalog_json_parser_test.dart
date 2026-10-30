@@ -20,6 +20,7 @@ Map<String, Object?> _detail() =>
 
 void main() {
   _consolidatedTests();
+  _glossaryTests();
   group('parsePlantPage', () {
     test('parses a valid page', () {
       final page = parsePlantPage(apiFixture('list_lavandula.json'));
@@ -332,6 +333,119 @@ void _consolidatedTests() {
           '"commonNames":[]}],"total":1,"limit":50,"offset":0}',
         ),
         _invalid(contains('displayName')),
+      );
+    });
+  });
+}
+
+const _glossaryJson = {
+  'term': 'Diurético',
+  'text': 'Que aumenta o facilita la producción y excreción de orina.',
+  'sourceName': 'Wikcionario',
+  'url': 'https://es.wiktionary.org/w/index.php?title=diur%C3%A9tico&oldid=1',
+  'adapted': false,
+};
+
+/// `plant_consolidated_synthetic.json` with [glossary] on its only group
+/// (the key is left out when [glossary] is the [_absent] marker).
+String _withGlossary(Object? glossary) {
+  final json = jsonDecode(
+    apiFixture('plant_consolidated_synthetic.json'),
+  ) as Map<String, Object?>;
+  final group =
+      (json['useGroups']! as List<Object?>).first! as Map<String, Object?>;
+  if (identical(glossary, _absent)) {
+    group.remove('glossary');
+  } else {
+    group['glossary'] = glossary;
+  }
+  return jsonEncode(json);
+}
+
+const _absent = Object();
+
+void _glossaryTests() {
+  group('parsePlant glossary', () {
+    test('Grupo con explicación: conserva todo tal como llega', () {
+      final entry = parsePlant(_withGlossary(_glossaryJson))
+          .useGroups
+          .single
+          .glossary;
+      expect(entry, isNotNull);
+      expect(entry!.term, 'Diurético');
+      expect(
+        entry.text,
+        'Que aumenta o facilita la producción y excreción de orina.',
+      );
+      expect(entry.sourceName, 'Wikcionario');
+      expect(entry.url, _glossaryJson['url']);
+      expect(entry.adapted, isFalse);
+    });
+
+    test('adapted verdadero y adapted ausente (falso)', () {
+      final adapted = parsePlant(
+        _withGlossary({..._glossaryJson, 'adapted': true}),
+      ).useGroups.single.glossary;
+      expect(adapted!.adapted, isTrue);
+      final absent = parsePlant(
+        _withGlossary({..._glossaryJson}..remove('adapted')),
+      ).useGroups.single.glossary;
+      expect(absent!.adapted, isFalse);
+    });
+
+    test('Backend anterior: sin glossary, el grupo queda sin explicación', () {
+      expect(
+        parsePlant(_withGlossary(_absent)).useGroups.single.glossary,
+        isNull,
+      );
+    });
+
+    test('Explicación nula', () {
+      expect(parsePlant(_withGlossary(null)).useGroups.single.glossary, isNull);
+    });
+
+    test('Campo con tipo erróneo: error legible', () {
+      final bad = <Object?>[
+        'Diurético',
+        42,
+        <Object?>[],
+        {..._glossaryJson}..remove('term'),
+        {..._glossaryJson}..remove('text'),
+        {..._glossaryJson}..remove('sourceName'),
+        {..._glossaryJson, 'term': ''},
+        {..._glossaryJson, 'text': '  '},
+        {..._glossaryJson, 'sourceName': ''},
+        {..._glossaryJson, 'term': 3},
+        {..._glossaryJson, 'url': 3},
+        {..._glossaryJson, 'adapted': 'no'},
+      ];
+      for (final value in bad) {
+        expect(
+          () => parsePlant(_withGlossary(value)),
+          _invalid(contains('glossary')),
+          reason: '$value',
+        );
+      }
+    });
+
+    test('Grupos derivados de uses: sin explicación', () {
+      final plant = parsePlant(apiFixture('plant_lavandula-angustifolia.json'));
+      expect(plant.useGroups, isNotEmpty);
+      expect(plant.useGroups.every((g) => g.glossary == null), isTrue);
+    });
+
+    test('Fixture derivada: explicaciones y crédito de Wikcionario', () {
+      final plant = parsePlant(
+        apiFixture('consolidated_lavandula-angustifolia_glossary-derived.json'),
+      );
+      final byActivity = {for (final g in plant.useGroups) g.activity: g};
+      expect(byActivity['Diurético']!.glossary!.sourceName, 'Wikcionario');
+      expect(byActivity['Estimulante']!.glossary!.adapted, isTrue);
+      expect(byActivity['Carminativo']!.glossary!.sourceName, 'Wikipedia');
+      expect(byActivity['Colagogo']!.glossary, isNull);
+      expect(
+        plant.credits.map((c) => c.name),
+        contains('Wikcionario en español'),
       );
     });
   });

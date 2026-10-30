@@ -380,12 +380,21 @@ Future<void> _runCatalogSmoke(
     expect(_selectedChip(tester, 'Usos'), isTrue);
     expect(find.text(PassportTexts.usesNotice), findsOneWidget);
     await _expectCitationsFold(tester);
+    final hasGlossary = await _expectGlossary(tester);
     _expectSourcesHidden();
     await _tapVisible(tester, find.text('Fuentes'));
     expect(_selectedChip(tester, 'Fuentes'), isTrue);
     await _scrollUntilBuilt(tester, find.text(PassportTexts.sourcesIntro));
     expect(find.text(PassportTexts.sourcesIntro), findsOneWidget);
     _expectNoUrlText(tester);
+    if (hasGlossary) {
+      // The explanations of `Usos` are credited like any other source.
+      await _scrollUntilBuilt(tester, find.textContaining('Wik'));
+      expect(
+        find.textContaining(RegExp('Wikcionario|Wikipedia')),
+        findsWidgets,
+      );
+    }
     // Links sit on the names: at least one source or license is a link.
     expect(_linkSpans(tester), isNotEmpty);
     await _expectPassportDisabled(tester, router, homeLogs);
@@ -584,6 +593,46 @@ Future<void> _expectCitationsFold(WidgetTester tester) async {
       .position
       .jumpTo(0);
   await _settle(tester);
+}
+
+/// `Usos`: scrolls the whole tab and, for every group that explains its
+/// term, checks the label and the `Term: «text» (Source)` line below it.
+/// A plant with `Diurético` or `Tónico` shows them; one without terms of the
+/// glossary shows no label at all. Returns whether any explanation was seen.
+Future<bool> _expectGlossary(WidgetTester tester) async {
+  final position = tester
+      .state<ScrollableState>(
+        find
+            .descendant(
+              of: find.byType(PlantPassportPage),
+              matching: find.byType(Scrollable),
+            )
+            .first,
+      )
+      .position;
+  position.jumpTo(0);
+  await _settle(tester);
+  final label = find.text(PassportTexts.glossaryLabel);
+  final line = RegExp(r'^.+: «.+» \((adaptado de )?(Wikcionario|Wikipedia)\)$');
+  var seen = 0;
+  var lines = 0;
+  for (var step = 0; step < 80; step++) {
+    seen = seen < label.evaluate().length ? label.evaluate().length : seen;
+    for (final rich in find.byType(RichText).evaluate()) {
+      final text = (rich.widget as RichText).text.toPlainText(
+        includeSemanticsLabels: false,
+      );
+      if (line.hasMatch(text)) lines++;
+    }
+    final before = position.pixels;
+    position.jumpTo(before + 150);
+    await tester.pump(const Duration(milliseconds: 50));
+    if (position.pixels == before) break;
+  }
+  expect(lines > 0, seen > 0, reason: 'each label comes with its line');
+  position.jumpTo(0);
+  await _settle(tester);
+  return seen > 0;
 }
 
 /// Scrolls the passport in steps until [finder] is built (lazy slivers

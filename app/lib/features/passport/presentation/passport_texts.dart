@@ -50,6 +50,16 @@ abstract final class PassportTexts {
   static const hideCitations = 'Ocultar citas';
   static const unresolvedSuffix = '(sin resolver)';
 
+  /// Gray label above the explanation of a use group's term. It says the word
+  /// is explained, not what the plant does.
+  static const glossaryLabel = 'Significado del término';
+  static const glossaryOpenQuote = '«';
+  static const glossaryCloseQuote = '»';
+
+  /// Precedes the linked source when the text paraphrases it.
+  static const glossaryAdaptedFrom = 'adaptado de';
+  static const glossarySourceDestination = 'la fuente de la explicación';
+
   /// Record count of a use group (`1 registro`, `12 registros`).
   static String recordCount(int count) =>
       count == 1 ? '1 registro' : '$count registros';
@@ -139,6 +149,11 @@ abstract final class PassportTexts {
     noUses,
     hideCitations,
     unresolvedSuffix,
+    glossaryLabel,
+    glossaryOpenQuote,
+    glossaryCloseQuote,
+    glossaryAdaptedFrom,
+    glossarySourceDestination,
     sourcesTitle,
     sourcesIntro,
     noSources,

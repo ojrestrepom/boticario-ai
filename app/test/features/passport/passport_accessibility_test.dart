@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 import 'dart:typed_data';
 
@@ -7,6 +8,7 @@ import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_header.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_link.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_style.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:boticario_ai/features/passport/presentation/plant_passport_page.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,18 @@ final Uint8List _png = base64Decode(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA'
   '60e6kgAAAABJRU5ErkJggg==',
 );
+
+double _luminance(Color c) {
+  double channel(double v) =>
+      v <= 0.03928 ? v / 12.92 : math.pow((v + 0.055) / 1.055, 2.4).toDouble();
+  return 0.2126 * channel(c.r) + 0.7152 * channel(c.g) + 0.0722 * channel(c.b);
+}
+
+double _contrast(Color a, Color b) {
+  final la = _luminance(a);
+  final lb = _luminance(b);
+  return (math.max(la, lb) + 0.05) / (math.min(la, lb) + 0.05);
+}
 
 const _tabs = ['General', 'Propiedades', 'Usos', 'Fuentes'];
 
@@ -418,6 +432,96 @@ void main() {
         expect(rect.left, greaterThanOrEqualTo(0));
         expect(rect.right, lessThanOrEqualTo(360));
       }
+      expect(tester.takeException(), isNull);
+      handle.dispose();
+    });
+  }
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('Explicación del término legible, en orden y con enlace '
+        'accionable al ${scale * 100}%', (tester) async {
+      final handle = tester.ensureSemantics();
+      final launcher = FakeUrlLauncher();
+      UrlLauncherPlatform.instance = launcher;
+      const text =
+          'Que aumenta o facilita la producción y excreción de orina, con un '
+          'texto sintético bastante largo para ocupar varias líneas.';
+      const row = 'Diurético: «$text» (adaptado de Wikipedia)';
+      final plant = Plant(
+        id: 'planta-sintetica',
+        scientificName: 'Planta sintetica',
+        family: null,
+        names: const [],
+        parts: const [],
+        uses: const [],
+        useGroups: [
+          UseGroup(
+            activity: 'Diurético',
+            activitySource: null,
+            count: 12,
+            countries: const ['China', 'Otros lugares', 'Trinidad y Tobago'],
+            references: const [],
+            glossary: const GlossaryEntry(
+              term: 'Diurético',
+              text: text,
+              sourceName: 'Wikipedia',
+              url: 'https://es.wikipedia.org/w/index.php?title=D&oldid=1',
+              adapted: true,
+            ),
+          ),
+        ],
+      );
+      await _pump(tester, plant, scale, 'Usos');
+      const data = '12 registros · China, Otros lugares, Trinidad y Tobago';
+      final label = find.text(PassportTexts.glossaryLabel);
+      final line = plainText(row);
+      for (final finder in [
+        find.text('Diurético'),
+        label,
+        line,
+        find.text(data),
+      ]) {
+        await _scrollTo(tester, finder);
+        final rect = tester.getRect(finder);
+        expect(rect.left, greaterThanOrEqualTo(0));
+        expect(rect.right, lessThanOrEqualTo(360));
+      }
+      for (final widget in [
+        tester.widget<Text>(label),
+        tester.widget<Text>(line),
+      ]) {
+        expect(widget.maxLines, isNull);
+        expect(widget.overflow, isNot(TextOverflow.ellipsis));
+      }
+      // Reading order: title, meaning, data.
+      expect(
+        tester.getTopLeft(find.text('Diurético')).dy,
+        lessThan(tester.getTopLeft(label).dy),
+      );
+      expect(tester.getTopLeft(label).dy, lessThan(tester.getTopLeft(line).dy));
+      expect(
+        tester.getTopLeft(line).dy,
+        lessThan(tester.getTopLeft(find.text(data)).dy),
+      );
+      // The source is announced as a link with its destination, never a URL.
+      final announced = [for (final d in linkSemantics(tester)) d.label];
+      expect(
+        announced,
+        contains(
+          PassportTexts.linkSemantics(
+            'Wikipedia',
+            PassportTexts.glossarySourceDestination,
+          ),
+        ),
+      );
+      for (final d in linkSemantics(tester)) {
+        expect(d.label, isNot(contains('http')));
+      }
+      // Secondary text keeps 4.5:1 on the background.
+      expect(
+        _contrast(passportMuted, passportBackground),
+        greaterThanOrEqualTo(4.5),
+      );
       expect(tester.takeException(), isNull);
       handle.dispose();
     });

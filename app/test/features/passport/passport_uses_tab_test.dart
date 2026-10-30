@@ -1,8 +1,14 @@
+import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
 import 'package:boticario_ai/features/catalog/domain/plant_consolidated.dart';
+import 'package:boticario_ai/features/passport/presentation/passport_style.dart';
 import 'package:boticario_ai/features/passport/presentation/passport_texts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
+
+import '../../support/fake_catalog_api.dart';
+import '../../support/fake_url_launcher.dart';
 
 import 'passport_test_support.dart';
 
@@ -25,12 +31,28 @@ UseGroup _group({
   int count = 1,
   List<String> countries = const [],
   List<CitedReference> references = const [],
+  GlossaryEntry? glossary,
 }) => UseGroup(
   activity: activity,
   activitySource: activitySource,
   count: count,
   countries: countries,
   references: references,
+  glossary: glossary,
+);
+
+GlossaryEntry _glossary({
+  String term = 'Diurético',
+  String text = 'Que aumenta o facilita la producción y excreción de orina.',
+  String sourceName = 'Wikcionario',
+  String? url = 'https://es.wiktionary.org/w/index.php?title=x&oldid=1',
+  bool adapted = false,
+}) => GlossaryEntry(
+  term: term,
+  text: text,
+  sourceName: sourceName,
+  url: url,
+  adapted: adapted,
 );
 
 CitedReference _ref(int i, {bool resolved = true}) => CitedReference(
@@ -451,5 +473,190 @@ void main() {
     await tester.tap(_toggle('Ver 1 cita'));
     await tester.pumpAndSettle();
     expect(find.text('Cita antigua'), findsOneWidget);
+  });
+
+  group('explicación del término', () {
+    late FakeUrlLauncher launcher;
+
+    setUp(() {
+      launcher = FakeUrlLauncher();
+      UrlLauncherPlatform.instance = launcher;
+    });
+
+    Finder line(String text) => plainText(text);
+
+    Future<void> show(WidgetTester tester, List<UseGroup> groups) =>
+        showPassport(tester, _synthetic(groups: groups), tab: 'Usos');
+
+    testWidgets('Wikcionario: etiqueta, línea y fuente enlazada', (
+      tester,
+    ) async {
+      final glossary = _glossary();
+      await show(tester, [
+        _group(
+          activity: 'Diurético',
+          count: 2,
+          countries: const ['China'],
+          references: [_ref(1)],
+          glossary: glossary,
+        ),
+      ]);
+      expect(find.text(PassportTexts.glossaryLabel), findsOneWidget);
+      const row =
+          'Diurético: «Que aumenta o facilita la producción y excreción de '
+          'orina.» (Wikcionario)';
+      expect(line(row), findsOneWidget);
+      expect(linkSpansOf(tester, line(row)).map((s) => s.text), [
+        'Wikcionario',
+      ]);
+      // Above the data line, below the title.
+      final title = tester.getTopLeft(find.text('Diurético')).dy;
+      final label = tester.getTopLeft(find.text('Significado del término')).dy;
+      final data = tester.getTopLeft(find.text('2 registros · China')).dy;
+      expect(title, lessThan(label));
+      expect(label, lessThan(tester.getTopLeft(line(row)).dy));
+      expect(tester.getTopLeft(line(row)).dy, lessThan(data));
+      // The label is secondary text, smaller and gray.
+      final labelText = tester.widget<Text>(
+        find.text('Significado del término'),
+      );
+      expect(labelText.style!.color, passportMuted);
+      expect(
+        labelText.style!.fontSize!,
+        lessThan(tester.widget<Text>(find.text('Diurético')).style!.fontSize!),
+      );
+    });
+
+    testWidgets('Wikipedia literal', (tester) async {
+      await show(tester, [
+        _group(
+          glossary: _glossary(
+            term: 'Tónico',
+            text: 'Texto sintético.',
+            sourceName: 'Wikipedia',
+            url: 'https://es.wikipedia.org/w/index.php?title=T&oldid=1',
+          ),
+        ),
+      ]);
+      expect(line('Tónico: «Texto sintético.» (Wikipedia)'), findsOneWidget);
+    });
+
+    testWidgets('Wikipedia adaptada dice «adaptado de»', (tester) async {
+      await show(tester, [
+        _group(
+          glossary: _glossary(
+            term: 'Tónico',
+            text: 'Texto sintético.',
+            sourceName: 'Wikipedia',
+            adapted: true,
+          ),
+        ),
+      ]);
+      const row = 'Tónico: «Texto sintético.» (adaptado de Wikipedia)';
+      expect(line(row), findsOneWidget);
+      expect(linkSpansOf(tester, line(row)).map((s) => s.text), ['Wikipedia']);
+    });
+
+    testWidgets('actividad con calificador conserva el título', (tester) async {
+      await show(tester, [
+        _group(
+          activity: 'Antídoto (escorpión)',
+          glossary: _glossary(term: 'Antídoto', text: 'Texto sintético.'),
+        ),
+      ]);
+      expect(find.text('Antídoto (escorpión)'), findsOneWidget);
+      expect(
+        line('Antídoto: «Texto sintético.» (Wikcionario)'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('sin explicación: sin etiqueta ni espacio vacío', (
+      tester,
+    ) async {
+      await show(tester, [
+        _group(activity: 'Fiebre', countries: const ['China']),
+      ]);
+      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+      expect(find.textContaining(': «'), findsNothing);
+      final title = tester.getBottomLeft(find.text('Fiebre')).dy;
+      final data = tester.getTopLeft(find.text('1 registro · China')).dy;
+      expect(data - title, lessThanOrEqualTo(4));
+    });
+
+    testWidgets('actividad sensible: sin explicación', (tester) async {
+      const sensitive = 'Uso tradicional, sin eficacia demostrada: cáncer';
+      await show(tester, [_group(activity: sensitive)]);
+      expect(find.text(sensitive), findsOneWidget);
+      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+    });
+
+    testWidgets('el enlace se abre solo si es https y no se ve la URL', (
+      tester,
+    ) async {
+      final glossary = _glossary();
+      await show(tester, [_group(glossary: glossary)]);
+      expect(find.textContaining('http'), findsNothing);
+      expect(
+        find.textContaining('wiktionary', findRichText: true),
+        findsNothing,
+      );
+      const row =
+          'Diurético: «Que aumenta o facilita la producción y excreción de '
+          'orina.» (Wikcionario)';
+      await tapSpan(tester, line(row), 'Wikcionario');
+      expect(launcher.launched, [glossary.url]);
+    });
+
+    testWidgets('URL no https: texto plano sin enlace', (tester) async {
+      for (final url in ['http://es.wiktionary.org/x', null, 'javascript:x']) {
+        await show(tester, [_group(glossary: _glossary(url: url))]);
+        expect(find.textContaining('(Wikcionario)'), findsOneWidget);
+        expect(
+          linkSpansOf(tester, find.textContaining('Wikcionario')),
+          isEmpty,
+        );
+      }
+      expect(launcher.launched, isEmpty);
+    });
+
+    testWidgets('el plegado de citas sigue funcionando con explicación', (
+      tester,
+    ) async {
+      await show(tester, [
+        _group(references: [_ref(1)], glossary: _glossary()),
+        _group(activity: 'Otra', references: [_ref(2)]),
+      ]);
+      await tester.tap(_toggle('Ver 1 cita').first);
+      await tester.pumpAndSettle();
+      expect(find.text('Cita sintetica 1'), findsOneWidget);
+      expect(find.text('Cita sintetica 2'), findsNothing);
+    });
+
+    testWidgets('backend anterior (grupos derivados de uses): sin etiqueta', (
+      tester,
+    ) async {
+      final plant = parsePlant(apiFixture('plant_lavandula-angustifolia.json'));
+      await showPassport(tester, plant, tab: 'Usos');
+      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+    });
+
+    testWidgets(
+      'fixture derivada: la etiqueta aparece en los grupos con texto',
+      (tester) async {
+        final plant = parsePlant(
+          apiFixture(
+            'consolidated_lavandula-angustifolia_glossary-derived.json',
+          ),
+        );
+        await showPassport(tester, plant, tab: 'Usos');
+        final withText = plant.useGroups.where((g) => g.glossary != null);
+        expect(withText, hasLength(3));
+        expect(
+          find.text(PassportTexts.glossaryLabel, skipOffstage: false),
+          findsNWidgets(3),
+        );
+      },
+    );
   });
 }

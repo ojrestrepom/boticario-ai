@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../catalog/domain/plant.dart';
 import '../../catalog/domain/plant_consolidated.dart';
+import 'passport_link.dart';
 import 'passport_style.dart';
 import 'passport_texts.dart';
 
@@ -98,6 +99,7 @@ class _UseGroupCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
+          if (group.glossary case final glossary?) _Glossary(glossary),
           Text(
             PassportTexts.useGroupSummary(group.count, group.countries),
             style: theme.bodyMedium?.copyWith(color: passportInk),
@@ -112,6 +114,47 @@ class _UseGroupCard extends StatelessWidget {
             for (final reference in group.references)
               _Citation(reference: reference),
           const Divider(height: 20),
+        ],
+      ),
+    );
+  }
+}
+
+/// Meaning of the group's term: a gray label, then
+/// `Term: «text» (Source)` with the source linked in line. The texts come
+/// from the API as they are; only the label, quotes and "adaptado de" are
+/// the app's own.
+class _Glossary extends StatelessWidget {
+  const _Glossary(this.glossary);
+
+  final GlossaryEntry glossary;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.bodySmall
+        ?.copyWith(color: passportMuted);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(PassportTexts.glossaryLabel, style: style),
+          PassportLinkedText(
+            style: style,
+            parts: [
+              PassportLinkPart(
+                '${glossary.term}: ${PassportTexts.glossaryOpenQuote}'
+                '${glossary.text}${PassportTexts.glossaryCloseQuote} ('
+                '${glossary.adapted ? '${PassportTexts.glossaryAdaptedFrom} ' : ''}',
+              ),
+              PassportLinkPart(
+                glossary.sourceName,
+                url: glossary.url,
+                destination: PassportTexts.glossarySourceDestination,
+              ),
+              const PassportLinkPart(')'),
+            ],
+          ),
         ],
       ),
     );

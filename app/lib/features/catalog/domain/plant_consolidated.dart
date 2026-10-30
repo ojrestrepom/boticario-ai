@@ -40,6 +40,40 @@ class PlantOil {
   int get hashCode => type.hashCode;
 }
 
+/// Explanation of the term of a use group, as the API serves it.
+@immutable
+class GlossaryEntry {
+  const GlossaryEntry({
+    required this.term,
+    required this.text,
+    required this.sourceName,
+    required this.url,
+    this.adapted = false,
+  });
+
+  final String term;
+  final String text;
+  final String sourceName;
+
+  /// Page of the entry or article; opened only when it is `https`.
+  final String? url;
+
+  /// Whether [text] paraphrases the source instead of quoting it.
+  final bool adapted;
+
+  @override
+  bool operator ==(Object other) =>
+      other is GlossaryEntry &&
+      other.term == term &&
+      other.text == text &&
+      other.sourceName == sourceName &&
+      other.url == url &&
+      other.adapted == adapted;
+
+  @override
+  int get hashCode => Object.hash(term, text, sourceName, url, adapted);
+}
+
 /// Traditional-use group: one activity with its record count, countries and
 /// every citation.
 @immutable
@@ -50,6 +84,7 @@ class UseGroup {
     required this.count,
     required List<String> countries,
     required List<CitedReference> references,
+    this.glossary,
   }) : countries = List.unmodifiable(countries),
        references = List.unmodifiable(references);
 
@@ -59,9 +94,13 @@ class UseGroup {
   final List<String> countries;
   final List<CitedReference> references;
 
+  /// Meaning of the activity term; null when the group has none.
+  final GlossaryEntry? glossary;
+
   @override
   bool operator ==(Object other) =>
       other is UseGroup &&
+      other.glossary == glossary &&
       other.activity == activity &&
       other.activitySource == activitySource &&
       other.count == count &&
@@ -75,6 +114,7 @@ class UseGroup {
     count,
     Object.hashAll(countries),
     Object.hashAll(references),
+    glossary,
   );
 }
 

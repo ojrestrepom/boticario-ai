@@ -13,6 +13,34 @@ Plant _plant(List<PlantName> names) => Plant(
 );
 
 void main() {
+  group('UseGroup glossary', () {
+    UseGroup group({GlossaryEntry? glossary}) => UseGroup(
+      activity: 'Diurético',
+      activitySource: null,
+      count: 1,
+      countries: const [],
+      references: const [],
+      glossary: glossary,
+    );
+    const entry = GlossaryEntry(
+      term: 'Diurético',
+      text: 'Texto sintético.',
+      sourceName: 'Wikcionario',
+      url: 'https://es.wiktionary.org/x',
+    );
+
+    test('sin explicación por defecto, y adapted es falso', () {
+      expect(group().glossary, isNull);
+      expect(entry.adapted, isFalse);
+    });
+
+    test('la explicación cuenta en la igualdad', () {
+      expect(group(glossary: entry), group(glossary: entry));
+      expect(group(glossary: entry), isNot(group()));
+      expect(group(glossary: entry).hashCode, group(glossary: entry).hashCode);
+    });
+  });
+
   _consolidatedTests();
   group('PlantSummary display names', () {
     test('uses the first common name as primary and the scientific second', () {

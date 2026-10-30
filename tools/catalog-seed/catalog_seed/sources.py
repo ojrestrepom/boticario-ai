@@ -9,7 +9,7 @@ DEFAULT_CACHE_DIR = REPO_ROOT / "data" / ".cache"
 
 ADMITTED_SOURCES = (
     "usda", "wcvp", "wfo", "ema_json", "ema_pdf", "tppt", "efsa",
-    "wikidata", "wikipedia_es", "commons",
+    "wikidata", "wikipedia_es", "wiktionary_es", "commons",
 )
 DISCARDED_SOURCES = (
     "aromadb", "essoildb", "scentindb", "fda_ppdb", "comision_e",
@@ -23,7 +23,7 @@ FILE_FIELDS = ("url", "filename", "size", "checksum")
 GENERATED_FILE_LISTS = ("ema_pdf",)
 # Servicios en línea: no hay archivo ni checksum, porque la respuesta depende de la consulta. Se declaran con `url` (el servicio)
 # y sin `filename`, `size`, `checksum` ni `files`; cada respuesta se guarda en data/.cache/<id>/ con la fecha de la consulta.
-SERVICE_SOURCES = ("wikidata", "wikipedia_es", "commons")
+SERVICE_SOURCES = ("wikidata", "wikipedia_es", "wiktionary_es", "commons")
 
 
 class SourceError(Exception):

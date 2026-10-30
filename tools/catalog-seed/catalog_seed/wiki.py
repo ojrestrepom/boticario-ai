@@ -28,9 +28,13 @@ COMMONS_ENDPOINT = "https://commons.wikimedia.org/w/api.php"
 WIKIPEDIA_ES_API = "https://es.wikipedia.org/w/api.php"
 TITLES_BATCH = 50
 
+WIKTIONARY_ES_API = "https://es.wiktionary.org/w/api.php"
+
 SERVICES = ("wikidata", "wikipedia_es", "commons")
-DEFAULT_BATCH = {"wikidata": 20, "wikipedia_es": 1, "commons": 20}
-MAX_BATCH = {"wikidata": 100, "wikipedia_es": 1, "commons": 50}
+# Servicios del glosario de actividades: se descargan con `glossary-fetch`, no con `fetch` ni con `wiki-fetch`.
+GLOSSARY_SERVICES = ("wiktionary_es",)
+DEFAULT_BATCH = {"wikidata": 20, "wikipedia_es": 1, "commons": 20, "wiktionary_es": 1}
+MAX_BATCH = {"wikidata": 100, "wikipedia_es": 1, "commons": 50, "wiktionary_es": 1}
 
 
 class RateLimited(Exception):
@@ -91,12 +95,12 @@ class Step:
 
     def __init__(self, service, cache_dir=DEFAULT_CACHE_DIR, endpoint=None, batch_size=None,
                  delay=1.0, request=http_request, now=time.time, sleep=time.sleep):
-        if service not in SERVICES:
-            raise SourceError("servicio desconocido '%s' (%s)" % (service, ", ".join(SERVICES)))
+        if service not in SERVICES + GLOSSARY_SERVICES:
+            raise SourceError("servicio desconocido '%s' (%s)" % (service, ", ".join(SERVICES + GLOSSARY_SERVICES)))
         self.service = service
         self.dir = Path(cache_dir) / service
         self.endpoint = endpoint or {"wikidata": WIKIDATA_ENDPOINT, "wikipedia_es": WIKIPEDIA_ES_ENDPOINT,
-                                     "commons": COMMONS_ENDPOINT}[service]
+                                     "commons": COMMONS_ENDPOINT, "wiktionary_es": WIKTIONARY_ES_API}[service]
         size = batch_size or DEFAULT_BATCH[service]
         if size < 1 or size > MAX_BATCH[service]:
             raise SourceError("el tamaño de lote de %s debe estar entre 1 y %d" % (service, MAX_BATCH[service]))
@@ -359,6 +363,96 @@ class WikipediaTitlesStep(Step):
             self.store(title, {"title": title, "exists": exists, "redirect": exists and final != normalized.get(title, title),
                                "target": final if exists else None,
                                "disambiguation": exists and "disambiguation" in (page.get("pageprops") or {}), "date": date})
+
+
+class WiktionaryStep(Step):
+    """Entradas de es.wiktionary.org para el glosario de actividades (API de MediaWiki, una entrada por petición).
+
+    Cada término cuesta dos peticiones seriales: `action=parse` (HTML renderizado y `revid`) y, con ese `revid`, una consulta
+    de la hora de la revisión. Un archivo por título en `<caché>/wiktionary_es/` con `{requested, title, revid, timestamp, html}`
+    o `{requested, missing: true}`. Los títulos distinguen mayúsculas (`diurético`, no `Diurético`).
+    """
+
+    def __init__(self, cache_dir=DEFAULT_CACHE_DIR, endpoint=None, delay=1.0, **kwargs):
+        super().__init__("wiktionary_es", cache_dir=cache_dir, endpoint=endpoint, batch_size=1, delay=delay, **kwargs)
+
+    def key_of(self, entry):
+        return " ".join(entry.replace("_", " ").split())
+
+    def get_json(self, params, what):
+        status, payload = self.call(self.endpoint + "?" + urllib.parse.urlencode(params), None, {"Accept": "application/json"})
+        if status != 200:
+            raise SourceError("wiktionary_es respondió HTTP %d para %s; no se guarda nada de esta entrada" % (status, what))
+        try:
+            return json.loads(payload.decode("utf-8"))
+        except ValueError:
+            raise SourceError("wiktionary_es devolvió una respuesta que no es JSON para %s" % what)
+
+    def fetch_batch(self, batch):
+        for entry in batch:
+            title = self.key_of(entry)
+            data = self.get_json({"action": "parse", "page": title, "prop": "text|revid", "redirects": "1", "format": "json",
+                                  "formatversion": "2"}, "'%s'" % title)
+            if "error" in data:
+                if data["error"].get("code") == "missingtitle":
+                    self.store(title, {"requested": title, "missing": True})
+                    continue
+                raise SourceError("wiktionary_es devolvió el error '%s' para '%s'" % (data["error"].get("code"), title))
+            parsed = data.get("parse") or {}
+            if "revid" not in parsed or "text" not in parsed:
+                raise SourceError("wiktionary_es devolvió una respuesta inesperada para '%s'" % title)
+            if self.delay:
+                self.sleep(self.delay)
+            meta = self.get_json({"action": "query", "revids": str(parsed["revid"]), "prop": "revisions", "rvprop": "ids|timestamp",
+                                  "format": "json", "formatversion": "2"}, "la revisión de '%s'" % title)
+            try:
+                timestamp = meta["query"]["pages"][0]["revisions"][0]["timestamp"]
+            except (KeyError, IndexError, TypeError):
+                raise SourceError("wiktionary_es no devolvió la hora de la revisión %s de '%s'" % (parsed["revid"], title))
+            self.store(title, {"requested": title, "title": parsed.get("title", title), "revid": parsed["revid"],
+                               "timestamp": timestamp, "html": parsed["text"]})
+
+
+class WikipediaArticleStep(Step):
+    """Introducción de artículos de es.wikipedia.org para el glosario de actividades (una petición por artículo).
+
+    `action=query` con `prop=extracts|revisions|pageprops` (`exintro`, `explaintext`, `redirects`): devuelve el texto plano de la
+    introducción, la revisión y su hora, y la marca de desambiguación. Un archivo por título en `<caché>/wikipedia_es/glossary/`
+    con `{requested, title, pageid, revid, timestamp, extract, disambiguation, redirectedFrom}` o `{requested, missing: true}`.
+    """
+
+    def __init__(self, cache_dir=DEFAULT_CACHE_DIR, endpoint=None, delay=1.0, **kwargs):
+        super().__init__("wikipedia_es", cache_dir=cache_dir, endpoint=endpoint or WIKIPEDIA_ES_API, batch_size=1, delay=delay, **kwargs)
+        self.dir = Path(cache_dir) / "wikipedia_es" / "glossary"
+
+    def key_of(self, entry):
+        return " ".join(entry.replace("_", " ").split())
+
+    def fetch_batch(self, batch):
+        for entry in batch:
+            title = self.key_of(entry)
+            query = urllib.parse.urlencode({
+                "action": "query", "format": "json", "formatversion": "2", "redirects": "1", "titles": title,
+                "prop": "extracts|revisions|pageprops", "exintro": "1", "explaintext": "1", "rvprop": "ids|timestamp",
+                "ppprop": "disambiguation"})
+            status, payload = self.call(self.endpoint + "?" + query, None, {"Accept": "application/json"})
+            if status != 200:
+                raise SourceError("wikipedia_es respondió HTTP %d para '%s'; no se guarda nada de este artículo" % (status, title))
+            try:
+                data = json.loads(payload.decode("utf-8"))["query"]
+                page = data["pages"][0]
+            except (ValueError, KeyError, IndexError, TypeError):
+                raise SourceError("wikipedia_es devolvió una respuesta inesperada para '%s'" % title)
+            if page.get("missing") or page.get("invalid") or not page.get("revisions"):
+                self.store(title, {"requested": title, "missing": True})
+                continue
+            revision = page["revisions"][0]
+            redirects = {r["to"]: r["from"] for r in data.get("redirects", [])}
+            self.store(title, {"requested": title, "title": page["title"], "pageid": page.get("pageid"),
+                               "revid": revision["revid"], "timestamp": revision["timestamp"],
+                               "extract": page.get("extract") or "",
+                               "disambiguation": "disambiguation" in (page.get("pageprops") or {}),
+                               "redirectedFrom": redirects.get(page["title"])})
 
 
 class CommonsStep(Step):

@@ -17,7 +17,7 @@ class SourceListTests(unittest.TestCase):
     def test_lists_match_the_spec(self):
         self.assertEqual(set(ADMITTED_SOURCES), {
             "usda", "wcvp", "wfo", "ema_json", "ema_pdf", "tppt", "efsa",
-            "wikidata", "wikipedia_es", "commons"})
+            "wikidata", "wikipedia_es", "wiktionary_es", "commons"})
         self.assertEqual(len(DISCARDED_SOURCES), 10)
         self.assertFalse(set(ADMITTED_SOURCES) & set(DISCARDED_SOURCES))
 
@@ -92,6 +92,7 @@ class SourceListTests(unittest.TestCase):
         cc = "https://creativecommons.org/"
         expected = {
             "wikipedia_es": (cc + "licenses/by-sa/4.0/", "CC BY-SA 4.0"),
+            "wiktionary_es": (cc + "licenses/by-sa/4.0/", "CC BY-SA 4.0"),
             "efsa": (cc + "licenses/by/4.0/", "CC BY 4.0"),
             "wcvp": (cc + "licenses/by/3.0/", "CC BY 3.0"),
             "usda": (cc + "publicdomain/zero/1.0/", "CC0"),
@@ -175,7 +176,7 @@ class ServiceSourceTests(unittest.TestCase):
         return data
 
     def test_service_source_is_valid_without_file_fields(self):
-        for name in ("wikidata", "wikipedia_es", "commons"):
+        for name in ("wikidata", "wikipedia_es", "wiktionary_es", "commons"):
             source = validate_source(self.data(name))
             self.assertTrue(source.is_service)
             self.assertEqual(source.files, [])
@@ -207,9 +208,39 @@ class ServiceSourceTests(unittest.TestCase):
         sources = {s.id: s for s in load_sources(DEFAULT_SOURCES_FILE)}
         self.assertEqual(sources["wikipedia_es"].license, "CC BY-SA 4.0")
         self.assertIn("CC0", sources["commons"].license)
-        for name in ("wikidata", "wikipedia_es", "commons"):
+        for name in ("wikidata", "wikipedia_es", "wiktionary_es", "commons"):
             self.assertIsInstance(sources[name].enabled, bool)
             self.assertTrue(sources[name].attribution)
+
+    def test_wiktionary_is_declared_as_an_online_service_with_license_url(self):
+        source = {s.id: s for s in load_sources(DEFAULT_SOURCES_FILE)}["wiktionary_es"]
+        self.assertTrue(source.is_service)
+        self.assertEqual(source.page_url, "https://es.wiktionary.org")
+        self.assertEqual((source.license, source.license_url), ("CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/"))
+        self.assertEqual(source.name, "Wikcionario en español")
+        for phrase in ("Wikcionario", "marcado", "notas", "primera oración", "historial", "autores"):
+            self.assertIn(phrase, source.attribution)
+
+    def test_wiktionary_service_is_skipped_by_download(self):
+        import contextlib
+        import io
+        from catalog_seed import cli
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()) as out:
+            code = cli.main(["--cache-dir", tmp, "download", "--source", "wiktionary_es"])
+            self.assertEqual(os.listdir(tmp), [])
+        self.assertEqual(code, 0)
+        self.assertIn("servicio en línea", out.getvalue())
+
+    def test_wiktionary_with_invalid_license_url_fails(self):
+        for bad in ("http://creativecommons.org/", "", 3):
+            with self.assertRaises(SourceError, msg=repr(bad)) as ctx:
+                validate_source(self.data("wiktionary_es", licenseUrl=bad))
+            self.assertIn("licenseUrl", str(ctx.exception))
+
+    def test_wikipedia_attribution_covers_the_glossary(self):
+        source = {s.id: s for s in load_sources(DEFAULT_SOURCES_FILE)}["wikipedia_es"]
+        for phrase in ("glosario", "primera oración", "adaptada", "historial"):
+            self.assertIn(phrase, source.attribution)
 
 
 if __name__ == "__main__":

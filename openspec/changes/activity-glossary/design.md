@@ -10,9 +10,9 @@ Estado actual, observado en el repositorio y en `data/build/catalog.db` el 2026-
 - Las fuentes en línea (`wikidata`, `wikipedia_es`, `commons`) se declaran en `sources.json` sin archivo ni checksum, se descargan con `wiki.py` (caché por respuesta, `User-Agent` genérico `BoticarioAI-catalog-seed/0.1 (academic project)`, `Retry-After`, `_resume.json`) y se admiten en `ADMITTED_SOURCES` y `SERVICE_SOURCES`. El manifiesto lista toda fuente activa, también las de servicio.
 - `credits` lo calcula `load_credits` en `catalog-api/src/repository.rs` a partir de las tablas de atribución y de los datasets de las referencias de lo que se sirve; los grupos pendientes no acreditan.
 - El validador de registros tiene `DOSE_PATTERNS` (dosis, posología, unidades, gotas, cucharadas, «cura», «trata», «previen-», «elimina», «alivia», «eficaz», «efectiv-»), que emite advertencias, y `sensitive-activities.json` (enfermedades graves y señales de riesgo, con `Emmenagogue` en `excludedDoubtful`).
-- La app tiene tres capas: `UseGroup` en `plant_consolidated.dart`, el parser tolerante en `catalog_json_parser.dart` y `passport_uses_tab.dart`. El cambio paralelo `compact-passport-uses` reescribe el grupo (título, línea «N registros · países», «Ver N citas») y su tarea 2.1 reescribe `_UseGroupCard`; sus artefactos existen al escribir este diseño y no se tocan.
+- La app tiene tres capas: `UseGroup` en `plant_consolidated.dart`, el parser tolerante en `catalog_json_parser.dart` y `passport_uses_tab.dart`. El cambio `compact-passport-uses` ya reescribió el grupo (título, línea «N registros · países», «Ver N citas»); ese cambio ya está implementado y archivado en esta rama.
 
-Véase `proposal.md` para el motivo y la decisión del usuario del 2026-10-29: explicación breve bajo los términos técnicos, definiciones de una fuente abierta citada (Wikcionario en español), proceso de la semilla, atribución en `Fuentes` y alcance inicial de unos 80 términos.
+Véase `proposal.md` para el motivo y las decisiones del usuario del 2026-10-29: explicación breve bajo los términos técnicos, tomada de fuentes abiertas citadas (Wikcionario en español y, para los términos que este no cubre, Wikipedia en español), proceso de la semilla, atribución en `Fuentes` y alcance inicial de unos 85 términos. Las preguntas abiertas del plan inicial quedaron resueltas (véase «Decisiones del usuario»).
 
 ### Investigación previa
 
@@ -24,7 +24,7 @@ Se hizo el 2026-10-29 con 10 peticiones seriales a `es.wiktionary.org` (con paus
 - Términos de Uso, sección 7, «Licensing of Content»: <https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use>. La atribución se cumple con un enlace al artículo (cuyo historial lista a los autores), con un enlace a una copia estable que dé crédito equivalente o con una lista de autores. Los datos como hechos pueden reutilizarse sin atribución (renuncia a los derechos sui generis de base de datos), pero la expresión de la definición no.
 - Texto legal, sección 3 de <https://creativecommons.org/licenses/by-sa/4.0/legalcode.en>: quien comparte, incluso con cambios, debe conservar la identificación de los autores y un enlace al material «en la medida de lo razonablemente practicable» (3(a)(1)(A)), indicar si lo modificó (3(a)(1)(B)) e indicar la licencia con su texto o enlace (3(a)(1)(C)); puede cumplirlo de cualquier forma razonable según el medio, por ejemplo con un enlace a un recurso que lo incluya (3(a)(2)). Si comparte material adaptado, debe licenciarlo con CC BY-SA o una licencia compatible, sin términos adicionales ni medidas tecnológicas que restrinjan (3(b)).
 - Consecuencias: cada fila del glosario guarda la URL permanente de la revisión (`index.php?title=…&oldid=…`), cuyo historial lista a los autores; el glosario se licencia como CC BY-SA 4.0; el recorte a la primera oración y el retiro del marcado son cambios que la atribución declara; `Fuentes` muestra el crédito con la licencia enlazada. No es asesoría legal. Una definición de una oración puede no alcanzar el umbral de originalidad, pero se trata como obra protegida, igual que el resumen de Wikipedia en `consolidate-catalog-seed` (D12).
-- Política de `User-Agent` de Wikimedia (<https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy>): pide un `User-Agent` informativo con datos de contacto y advierte que los scripts pueden bloquearse sin aviso. El proyecto usa uno genérico sin correo por decisión previa; con él las 10 peticiones de la investigación y las de `wiki-fetch` funcionaron (hubo 429 en Wikipedia, que `Retry-After` resolvió). Es un riesgo menor que se anota en la pregunta Q4.
+- Política de `User-Agent` de Wikimedia (<https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy>): pide un `User-Agent` informativo con datos de contacto y advierte que los scripts pueden bloquearse sin aviso. El proyecto usa uno genérico sin correo por decisión previa; con él las 10 peticiones de la investigación y las de `wiki-fetch` funcionaron (hubo 429 en Wikipedia, que `Retry-After` resolvió). Es un riesgo menor; el usuario decidió mantener el `User-Agent` genérico, sin datos de contacto personales (Q4).
 
 **Acceso.** Probado:
 
@@ -33,6 +33,8 @@ Se hizo el 2026-10-29 con 10 peticiones seriales a `es.wiktionary.org` (con paus
 - `GET /api/rest_v1/page/html/<título>`: HTML de Parsoid con el `revid` en el `ETag`; equivalente al anterior.
 - `GET /api/rest_v1/page/definition/<título>`: no existe para `es` (responde 501).
 - Los títulos distinguen mayúsculas: la entrada es `diurético`, no `Diurético`.
+
+**Wikipedia como segunda fuente (investigación del 2026-10-29).** `GET /w/api.php?action=query&prop=extracts|revisions|pageprops&exintro=1&explaintext=1&redirects=1&rvprop=ids|timestamp&ppprop=disambiguation&titles=<título>` devuelve en una sola petición el texto plano de la introducción, el `revid` y la hora de la revisión y la marca de desambiguación. El extracto trae a veces espacios dobles y paréntesis con etimología («Un  estimulante (del verbo latino stimulāre) o psicoestimulante … es una sustancia psicoactiva…»), así que la primera oración literal no siempre es una buena definición, y de ahí la paráfrasis admitida en D4. La licencia es la de Wikipedia en español (CC BY-SA 4.0), la misma que ya declara `wikipedia_es`.
 
 **Cobertura.** De 85 términos candidatos (actividades de acción de la base, ordenadas por frecuencia hasta 7 grupos), Wikcionario tiene entrada con sección en español para 57 y no la tiene para 28. De los 57, 25 tienen una acepción marcada «Medicina» o «Farmacología», y las otras 32 tienen la acepción útil sin marca o con otra (Química, Dermatología). La marca no basta para elegir: `aperitivo` marca «Medicina» la acepción 2 (desobstruir un conducto) y deja sin marca la 1 (estimular el apetito), que es la que usa Dr. Duke; `anodino` tiene tres acepciones figuradas antes de la farmacológica; `tónico` marca la 3.
 
@@ -47,7 +49,7 @@ Se hizo el 2026-10-29 con 10 peticiones seriales a `es.wiktionary.org` (con paus
 | Expectorante | 200 | sí | sí, débil (1, Medicina) | «Que hace expectorar.» |
 | Estomacal | 196 | sí | sí (2, sin marca) | «Que fortalece al estómago, y favorece la digestión.» |
 | Vermífugo | 182 | no (solo la forma femenina `vermífuga`) | no | sin entrada |
-| Emenagogo | 178 | sí | sí (2, sin marca; la 1 está marcada como impropia), sensible | «Sustancia que estimula el flujo de la sangre en el área de la pelvis y el útero, favoreciendo la menstruación.» |
+| Emenagogo | 178 | sí | sí (2, sin marca; la 1 está marcada como impropia); incluido por decisión del usuario | «Sustancia que estimula el flujo de la sangre en el área de la pelvis y el útero, favoreciendo la menstruación.» |
 | Laxante | 170 | sí | sí (1, sin marca) | «Se dice del alimento o medicamento que provoca o facilita la defecación.» |
 | Sedante | 159 | sí | no, solo un sinónimo | «Calmante, hablando de remedios.» |
 | Antiséptico | 156 | sí | sí (2, Medicina), con «prevenir» | «Capaz de prevenir las infecciones microbianas.» |
@@ -75,36 +77,39 @@ Se hizo el 2026-10-29 con 10 peticiones seriales a `es.wiktionary.org` (con paus
 
 **Goals:**
 
-- Que el usuario entienda los términos técnicos de `Usos` sin salir de la app, con una explicación citada de una fuente abierta, nunca escrita por el modelo.
-- Que la explicación no se lea como una promesa sobre la planta.
+- Que el usuario entienda los términos técnicos de `Usos` sin salir de la app, con una explicación citada de una fuente abierta (Wikcionario o Wikipedia en español), nunca con conocimiento propio del modelo.
+- Que la explicación se lea como el significado de la palabra y no como una promesa sobre la planta.
 - Que el proceso sea el de la semilla: lista versionada, descarga con caché y revisión fija, validación, sellado, atribución y construcción determinista sin red.
 - Cambios aditivos en la API y compatibles hacia atrás con la app instalada.
 
 **Non-Goals:**
 
 - Regenerar o modificar los registros de las plantas, cambiar el prompt o la traducción de las actividades (la inconsistencia de `Aperient` queda como limitación).
-- Explicar enfermedades, síntomas o términos arcaicos que no son de acción (Hidropesía, Escrófula, Caquexia, Biliosidad), ni las actividades con la fórmula de enfermedad grave. Podrían ser un cambio posterior.
-- Buscar otra fuente para los 28 términos ausentes, o que el proyecto contribuya a Wikcionario.
-- Traducir, resumir o parafrasear las definiciones, o mostrarlas fuera de `Usos`.
+- Explicar enfermedades, síntomas o términos arcaicos que no son de acción (Hidropesía, Escrófula, Caquexia, Biliosidad), ni las actividades con la fórmula de enfermedad grave. Son un cambio posterior (decisión del usuario del 2026-10-29: la segunda tanda queda como trabajo futuro).
+- Buscar fuentes distintas de Wikcionario y Wikipedia en español, o que el proyecto contribuya a ellas.
+- Traducir o parafrasear las definiciones de Wikcionario, parafrasear sin el texto de un artículo de Wikipedia, o mostrar las explicaciones fuera de `Usos`.
 - Cambiar el diseño del grupo (lo hace `compact-passport-uses`).
 
 ## Decisions
 
-### D1. Fuente, licencia y atribución
+### D1. Fuentes, licencia y atribución
 
-Wikcionario en español, CC BY-SA 4.0 (decisión del usuario, confirmada por la investigación). Se declara como `wiktionary_es` en `sources.json` (servicio en línea, `licenseUrl` de CC BY-SA 4.0, `pageUrl` `https://es.wiktionary.org`) y se añade a `ADMITTED_SOURCES` y `SERVICE_SOURCES`; el manifiesto y `catalog.db` la listan como a las demás. Su `attribution` dice que las definiciones son de Wikcionario, que se les retiró el marcado y las notas y se recortaron a la primera oración, y que el historial de cada entrada lista a sus autores. El glosario (`glossary.json`) es una obra derivada: lleva su licencia CC BY-SA 4.0 y la URL permanente de la revisión de cada entrada. En `Fuentes` la atribución sale por `credits`, como la de Wikipedia.
+Dos fuentes abiertas, ambas CC BY-SA 4.0 (decisión del usuario del 2026-10-29, que amplía la inicial): Wikcionario en español como fuente principal y Wikipedia en español para los términos que Wikcionario no tiene o cuya definición es circular o insuficiente («Que estimula», «Que purga», «Calmante»). Wikcionario se declara como `wiktionary_es` en `sources.json` (servicio en línea, `licenseUrl` de CC BY-SA 4.0, `pageUrl` `https://es.wiktionary.org`) y se añade a `ADMITTED_SOURCES` y `SERVICE_SOURCES`; su `attribution` dice que las definiciones son de Wikcionario, que se les retiró el marcado y las notas y se recortaron a la primera oración, y que el historial de cada entrada lista a sus autores. Wikipedia ya es `wikipedia_es`, fuente de la semilla con la misma licencia: el glosario la usa sin declarar una fuente nueva, y su `attribution` suma que, en el glosario, el texto es la primera oración de un artículo o una paráfrasis marcada como adaptada, hecha solo con el texto del artículo.
+
+El glosario (`glossary.json`) es una obra derivada: lleva su licencia CC BY-SA 4.0 y, por fila, la fuente y la URL permanente de la revisión de la entrada o del artículo (`oldid`). En `Fuentes` la atribución sale por `credits`, como la de Wikipedia: el crédito de `wikipedia_es` ya existe cuando la descripción de la planta sale de ella, y no se duplica.
 
 Alternativas:
 
 - Cumplir con la GFDL en vez de CC BY-SA. Se descarta: añade obligaciones (texto completo de la licencia) sin ventaja, y el repositorio ya usa CC BY-SA para Wikipedia.
-- Enlazar solo al sitio y no a cada entrada. Cumple peor la atribución («un enlace al material, en lo razonablemente practicable»); se guarda la URL por fila y la app decide si la enlaza (pregunta Q5).
-- Evitar la licencia redactando definiciones propias. No es posible: el usuario prohibió definiciones con conocimiento del modelo.
+- Enlazar solo al sitio y no a cada entrada. Cumple peor la atribución («un enlace al material, en lo razonablemente practicable»); cada explicación enlaza su entrada o artículo (decisión del usuario, antes pregunta Q5).
+- Solo Wikcionario. Deja sin explicación a Vermífugo (182 grupos) y Hemostático (84) y a los circulares como Estimulante o Purgante; la segunda fuente era la pregunta Q2.
+- Evitar la licencia redactando definiciones propias sin fuente. No es posible: el usuario prohibió definiciones con conocimiento del modelo; la única redacción admitida es la paráfrasis de Wikipedia de D5, con su texto como único insumo y revisión humana.
 
 ### D2. Qué términos entran
 
-La lista inicial la propone el desarrollador y la aprueba el usuario, y vive versionada en `tools/catalog-seed/glossary-terms.json`. Se arma así: se toman las actividades de `plant_use_group` (visibles, sin la fórmula de enfermedad grave) ordenadas por frecuencia; se conserva un término si es de acción (un tipo de remedio o de efecto atribuido a una sustancia: diurético, tónico, astringente) y no una enfermedad, síntoma, parte del cuerpo, forma de uso (té, licor, jabón, cataplasma) o actividad sensible; y se corta cuando la frecuencia baja de 7 grupos. Salen 85 candidatos que suman 6.031 grupos (35,15 %). Cada término declara su texto de actividad, el título de Wikcionario y la acepción; los excluidos quedan en una sección con su motivo.
+La lista inicial la propone el desarrollador y la aprueba el usuario, y vive versionada en `tools/catalog-seed/glossary-terms.json`. Se arma así: se toman las actividades de `plant_use_group` (visibles, sin la fórmula de enfermedad grave) ordenadas por frecuencia; se conserva un término si es de acción (un tipo de remedio o de efecto atribuido a una sustancia: diurético, tónico, astringente) y no una enfermedad, síntoma, parte del cuerpo, forma de uso (té, licor, jabón, cataplasma) o actividad sensible; y se corta cuando la frecuencia baja de 7 grupos. Salen 85 candidatos que suman 6.031 grupos (35,15 %). La lista real de la tarea 1.3 tiene 83 términos (6.071 grupos por la forma base, en 1.241 plantas): se excluyó `Anticonceptivo` (16 grupos) a la espera de una decisión por su tema reproductivo, y la selección fue la que se describe aquí. Cada término declara su texto de actividad, el título de Wikcionario y, según D4, la acepción o el artículo de Wikipedia y el modo (literal o adaptado); los excluidos quedan en una sección con su motivo. `Emenagogo` entra, con su definición tal cual (decisión del usuario).
 
-Cómo crece: el desarrollador agrega términos a la lista y vuelve a ejecutar `glossary-fetch` (solo descarga los nuevos), `glossary-build`, `validate` y `seal`; el plan de regeneración sigue en cero. Un comando `glossary-candidates` imprime las actividades más frecuentes que aún no están en la lista ni en excluidos, para revisarlas. Una segunda tanda natural son las enfermedades arcaicas, que exigen otra regla de selección y quedan fuera de este cambio.
+Cómo crece: el desarrollador agrega términos a la lista y vuelve a ejecutar `glossary-fetch` (solo descarga los nuevos), `glossary-build`, `validate` y `seal`; el plan de regeneración sigue en cero. Un comando `glossary-candidates` imprime las actividades más frecuentes que aún no están en la lista ni en excluidos, para revisarlas. Una segunda tanda natural son las enfermedades arcaicas (Hidropesía, Escrófula, Caquexia), que exigen otra regla de selección y quedan fuera de este cambio como trabajo futuro.
 
 Alternativas:
 
@@ -114,7 +119,7 @@ Alternativas:
 
 ### D3. Cómo se descarga
 
-Un paso explícito `glossary-fetch` (con `--plan` y `--wait` como `wiki-fetch`) que reutiliza la mecánica de `wiki.py`: una petición `action=parse` por término (`prop=text|revid`, `redirects=1`), en serie, con pausa de 1 segundo, el `User-Agent` del proyecto, respeto de `Retry-After`, `_resume.json` y caché en `data/.cache/wiktionary_es/<título>.json` con la respuesta, el `revid` y la fecha. La entrada inexistente se guarda como ausencia con su fecha. Para 85 términos son 85 peticiones, unos 2 minutos. «Versión fija»: la caché conserva la revisión; cada fila del glosario guarda el `revid` y la URL con `oldid`, y actualizar una entrada es un paso explícito (`--refresh <título>`) cuyo cambio queda visible en el diff de `glossary.json`.
+Un paso explícito `glossary-fetch` (con `--plan` y `--wait` como `wiki-fetch`) que reutiliza la mecánica de `wiki.py`: una petición `action=parse` por término (`prop=text|revid`, `redirects=1`), en serie, con pausa de 1 segundo, el `User-Agent` del proyecto, respeto de `Retry-After`, `_resume.json` y caché en `data/.cache/wiktionary_es/<título>.json` con la respuesta, el `revid` y la fecha. La entrada inexistente se guarda como ausencia con su fecha. Para 85 términos son 85 peticiones (más una de metadatos por entrada hallada, que trae la hora de la revisión), unos 4 minutos. Wikipedia usa la misma mecánica con la consulta de la investigación (una petición por artículo, que ya incluye revisión y hora), en `data/.cache/wikipedia_es/glossary/`, y solo se descarga para los términos que declaran `wikipediaTitle` en la lista. «Versión fija»: la caché conserva la revisión; cada fila del glosario guarda el `revid` y la URL con `oldid`, y actualizar una entrada es un paso explícito (`--refresh <título>`) cuyo cambio queda visible en el diff de `glossary.json`.
 
 Alternativas:
 
@@ -123,32 +128,43 @@ Alternativas:
 - Un volcado de Wikcionario: cientos de MB para 85 entradas.
 - Fijar el checksum de cada respuesta en `sources.json`: las respuestas llevan marcas dinámicas; el `revid` y la URL con `oldid` son la fijación útil.
 
-### D4. Selección de la acepción
+### D4. Selección de la acepción o del texto
 
-El LLM propone el número de acepción de cada término y una persona lo revisa. El agente recibe las acepciones reales de la entrada (numeradas, con su marca) y responde solo `{term, sense | null, reason}`; nunca escribe texto. Reglas: elegir la acepción que describe una acción o propiedad atribuida a un remedio o sustancia; descartar las figuradas, anatómicas, gramaticales o de otro dominio (música, lingüística, gastronomía); preferir la acepción más general sobre la técnica cuando ambas son farmacológicas; devolver `null` si la acepción solo remite a un sinónimo, repite el término, o la entrada es una forma flexionada. El resultado se guarda en `glossary-terms.json` (el número y la razón), el usuario aprueba la tabla de unas 85 filas, y el armado posterior es determinista, sin LLM.
+**Wikcionario.** El LLM propone el número de acepción de cada término y una persona lo revisa. El agente recibe las acepciones reales de la entrada (numeradas, con su marca) y responde solo `{term, sense | null, reason}`; no escribe texto. Reglas: elegir la acepción que describe una acción o propiedad atribuida a un remedio o sustancia; descartar las figuradas, anatómicas, gramaticales o de otro dominio (música, lingüística, gastronomía); preferir la acepción más general sobre la técnica cuando ambas son farmacológicas; devolver `null` si la acepción solo remite a un sinónimo, repite el término o es vaga, o si la entrada es una forma flexionada. Un término con `null` pasa a Wikipedia.
+
+**Wikipedia.** Solo para los términos sin entrada o sin acepción adecuada en Wikcionario. El agente recibe el título del artículo y su extracto de introducción tal como quedó en la caché y responde `{term, title, mode, text, evidence, reason}` o `null` con motivo. Reglas:
+
+- El artículo debe tratar el término como remedio o efecto atribuido a una sustancia; se descartan las páginas de desambiguación y los artículos de otro sentido.
+- `mode` es `literal` si la primera oración del artículo define bien el término: el texto es esa oración, recortada como en D5.
+- `mode` es `adapted` si la primera oración no basta (no define, es demasiado larga o está llena de paréntesis y datos laterales): el texto es una paráfrasis de una o dos oraciones, de hasta 300 caracteres, hecha solo con el texto del extracto guardado, sin conocimiento propio, sin dosis, sin nombres de plantas, sin afirmar nada que el extracto no diga y sin promesas sobre la planta. `evidence` copia, literal, la o las frases del extracto en las que se apoya, para que el revisor compare.
+- Si ningún texto del artículo define el término, se devuelve `null` y el término queda sin explicación.
+
+El resultado se guarda en `glossary-terms.json` (acepción o artículo, modo, texto adaptado, evidencia y razón), el usuario aprueba la tabla completa, con el texto exacto que se mostraría y su marca de literal o adaptado, y el armado posterior es determinista, sin LLM. Este es el único punto en que el modelo escribe texto, y solo parafraseando un artículo.
 
 Alternativas:
 
 - Regla determinista por marca (`Medicina`, `Farmacología`): resuelve 25 de 57 y elige mal `aperitivo`; no basta.
 - Elección manual sin LLM: equivalente en calidad y más lenta, pero sin dependencia; es el plan B si el usuario prefiere decidir cada fila.
-- Dejar que el LLM redacte la definición a partir de la acepción: descartado por el usuario y porque sería una adaptación que obligaría a indicar cambios más amplios.
+- Dejar que el LLM redacte la definición de Wikcionario: descartado, porque sería una adaptación de texto que ya es una definición. La paráfrasis se admite solo para Wikipedia, cuyo extracto es un párrafo y no una definición.
 
-### D5. Texto literal, recortado
+### D5. Texto literal o adaptado
 
-Se guarda el texto de la acepción tal como Wikcionario lo muestra, con estos únicos cambios, que la atribución declara: se retira el marcado de enlaces y énfasis, las notas al pie (`[1]`) y las listas de sinónimos, antónimos, usos y ejemplos; se normalizan los espacios; y se recorta a la primera oración (hasta el primer punto que no sea de una abreviatura de la lista corta, como «etc.» o «p. ej.»). No se cambia la mayúscula inicial ni se parafrasea. «Dicho de un medicamento: Que mitiga el dolor.» queda como está. El texto debe terminar en punto y estar entero; si el recorte da menos de 12 caracteres o más de 300, el término se revisa a mano.
+**Literal.** Se guarda el texto tal como la fuente lo muestra, con estos únicos cambios, que la atribución declara: se retira el marcado de enlaces y énfasis, las notas al pie (`[1]`) y, en Wikcionario, las listas de sinónimos, antónimos, usos y ejemplos; se normalizan los espacios; y se recorta a la primera oración (hasta el primer punto que no sea de una abreviatura de la lista corta, como «etc.» o «p. ej.»). No se cambia la mayúscula inicial ni se parafrasea. «Dicho de un medicamento: Que mitiga el dolor.» queda como está. El texto debe terminar en punto y estar entero; si el recorte da menos de 12 caracteres o más de 300, el término se revisa a mano.
 
-Alternativas: la acepción completa (algunas son largas, como `astringente`, que sigue con ejemplos de sales); una paráfrasis hecha por el LLM (descartada, véase D4); minúscula inicial para encajar tras un encabezado (es un cambio más que indicar, sin beneficio).
+**Adaptado (solo Wikipedia).** Una paráfrasis de una o dos oraciones, hecha solo con el extracto del artículo (D4), se guarda con `adapted` verdadero, el enlace a la revisión usada (`oldid`), la licencia CC BY-SA 4.0 y la indicación de que es una adaptación (CC BY-SA 4.0, 3(a)(1)(B)). La app la marca como «adaptado de Wikipedia». El validador no puede comprobar que una paráfrasis sea fiel; por eso la fila guarda la evidencia literal (que sí se comprueba contra la caché) y la revisión humana decide.
 
-### D6. Sin acepción adecuada
+Alternativas: la acepción completa (algunas son largas, como `astringente`, que sigue con ejemplos de sales); parafrasear también Wikcionario (descartado, véase D4); minúscula inicial para encajar tras un encabezado (es un cambio más que indicar, sin beneficio); citar un fragmento arbitrario del artículo en vez de parafrasear (los extractos son párrafos con etimología y datos laterales, no definiciones).
 
-El término queda sin definición, registrado en la sección de excluidos con motivo y fecha (`sin-entrada`, `solo-forma-flexionada`, `circular`, `sinonimo`, `vaga`, `sensible`, `patron-no-aprobado`). Nunca se completa con otra fuente ni con conocimiento propio. Los términos ausentes más frecuentes (Vermífugo, 182 grupos; Hemostático, 84) quedan sin explicación hasta que Wikcionario cree la entrada o el usuario decida otra fuente abierta (pregunta Q2).
+### D6. Sin texto adecuado
+
+El término queda sin explicación, registrado en la sección de excluidos con motivo y fecha (`sin-entrada`, `solo-forma-flexionada`, `circular`, `sinonimo`, `vaga`, `sensible`, `patron-no-aprobado`; para Wikipedia, `sin-articulo`, `desambiguacion` y `articulo-no-define`). Un término sin acepción adecuada en Wikcionario se prueba con Wikipedia antes de excluirlo. Nunca se completa con otra fuente ni con conocimiento propio.
 
 ### D7. Dónde vive el glosario
 
 Tres capas, todas derivadas de la semilla:
 
-- **Semilla.** `data/seed/glossary.json` (`catalog-glossary/1`) con la fuente, la licencia, su URL y las filas ordenadas por clave: `key` (forma base normalizada), `term`, `text`, `sense`, `entryUrl` (con `oldid`), `revisionId`, `revisionTimestamp` y `retrievedAt`. El manifiesto suma `glossaryHash` (sha256 del JSON canónico) y `glossaryCount`. El `seedHash` no cambia: así los registros y su hash quedan como están y no hay que tocar el cálculo de Python ni el de Rust para ellos.
-- **Base.** Una migración `2026-10-30-000000_catalog_v3` crea `activity_glossary` (`key` llave, `term`, `text`, `entry_url`, `revision_date`, `source_id` que referencia `source`) y añade `plant_use_group.glossary_key` nula que referencia `activity_glossary(key)`. `SCHEMA_VERSION` pasa a 3 y se actualizan `schema.rs`, `rows.rs`, la lista de tablas esperadas y `NEUTRAL_TABLES`. Los nombres son neutrales y no contienen el nombre de ningún dataset.
+- **Semilla.** `data/seed/glossary.json` (`catalog-glossary/1`) con la fuente, la licencia, su URL y las filas ordenadas por clave: `key` (forma base normalizada), `term`, `text`, `sourceId` (`wiktionary_es` o `wikipedia_es`), `sourceName` (`Wikcionario` o `Wikipedia`), `adapted`, `sense` (nulo en Wikipedia), `entryUrl` (con `oldid`), `revisionId`, `revisionTimestamp` y `retrievedAt`. El manifiesto suma `glossaryHash` (sha256 del JSON canónico) y `glossaryCount`. El `seedHash` no cambia: así los registros y su hash quedan como están y no hay que tocar el cálculo de Python ni el de Rust para ellos.
+- **Base.** Una migración `2026-10-30-000000_catalog_v3` crea `activity_glossary` (`key` llave, `term`, `text`, `entry_url`, `revision_date`, `source_id` que referencia `source`, `source_name` y `adapted`) y añade `plant_use_group.glossary_key` nula que referencia `activity_glossary(key)`. `SCHEMA_VERSION` pasa a 3 y se actualizan `schema.rs`, `rows.rs`, la lista de tablas esperadas y `NEUTRAL_TABLES`. Los nombres son neutrales y no contienen el nombre de ningún dataset.
 - **API.** `useGroups[].glossary` (D9) y el crédito en `credits`.
 
 Alternativas:
@@ -168,41 +184,43 @@ Alternativas: coincidencia exacta sin forma base (pierde 84 grupos de `Antídoto
 
 ### D9. Contrato de la API
 
-Cada elemento de `useGroups` suma `glossary`, siempre presente: `null` o `{text, url}`. `text` es la definición literal y `url` la URL de la revisión. Es aditivo, dentro de `/v1` (`catalog-api`, «Compatibilidad dentro de `/v1`»); `uses`, el orden y los demás campos no cambian. `credits` suma Wikcionario si algún grupo servido tiene `glossary` no nulo, con una consulta más en `load_credits` que sigue el patrón de los datasets de referencias. Se documenta en `openapi.json` y la colección de Postman.
+Cada elemento de `useGroups` suma `glossary`, siempre presente: `null` o `{term, text, sourceName, url, adapted}`. `term` es el término del glosario, sin el calificador de la actividad del grupo; `text` es la explicación tal como la guarda la semilla; `sourceName` es el nombre corto de la fuente (`Wikcionario` o `Wikipedia`); `url` es la URL de la revisión de la entrada o del artículo; `adapted` es verdadero si el texto es una paráfrasis de Wikipedia y falso si es literal. Es aditivo, dentro de `/v1` (`catalog-api`, «Compatibilidad dentro de `/v1`»); `uses`, el orden y los demás campos no cambian. `credits` suma las fuentes de las explicaciones servidas (Wikcionario, Wikipedia o ambas) con una consulta más en `load_credits`; el crédito de Wikipedia aparece una sola vez aunque la planta ya lo tenga por la descripción. Se documenta en `openapi.json` y la colección de Postman.
 
-Alternativas: un solo campo `activityNote` de texto (sin la URL, que obligaría a otra solución para la atribución por entrada); un mapa `glossary` en la raíz del detalle por actividad (separa la explicación del grupo y obliga al cliente a unirlos); un campo `label` con el encabezado (la API serviría textos de interfaz; se prefiere la constante en la app, que el escaneo de lenguaje de eficacia cubre).
+Alternativas: un solo campo `activityNote` de texto (sin la fuente ni la URL, que obligaría a otra solución para la atribución por entrada); un mapa `glossary` en la raíz del detalle por actividad (separa la explicación del grupo y obliga al cliente a unirlos); un campo `label` con la etiqueta de interfaz (la API serviría textos de la app; se prefiere la constante en la app, que el escaneo de lenguaje de eficacia cubre).
 
 ### D10. Lenguaje de eficacia
 
-Una definición como «Que suaviza y protege las mucosas» describe la palabra. Para que no se lea como una promesa sobre la planta se combinan tres medidas:
+Una definición como «Que suaviza y protege las mucosas» describe la palabra. Para que no se lea como una promesa sobre la planta se combinan cuatro medidas:
 
-- **Encabezado fijo en la app: «Según Wikcionario:»**, con el texto entre comillas angulares, en texto secundario. Es una cita atribuida, no una afirmación del catálogo, y nombra la fuente en el punto de uso. El aviso fijo de `Usos` («No son recomendaciones ni están comprobados clínicamente») sigue arriba.
-- **Validador del glosario**, sobre el texto de cada término: error si hay dosis o posología (cantidad con unidad, «dosis», «posología», «gotas», «cucharadas»); error con los patrones de eficacia de `DOSE_PATTERNS` (curar, tratar, prevenir, eliminar, aliviar, eficaz, efectivo) salvo que la lista versionada apruebe ese patrón para ese término, con motivo; error si menciona alguna enfermedad grave de `sensitive-activities.json` (cáncer, tumor, diabetes…). Con los 85 candidatos, 6 términos adecuados necesitarían la aprobación de un patrón (antidiarreico, antiséptico, bactericida, fungicida, parasiticida y vulnerario), `emoliente` quedaría fuera por «tumores» y `demulcente` se resuelve eligiendo la acepción 1.
-- **Revisión humana** de la tabla de definiciones antes de sellar, que decide también los verbos de efecto que el validador no ve («fortalece», «favorece», «mitiga», «combatir»), porque son justo el significado de los términos.
+- **Formato visible fijo en todas las explicaciones** (decisión del usuario del 2026-10-29, que reemplaza el encabezado «Según Wikcionario:»): una etiqueta en gris, «Significado del término», bajo el título del grupo; debajo, `<Término>: «<definición>» (Wikcionario)` o `(Wikipedia)`, con el nombre de la fuente enlazado a la entrada o al artículo, en línea, como en `Fuentes`. Un texto adaptado dice «(adaptado de Wikipedia)». La etiqueta dice que se explica la palabra y no lo que hace la planta, y la fuente se nombra en el punto de uso. El aviso fijo de `Usos` («No son recomendaciones ni están comprobados clínicamente») sigue arriba.
+- **Validador del glosario**, sobre el texto de cada término: error si hay dosis o posología (cantidad con unidad, «dosis», «posología», «gotas», «cucharadas»); error con los patrones de eficacia de `DOSE_PATTERNS` (curar, tratar, prevenir, eliminar, aliviar, eficaz, efectivo) salvo que la lista versionada apruebe ese patrón para ese término, con motivo; error si menciona alguna enfermedad grave de `sensitive-activities.json` (cáncer, tumor, diabetes…).
+- **Aprobación explícita por término** de las definiciones con verbos vigilados. El usuario aprobó el 2026-10-29 las de Antiséptico («prevenir»), Bactericida («elimina»), Vulnerario («curar»), Antidiarreico («previene»), Fungicida («elimina») y Parasiticida («eliminar»): quedan en `approvedPatterns` con ese motivo. Cualquier otro término con un patrón vigilado, por ejemplo Antiespasmódico si su texto dice «prevenir», sigue bloqueado hasta que el usuario lo apruebe. `emoliente` queda fuera por «tumores» y `demulcente` se resuelve eligiendo la acepción 1.
+- **Revisión humana** de la tabla completa antes de sellar, que decide también los verbos de efecto que el validador no ve («fortalece», «favorece», «mitiga», «combatir»), porque son justo el significado de los términos, y la fidelidad de cada texto adaptado. La tabla marca cada texto como literal o adaptado.
 
-Alternativas: sin encabezado, con el texto solo (se confundiría con una afirmación sobre la planta); un prefijo «Término tradicional:» (no dice quién lo define y suena a recomendación tradicional); una redacción neutra propia, como «Se usa para…» (sería texto del modelo, descartado); el encabezado en los datos de la API (rechazado en D9).
+Alternativas: sin etiqueta, con el texto solo (se confundiría con una afirmación sobre la planta); el encabezado «Según Wikcionario:» del plan inicial (no cubre a Wikipedia y no dice que se explica la palabra); un prefijo «Término tradicional:» (no dice quién lo define y suena a recomendación tradicional); una redacción neutra propia, como «Se usa para…» (sería texto del modelo sin fuente); la etiqueta en los datos de la API (rechazado en D9).
 
 ### D11. App
 
-La línea de explicación va bajo el título del grupo y antes de la línea de datos del cambio paralelo (`bodySmall`, gris, con el mismo contraste que la atribución de `Fuentes`), solo si el grupo trae `glossary`. El encabezado y las comillas son constantes de `PassportTexts` y entran en `all`, que el escaneo de lenguaje de eficacia recorre. La línea es parte del título para la semántica (un solo nodo de lectura: actividad, explicación y datos). Sin URL visible y sin truncado a 360x640 al 200 %. La atribución de Wikcionario sale de `credits` en `Fuentes` sin código nuevo. Se mantiene en el modelo la `url` de la revisión por si se decide enlazar la explicación (Q5).
+Bajo el título del grupo y antes de la línea de datos del cambio paralelo, solo si el grupo trae `glossary`, la app muestra dos líneas en `bodySmall`: la etiqueta «Significado del término», en gris, y debajo `<Término>: «<definición>» (<fuente>)`, con el nombre de la fuente enlazado a la `url` (en línea, con el mismo estilo de enlace y contraste que `Fuentes`); si `adapted` es verdadero, el paréntesis dice «adaptado de» seguido de la fuente enlazada. La etiqueta, las comillas y «adaptado de» son constantes de `PassportTexts` y entran en `all`, que el escaneo de lenguaje de eficacia recorre. Las dos líneas son parte del título para la semántica (un solo nodo de lectura: actividad, significado y datos) y el enlace es un elemento accionable con su nombre accesible y un área táctil suficiente. Sin truncado a 360x640 al 200 %. La app solo abre la `url` si es `https`. La atribución completa sale de `credits` en `Fuentes` sin código nuevo.
 
-Coordinación con `compact-passport-uses`: se implementa después, o sobre el diseño vigente si aquel aún no se aplicó (la línea va bajo la actividad en ambos). Los deltas no chocan: aquel modifica «Usos como registros tradicionales trazables» y «Accesibilidad del pasaporte», y este solo agrega un requisito. Hay que reconciliar `passport_uses_tab.dart` y las pruebas al aplicar el segundo.
+Coordinación con `compact-passport-uses`: ese cambio ya está implementado y archivado en esta rama, así que la línea va sobre el diseño vigente del grupo (actividad, línea «N registros · países» y «Ver N citas»). Los deltas no chocan: aquel modifica «Usos como registros tradicionales trazables» y «Accesibilidad del pasaporte», y este solo agrega un requisito.
 
 ## Risks / Trade-offs
 
-- **Wikcionario cambia o es vandalizado** → cada fila fija la revisión y su URL con `oldid`; actualizar es un paso explícito y se revisa el diff.
-- **Una definición se lee como promesa** → encabezado de cita, validador, aprobación por patrón y revisión humana (D10). Residual: verbos de efecto del significado que el usuario ve junto a una planta; se mide en la QA del emulador.
-- **Cobertura parcial: ~22 % de los grupos** y términos muy frecuentes sin entrada (Vermífugo, 182 grupos) → se documenta; las preguntas Q2 y Q3 deciden la segunda fuente y la tanda de enfermedades.
+- **Wikcionario o Wikipedia cambian o son vandalizados** → cada fila fija la revisión y su URL con `oldid`; actualizar es un paso explícito y se revisa el diff.
+- **Una definición se lee como promesa** → etiqueta «Significado del término» y fuente en el punto de uso, validador, aprobación por término de los patrones vigilados y revisión humana (D10). Residual: verbos de efecto del significado que el usuario ve junto a una planta; se mide en la QA del emulador.
+- **Cobertura parcial** → los términos sin texto adecuado en ninguna de las dos fuentes quedan sin explicación, con su motivo; la cobertura real se mide en la revisión (tarea 3.4). Las enfermedades arcaicas quedan como trabajo futuro.
+- **Una paráfrasis de Wikipedia se aparta del artículo** → solo se usa el extracto guardado, la fila guarda la evidencia literal, el texto va marcado como adaptado y el usuario revisa cada uno antes de sellar.
 - **Traducción inconsistente de las actividades** → algunas variantes no enlazan (`Aperient`); limitación documentada, sin tocar los registros.
 - **Falsa coincidencia por la forma base** (`Pectoral` como adjetivo anatómico frente a remedio) → la acepción elegida describe el sentido de remedio y se revisa por término; las actividades ambiguas se excluyen.
-- **User-Agent sin contacto** → riesgo de bloqueo sin aviso; las peticiones son pocas y seriales; Q4 propone añadir una URL de contacto.
-- **El glosario es CC BY-SA y el resto de la semilla es de licencias mixtas** → ya ocurre con Wikipedia; se declara en `Fuentes` y en `docs/data/fuentes-y-licencias.md`. No es asesoría legal.
+- **User-Agent sin contacto** → riesgo de bloqueo sin aviso; el `User-Agent` sigue genérico, sin correo ni datos personales (regla del usuario); las peticiones son pocas, seriales y con pausa.
+- **El glosario es CC BY-SA y el resto de la semilla es de licencias mixtas** → ya ocurre con Wikipedia; se declara en `Fuentes` y en `docs/data/fuentes-y-licencias.md`. Un texto adaptado se indica como tal. No es asesoría legal.
 - **Dos implementaciones de la regla de la forma base** (Python y Rust) → archivo de casos compartido que ambas prueban.
 - **Migración de esquema** → la base se regenera entera en cada build, no hay datos que migrar; la API comprueba `SCHEMA_VERSION` al arrancar, así que el binario y la base deben ir juntos (los construye la misma imagen).
 
 ## Migration Plan
 
-1. Herramientas y semilla: fuente, descarga, lista aprobada, armado, validación y sellado. `plan` debe dar 0 plantas.
+1. Herramientas y semilla: fuente, descarga de las dos fuentes, lista aprobada, armado, validación y sellado. `plan` debe dar 0 plantas.
 2. Backend: migración v3, lectura del glosario, enlace, API y crédito, con pruebas, `openapi.json` y Postman. Se prueba con una compilación local contra la semilla nueva.
 3. Un solo push a `main` con la semilla y el backend: `deploy-backend.yml` construye la imagen (el `catalog.db` sale de la misma semilla, sin red) y redespliega Cloud Run. La API nueva sirve `glossary` y el crédito; el cliente anterior ignora el campo. QA de la API con Postman contra Cloud Run.
 4. App: se compila el APK después de que el backend nuevo esté desplegado. Con un backend anterior (sin `glossary`) la app nueva no muestra explicaciones, sin errores.
@@ -210,12 +228,16 @@ Coordinación con `compact-passport-uses`: se implementa después, o sobre el di
 
 Orden con el cambio paralelo: independiente en backend; en la app, `compact-passport-uses` primero si ya está listo.
 
-## Open Questions
+## Decisiones del usuario (2026-10-29)
 
-- **Q1.** ¿Se incluye `Emenagogo` (178 grupos)? Su acepción 2 dice «Sustancia que estimula el flujo de la sangre en el área de la pelvis y el útero, favoreciendo la menstruación» y la 1 está marcada como impropia; en `sensitive-activities.json` figura como dudoso. Propuesta por defecto: excluido hasta que el usuario lo apruebe.
-- **Q2.** Para los 28 términos ausentes de Wikcionario (Vermífugo y Hemostático entre los más frecuentes), ¿se acepta que queden sin explicación, o se admite una segunda fuente abierta citada, como los artículos de Wikipedia en español que la semilla ya consulta?
-- **Q3.** ¿Se hace después una segunda tanda para enfermedades y síntomas arcaicos (Hidropesía, Escrófula, Caquexia), con otra regla de selección?
-- **Q4.** ¿Se añade una URL de contacto del proyecto (por ejemplo, su repositorio) al `User-Agent` de Wikcionario, como pide la política de Wikimedia, o se mantiene el genérico sin datos personales?
-- **Q5.** ¿La explicación debe llevar un enlace en línea a la entrada de Wikcionario (atribución en el punto de uso), o basta la atribución en `Fuentes` que se pidió? La API ya entrega la URL de la revisión.
-- **Q6.** ¿El encabezado «Según Wikcionario:» es aceptable, o se prefiere otro (por ejemplo, «Significado:»)?
-- **Q7.** ¿Se aprueban los 6 términos cuyo texto contiene un patrón de eficacia («previene», «elimina», «curar»), o se excluyen?
+Las siete preguntas abiertas del plan inicial quedaron resueltas:
+
+- **Q1.** `Emenagogo` se incluye, con su definición tal cual.
+- **Q2.** Los términos ausentes o con definición insuficiente en Wikcionario se explican con Wikipedia en español (D1, D4, D5): la primera oración del artículo si define bien el término, o una paráfrasis breve marcada como adaptada.
+- **Q3.** La segunda tanda (enfermedades arcaicas como Hidropesía) queda fuera de este cambio, como trabajo futuro.
+- **Q4.** El `User-Agent` sigue siendo genérico, sin correo ni datos de contacto personales.
+- **Q5.** El enlace va en línea sobre el nombre de la fuente, en cada explicación (D10, D11).
+- **Q6.** El encabezado «Según Wikcionario:» se reemplaza por la etiqueta gris «Significado del término» y el formato `<Término>: «<definición>» (Wikcionario)` o `(Wikipedia)` (D10).
+- **Q7.** Las definiciones con verbos vigilados de Antiséptico, Bactericida, Vulnerario, Antidiarreico, Fungicida y Parasiticida se incluyen, con aprobación explícita por término (D10).
+
+Queda pendiente la revisión del usuario de la tabla completa de textos (tarea 3.4) antes de sellar.

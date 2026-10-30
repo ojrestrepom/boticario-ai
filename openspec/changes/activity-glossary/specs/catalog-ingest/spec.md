@@ -1,15 +1,15 @@
 ## ADDED Requirements
 
 ### Requirement: Tabla del glosario de actividades
-La base SHALL guardar el glosario de la semilla en una tabla neutral `activity_glossary`, con la clave normalizada del término como llave, el término, el texto, la URL de la revisión de la entrada, la fecha de la revisión y la fuente (`source_id`, que apunta a la fuente de Wikcionario del manifiesto), y SHALL añadir a los grupos de uso una columna nula que referencia la clave del término que les corresponde. El esquema SHALL llegar por una migración nueva y la versión del esquema registrada en los metadatos SHALL subir. La tabla y la columna SHALL NOT contener nombres propios de un dataset concreto.
+La base SHALL guardar el glosario de la semilla en una tabla neutral `activity_glossary`, con la clave normalizada del término como llave, el término, el texto, la URL de la revisión de la entrada o del artículo, la fecha de la revisión, la fuente (`source_id`, que apunta a `wiktionary_es` o `wikipedia_es` del manifiesto), su nombre corto y si el texto es adaptado, y SHALL añadir a los grupos de uso una columna nula que referencia la clave del término que les corresponde. El esquema SHALL llegar por una migración nueva y la versión del esquema registrada en los metadatos SHALL subir. La tabla y la columna SHALL NOT contener nombres propios de un dataset concreto.
 
 #### Scenario: Esquema ampliado con el glosario
 - **WHEN** se inspecciona la base construida desde la semilla
 - **THEN** contiene la tabla del glosario y la columna de enlace en los grupos de uso, y la versión del esquema refleja la ampliación
 
 #### Scenario: Fuente del glosario como procedencia
-- **WHEN** se construye la base con un glosario cuya fuente es `wiktionary_es`
-- **THEN** cada fila del glosario apunta a la fuente `wiktionary_es` de la tabla `source`, con su licencia, su URL de licencia y su atribución tomadas del manifiesto
+- **WHEN** se construye la base con un glosario con filas de `wiktionary_es` y de `wikipedia_es`
+- **THEN** cada fila del glosario apunta a la fuente de la tabla `source` que le corresponde, con su licencia, su URL de licencia y su atribución tomadas del manifiesto
 
 #### Scenario: Fila del glosario sin fuente
 - **WHEN** el glosario trae una fila cuya fuente no figura en el manifiesto

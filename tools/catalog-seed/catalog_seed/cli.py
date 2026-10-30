@@ -2,6 +2,8 @@ import argparse
 import json
 import sys
 import time
+from contextlib import closing
+from pathlib import Path
 
 from .download import download_source, pin_source, require_verified, require_verified_files
 from .ema import dedupe_records, describe_snapshot, load_json, snapshot_timestamp
@@ -21,7 +23,8 @@ from .resolve_universe import (DEFAULT_CATALOG_DB, DEFAULT_DECISIONS, DEFAULT_EX
 from .taxonomy import CollisionFileError, UniverseError
 from .validate import validate_directory
 from .wiki import SERVICES, make_step, read_entries
-from . import wiki_fetch
+from . import glossary_fetch, glossary_review, wiki_fetch
+from .glossary_terms import DEFAULT_TERMS_FILE, GlossaryTermsError, load_terms
 from .sources import DEFAULT_CACHE_DIR, DEFAULT_SOURCES_FILE, SourceError, load_sources
 
 
@@ -47,6 +50,25 @@ def build_parser():
     emapdf.add_argument("--limit", type=int, help="máximo de peticiones en esta ejecución (para pruebas manuales)")
     emapdf.add_argument("--wait", type=int, default=0, help="si hay límite de peticiones, espera hasta este número de segundos por ejecución y sigue (por defecto 0: se detiene)")
     emapdf.add_argument("--status", action="store_true", help="solo imprime cuántos PDF hay descargados y pendientes; no abre la red")
+    gcand = commands.add_parser("glossary-candidates", help="imprime las actividades visibles más frecuentes que aún no están en la lista de términos del glosario ni en excluidos")
+    gcand.add_argument("--terms", default=str(DEFAULT_TERMS_FILE), help="glossary-terms.json")
+    gcand.add_argument("--catalog", default=str(glossary_review.DEFAULT_CATALOG), help="catalog.db (solo lectura)")
+    gcand.add_argument("--limit", type=int, default=40, help="máximo de filas (por defecto 40)")
+    gcand.add_argument("--min-groups", type=int, default=glossary_review.MIN_GROUPS, help="mínimo de grupos por actividad (por defecto 7)")
+    gfetch = commands.add_parser("glossary-fetch", help="descarga las entradas de Wikcionario y los artículos de Wikipedia del glosario, una petición a la vez, con caché, pausa y Retry-After")
+    gfetch.add_argument("--terms", default=str(DEFAULT_TERMS_FILE), help="glossary-terms.json")
+    gfetch.add_argument("--source", action="append", choices=sorted(glossary_fetch.SOURCE_FIELDS), help="limita a una fuente (repetible); por defecto, las dos")
+    gfetch.add_argument("--delay", type=float, default=1.0, help="segundos entre peticiones (por defecto 1; mínimo 1)")
+    gfetch.add_argument("--wait", type=int, default=0, help="si hay límite de peticiones, espera hasta este número de segundos en total y sigue (por defecto 0: se detiene)")
+    gfetch.add_argument("--plan", action="store_true", help="solo cuenta títulos y peticiones; no abre la red")
+    gfetch.add_argument("--refresh", action="append", default=[], metavar="TÍTULO", help="vuelve a pedir la entrada o el artículo de este título (repetible); es la única forma de cambiar una revisión fijada")
+    gsenses = commands.add_parser("glossary-senses", help="imprime las acepciones de Wikcionario y el extracto de Wikipedia de cada término, desde la caché y sin red")
+    gsenses.add_argument("--terms", default=str(DEFAULT_TERMS_FILE), help="glossary-terms.json")
+    gsenses.add_argument("--term", action="append", help="limita a una actividad o título (repetible)")
+    greview = commands.add_parser("glossary-review", help="escribe la tabla de revisión del glosario (texto exacto, fuente, modo, alertas y cobertura) desde la caché y catalog.db, sin red")
+    greview.add_argument("--terms", default=str(DEFAULT_TERMS_FILE), help="glossary-terms.json")
+    greview.add_argument("--catalog", default=str(glossary_review.DEFAULT_CATALOG), help="catalog.db (solo lectura)")
+    greview.add_argument("--out", required=True, help="archivo Markdown de salida")
     wiki = commands.add_parser("wiki-fetch", help="descarga Wikidata (por nombre), los resúmenes de Wikipedia y los metadatos de Commons del universo, con límite de peticiones y reanudación")
     wiki.add_argument("--universe", default=str(wiki_fetch.DEFAULT_UNIVERSE), help="universe.json (por defecto data/work/universe/universe.json)")
     wiki.add_argument("--taxonomy-db", default=str(wiki_fetch.DEFAULT_TAXONOMY_DB), help="índice de WCVP y WFO")
@@ -285,6 +307,43 @@ def run_wiki_fetch(args):
     return 0 if status == "complete" else 2
 
 
+def run_glossary_candidates(args):
+    document = load_terms(args.terms)
+    with closing(glossary_review.open_catalog(args.catalog)) as conn:
+        rows = glossary_review.candidates(conn, document, args.limit, args.min_groups)
+    for activity, groups in rows:
+        print("%5d  %s" % (groups, activity))
+    return 0
+
+
+def run_glossary_fetch(args):
+    if args.delay < 1.0:
+        raise SourceError("la pausa entre peticiones debe ser de al menos 1 segundo")
+    document = load_terms(args.terms)
+    declared = {s.id: s.enabled for s in load_sources(args.sources)}
+    enabled = {name: bool(declared.get(name)) for name in glossary_fetch.SOURCE_FIELDS}
+    status, _ = glossary_fetch.fetch(document, args.cache_dir, args.delay, args.wait, plan_only=args.plan, refresh=args.refresh,
+                                     sources=args.source, enabled=enabled)
+    return 2 if status == "incomplete" else 0
+
+
+def run_glossary_senses(args):
+    document = load_terms(args.terms)
+    print(glossary_review.format_senses(document, args.cache_dir, only=args.term))
+    return 0
+
+
+def run_glossary_review(args):
+    document = load_terms(args.terms)
+    with closing(glossary_review.open_catalog(args.catalog)) as conn:
+        text = glossary_review.build_review(document, args.cache_dir, conn, time.strftime("%Y-%m-%d"))
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text, encoding="utf-8")
+    print("tabla de revisión escrita en %s" % out)
+    return 0
+
+
 def run_wiki_assign(args):
     enabled = wiki_fetch.enabled_services(load_sources(args.sources))
     if not enabled["wikidata"]:
@@ -309,6 +368,14 @@ def main(argv=None):
             return run_wiki_fetch(args)
         if args.command == "wiki-assign":
             return run_wiki_assign(args)
+        if args.command == "glossary-candidates":
+            return run_glossary_candidates(args)
+        if args.command == "glossary-fetch":
+            return run_glossary_fetch(args)
+        if args.command == "glossary-senses":
+            return run_glossary_senses(args)
+        if args.command == "glossary-review":
+            return run_glossary_review(args)
         if args.command == "resolve":
             return run_resolve_command(args)
         if args.command == "collisions-decide":
@@ -361,7 +428,7 @@ def main(argv=None):
             print("%s: %s%s" % (source.id, {"disabled": "desactivada, omitida", "cached": "en caché, verificada",
                                               "downloaded": "descargada y verificada"}[status],
                                   " (%s)" % path if path else ""))
-    except (SourceError, SafetyMapError, CollisionFileError) as error:
+    except (SourceError, SafetyMapError, CollisionFileError, GlossaryTermsError) as error:
         print("error: %s" % error, file=sys.stderr)
         return 1
     return 0

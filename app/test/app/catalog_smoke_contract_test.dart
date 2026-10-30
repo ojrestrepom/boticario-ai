@@ -1,3 +1,7 @@
+import 'package:boticario_ai/features/plant_recognition/data/plant_image_source.dart';
+
+import '../support/fake_plant_image_source.dart';
+
 import 'package:boticario_ai/features/catalog/data/catalog_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -23,6 +27,7 @@ void main() {
       await runCatalogSmoke(
         tester,
         overrides: [
+          plantImageSourceProvider.overrideWithValue(FakePlantImageSource()),
           httpClientProvider.overrideWithValue(api.client),
           apiTokenProvider.overrideWithValue(testApiToken),
         ],

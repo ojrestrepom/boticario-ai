@@ -8,7 +8,7 @@ Proyecto en desarrollo. La app es una aplicación Flutter para Android y vive en
 
 Implementado:
 
-La pantalla inicial de reconocimiento de plantas está disponible en `/identify`, desde «Identificar con cámara» de Inicio. Muestra un espacio reservado para la imagen y «Tomar fotografía» y «Seleccionar de galería» deshabilitados, con un aviso visible. Atrás de app, Atrás del sistema y la pestaña Inicio regresan a Inicio; Favoritos, Historial y Perfil permanecen inertes. Esta etapa funciona sin backend y no incluye cámara, galería ni inferencia.
+La pantalla de reconocimiento en `/identify`, accesible desde «Identificar con cámara», permite tomar una fotografía o seleccionar una imagen de galería con `image_picker` 1.2.4. La vista previa conserva proporciones; se puede reemplazar o descartar. Cancelar o recibir un error conserva la imagen anterior. Atrás y la pestaña Inicio descartan la sesión y vuelven a Inicio, ignorando resultados tardíos. Android intenta recuperar una selección perdida una vez por arranque sin cambiar de ruta. Las imágenes se usan en memoria y caché temporal, sin historial, almacenamiento permanente, HTTP, backend ni inferencia; no se borran originales de galería. La conservación de una imagen previa no está garantizada tras destruir el proceso.
 
 - Pantallas Inicio, Explorar plantas, Pasaporte de planta, Buscar por objetivo (P06), la pantalla de subáreas de «Otros objetivos» y Recomendaciones (P07), con las rutas `/`, `/explore`, `/explore/:plantId`, `/goals`, `/goals/:goalId/subareas`, `/goals/:goalId/plants` (con `?subarea=` para una subárea) y `/goals/:goalId/plants/:plantId`.
 - Buscar por objetivo (P06) es funcional: una fila por objetivo de `GET /v1/goals`, en el orden de la API, con el nombre que entrega la API (los nombres y el orden salen de la semilla, no de la app) y un icono local por identificador (un icono genérico si el identificador es nuevo); no muestra conteos. Mientras carga muestra un indicador y, si falla (incluido un 401, sin mostrar el token), un error con «Reintentar».
@@ -28,7 +28,7 @@ La pantalla inicial de reconocimiento de plantas está disponible en `/identify`
 
 No implementado:
 
-- Recomendaciones, formulación de mezclas, identificación con cámara y chat.
+- Recomendaciones, formulación de mezclas, reconocimiento automático de especies y chat.
 - Login y persistencia de usuario.
 - Favoritos, Historial y Perfil se ven en la barra inferior, pero no hacen nada.
 

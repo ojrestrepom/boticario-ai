@@ -220,14 +220,11 @@ Future<void> _runCatalogSmoke(
     await _tapAndExpectHomeLog(tester, homeLogs, HomeAction.identifyWithCamera);
     _expectPath(router, '/identify');
     expect(find.text('Identificar planta'), findsOneWidget);
-    expect(
-      find.text('Cámara y galería no disponibles por ahora.'),
-      findsOneWidget,
-    );
+    expect(find.text('Aquí se mostrará la imagen'), findsOneWidget);
     for (final button in tester.widgetList<OutlinedButton>(
       find.byType(OutlinedButton),
     )) {
-      expect(button.onPressed, isNull);
+      expect(button.onPressed, isNotNull);
     }
     if (requestsBeforeIdentify != null) {
       expect(requestCount!(), requestsBeforeIdentify);

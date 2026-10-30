@@ -4,7 +4,7 @@ App Flutter (Android) de Boticario AI. Consulta el quickstart de la raíz del re
 
 ## Reconocimiento de plantas
 
-La pantalla inicial de reconocimiento de plantas está disponible en `/identify`, desde «Identificar con cámara» de Inicio. Muestra un espacio reservado para la imagen y «Tomar fotografía» y «Seleccionar de galería» deshabilitados, con un aviso visible. Atrás de app, Atrás del sistema y la pestaña Inicio regresan a Inicio; Favoritos, Historial y Perfil permanecen inertes. Esta etapa funciona sin backend y no incluye cámara, galería ni inferencia.
+La pantalla de reconocimiento en `/identify`, accesible desde «Identificar con cámara», permite tomar una fotografía o seleccionar una imagen de galería con `image_picker` 1.2.4. La vista previa conserva proporciones; se puede reemplazar o descartar. Cancelar o recibir un error conserva la imagen anterior. Atrás y la pestaña Inicio descartan la sesión y vuelven a Inicio, ignorando resultados tardíos. Android intenta recuperar una selección perdida una vez por arranque sin cambiar de ruta. Las imágenes se usan en memoria y caché temporal, sin historial, almacenamiento permanente, HTTP, backend ni inferencia; no se borran originales de galería. La conservación de una imagen previa no está garantizada tras destruir el proceso.
 
 ## Pasaporte de planta
 

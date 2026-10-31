@@ -1,0 +1,9 @@
+# Prueba del área táctil del icono de citas (Carminativo, Lavanda, 100 % de texto, emulador 1080x1920 a 480 dpi)
+# Área del nodo según uiautomator: (888, 678, 1032, 822) = 144x144 px = 48x48 dp. Se tocó con `adb -s emulator-5554 shell input tap`.
+# Salida de `ui_cr.py full | grep "citas de"` tras cada toque (clickable C, content-desc):
+inicial:                                  Ver 2 citas de Carminativo
+toque FUERA, izquierda (884, 750):        Ver 2 citas de Carminativo   (sin cambio)
+toque FUERA, arriba (960, 674):           Ver 2 citas de Carminativo   (sin cambio)
+toque FUERA, abajo (960, 826):            Ver 2 citas de Carminativo   (sin cambio)
+toque DENTRO, esquina sup-izq (890, 680): Ocultar citas de Carminativo (desplegó)
+toque DENTRO, esquina inf-der (1030, 818): Ver 2 citas de Carminativo  (plegó)

@@ -1,0 +1,230 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+Boticario API
+
+Folder Público
+Sub-folder GET /health
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/health [200 OK, 262 B, 315 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  status es ok
+
+Sub-folder GET /openapi.json
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/openapi.json [200 OK, 25 KB, 162 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  es un documento OpenAPI con las rutas de /v1
+
+Folder Plantas
+Sub-folder Listado sin parámetros
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants [200 OK, 6.51 KB, 122 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  limit 20, offset 0 y 20 elementos
+  Pass  cada elemento lleva id, scientificName, displayName y commonNames
+
+Sub-folder Listado con paginación
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?limit=2&offset=2 [200 OK, 1.06 KB, 122 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  limit 2, offset 2 y 2 elementos
+
+Sub-folder Búsqueda por nombre común
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=lavanda [200 OK, 911 B, 125 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  incluye lavandula-angustifolia
+
+Sub-folder Búsqueda por sinónimo
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=rosmarinus%20officinalis [200 OK, 1.16 KB, 132 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  incluye salvia-rosmarinus
+
+Sub-folder Búsqueda por nombre anterior
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=matricaria%20recutita [200 OK, 1.09 KB, 125 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  incluye matricaria-chamomilla
+
+Sub-folder Búsqueda con % literal
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?q=%25 [200 OK, 291 B, 131 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  sin resultados
+
+Sub-folder Detalle por id
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [200 OK, 12.82 KB, 125 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  id y nombres
+  Pass  sin Content-Location (no es un alias)
+  Pass  campos consolidados presentes
+
+Sub-folder Detalle por alias
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/rosmarinus-officinalis [200 OK, 22.65 KB, 142 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  id canónico en el cuerpo
+  Pass  Content-Location apunta a la ruta canónica
+
+Sub-folder Detalle con glosario de actividades
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [200 OK, 12.82 KB, 136 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  glossary siempre presente en cada grupo, objeto o null con sus cinco campos
+  Pass  Diurético trae la definición literal de Wikcionario
+  Pass  Estimulante trae una paráfrasis adaptada de Wikipedia
+  Pass  una actividad sin término tiene glossary null
+  Pass  los demás campos del grupo no cambian
+  Pass  credits incluye Wikcionario con CC BY-SA 4.0 y su licenseUrl, una sola vez
+  Pass  credits incluye Wikipedia una sola vez aunque también acredite la descripción
+
+Sub-folder Detalle con fórmula de enfermedad grave sin glosario
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/salvia-rosmarinus [200 OK, 22.6 KB, 171 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  la fórmula de enfermedad grave no tiene explicación
+  Pass  un término con explicación sigue ahí en la misma planta
+
+Sub-folder Detalle inexistente (404)
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/no-existe [404 Not Found, 406 B, 122 ms]
+  Pass  estado 404
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 404
+
+Folder Objetivos
+Sub-folder Listar objetivos
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals [200 OK, 1.15 KB, 118 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  array en la raíz y no vacío
+  Pass  cada objetivo lleva id, name, plantCount y subareas
+  Pass  otros-objetivos tiene subáreas incluida digestion
+  Pass  relajacion-estres no tiene subáreas
+
+Sub-folder Plantas de un objetivo sin subáreas
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/relajacion-estres/plants?limit=5 [200 OK, 3.63 KB, 124 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  objetivo, sin subárea y elementos con forma de tarjeta
+
+Sub-folder Plantas de una subárea
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/otros-objetivos/plants?subarea=digestion&limit=5 [200 OK, 4.85 KB, 122 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  objetivo y subárea pedidos
+
+Sub-folder Unión de subáreas (sin subarea)
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/otros-objetivos/plants?limit=5 [200 OK, 3.84 KB, 125 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  sin subárea y total mayor que el de digestion
+
+Sub-folder Plantas de un objetivo con paginación
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/relajacion-estres/plants?limit=2&offset=2 [200 OK, 1.69 KB, 119 ms]
+  Pass  estado 200
+  Pass  Content-Type application/json
+  Pass  forma de página: items, total, limit, offset
+  Pass  limit 2, offset 2 y 2 elementos
+
+Folder Errores
+Sub-folder 401 sin token
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants [401 Unauthorized, 421 B, 121 ms]
+  Pass  estado 401
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 401
+  Pass  WWW-Authenticate es Bearer
+
+Sub-folder 401 en /v1/goals sin token
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals [401 Unauthorized, 420 B, 119 ms]
+  Pass  estado 401
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 401
+  Pass  WWW-Authenticate es Bearer
+
+Sub-folder 400 limit=0
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?limit=0 [400 Bad Request, 404 B, 119 ms]
+  Pass  estado 400
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 400
+  Pass  param es limit
+
+Sub-folder 400 subárea ajena
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/relajacion-estres/plants?subarea=digestion [400 Bad Request, 440 B, 124 ms]
+  Pass  estado 400
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 400
+  Pass  param es subarea
+
+Sub-folder 404 objetivo desconocido
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/no-existe/plants [404 Not Found, 413 B, 131 ms]
+  Pass  estado 404
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 404
+
+Sub-folder 405 POST
+
+  POST https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants [405 Method Not Allowed, 431 B, 119 ms]
+  Pass  estado 405
+  Pass  Content-Type application/problem+json
+  Pass  cuerpo problem+json con status 405
+  Pass  Allow incluye GET
+
+-------------------------------------------------------------------------
+|                         |             executed |               failed |
+--------------------------+----------------------+-----------------------
+|              iterations |                    1 |                    0 |
+--------------------------+----------------------+-----------------------
+|                requests |                   24 |                    0 |
+--------------------------+----------------------+-----------------------
+|            test-scripts |                   24 |                    0 |
+--------------------------+----------------------+-----------------------
+|      prerequest-scripts |                    0 |                    0 |
+--------------------------+----------------------+-----------------------
+|              assertions |                  101 |                    0 |
+-------------------------------------------------------------------------
+| total run duration: 3.6 s                                             |
+-------------------------------------------------------------------------
+| total data received: 119.11 KB (approx)                               |
+-------------------------------------------------------------------------
+| average response time: 136 ms [min: 118 ms, max: 315 ms, s.d.: 39 ms] |
+-------------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

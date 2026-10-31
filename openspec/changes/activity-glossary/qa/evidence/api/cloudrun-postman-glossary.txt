@@ -1,0 +1,264 @@
+No authorization data found. Please use the `postman login` command.
+Refer:https://learning.postman.com/docs/postman-cli/postman-cli-options/#postman-login
+
+Running your collection...
+postman
+
+Boticario API: QA activity-glossary
+
+Root G1 Lavanda: Wikcionario literal (Diurético, Carminativo) y adaptado (Estimulante)
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [200 OK, 12.83 KB, 346 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  Diurético: glossary Wikcionario, adapted=false
+  Pass  Carminativo: glossary Wikcionario, adapted=false
+  Pass  Estimulante: glossary Wikipedia, adapted=true
+  Pass  credits: Wikcionario y Wikipedia una vez cada uno
+
+Root G2 Sedante adaptado de Wikipedia
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/aconitum-napellus [200 OK, 15.04 KB, 131 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  Sedante: glossary Wikipedia, adapted=true
+
+Root G3 Expectorante: Wikipedia literal
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/abies-alba [200 OK, 14.19 KB, 146 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  Expectorante: glossary Wikipedia, adapted=false
+
+Root G4 Solo explicaciones de Wikipedia: sin crédito de Wikcionario
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/actaea-dahurica [200 OK, 4.54 KB, 121 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  ningun glossary de Wikcionario y credits sin Wikcionario
+
+Root G5 Fórmula de enfermedad grave sin glossary
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/abelmoschus-manihot [200 OK, 9.25 KB, 119 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  fórmula «Uso tradicional, sin eficacia demostrada: …»: glossary es null
+  Pass  la fórmula conserva su texto completo en activity
+
+Root G6 Término excluido (Hemostático, Depurativo) sin glossary
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/achillea-millefolium [200 OK, 25.56 KB, 160 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  Hemostático y Depurativo (excluidos): glossary es null
+  Pass  existen ambos grupos
+
+Root G7 Calificador: Antídoto (…) hereda Antídoto
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/alocasia-macrorrhizos [200 OK, 12.29 KB, 124 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  Antídoto (Laportea) conserva su activity y trae term Antídoto
+
+Root G8 Solo grupos pendientes de revisión: sin glossary ni crédito de Wikcionario
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/cedrus-deodara [200 OK, 3.53 KB, 121 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  sin ningún glossary y sin créditos del glosario (los grupos Carminativo, Diaforético y Diurético están pendientes y no se sirven)
+
+Root G9 Pendiente de Wikipedia: no se sirve (maclura)
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/maclura-pomifera [200 OK, 3.68 KB, 124 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  el grupo pendiente Estimulante no se sirve
+
+Root G10 Planta sin ningún término del glosario
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/acacia-confusa [200 OK, 2.2 KB, 119 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  ningún glossary y credits sin Wikcionario
+
+Root G11 Detalle por alias conserva glossary
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/rosmarinus-officinalis [200 OK, 22.65 KB, 151 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+
+Root C1 Listado de plantas sin cambios
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants?limit=3 [200 OK, 1.8 KB, 122 ms]
+  Pass  200
+  Pass  listado: sin glossary ni useGroups y misma forma
+
+Root C2 Detalle: uses y campos raíz
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [200 OK, 12.82 KB, 122 ms]
+  Pass  200
+  Pass  detalle: uses con sus campos de siempre y orden de claves de la raíz
+  Pass  los campos del detalle siguen presentes
+
+Root C3 OpenAPI describe glossary
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/openapi.json [200 OK, 25 KB, 153 ms]
+  Pass  200
+  Pass  UseGroupDto declara glossary y es obligatorio
+  Pass  glossary es objeto UseGlossaryDto o null
+  Pass  UseGlossaryDto describe term, text, sourceName, url y adapted, todos obligatorios
+  Pass  las propiedades previas de UseGroupDto siguen y glossary es la única nueva (el documento las ordena alfabéticamente)
+
+Root C4 401 sin token en el detalle
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [401 Unauthorized, 444 B, 123 ms]
+  Pass  401
+  Pass  problem+json y WWW-Authenticate Bearer
+  Pass  el cuerpo no trae glossary ni datos de la planta
+
+Root C5 /v1/goals sin cambios
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals [200 OK, 1.15 KB, 119 ms]
+  Pass  200
+  Pass  objetivos: forma sin cambios
+
+Root C6 /v1/goals/{id}/plants sin cambios
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/goals/relajacion-estres/plants?limit=3 [200 OK, 2.24 KB, 121 ms]
+  Pass  200
+  Pass  plantas de un objetivo: elementos como los del listado, sin glossary
+
+Root G12 Senna occidentalis: Sucedáneo del café (USDA Coffee) sin glossary y sin Café
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/senna-occidentalis [200 OK, 32.77 KB, 162 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  el uso Coffee de USDA se traduce Sucedáneo del café, sin glossary, y no hay grupo Café
+  Pass  Fiebre sin glossary y Purgante adaptado de Wikipedia
+  Pass  fórmula de enfermedad grave (malaria, lepra) sin glossary
+
+Root G13 Planta con una sola explicación (Cardo: Diurético)
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/cynara-cardunculus [200 OK, 6.11 KB, 119 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  exactamente un grupo con glossary: Diurético de Wikcionario
+
+Root G14 Romero: varias explicaciones, Emenagogo y Tónico literales
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/salvia-rosmarinus [200 OK, 22.6 KB, 145 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  Tónico: glossary Wikcionario, adapted=false
+  Pass  Romero trae 10 explicaciones y los dos créditos una vez
+
+Root G15 Atribución de Wikcionario y de Wikipedia en credits
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [200 OK, 12.82 KB, 124 ms]
+  Pass  estado 200 y JSON
+  Pass  glossary siempre presente en cada grupo: objeto con 5 campos o null
+  Pass  el contrato anterior del grupo no cambia (campos y orden)
+  Pass  credits sin repeticiones
+  Pass  Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario
+  Pass  si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez
+  Pass  credits de glosario: CC BY-SA 4.0 con licenseUrl
+  Pass  atribución de Wikcionario: definiciones tomadas, sin marcado ni notas, primera oración, historial de autores
+  Pass  Wikipedia en credits con licencia y licenseUrl, y menciona el glosario
+
+Root C7 401 con token inválido en el detalle
+
+  GET https://boticario-api-d3xv5q3iaa-pv.a.run.app/v1/plants/lavandula-angustifolia [401 Unauthorized, 444 B, 118 ms]
+  Pass  401 con token inválido
+  Pass  problem+json y sin datos
+
+-------------------------------------------------------------------------
+|                         |             executed |               failed |
+--------------------------+----------------------+-----------------------
+|              iterations |                    1 |                    0 |
+--------------------------+----------------------+-----------------------
+|                requests |                   22 |                    0 |
+--------------------------+----------------------+-----------------------
+|            test-scripts |                   22 |                    0 |
+--------------------------+----------------------+-----------------------
+|      prerequest-scripts |                    0 |                    0 |
+--------------------------+----------------------+-----------------------
+|              assertions |                  147 |                    0 |
+-------------------------------------------------------------------------
+| total run duration: 3.4 s                                             |
+-------------------------------------------------------------------------
+| total data received: 238.44 KB (approx)                               |
+-------------------------------------------------------------------------
+| average response time: 140 ms [min: 118 ms, max: 346 ms, s.d.: 47 ms] |
+-------------------------------------------------------------------------
+Postman credentials are required for publishing run details to Postman cloud.
+Please specify it by using the `postman login` command

@@ -887,6 +887,285 @@
         },
         "description": "Plantas de un objetivo."
       }
+    },
+    {
+      "name": "G12 Senna occidentalis: Sucedáneo del café (USDA Coffee) sin glossary y sin Café",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "const j = pm.response.json();",
+              "const grp = (a) => j.useGroups.find(g => g.activity === a);",
+              "const cred = (n) => (j.credits || []).filter(c => c.name === n);",
+              "const WIKT = \"Wikcionario en español\", WIKI = \"Wikipedia en español\";",
+              "const KEYS = [\"adapted\",\"sourceName\",\"term\",\"text\",\"url\"];",
+              "",
+              "pm.test(\"estado 200 y JSON\", () => { pm.response.to.have.status(200); pm.expect(pm.response.headers.get(\"Content-Type\")||\"\").to.include(\"application/json\"); });",
+              "pm.test(\"glossary siempre presente en cada grupo: objeto con 5 campos o null\", () => {",
+              "  pm.expect(j.useGroups).to.be.an(\"array\");",
+              "  j.useGroups.forEach(g => { pm.expect(g, g.activity).to.have.property(\"glossary\");",
+              "    if (g.glossary !== null) { pm.expect(Object.keys(g.glossary).sort(), g.activity).to.eql(KEYS); pm.expect(g.glossary.url).to.match(/^https:\\/\\//); pm.expect(g.glossary.adapted).to.be.a(\"boolean\"); } });",
+              "});",
+              "pm.test(\"el contrato anterior del grupo no cambia (campos y orden)\", () => {",
+              "  j.useGroups.forEach(g => pm.expect(Object.keys(g)).to.eql([\"activity\",\"activitySource\",\"count\",\"countries\",\"references\",\"glossary\"]));",
+              "});",
+              "pm.test(\"credits sin repeticiones\", () => { const n = j.credits.map(c => c.name); pm.expect(new Set(n).size).to.eql(n.length); });",
+              "pm.test(\"Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikcionario\");",
+              "  pm.expect(cred(WIKT).length).to.eql(has ? 1 : 0);",
+              "});",
+              "pm.test(\"si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikipedia\");",
+              "  if (has) pm.expect(cred(WIKI).length).to.eql(1);",
+              "  pm.expect(cred(WIKI).length).to.be.at.most(1);",
+              "});",
+              "pm.test(\"credits de glosario: CC BY-SA 4.0 con licenseUrl\", () => {",
+              "  [WIKT, WIKI].forEach(n => cred(n).forEach(c => { pm.expect(c.license).to.eql(\"CC BY-SA 4.0\"); pm.expect(c.licenseUrl).to.eql(\"https://creativecommons.org/licenses/by-sa/4.0/\"); pm.expect(c.attribution).to.be.a(\"string\").and.not.empty; pm.expect(c.url).to.match(/^https:\\/\\//); }));",
+              "});",
+              "pm.test(\"el uso Coffee de USDA se traduce Sucedáneo del café, sin glossary, y no hay grupo Café\", () => { const g = grp(\"Sucedáneo del café\"); pm.expect(g, \"grupo\").to.exist; pm.expect(g.activitySource).to.eql(\"Coffee\"); pm.expect(g.glossary).to.be.null; pm.expect(grp(\"Café\")).to.be.undefined; pm.expect(j.uses.filter(u => u.activity === \"Café\").length).to.eql(0); pm.expect(j.uses.filter(u => u.activity === \"Sucedáneo del café\").length).to.be.above(0); });pm.test(\"Fiebre sin glossary y Purgante adaptado de Wikipedia\", () => { pm.expect(grp(\"Fiebre\").glossary).to.be.null; pm.expect(grp(\"Purgante\").glossary.adapted).to.be.true; pm.expect(grp(\"Purgante\").glossary.sourceName).to.eql(\"Wikipedia\"); });pm.test(\"fórmula de enfermedad grave (malaria, lepra) sin glossary\", () => { const gs = j.useGroups.filter(g => g.activity.startsWith(\"Uso tradicional, sin eficacia demostrada: \")); pm.expect(gs.length).to.be.above(0); gs.forEach(g => pm.expect(g.glossary, g.activity).to.be.null); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/plants/senna-occidentalis",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "plants",
+            "senna-occidentalis"
+          ]
+        },
+        "description": "Sucedáneo del café (ajuste de revisión), Fiebre y fórmula de enfermedad grave sin glosario."
+      }
+    },
+    {
+      "name": "G13 Planta con una sola explicación (Cardo: Diurético)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "const j = pm.response.json();",
+              "const grp = (a) => j.useGroups.find(g => g.activity === a);",
+              "const cred = (n) => (j.credits || []).filter(c => c.name === n);",
+              "const WIKT = \"Wikcionario en español\", WIKI = \"Wikipedia en español\";",
+              "const KEYS = [\"adapted\",\"sourceName\",\"term\",\"text\",\"url\"];",
+              "",
+              "pm.test(\"estado 200 y JSON\", () => { pm.response.to.have.status(200); pm.expect(pm.response.headers.get(\"Content-Type\")||\"\").to.include(\"application/json\"); });",
+              "pm.test(\"glossary siempre presente en cada grupo: objeto con 5 campos o null\", () => {",
+              "  pm.expect(j.useGroups).to.be.an(\"array\");",
+              "  j.useGroups.forEach(g => { pm.expect(g, g.activity).to.have.property(\"glossary\");",
+              "    if (g.glossary !== null) { pm.expect(Object.keys(g.glossary).sort(), g.activity).to.eql(KEYS); pm.expect(g.glossary.url).to.match(/^https:\\/\\//); pm.expect(g.glossary.adapted).to.be.a(\"boolean\"); } });",
+              "});",
+              "pm.test(\"el contrato anterior del grupo no cambia (campos y orden)\", () => {",
+              "  j.useGroups.forEach(g => pm.expect(Object.keys(g)).to.eql([\"activity\",\"activitySource\",\"count\",\"countries\",\"references\",\"glossary\"]));",
+              "});",
+              "pm.test(\"credits sin repeticiones\", () => { const n = j.credits.map(c => c.name); pm.expect(new Set(n).size).to.eql(n.length); });",
+              "pm.test(\"Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikcionario\");",
+              "  pm.expect(cred(WIKT).length).to.eql(has ? 1 : 0);",
+              "});",
+              "pm.test(\"si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikipedia\");",
+              "  if (has) pm.expect(cred(WIKI).length).to.eql(1);",
+              "  pm.expect(cred(WIKI).length).to.be.at.most(1);",
+              "});",
+              "pm.test(\"credits de glosario: CC BY-SA 4.0 con licenseUrl\", () => {",
+              "  [WIKT, WIKI].forEach(n => cred(n).forEach(c => { pm.expect(c.license).to.eql(\"CC BY-SA 4.0\"); pm.expect(c.licenseUrl).to.eql(\"https://creativecommons.org/licenses/by-sa/4.0/\"); pm.expect(c.attribution).to.be.a(\"string\").and.not.empty; pm.expect(c.url).to.match(/^https:\\/\\//); }));",
+              "});",
+              "pm.test(\"exactamente un grupo con glossary: Diurético de Wikcionario\", () => { const gs = j.useGroups.filter(g => g.glossary); pm.expect(gs.length).to.eql(1); pm.expect(gs[0].activity).to.eql(\"Diurético\"); pm.expect(gs[0].glossary.sourceName).to.eql(\"Wikcionario\"); pm.expect(cred(WIKT).length).to.eql(1); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/plants/cynara-cardunculus",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "plants",
+            "cynara-cardunculus"
+          ]
+        },
+        "description": "Una sola explicación."
+      }
+    },
+    {
+      "name": "G14 Romero: varias explicaciones, Emenagogo y Tónico literales",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "const j = pm.response.json();",
+              "const grp = (a) => j.useGroups.find(g => g.activity === a);",
+              "const cred = (n) => (j.credits || []).filter(c => c.name === n);",
+              "const WIKT = \"Wikcionario en español\", WIKI = \"Wikipedia en español\";",
+              "const KEYS = [\"adapted\",\"sourceName\",\"term\",\"text\",\"url\"];",
+              "",
+              "pm.test(\"estado 200 y JSON\", () => { pm.response.to.have.status(200); pm.expect(pm.response.headers.get(\"Content-Type\")||\"\").to.include(\"application/json\"); });",
+              "pm.test(\"glossary siempre presente en cada grupo: objeto con 5 campos o null\", () => {",
+              "  pm.expect(j.useGroups).to.be.an(\"array\");",
+              "  j.useGroups.forEach(g => { pm.expect(g, g.activity).to.have.property(\"glossary\");",
+              "    if (g.glossary !== null) { pm.expect(Object.keys(g.glossary).sort(), g.activity).to.eql(KEYS); pm.expect(g.glossary.url).to.match(/^https:\\/\\//); pm.expect(g.glossary.adapted).to.be.a(\"boolean\"); } });",
+              "});",
+              "pm.test(\"el contrato anterior del grupo no cambia (campos y orden)\", () => {",
+              "  j.useGroups.forEach(g => pm.expect(Object.keys(g)).to.eql([\"activity\",\"activitySource\",\"count\",\"countries\",\"references\",\"glossary\"]));",
+              "});",
+              "pm.test(\"credits sin repeticiones\", () => { const n = j.credits.map(c => c.name); pm.expect(new Set(n).size).to.eql(n.length); });",
+              "pm.test(\"Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikcionario\");",
+              "  pm.expect(cred(WIKT).length).to.eql(has ? 1 : 0);",
+              "});",
+              "pm.test(\"si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikipedia\");",
+              "  if (has) pm.expect(cred(WIKI).length).to.eql(1);",
+              "  pm.expect(cred(WIKI).length).to.be.at.most(1);",
+              "});",
+              "pm.test(\"credits de glosario: CC BY-SA 4.0 con licenseUrl\", () => {",
+              "  [WIKT, WIKI].forEach(n => cred(n).forEach(c => { pm.expect(c.license).to.eql(\"CC BY-SA 4.0\"); pm.expect(c.licenseUrl).to.eql(\"https://creativecommons.org/licenses/by-sa/4.0/\"); pm.expect(c.attribution).to.be.a(\"string\").and.not.empty; pm.expect(c.url).to.match(/^https:\\/\\//); }));",
+              "});",
+              "pm.test(\"Tónico: glossary Wikcionario, adapted=false\", () => { const g = grp(\"T\\u00f3nico\"); pm.expect(g, \"grupo\").to.exist; pm.expect(g.glossary).to.not.be.null; pm.expect(g.glossary.term).to.eql(\"Tónico\"); pm.expect(g.glossary.text).to.eql(\"Que provoca o favorece el tono de un músculo, de un órgano, o del metabolismo en general.\"); pm.expect(g.glossary.sourceName).to.eql(\"Wikcionario\"); pm.expect(g.glossary.adapted).to.be.false; pm.expect(g.glossary.url).to.include(\"es.wiktionary.org\").and.include(\"oldid=\"); });pm.test(\"Romero trae 10 explicaciones y los dos créditos una vez\", () => { pm.expect(j.useGroups.filter(g => g.glossary).length).to.eql(10); pm.expect(cred(WIKT).length).to.eql(1); pm.expect(cred(WIKI).length).to.eql(1); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/plants/salvia-rosmarinus",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "plants",
+            "salvia-rosmarinus"
+          ]
+        },
+        "description": "Planta con varias explicaciones."
+      }
+    },
+    {
+      "name": "G15 Atribución de Wikcionario y de Wikipedia en credits",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "const j = pm.response.json();",
+              "const grp = (a) => j.useGroups.find(g => g.activity === a);",
+              "const cred = (n) => (j.credits || []).filter(c => c.name === n);",
+              "const WIKT = \"Wikcionario en español\", WIKI = \"Wikipedia en español\";",
+              "const KEYS = [\"adapted\",\"sourceName\",\"term\",\"text\",\"url\"];",
+              "",
+              "pm.test(\"estado 200 y JSON\", () => { pm.response.to.have.status(200); pm.expect(pm.response.headers.get(\"Content-Type\")||\"\").to.include(\"application/json\"); });",
+              "pm.test(\"glossary siempre presente en cada grupo: objeto con 5 campos o null\", () => {",
+              "  pm.expect(j.useGroups).to.be.an(\"array\");",
+              "  j.useGroups.forEach(g => { pm.expect(g, g.activity).to.have.property(\"glossary\");",
+              "    if (g.glossary !== null) { pm.expect(Object.keys(g.glossary).sort(), g.activity).to.eql(KEYS); pm.expect(g.glossary.url).to.match(/^https:\\/\\//); pm.expect(g.glossary.adapted).to.be.a(\"boolean\"); } });",
+              "});",
+              "pm.test(\"el contrato anterior del grupo no cambia (campos y orden)\", () => {",
+              "  j.useGroups.forEach(g => pm.expect(Object.keys(g)).to.eql([\"activity\",\"activitySource\",\"count\",\"countries\",\"references\",\"glossary\"]));",
+              "});",
+              "pm.test(\"credits sin repeticiones\", () => { const n = j.credits.map(c => c.name); pm.expect(new Set(n).size).to.eql(n.length); });",
+              "pm.test(\"Wikcionario en credits si y solo si algún grupo servido trae glossary de Wikcionario\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikcionario\");",
+              "  pm.expect(cred(WIKT).length).to.eql(has ? 1 : 0);",
+              "});",
+              "pm.test(\"si algún glossary es de Wikipedia, Wikipedia está en credits una sola vez\", () => {",
+              "  const has = j.useGroups.some(g => g.glossary && g.glossary.sourceName === \"Wikipedia\");",
+              "  if (has) pm.expect(cred(WIKI).length).to.eql(1);",
+              "  pm.expect(cred(WIKI).length).to.be.at.most(1);",
+              "});",
+              "pm.test(\"credits de glosario: CC BY-SA 4.0 con licenseUrl\", () => {",
+              "  [WIKT, WIKI].forEach(n => cred(n).forEach(c => { pm.expect(c.license).to.eql(\"CC BY-SA 4.0\"); pm.expect(c.licenseUrl).to.eql(\"https://creativecommons.org/licenses/by-sa/4.0/\"); pm.expect(c.attribution).to.be.a(\"string\").and.not.empty; pm.expect(c.url).to.match(/^https:\\/\\//); }));",
+              "});",
+              "pm.test(\"atribución de Wikcionario: definiciones tomadas, sin marcado ni notas, primera oración, historial de autores\", () => { const a = cred(WIKT)[0].attribution; pm.expect(a).to.include(\"Wikcionario\").and.include(\"primera oración\").and.include(\"historial\"); pm.expect(cred(WIKT)[0].url).to.eql(\"https://es.wiktionary.org\"); });pm.test(\"Wikipedia en credits con licencia y licenseUrl, y menciona el glosario\", () => { const c = cred(WIKI)[0]; pm.expect(c.license).to.eql(\"CC BY-SA 4.0\"); pm.expect(c.attribution.toLowerCase()).to.include(\"glosario\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/plants/lavandula-angustifolia",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "plants",
+            "lavandula-angustifolia"
+          ]
+        },
+        "description": "Textos de atribución."
+      }
+    },
+    {
+      "name": "C7 401 con token inválido en el detalle",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "",
+              "pm.test(\"401 con token inválido\", () => pm.response.to.have.status(401));",
+              "pm.test(\"problem+json y sin datos\", () => { pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/problem+json\"); pm.expect(pm.response.text()).to.not.include(\"glossary\"); });",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/plants/lavandula-angustifolia",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "plants",
+            "lavandula-angustifolia"
+          ]
+        },
+        "description": "Token incorrecto.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "token-invalido",
+              "type": "string"
+            }
+          ]
+        }
+      }
     }
   ]
 }

@@ -141,3 +141,143 @@ TOKEN=<token-app> python3 -I openspec/changes/activity-glossary/qa/scripts/oracl
 - Se detuvieron las dos APIs, el daemon de Gradle (`./gradlew --stop`) y el emulador; la app quedó desinstalada, `font_scale` en 1.0 y se borraron solo `app-debug.apk` y `app-debug.apk.sha1`. No se usó Docker ni `rm -rf`, y no hay procesos en segundo plano.
 - Barrido `grep -rEn '[0-9a-f]{32,}' openspec/changes/activity-glossary/qa/`: cero resultados (ver el resultado en el mensaje de entrega).
 - Los logs de la API y de la compilación se quedaron en la carpeta auxiliar de la sesión, fuera del repositorio. No se guardó ningún `logcat`. El token del smoke se sustituyó por `<token-app>` en la salida guardada.
+
+## Validación en Cloud Run y emulador (2026-10-31)
+
+Validación de las tareas 8.1 (API con Postman contra Cloud Run) y 8.2 (interfaz en el emulador con un APK que apunta a Cloud Run), con los ajustes de revisión del usuario: etiqueta «Significado general del término», línea «Aviso sobre usos» con diálogo, «Sucedáneo del café», sin línea «Lugares» e icono de libro de citas a la derecha del título. Rama `uses-citations-icon` (`d9a5e4c`), con el backend y la semilla de `main` (`24a4477`) desplegados en Cloud Run.
+
+### Resumen
+
+- La API desplegada pasa todos los casos (8.1): colección del glosario con 22 peticiones y 147 aserciones, colección general con 24 peticiones y 101 aserciones, y un barrido de las 2.354 plantas contra `data/seed/glossary.json`, todo sin fallos.
+- La interfaz pasó todos los casos de 8.2 salvo uno, que se corrigió y reverificó (D2, cerrado tras `b5450c1`; antes era un defecto del producto de severidad media): el icono de libro se ve igual plegado que desplegado, así que el estado no se expresa en el icono (los píxeles de ambos estados son idénticos en el APK release). El estado sí se expresa en el tooltip, en la etiqueta accesible y en las citas visibles debajo.
+- Observaciones: la atribución de Wikipedia menciona el glosario también en plantas sin explicación de Wikipedia (confirmada en Cloud Run), y no se pudo oír TalkBack (se verificó el árbol de accesibilidad).
+- No se marcan casillas en `tasks.md`.
+
+### Entorno
+
+- API: `https://boticario-api-d3xv5q3iaa-pv.a.run.app`, con el token de la app leído a una variable de entorno de la shell y pasado a Postman CLI como variable; en los informes aparece `<token-app>` (el barrido de `[0-9a-f]{32,}` sobre `qa/` no da resultados).
+- APK: `app/build/app/outputs/flutter-apk/app-release.apk` (release, ya compilado, no se compiló otro; contiene la URL de Cloud Run y ninguna de `localhost` ni `10.0.2.2`, comprobado con `strings` sobre `libapp.so`). Instalado con `adb -s emulator-5554 install -r`; no se usó el teléfono físico `R5CR70M9GEE` (solo apareció en `adb devices`, que es de lectura).
+- Emulador `boticario_catalog_api36`, 1080x1920 a 480 dpi (360x640 dp; 1 dp = 3 px, 48 dp = 144 px). `font_scale` 1.0 y 2.0. Lo arranqué yo y lo apagué al terminar; la app quedó desinstalada y `font_scale` en 1.0.
+- Herramientas: Postman CLI 1.74.0, Python 3 de la biblioteca estándar, `adb`, `uiautomator` y `sips` (macOS) para recortar capturas. No se instaló nada ni se tocó el proyecto. No se usó Gradle.
+
+### Casos de 8.1 (Postman contra Cloud Run)
+
+La colección `postman/activity-glossary.postman_collection.json` se regeneró con `scripts/build_postman_collection.py` y suma cinco peticiones (G12 a G15 y C7) a las 17 anteriores; el entorno nuevo es `postman/cloud-run.postman_environment.json` (sin token). Se corrió también la colección general `backend/postman/boticario-api.postman_collection.json` con el mismo entorno.
+
+| ID | Qué cubre | Resultado | Evidencia |
+| --- | --- | --- | --- |
+| G1 | Lavanda: `Diurético` y `Carminativo` literales de Wikcionario con su `glossary.text` y `glossary.url` (con `oldid`), `Estimulante` adaptado de Wikipedia, los cinco campos `term`, `text`, `sourceName`, `url`, `adapted`, créditos de Wikcionario y de Wikipedia una vez cada uno | Pasa | `evidence/api/cloudrun-postman-glossary.txt` |
+| G2 a G3 | Sedante adaptado (acónito) y Expectorante literal de Wikipedia (abeto) | Pasa | idem |
+| G4 | Planta con solo explicaciones de Wikipedia: sin crédito de Wikcionario y Wikipedia una vez | Pasa | idem |
+| G5 | Fórmula de enfermedad grave («…: cáncer») con `glossary` nulo y `activity` íntegra | Pasa | idem |
+| G6 | Términos excluidos `Hemostático` y `Depurativo` (milenrama) con `glossary` nulo | Pasa | idem |
+| G7 | `Antídoto (Laportea)` hereda la definición de `Antídoto` y conserva el calificador | Pasa | idem |
+| G8 a G9 | Grupos pendientes de revisión: no se sirven ni su explicación ni el crédito | Pasa | idem |
+| G10 | Planta sin ningún término: todo nulo y sin crédito de Wikcionario | Pasa | idem |
+| G11 | El alias `rosmarinus-officinalis` resuelve y trae `glossary` | Pasa | idem |
+| G12 | *Senna occidentalis*: el grupo con `activitySource` `Coffee` se llama `Sucedáneo del café`, con `glossary` nulo, y no existe ningún grupo ni uso `Café`; `Fiebre` nulo; `Purgante` adaptado; fórmulas de malaria y lepra nulas | Pasa | idem |
+| G13 | Cardo (`cynara-cardunculus`), una sola explicación: `Diurético` de Wikcionario | Pasa | idem |
+| G14 | Romero: 10 explicaciones, `Tónico` literal, los dos créditos una vez | Pasa | idem |
+| G15 | Texto de atribución de Wikcionario (definiciones tomadas, primera oración, historial de autores) y de Wikipedia (menciona el glosario), con CC BY-SA 4.0 y `licenseUrl` | Pasa | idem |
+| C1 a C2 | Forma del listado y del detalle (`uses`, orden de las claves de la raíz) sin cambios | Pasa | idem |
+| C3 | `/openapi.json` desplegado describe `UseGlossaryDto` y `glossary` obligatorio | Pasa | idem |
+| C4 y C7 | 401 sin token y con token inválido (`application/problem+json`, sin datos) | Pasa | idem |
+| C5 a C6 | `/v1/goals` y `/v1/goals/{id}/plants` sin cambios y sin `glossary` | Pasa | idem |
+| A0 | Colección general de `backend/postman/` contra Cloud Run: 24 peticiones, 101 aserciones | Pasa, 0 fallos | `evidence/api/cloudrun-postman-general.txt` |
+| S1 a S8 | Barrido de las 2.354 plantas de Cloud Run (`scripts/cloudrun_sweep.py`) contra `data/seed/glossary.json` por la regla de la forma base: texto, URL, fuente y `adapted` iguales; ningún grupo servido con término sin `glossary`; ninguna fórmula con `glossary`; forma de cada grupo; créditos (Wikcionario si y solo si hay explicación de Wikcionario, Wikipedia una vez, CC BY-SA 4.0 con `licenseUrl`); 5.172 grupos con explicación en 1.207 plantas y 1.133 con crédito de Wikcionario (las mismas cifras de la base local); los 36 grupos `Coffee` se llaman `Sucedáneo del café` y ninguno `Café` | Pasa | `evidence/api/cloudrun-sweep-output.txt` y `evidence/api/cloudrun-sweep-results.json` |
+
+El barrido no usa una base local (`data/build/catalog.db` no existe en esta copia): compara la API desplegada con el archivo de la semilla, que es de donde sale la base de la imagen.
+
+### Casos de 8.2 (emulador con el APK contra Cloud Run)
+
+Plantas: Lavanda (varias explicaciones), Romero (varias), Cardo (una sola, con una fórmula de enfermedad grave), Yerba mansa (ninguna, con la fórmula «…: cáncer»), *Senna occidentalis* (`Sucedáneo del café`, `Fiebre` y fórmulas de malaria y lepra), Milenrama (términos excluidos `Hemostático` y `Depurativo`) y *Alocasia macrorrhizos* (`Antídoto (…)`). Las capturas están en `evidence/cloudrun/`.
+
+| ID | Qué cubre | Resultado | Evidencia |
+| --- | --- | --- | --- |
+| U1 | Lavanda en `Usos` al 100 %: línea «Aviso sobre usos» al inicio, grupos con título y a su derecha, en la misma fila, el icono de libro; bajo cada término con explicación, la etiqueta gris «Significado general del término» y `Término: «definición» (Wikcionario)` con la fuente enlazada; `Estimulante` dice «(adaptado de Wikipedia)»; `Espasmo`, `Perfume` y `Repelente de insectos` sin etiqueta ni hueco | Pasa | `01-lavanda-usos-100.png`, `02-lavanda-usos-100-scrolled.png` y `a11y-arbol-usos-lavanda.txt` |
+| U2 | Romero: las 10 explicaciones del API (Carminativo, Estimulante, Estomacal, Nervino, Rubefaciente, Cardiotónico, Colagogo, Diurético, Emenagogo, Tónico) con etiqueta; el resto de grupos y la fórmula sin ella | Pasa | `18-romero-usos.png` |
+| U3 | Una sola explicación (Cardo): solo `Diurético` lleva etiqueta; `Laxante suave` y la fórmula «…: diabetes» no | Pasa | `13-cardo-una-explicacion-y-formula.png` |
+| U4 | Ninguna explicación (Yerba mansa): ninguna etiqueta, grupos con título e icono, fórmula mostrada tal cual | Pasa | `14-yerba-mansa-sin-explicaciones.png` |
+| U5 | Enfermedad grave: «Uso tradicional, sin eficacia demostrada: cáncer, diabetes, malaria y lepra» se muestra con su texto exacto, sin explicación | Pasa | capturas 13 y 14 y `evidence/cloudrun/a11y-otras-plantas.txt` |
+| U6 | Término excluido: `Hemostático` y `Depurativo` (milenrama) sin etiqueta | Pasa | `16-milenrama-hemostatico-excluido.png` |
+| U7 | `Antídoto (Laportea)` conserva el calificador en el título y la línea empieza con «Antídoto:» (Wikipedia, literal, sin «adaptado de») | Pasa | `17-alocasia-antidoto-calificador.png` |
+| U8 | «Sucedáneo del café» en *Senna occidentalis* (4 citas, sin explicación) y ningún «Café» | Pasa | `15-senna-sucedaneo-del-cafe.png` |
+| U9 | Sin «Lugares»: ningún nodo con «Lugares» en el árbol de Lavanda, Romero, Cardo, Yerba mansa, *Senna* ni *Alocasia*, ni los países (Turquía, China, …) | Pasa | `a11y-arbol-usos-lavanda.txt` (0 coincidencias) y las capturas |
+| U10 | Diálogo «Aviso sobre usos» al 100 %: título, texto completo igual al del spec (con la oración sobre las explicaciones de términos) y botón «Entendido»; se cierra con «Entendido», con Atrás y tocando fuera, sin cambiar la pestaña ni el estado de las citas; el texto del aviso no se ve en la pestaña | Pasa | `08-aviso-dialogo-100.png` |
+| U11 | Diálogo al 200 %: título y texto completos (desplazable hasta la oración final), «Entendido» alcanzable de 405x144 px | Pasa | `11-aviso-dialogo-200.png` y `12-aviso-dialogo-200-final-scroll.png` |
+| U12 | Línea «Aviso sobre usos»: un solo botón de 455x144 px (152x48 dp) con la etiqueta «Aviso sobre usos» | Pasa | árbol de accesibilidad |
+| U13 | Icono de libro, posición: a la derecha del título, en la misma fila y centrado con su primera línea; mide 20 dp (unos 58 px) y su área táctil 144x144 px (48x48 dp), también al 200 % | Pasa | capturas 02 y 09; árbol con `(888, 677, 1032, 821)` |
+| U14 | Área táctil con `input tap` en coordenadas medidas: 4 px fuera por la izquierda (884, 750), por arriba (960, 674) y por abajo (960, 826) no hacen nada; 2 px dentro de la esquina superior izquierda (890, 680) despliega, y 2 px dentro de la inferior derecha (1030, 818) pliega | Pasa | `evidence/cloudrun/toque-area-48dp.txt` |
+| U15 | Plegar y desplegar: las citas empiezan plegadas; al tocar se muestran las dos citas de Carminativo debajo de la explicación, sin mover el icono ni afectar a los demás grupos; al volver a tocar se pliegan | Pasa | `03-carminativo-citas-desplegadas.png` |
+| U16 | Tooltip: «Ver 2 citas» al mantener pulsado plegado y «Ocultar citas» desplegado | Pasa | `04-tooltip-ver-2-citas-longpress.png` y `05-tooltip-ocultar-citas-longpress.png` |
+| U17 | Estado de plegado al cambiar de pestaña: se desplegó Carminativo, se fue a `Fuentes` y se volvió a `Usos`: sigue desplegado y los demás plegados | Pasa | árbol de accesibilidad |
+| U18 | Cambio de icono de cerrado a abierto | Falla con `d9a5e4c` (D2); **pasa tras `b5450c1`** (ver la reverificación) | recortes de las capturas 03 y 05 (fallo) y `21-d2-reverif-iconos-plegado-y-desplegado.png` (corrección) |
+| U19 | Lectura de accesibilidad del control: nodo botón clicable con la etiqueta «Ver 2 citas de Carminativo» plegado y «Ocultar citas de Carminativo» desplegado, con el nombre de la actividad; «Ver 1 cita de …» en singular | Pasa | árbol de accesibilidad |
+| U20 | Lectura del glosario en el árbol: título, etiqueta y las explicaciones forman un solo nodo de lectura («Carminativo \| Significado general del término \| Estimulante \| …») y el enlace es un nodo clicable aparte, «Wikcionario. Abre la fuente de la explicación» o «Wikipedia. Abre la fuente de la explicación», sin la URL como texto | Pasa | árbol de accesibilidad |
+| U21 | Enlace: al tocar «Wikcionario» se abre Chrome en `es.wiktionary.org/w/index.php?title=carminativo&oldid=5967250` | Pasa | `19-enlace-wikcionario-navegador.png` |
+| U22 | 200 % de texto en Lavanda: la etiqueta, las explicaciones (también la adaptada, larga) y el enlace se leen completos, sin truncar ni desbordar; el título y el icono siguen en una fila y el área táctil sigue en 144x144 px | Pasa | `09-lavanda-usos-200-a.png` y `10-lavanda-usos-200-b.png` |
+| U23 | `Fuentes` de Lavanda: Wikcionario en español y Wikipedia en español, una vez cada uno, con «Licencia: CC BY-SA 4.0» enlazada y su atribución | Pasa | `06-lavanda-fuentes.png` y `07-lavanda-fuentes-wikcionario-wikipedia.png` |
+| U24 | `Fuentes` de Yerba mansa: sin Wikcionario y con Wikipedia (por la descripción) | Pasa (con la observación 1) | `20-yerba-mansa-fuentes-sin-wikcionario.png` |
+
+### Defectos
+
+#### D2. El icono de libro no cambia de cerrado a abierto (severidad media; cerrado tras `b5450c1`, ver la reverificación)
+
+- **Requisito afectado:** `plant-passport`, «Usos como registros tradicionales trazables» (`Icons.menu_book_outlined` plegado y `Icons.menu_book` desplegado, «el icono pasa a libro abierto»), escenario «Desplegar y plegar citas», y «Accesibilidad del pasaporte» («el estado SHALL expresarse también en el icono (libro cerrado o abierto), no solo en el color»).
+- **Pasos:**
+  - Instalar el APK release y abrir Explorar, Lavanda y la pestaña `Usos`.
+  - Recortar con `sips` el icono de Carminativo (plegado), tocarlo para desplegar y recortar de nuevo el mismo icono (desplegado).
+  - Comparar los dos recortes.
+- **Esperado:** el icono plegado (`menu_book_outlined`) y el desplegado (`menu_book`) se distinguen a simple vista.
+- **Obtenido:** los dos estados dibujan el mismo libro relleno. Los recortes de 100x140 px del icono desplegado (Carminativo) y del plegado (Estimulante) en la misma captura (`03-carminativo-citas-desplegadas.png`) tienen el mismo `md5`, y la captura con el tooltip «Ocultar citas» (`05-tooltip-ocultar-citas-longpress.png`) muestra el mismo icono que la de «Ver 2 citas» (`04-tooltip-ver-2-citas-longpress.png`). El estado sí cambia en el tooltip, en la etiqueta accesible («Ocultar citas de Carminativo») y por las citas que aparecen debajo.
+- **Reproducible:** sí, las dos veces que se probó. El código usa `Icons.menu_book_outlined` y `Icons.menu_book` (`app/lib/features/passport/presentation/passport_uses_tab.dart`) y las pruebas de widgets buscan los iconos por tipo, por lo que no ven que se dibujan igual.
+- **Evidencia:** `evidence/cloudrun/03-carminativo-citas-desplegadas.png`, `04-tooltip-ver-2-citas-longpress.png`, `05-tooltip-ocultar-citas-longpress.png`.
+- **Nota:** no se determinó si la causa es que esos dos glifos de la fuente `MaterialIcons` (puntos de código `e3dd` y `f1c2`) se ven igual a 20 dp o un problema de la compilación release; el resultado visible es el mismo. Una pareja de iconos que se distinga (por ejemplo, un libro cerrado y uno abierto) lo resolvería.
+
+### Reverificación de D2 con `b5450c1` (2026-10-31)
+
+Se instaló el APK release nuevo (`app-release.apk` compilado a las 20:47, que apunta a Cloud Run y no contiene `localhost` ni `10.0.2.2`) en el emulador `boticario_catalog_api36`, siempre con `-s emulator-5554`; el código usa `Icons.book_outlined` plegado y `Icons.menu_book` desplegado.
+
+- **Resultado: D2 cerrado, U18 pasa.**
+- **U18:** en una misma captura (`evidence/cloudrun/21-d2-reverif-iconos-plegado-y-desplegado.png`), con Carminativo desplegado y Estimulante plegado, los recortes de 100x140 px de los dos iconos tienen `md5` distintos y se distinguen a simple vista: plegado es un libro cerrado con marcador y desplegado es un libro abierto con renglones. Antes de la corrección eran idénticos.
+- **Regresión del icono, 100 %:**
+  - Posición a la derecha del título y en su misma fila, tamaño de 20 dp y área de 144x144 px (48x48 dp): igual que antes.
+  - Toques: 4 px fuera por la izquierda, por arriba y por abajo no hacen nada, y 2 px dentro de las esquinas sí despliegan y pliegan (`evidence/cloudrun/toque-area-48dp-reverif.txt`).
+  - Tooltips por pulsación larga: «Ver 2 citas» con el libro cerrado y «Ocultar citas» con el libro abierto (`23-d2-reverif-tooltip-ver-citas.png` y `24-d2-reverif-tooltip-ocultar-citas.png`).
+  - Árbol de accesibilidad: nodo clicable «Ver 2 citas de Carminativo» y «Ocultar citas de Carminativo», sin «Lugares».
+- **200 % de texto:** el icono sigue a la derecha del título, con área de 144x144 px, el libro plegado y el desplegado siguen distinguiéndose (recortes con `md5` distintos de `25-d2-reverif-200-plegado.png` y `26-d2-reverif-200-desplegado.png`) y el árbol cambia entre «Ver 2 citas de Carminativo» y «Ocultar citas de Carminativo» (`a11y-reverif-d2-200.txt`).
+- Siguen sin verificarse con TalkBack con voz el estado plegado o expandido (observación 2).
+
+### Observaciones
+
+1. **Atribución de Wikipedia.** El crédito de Wikipedia dice «En el glosario de actividades, el texto es la primera oración de un artículo o una paráfrasis…» también en plantas sin ninguna explicación de Wikipedia, como Yerba mansa (su crédito viene de la descripción). Ya estaba observado en la QA local; ahora se confirma en Cloud Run y en la app. Es una imprecisión de texto, sin efecto sobre la licencia.
+2. **TalkBack.** TalkBack está instalado en el emulador; lo activé, no logré obtener su voz ni por `logcat` y lo desactivé (`enabled_accessibility_services` vuelto a su valor original, nulo). La lectura se verificó con el árbol de `uiautomator`, que no expone el estado «expandido» del botón. Quedan sin comprobar con el lector de pantalla real: el anuncio del estado plegado o expandido y el orden de lectura.
+3. **Visor reducido al 200 %.** La franja de contenido bajo la cabecera de la planta mide unos 200 px y la barra de navegación ocupa dos filas, de modo que hay que desplazar la página; es previo a este cambio y ya estaba observado.
+4. **Primer arranque de Chrome.** Al abrir el enlace, Chrome mostró sus pantallas de bienvenida (se pasaron con «Use without an account» y «No thanks»); no es del producto.
+5. **Texto de la tarea 8.1.** Nombra `qa/activity-glossary-api-results.md`; los resultados de la API están en este informe.
+
+### No verificado
+
+- TalkBack con voz (observación 2) y el estado «expandido» del control en la semántica (lo cubren las pruebas de widgets de la rama, que no se corrieron aquí).
+- El enlace de «Wikipedia» y los textos al 200 % en `Fuentes` y en Romero: el enlace de Wikipedia se comprobó en la QA local y el 200 % solo en Lavanda (`Usos` y diálogo).
+- Contraste de color de la etiqueta gris y del enlace (no se midió).
+- Una planta de Wikipedia literal en el emulador (se cubre con Antídoto y con la API; el abeto con `Expectorante` se vio en la QA local).
+- La suite de pruebas del producto (`cargo test`, `flutter test`), que quedan en las tareas 6.5 y 7.8.
+
+### Tareas
+
+- 8.1: cumplida contra Cloud Run (la API local se había cumplido en la QA anterior). Sin defectos del producto.
+- 8.2: cumplida con el APK contra Cloud Run. D2 se corrigió en `b5450c1` y quedó cerrado en la reverificación. La casilla de `tasks.md` no se marca aquí.
+
+### Cómo re-ejecutar
+
+Desde la raíz del repositorio, con el token solo en una variable de entorno de la shell (sin escribirlo en archivos).
+
+```bash
+TOKEN="$(gcloud secrets versions access 1 --secret=boticario-api-tokens --project boticario-ai | awk -F, '{print $1}' | tr -d '[:space:]')"
+postman collection run openspec/changes/activity-glossary/qa/postman/activity-glossary.postman_collection.json -e openspec/changes/activity-glossary/qa/postman/cloud-run.postman_environment.json --env-var "token=$TOKEN"
+(cd backend/postman && postman collection run boticario-api.postman_collection.json -e ../../openspec/changes/activity-glossary/qa/postman/cloud-run.postman_environment.json --env-var "token=$TOKEN")
+TOKEN="$TOKEN" python3 -I openspec/changes/activity-glossary/qa/scripts/cloudrun_sweep.py https://boticario-api-d3xv5q3iaa-pv.a.run.app "$PWD" salida.json
+```
+
+Para el emulador: `adb -s emulator-5554 install -r app/build/app/outputs/flutter-apk/app-release.apk` y los ayudantes `scripts/ui.py` y `scripts/ui_cr.py` (`home`, `open "<búsqueda>" "<patrón>"`, `full`, `scrolltap`). El buscador de Explorar filtra al teclear; el patrón de la planta debe coincidir con el botón de resultado y no con el campo de búsqueda (si ambos dicen lo mismo, tocar por coordenadas).

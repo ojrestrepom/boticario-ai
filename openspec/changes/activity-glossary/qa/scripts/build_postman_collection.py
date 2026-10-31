@@ -62,6 +62,7 @@ SEDA = "Sustancia que induce una sedación gradual y reduce la irritabilidad o l
 EXPE = "Un expectorante es un fármaco que tiene propiedades de provocar o promover la expulsión de las secreciones bronquiales acumuladas."
 ANTI = "Un antídoto, antitóxico o contraveneno es una sustancia química cuya función es contrarrestar los efectos de un veneno, toxina o químico."
 
+TONI = "Que provoca o favorece el tono de un músculo, de un órgano, o del metabolismo en general."
 W = "es.wiktionary.org"; P = "es.wikipedia.org"
 items = []
 items.append(req("G1 Lavanda: Wikcionario literal (Diurético, Carminativo) y adaptado (Estimulante)", "/v1/plants/lavandula-angustifolia",
@@ -152,6 +153,32 @@ pm.test("plantas de un objetivo: elementos como los del listado, sin glossary", 
 '''
 it = req("C6 /v1/goals/{id}/plants sin cambios", "/v1/goals/relajacion-estres/plants?limit=3", "", "Plantas de un objetivo.")
 it["event"][0]["script"]["exec"] = GP.split("\n")
+items.append(it)
+
+
+# --- Cloud Run (2026-10-31): casos añadidos ---
+items.append(req("G12 Senna occidentalis: Sucedáneo del café (USDA Coffee) sin glossary y sin Café", "/v1/plants/senna-occidentalis",
+    T_ALL + 'pm.test("el uso Coffee de USDA se traduce Sucedáneo del café, sin glossary, y no hay grupo Café", () => { const g = grp("Sucedáneo del café"); pm.expect(g, "grupo").to.exist; pm.expect(g.activitySource).to.eql("Coffee"); pm.expect(g.glossary).to.be.null; pm.expect(grp("Café")).to.be.undefined; pm.expect(j.uses.filter(u => u.activity === "Café").length).to.eql(0); pm.expect(j.uses.filter(u => u.activity === "Sucedáneo del café").length).to.be.above(0); });' +
+    'pm.test("Fiebre sin glossary y Purgante adaptado de Wikipedia", () => { pm.expect(grp("Fiebre").glossary).to.be.null; pm.expect(grp("Purgante").glossary.adapted).to.be.true; pm.expect(grp("Purgante").glossary.sourceName).to.eql("Wikipedia"); });' +
+    'pm.test("fórmula de enfermedad grave (malaria, lepra) sin glossary", () => { const gs = j.useGroups.filter(g => g.activity.startsWith("Uso tradicional, sin eficacia demostrada: ")); pm.expect(gs.length).to.be.above(0); gs.forEach(g => pm.expect(g.glossary, g.activity).to.be.null); });',
+    "Sucedáneo del café (ajuste de revisión), Fiebre y fórmula de enfermedad grave sin glosario."))
+items.append(req("G13 Planta con una sola explicación (Cardo: Diurético)", "/v1/plants/cynara-cardunculus",
+    T_ALL + 'pm.test("exactamente un grupo con glossary: Diurético de Wikcionario", () => { const gs = j.useGroups.filter(g => g.glossary); pm.expect(gs.length).to.eql(1); pm.expect(gs[0].activity).to.eql("Diurético"); pm.expect(gs[0].glossary.sourceName).to.eql("Wikcionario"); pm.expect(cred(WIKT).length).to.eql(1); });',
+    "Una sola explicación."))
+items.append(req("G14 Romero: varias explicaciones, Emenagogo y Tónico literales", "/v1/plants/salvia-rosmarinus",
+    T_ALL + term_test("Tónico","Tónico",TONI,"Wikcionario",False,W) + 'pm.test("Romero trae 10 explicaciones y los dos créditos una vez", () => { pm.expect(j.useGroups.filter(g => g.glossary).length).to.eql(10); pm.expect(cred(WIKT).length).to.eql(1); pm.expect(cred(WIKI).length).to.eql(1); });',
+    "Planta con varias explicaciones."))
+items.append(req("G15 Atribución de Wikcionario y de Wikipedia en credits", "/v1/plants/lavandula-angustifolia",
+    T_ALL + 'pm.test("atribución de Wikcionario: definiciones tomadas, sin marcado ni notas, primera oración, historial de autores", () => { const a = cred(WIKT)[0].attribution; pm.expect(a).to.include("Wikcionario").and.include("primera oración").and.include("historial"); pm.expect(cred(WIKT)[0].url).to.eql("https://es.wiktionary.org"); });' +
+    'pm.test("Wikipedia en credits con licencia y licenseUrl, y menciona el glosario", () => { const c = cred(WIKI)[0]; pm.expect(c.license).to.eql("CC BY-SA 4.0"); pm.expect(c.attribution.toLowerCase()).to.include("glosario"); });',
+    "Textos de atribución."))
+BADTOK = r"""
+pm.test("401 con token inválido", () => pm.response.to.have.status(401));
+pm.test("problem+json y sin datos", () => { pm.expect(pm.response.headers.get("Content-Type")).to.include("application/problem+json"); pm.expect(pm.response.text()).to.not.include("glossary"); });
+"""
+it = req("C7 401 con token inválido en el detalle", "/v1/plants/lavandula-angustifolia", "", "Token incorrecto.")
+it["request"]["auth"] = {"type": "bearer", "bearer": [{"key": "token", "value": "token-invalido", "type": "string"}]}
+it["event"][0]["script"]["exec"] = BADTOK.split("\n")
 items.append(it)
 
 coll = {

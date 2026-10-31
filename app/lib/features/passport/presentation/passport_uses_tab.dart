@@ -294,7 +294,7 @@ class _CitationsToggle extends StatelessWidget {
           : PassportTexts.showCitations(count),
       onPressed: onToggle,
       icon: Icon(
-        expanded ? Icons.menu_book : Icons.menu_book_outlined,
+        expanded ? Icons.menu_book : Icons.book_outlined,
         size: 20,
         color: passportGreen,
       ),

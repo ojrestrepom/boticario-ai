@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:boticario_ai/app/theme.dart';
@@ -9,6 +11,7 @@ import 'package:boticario_ai/features/passport/presentation/passport_texts.dart'
 import 'package:boticario_ai/features/passport/presentation/passport_uses_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart' show FontLoader;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
@@ -895,7 +898,7 @@ void main() {
       );
       final closedIcon = find.descendant(
         of: _toggle('Ver 1 cita'),
-        matching: find.byIcon(Icons.menu_book_outlined),
+        matching: find.byIcon(Icons.book_outlined),
       );
       expect(closedIcon, findsOneWidget);
       expect(tester.widget<Icon>(closedIcon).size, 20);
@@ -912,7 +915,7 @@ void main() {
       expect(
         find.descendant(
           of: _toggle('Ocultar citas'),
-          matching: find.byIcon(Icons.menu_book_outlined),
+          matching: find.byIcon(Icons.book_outlined),
         ),
         findsNothing,
       );
@@ -1006,6 +1009,54 @@ void main() {
       expect(find.textContaining('Lugares'), findsNothing);
       expect(find.textContaining('Guatemala'), findsNothing);
       expect(_toggle('Ver 1 cita'), findsOneWidget);
+    });
+
+    testWidgets('los iconos de plegado y desplegado se dibujan distintos', (
+      tester,
+    ) async {
+      // The test environment draws icons as squares unless the font is loaded:
+      // use the one that ships with the Flutter SDK running the tests.
+      final root = Platform.environment['FLUTTER_ROOT'];
+      expect(root, isNotNull, reason: 'FLUTTER_ROOT no está definido');
+      final font = File(
+        '$root/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
+      );
+      expect(font.existsSync(), isTrue, reason: font.path);
+      final loader = FontLoader('MaterialIcons')
+        ..addFont(Future.value(ByteData.sublistView(font.readAsBytesSync())));
+      await tester.runAsync(loader.load);
+
+      Future<List<int>> pixels(IconData icon) async {
+        final key = GlobalKey();
+        await tester.pumpWidget(
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: Center(
+              child: RepaintBoundary(
+                key: key,
+                child: Icon(icon, size: 20, color: passportGreen),
+              ),
+            ),
+          ),
+        );
+        await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 100)),
+        );
+        await tester.pumpAndSettle();
+        final boundary =
+            key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+        return (await tester.runAsync(() async {
+          final image = await boundary.toImage(pixelRatio: 4);
+          final data = await image.toByteData();
+          return data!.buffer.asUint8List().toList();
+        }))!;
+      }
+
+      final closed = await pixels(Icons.book_outlined);
+      final open = await pixels(Icons.menu_book);
+      expect(closed.any((b) => b != 0), isTrue, reason: 'glifo cerrado vacío');
+      expect(open.any((b) => b != 0), isTrue, reason: 'glifo abierto vacío');
+      expect(closed, isNot(equals(open)));
     });
 
     Finder titleRow() =>

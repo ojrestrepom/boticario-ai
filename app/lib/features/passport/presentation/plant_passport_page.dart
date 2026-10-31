@@ -256,6 +256,10 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
   /// Keys of the `Usos` groups whose citations are open. They live here, not
   /// in the tab, because the tab is rebuilt each time it is selected.
   final _expandedGroups = <String>{};
+
+  /// Keys of the `Usos` groups whose explanation of the term is open. Separate
+  /// from [_expandedGroups]: opening one does not open the other.
+  final _expandedGlossaries = <String>{};
   final _tabsKey = GlobalKey();
 
   @override
@@ -264,6 +268,7 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
     if (oldWidget.plant.id != widget.plant.id) {
       _tab = 0;
       _expandedGroups.clear();
+      _expandedGlossaries.clear();
     }
   }
 
@@ -300,6 +305,8 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
                     plant: widget.plant,
                     expandedGroups: _expandedGroups,
                     onToggleGroup: _toggleGroup,
+                    expandedGlossaries: _expandedGlossaries,
+                    onToggleGlossary: _toggleGlossary,
                   )
                 else
                   PassportSourcesTab(plant: widget.plant),
@@ -328,6 +335,10 @@ class _PlantPassportPageState extends State<PlantPassportPage> {
 
   void _toggleGroup(String key) => setState(() {
     if (!_expandedGroups.remove(key)) _expandedGroups.add(key);
+  });
+
+  void _toggleGlossary(String key) => setState(() {
+    if (!_expandedGlossaries.remove(key)) _expandedGlossaries.add(key);
   });
 
   void _selectTab(int tab) {

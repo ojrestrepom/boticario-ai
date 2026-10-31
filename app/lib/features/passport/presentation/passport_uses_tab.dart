@@ -24,6 +24,8 @@ class PassportUsesTab extends StatelessWidget {
     required this.plant,
     required this.expandedGroups,
     required this.onToggleGroup,
+    required this.expandedGlossaries,
+    required this.onToggleGlossary,
     super.key,
   });
 
@@ -32,6 +34,11 @@ class PassportUsesTab extends StatelessWidget {
   /// Keys (see [useGroupKey]) of the groups whose citations are open.
   final Set<String> expandedGroups;
   final ValueChanged<String> onToggleGroup;
+
+  /// Keys (see [useGroupKey]) of the groups whose explanation of the term is
+  /// open. It starts closed and does not depend on [expandedGroups].
+  final Set<String> expandedGlossaries;
+  final ValueChanged<String> onToggleGlossary;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -48,6 +55,11 @@ class PassportUsesTab extends StatelessWidget {
               useGroupKey(i, plant.useGroups[i]),
             ),
             onToggle: () => onToggleGroup(useGroupKey(i, plant.useGroups[i])),
+            glossaryExpanded: expandedGlossaries.contains(
+              useGroupKey(i, plant.useGroups[i]),
+            ),
+            onToggleGlossary: () =>
+                onToggleGlossary(useGroupKey(i, plant.useGroups[i])),
           ),
     ],
   );
@@ -137,14 +149,19 @@ class _UseGroupCard extends StatelessWidget {
     required this.group,
     required this.expanded,
     required this.onToggle,
+    required this.glossaryExpanded,
+    required this.onToggleGlossary,
   });
 
   final UseGroup group;
   final bool expanded;
   final VoidCallback onToggle;
+  final bool glossaryExpanded;
+  final VoidCallback onToggleGlossary;
 
   @override
   Widget build(BuildContext context) {
+    final glossary = group.glossary;
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Column(
@@ -155,9 +172,12 @@ class _UseGroupCard extends StatelessWidget {
             count: group.references.length,
             expanded: expanded,
             onToggle: onToggle,
+            glossary: glossary,
+            glossaryExpanded: glossaryExpanded,
+            onToggleGlossary: onToggleGlossary,
           ),
           const SizedBox(height: 4),
-          if (group.glossary case final glossary?) _Glossary(glossary),
+          if (glossary != null && glossaryExpanded) _Glossary(glossary),
           if (expanded)
             for (final reference in group.references)
               _Citation(reference: reference),
@@ -209,21 +229,28 @@ class _Glossary extends StatelessWidget {
   }
 }
 
-/// Activity of a group on one row, with the citations icon on its right. The
-/// icon's 48 dp touch target is part of the row (nothing overflows its parent);
-/// the title's first line is centered on the icon and may wrap below it.
+/// Activity of a group on one row, with the explanation icon (only when the
+/// group has one) and the citations icon on its right. Both 48 dp touch targets
+/// are part of the row (nothing overflows its parent); the title's first line
+/// is centered on them and may wrap below them.
 class _TitleRow extends StatelessWidget {
   const _TitleRow({
     required this.activity,
     required this.count,
     required this.expanded,
     required this.onToggle,
+    required this.glossary,
+    required this.glossaryExpanded,
+    required this.onToggleGlossary,
   });
 
   final String activity;
   final int count;
   final bool expanded;
   final VoidCallback onToggle;
+  final GlossaryEntry? glossary;
+  final bool glossaryExpanded;
+  final VoidCallback onToggleGlossary;
 
   /// Side of the touch target, at least 48 dp. The icon itself is 20 dp.
   static const _touchSize = 48.0;
@@ -251,6 +278,14 @@ class _TitleRow extends StatelessWidget {
             child: Text(activity, style: style),
           ),
         ),
+        if (glossary case final entry?) ...[
+          const SizedBox(width: 4),
+          _GlossaryToggle(
+            term: entry.term,
+            expanded: glossaryExpanded,
+            onToggle: onToggleGlossary,
+          ),
+        ],
         const SizedBox(width: 4),
         _CitationsToggle(
           activity: activity,
@@ -261,6 +296,49 @@ class _TitleRow extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Icon button that shows and hides the meaning of the group's term, to the
+/// left of the citations icon. The state shows in the icon (outlined or filled
+/// info), the tooltip and the semantics.
+class _GlossaryToggle extends StatelessWidget {
+  const _GlossaryToggle({
+    required this.term,
+    required this.expanded,
+    required this.onToggle,
+  });
+
+  final String term;
+  final bool expanded;
+  final VoidCallback onToggle;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    container: true,
+    button: true,
+    expanded: expanded,
+    label: expanded
+        ? PassportTexts.hideGlossarySemantics(term)
+        : PassportTexts.showGlossarySemantics(term),
+    onTap: onToggle,
+    excludeSemantics: true,
+    child: IconButton(
+      tooltip: expanded
+          ? PassportTexts.hideGlossary
+          : PassportTexts.showGlossary,
+      onPressed: onToggle,
+      icon: Icon(
+        expanded ? Icons.info : Icons.info_outline,
+        size: 20,
+        color: passportGreen,
+      ),
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints.tightFor(
+        width: _TitleRow._touchSize,
+        height: _TitleRow._touchSize,
+      ),
+    ),
+  );
 }
 
 /// Icon button that opens and closes the citations of a group. The state shows

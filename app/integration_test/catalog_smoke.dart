@@ -627,9 +627,20 @@ final _glossaryLine = RegExp(
   r'^.+: «.+» \((adaptado de )?(Wikcionario|Wikipedia)\)$',
 );
 
-/// Scrolls the whole `Usos` tab and returns how many labels and how many
-/// `Term: «text» (Source)` lines it built.
-Future<({int labels, int lines})> _countGlossary(WidgetTester tester) async {
+/// Icon buttons of the explanation control (`Ver significado` or
+/// `Ocultar significado`), open or closed.
+final _glossaryControls = find.byWidgetPredicate(
+  (w) =>
+      w is IconButton &&
+      (w.tooltip == PassportTexts.showGlossary ||
+          w.tooltip == PassportTexts.hideGlossary),
+);
+
+/// Scrolls the whole `Usos` tab and returns how many explanation controls, how
+/// many labels and how many `Term: «text» (Source)` lines it built.
+Future<({int toggles, int labels, int lines})> _countGlossary(
+  WidgetTester tester,
+) async {
   final position = tester
       .state<ScrollableState>(
         find
@@ -645,9 +656,12 @@ Future<({int labels, int lines})> _countGlossary(WidgetTester tester) async {
   final label = find.text(PassportTexts.glossaryLabel);
   final seenLines = <String>{};
   var labels = 0;
+  var toggles = 0;
   for (var step = 0; step < 80; step++) {
     final built = label.evaluate().length;
     if (built > labels) labels = built;
+    final builtToggles = _glossaryControls.evaluate().length;
+    if (builtToggles > toggles) toggles = builtToggles;
     for (final rich in find.byType(RichText).evaluate()) {
       final text = (rich.widget as RichText).text.toPlainText(
         includeSemanticsLabels: false,
@@ -661,12 +675,25 @@ Future<({int labels, int lines})> _countGlossary(WidgetTester tester) async {
   }
   position.jumpTo(0);
   await _settle(tester);
-  return (labels: labels, lines: seenLines.length);
+  return (toggles: toggles, labels: labels, lines: seenLines.length);
 }
 
-/// `Usos` of the lavender: at least one label with its line below. It fails
-/// when the app shows no explanation.
+/// `Usos` of the lavender: the explanations start hidden behind a control, and
+/// opening one shows its label with its line below. It fails when the app shows
+/// no explanation to open.
 Future<void> _expectGlossary(WidgetTester tester) async {
+  final hidden = await _countGlossary(tester);
+  expect(
+    hidden.toggles,
+    greaterThan(0),
+    reason: 'explanation controls in Usos of lavender',
+  );
+  expect(hidden.labels, 0, reason: 'the explanation starts hidden');
+  final show = find.byWidgetPredicate(
+    (w) => w is IconButton && w.tooltip == PassportTexts.showGlossary,
+  );
+  await _scrollUntilBuilt(tester, show.first);
+  await _tapVisible(tester, show.first);
   final found = await _countGlossary(tester);
   expect(found.labels, greaterThan(0), reason: 'labels in Usos of lavender');
   expect(found.lines, greaterThan(0), reason: 'Term: «text» (Source) lines');
@@ -688,6 +715,7 @@ Future<void> _expectPlantWithoutGlossary(
   await _tapVisible(tester, find.text('Usos'));
   expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
   final found = await _countGlossary(tester);
+  expect(found.toggles, 0, reason: 'no explanation control without terms');
   expect(found.labels, 0);
   expect(found.lines, 0);
   await _tapVisible(tester, find.text('Fuentes'));

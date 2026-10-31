@@ -458,6 +458,8 @@ void main() {
                   plant: plant,
                   expandedGroups: const {},
                   onToggleGroup: (_) {},
+                  expandedGlossaries: const {},
+                  onToggleGlossary: (_) {},
                 ),
               ],
             ),

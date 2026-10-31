@@ -81,6 +81,16 @@ abstract final class PassportTexts {
   static String hideCitationsSemantics(String activity) =>
       '$hideCitations de $activity';
 
+  /// Tooltip of the explanation control: it shows or hides the meaning of the
+  /// group's term, which starts hidden.
+  static const showGlossary = 'Ver significado';
+  static const hideGlossary = 'Ocultar significado';
+
+  /// Semantic labels of the explanation control, with the term so repeated
+  /// controls can be told apart.
+  static String showGlossarySemantics(String term) => '$showGlossary de $term';
+  static String hideGlossarySemantics(String term) => '$hideGlossary de $term';
+
   // Fuentes.
   static const sourcesTitle = 'Fuentes';
   static const sourcesIntro =
@@ -149,6 +159,8 @@ abstract final class PassportTexts {
     usesNoticeClose,
     noUses,
     hideCitations,
+    showGlossary,
+    hideGlossary,
     unresolvedSuffix,
     glossaryLabel,
     glossaryOpenQuote,

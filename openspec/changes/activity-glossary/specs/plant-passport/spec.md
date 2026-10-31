@@ -1,38 +1,50 @@
 ## ADDED Requirements
 
-### Requirement: Explicación del término bajo el título del grupo
-Cuando un grupo de `Usos` trae `glossary`, la pestaña SHALL mostrar bajo el título del grupo (la actividad), antes de la línea de datos, una etiqueta en gris «Significado general del término» y debajo, como texto secundario (más pequeño y gris que el título), la línea `<Término>: «<definición>» (<fuente>)`, con el `term` y el `text` tal como llegan, las comillas angulares y el nombre de la fuente (`sourceName`, «Wikcionario» o «Wikipedia») enlazado a la `url` en línea, como en `Fuentes`. Si `adapted` es verdadero, el paréntesis SHALL decir «adaptado de» seguido de la fuente enlazada. Un grupo sin `glossary` SHALL mostrarse sin esa etiqueta ni línea y sin sustituto. La etiqueta, las comillas y «adaptado de» SHALL ser los únicos textos propios de la app en la explicación, y SHALL no contener lenguaje de eficacia. La explicación SHALL NOT truncarse a 360x640 dp al 200 % de texto, SHALL NOT mostrar la URL como texto, SHALL abrir la `url` solo si es `https` y SHALL formar parte del título del grupo para la tecnología de asistencia, con el enlace como elemento accionable de nombre accesible y área táctil suficiente. La atribución completa SHALL estar en `Fuentes`, que ya muestra un crédito por cada elemento de `credits`.
+### Requirement: Explicación del término oculta tras un icono del título
+Cuando un grupo de `Usos` trae `glossary`, la fila del título SHALL mostrar, a la derecha del título y a la izquierda del icono de libro de las citas, un icono de información que controla la explicación del término. La explicación SHALL empezar oculta. Al tocar el icono SHALL mostrarse bajo el título del grupo, antes de las citas, una etiqueta en gris «Significado general del término» y debajo, como texto secundario (más pequeño y gris que el título), la línea `<Término>: «<definición>» (<fuente>)`, con el `term` y el `text` tal como llegan, las comillas angulares y el nombre de la fuente (`sourceName`, «Wikcionario» o «Wikipedia») enlazado a la `url` en línea, como en `Fuentes`. Si `adapted` es verdadero, el paréntesis SHALL decir «adaptado de» seguido de la fuente enlazada. Al tocar el icono otra vez, la explicación SHALL ocultarse. El icono SHALL ser `Icons.info_outline` cuando la explicación está plegada y `Icons.info` cuando está desplegada, dos glifos que se distinguen, SHALL medir 20 dp, ser de color verde del pasaporte y tener un área táctil de al menos 48 dp. Su tooltip SHALL ser «Ver significado» o «Ocultar significado» y su etiqueta accesible «Ver significado de <término>» o «Ocultar significado de <término>», con el estado de desplegado expresado en la semántica. Su estado SHALL ser independiente del de las citas: abrir o plegar unas no cambia las otras, y el estado de cada control se conserva al cambiar de pestaña y volver. Un grupo sin `glossary` SHALL mostrarse sin icono de información, sin etiqueta ni línea de explicación y sin sustituto. La etiqueta, las comillas y «adaptado de» SHALL ser los únicos textos propios de la app en la explicación, y SHALL no contener lenguaje de eficacia. La explicación desplegada SHALL NOT truncarse a 360x640 dp al 200 % de texto, SHALL NOT mostrar la URL como texto, SHALL abrir la `url` solo si es `https` y SHALL anunciarse después del título del grupo, en orden de lectura, con el enlace como elemento accionable de nombre accesible y área táctil suficiente. La atribución completa SHALL estar en `Fuentes`, que ya muestra un crédito por cada elemento de `credits`.
 
-#### Scenario: Grupo con explicación de Wikcionario
+#### Scenario: Icono de información con explicación
 - **WHEN** el grupo `Diurético` trae `glossary` con `term` `Diurético`, `text` «Que aumenta o facilita la producción y excreción de orina.», `sourceName` `Wikcionario` y `adapted` falso
-- **THEN** bajo el título `Diurético` se lee la etiqueta gris «Significado general del término» y debajo «Diurético: «Que aumenta o facilita la producción y excreción de orina.» (Wikcionario)», con «Wikcionario» enlazado a la entrada, antes de la línea de datos
+- **THEN** la fila del título muestra `Diurético`, a su derecha el icono de información plegado con el texto `Ver significado`, a la derecha de este el icono de libro de las citas, y la explicación no se ve
+
+#### Scenario: Mostrar y ocultar la explicación
+- **WHEN** el usuario toca el icono `Ver significado de Diurético` y después el mismo icono con `Ocultar significado de Diurético`
+- **THEN** al primer toque aparecen bajo el título la etiqueta gris «Significado general del término» y «Diurético: «Que aumenta o facilita la producción y excreción de orina.» (Wikcionario)», con «Wikcionario» enlazado a la entrada, y el icono pasa a información desplegada con el texto `Ocultar significado`; al segundo toque la explicación desaparece y el icono vuelve a plegado
 
 #### Scenario: Grupo con explicación de Wikipedia
-- **WHEN** un grupo trae `glossary` con `sourceName` `Wikipedia` y `adapted` falso
+- **WHEN** el usuario despliega la explicación de un grupo cuyo `glossary` trae `sourceName` `Wikipedia` y `adapted` falso
 - **THEN** la línea termina en «(Wikipedia)», con «Wikipedia» enlazado al artículo
 
 #### Scenario: Explicación adaptada
-- **WHEN** un grupo trae `glossary` con `sourceName` `Wikipedia` y `adapted` verdadero
+- **WHEN** el usuario despliega la explicación de un grupo con `glossary` de `sourceName` `Wikipedia` y `adapted` verdadero
 - **THEN** la línea termina en «(adaptado de Wikipedia)», con «Wikipedia» enlazado a la revisión del artículo
 
 #### Scenario: Actividad con calificador
 - **WHEN** el grupo tiene la actividad `Antídoto (escorpión)` y su `glossary` trae `term` `Antídoto`
-- **THEN** el título conserva el calificador y la línea de la explicación empieza con «Antídoto:»
+- **THEN** el título conserva el calificador, el icono se anuncia como `Ver significado de Antídoto` y, al desplegarlo, la línea de la explicación empieza con «Antídoto:»
+
+#### Scenario: Explicación independiente de las citas
+- **WHEN** el usuario despliega las citas de un grupo con explicación, después despliega también la explicación y luego pliega las citas
+- **THEN** la explicación se ve junto a las citas mientras ambas están desplegadas, y al plegar las citas la explicación sigue desplegada
+
+#### Scenario: Estado de la explicación al cambiar de pestaña
+- **WHEN** el usuario despliega la explicación de un grupo, cambia a otra pestaña y vuelve a `Usos`
+- **THEN** esa explicación sigue desplegada y las demás siguen plegadas; al abrir de nuevo el pasaporte, todas están plegadas
 
 #### Scenario: Grupo sin explicación
 - **WHEN** el grupo `Fiebre` no trae `glossary`
-- **THEN** el grupo muestra el título y la línea de datos, sin etiqueta ni línea de explicación ni espacio vacío
+- **THEN** el grupo muestra su título y el icono de libro, sin icono de información, sin etiqueta ni línea de explicación ni espacio vacío
 
 #### Scenario: Actividad sensible
 - **WHEN** el grupo trae la actividad «Uso tradicional, sin eficacia demostrada: cáncer»
-- **THEN** el grupo no muestra explicación y su actividad se muestra tal como llega
+- **THEN** el grupo no muestra icono de información ni explicación, y su actividad se muestra tal como llega
 
 #### Scenario: Texto aumentado
-- **WHEN** se abre `Usos` a 360x640 dp con 200 % de texto y un grupo con una explicación larga
-- **THEN** la etiqueta y la explicación se leen completas, sin truncar y sin desbordar, y el título, la explicación y la línea de datos se anuncian en orden
+- **WHEN** se abre `Usos` a 360x640 dp con 200 % de texto y el usuario despliega la explicación de un grupo con una explicación larga
+- **THEN** la etiqueta y la explicación se leen completas, sin truncar y sin desbordar, el icono de información queda a la izquierda del icono de libro, y el título y la explicación se anuncian en ese orden
 
 #### Scenario: Enlace de la fuente
-- **WHEN** el usuario activa el nombre de la fuente de una explicación
+- **WHEN** el usuario activa el nombre de la fuente de una explicación desplegada
 - **THEN** la app abre la `url` si es `https`, y no la muestra como texto en la línea
 
 #### Scenario: Atribución en Fuentes
@@ -109,7 +121,7 @@ La pestaña `Usos` SHALL mostrar siempre, al inicio, una línea compacta con el 
 - **THEN** todos son alcanzables con desplazamiento, sin truncar la actividad ni el icono de citas de cada uno, y al desplegar o plegar un grupo se conserva la posición de desplazamiento
 
 ### Requirement: Accesibilidad del pasaporte
-El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%, también con las cuatro pestañas. Los controles, como las pestañas y los botones, SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp de alto y de ancho, y la selección de una pestaña SHALL expresarse también en la semántica y en el borde, no solo en el relleno. La línea «Aviso sobre usos» de `Usos` SHALL ser un solo botón con esa área de toque, con la etiqueta «Aviso sobre usos» y semántica de botón, y el diálogo que abre SHALL tener ese título, mostrar el texto completo sin truncar (desplazable si no cabe) y cerrarse con «Entendido», con Atrás y tocando fuera, también a 200 % de texto en 360x640 dp. El control que pliega y despliega las citas de un grupo de `Usos` SHALL ser un botón de icono de libro con esa área de toque, SHALL expresar en su semántica si está expandido o plegado, y su etiqueta SHALL incluir el texto del control (`Ver N citas` u `Ocultar citas`) y la actividad del grupo, de modo que la tecnología de asistencia anuncie el número de citas y distinga los grupos entre sí; el texto SHALL verse como tooltip al mantener pulsado o al pasar el puntero, y el estado SHALL expresarse también en el icono (libro cerrado o abierto), no solo en el color. Un enlace en línea, que va dentro de una frase o de una línea de texto, SHALL anunciarse como enlace, con el texto visible y el destino al que lleva (por ejemplo, la página de la fuente o el texto de la licencia), y SHALL distinguirse del texto que lo rodea por algo más que el color. Los enlaces en línea quedan exentos del mínimo de 48 dp, según la excepción de WCAG 2.5.8 para enlaces dentro de una frase. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de precauciones SHALL expresarse con texto y no solo con color.
+El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, desplazable y sin truncado a 360x640 dp al 100% y 200%, también con las cuatro pestañas. Los controles, como las pestañas y los botones, SHALL disponer de etiquetas distinguibles y áreas de toque de al menos 48 dp de alto y de ancho, y la selección de una pestaña SHALL expresarse también en la semántica y en el borde, no solo en el relleno. La línea «Aviso sobre usos» de `Usos` SHALL ser un solo botón con esa área de toque, con la etiqueta «Aviso sobre usos» y semántica de botón, y el diálogo que abre SHALL tener ese título, mostrar el texto completo sin truncar (desplazable si no cabe) y cerrarse con «Entendido», con Atrás y tocando fuera, también a 200 % de texto en 360x640 dp. El control que pliega y despliega las citas de un grupo de `Usos` SHALL ser un botón de icono de libro con esa área de toque, SHALL expresar en su semántica si está expandido o plegado, y su etiqueta SHALL incluir el texto del control (`Ver N citas` u `Ocultar citas`) y la actividad del grupo, de modo que la tecnología de asistencia anuncie el número de citas y distinga los grupos entre sí; el texto SHALL verse como tooltip al mantener pulsado o al pasar el puntero, y el estado SHALL expresarse también en el icono (libro cerrado o abierto), no solo en el color. El control que muestra u oculta la explicación del término de un grupo de `Usos` SHALL ser un botón de icono de información con esa área de toque, SHALL expresar en su semántica si la explicación está desplegada o plegada, SHALL tener la etiqueta «Ver significado de <término>» u «Ocultar significado de <término>», SHALL mostrar como tooltip «Ver significado» u «Ocultar significado», y el estado SHALL expresarse en el icono (información plegada o desplegada), no solo en el color. Un enlace en línea, que va dentro de una frase o de una línea de texto, SHALL anunciarse como enlace, con el texto visible y el destino al que lleva (por ejemplo, la página de la fuente o el texto de la licencia), y SHALL distinguirse del texto que lo rodea por algo más que el color. Los enlaces en línea quedan exentos del mínimo de 48 dp, según la excepción de WCAG 2.5.8 para enlaces dentro de una frase. La imagen de la planta SHALL tener una descripción accesible, y el arte local provisional SHALL ocupar su lugar cuando la planta no tiene imagen, mientras carga o si falla la descarga. Los niveles de precauciones SHALL expresarse con texto y no solo con color.
 
 #### Scenario: Ficha accesible con texto aumentado
 - **WHEN** se recorre el pasaporte mediante tecnología de asistencia a 100% o 200% en 360x640 dp
@@ -134,6 +146,10 @@ El pasaporte SHALL respetar zonas seguras y conservar texto esencial legible, de
 #### Scenario: Control de citas accesible
 - **WHEN** se inspecciona con tecnología de asistencia el control de citas de un grupo de `Usos`, plegado y desplegado
 - **THEN** se anuncia como botón con su estado de plegado o expandido, su etiqueta contiene el texto del control (`Ver 5 citas`, `Ocultar citas`) y la actividad del grupo, el icono queda a la derecha del título, y su área de toque es de al menos 48 dp de alto y de ancho, también a 200 % de texto en 360x640 dp
+
+#### Scenario: Control de explicación accesible
+- **WHEN** se inspecciona con tecnología de asistencia el control de información de un grupo de `Usos` con explicación, plegado y desplegado, a 100 % y 200 % de texto en 360x640 dp
+- **THEN** se anuncia como botón con su estado de desplegado, su etiqueta es `Ver significado de <término>` u `Ocultar significado de <término>`, el icono queda a la izquierda del icono de libro y su área de toque es de al menos 48 dp de alto y de ancho
 
 #### Scenario: Línea de aviso de usos accesible
 - **WHEN** se inspecciona con tecnología de asistencia la línea «Aviso sobre usos» y se abre su diálogo, a 100 % y 200 % de texto en 360x640 dp

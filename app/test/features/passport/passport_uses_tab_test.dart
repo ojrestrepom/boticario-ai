@@ -85,6 +85,65 @@ Finder _controls() => find.byWidgetPredicate(
       w is IconButton && RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
 );
 
+const _diureticoRow =
+    'Diurético: «Que aumenta o facilita la producción y excreción de '
+    'orina.» (Wikcionario)';
+
+/// Icon buttons of the explanation control, shown or hidden.
+Finder _glossaryControls() => find.byWidgetPredicate(
+  (w) =>
+      w is IconButton &&
+      (w.tooltip == PassportTexts.showGlossary ||
+          w.tooltip == PassportTexts.hideGlossary),
+);
+
+/// The row of a group's title, with its icons on the right.
+Finder _titleRow() =>
+    find.byWidgetPredicate((w) => w.runtimeType.toString() == '_TitleRow');
+
+/// Loads the icon font of the Flutter SDK running the tests: without it the
+/// icons are drawn as squares.
+Future<void> _loadMaterialIcons(WidgetTester tester) async {
+  // The test environment draws icons as squares unless the font is loaded:
+  // use the one that ships with the Flutter SDK running the tests.
+  final root = Platform.environment['FLUTTER_ROOT'];
+  expect(root, isNotNull, reason: 'FLUTTER_ROOT no está definido');
+  final font = File(
+    '$root/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
+  );
+  expect(font.existsSync(), isTrue, reason: font.path);
+  final loader = FontLoader('MaterialIcons')
+    ..addFont(Future.value(ByteData.sublistView(font.readAsBytesSync())));
+  await tester.runAsync(loader.load);
+}
+
+/// Raw pixels of [icon] drawn at 20 dp in the passport green.
+Future<List<int>> _iconPixels(WidgetTester tester, IconData icon) async {
+  final key = GlobalKey();
+  await tester.pumpWidget(
+    Directionality(
+      textDirection: TextDirection.ltr,
+      child: Center(
+        child: RepaintBoundary(
+          key: key,
+          child: Icon(icon, size: 20, color: passportGreen),
+        ),
+      ),
+    ),
+  );
+  await tester.runAsync(
+    () => Future<void>.delayed(const Duration(milliseconds: 100)),
+  );
+  await tester.pumpAndSettle();
+  final boundary =
+      key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
+  return (await tester.runAsync(() async {
+    final image = await boundary.toImage(pixelRatio: 4);
+    final data = await image.toByteData();
+    return data!.buffer.asUint8List().toList();
+  }))!;
+}
+
 void main() {
   testWidgets('Registro tradicional elegible', (tester) async {
     final plant = consolidatedPlant('lavandula-angustifolia');
@@ -376,6 +435,8 @@ void main() {
                 plant: _synthetic(),
                 expandedGroups: const {},
                 onToggleGroup: (_) {},
+                expandedGlossaries: const {},
+                onToggleGlossary: (_) {},
               ),
             ),
           ),
@@ -656,10 +717,49 @@ void main() {
 
     Finder line(String text) => plainText(text);
 
+    Finder label() => find.text(PassportTexts.glossaryLabel);
+
     Future<void> show(WidgetTester tester, List<UseGroup> groups) =>
         showPassport(tester, _synthetic(groups: groups), tab: 'Usos');
 
-    testWidgets('Wikcionario: etiqueta, línea y fuente enlazada', (
+    /// Taps the explanation control number [index] and lets the list settle.
+    Future<void> tapGlossary(WidgetTester tester, [int index = 0]) async {
+      await tester.tap(_glossaryControls().at(index));
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('sin explicación no hay icono de información', (tester) async {
+      await show(tester, [
+        _group(activity: 'Fiebre', countries: const ['China']),
+      ]);
+      expect(_glossaryControls(), findsNothing);
+      expect(find.byIcon(Icons.info_outline), findsNothing);
+      expect(find.byIcon(Icons.info), findsNothing);
+      expect(label(), findsNothing);
+      expect(_toggle('Ver 0 citas'), findsOneWidget);
+    });
+
+    testWidgets('la explicación empieza oculta, se muestra y se oculta al '
+        'tocar el icono', (tester) async {
+      await show(tester, [_group(glossary: _glossary())]);
+      expect(_glossaryControls(), findsOneWidget);
+      expect(label(), findsNothing);
+      expect(line(_diureticoRow), findsNothing);
+      expect(find.byTooltip('Ver significado'), findsOneWidget);
+
+      await tapGlossary(tester);
+      expect(label(), findsOneWidget);
+      expect(line(_diureticoRow), findsOneWidget);
+      expect(find.byTooltip('Ocultar significado'), findsOneWidget);
+      expect(find.byTooltip('Ver significado'), findsNothing);
+
+      await tapGlossary(tester);
+      expect(label(), findsNothing);
+      expect(line(_diureticoRow), findsNothing);
+      expect(find.byTooltip('Ver significado'), findsOneWidget);
+    });
+
+    testWidgets('Wikcionario: etiqueta, línea y fuente enlazada al abrir', (
       tester,
     ) async {
       final glossary = _glossary();
@@ -672,21 +772,18 @@ void main() {
           glossary: glossary,
         ),
       ]);
-      expect(find.text('Significado general del término'), findsOneWidget);
-      const row =
-          'Diurético: «Que aumenta o facilita la producción y excreción de '
-          'orina.» (Wikcionario)';
-      expect(line(row), findsOneWidget);
-      expect(linkSpansOf(tester, line(row)).map((s) => s.text), [
+      await tapGlossary(tester);
+      expect(label(), findsOneWidget);
+      expect(line(_diureticoRow), findsOneWidget);
+      expect(linkSpansOf(tester, line(_diureticoRow)).map((s) => s.text), [
         'Wikcionario',
       ]);
-      // Below the title, above the citations; the icon stays on the title row.
+      // Below the title; the icons stay on the title row, above the label.
       final title = tester.getTopLeft(find.text('Diurético')).dy;
-      final label = tester
-          .getTopLeft(find.text('Significado general del término'))
-          .dy;
-      expect(title, lessThan(label));
-      expect(label, lessThan(tester.getTopLeft(line(row)).dy));
+      final labelTop = tester.getTopLeft(label()).dy;
+      expect(title, lessThan(labelTop));
+      expect(labelTop, lessThan(tester.getTopLeft(line(_diureticoRow)).dy));
+      expect(tester.getTopLeft(_toggle('Ver 1 cita')).dy, lessThan(labelTop));
       expect(find.textContaining('Lugares'), findsNothing);
       expect(
         (tester.getCenter(find.text('Diurético')).dy -
@@ -695,9 +792,7 @@ void main() {
         lessThan(2),
       );
       // The label is secondary text, smaller and gray.
-      final labelText = tester.widget<Text>(
-        find.text('Significado general del término'),
-      );
+      final labelText = tester.widget<Text>(label());
       expect(labelText.style!.color, passportMuted);
       expect(
         labelText.style!.fontSize!,
@@ -716,6 +811,7 @@ void main() {
           ),
         ),
       ]);
+      await tapGlossary(tester);
       expect(line('Tónico: «Texto sintético.» (Wikipedia)'), findsOneWidget);
     });
 
@@ -730,6 +826,7 @@ void main() {
           ),
         ),
       ]);
+      await tapGlossary(tester);
       const row = 'Tónico: «Texto sintético.» (adaptado de Wikipedia)';
       expect(line(row), findsOneWidget);
       expect(linkSpansOf(tester, line(row)).map((s) => s.text), ['Wikipedia']);
@@ -743,30 +840,20 @@ void main() {
         ),
       ]);
       expect(find.text('Antídoto (escorpión)'), findsOneWidget);
+      expect(_glossaryControls(), findsOneWidget);
+      await tapGlossary(tester);
       expect(
         line('Antídoto: «Texto sintético.» (Wikcionario)'),
         findsOneWidget,
       );
     });
 
-    testWidgets('sin explicación: sin etiqueta ni línea de datos', (
-      tester,
-    ) async {
-      await show(tester, [
-        _group(activity: 'Fiebre', countries: const ['China']),
-      ]);
-      expect(find.text('Significado general del término'), findsNothing);
-      expect(find.textContaining(': «'), findsNothing);
-      expect(find.textContaining('Lugares'), findsNothing);
-      expect(find.textContaining('China'), findsNothing);
-      expect(_toggle('Ver 0 citas'), findsOneWidget);
-    });
-
-    testWidgets('actividad sensible: sin explicación', (tester) async {
+    testWidgets('actividad sensible: sin explicación ni icono', (tester) async {
       const sensitive = 'Uso tradicional, sin eficacia demostrada: cáncer';
       await show(tester, [_group(activity: sensitive)]);
       expect(find.text(sensitive), findsOneWidget);
-      expect(find.text('Significado general del término'), findsNothing);
+      expect(_glossaryControls(), findsNothing);
+      expect(label(), findsNothing);
     });
 
     testWidgets('el enlace se abre solo si es https y no se ve la URL', (
@@ -779,16 +866,16 @@ void main() {
         find.textContaining('wiktionary', findRichText: true),
         findsNothing,
       );
-      const row =
-          'Diurético: «Que aumenta o facilita la producción y excreción de '
-          'orina.» (Wikcionario)';
-      await tapSpan(tester, line(row), 'Wikcionario');
+      await tapGlossary(tester);
+      expect(find.textContaining('http'), findsNothing);
+      await tapSpan(tester, line(_diureticoRow), 'Wikcionario');
       expect(launcher.launched, [glossary.url]);
     });
 
     testWidgets('URL no https: texto plano sin enlace', (tester) async {
       for (final url in ['http://es.wiktionary.org/x', null, 'javascript:x']) {
         await show(tester, [_group(glossary: _glossary(url: url))]);
+        await tapGlossary(tester);
         expect(find.textContaining('(Wikcionario)'), findsOneWidget);
         expect(
           linkSpansOf(tester, find.textContaining('Wikcionario')),
@@ -796,6 +883,26 @@ void main() {
         );
       }
       expect(launcher.launched, isEmpty);
+    });
+
+    testWidgets('la explicación es independiente de las citas', (tester) async {
+      await show(tester, [
+        _group(references: [_ref(1)], glossary: _glossary()),
+      ]);
+      // Opening the citations does not open the explanation.
+      await tester.tap(_toggle('Ver 1 cita'));
+      await tester.pumpAndSettle();
+      expect(find.text('Cita sintetica 1'), findsOneWidget);
+      expect(label(), findsNothing);
+      // Opening the explanation keeps the citations open.
+      await tapGlossary(tester);
+      expect(label(), findsOneWidget);
+      expect(find.text('Cita sintetica 1'), findsOneWidget);
+      // Closing the citations keeps the explanation open.
+      await tester.tap(_toggle('Ocultar citas'));
+      await tester.pumpAndSettle();
+      expect(find.text('Cita sintetica 1'), findsNothing);
+      expect(label(), findsOneWidget);
     });
 
     testWidgets('el plegado de citas sigue funcionando con explicación', (
@@ -811,16 +918,30 @@ void main() {
       expect(find.text('Cita sintetica 2'), findsNothing);
     });
 
-    testWidgets('backend anterior (grupos derivados de uses): sin etiqueta', (
+    testWidgets('el estado de la explicación se conserva al cambiar de '
+        'pestaña', (tester) async {
+      await show(tester, [_group(glossary: _glossary())]);
+      await tapGlossary(tester);
+      expect(label(), findsOneWidget);
+      await tester.tap(find.text('General'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Usos'));
+      await tester.pumpAndSettle();
+      expect(label(), findsOneWidget);
+      expect(find.byTooltip('Ocultar significado'), findsOneWidget);
+    });
+
+    testWidgets('backend anterior (grupos derivados de uses): sin control', (
       tester,
     ) async {
       final plant = parsePlant(apiFixture('plant_lavandula-angustifolia.json'));
       await showPassport(tester, plant, tab: 'Usos');
-      expect(find.text('Significado general del término'), findsNothing);
+      expect(_glossaryControls(), findsNothing);
+      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
     });
 
     testWidgets(
-      'fixture derivada: la etiqueta aparece en los grupos con texto',
+      'fixture derivada: el control aparece en los grupos con texto',
       (tester) async {
         final plant = parsePlant(
           apiFixture(
@@ -830,12 +951,195 @@ void main() {
         await showPassport(tester, plant, tab: 'Usos');
         final withText = plant.useGroups.where((g) => g.glossary != null);
         expect(withText, hasLength(3));
-        expect(
-          find.text('Significado general del término', skipOffstage: false),
-          findsNWidgets(3),
-        );
+        expect(_glossaryControls(), findsNWidgets(3));
+        expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+        for (var i = 0; i < 3; i++) {
+          await tapGlossary(tester, i);
+        }
+        expect(find.text(PassportTexts.glossaryLabel), findsNWidgets(3));
       },
     );
+
+    testWidgets('el control se anuncia como botón con su estado y el '
+        'término', (tester) async {
+      final handle = tester.ensureSemantics();
+      await show(tester, [_group(glossary: _glossary())]);
+      final closed = tester
+          .getSemantics(_glossaryControls())
+          .getSemanticsData();
+      expect(closed.label, 'Ver significado de Diurético');
+      expect(closed.flagsCollection.isButton, isTrue);
+      expect(closed.flagsCollection.isExpanded, ui.Tristate.isFalse);
+      await tapGlossary(tester);
+      final opened = tester
+          .getSemantics(_glossaryControls())
+          .getSemanticsData();
+      expect(opened.label, 'Ocultar significado de Diurético');
+      expect(opened.flagsCollection.isExpanded, ui.Tristate.isTrue);
+      handle.dispose();
+    });
+
+    testWidgets('el icono de información mide 20 dp, es verde y cambia', (
+      tester,
+    ) async {
+      await show(tester, [_group(glossary: _glossary())]);
+      final closedIcon = find.descendant(
+        of: _glossaryControls(),
+        matching: find.byIcon(Icons.info_outline),
+      );
+      expect(closedIcon, findsOneWidget);
+      expect(tester.widget<Icon>(closedIcon).size, 20);
+      expect(tester.widget<Icon>(closedIcon).color, passportGreen);
+      await tapGlossary(tester);
+      expect(
+        find.descendant(
+          of: _glossaryControls(),
+          matching: find.byIcon(Icons.info),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(
+          of: _glossaryControls(),
+          matching: find.byIcon(Icons.info_outline),
+        ),
+        findsNothing,
+      );
+    });
+
+    testWidgets('el área táctil mide 48 dp y responde cerca de los bordes', (
+      tester,
+    ) async {
+      await show(tester, [_group(glossary: _glossary())]);
+      final rect = tester.getRect(_glossaryControls());
+      expect(rect.size, const Size(48, 48));
+      const inset = 3.0;
+      final points = {
+        'superior': Offset(rect.center.dx, rect.top + inset),
+        'inferior': Offset(rect.center.dx, rect.bottom - inset),
+        'izquierdo': Offset(rect.left + inset, rect.center.dy),
+        'derecho': Offset(rect.right - inset, rect.center.dy),
+        'esquina superior izquierda': rect.topLeft + const Offset(inset, inset),
+        'esquina inferior derecha':
+            rect.bottomRight - const Offset(inset, inset),
+      };
+      for (final entry in points.entries) {
+        await tester.tapAt(entry.value);
+        await tester.pumpAndSettle();
+        expect(label(), findsOneWidget, reason: 'mostrar, borde ${entry.key}');
+        await tester.tapAt(entry.value);
+        await tester.pumpAndSettle();
+        expect(label(), findsNothing, reason: 'ocultar, borde ${entry.key}');
+      }
+    });
+
+    testWidgets('el icono de información va a la izquierda del libro, en la '
+        'misma fila', (tester) async {
+      await show(tester, [
+        _group(
+          activity: 'Diurético',
+          references: [_ref(1)],
+          glossary: _glossary(),
+        ),
+      ]);
+      final info = tester.getRect(_glossaryControls());
+      final book = tester.getRect(_toggle('Ver 1 cita'));
+      expect(info.right, lessThanOrEqualTo(book.left));
+      expect((info.center.dy - book.center.dy).abs(), lessThan(2));
+      expect(
+        (tester.getCenter(find.text('Diurético')).dy - info.center.dy).abs(),
+        lessThan(2),
+      );
+    });
+
+    testWidgets('los iconos de información plegado y desplegado se dibujan '
+        'distintos', (tester) async {
+      await _loadMaterialIcons(tester);
+      final closed = await _iconPixels(tester, Icons.info_outline);
+      final open = await _iconPixels(tester, Icons.info);
+      expect(closed.any((b) => b != 0), isTrue, reason: 'glifo cerrado vacío');
+      expect(open.any((b) => b != 0), isTrue, reason: 'glifo abierto vacío');
+      expect(closed, isNot(equals(open)));
+    });
+
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('a 360 dp y ${(scale * 100).round()} % de texto con '
+          'explicación: sin desbordes, dos iconos a la derecha y primera línea '
+          'centrada', (tester) async {
+        tester.view.physicalSize = const Size(360, 640);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        const long =
+            'Actividad con un nombre bastante largo que ocupa '
+            'varias líneas en pantallas angostas';
+        for (final name in ['Actividad corta', long]) {
+          await tester.pumpWidget(const SizedBox.shrink());
+          await tester.pumpWidget(
+            MaterialApp(
+              theme: buildBoticarioTheme(),
+              builder: (context, child) => MediaQuery(
+                data: MediaQuery.of(context)
+                    .copyWith(textScaler: TextScaler.linear(scale)),
+                child: child!,
+              ),
+              home: Scaffold(
+                body: SingleChildScrollView(
+                  child: PassportUsesTab(
+                    plant: _synthetic(
+                      groups: [
+                        _group(
+                          activity: name,
+                          references: [_ref(1)],
+                          glossary: _glossary(),
+                        ),
+                      ],
+                    ),
+                    expandedGroups: const {},
+                    onToggleGroup: (_) {},
+                    expandedGlossaries: const {},
+                    onToggleGlossary: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          );
+          expect(tester.takeException(), isNull);
+          final row = tester.getRect(_titleRow());
+          final info = tester.getRect(_glossaryControls());
+          final book = tester.getRect(_toggle('Ver 1 cita'));
+          expect(row.height, greaterThanOrEqualTo(48));
+          expect(info.size, const Size(48, 48));
+          expect(book.size, const Size(48, 48));
+          expect(info.top, row.top);
+          expect(book.top, row.top);
+          expect(book.right, row.right);
+          expect(info.right, lessThanOrEqualTo(book.left));
+          final text = tester.getRect(find.text(name));
+          expect(text.right, lessThanOrEqualTo(info.left));
+          // First line of the title centered on the two icons.
+          final paragraph = tester.renderObject<RenderParagraph>(
+            find.text(name),
+          );
+          final firstLine = paragraph
+              .getBoxesForSelection(
+                const TextSelection(baseOffset: 0, extentOffset: 1),
+              )
+              .first;
+          final lineCenter = text.top + (firstLine.top + firstLine.bottom) / 2;
+          expect(
+            (lineCenter - info.center.dy).abs(),
+            lessThan(2),
+            reason: '$name a $scale',
+          );
+          expect(
+            (lineCenter - book.center.dy).abs(),
+            lessThan(2),
+            reason: '$name a $scale',
+          );
+        }
+      });
+    }
   });
 
   group('icono de citas junto al título', () {
@@ -1014,53 +1318,13 @@ void main() {
     testWidgets('los iconos de plegado y desplegado se dibujan distintos', (
       tester,
     ) async {
-      // The test environment draws icons as squares unless the font is loaded:
-      // use the one that ships with the Flutter SDK running the tests.
-      final root = Platform.environment['FLUTTER_ROOT'];
-      expect(root, isNotNull, reason: 'FLUTTER_ROOT no está definido');
-      final font = File(
-        '$root/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf',
-      );
-      expect(font.existsSync(), isTrue, reason: font.path);
-      final loader = FontLoader('MaterialIcons')
-        ..addFont(Future.value(ByteData.sublistView(font.readAsBytesSync())));
-      await tester.runAsync(loader.load);
-
-      Future<List<int>> pixels(IconData icon) async {
-        final key = GlobalKey();
-        await tester.pumpWidget(
-          Directionality(
-            textDirection: TextDirection.ltr,
-            child: Center(
-              child: RepaintBoundary(
-                key: key,
-                child: Icon(icon, size: 20, color: passportGreen),
-              ),
-            ),
-          ),
-        );
-        await tester.runAsync(
-          () => Future<void>.delayed(const Duration(milliseconds: 100)),
-        );
-        await tester.pumpAndSettle();
-        final boundary =
-            key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
-        return (await tester.runAsync(() async {
-          final image = await boundary.toImage(pixelRatio: 4);
-          final data = await image.toByteData();
-          return data!.buffer.asUint8List().toList();
-        }))!;
-      }
-
-      final closed = await pixels(Icons.book_outlined);
-      final open = await pixels(Icons.menu_book);
+      await _loadMaterialIcons(tester);
+      final closed = await _iconPixels(tester, Icons.book_outlined);
+      final open = await _iconPixels(tester, Icons.menu_book);
       expect(closed.any((b) => b != 0), isTrue, reason: 'glifo cerrado vacío');
       expect(open.any((b) => b != 0), isTrue, reason: 'glifo abierto vacío');
       expect(closed, isNot(equals(open)));
     });
-
-    Finder titleRow() =>
-        find.byWidgetPredicate((w) => w.runtimeType.toString() == '_TitleRow');
 
     testWidgets('un toque a 3 dp de cada borde del cuadrado de 48x48 '
         'despliega y pliega las citas', (tester) async {
@@ -1074,7 +1338,7 @@ void main() {
         tab: 'Usos',
       );
       final rect = tester.getRect(
-        find.descendant(of: titleRow(), matching: find.byType(IconButton)),
+        find.descendant(of: _titleRow(), matching: find.byType(IconButton)),
       );
       expect(rect.size, const Size(48, 48));
       const inset = 3.0;
@@ -1117,9 +1381,9 @@ void main() {
         ),
         tab: 'Usos',
       );
-      final row = tester.getRect(titleRow());
+      final row = tester.getRect(_titleRow());
       final button = tester.getRect(
-        find.descendant(of: titleRow(), matching: find.byType(IconButton)),
+        find.descendant(of: _titleRow(), matching: find.byType(IconButton)),
       );
       expect(row.contains(button.topLeft), isTrue);
       expect(
@@ -1163,15 +1427,17 @@ void main() {
                     ),
                     expandedGroups: const {},
                     onToggleGroup: (_) {},
+                    expandedGlossaries: const {},
+                    onToggleGlossary: (_) {},
                   ),
                 ),
               ),
             ),
           );
           expect(tester.takeException(), isNull);
-          final row = tester.getRect(titleRow());
+          final row = tester.getRect(_titleRow());
           final button = tester.getRect(
-            find.descendant(of: titleRow(), matching: find.byType(IconButton)),
+            find.descendant(of: _titleRow(), matching: find.byType(IconButton)),
           );
           expect(row.height, greaterThanOrEqualTo(48));
           expect(button.top, row.top);

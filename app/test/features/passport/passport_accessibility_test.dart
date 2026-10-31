@@ -483,6 +483,34 @@ void main() {
         ],
       );
       await _pump(tester, plant, scale, 'Usos');
+      // The explanation starts hidden: its control shows it, announced as a
+      // button with its state and the term.
+      final control = find.byWidgetPredicate(
+        (w) => w is IconButton && w.tooltip == PassportTexts.showGlossary,
+      );
+      await _scrollTo(tester, control);
+      expect(find.text(PassportTexts.glossaryLabel), findsNothing);
+      final closedData = tester.getSemantics(control).getSemanticsData();
+      expect(closedData.label, 'Ver significado de Diurético');
+      expect(closedData.flagsCollection.isButton, isTrue);
+      expect(closedData.flagsCollection.isExpanded, ui.Tristate.isFalse);
+      expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
+      expect(tester.getSize(control).width, greaterThanOrEqualTo(48));
+      await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
+      await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+      await tester.tap(control);
+      await tester.pumpAndSettle();
+      final opened = find.byWidgetPredicate(
+        (w) => w is IconButton && w.tooltip == PassportTexts.hideGlossary,
+      );
+      expect(
+        tester
+            .getSemantics(opened)
+            .getSemanticsData()
+            .flagsCollection
+            .isExpanded,
+        ui.Tristate.isTrue,
+      );
       final label = find.text(PassportTexts.glossaryLabel);
       final line = plainText(row);
       for (final finder in [find.text('Diurético'), label, line]) {

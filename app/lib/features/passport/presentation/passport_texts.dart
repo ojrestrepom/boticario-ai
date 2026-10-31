@@ -69,12 +69,8 @@ abstract final class PassportTexts {
   static const glossaryAdaptedFrom = 'adaptado de';
   static const glossarySourceDestination = 'la fuente de la explicación';
 
-  /// Data line of a use group: the places after `Lugares: `, as they arrive
-  /// (`Lugares: China, Trinidad`), or null when the group has no countries.
-  static String? useGroupPlaces(List<String> countries) =>
-      countries.isEmpty ? null : 'Lugares: ${countries.join(', ')}';
-
-  /// Visible label of the collapsed citations control.
+  /// Tooltip of the collapsed citations control (an icon, so the text is only
+  /// shown on hover or long press and read by the semantics).
   static String showCitations(int count) =>
       count == 1 ? 'Ver 1 cita' : 'Ver $count citas';
 

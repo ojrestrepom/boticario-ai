@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../catalog/domain/plant.dart';
@@ -143,29 +145,19 @@ class _UseGroupCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            group.activity,
-            style: theme.titleSmall?.copyWith(
-              color: passportInk,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          const SizedBox(height: 4),
-          if (group.glossary case final glossary?) _Glossary(glossary),
-          if (PassportTexts.useGroupPlaces(group.countries) case final places?)
-            Text(places, style: theme.bodyMedium?.copyWith(color: passportInk)),
-          _CitationsToggle(
+          _TitleRow(
             activity: group.activity,
             count: group.references.length,
             expanded: expanded,
             onToggle: onToggle,
           ),
+          const SizedBox(height: 4),
+          if (group.glossary case final glossary?) _Glossary(glossary),
           if (expanded)
             for (final reference in group.references)
               _Citation(reference: reference),
@@ -217,8 +209,62 @@ class _Glossary extends StatelessWidget {
   }
 }
 
-/// Button that opens and closes the citations of a group. The state shows in
-/// the text, the icon and the semantics.
+/// Activity of a group on one row, with the citations icon on its right. The
+/// icon's 48 dp touch target is part of the row (nothing overflows its parent);
+/// the title's first line is centered on the icon and may wrap below it.
+class _TitleRow extends StatelessWidget {
+  const _TitleRow({
+    required this.activity,
+    required this.count,
+    required this.expanded,
+    required this.onToggle,
+  });
+
+  final String activity;
+  final int count;
+  final bool expanded;
+  final VoidCallback onToggle;
+
+  /// Side of the touch target, at least 48 dp. The icon itself is 20 dp.
+  static const _touchSize = 48.0;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.titleSmall
+        ?.copyWith(color: passportInk, fontWeight: FontWeight.w700);
+    // Height of one line of the title at the current text scale, to center the
+    // first line on the icon.
+    final metrics = TextPainter(
+      text: TextSpan(text: ' ', style: style),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout();
+    final lineHeight = metrics.preferredLineHeight;
+    metrics.dispose();
+    final topPadding = math.max(0.0, (_touchSize - lineHeight) / 2);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(top: topPadding),
+            child: Text(activity, style: style),
+          ),
+        ),
+        const SizedBox(width: 4),
+        _CitationsToggle(
+          activity: activity,
+          count: count,
+          expanded: expanded,
+          onToggle: onToggle,
+        ),
+      ],
+    );
+  }
+}
+
+/// Icon button that opens and closes the citations of a group. The state shows
+/// in the icon (open or closed book), the tooltip and the semantics.
 class _CitationsToggle extends StatelessWidget {
   const _CitationsToggle({
     required this.activity,
@@ -242,20 +288,20 @@ class _CitationsToggle extends StatelessWidget {
         : PassportTexts.showCitationsSemantics(count, activity),
     onTap: onToggle,
     excludeSemantics: true,
-    child: TextButton.icon(
+    child: IconButton(
+      tooltip: expanded
+          ? PassportTexts.hideCitations
+          : PassportTexts.showCitations(count),
       onPressed: onToggle,
-      style: TextButton.styleFrom(
-        foregroundColor: passportGreen,
-        minimumSize: const Size(48, 48),
-        alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.only(right: 12),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      icon: Icon(
+        expanded ? Icons.menu_book : Icons.menu_book_outlined,
+        size: 20,
+        color: passportGreen,
       ),
-      icon: Icon(expanded ? Icons.expand_less : Icons.expand_more),
-      label: Text(
-        expanded
-            ? PassportTexts.hideCitations
-            : PassportTexts.showCitations(count),
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints.tightFor(
+        width: _TitleRow._touchSize,
+        height: _TitleRow._touchSize,
       ),
     ),
   );

@@ -162,7 +162,7 @@ void main() {
             matching: find.byType(Column),
           )
           .first,
-      matching: find.byType(TextButton),
+      matching: find.byType(IconButton),
     );
     await reach(tester, control);
     await tester.tap(control);
@@ -397,10 +397,19 @@ void main() {
     expect(find.text('Bare plant'), findsOneWidget);
   });
 
+  /// Every collapsed `Ver N citas` control, in the order of the groups.
+  Finder collapsedControls() => find.byWidgetPredicate(
+    (w) =>
+        w is IconButton &&
+        RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
+  );
+
   /// Opens every `Ver N citas` control, tapping the first one still closed.
   Future<void> expandAllCitations(WidgetTester tester) async {
     final closed = find.byWidgetPredicate(
-      (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+      (w) =>
+          w is IconButton &&
+          RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
     );
     while (closed.evaluate().isNotEmpty) {
       await tester.tap(closed.first);
@@ -428,7 +437,9 @@ void main() {
     expect(lavender.uses, hasLength(10));
     expect(find.text('Registro tradicional'), findsNothing);
     final controls = find.byWidgetPredicate(
-      (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+      (w) =>
+          w is IconButton &&
+          RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
     );
     expect(controls, findsNWidgets(lavender.useGroups.length));
     // Closed by default: no citation is in the tree.
@@ -464,7 +475,7 @@ void main() {
       of: find
           .ancestor(of: find.text(last.activity), matching: find.byType(Column))
           .first,
-      matching: find.byType(TextButton),
+      matching: find.byType(IconButton),
     );
     await tester.ensureVisible(control);
     await tester.pump();
@@ -500,20 +511,22 @@ void main() {
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
     await tester.tap(
-      find.text('Ocultar citas').evaluate().isEmpty
-          ? find.byType(TextButton).at(1)
-          : find.text('Ocultar citas'),
+      find.byTooltip('Ocultar citas').evaluate().isEmpty
+          ? collapsedControls().at(1)
+          : find.byTooltip('Ocultar citas'),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Ocultar citas'), findsOneWidget);
+    expect(find.byTooltip('Ocultar citas'), findsOneWidget);
     await tester.tap(find.text('General'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Ocultar citas'), findsOneWidget);
+    expect(find.byTooltip('Ocultar citas'), findsOneWidget);
     expect(
       find.byWidgetPredicate(
-        (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+        (w) =>
+            w is IconButton &&
+            RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
       ),
       findsNWidgets(groups.length - 1),
     );
@@ -523,7 +536,7 @@ void main() {
     );
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Ocultar citas'), findsNothing);
+    expect(find.byTooltip('Ocultar citas'), findsNothing);
     // Back to the first one with a new page: still closed.
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pumpWidget(
@@ -531,7 +544,7 @@ void main() {
     );
     await tester.tap(find.text('Usos'));
     await tester.pumpAndSettle();
-    expect(find.text('Ocultar citas'), findsNothing);
+    expect(find.byTooltip('Ocultar citas'), findsNothing);
   });
 
   testWidgets('Back/Home callbacks and unavailable actions are inert', (

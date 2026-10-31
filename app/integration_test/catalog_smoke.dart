@@ -566,32 +566,37 @@ Future<void> _expectUsesNotice(WidgetTester tester) async {
   expect(find.text(PassportTexts.usesNotice), findsNothing);
 }
 
-/// `Usos`: the groups show `Ver N citas` controls, no per-group label and no
-/// records count;
-/// one opens to show its citations in place and closes again.
+/// `Usos`: the groups show a book icon per group, with the `Ver N citas`
+/// tooltip, no per-group label, no places line and no records count; one
+/// opens to show its citations in place and closes again.
 Future<void> _expectCitationsFold(WidgetTester tester) async {
   final closed = find.byWidgetPredicate(
-    (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+    (w) =>
+        w is IconButton &&
+        RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
   );
   // The groups are lazy slivers: scroll until the first control is built.
   await _scrollUntilBuilt(tester, closed.first);
   expect(closed, findsWidgets);
   expect(find.text('Registro tradicional'), findsNothing);
-  // The data line shows only the places; the records count is not shown.
+  // The places are not shown and the records count is not shown.
+  expect(find.textContaining('Lugares'), findsNothing);
   expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
-  final label = tester.widget<Text>(closed.first).data!;
+  final label = (closed.evaluate().first.widget as IconButton).tooltip!;
   await _tapVisible(tester, closed.first);
-  final hide = find.text(PassportTexts.hideCitations);
+  final hide = find.byWidgetPredicate(
+    (w) => w is IconButton && w.tooltip == PassportTexts.hideCitations,
+  );
   expect(hide, findsOneWidget);
   final group = find.ancestor(of: hide, matching: find.byType(Column)).first;
-  // Activity and control (the places line is optional), plus a citation.
+  // Activity and at least one citation.
   expect(
     find.descendant(of: group, matching: find.byType(Text)).evaluate().length,
-    greaterThanOrEqualTo(3),
+    greaterThanOrEqualTo(2),
   );
   await _tapVisible(tester, hide);
-  expect(find.text(PassportTexts.hideCitations), findsNothing);
-  expect(find.text(label), findsWidgets);
+  expect(find.byTooltip(PassportTexts.hideCitations), findsNothing);
+  expect(find.byTooltip(label), findsWidgets);
   // Back to the top, where the tabs are, for the next step of the flow.
   tester
       .state<ScrollableState>(

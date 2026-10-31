@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:boticario_ai/app/theme.dart';
 import 'package:boticario_ai/features/catalog/data/catalog_json_parser.dart';
 import 'package:boticario_ai/features/catalog/domain/plant.dart';
@@ -70,7 +72,15 @@ CitedReference _ref(int i, {bool resolved = true}) => CitedReference(
 String _showLabel(UseGroup group) =>
     PassportTexts.showCitations(group.references.length);
 
-Finder _toggle(String label) => find.widgetWithText(TextButton, label);
+/// Icon button of the citations control whose tooltip is [label].
+Finder _toggle(String label) =>
+    find.byWidgetPredicate((w) => w is IconButton && w.tooltip == label);
+
+/// Every collapsed `Ver N citas` control, in the order of the groups.
+Finder _controls() => find.byWidgetPredicate(
+  (w) =>
+      w is IconButton && RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
+);
 
 void main() {
   testWidgets('Registro tradicional elegible', (tester) async {
@@ -80,16 +90,13 @@ void main() {
     final first = plant.useGroups.first;
     expect(find.text(first.activity), findsOneWidget);
     expect(first.countries, isNotEmpty);
-    expect(
-      find.text(PassportTexts.useGroupPlaces(first.countries)!),
-      findsWidgets,
-    );
+    expect(find.textContaining('Lugares'), findsNothing);
     expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
     expect(_toggle(_showLabel(first)), findsWidgets);
     expect(find.text(PassportTexts.noUses), findsNothing);
   });
 
-  testWidgets('línea de datos con tres países y control Ver 2 citas', (
+  testWidgets('sin línea de datos aunque el grupo trae tres países', (
     tester,
   ) async {
     await showPassport(
@@ -106,10 +113,10 @@ void main() {
       tab: 'Usos',
     );
     expect(find.text('Actividad sintetica'), findsOneWidget);
-    expect(
-      find.text('Lugares: China, Otros lugares, Trinidad'),
-      findsOneWidget,
-    );
+    expect(find.textContaining('Lugares'), findsNothing);
+    expect(find.textContaining('China'), findsNothing);
+    expect(find.textContaining('Otros lugares'), findsNothing);
+    expect(find.textContaining('Trinidad'), findsNothing);
     expect(find.textContaining(RegExp(r'\d+ registros?')), findsNothing);
     expect(find.textContaining('·'), findsNothing);
     expect(_toggle('Ver 2 citas'), findsOneWidget);
@@ -139,7 +146,9 @@ void main() {
       }
     }
     final controls = find.byWidgetPredicate(
-      (w) => w is Text && RegExp(r'^Ver \d+ citas?$').hasMatch(w.data ?? ''),
+      (w) =>
+          w is IconButton &&
+          RegExp(r'^Ver \d+ citas?$').hasMatch(w.tooltip ?? ''),
     );
     expect(controls, findsNWidgets(plant.useGroups.length));
   });
@@ -235,7 +244,7 @@ void main() {
       expect(find.text('Países'), findsNothing);
       expect(find.text('Es un registro, no un consejo de uso.'), findsNothing);
       expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
-      await tester.tap(find.byType(TextButton).first);
+      await tester.tap(_controls().first);
       await tester.pumpAndSettle();
     }
   });
@@ -424,7 +433,6 @@ void main() {
       PassportTexts.hideCitations,
       PassportTexts.showCitations(1),
       PassportTexts.showCitations(5),
-      PassportTexts.useGroupPlaces(const ['China'])!,
     ]) {
       expect(pattern.hasMatch(text), isFalse, reason: text);
     }
@@ -439,7 +447,7 @@ void main() {
     );
     expect(hemorrhage.references.any((r) => !r.resolved), isTrue);
     final index = plant.useGroups.indexOf(hemorrhage);
-    final control = find.byType(TextButton).at(index);
+    final control = _controls().at(index);
     await tester.ensureVisible(control);
     await tester.tap(control);
     await tester.pumpAndSettle();
@@ -503,7 +511,9 @@ void main() {
     expect(_toggle('Ver 1 cita'), findsOneWidget);
   });
 
-  testWidgets('Países tal como llegan', (tester) async {
+  testWidgets('Países tal como llegan no se muestran en el grupo', (
+    tester,
+  ) async {
     await showPassport(
       tester,
       _synthetic(
@@ -517,17 +527,16 @@ void main() {
       ),
       tab: 'Usos',
     );
-    expect(
-      find.text('Lugares: China, Otros lugares, Trinidad'),
-      findsOneWidget,
-    );
+    expect(find.textContaining('Lugares'), findsNothing);
+    expect(find.textContaining('Otros lugares'), findsNothing);
+    expect(_toggle('Ver 1 cita'), findsOneWidget);
   });
 
   testWidgets('Sin registro elegible', (tester) async {
     for (final plant in [consolidatedPlant('acinos-sp'), _synthetic()]) {
       await showPassport(tester, plant, tab: 'Usos');
       expect(find.text(PassportTexts.noUses), findsOneWidget);
-      expect(find.byType(TextButton), findsNothing);
+      expect(_controls(), findsNothing);
       expect(find.text(PassportTexts.usesNoticeLabel), findsOneWidget);
     }
   });
@@ -543,9 +552,9 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text(last.activity), findsOneWidget);
-    await tester.ensureVisible(find.byType(TextButton).last);
+    await tester.ensureVisible(_controls().last);
     await tester.pump();
-    await tester.tap(find.byType(TextButton).last);
+    await tester.tap(_controls().last);
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.text(last.references.last.citation));
     expect(find.text(last.references.last.citation), findsOneWidget);
@@ -584,7 +593,7 @@ void main() {
             matching: find.byType(Column),
           )
           .first,
-      matching: find.byType(TextButton),
+      matching: find.byType(IconButton),
     );
     expect(below, findsOneWidget);
     await tester.ensureVisible(below);
@@ -668,15 +677,20 @@ void main() {
       expect(linkSpansOf(tester, line(row)).map((s) => s.text), [
         'Wikcionario',
       ]);
-      // Above the data line, below the title.
+      // Below the title, above the citations; the icon stays on the title row.
       final title = tester.getTopLeft(find.text('Diurético')).dy;
       final label = tester
           .getTopLeft(find.text('Significado general del término'))
           .dy;
-      final data = tester.getTopLeft(find.text('Lugares: China')).dy;
       expect(title, lessThan(label));
       expect(label, lessThan(tester.getTopLeft(line(row)).dy));
-      expect(tester.getTopLeft(line(row)).dy, lessThan(data));
+      expect(find.textContaining('Lugares'), findsNothing);
+      expect(
+        (tester.getCenter(find.text('Diurético')).dy -
+                tester.getCenter(_toggle('Ver 1 cita')).dy)
+            .abs(),
+        lessThan(2),
+      );
       // The label is secondary text, smaller and gray.
       final labelText = tester.widget<Text>(
         find.text('Significado general del término'),
@@ -732,7 +746,7 @@ void main() {
       );
     });
 
-    testWidgets('sin explicación: sin etiqueta ni espacio vacío', (
+    testWidgets('sin explicación: sin etiqueta ni línea de datos', (
       tester,
     ) async {
       await show(tester, [
@@ -740,9 +754,9 @@ void main() {
       ]);
       expect(find.text('Significado general del término'), findsNothing);
       expect(find.textContaining(': «'), findsNothing);
-      final title = tester.getBottomLeft(find.text('Fiebre')).dy;
-      final data = tester.getTopLeft(find.text('Lugares: China')).dy;
-      expect(data - title, lessThanOrEqualTo(4));
+      expect(find.textContaining('Lugares'), findsNothing);
+      expect(find.textContaining('China'), findsNothing);
+      expect(_toggle('Ver 0 citas'), findsOneWidget);
     });
 
     testWidgets('actividad sensible: sin explicación', (tester) async {
@@ -819,5 +833,318 @@ void main() {
         );
       },
     );
+  });
+
+  group('icono de citas junto al título', () {
+    const activity = 'Actividad con icono';
+
+    testWidgets('el icono va a la derecha del título, en su misma fila', (
+      tester,
+    ) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1), _ref(2)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      final title = tester.getRect(find.text(activity));
+      final toggle = tester.getRect(_toggle('Ver 2 citas'));
+      expect(toggle.left, greaterThanOrEqualTo(title.right));
+      expect(
+        (tester.getCenter(find.text(activity)).dy -
+                tester.getCenter(_toggle('Ver 2 citas')).dy)
+            .abs(),
+        lessThan(2),
+      );
+      // Only the icon: no text of the control in the tree.
+      expect(find.text('Ver 2 citas'), findsNothing);
+      expect(find.text('Ocultar citas'), findsNothing);
+    });
+
+    testWidgets('el área táctil mide al menos 48 dp por cada lado', (
+      tester,
+    ) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      final size = tester.getSize(_toggle('Ver 1 cita'));
+      expect(size.width, greaterThanOrEqualTo(48));
+      expect(size.height, greaterThanOrEqualTo(48));
+    });
+
+    testWidgets('el icono es pequeño, verde y cambia al desplegar', (
+      tester,
+    ) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      final closedIcon = find.descendant(
+        of: _toggle('Ver 1 cita'),
+        matching: find.byIcon(Icons.menu_book_outlined),
+      );
+      expect(closedIcon, findsOneWidget);
+      expect(tester.widget<Icon>(closedIcon).size, 20);
+      expect(tester.widget<Icon>(closedIcon).color, passportGreen);
+      await tester.tap(_toggle('Ver 1 cita'));
+      await tester.pumpAndSettle();
+      expect(
+        find.descendant(
+          of: _toggle('Ocultar citas'),
+          matching: find.byIcon(Icons.menu_book),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(
+          of: _toggle('Ocultar citas'),
+          matching: find.byIcon(Icons.menu_book_outlined),
+        ),
+        findsNothing,
+      );
+      expect(find.text('Cita sintetica 1'), findsOneWidget);
+    });
+
+    testWidgets('el tooltip y la etiqueta semántica dicen Ver N citas', (
+      tester,
+    ) async {
+      final handle = tester.ensureSemantics();
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1), _ref(2), _ref(3)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      expect(find.byTooltip('Ver 3 citas'), findsOneWidget);
+      final closed = tester
+          .getSemantics(_toggle('Ver 3 citas'))
+          .getSemanticsData();
+      expect(closed.label, 'Ver 3 citas de $activity');
+      expect(closed.flagsCollection.isButton, isTrue);
+      expect(closed.flagsCollection.isExpanded, ui.Tristate.isFalse);
+      await tester.tap(_toggle('Ver 3 citas'));
+      await tester.pumpAndSettle();
+      expect(find.byTooltip('Ocultar citas'), findsOneWidget);
+      final opened = tester
+          .getSemantics(_toggle('Ocultar citas'))
+          .getSemanticsData();
+      expect(opened.label, 'Ocultar citas de $activity');
+      expect(opened.flagsCollection.isExpanded, ui.Tristate.isTrue);
+      handle.dispose();
+    });
+
+    testWidgets('un grupo con una cita dice Ver 1 cita en el tooltip', (
+      tester,
+    ) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      expect(find.byTooltip('Ver 1 cita'), findsOneWidget);
+      expect(find.byTooltip('Ver 1 citas'), findsNothing);
+    });
+
+    testWidgets('la explicación y las citas no mueven el icono de la fila', (
+      tester,
+    ) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(
+              activity: activity,
+              references: [_ref(1)],
+              glossary: _glossary(),
+            ),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      final before = tester.getTopLeft(_toggle('Ver 1 cita'));
+      await tester.tap(_toggle('Ver 1 cita'));
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(_toggle('Ocultar citas')), before);
+      expect(find.text('Cita sintetica 1'), findsOneWidget);
+    });
+
+    testWidgets('países en el grupo: ninguna línea de datos', (tester) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(
+              activity: activity,
+              countries: const ['Guatemala', 'Honduras', 'México'],
+              references: [_ref(1)],
+            ),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      expect(find.textContaining('Lugares'), findsNothing);
+      expect(find.textContaining('Guatemala'), findsNothing);
+      expect(_toggle('Ver 1 cita'), findsOneWidget);
+    });
+
+    Finder titleRow() =>
+        find.byWidgetPredicate((w) => w.runtimeType.toString() == '_TitleRow');
+
+    testWidgets('un toque a 3 dp de cada borde del cuadrado de 48x48 '
+        'despliega y pliega las citas', (tester) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      final rect = tester.getRect(
+        find.descendant(of: titleRow(), matching: find.byType(IconButton)),
+      );
+      expect(rect.size, const Size(48, 48));
+      const inset = 3.0;
+      final points = {
+        'superior': Offset(rect.center.dx, rect.top + inset),
+        'inferior': Offset(rect.center.dx, rect.bottom - inset),
+        'izquierdo': Offset(rect.left + inset, rect.center.dy),
+        'derecho': Offset(rect.right - inset, rect.center.dy),
+        'esquina superior izquierda': rect.topLeft + const Offset(inset, inset),
+        'esquina inferior derecha':
+            rect.bottomRight - const Offset(inset, inset),
+      };
+      for (final entry in points.entries) {
+        await tester.tapAt(entry.value);
+        await tester.pumpAndSettle();
+        expect(
+          find.text('Cita sintetica 1'),
+          findsOneWidget,
+          reason: 'desplegar, borde ${entry.key}',
+        );
+        await tester.tapAt(entry.value);
+        await tester.pumpAndSettle();
+        expect(
+          find.text('Cita sintetica 1'),
+          findsNothing,
+          reason: 'plegar, borde ${entry.key}',
+        );
+      }
+    });
+
+    testWidgets('el área táctil queda entera dentro de la fila del título', (
+      tester,
+    ) async {
+      await showPassport(
+        tester,
+        _synthetic(
+          groups: [
+            _group(activity: activity, references: [_ref(1)]),
+          ],
+        ),
+        tab: 'Usos',
+      );
+      final row = tester.getRect(titleRow());
+      final button = tester.getRect(
+        find.descendant(of: titleRow(), matching: find.byType(IconButton)),
+      );
+      expect(row.contains(button.topLeft), isTrue);
+      expect(
+        row.contains(button.bottomRight - const Offset(0.01, 0.01)),
+        isTrue,
+      );
+      expect(button.top, greaterThanOrEqualTo(row.top));
+      expect(button.bottom, lessThanOrEqualTo(row.bottom));
+      expect(button.right, lessThanOrEqualTo(row.right));
+    });
+
+    for (final scale in [1.0, 2.0]) {
+      testWidgets('a 360 dp y ${(scale * 100).round()} % de texto: sin '
+          'desbordes, icono a la derecha y primera línea alineada', (
+        tester,
+      ) async {
+        tester.view.physicalSize = const Size(360, 640);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        const long =
+            'Actividad con un nombre bastante largo que ocupa '
+            'varias líneas en pantallas angostas';
+        for (final name in [activity, long]) {
+          await tester.pumpWidget(const SizedBox.shrink());
+          await tester.pumpWidget(
+            MaterialApp(
+              theme: buildBoticarioTheme(),
+              builder: (context, child) => MediaQuery(
+                data: MediaQuery.of(context)
+                    .copyWith(textScaler: TextScaler.linear(scale)),
+                child: child!,
+              ),
+              home: Scaffold(
+                body: SingleChildScrollView(
+                  child: PassportUsesTab(
+                    plant: _synthetic(
+                      groups: [
+                        _group(activity: name, references: [_ref(1)]),
+                      ],
+                    ),
+                    expandedGroups: const {},
+                    onToggleGroup: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          );
+          expect(tester.takeException(), isNull);
+          final row = tester.getRect(titleRow());
+          final button = tester.getRect(
+            find.descendant(of: titleRow(), matching: find.byType(IconButton)),
+          );
+          expect(row.height, greaterThanOrEqualTo(48));
+          expect(button.top, row.top);
+          expect(button.right, row.right);
+          expect(button.size, const Size(48, 48));
+          final text = tester.getRect(find.text(name));
+          expect(text.right, lessThanOrEqualTo(button.left));
+          // First line of the title centered on the icon.
+          final paragraph = tester.renderObject<RenderParagraph>(
+            find.text(name),
+          );
+          final firstLine = paragraph
+              .getBoxesForSelection(
+                const TextSelection(baseOffset: 0, extentOffset: 1),
+              )
+              .first;
+          final lineCenter = text.top + (firstLine.top + firstLine.bottom) / 2;
+          expect(
+            (lineCenter - button.center.dy).abs(),
+            lessThan(2),
+            reason: '$name a $scale',
+          );
+        }
+      });
+    }
   });
 }

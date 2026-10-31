@@ -391,7 +391,9 @@ void main() {
         ],
       );
       await _pump(tester, plant, scale, 'Usos');
-      final control = find.widgetWithText(TextButton, 'Ver 5 citas');
+      final control = find.byWidgetPredicate(
+        (w) => w is IconButton && w.tooltip == 'Ver 5 citas',
+      );
       await _scrollTo(tester, control);
 
       final closedData = tester.getSemantics(control).getSemanticsData();
@@ -405,7 +407,9 @@ void main() {
 
       await tester.tap(control);
       await tester.pumpAndSettle();
-      final opened = find.widgetWithText(TextButton, 'Ocultar citas');
+      final opened = find.byWidgetPredicate(
+        (w) => w is IconButton && w.tooltip == 'Ocultar citas',
+      );
       await _scrollTo(tester, opened);
       expect(tester.getSemantics(opened).label, 'Ocultar citas de $activity');
       final openData = tester.getSemantics(opened).getSemanticsData();
@@ -415,14 +419,21 @@ void main() {
       await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
       await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
 
-      // Nothing is truncated: data line, control and citations.
+      // The icon stays on the right of the title, on screen, even when the
+      // title wraps over several lines.
+      final titleRect = tester.getRect(find.text(activity));
+      final iconRect = tester.getRect(opened);
+      expect(iconRect.left, greaterThanOrEqualTo(titleRect.right));
+      expect(iconRect.right, lessThanOrEqualTo(360));
+      expect(iconRect.left, greaterThanOrEqualTo(0));
+
+      // Nothing is truncated: the title, the citations and the explanation.
+      expect(find.textContaining('Lugares'), findsNothing);
       for (final text in [
         'Cita sintetica 1, con un título bastante largo para que ocupe '
             'varias líneas.',
         'Clave larga 5 (sin resolver)',
         activity,
-        'Lugares: China, Otros lugares, Trinidad y Tobago',
-        'Ocultar citas',
       ]) {
         await _scrollTo(tester, find.text(text));
         final widget = tester.widget<Text>(find.text(text));
@@ -472,15 +483,9 @@ void main() {
         ],
       );
       await _pump(tester, plant, scale, 'Usos');
-      const data = 'Lugares: China, Otros lugares, Trinidad y Tobago';
       final label = find.text(PassportTexts.glossaryLabel);
       final line = plainText(row);
-      for (final finder in [
-        find.text('Diurético'),
-        label,
-        line,
-        find.text(data),
-      ]) {
+      for (final finder in [find.text('Diurético'), label, line]) {
         await _scrollTo(tester, finder);
         final rect = tester.getRect(finder);
         expect(rect.left, greaterThanOrEqualTo(0));
@@ -493,16 +498,14 @@ void main() {
         expect(widget.maxLines, isNull);
         expect(widget.overflow, isNot(TextOverflow.ellipsis));
       }
-      // Reading order: title, meaning, data.
+      // Reading order: title, meaning, explanation. The group has countries,
+      // but they are not shown.
       expect(
         tester.getTopLeft(find.text('Diurético')).dy,
         lessThan(tester.getTopLeft(label).dy),
       );
       expect(tester.getTopLeft(label).dy, lessThan(tester.getTopLeft(line).dy));
-      expect(
-        tester.getTopLeft(line).dy,
-        lessThan(tester.getTopLeft(find.text(data)).dy),
-      );
+      expect(find.textContaining('Lugares'), findsNothing);
       // The source is announced as a link with its destination, never a URL.
       final announced = [for (final d in linkSemantics(tester)) d.label];
       expect(

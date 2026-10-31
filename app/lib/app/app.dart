@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/plant_recognition/application/plant_image_controller.dart';
+
 import 'router.dart';
 import 'theme.dart';
 
@@ -11,6 +13,7 @@ class BoticarioApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
+    ref.watch(plantImageControllerProvider.notifier);
 
     return MaterialApp.router(
       title: 'Boticario AI',

@@ -196,7 +196,7 @@ Future<void> _runCatalogSmoke(
     expect(homeLogs, isEmpty, reason: 'build must not emit Home action logs');
     _expectHomeSelected(tester);
 
-    // The nine inert P03 controls stay on / and each emits its exact literal.
+    // P03 controls emit their exact literals; recognition now opens its route.
     for (final action in <HomeAction>[
       HomeAction.headerMenu,
       HomeAction.headerProfile,
@@ -209,6 +209,11 @@ Future<void> _runCatalogSmoke(
       HomeAction.tabProfile,
     ]) {
       await _tapAndExpectHomeLog(tester, homeLogs, action);
+      if (action == HomeAction.identifyWithCamera) {
+        _expectPath(router, '/identify');
+        await _tapVisible(tester, find.byTooltip('Volver a Inicio'));
+        _expectHomeAndCleanStack(tester, router);
+      }
       _expectPath(router, '/');
       expect(find.byType(HomePage), findsOneWidget);
       _expectHomeSelected(tester);

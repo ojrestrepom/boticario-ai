@@ -7,8 +7,10 @@ import '../features/goal_search/presentation/goal_search_page.dart';
 import '../features/goal_search/presentation/goal_subareas_page.dart';
 import '../features/home/presentation/home_page.dart';
 import '../features/passport/presentation/plant_passport_page.dart';
+import '../features/plant_recognition/presentation/plant_recognition_page.dart';
 
-/// Router de la app: Home contiene Explorar y P06; Explorar contiene el pasaporte.
+/// Router de la app: Home contiene Explorar, P06 e Identificar planta.
+/// Explorar contiene el pasaporte.
 /// P06 contiene las subáreas, P07 y, bajo P07, el pasaporte.
 ///
 /// Se construye una instancia por scope (`ProviderScope` de app o test) y se
@@ -22,8 +24,16 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => HomePage(
           onExplore: () => context.push('/explore'),
           onSearchByGoal: () => context.push('/goals'),
+          onIdentifyPlant: () => context.push('/identify'),
         ),
         routes: [
+          GoRoute(
+            path: 'identify',
+            builder: (context, state) => PlantRecognitionPage(
+              onBack: () => context.pop(),
+              onHome: () => context.go('/'),
+            ),
+          ),
           GoRoute(
             path: 'goals',
             builder: (context, state) => GoalSearchPage(

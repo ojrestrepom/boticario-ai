@@ -281,3 +281,38 @@ TOKEN="$TOKEN" python3 -I openspec/changes/activity-glossary/qa/scripts/cloudrun
 ```
 
 Para el emulador: `adb -s emulator-5554 install -r app/build/app/outputs/flutter-apk/app-release.apk` y los ayudantes `scripts/ui.py` y `scripts/ui_cr.py` (`home`, `open "<búsqueda>" "<patrón>"`, `full`, `scrolltap`). El buscador de Explorar filtra al teclear; el patrón de la planta debe coincidir con el botón de resultado y no con el campo de búsqueda (si ambos dicen lo mismo, tocar por coordenadas).
+
+## Verificación del icono de definición (2026-10-31)
+
+Verificación del ajuste del usuario de `b046704`: en `Usos`, la explicación del término empieza oculta y un icono de información (`Icons.info_outline` plegado, `Icons.info` desplegado, 20 dp, área de 48 dp) la controla, a la izquierda del libro de citas y en la fila del título. Esta sección sustituye, para la explicación, a los casos U1 a U9 y U20 a U22 de la sección anterior, que se hicieron cuando la explicación se veía siempre (el contenido, el formato y el enlace no cambian; solo cómo se muestran).
+
+### Resumen
+
+- Pasan todos los casos; no se encontró ningún defecto del producto. Hay una observación de contenido (sobre `Repelente (serpientes)`).
+- Entorno: APK release que compiló el orquestador (21:03), que apunta a Cloud Run (la cadena `run.app` está en `libapp.so` y no hay `localhost` ni `10.0.2.2`), instalado en `emulator-5554` (`boticario_catalog_api36`, 360x640 dp). Emulador apagado, app desinstalada y `font_scale` en 1.0 al terminar. No se usó el teléfono físico. Evidencia en `evidence/cloudrun/`, numerada de la 30 a la 41.
+
+### Casos
+
+| ID | Qué cubre | Resultado | Evidencia |
+| --- | --- | --- | --- |
+| I1 | Lavanda: icono de información solo en los usos con explicación (Carminativo, Estimulante, Colagogo, Diurético, Estomacal, Nervino, Sudorífico, Vermífugo), a la izquierda del libro y en la misma fila del título; `Espasmo`, `Perfume` y `Repelente de insectos` solo tienen el libro, sin hueco; la explicación está oculta al abrir `Usos` | Pasa | `30-ico-lavanda-inicial-oculta.png`, `31-ico-lavanda-espasmo-sin-icono-info.png` y `a11y-ico-lavanda-inicial.txt` |
+| I2 | Mostrar y ocultar: al tocar el icono aparecen la etiqueta «Significado general del término» y la línea `Carminativo: «…» (Wikcionario)` bajo el título; al volver a tocar desaparecen | Pasa | `ico-combinaciones-carminativo.txt` y `32-ico-info-desplegado-citas-plegadas.png` |
+| I3 | Independencia en las cuatro combinaciones (ninguno, solo explicación, ambos, solo citas) y vuelta al inicio: cada toque cambia solo su control; con ambos abiertos la explicación va antes de las citas | Pasa | `ico-combinaciones-carminativo.txt`, `33-ico-info-y-citas-desplegados.png` y `34-ico-solo-citas-desplegadas.png` |
+| I4 | Iconos: en una misma captura, el de información plegado y desplegado y el de libro plegado y desplegado se distinguen a simple vista (círculo con una «i» sin relleno frente a círculo relleno; libro cerrado con marcador frente a libro abierto) y los recortes de 100x120 px tienen `md5` distintos entre estados, también contra la captura del estado inicial | Pasa | `33-ico-info-y-citas-desplegados.png` y `30-ico-lavanda-inicial-oculta.png` |
+| I5 | Área de 48 dp (144 px, separación de 12 px entre los dos iconos), con `input tap` en coordenadas medidas: 4 px fuera por los cuatro lados de cada icono y en la separación (x=882) no hacen nada; 2 px dentro de los bordes izquierdo y derecho de cada icono sí cambian solo su estado, sin pisar al vecino | Pasa | `ico-area-48dp.txt` |
+| I6 | Tooltips por pulsación larga: «Ver significado» con el icono plegado y «Ocultar significado» con el desplegado | Pasa | `35-ico-tooltip-ver-significado.png` y `36-ico-tooltip-ocultar-significado.png` |
+| I7 | Árbol de accesibilidad: botones clicables «Ver significado de Carminativo» y «Ocultar significado de Carminativo» (con el término, no la actividad completa, como pide el spec) junto a «Ver 2 citas de Carminativo» y «Ocultar citas de Carminativo»; el nodo de lectura del grupo lista el título, la etiqueta y la cita en ese orden | Pasa | `ico-combinaciones-carminativo.txt`, `a11y-ico-lavanda-inicial.txt` y `a11y-ico-200.txt` |
+| I8 | Estado al cambiar de pestaña: Carminativo con la explicación abierta y las citas plegadas, y Estimulante con ambas abiertas; tras ir a `Fuentes` y volver a `Usos` no cambia nada | Pasa | `ico-estado-cambio-pestana.txt` |
+| I9 | Yerba mansa: ningún icono de información en `Catarro`, `Llaga` ni la fórmula «…: cáncer», solo el libro | Pasa | `ico-yerba-mansa-sin-info.txt` y `38-ico-yerba-mansa-sin-iconos-info.png` |
+| I10 | 200 % de texto con un título largo (Fresno blanco, `Repelente (serpientes)`): el título se parte en dos líneas, los dos iconos quedan a la derecha sin desbordar y con áreas de 144x144 px; la fórmula larga también se parte y solo lleva el libro; con ambos abiertos la etiqueta, la explicación completa, el enlace y la cita se leen sin truncar | Pasa | `39-ico-200-titulo-largo-plegado.png`, `40-ico-200-titulo-largo-ambos-desplegados.png`, `41-ico-200-explicacion-y-cita-completas.png` y `a11y-ico-200.txt` |
+| I11 | Enlace de la fuente tras desplegar la explicación: «Wikcionario. Abre la fuente de la explicación» abre Chrome en `es.wiktionary.org/w/index.php?title=carminativo&oldid=5967250` y al volver la explicación sigue desplegada | Pasa | `37-ico-enlace-wikcionario-desplegado.png` |
+
+### Defectos
+
+Ninguno.
+
+### Observaciones
+
+1. **Contenido de `Repelente (serpientes)`.** El grupo hereda la definición de `Repelente` («Substancia líquida o pastosa que se frota en la piel para ahuyentar insectos picadores, principalmente mosquitos.», Wikcionario) por la regla de la forma base, pero la actividad habla de serpientes. Es el comportamiento especificado para los calificadores (como `Antídoto (…)`) y la etiqueta «Significado general del término» lo atenúa, pero aquí la definición y el calificador se contradicen; se informa para que el usuario decida.
+2. **Etiqueta con el término.** La etiqueta accesible usa el término («Ver significado de Repelente»), no la actividad completa («Repelente (serpientes)»), como pide el spec; dos grupos del mismo término en una planta se anunciarían igual (por ejemplo `Antídoto (Laportea)` y `Antídoto (urticaria)` en *Alocasia*).
+3. Siguen sin verificarse con TalkBack con voz el anuncio del estado expandido de los dos controles (observación 2 de la sección anterior) ni el contraste de color.

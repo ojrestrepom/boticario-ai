@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../application/plant_image_controller.dart';
+import '../application/plant_recognition_controller.dart';
 import '../data/plant_image_source.dart';
 
 const _green = Color(0xFF236335);
@@ -11,7 +12,7 @@ const _ink = Color(0xFF172A1F);
 const _background = Color(0xFFF9FAF7);
 const _border = Color(0xFFD6DDD4);
 
-/// Local image acquisition only; no inference or backend requests.
+/// Local image acquisition and offline recognition.
 class PlantRecognitionPage extends ConsumerStatefulWidget {
   const PlantRecognitionPage({
     required this.onBack,
@@ -30,6 +31,7 @@ class PlantRecognitionPage extends ConsumerStatefulWidget {
 class _PlantRecognitionPageState extends ConsumerState<PlantRecognitionPage> {
   late final PlantImageController _controller;
   late final int _sessionId;
+  PlantRecognitionController? _recognition;
 
   @override
   void initState() {
@@ -40,12 +42,14 @@ class _PlantRecognitionPageState extends ConsumerState<PlantRecognitionPage> {
 
   @override
   void dispose() {
+    _recognition?.stop();
     // Provider notifications must happen outside the widget disposal phase.
     scheduleMicrotask(() => _controller.endSession(_sessionId));
     super.dispose();
   }
 
   void _leave(VoidCallback navigate) {
+    _recognition?.stop();
     _controller.endSession(_sessionId);
     navigate();
   }
@@ -53,6 +57,9 @@ class _PlantRecognitionPageState extends ConsumerState<PlantRecognitionPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(plantImageControllerProvider);
+    final recognitionProvider = plantRecognitionControllerProvider(_sessionId);
+    final recognition = ref.watch(recognitionProvider);
+    _recognition = ref.read(recognitionProvider.notifier);
     return Scaffold(
       backgroundColor: _background,
       body: SafeArea(
@@ -174,6 +181,87 @@ class _PlantRecognitionPageState extends ConsumerState<PlantRecognitionPage> {
                     textAlign: TextAlign.center,
                   ),
                 ),
+              ],
+              const SizedBox(height: 12),
+              FilledButton(
+                key: const ValueKey('identifyPlant'),
+                onPressed: state.image == null || state.busy || recognition.busy
+                    ? null
+                    : () => _recognition!.identify(),
+                style: FilledButton.styleFrom(
+                  backgroundColor: _green,
+                  minimumSize: const Size.fromHeight(48),
+                ),
+                child: const Text(
+                  'Identificar planta',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              if (recognition.busy) ...[
+                const SizedBox(height: 16),
+                const LinearProgressIndicator(color: _green),
+                const SizedBox(height: 8),
+                Semantics(
+                  liveRegion: true,
+                  child: const Text(
+                    'Identificando planta…',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+              if (recognition.error != null) ...[
+                const SizedBox(height: 16),
+                Semantics(
+                  liveRegion: true,
+                  child: Text(recognition.error!, textAlign: TextAlign.center),
+                ),
+              ],
+              if (recognition.status == PlantRecognitionStatus.result) ...[
+                const SizedBox(height: 24),
+                Semantics(
+                  header: true,
+                  liveRegion: true,
+                  child: Text(
+                    'Especies candidatas',
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(color: _ink),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'Puntuaciones relativas del modelo; no indican la probabilidad de que la identificación sea correcta.',
+                ),
+                const SizedBox(height: 12),
+                for (final (index, prediction)
+                    in recognition.predictions.indexed)
+                  Card(
+                    key: ValueKey('plantCandidate$index'),
+                    color: const Color(0xFFF3F5F2),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${index + 1}. ${prediction.species.scientificName}',
+                            style: Theme.of(context).textTheme.bodyLarge
+                                ?.copyWith(
+                                  color: _ink,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            '${(prediction.score * 100).toStringAsFixed(2)} %',
+                            style: const TextStyle(
+                              color: _green,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
               ],
             ],
           ),

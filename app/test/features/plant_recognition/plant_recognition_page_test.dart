@@ -135,7 +135,8 @@ void main() {
           'Tomar fotografía',
           'Seleccionar de galería',
         ]) {
-          final finder = find.text(text);
+          // The page title and new recognition button share their label.
+          final finder = find.text(text).first;
           await tester.ensureVisible(finder);
           await tester.pumpAndSettle();
           final paragraph = tester.renderObject<RenderParagraph>(finder);
